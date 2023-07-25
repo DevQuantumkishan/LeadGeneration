@@ -1,7 +1,7 @@
 UnitScreen As screen:
     OnVisible: |-
-        =Set(VarUnitDescription,false);
-        Set(VarUnitCount,false);
+        =If(IsBlank(IntxtUnitCount),Set(VarUnitDescription,false));
+        If(IsBlank(IntxtUnitDescription),Set(VarUnitCount,false));
 
     ctnMainUS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -146,7 +146,7 @@ UnitScreen As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderUS.Height-ctnUserHeaderUS.Height-60
+            Height: =Parent.Height-ctnHeaderUS.Height-ctnUserHeaderUS.Height-40
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -578,7 +578,7 @@ UnitScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =48
+                        Height: =If(VarUnitCount,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="No. of Units"
                         Visible: =VarUnitCount
@@ -660,7 +660,7 @@ UnitScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =48
+                        Height: =If(VarUnitDescription,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Unit Description"
                         Visible: =VarUnitDescription

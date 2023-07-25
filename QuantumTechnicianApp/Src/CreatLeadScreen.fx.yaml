@@ -1,9 +1,9 @@
 CreatLeadScreen As screen:
     OnVisible: |-
-        =Set(VarContractNumber,false);
-        Set(VarAddress,false);
-        Set(VarBuildingName,false);
-        Set(VarZipcode,false);
+        =If(IsBlank(IntxtContractNumber),Set(VarContractNumber,false));
+        If(IsBlank(IntxtAddress),Set(VarAddress,false));
+        If(IsBlank(IntxtBuildingName),Set(VarBuildingName,false));
+        If(IsBlank(IntxtZipCode),Set(VarZipcode,false));
 
     ctnMainCLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -139,7 +139,7 @@ CreatLeadScreen As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height-40
+            Height: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height-20
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height
@@ -353,7 +353,7 @@ CreatLeadScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+20
+                Height: =If(Parent.Width>375,(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+30),(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+20))
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -407,7 +407,7 @@ CreatLeadScreen As screen:
 
                     ErrorMessageContractNumber As label:
                         AutoHeight: =true
-                        Height: =10
+                        Height: =0
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -436,7 +436,7 @@ CreatLeadScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =48
+                        Height: =If(VarContractNumber,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Contract Number"
                         Visible: =VarContractNumber
@@ -467,7 +467,7 @@ CreatLeadScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =48
+                        Height: =If(VarZipcode,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: =Parent.DisplayName
                         Visible: =VarZipcode
@@ -503,7 +503,7 @@ CreatLeadScreen As screen:
 
                     ErrorMessageZipcode As label:
                         AutoHeight: =true
-                        Height: =10
+                        Height: =0
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -550,7 +550,7 @@ CreatLeadScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =48
+                        Height: =If(VarBuildingName,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: |-
                             =//Parent.DisplayName
@@ -589,7 +589,7 @@ CreatLeadScreen As screen:
 
                     ErrorMessageBuilldingName As label:
                         AutoHeight: =true
-                        Height: =10
+                        Height: =0
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -635,7 +635,7 @@ CreatLeadScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =48
+                        Height: =If(VarAddress,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: =Parent.DisplayName
                         Visible: =VarAddress
@@ -673,7 +673,7 @@ CreatLeadScreen As screen:
 
                     ErrorMessageAddress As label:
                         AutoHeight: =true
-                        Height: =10
+                        Height: =0
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
