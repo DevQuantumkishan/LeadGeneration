@@ -1,4 +1,7 @@
 EstimateScreen As screen:
+    OnVisible: |
+        =If(IsBlank(IntxtEstimatedHours),Set(VarEstimateHours,false));
+        If(IsBlank(IntxtMaterial),Set(VarNotes,false));
 
     ctnMainES As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -14,7 +17,7 @@ EstimateScreen As screen:
         ZIndex: =1
 
         ctnHeaderES As groupContainer.horizontalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
+            AlignInContainer: =AlignInContainer.Center
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: |-
@@ -69,8 +72,8 @@ EstimateScreen As screen:
                 PaddingTop: =5.34
                 Size: |
                     =//21.36
-                    If(Parent.Width<500,12,Parent.Width>500,18)
-                Text: =" Lead Generation"
+                    If(Parent.Width<500,14,Parent.Width>500,18)
+                Text: =" Technician Lead Generation"
                 Width: =Parent.Width-imgSchindlerLogoES.Width-iconBackES.Width-btnuserES.Width-20
                 X: =96.12
                 ZIndex: =6
@@ -125,7 +128,7 @@ EstimateScreen As screen:
                 PaddingLeft: =20
                 PaddingRight: =20
                 PaddingTop: =0
-                Size: =If(Parent.Width<500,16,Parent.Width>500,22,18)
+                Size: =If(Parent.Width<500,16,Parent.Width>500,20,18)
                 Text: ="Create New Lead"
                 Width: =Parent.Width
                 ZIndex: =1
@@ -147,7 +150,7 @@ EstimateScreen As screen:
         ctnMiddleES As groupContainer.verticalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderES.Height-ctnUserHeaderES.Height-40
+            Height: =Parent.Height-ctnHeaderES.Height-ctnUserHeaderES.Height-30
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =Parent.Height-ctnHeaderES.Height-ctnUserHeaderES.Height
@@ -169,7 +172,7 @@ EstimateScreen As screen:
                 ZIndex: =1
 
                 IconLine1CL_3 As icon.HorizontalLine:
-                    Color: =Color.DarkGray
+                    Color: =RGBA(202, 202, 202, 1)
                     Height: =Parent.Height/13
                     Icon: =Icon.HorizontalLine
                     Width: |-
@@ -182,7 +185,7 @@ EstimateScreen As screen:
                     ZIndex: =8
 
                 IconLine2CL_3 As icon.HorizontalLine:
-                    Color: =Color.DarkGray
+                    Color: =RGBA(202, 202, 202, 1)
                     Height: =Parent.Height/13
                     Icon: =Icon.HorizontalLine
                     Width: |-
@@ -195,7 +198,7 @@ EstimateScreen As screen:
                     ZIndex: =9
 
                 IconLine3CL_3 As icon.HorizontalLine:
-                    Color: =Color.DarkGray
+                    Color: =RGBA(202, 202, 202, 1)
                     Height: =Parent.Height/13
                     Icon: =Icon.HorizontalLine
                     Width: |-
@@ -208,7 +211,7 @@ EstimateScreen As screen:
                     ZIndex: =10
 
                 IconLine4CL_3 As icon.HorizontalLine:
-                    Color: =Color.DarkGray
+                    Color: =RGBA(202, 202, 202, 1)
                     Height: =Parent.Height/13
                     Icon: =Icon.HorizontalLine
                     Width: |-
@@ -359,205 +362,12 @@ EstimateScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
-            ctnProgressBarES As groupContainer.manualLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                FillPortions: =0
-                Height: =136
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                Visible: =false
-                Width: =Parent.Width/1.04
-                X: =87
-                Y: =77
-                ZIndex: =2
-
-                CircleStep1ES As circle:
-                    Fill: =If(VarIndicator=true,Color.Green,Color.Red)
-                    Height: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    Width: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    X: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
-                    Y: =If(Parent.Width<378,40,Parent.Width<500,30,30)
-                    ZIndex: =1
-
-                CircleStep2ES As circle:
-                    Fill: =If(VarIndicatorUS=true,Color.Green,Color.Red)
-                    Height: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    Width: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    X: =IconLine1ES.X+IconLine1ES.Width
-                    Y: =If(Parent.Width<378,40,Parent.Width<500,30,30)
-                    ZIndex: =2
-
-                CircleStep3ES As circle:
-                    Fill: =If(VarIndicatorSS=true,Color.Green,Color.Red)
-                    Height: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    Width: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    X: =IconLine2ES.X+IconLine2ES.Width
-                    Y: =If(Parent.Width<378,40,Parent.Width<500,30,30)
-                    ZIndex: =3
-
-                CircleStep4ES As circle:
-                    Fill: =If(VarIndicatorES=true,Color.Green,Color.Red)
-                    Height: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    Width: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    X: =IconLine3ES.X+IconLine3ES.Width
-                    Y: =If(Parent.Width<378,40,Parent.Width<500,30,30)
-                    ZIndex: =4
-
-                CircleStep5ES As circle:
-                    Fill: =Color.Red
-                    Height: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    Width: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    X: =IconLine4ES.X+IconLine4ES.Width
-                    Y: =If(Parent.Width<378,40,Parent.Width<500,30,30)
-                    ZIndex: =5
-
-                IconTick1ES As icon.Check:
-                    Color: =If(VarIndicator=true,Color.White,Color.Red)
-                    Height: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    Icon: =Icon.Check
-                    OnSelect: =
-                    Width: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    X: =CircleStep1ES.X+(CircleStep1ES.Width/4.2)
-                    Y: |-
-                        =//If(Parent.Width<378,Circle1.Height/2,Parent.Width<500,Circle1.Height/2,Circle1.Height/2)
-                        CircleStep1ES.Y+CircleStep1ES.Height/6
-                    ZIndex: =6
-
-                IconTick2ES As icon.Check:
-                    Color: =If(VarIndicatorUS=true,Color.White,Color.Red)
-                    Height: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    Icon: =Icon.Check
-                    OnSelect: =
-                    Width: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    X: =CircleStep2ES.X+(CircleStep2ES.Width/4.2)
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height/6
-                    ZIndex: =7
-
-                IconTick3ES As icon.Check:
-                    Color: =If(VarIndicator=true,Color.White,Color.Red)
-                    Height: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    Icon: =Icon.Check
-                    OnSelect: =
-                    Width: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    X: =CircleStep3ES.X+(CircleStep3ES.Width/4.2)
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height/6
-                    ZIndex: =8
-
-                IconTIck4ES As icon.Check:
-                    Color: =If(VarIndicatorES=true,Color.White,Color.Red)
-                    Height: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    Icon: =Icon.Check
-                    OnSelect: =
-                    Width: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    X: =CircleStep4ES.X+(CircleStep4ES.Width/4.2)
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height/6
-                    ZIndex: =9
-
-                IconTick5ES As icon.Check:
-                    Color: =Color.Red
-                    Height: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    Icon: =Icon.Check
-                    OnSelect: =
-                    Visible: =false
-                    Width: =If(Parent.Width<378,18,Parent.Width<500,20,25)
-                    X: =CircleStep5ES.X+(CircleStep5ES.Width/4.2)
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height/6
-                    ZIndex: =10
-
-                IconLine1ES As icon.HorizontalLine:
-                    Color: =If(VarIndicator=true,Color.Green,Color.DarkGray)
-                    Height: =51
-                    Icon: =Icon.HorizontalLine
-                    Width: =If(Parent.Width<440,40,Parent.Width<500,55,70)
-                    X: =CircleStep1ES.X+CircleStep1ES.Width
-                    Y: =22
-                    ZIndex: =11
-
-                IconLine2ES As icon.HorizontalLine:
-                    Color: =If(VarIndicatorUS=true,Color.Green,Color.DarkGray)
-                    Height: =51
-                    Icon: =Icon.HorizontalLine
-                    Width: =If(Parent.Width<440,40,Parent.Width<500,55,70)
-                    X: =CircleStep2ES.X+CircleStep2ES.Width
-                    Y: =22
-                    ZIndex: =12
-
-                IconLine3ES As icon.HorizontalLine:
-                    Color: =If(VarIndicatorSS=true,Color.Green,Color.DarkGray)
-                    Height: =51
-                    Icon: =Icon.HorizontalLine
-                    Width: =If(Parent.Width<440,40,Parent.Width<500,55,70)
-                    X: =CircleStep3ES.X+CircleStep3ES.Width
-                    Y: =22
-                    ZIndex: =13
-
-                IconLine4ES As icon.HorizontalLine:
-                    Color: =Color.DarkGray
-                    Height: =51
-                    Icon: =Icon.HorizontalLine
-                    Width: =If(Parent.Width<440,40,Parent.Width<500,55,70)
-                    X: =CircleStep4ES.X+CircleStep4ES.Width
-                    Y: =22
-                    ZIndex: =14
-
-                lblStep1ES As label:
-                    Font: =Font.Arial
-                    Height: =30
-                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Step 1"
-                    Width: =Parent.Width/6
-                    X: |-
-                        =//If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/7,Parent.Width/4)
-                        CircleStep1ES.X-CircleStep1ES.Width/3
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height+20
-                    ZIndex: =15
-
-                lblStep2ES As label:
-                    Font: =Font.Arial
-                    Height: =30
-                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Step 2"
-                    Width: =Parent.Width/6
-                    X: =CircleStep2ES.X-CircleStep2ES.Width/3
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height+20
-                    ZIndex: =16
-
-                lblStep3ES As label:
-                    Font: =Font.Arial
-                    Height: =30
-                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Step 3"
-                    Width: =Parent.Width/6
-                    X: =CircleStep3ES.X-CircleStep3ES.Width/3
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height+20
-                    ZIndex: =17
-
-                lblStep4ES As label:
-                    Font: =Font.Arial
-                    Height: =30
-                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Step 4"
-                    Width: =Parent.Width/6
-                    X: =CircleStep4ES.X-CircleStep4ES.Width/3
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height+20
-                    ZIndex: =18
-
-                lblStep5ES As label:
-                    Font: =Font.Arial
-                    Height: =30
-                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Step 5"
-                    Width: =Parent.Width/6
-                    X: =CircleStep5ES.X-CircleStep5ES.Width/4
-                    Y: =CircleStep1ES.Y+CircleStep1ES.Height+20
-                    ZIndex: =19
-
             EstimateForm As form:
                 AcceptsFocus: =false
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+40
+                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+30
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -794,7 +604,7 @@ EstimateScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_additionalexpensesrequired")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =68
+                    Height: =60
                     Required: =false
                     Update: =
                     Width: =Parent.Width
@@ -849,7 +659,7 @@ EstimateScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =68
+                    Height: =60
                     Required: =false
                     Update: =
                     Width: =Parent.Width
@@ -904,7 +714,7 @@ EstimateScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_communicatedtocustomer")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =68
+                    Height: =60
                     Required: =false
                     Update: =
                     Width: =Parent.Width
@@ -956,7 +766,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =60
+                Height: =50
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =20
                 LayoutJustifyContent: =LayoutJustifyContent.Center
