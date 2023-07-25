@@ -75,7 +75,7 @@ CreatLeadScreen As screen:
                 PaddingTop: =5.34
                 Size: |
                     =//21.36
-                    If(Parent.Width<500,12,Parent.Width>500,18)
+                    If(Parent.Width<500,14,Parent.Width>500,18)
                 Text: ="Technician Lead Generation"
                 Width: =Parent.Width-imgSchindlerLogoCL.Width-iconBackCL.Width-Button2_1.Width-20
                 X: =96.12
@@ -130,7 +130,7 @@ CreatLeadScreen As screen:
                 PaddingLeft: =20
                 PaddingRight: =20
                 PaddingTop: =0
-                Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
+                Size: =If(Parent.Width<500,16,Parent.Width>500,20,18)
                 Text: ="Create New Lead"
                 Width: =Parent.Width
                 ZIndex: =1
@@ -139,7 +139,7 @@ CreatLeadScreen As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height-20
+            Height: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height-30
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height
@@ -399,7 +399,7 @@ CreatLeadScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Contract Number"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblContractNumber.Y + lblContractNumber.Height

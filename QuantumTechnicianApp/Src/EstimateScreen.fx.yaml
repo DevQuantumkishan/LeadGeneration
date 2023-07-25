@@ -31,41 +31,19 @@ EstimateScreen As screen:
             X: =0.00
             ZIndex: =1
 
-            IconBackES As icon.BackArrow:
+            iconBackES As icon.BackArrow:
                 Color: =RGBA(255, 0, 0, 1)
-                Height: =50
+                Height: =Parent.Height
                 Icon: =Icon.BackArrow
-                OnSelect: |+
+                OnSelect: |-
                     =Navigate(ScopeScreen);
                     Set(VarIndicatorSS,false);
-                    
-                    
-                    
-                    
-                PaddingBottom: =5
-                PaddingLeft: =20
-                PaddingTop: =5
-                Width: =50
+                PaddingBottom: =Parent.Height/4
+                PaddingTop: =Parent.Height/4
+                Width: =Parent.Height
                 X: =18
                 Y: =11
-                ZIndex: =1
-
-            lblHeaderES As label:
-                Color: =RGBA(116, 116, 116, 1)
-                DisplayMode: =DisplayMode.View
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Bold
-                Height: =Parent.Height
-                LayoutMinHeight: =70
-                PaddingLeft: =20
-                PaddingRight: =5.34
-                Size: |
-                    =//21.36
-                    If(Parent.Width<500,12,Parent.Width>500,20,12)
-                Text: ="Technicians Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoES.Width-IconBackES.Width
-                X: =96.12
-                ZIndex: =2
+                ZIndex: =4
 
             imgSchindlerLogoES As image:
                 DisplayMode: =DisplayMode.View
@@ -75,9 +53,52 @@ EstimateScreen As screen:
                 LayoutMinHeight: =320
                 LayoutMinWidth: =320
                 PaddingTop: =0.00
-                Width: =Parent.Width/7.5
+                Width: =If(Parent.Width>Parent.Height,Parent.Width/8,Parent.Width/12)
                 X: =0.00
-                ZIndex: =3
+                ZIndex: =5
+
+            lblHeaderES As label:
+                AlignInContainer: =AlignInContainer.Center
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Bold
+                Height: =Parent.Height
+                LayoutMinHeight: =70
+                PaddingLeft: =20
+                PaddingRight: =5.34
+                PaddingTop: =5.34
+                Size: |
+                    =//21.36
+                    If(Parent.Width<500,12,Parent.Width>500,18)
+                Text: =" Lead Generation"
+                Width: =Parent.Width-imgSchindlerLogoES.Width-iconBackES.Width-btnuserES.Width-20
+                X: =96.12
+                ZIndex: =6
+
+            btnuserES As button:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =Color.Red
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(255, 0, 0, 1)
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: =Font.Arial
+                Height: =Parent.Height/1.5
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Size: =If(Parent.Width<500,11,Parent.Width>500,12,12)
+                Text: |-
+                    =Left(User().FullName, 1) &
+                    Mid(
+                        User().FullName,
+                        Find(" ", User().FullName) + 1,
+                        1)
+                Width: =Parent.Height/1.5
+                ZIndex: =7
 
         ctnUserHeaderES As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -95,17 +116,17 @@ EstimateScreen As screen:
             ZIndex: =2
 
             btnLeadES As button:
-                Align: =Align.Right
+                Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: =DisplayMode.View
-                Fill: =RGBA(255, 0, 0, 1)
+                Fill: =RGBA(255, 255, 255, 1)
                 Font: =Font.Arial
                 Height: =Parent.Height
                 PaddingBottom: =0
-                PaddingLeft: =100
+                PaddingLeft: =20
                 PaddingRight: =20
                 PaddingTop: =0
                 Size: =If(Parent.Width<500,16,Parent.Width>500,22,18)
-                Text: ="Create Lead"
+                Text: ="Create New Lead"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -119,6 +140,7 @@ EstimateScreen As screen:
                 PaddingTop: =0
                 Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
                 Text: =User().FullName
+                Visible: =false
                 Width: =Parent.Width/2
                 ZIndex: =2
 
@@ -271,7 +293,7 @@ EstimateScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
-                    X: =If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/7,Parent.Width/6)
+                    X: =If(Parent.Width<378,Parent.Width/6,Parent.Width<500,Parent.Width/5,Parent.Width/5)
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =20
 
@@ -306,8 +328,9 @@ EstimateScreen As screen:
                     ZIndex: =22
 
                 Image1_19 As image:
-                    BorderColor: =
-                    Fill: =If(VarIndicatorES=true,Color.Green,Color.Red)
+                    BorderColor: =RGBA(202, 202, 202, 1)
+                    BorderThickness: =2
+                    Fill: =If(VarIndicatorES=true,Color.Green,Color.White)
                     FocusedBorderThickness: =0
                     Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
                     Image: =If(VarIndicatorES=true,'Check_green_icon.svg')
@@ -321,8 +344,9 @@ EstimateScreen As screen:
                     ZIndex: =23
 
                 Image1_20 As image:
-                    BorderColor: =
-                    Fill: =Color.Red
+                    BorderColor: =RGBA(202, 202, 202, 1)
+                    BorderThickness: =2
+                    Fill: =RGBA(255, 255, 255, 1)
                     FocusedBorderThickness: =0
                     Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
                     Image: =
@@ -351,7 +375,7 @@ EstimateScreen As screen:
                     Fill: =If(VarIndicator=true,Color.Green,Color.Red)
                     Height: =If(Parent.Width<378,20,Parent.Width<500,30,40)
                     Width: =If(Parent.Width<378,20,Parent.Width<500,30,40)
-                    X: =If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/7,Parent.Width/6)
+                    X: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
                     Y: =If(Parent.Width<378,40,Parent.Width<500,30,30)
                     ZIndex: =1
 
@@ -533,7 +557,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+50
+                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+40
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -542,7 +566,7 @@ EstimateScreen As screen:
                 ZIndex: =3
 
                 EstimatedHours As typedDataCard.textualEditCard:
-                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_estimatedhours"
                     Default: =ThisItem.'EstimatedHours '
@@ -562,9 +586,10 @@ EstimateScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =48
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,16,14)
+                        Height: =If(VarEstimateHours,48,0)
+                        Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
                         Text: ="Estimate Hours(Total Man Hours)"
+                        Visible: =VarEstimateHours
                         Width: =Parent.Width - 60
                         X: =30
                         ZIndex: =1
@@ -576,15 +601,17 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =50
-                        HoverBorderColor: =RGBA(0, 0, 0, 1)
+                        HintText: ="Estimate Hours (Total man Hours)"
+                        HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
+                        OnChange: =Set(VarEstimateHours,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,16,14)
+                        Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -619,7 +646,7 @@ EstimateScreen As screen:
                         ZIndex: =4
 
                 Material As typedDataCard.textualEditCard:
-                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_material"
                     Default: =ThisItem.Notes
@@ -639,9 +666,10 @@ EstimateScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =48
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,16,14)
+                        Height: =If(VarNotes,48,0)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Material , Part number and other things"
+                        Visible: =VarNotes
                         Width: =Parent.Width - 60
                         X: =30
                         ZIndex: =1
@@ -652,16 +680,19 @@ EstimateScreen As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Height: =50
-                        HoverBorderColor: =RGBA(0, 0, 0, 1)
+                        Height: =80
+                        HintText: ="Material,Part Number and Other things"
+                        HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
+                        Mode: =TextMode.MultiLine
+                        OnChange: =Set(VarNotes,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,16,14)
+                        Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -741,15 +772,16 @@ EstimateScreen As screen:
 
                     CboxUnitDown As checkbox:
                         BorderColor: =RGBA(0, 0, 0, 0)
-                        CheckboxBorderColor: =RGBA(0, 0, 0, 1)
-                        CheckboxSize: =50
+                        CheckboxBackgroundFill: =RGBA(0, 0, 0, 0)
+                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(202, 202, 202, 1)
                         Font: =Font.Arial
-                        Height: =56
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
                         PressedBorderColor: =
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,16,14)
+                        PressedColor: =RGBA(0, 0, 0, 1)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Unit Down"
                         Width: =Parent.Width-50
                         X: =30
@@ -799,14 +831,12 @@ EstimateScreen As screen:
 
                     CboxAdditionalExpensesRequired As checkbox:
                         BorderColor: =RGBA(0, 0, 0, 0)
-                        CheckboxBorderColor: =RGBA(0, 0, 0, 1)
-                        CheckboxSize: =50
+                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                         Font: =Font.Arial
-                        Height: =56
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
                         PressedBorderColor: =
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,16,14)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Additional expenses required"
                         Width: =Parent.Width-50
                         X: =30
@@ -856,14 +886,12 @@ EstimateScreen As screen:
 
                     CboxTravelRequired As checkbox:
                         BorderColor: =RGBA(0, 0, 0, 0)
-                        CheckboxBorderColor: =RGBA(0, 0, 0, 1)
-                        CheckboxSize: =50
+                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                         Font: =Font.Arial
-                        Height: =56
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
                         PressedBorderColor: =
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,16,14)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Travel Required"
                         Width: =Parent.Width-50
                         X: =30
@@ -913,14 +941,12 @@ EstimateScreen As screen:
 
                     CboxCommunicatedtoCustomer As checkbox:
                         BorderColor: =RGBA(0, 0, 0, 0)
-                        CheckboxBorderColor: =RGBA(0, 0, 0, 1)
-                        CheckboxSize: =50
+                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                         Font: =Font.Arial
-                        Height: =56
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
                         PressedBorderColor: =
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,16,14)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Communicated to Customer"
                         Width: =Parent.Width-50
                         X: =30
@@ -941,11 +967,13 @@ EstimateScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Width: =Parent.Width
                 ZIndex: =4
 
                 btnPreviousES As button:
-                    Fill: =RGBA(255, 0, 0, 1)
-                    Height: =53
+                    BorderColor: =ColorFade(Self.Color, -15%)
+                    Color: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
                     HoverFill: =Color.Red
                     OnSelect: |+
                         =Navigate(ScopeScreen);
@@ -955,15 +983,14 @@ EstimateScreen As screen:
                         
                         
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                    Text: ="Previous"
-                    Width: =Parent.Width/4
+                    Text: ="Back"
+                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
                     X: =144
                     Y: =790
                     ZIndex: =1
 
                 btnNextES As button:
                     Fill: =RGBA(255, 0, 0, 1)
-                    Height: =53
                     HoverFill: =Color.Red
                     OnSelect: |-
                         =Set(VarIndicator, true );
@@ -974,7 +1001,7 @@ EstimateScreen As screen:
                         Navigate(ImageUploadScreen);
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Next"
-                    Width: =Parent.Width/4
+                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
                     X: =145
                     Y: =790
                     ZIndex: =2

@@ -203,7 +203,7 @@ DashboardScreen As screen:
                 Height: =Parent.Height
                 PaddingRight: =10.68
                 PaddingTop: =5.34
-                Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
+                Size: =If(Parent.Width>500,18,Parent.Width<500,14,12)
                 Text: |-
                     =//User().FullName
                     "Select Time Span - "
@@ -226,6 +226,7 @@ DashboardScreen As screen:
                 DropShadow: =DropShadow.None
                 Height: =Parent.Height
                 LayoutMode: =LayoutMode.Auto
+                PaddingTop: =5
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
@@ -248,7 +249,7 @@ DashboardScreen As screen:
                     OnUncheck: |-
                         =Set(yearly,false);
                         Set(cumulatively,true);
-                    Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
+                    Size: =If(Parent.Width>500,18,Parent.Width<500,14,12)
                     TextPosition: =TextPosition.Left
                     TrueFill: =RGBA(255, 0, 0, 1)
                     TrueText: =Year(Now())
