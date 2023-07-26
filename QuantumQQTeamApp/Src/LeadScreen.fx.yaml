@@ -1269,13 +1269,6 @@ LeadScreen As screen:
             Width: =ctnHeaderLeadScreen.Width/10
             ZIndex: =4
 
-    Rectangle1 As rectangle:
-        Fill: =RGBA(255, 255, 255, 1)
-        Height: =Parent.Height
-        Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow) 
-        Width: =Parent.Width
-        ZIndex: =10
-
     grpchatmessageLdS As group:
         Height: =5
         Width: =5
@@ -1392,26 +1385,40 @@ LeadScreen As screen:
             Y: =rectchatmessageLdS.Y
             ZIndex: =9
 
-    Image1 As image:
-        Height: =Parent.Height
-        Image: =MyBigPic 
-        Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow) 
-        Width: =Parent.Width
-        ZIndex: =11
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =13
 
-    Button1 As button:
-        Color: =RGBA(102, 102, 102, 1)
-        Fill: =RGBA(0, 0, 0, 0)
-        FontWeight: =FontWeight.Normal
-        Height: =100
-        HoverColor: =//RGBA(255, 255, 255, 1)
-        HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-        OnSelect: |-
-            =UpdateContext({MyBigPicShow:false})
-        Size: =50
-        Text: ="X"
-        Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow)
-        Width: =100
-        X: =Parent.Width-Self.Width
-        ZIndex: =12
+        Rectangle1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height
+            Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow) 
+            Width: =Parent.Width
+            ZIndex: =10
+
+        Image1 As image:
+            Height: =Parent.Height
+            Image: =MyBigPic 
+            Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow) 
+            Width: =Parent.Width
+            ZIndex: =11
+
+        Button1 As button:
+            Color: =RGBA(102, 102, 102, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Normal
+            Height: =100
+            HoverColor: =//RGBA(255, 255, 255, 1)
+            HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: |-
+                =UpdateContext({MyBigPicShow:false})
+            Size: =50
+            Text: ="X"
+            Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow)
+            Width: =100
+            X: =Parent.Width-Self.Width
+            ZIndex: =12
 
