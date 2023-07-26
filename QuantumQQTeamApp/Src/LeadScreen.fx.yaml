@@ -592,7 +592,6 @@ LeadScreen As screen:
 
                     ctnaddressdetailsLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        FillPortions: =0
                         Height: |-
                             =If(
                                 ctnbuildingnameleaddetailsLdS.Height > ctnaddressleaddetailsLdS.Height,
@@ -711,7 +710,6 @@ LeadScreen As screen:
 
                     ctnleadinfoleaddetailsLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        FillPortions: =0
                         Height: |-
                             =If(
                                 ctnemailleaddetailsLdS.Height > ctnestimatedhoursleaddetailsLdS.Height,
@@ -832,7 +830,6 @@ LeadScreen As screen:
 
                     ctnunitinfoleaddetailsLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        FillPortions: =0
                         Height: |-
                             =If(
                                 ctnunitdescriptionleaddetailsLdS.Height > ctncustomscopeofworkleaddetailsLdS.Height,
@@ -1031,7 +1028,6 @@ LeadScreen As screen:
 
                         ctnphotoglryLdS As groupContainer.verticalAutoLayoutContainer:
                             AlignInContainer: =AlignInContainer.SetByContainer
-                            FillPortions: =2
                             Height: =lblphotosLdS.Height+glryphotosLdS.Height+20
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMinHeight: =100
@@ -1048,7 +1044,7 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             "glryphotosLdS As gallery.'BrowseLayout_Horizontal_TwoTextOneImageOverlayVariant_ver4.0'":
-                                AlignInContainer: =AlignInContainer.Start
+                                AlignInContainer: =AlignInContainer.SetByContainer
                                 FillPortions: =0
                                 Height: =230
                                 Items: =Filter(LeadImages,LeadInformationLID.ID=glryleadlistLS.Selected.ID)
@@ -1138,6 +1134,7 @@ LeadScreen As screen:
                                         LeadStatus:"Quoted"}
                                     );
                                     Notify("Estimate number saved successfully.",NotificationType.Success);
+                                    Navigate(DashboardScreen);
                                 )
                             Text: ="Submit Estimate Number"
                             Width: =300
@@ -1403,3 +1400,4 @@ LeadScreen As screen:
         Width: =100
         X: =Parent.Width-Self.Width
         ZIndex: =12
+
