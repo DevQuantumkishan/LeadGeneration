@@ -405,86 +405,17 @@ ImageUploadScreen As screen:
                 RadiusTopRight: =0
                 ZIndex: =3
 
-                AddMediaWithImageIS As group:
-                    Height: =5
-                    LayoutMinHeight: =5
-                    LayoutMinWidth: =5
-                    Width: =5
-                    X: =40
-                    Y: =20
-                    ZIndex: =1
-
-                    UploadedImageIS As image:
-                        BorderThickness: =2
-                        DisabledFill: =RGBA(255, 255, 255, 1)
-                        DisplayMode: =If(CountRows(glryImageIS.AllItems)<4,DisplayMode.Edit,DisplayMode.Disabled)
-                        Height: =If(Parent.Width<Parent.Height,200,250)
-                        Image: |-
-                            =If(IsBlank(AddMediaButtonIS.Media), SampleImage, AddMediaButtonIS.Media)
-                            //If(VarImage=true ,SampleImage,AddMediaButtonIS.Media)
-                        PaddingBottom: =10
-                        PaddingLeft: =10
-                        PaddingRight: =10
-                        PaddingTop: =10
-                        Width: =Parent.Width/2.5
-                        X: =AddMediaButtonIS.X
-                        Y: =AddMediaButtonIS.Y
-                        ZIndex: =1
-
-                    AddMediaButtonIS As addMedia:
-                        AlignInContainer: =AlignInContainer.Center
-                        ChangePictureText: |-
-                            =//If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
-                            "Tap or click to add a picture"
-                        Color: |-
-                            =
-                            If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 0, 0, 1),Color.White)
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                        DisabledColor: =RGBA(77, 77, 77, 1)
-                        DisabledFill: =RGBA(0, 0, 0, 1)
-                        DisplayMode: |-
-                            =If(CountRows(glryImageIS.AllItems)=4,DisplayMode.Disabled,DisplayMode.Edit)
-                            //DisplayMode.Edit
-                        Fill: |-
-                            =
-                            If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 255, 255, 1),RGBA(255, 0, 0, 1))
-                        FocusedBorderThickness: =0
-                        Height: =60
-                        HoverBorderColor: =//ColorFade(Self.BorderColor, 20%)
-                        OnChange: |
-                            =If(
-                                CountRows(glryImageIS.AllItems) >3 ,
-                                Notify("You Can add only 4 Images."),
-                               If( !IsBlank(UploadedImageIS) || UploadedImageIS.Image<>SampleImage,
-                                Collect(
-                                    LeadImagesCollection,
-                                    {
-                                        Image: UploadedImageIS.Image
-                                    }
-                                ));
-                                
-                                
-                            );
-                        OnSelect: |
-                            =//If(CountRows(Gallery1.AllItems)<4,Collect(LeadImagesCollection,{Image:UploadedImage1.Image}),Notify("You Can add only 4 Images."))
-                        PressedBorderColor: =//ColorFade(Self.BorderColor, -20%)
-                        Reset: =true
-                        Size: =If(Parent.Width<500,16,Parent.Width>500,22,18)
-                        Text: |-
-                            ="Tap or click to add a picture"
-                            //If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
-                        Width: =Parent.Width
-                        X: =40
-                        Y: =500
-                        ZIndex: =2
-
                 "glryImageIS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderStyle: =BorderStyle.Dashed
+                    BorderThickness: =1
                     DelayItemLoading: =true
                     FillPortions: =0
                     Height: |-
                         =//If(glryImageIS.AllItemsCount=0,0,glryImageIS.AllItemsCount=1||glryImageIS.AllItemsCount=2,250,glryImageIS.AllItemsCount=4,550)
-                        If(glryImageIS.AllItemsCount=0,0,glryImageIS.AllItemsCount>0,200)
+                        //If(glryImageIS.AllItemsCount=0,0,glryImageIS.AllItemsCount>0,200)
+                        200
                     Items: |
                         =LeadImagesCollection
                     Layout: =Layout.Vertical
@@ -495,7 +426,7 @@ ImageUploadScreen As screen:
                     TemplateSize: =Min(200, Self.Height - 40)
                     Width: =Parent.Width/1.08
                     WrapCount: =4
-                    ZIndex: =3
+                    ZIndex: =1
 
                     ImageIS As image:
                         BorderThickness: =2
@@ -524,6 +455,77 @@ ImageUploadScreen As screen:
                         X: =ImageIS.Width-Self.Width
                         Y: =ImageIS.Y
                         ZIndex: =2
+
+                AddMediaWithImageIS As group:
+                    Height: =5
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =5
+                    Width: =5
+                    X: =40
+                    Y: =20
+                    ZIndex: =1
+
+                    UploadedImageIS As image:
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        DisplayMode: =If(CountRows(glryImageIS.AllItems)<4,DisplayMode.Edit,DisplayMode.Disabled)
+                        Height: =//If(Parent.Width<Parent.Height,200,250)
+                        Image: |-
+                            =If(IsBlank(AddMediaButtonIS.Media), SampleImage, AddMediaButtonIS.Media)
+                            //If(VarImage=true ,SampleImage,AddMediaButtonIS.Media)
+                        PaddingBottom: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        Width: =Parent.Width/2.5
+                        X: =AddMediaButtonIS.X
+                        Y: =AddMediaButtonIS.Y
+                        ZIndex: =2
+
+                    AddMediaButtonIS As addMedia:
+                        AlignInContainer: =AlignInContainer.Center
+                        ChangePictureText: |-
+                            =//If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
+                            "Tap or click to add a picture"
+                        Color: |-
+                            =
+                            If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 0, 0, 1),Color.White)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(77, 77, 77, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 1)
+                        DisplayMode: |-
+                            =If(CountRows(glryImageIS.AllItems)=4,DisplayMode.Disabled,DisplayMode.Edit)
+                            //DisplayMode.Edit
+                        Fill: |-
+                            =
+                            If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 255, 255, 1),RGBA(255, 0, 0, 1))
+                        FocusedBorderThickness: =0
+                        Font: =Font.Arial
+                        Height: =60
+                        HoverBorderColor: =//ColorFade(Self.BorderColor, 20%)
+                        OnChange: |
+                            =If(
+                                CountRows(glryImageIS.AllItems) >3 ,
+                                Notify("You Can add only 4 Images."),
+                               If( !IsBlank(UploadedImageIS) || UploadedImageIS.Image<>SampleImage,
+                                Collect(
+                                    LeadImagesCollection,
+                                    {
+                                        Image: UploadedImageIS.Image
+                                    }
+                                ));
+                            );
+                        OnSelect: |
+                            =//If(CountRows(Gallery1.AllItems)<4,Collect(LeadImagesCollection,{Image:UploadedImage1.Image}),Notify("You Can add only 4 Images."))
+                        PressedBorderColor: =//ColorFade(Self.BorderColor, -20%)
+                        Reset: =true
+                        Size: =If(Parent.Width<500,16,Parent.Width>500,22,18)
+                        Text: |-
+                            =//"Tap or click to add a picture"
+                            If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =500
+                        ZIndex: =3
 
                 ctnButtonIS As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -578,6 +580,12 @@ ImageUploadScreen As screen:
                         X: =145
                         Y: =790
                         ZIndex: =2
+
+                Label1 As label:
+                    Align: =Align.Center
+                    Text: ="You can add only 4 Images."
+                    Width: =Parent.Width
+                    ZIndex: =5
 
             ctnSpaceES_1 As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
