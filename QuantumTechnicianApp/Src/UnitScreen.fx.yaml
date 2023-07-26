@@ -616,7 +616,7 @@ UnitScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =40
+                Height: =Parent.Height-ctnProgressBarCreatLead_1.Height-UnitInfoForm.Height-ctnbuttonUS.Height
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -625,5 +625,14 @@ UnitScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Width: =Parent.Width
                 ZIndex: =5
+
+                Image3_2 As image:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.Height
+                    Image: ='3x'
+                    Transparency: =0.9
+                    Width: =Parent.Width
+                    ZIndex: =1
 

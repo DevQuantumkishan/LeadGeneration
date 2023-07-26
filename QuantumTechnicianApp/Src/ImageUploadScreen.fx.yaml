@@ -484,7 +484,7 @@ ImageUploadScreen As screen:
                     FillPortions: =0
                     Height: |-
                         =//If(glryImageIS.AllItemsCount=0,0,glryImageIS.AllItemsCount=1||glryImageIS.AllItemsCount=2,250,glryImageIS.AllItemsCount=4,550)
-                        200
+                        If(glryImageIS.AllItemsCount=0,0,glryImageIS.AllItemsCount>0,200)
                     Items: |
                         =LeadImagesCollection
                     Layout: =Layout.Vertical
@@ -578,4 +578,30 @@ ImageUploadScreen As screen:
                         X: =145
                         Y: =790
                         ZIndex: =2
+
+            ctnSpaceES_1 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =Parent.Height-ctnProgressBarCreatLead_4.Height-ctnButtonIS.Height-ctnImageIS.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =10
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =Parent.Width
+                ZIndex: =4
+
+                Image3_5 As image:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.Height
+                    Image: ='3x'
+                    Transparency: =0.9
+                    Width: =Parent.Width
+                    ZIndex: =1
 
