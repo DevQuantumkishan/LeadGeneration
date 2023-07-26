@@ -234,6 +234,7 @@ EstimateScreen As screen:
                     ZIndex: =11
 
                 lblStep1CL_3 As label:
+                    Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
                     PaddingLeft: =0
@@ -248,6 +249,7 @@ EstimateScreen As screen:
                     ZIndex: =12
 
                 lblStep2CL_3 As label:
+                    Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
                     PaddingLeft: =0
@@ -260,6 +262,7 @@ EstimateScreen As screen:
                     ZIndex: =13
 
                 lblStep3CL_3 As label:
+                    Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
                     PaddingLeft: =0
@@ -272,6 +275,7 @@ EstimateScreen As screen:
                     ZIndex: =14
 
                 lblSteo4CL_3 As label:
+                    Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
                     PaddingLeft: =0
@@ -284,6 +288,7 @@ EstimateScreen As screen:
                     ZIndex: =15
 
                 lblStep5CL_3 As label:
+                    Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
                     PaddingLeft: =0
@@ -612,7 +617,7 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         CheckboxBackgroundFill: =RGBA(0, 0, 0, 0)
                         CheckboxBorderColor: =RGBA(116, 116, 116, 1)
-                        Color: =If(RGBA(0, 0, 0, 1)
+                        Color: =If(CboxUnitDown.Value=true,Color.Black,RGBA(149, 149, 149, 1))
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         DisabledColor: =RGBA(202, 202, 202, 1)
                         Font: =Font.Arial
@@ -671,6 +676,7 @@ EstimateScreen As screen:
                     CboxAdditionalExpensesRequired As checkbox:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                        Color: =If(CboxAdditionalExpensesRequired.Value=true,Color.Black,RGBA(149, 149, 149, 1))
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
@@ -726,6 +732,7 @@ EstimateScreen As screen:
                     CboxTravelRequired As checkbox:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                        Color: =If(CboxTravelRequired.Value=true,Color.Black,RGBA(149, 149, 149, 1))
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
@@ -781,6 +788,7 @@ EstimateScreen As screen:
                     CboxCommunicatedtoCustomer As checkbox:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                        Color: =If(CboxCommunicatedtoCustomer.Value=true,Color.Black,RGBA(149, 149, 149, 1))
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
