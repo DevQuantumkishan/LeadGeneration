@@ -1186,11 +1186,15 @@ LeadScreen As screen:
                                 =If(
                                     IsBlank(txitnptrejectLdS.Text),
                                     Notify("Please enter rejection comment."),
-                                    UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,
-                                    {
-                                    LeadComment:txitnptrejectLdS.Text,
-                                    LeadStatus:"Rejected"
-                                    }
+                                    UpdateIf(
+                                        LeadInformations,
+                                        ID = glryleadlistLS.Selected.ID,
+                                        {
+                                            LeadComment: txitnptrejectLdS.Text,
+                                            LeadStatus: "Rejected"
+                                        }
+                                    );
+                                    Notify("Lead rejected with comment successfully.");
                                 )
                             Text: ="Submit back to technician"
                             Width: =300
