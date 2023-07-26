@@ -28,6 +28,7 @@ UnitScreen As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
             PaddingRight: =0.00
             PaddingTop: =0.00
             Width: =Parent.Width
@@ -41,8 +42,8 @@ UnitScreen As screen:
                 OnSelect: |-
                     =Navigate(CreatLeadScreen);
                     Set(VarIndicatorUS,false);
-                PaddingBottom: =Parent.Height/4
-                PaddingTop: =Parent.Height/4
+                PaddingBottom: =Parent.Height/3
+                PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
                 X: =18
                 Y: =11
@@ -52,9 +53,10 @@ UnitScreen As screen:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Image: ='3x'
+                Image: ='1x'
                 LayoutMinHeight: =320
                 LayoutMinWidth: =320
+                PaddingBottom: =5
                 PaddingTop: =0.00
                 Width: =If(Parent.Width>Parent.Height,Parent.Width/8,Parent.Width/12)
                 X: =0.00
@@ -169,6 +171,9 @@ UnitScreen As screen:
 
                 IconLine1CL_1 As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(202, 202, 202, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Height: =Parent.Height/13
                     Icon: =Icon.HorizontalLine
                     Width: |-
@@ -180,6 +185,9 @@ UnitScreen As screen:
 
                 IconLine2CL_1 As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(202, 202, 202, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Height: =Parent.Height/13
                     Icon: =Icon.HorizontalLine
                     Width: |-
@@ -191,6 +199,9 @@ UnitScreen As screen:
 
                 IconLine3CL_1 As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(202, 202, 202, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Height: =Parent.Height/13
                     Icon: =Icon.HorizontalLine
                     Width: |-
@@ -202,6 +213,9 @@ UnitScreen As screen:
 
                 IconLine4CL_1 As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(202, 202, 202, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Height: =Parent.Height/13
                     Icon: =Icon.HorizontalLine
                     Width: |-
@@ -274,74 +288,91 @@ UnitScreen As screen:
                     ZIndex: =16
 
                 Image1_7 As image:
+                    BorderColor: =RGBA(202, 202, 202, 1)
+                    BorderThickness: =1
+                    DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =If(VarIndicator=true,Color.Green,Color.White)
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =If(VarIndicator=true,'Check_green_icon.svg')
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =If(Parent.Width<378,Parent.Width/6,Parent.Width<500,Parent.Width/5,Parent.Width/5)
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =20
 
                 Image1_8 As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
-                    BorderThickness: =2
+                    BorderThickness: =1
+                    DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =If(VarIndicatorUS=true,Color.Green,Color.White)
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =If(VarIndicatorUS=true,'Check_green_icon.svg')
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =IconLine1CL_1.X+IconLine1CL_1.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =21
 
                 Image1_6 As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
-                    BorderThickness: =2
+                    BorderThickness: =1
+                    DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =Color.White
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =IconLine2CL_1.X+IconLine2CL_1.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =22
 
                 Image1_5 As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
-                    BorderThickness: =2
+                    BorderThickness: =1
+                    DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =Color.White
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =IconLine3CL_1.X+IconLine3CL_1.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
                 Image1_9 As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
-                    BorderThickness: =2
+                    BorderThickness: =1
+                    DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =Color.White
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =IconLine4CL_1.X+IconLine4CL_1.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
