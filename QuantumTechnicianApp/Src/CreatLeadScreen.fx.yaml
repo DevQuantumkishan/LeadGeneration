@@ -781,7 +781,7 @@ CreatLeadScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =20
+                Height: =Parent.Height-ctnProgressBarCreatLead.Height-ctnbuttonUS_1.Height-BuildingInfoForm.Height
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -790,5 +790,14 @@ CreatLeadScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Width: =Parent.Width
                 ZIndex: =4
+
+                Image3_1 As image:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.Height
+                    Image: ='3x'
+                    Transparency: =0.9
+                    Width: =Parent.Width
+                    ZIndex: =1
 

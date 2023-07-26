@@ -701,7 +701,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =20
+                Height: =Parent.Height-ctnProgressBarCreatLead_2.Height-ScopeInfoForm.Height-ctnButtonSS.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =20
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -712,5 +712,14 @@ ScopeScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
+                Width: =Parent.Width
                 ZIndex: =5
+
+                Image3_3 As image:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.Height
+                    Image: ='3x'
+                    Transparency: =0.9
+                    Width: =Parent.Width
+                    ZIndex: =1
 
