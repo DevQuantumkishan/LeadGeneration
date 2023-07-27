@@ -420,7 +420,7 @@ ImageUploadScreen As screen:
                     LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplatePadding: =2
-                    TemplateSize: =Min(200, Self.Height)
+                    TemplateSize: =Min(200, Self.Height-10)
                     Width: =Parent.Width/1.08
                     WrapCount: =4
                     ZIndex: =1
