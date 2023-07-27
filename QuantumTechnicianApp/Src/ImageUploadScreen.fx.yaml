@@ -409,13 +409,10 @@ ImageUploadScreen As screen:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Dashed
-                    BorderThickness: =1
+                    BorderThickness: =2
                     DelayItemLoading: =true
                     FillPortions: =0
-                    Height: |-
-                        =//If(glryImageIS.AllItemsCount=0,0,glryImageIS.AllItemsCount=1||glryImageIS.AllItemsCount=2,250,glryImageIS.AllItemsCount=4,550)
-                        //If(glryImageIS.AllItemsCount=0,0,glryImageIS.AllItemsCount>0,200)
-                        200
+                    Height: =160
                     Items: |
                         =LeadImagesCollection
                     Layout: =Layout.Vertical
@@ -423,7 +420,7 @@ ImageUploadScreen As screen:
                     LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplatePadding: =2
-                    TemplateSize: =Min(200, Self.Height - 40)
+                    TemplateSize: =Min(200, Self.Height)
                     Width: =Parent.Width/1.08
                     WrapCount: =4
                     ZIndex: =1
@@ -434,15 +431,16 @@ ImageUploadScreen As screen:
                             =//If(Parent.Width>Parent.Height,Parent.TemplateHeight/1.2,Parent.TemplateHeight/1.4)
                             If(Parent.Width>Parent.Height,Parent.TemplateHeight/1.18,Parent.TemplateHeight/1.3)
                         Image: =ThisItem.Image
-                        OnSelect: =Select(Parent)
+                        OnSelect: |
+                            =Set(VarImagePopup,true)
                         PaddingBottom: =10
                         PaddingLeft: =2
                         PaddingRight: =2
                         PaddingTop: =10
-                        RadiusBottomLeft: =8
-                        RadiusBottomRight: =8
-                        RadiusTopLeft: =8
-                        RadiusTopRight: =8
+                        RadiusBottomLeft: =1
+                        RadiusBottomRight: =1
+                        RadiusTopLeft: =1
+                        RadiusTopRight: =1
                         Width: =Parent.TemplateWidth/1.10
                         ZIndex: =1
 
@@ -458,8 +456,6 @@ ImageUploadScreen As screen:
 
                 AddMediaWithImageIS As group:
                     Height: =5
-                    LayoutMinHeight: =5
-                    LayoutMinWidth: =5
                     Width: =5
                     X: =40
                     Y: =20
@@ -476,6 +472,7 @@ ImageUploadScreen As screen:
                         PaddingLeft: =10
                         PaddingRight: =10
                         PaddingTop: =10
+                        Visible: =If(CountRows(glryImageIS.AllItems)=4,false,true)
                         Width: =Parent.Width/2.5
                         X: =AddMediaButtonIS.X
                         Y: =AddMediaButtonIS.Y
@@ -485,7 +482,7 @@ ImageUploadScreen As screen:
                         AlignInContainer: =AlignInContainer.Center
                         ChangePictureText: |-
                             =//If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
-                            "Tap or click to add a picture"
+                            "Upload Picture"
                         Color: |-
                             =
                             If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 0, 0, 1),Color.White)
@@ -520,12 +517,24 @@ ImageUploadScreen As screen:
                         Reset: =true
                         Size: =If(Parent.Width<500,16,Parent.Width>500,22,18)
                         Text: |-
-                            =//"Tap or click to add a picture"
-                            If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
+                            =" Upload Picture"
+                            //If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
+                        Visible: =If(CountRows(glryImageIS.AllItems)=4,false,true)
                         Width: =Parent.Width
                         X: =40
                         Y: =500
                         ZIndex: =3
+
+                Label1 As label:
+                    Align: =Align.Center
+                    AlignInContainer: =AlignInContainer.Center
+                    Color: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
+                    Height: =50
+                    Text: ="* You can add only 4 Images."
+                    Visible: =If(CountRows(glryImageIS.AllItems)=4,true,false)
+                    Width: =Parent.Width
+                    ZIndex: =4
 
                 ctnButtonIS As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -543,7 +552,7 @@ ImageUploadScreen As screen:
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
                     Width: =Parent.Width
-                    ZIndex: =4
+                    ZIndex: =5
 
                     btnPreviousIS As button:
                         BorderColor: =ColorFade(Self.Color, -15%)
@@ -581,12 +590,6 @@ ImageUploadScreen As screen:
                         Y: =790
                         ZIndex: =2
 
-                Label1 As label:
-                    Align: =Align.Center
-                    Text: ="You can add only 4 Images."
-                    Width: =Parent.Width
-                    ZIndex: =5
-
             ctnSpaceES_1 As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
@@ -612,4 +615,30 @@ ImageUploadScreen As screen:
                     Transparency: =0.9
                     Width: =Parent.Width
                     ZIndex: =1
+
+    Container4 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.69)
+        Height: =Parent.Height
+        Visible: =VarImagePopup
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Image2 As image:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/1.5
+            Image: =glryImageIS.Selected.Image
+            Width: =Parent.Width/1.2
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Parent.Width)/3
+            ZIndex: =1
+
+        IconImageIS_1 As icon.Cancel:
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =Parent.Height/12
+            Icon: =Icon.Cancel
+            OnSelect: =Set(VarImagePopup,false)
+            Width: =Parent.Height/12
+            X: =Image2.X+(Image2.Width-Self.Width)
+            Y: =Image2.Y
+            ZIndex: =2
 
