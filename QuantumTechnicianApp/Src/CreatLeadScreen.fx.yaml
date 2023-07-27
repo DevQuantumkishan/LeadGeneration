@@ -38,12 +38,10 @@ CreatLeadScreen As screen:
             ZIndex: =1
 
             iconBackCL As icon.BackArrow:
-                Color: =RGBA(255, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
-                Icon: =Icon.BackArrow
-                OnSelect: |-
-                    =Navigate(DashboardScreen);
-                    UpdateContext({locInfoExpanded:false})
+                Icon: =Icon.Hamburger
+                OnSelect: =
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -794,6 +792,7 @@ CreatLeadScreen As screen:
                 ZIndex: =4
 
                 Image3_1 As image:
+                    DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
                     Image: ='3x'

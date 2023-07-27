@@ -36,12 +36,10 @@ EstimateScreen As screen:
             ZIndex: =1
 
             iconBackES As icon.BackArrow:
-                Color: =RGBA(255, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
-                Icon: =Icon.BackArrow
-                OnSelect: |-
-                    =Navigate(ScopeScreen);
-                    Set(VarIndicatorSS,false);
+                Icon: =Icon.Hamburger
+                OnSelect: =
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -872,6 +870,7 @@ EstimateScreen As screen:
                 ZIndex: =5
 
                 Image3_4 As image:
+                    DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
                     Image: ='3x'

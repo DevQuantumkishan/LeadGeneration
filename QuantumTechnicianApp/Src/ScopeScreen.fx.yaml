@@ -37,12 +37,10 @@ ScopeScreen As screen:
             ZIndex: =1
 
             iconBackSS As icon.BackArrow:
-                Color: =RGBA(255, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
-                Icon: =Icon.BackArrow
-                OnSelect: |-
-                    =Navigate(UnitScreen);
-                    Set(varIndicatorUS,false);
+                Icon: =Icon.Hamburger
+                OnSelect: =
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -716,6 +714,7 @@ ScopeScreen As screen:
                 ZIndex: =5
 
                 Image3_3 As image:
+                    DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
                     Image: ='3x'

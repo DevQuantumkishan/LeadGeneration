@@ -40,18 +40,16 @@ DashboardScreen As screen:
             X: =0.00
             ZIndex: =1
 
-            IconMenuDS As icon.Hamburger:
-                AlignInContainer: =AlignInContainer.Center
+            IconMenuDS As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
-                LayoutMinHeight: =Self.Height
                 OnSelect: =//Set(varshowMenu,!varshowMenu)
-                PaddingLeft: =15
-                PaddingRight: =10
-                PaddingTop: =0.00
-                Width: =If(Parent.Width>Parent.Height,Parent.Width/10,Parent.Width/12)
-                X: =1390.56
+                PaddingBottom: =Parent.Height/3
+                PaddingTop: =Parent.Height/3
+                Width: =Parent.Height
+                X: =18
+                Y: =11
                 ZIndex: =1
 
             imgSchindlerLogoDS As image:
@@ -168,7 +166,6 @@ DashboardScreen As screen:
                 ZIndex: =3
 
         ctnUserNameDS As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
             Height: |
                 =//Parent.Height/14
@@ -202,13 +199,11 @@ DashboardScreen As screen:
                 Align: =Align.Right
                 Font: =Font.Arial
                 Height: =Parent.Height
-                PaddingRight: =10.68
-                PaddingTop: =5.34
-                Size: =If(Parent.Width>500,18,Parent.Width<500,14,12)
-                Text: |-
-                    =//User().FullName
-                    "Select Time Span - "
-                Width: =Parent.Width/2
+                PaddingLeft: =0
+                PaddingRight: =0
+                Size: =If(Parent.Width>500,16,Parent.Width<500,14,12)
+                Text: ="Select Time Span"
+                Width: =If(Parent.Width<500,Parent.Width/2,Parent.Width/3)
                 X: =Parent.X
                 ZIndex: =4
 
@@ -216,7 +211,8 @@ DashboardScreen As screen:
                 Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Arial
                 Height: =Parent.Height
-                PaddingRight: =10.68
+                PaddingLeft: =0
+                PaddingRight: =0
                 Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
                 Text: =If(cumulatively=true,Year(Now())-10 & "-" & Year(Now()),yearly=true,Year(Now()))
                 Visible: =false
@@ -226,35 +222,38 @@ DashboardScreen As screen:
             Container3 As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =5
+                PaddingLeft: =20
+                PaddingRight: =20
                 PaddingTop: =5
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Width: =lblUserNameDS.X+lblUserNameDS.Width
+                Width: =Parent.Width-lblUserNameDS.Width-Parent.X
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =7
 
                 toggleDS_1 As toggleSwitch:
-                    AlignInContainer: =AlignInContainer.Center
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Default: =true
                     FalseFill: =RGBA(202, 202, 202, 1)
                     FalseText: = Year(Now())-10& "-" & Year(Now())
                     Font: =Font.Arial
-                    Height: =Parent.Height/2
+                    Height: =Parent.Height/2.02
                     OnCheck: |-
                         =Set(cumulatively,false);
                         Set(yearly,true);
                     OnUncheck: |-
                         =Set(yearly,false);
                         Set(cumulatively,true);
-                    Size: =If(Parent.Width>500,18,Parent.Width<500,14,12)
+                    Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
                     TextPosition: =TextPosition.Left
                     TrueFill: =RGBA(255, 0, 0, 1)
                     TrueText: =Year(Now())
-                    Width: =If(Parent.Width<1000,Parent.Width/1.3,Parent.Width/20)
+                    Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width>1000,Parent.Width/30)
                     X: =lblUserNameDS.X+lblUserNameDS.Width
                     ZIndex: =1
 
@@ -980,6 +979,7 @@ DashboardScreen As screen:
                 ZIndex: =5
 
                 Image3 As image:
+                    DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
                     Image: ='3x'

@@ -34,12 +34,10 @@ ImageUploadScreen As screen:
             ZIndex: =1
 
             iconBackES_1 As icon.BackArrow:
-                Color: =RGBA(255, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
-                Icon: =Icon.BackArrow
-                OnSelect: |-
-                    =Navigate(EstimateScreen);
-                    Set(VarIndicatorES,false);
+                Icon: =Icon.Hamburger
+                OnSelect: =
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -391,7 +389,7 @@ ImageUploadScreen As screen:
             ctnImageIS As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =glryImageIS.Height+AddMediaWithImageIS.LayoutMinHeight+ctnButtonIS.Height+400
+                Height: =glryImageIS.Height+AddMediaWithImageIS.LayoutMinHeight+ctnButtonIS.Height+200
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =20
@@ -609,6 +607,7 @@ ImageUploadScreen As screen:
                 ZIndex: =4
 
                 Image3_5 As image:
+                    DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
                     Image: ='3x'
