@@ -591,7 +591,9 @@ CreatLeadScreen As screen:
 
                     IntxtBuildingName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
-                        Default: =Parent.Default
+                        Default: |-
+                            =//Parent.Default
+                            LookUp(ContractDataVS,CONTR_NUM="4100136911",CUST_CITY)
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         FocusedBorderThickness: =2
