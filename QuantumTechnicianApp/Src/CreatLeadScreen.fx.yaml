@@ -382,7 +382,7 @@ CreatLeadScreen As screen:
                 FillPortions: =0
                 Height: =If(Parent.Width>375,(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+30),(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+30))
                 Item: =VarFormMode
-                LayoutMinHeight: =250
+                LayoutMinHeight: =400
                 LayoutMinWidth: =400
                 Width: =Parent.Width/1.04
                 Y: =143
