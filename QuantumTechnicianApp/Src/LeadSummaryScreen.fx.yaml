@@ -679,18 +679,21 @@ LeadSummaryScreen As screen:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             ChevronBackground: =RGBA(202, 202, 202, 1)
                             ChevronHoverBackground: =Color.DimGrey
+                            Default: =ThisItem.PrimaryScopeofWorkLID
                             DefaultSelectedItems: =Parent.Default
                             DisplayFields: =["shlrf_primaryscopeofworkname"]
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            IsSearchable: =false
+                            InputTextPlaceholder: ="Find Scope"
                             Items: =' PrimaryScopeofWorks'
+                            OnChange: =
+                            OnSelect: =
                             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             PressedFill: =RGBA(0, 0, 0, 1)
                             SearchFields: =["shlrf_primaryscopeofworkname"]
-                            SearchItems: =[]
+                            SearchItems: =Search(' PrimaryScopeofWorks',IntxtScopeLSS.SearchText,"shlrf_primaryscopeofworkname")
                             SelectionFill: =RGBA(0, 0, 0, 1)
                             SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -1323,7 +1326,6 @@ LeadSummaryScreen As screen:
 
                 btnPreviousLSS As button:
                     Fill: =RGBA(255, 0, 0, 1)
-                    Height: =50
                     HoverFill: =Color.Red
                     OnSelect: |+
                         =Navigate(ImageUploadScreen);
@@ -1333,15 +1335,14 @@ LeadSummaryScreen As screen:
                         
                         
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                    Text: ="Previous"
-                    Width: =Parent.Width/4
+                    Text: ="Back"
+                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
                     X: =144
                     Y: =790
                     ZIndex: =1
 
                 btnSubmitLSS As button:
                     Fill: =RGBA(255, 0, 0, 1)
-                    Height: =50
                     HoverFill: =Color.Red
                     OnSelect: |
                         =Set(VarLeadInformationID,GUID());
@@ -1357,11 +1358,11 @@ LeadSummaryScreen As screen:
                                 NumberofUnits: Value(IntxtUnitCountLSS.Text),
                                 UnitDescription: IntxtUnitDescriptionLSS.Text,
                                 PrimaryScopeofWorkLID: LookUp(
-                                    ' PrimaryScopeofWorks',
-                                    ID = IntxtScopeLSS.Selected.ID
-                                ),
+                                    GCPrimaryScopeofWorks,
+                                    ID =IntxtScopeLSS.Selected.ID        
+                         ),
                                 SecondaryScopeofWorkLID: LookUp(
-                                    SecondaryScopeofWorks,
+                                    GCSecondaryScopeofWorks,
                                     ID = IntxtScopeofWorkLSS.Selected.ID
                                 ),
                                 CustomScopeofWork: IntxtManuallyScopeofWorkLSS.Text,
@@ -1397,7 +1398,7 @@ LeadSummaryScreen As screen:
                         Navigate(DashboardScreen);
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Submit"
-                    Width: =Parent.Width/4
+                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
                     X: =145
                     Y: =790
                     ZIndex: =2

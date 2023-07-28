@@ -435,12 +435,15 @@ ScopeScreen As screen:
                         HoverBorderColor: =
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: ="Search Scope"
-                        Items: =' PrimaryScopeofWorks'
+                        IsSearchable: =false
+                        Items: |-
+                            =//' PrimaryScopeofWorks'
+                            GCPrimaryScopeofWorks
                         OnChange: =Set(VarScope,true);
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
-                        SearchItems: =Search(' PrimaryScopeofWorks',intxtScope.SearchText,"shlrf_primaryscopeofworkname")
+                        SearchItems: =[]
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -519,18 +522,19 @@ ScopeScreen As screen:
                         Height: =50
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: ="Search Scope of Work"
-                        Items: =Filter(SecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=intxtScope.Selected.'PrimaryScopeofWorkName ')
+                        IsSearchable: =false
+                        Items: =Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=intxtScope.Selected.'PrimaryScopeofWorkName ')
                         OnChange: =Set(VarScopeofwork,true)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
-                        SearchItems: =Search(Filter(SecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=intxtScope.Selected.'PrimaryScopeofWorkName '),IntxtScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
+                        SearchItems: =[]
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblScopeofwork.Y + lblScopeofwork.Height + 5
+                        Y: =lblScopeofwork.Y + lblScopeofwork.Height
                         ZIndex: =2
 
                     ErrorMessageScopeofwork As label:
@@ -577,19 +581,6 @@ ScopeScreen As screen:
                     Y: =2
                     ZIndex: =1
 
-                    lblManuallyScopeofwork As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =If(VarCustomScopeofwork,48,0)
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Custom Scope of work(Manually Entered)"
-                        Visible: =VarCustomScopeofwork
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
                     IntxtManuallyScopeofwork As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
@@ -604,6 +595,7 @@ ScopeScreen As screen:
                         Mode: =TextMode.MultiLine
                         OnChange: =Set(VarCustomScopeofwork,true)
                         PaddingLeft: =5
+                        PaddingTop: =20
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
@@ -612,8 +604,8 @@ ScopeScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblManuallyScopeofwork.Y + lblManuallyScopeofwork.Height + 5
-                        ZIndex: =2
+                        Y: =lblManuallyScopeofwork.Y + lblManuallyScopeofwork.Height/2
+                        ZIndex: =1
 
                     ErrorMessageManuallyScopeofwork As label:
                         AutoHeight: =true
@@ -629,7 +621,7 @@ ScopeScreen As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtManuallyScopeofwork.Y + IntxtManuallyScopeofwork.Height
-                        ZIndex: =3
+                        ZIndex: =2
 
                     StarVisibleManuallyScopeofwork As label:
                         Align: =Align.Center
@@ -640,6 +632,20 @@ ScopeScreen As screen:
                         Width: =30
                         Wrap: =false
                         Y: =lblManuallyScopeofwork.Y
+                        ZIndex: =3
+
+                    lblManuallyScopeofwork As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =If(VarCustomScopeofwork,48,0)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Custom Scope of work(Manually Entered)"
+                        Visible: =VarCustomScopeofwork
+                        Width: =Parent.Width - 50
+                        X: =28
+                        Y: =10
                         ZIndex: =4
 
             ctnButtonSS As groupContainer.verticalAutoLayoutContainer:

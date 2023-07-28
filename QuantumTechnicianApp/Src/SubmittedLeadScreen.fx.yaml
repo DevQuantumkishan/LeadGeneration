@@ -412,6 +412,17 @@ SubmittedLeadScreen As screen:
                         Y: =lblPriceSLS.Height+lblPriceSLS.Y
                         ZIndex: =22
 
+                    Icon4 As icon.Message:
+                        Color: =RGBA(255, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =Parent.TemplateHeight/6
+                        Icon: =Icon.Message
+                        OnSelect: =Navigate(ChatScreen)
+                        Width: =Parent.TemplateHeight/6
+                        X: =Parent.TemplateWidth/1.13
+                        Y: =Parent.TemplateHeight/2.3
+                        ZIndex: =23
+
                 lblTitleYearSLS As label:
                     Align: =Align.Center
                     AutoHeight: =true
