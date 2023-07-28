@@ -151,10 +151,11 @@ ViewDetailsScreen As screen:
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             LayoutOverflowY: =LayoutOverflow.Scroll
-            Width: =Parent.Width-40
+            Width: =Parent.Width-20
             ZIndex: =3
 
             SummaryForm_3 As form:
+                AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 DefaultMode: =FormMode.View
                 Fill: =RGBA(255, 255, 255, 1)

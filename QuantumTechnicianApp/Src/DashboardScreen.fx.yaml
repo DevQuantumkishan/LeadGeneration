@@ -317,6 +317,7 @@ DashboardScreen As screen:
                             Color: =RGBA(116, 116, 116, 1)
                             DisplayMode: =DisplayMode.View
                             FontWeight: =FontWeight.Semibold
+                            Height: =50
                             LineHeight: =1.05
                             OnSelect: =Navigate(SubmittedLeadScreen);Set(VarFutureIncetives,true)
                             Size: |-
@@ -386,13 +387,11 @@ DashboardScreen As screen:
                             FontWeight: =FontWeight.Semibold
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
-                            PaddingRight: =5.34
-                            PaddingTop: =5.34
                             Size: |-
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
-                                =If(cumulatively=true,"Sold Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold")),"Sold Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold" && Year('Created On')=Year(Now())))) 
+                                =If(cumulatively=true,"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")),"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
                             Width: =btnSoldLeadsDS_1.Width
                             X: =btnSoldLeadsDS_1.X
                             Y: =(Parent.Height-Self.Height)/2
@@ -488,210 +487,6 @@ DashboardScreen As screen:
                             Width: =Parent.Width
                             ZIndex: =3
 
-            ctnSubmittedLeadDS As groupContainer.manualLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                DropShadow: =DropShadow.None
-                Fill: =RGBA(219, 219, 219, 1)
-                FillPortions: =0
-                Height: |
-                    =//Parent.Height/5.5
-                    If(Parent.Height<Parent.Width,Parent.Height/2.8,Parent.Height/4.8)
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                PaddingBottom: =5
-                PaddingLeft: =5
-                PaddingRight: =5
-                PaddingTop: =5
-                Visible: =false
-                Width: |-
-                    =//Parent.Width-50
-                    If(Parent.Height>Parent.Width,Parent.Width/1.058,Parent.Width/1.058)
-                ZIndex: =2
-
-                lblSubmittedLeadDS As label:
-                    Align: =Align.Center
-                    AutoHeight: =true
-                    Color: =RGBA(116, 116, 116, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =Parent.Height/4
-                    OnSelect: =//Navigate(SubmittedLeadsScreen);
-                    Size: |-
-                        =//18
-                        If(Parent.Width<500,14,Parent.Width>500,16,12)
-                    Text: |-
-                        =If(cumulatively=true,"Submitted Leads # " & CountRows(Filter(LeadInformations,Email=User().Email)),"Submitted Leads # " & CountRows(Filter(LeadInformations,Email=User().Email))) 
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =btnSubmittedLeadDS.Width
-                    X: =btnSubmittedLeadDS.X
-                    Y: =Parent.Height/14
-                    ZIndex: =1
-
-                ctnHeadingSubmittedLeadsDS As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =Parent.Height/5
-                    LayoutAlignItems: =LayoutAlignItems.Center
-                    LayoutGap: =10
-                    LayoutMode: =LayoutMode.Auto
-                    PaddingLeft: =If(Parent.Width<500,30,Parent.Width>500,70)
-                    Width: =Parent.Width
-                    Y: =lblSubmittedLeadDS.Height+lblSubmittedLeadDS.Y
-                    ZIndex: =2
-
-                    lblOpenDS As label:
-                        Align: =Align.Center
-                        AutoHeight: =true
-                        Color: =RGBA(39, 113, 194, 1)
-                        Height: =Parent.Height
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =560
-                        PaddingBottom: =0
-                        PaddingTop: =0
-                        Size: |-
-                            =//If(Parent.Width<500,11,Parent.Width>500,14,Parent.Width>1000,18)
-                            If(Parent.Width<358,12,Parent.Width>358,14,18)
-                        Text: ="Open"
-                        Width: =Parent.Width/4
-                        ZIndex: =1
-
-                    lblInprogressDS As label:
-                        Align: =Align.Center
-                        AutoHeight: =true
-                        Color: =RGBA(54, 176, 75, 1)
-                        Height: =Parent.Height
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =560
-                        PaddingBottom: =0
-                        PaddingTop: =0
-                        Size: |-
-                            =//If(Parent.Width<500,11,Parent.Width>500,14,Parent.Width>1000,18)
-                            If(Parent.Width<358,12,Parent.Width>358,14,18)
-                        Text: ="InProgress"
-                        Width: =Parent.Width/3
-                        ZIndex: =2
-
-                    lblRejectedDS As label:
-                        Align: =Align.Center
-                        AutoHeight: =true
-                        Color: =RGBA(255, 0, 0, 1)
-                        Height: =Parent.Height
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =560
-                        PaddingBottom: =0
-                        PaddingTop: =0
-                        Size: |-
-                            =//If(Parent.Width<500,11,Parent.Width>500,14,Parent.Width>1000,18)
-                            If(Parent.Width<358,12,Parent.Width>358,14,18)
-                        Text: ="Reject"
-                        Width: =Parent.Width/4
-                        ZIndex: =3
-
-                ctnCountsSubmittedLeadDS As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =Parent.Height/5.5
-                    LayoutGap: =10
-                    LayoutMode: =LayoutMode.Auto
-                    PaddingLeft: =If(Parent.Width<500,30,Parent.Width>500,70)
-                    Width: =Parent.Width
-                    Y: =ctnHeadingSubmittedLeadsDS.Height+ctnHeadingSubmittedLeadsDS.Y+10
-                    ZIndex: =3
-
-                    lblCountOpenDS As label:
-                        Align: =Align.Center
-                        Color: =RGBA(39, 113, 194, 1)
-                        Height: =Parent.Height
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =560
-                        Size: |-
-                            =//If(Parent.Width<500,12,Parent.Width>500,14,Parent.Width>1000,18)
-                            If(Parent.Width<358,12,Parent.Width>358,14,18)
-                        Text: |-
-                            =//If(cumulatively=true,"37","20")
-                            If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
-                        Width: =Parent.Width/4
-                        ZIndex: =1
-
-                    lblCountInprogressDS As label:
-                        Align: =Align.Center
-                        Color: =RGBA(54, 176, 75, 1)
-                        Height: =Parent.Height
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =560
-                        Size: |-
-                            =//If(Parent.Width<500,12,Parent.Width>500,14,Parent.Width>1000,18)
-                            If(Parent.Width<358,12,Parent.Width>358,14,18)
-                        Text: |-
-                            =//If(cumulatively=true,"30","10")
-                            If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" && Year('Created On')=Year(Now()))))
-                        Width: =Parent.Width/3
-                        ZIndex: =2
-
-                    lblCountRejectedDS As label:
-                        Align: =Align.Center
-                        Color: =RGBA(255, 0, 0, 1)
-                        Height: =Parent.Height
-                        LayoutMinHeight: =70
-                        LayoutMinWidth: =560
-                        Size: |-
-                            =//If(Parent.Width<500,12,Parent.Width>500,14,Parent.Width>1000,18)
-                            If(Parent.Width<358,12,Parent.Width>358,14,18)
-                        Text: |-
-                            =//If(cumulatively=true,"20","10")
-                            If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected" && Year('Created On')=2023))) 
-                        Width: =Parent.Width/4
-                        ZIndex: =3
-
-                VerticalLine1SubmittedLeadDS As rectangle:
-                    Fill: =RGBA(149, 149, 149, 1)
-                    Height: =Parent.Height/2
-                    Width: =3
-                    X: =lblCountOpenDS.Width+lblCountOpenDS.X
-                    Y: =ctnHeadingSubmittedLeadsDS.Y
-                    ZIndex: =4
-
-                VerticalLineS2ubmittedLeadDS As rectangle:
-                    Fill: =RGBA(149, 149, 149, 1)
-                    Height: =Parent.Height/2
-                    Width: =3
-                    X: =lblCountInprogressDS.Width+lblCountInprogressDS.X
-                    Y: =ctnHeadingSubmittedLeadsDS.Y
-                    ZIndex: =5
-
-                btnSubmittedLeadDS As button:
-                    Color: =RGBA(0, 0, 0, 0)
-                    DisabledBorderColor: =RGBA(116, 116, 116, 1)
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: |-
-                        =//Parent.Height/5.5
-                        Parent.Height
-                    HoverFill: =RGBA(0, 0, 0, 0)
-                    OnSelect: |
-                        =//Navigate(Screen2);
-                        Set(
-                            VarSoldIncetives,
-                            false
-                        );
-                        Set(
-                            VarFutureIncetives,
-                            false
-                        );
-                        Set(
-                            VarTotalIncentives,
-                            true
-                        );
-                        Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Submitted Leads"})
-                    PaddingRight: =5.34
-                    PaddingTop: =
-                    PressedFill: =Self.Fill
-                    RadiusBottomLeft: =6
-                    RadiusBottomRight: =6
-                    RadiusTopLeft: =6
-                    RadiusTopRight: =6
-                    Size: |-
-                        =//14.95
-                        If(Parent.Width<540,9,Parent.Width>540,14)
-                    Text: |-
-                        =//If(cumulatively=true,"Submitted Leads # 45","Submitted Leads # 40")
-                    Width: =Parent.Width
-                    ZIndex: =6
-
             ctnLeadsButtonsDS As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
@@ -780,8 +575,9 @@ DashboardScreen As screen:
                             Size: |-
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width<378,14,16)
-                            Text: |
-                                =If(cumulatively=true, "Quoted Leads #" & Char(10)& "30","Quoted Leads #" & Char(10) &  "15")
+                            Text: |-
+                                =//If(cumulatively=true, "Quoted Leads #" & Char(10)& "30","Quoted Leads #" & Char(10) &  "15")
+                                If(cumulatively=true,"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")),"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
                             Width: =btnQuotedLeadsDS.Width
                             X: =btnQuotedLeadsDS.X
                             Y: =(Parent.Height-Self.Height)/3.5
@@ -885,7 +681,8 @@ DashboardScreen As screen:
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
-                                =If(cumulatively=true,"Sold Leads #" & Char(10)& "40","Sold Leads #" & Char(10)& "15")
+                                =//If(cumulatively=true,"Sold Leads #" & Char(10)& "40","Sold Leads #" & Char(10)& "15")
+                                If(cumulatively=true,"Sold Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold")),"Sold Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold" && Year('Created On')=Year(Now())))) 
                             Width: =btnSoldLeadsDS.Width
                             X: =btnSoldLeadsDS.X
                             Y: =(Parent.Height-Self.Height)/3.5
