@@ -1,0 +1,47 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "shlrf_contractdatavs",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "shlrf_contractdatav",
+    "Name": "ContractDataVS",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "shlrf_complianceassetid": "Compliance Asset Id",
+      "shlrf_contractdatavid": "ContractDataV",
+      "shlrf_created": "Created",
+      "shlrf_externalprimarykey": "ID",
+      "shlrf_field1": "ARBPL_CONTRACT",
+      "shlrf_field10": "CUST_CLASS",
+      "shlrf_field11": "CONTR_TYPE",
+      "shlrf_field12": "Guid_column",
+      "shlrf_field2": "WC_SUPER",
+      "shlrf_field3": "WC_TECH",
+      "shlrf_field4": "CUST_NAME",
+      "shlrf_field5": "TOT_UNITS",
+      "shlrf_field6": "CUST_ADDR",
+      "shlrf_field7": "CUST_CITY",
+      "shlrf_field8": "CUST_STATE",
+      "shlrf_field9": "CUST_ZIP",
+      "shlrf_modified": "Modified",
+      "shlrf_odatacolortag": "Color Tag",
+      "shlrf_title": "CONTR_NUM"
+    },
+    "PreferredName": "ContractDataVS",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "ContractDataVS (Views)",
+    "Name": "_shlrf_contractdatav_views",
+    "RelatedEntityName": "ContractDataVS",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "3cba488d-fb12-4f2d-afa8-e7789f3c97bc": "ContractDataV Associated View",
+      "aa878482-710d-4542-a203-31c6f281c2ff": "ContractDataV Advanced Find View",
+      "b8010067-9477-415f-8083-02ffbe0eb4b6": "ContractDataV Lookup View",
+      "c09be0c6-25c1-4340-aab9-28158091c87a": "All ContractDataVS"
+    }
+  }
+]
