@@ -113,14 +113,16 @@ ChatScreen As screen:
             BorderThickness: =2
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =80
+            Height: =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
             LayoutMinHeight: =100
             LayoutMinWidth: =250
+            PaddingLeft: =10
+            PaddingRight: =10
             RadiusBottomLeft: =10
             RadiusBottomRight: =10
             RadiusTopLeft: =10
             RadiusTopRight: =10
-            Width: =Parent.Width/1.04
+            Width: =Parent.Width-20
             X: =10
             Y: =85
             ZIndex: =2
@@ -153,54 +155,6 @@ ChatScreen As screen:
             Y: =180
             ZIndex: =3
 
-            Gallery4_2 As gallery.variableTemplateHeightGallery:
-                DelayItemLoading: =true
-                Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height-TextInput1_2.Height
-                Items: =Sort(Filter(LeadChats,LeadInformationLID.ID=glryLeadsSLS.Selected.ID),'Created On',SortOrder.Ascending)
-                Layout: =Layout.Vertical
-                LoadingSpinner: =LoadingSpinner.Data
-                OnSelect: |-
-                    =Patch(LeadChats,
-                            ThisItem,
-                            {
-                                'Read ':true
-                            }
-                        );
-                    
-                    Set(MessageRead,true);
-                    Refresh(LeadChats);
-                TemplateSize: =Label6_2.Height+Label8_2.Height
-                Width: =Parent.Width/1.02
-                Y: =62
-                ZIndex: =1
-
-                Label6_2 As label:
-                    Align: =If(ThisItem.FromEmail=myMail,Align.Right,Align.Left)
-                    AutoHeight: =true
-                    Font: =Font.Arial
-                    Height: =25
-                    OnSelect: =Select(Parent)
-                    PaddingLeft: =20
-                    PaddingRight: =50
-                    Size: =18
-                    Text: =ThisItem.Message
-                    Width: =Parent.Width
-                    ZIndex: =1
-
-                Label8_2 As label:
-                    Align: =If(ThisItem.FromEmail=myMail,Align.Right,Align.Left)
-                    Font: =Font.Arial
-                    Height: =30
-                    OnSelect: =Select(Parent)
-                    PaddingLeft: =10
-                    PaddingRight: =50
-                    Size: =10
-                    Text: =ThisItem.FromEmail & "  "& ThisItem.'Created On'
-                    Width: =Parent.Width
-                    Y: =Label6_2.Y+Label6_2.Height
-                    ZIndex: =2
-
             TextInput1_2 As text:
                 BorderColor: =Self.Color
                 Color: =RGBA(255, 0, 0, 1)
@@ -215,10 +169,9 @@ ChatScreen As screen:
                 Mode: =TextMode.MultiLine
                 PaddingLeft: =10
                 Size: =16
-                Width: =Parent.Width/1.04
-                X: =13
+                Width: =Parent.Width
                 Y: =Gallery4_2.Height
-                ZIndex: =2
+                ZIndex: =1
 
             Icon6_2 As icon.Send:
                 BorderColor: =Self.Color
@@ -246,5 +199,92 @@ ChatScreen As screen:
                 Width: =100
                 X: =TextInput1_2.Width-(Self.Width)/1.2
                 Y: =Gallery4_2.Height
+                ZIndex: =2
+
+            Gallery4_2 As gallery.variableTemplateHeightGallery:
+                DelayItemLoading: =true
+                Fill: |-
+                    =//RGBA(237,237,237,1) 
+                    RGBA(0, 0, 0, 0)
+                Height: =Parent.Height-TextInput1_2.Height
+                Items: |-
+                    =//Sort(Filter(Chats,LeadNo.crd59_leadinformationid=Gallery1.Selected.LeadInformation),Datetime,SortOrder.Ascending)
+                    [{
+                        message:"Check doors again",
+                        time:"12.59 AM",
+                        name:"QQ Team",
+                        from:"you"
+                    },
+                    {
+                        message:"Gap problem",
+                        time:"1.15 AM",
+                        name:"Schindler guest",
+                        from:"me"
+                    },
+                    {
+                        message:"Okay",
+                        time:"2.05 AM",
+                        name:"QQ Team",
+                        from:"you"
+                    }
+                    ]
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: |-
+                    =/*Patch(Chats,
+                            ThisItem,
+                            {
+                               Read:true
+                            }
+                        );
+                    
+                    Set(MessageRead,true);
+                    Refresh(Chats);*/
+                TemplateSize: =Label6_2.Height+Label8_2.Height
+                Width: =Parent.Width
                 ZIndex: =3
+
+                Rectangle6 As rectangle:
+                    Fill: =If(ThisItem.from="you", RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
+                    Height: =Label6_2.Height+Label8_2.Height
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.Width-30
+                    X: =10
+                    ZIndex: =1
+
+                Label6_2 As label:
+                    Align: =If(ThisItem.from="me",Align.Right,Align.Left)
+                    AutoHeight: =true
+                    Font: =Font.Arial
+                    Height: =25
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =20
+                    PaddingRight: =50
+                    Size: =18
+                    Text: =ThisItem.message
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                Label8_2 As label:
+                    Align: =If(ThisItem.from="me",Align.Right,Align.Left)
+                    Font: =Font.Arial
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =20
+                    PaddingRight: =50
+                    Size: =14
+                    Text: |-
+                        =//ThisItem.From & "  "& ThisItem.Datetime
+                        ThisItem.name & "  " &ThisItem.time
+                    Width: =Parent.Width
+                    Y: =Label6_2.Y+Label6_2.Height
+                    ZIndex: =3
+
+                Rectangle5 As rectangle:
+                    Fill: =RGBA(102, 102, 102, 1)
+                    Height: =3
+                    Width: =Parent.Width-30
+                    X: =10
+                    Y: =Label8_2.Height+Label8_2.Y+5
+                    ZIndex: =4
 
