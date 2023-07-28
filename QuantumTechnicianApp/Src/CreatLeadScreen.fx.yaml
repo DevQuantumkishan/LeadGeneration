@@ -420,6 +420,7 @@ CreatLeadScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         OnChange: =Set(VarContractNumber,true)
+                        PaddingBottom: =0
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -430,7 +431,7 @@ CreatLeadScreen As screen:
                         Tooltip: ="Contract Number"
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblContractNumber.Y + lblContractNumber.Height
+                        Y: =lblContractNumber.Y + lblContractNumber.Height/2
                         ZIndex: =1
 
                     ErrorMessageContractNumber As label:
@@ -463,14 +464,15 @@ CreatLeadScreen As screen:
                     lblContractNumber As label:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
                         Height: =If(VarContractNumber,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Contract Number"
-                        Visible: =VarContractNumber
-                        Width: =Parent.Width - 60
+                        Visible: =VarContractNumber || !IsBlank(IntxtContractNumber)
+                        Width: =Parent.Width - 50
                         Wrap: =false
-                        X: =30
+                        X: =28
                         Y: =10
                         ZIndex: =4
 
@@ -491,20 +493,6 @@ CreatLeadScreen As screen:
                     Y: =2
                     ZIndex: =1
 
-                    lblZipcode As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =If(VarZipcode,48,0)
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: =Parent.DisplayName
-                        Visible: =VarZipcode
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
                     IntxtZipCode As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
                         Default: |-
@@ -519,6 +507,7 @@ CreatLeadScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         OnChange: =Set(VarZipcode,true)
+                        PaddingBottom: =0
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -528,8 +517,8 @@ CreatLeadScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblZipcode.Y + lblZipcode.Height + 5
-                        ZIndex: =2
+                        Y: =lblZipcode.Y + lblZipcode.Height /2
+                        ZIndex: =1
 
                     ErrorMessageZipcode As label:
                         AutoHeight: =true
@@ -545,7 +534,7 @@ CreatLeadScreen As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtZipCode.Y + IntxtZipCode.Height
-                        ZIndex: =3
+                        ZIndex: =2
 
                     StarVisibleZipcode As label:
                         Align: =Align.Center
@@ -556,6 +545,21 @@ CreatLeadScreen As screen:
                         Width: =30
                         Wrap: =false
                         Y: =lblZipcode.Y
+                        ZIndex: =3
+
+                    lblZipcode As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =If(VarZipcode,48,0)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: =Parent.DisplayName
+                        Visible: =VarZipcode
+                        Width: =Parent.Width - 50
+                        Wrap: =false
+                        X: =28
+                        Y: =10
                         ZIndex: =4
 
                 BuildingName As typedDataCard.textualEditCard:
@@ -576,22 +580,6 @@ CreatLeadScreen As screen:
                     Y: =1
                     ZIndex: =2
 
-                    lblBuildingName As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =If(VarBuildingName,48,0)
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: |-
-                            =//Parent.DisplayName
-                            "Building Name"
-                        Visible: =VarBuildingName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
                     IntxtBuildingName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
                         Default: |-
@@ -603,10 +591,11 @@ CreatLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =50
                         HintText: ="Building Name"
-                        HoverBorderColor: =RGBA(202, 202, 202, 1)
+                        HoverBorderColor: =RGBA(166, 166, 166, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         OnChange: =Set(VarBuildingName,true)
+                        PaddingBottom: =0
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -616,8 +605,8 @@ CreatLeadScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblBuildingName.Y + lblBuildingName.Height + 5
-                        ZIndex: =2
+                        Y: =lblBuildingName.Y + lblBuildingName.Height/2
+                        ZIndex: =1
 
                     ErrorMessageBuilldingName As label:
                         AutoHeight: =true
@@ -633,7 +622,7 @@ CreatLeadScreen As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtBuildingName.Y + IntxtBuildingName.Height
-                        ZIndex: =3
+                        ZIndex: =2
 
                     StarVisibleBuildingName As label:
                         Align: =Align.Center
@@ -644,6 +633,23 @@ CreatLeadScreen As screen:
                         Width: =30
                         Wrap: =false
                         Y: =lblBuildingName.Y
+                        ZIndex: =3
+
+                    lblBuildingName As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =If(VarBuildingName,48,0)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Building Name"
+                        Visible: =VarBuildingName
+                        Width: =Parent.Width - 50
+                        Wrap: =false
+                        X: =28
+                        Y: =10
                         ZIndex: =4
 
                 Address As typedDataCard.textualEditCard:
@@ -663,20 +669,6 @@ CreatLeadScreen As screen:
                     Y: =3
                     ZIndex: =2
 
-                    lblAddress As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =If(VarAddress,48,0)
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: =Parent.DisplayName
-                        Visible: =VarAddress
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
                     IntxtAddress As text:
                         BorderColor: =If(IsBlank(Parent.Error),Color.LightGray, Color.Red)
                         Default: |-
@@ -693,17 +685,20 @@ CreatLeadScreen As screen:
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
                         OnChange: =Set(VarAddress,true)
+                        PaddingBottom: =0
                         PaddingLeft: =5
+                        PaddingTop: =15
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =true
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblAddress.Y + lblAddress.Height + 5
-                        ZIndex: =2
+                        Y: =lblAddress.Y + lblAddress.Height /2
+                        ZIndex: =1
 
                     ErrorMessageAddress As label:
                         AutoHeight: =true
@@ -719,7 +714,7 @@ CreatLeadScreen As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtAddress.Y + IntxtAddress.Height
-                        ZIndex: =3
+                        ZIndex: =2
 
                     StarVisibleAddress As label:
                         Align: =Align.Center
@@ -730,6 +725,21 @@ CreatLeadScreen As screen:
                         Width: =30
                         Wrap: =false
                         Y: =lblAddress.Y
+                        ZIndex: =3
+
+                    lblAddress As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =If(VarAddress,48,0)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: =Parent.DisplayName
+                        Visible: =VarAddress
+                        Width: =Parent.Width - 50
+                        Wrap: =false
+                        X: =28
+                        Y: =10
                         ZIndex: =4
 
             ctnbuttonUS_1 As groupContainer.horizontalAutoLayoutContainer:

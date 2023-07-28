@@ -410,20 +410,6 @@ UnitScreen As screen:
                     Y: =0
                     ZIndex: =1
 
-                    lblUnitCount As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =If(VarUnitCount,48,0)
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="No. of Units"
-                        Visible: =VarUnitCount
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
                     IntxtUnitCount As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
@@ -436,6 +422,7 @@ UnitScreen As screen:
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         OnChange: =Set(VarUnitCount,true)
+                        PaddingBottom: =0
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -445,8 +432,8 @@ UnitScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblUnitCount.Y + lblUnitCount.Height + 5
-                        ZIndex: =2
+                        Y: =lblUnitCount.Y + lblUnitCount.Height /2
+                        ZIndex: =1
 
                     ErrorMessageUnitCount As label:
                         AutoHeight: =true
@@ -462,7 +449,7 @@ UnitScreen As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtUnitCount.Y + IntxtUnitCount.Height
-                        ZIndex: =3
+                        ZIndex: =2
 
                     StarVisibleUnitCount As label:
                         Align: =Align.Center
@@ -473,6 +460,21 @@ UnitScreen As screen:
                         Width: =30
                         Wrap: =false
                         Y: =lblUnitCount.Y
+                        ZIndex: =3
+
+                    lblUnitCount As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =If(VarUnitCount,48,0)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="No. of Units"
+                        Visible: =VarUnitCount
+                        Width: =Parent.Width - 50
+                        Wrap: =false
+                        X: =28
+                        Y: =10
                         ZIndex: =4
 
                 UnitDescription As typedDataCard.textualEditCard:
@@ -492,20 +494,6 @@ UnitScreen As screen:
                     Y: =1
                     ZIndex: =1
 
-                    lblUnitDescription As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =If(VarUnitDescription,48,0)
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Unit Description"
-                        Visible: =VarUnitDescription
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
                     IntxtUnitDescription As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
@@ -519,7 +507,9 @@ UnitScreen As screen:
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
                         OnChange: =Set(VarUnitDescription,true)
+                        PaddingBottom: =0
                         PaddingLeft: =5
+                        PaddingTop: =15
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
@@ -528,8 +518,8 @@ UnitScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblUnitDescription.Y + lblUnitDescription.Height + 5
-                        ZIndex: =2
+                        Y: =lblUnitDescription.Y + lblUnitDescription.Height /2
+                        ZIndex: =1
 
                     ErrorMessageUnitDescription As label:
                         AutoHeight: =true
@@ -545,7 +535,7 @@ UnitScreen As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtUnitDescription.Y + IntxtUnitDescription.Height
-                        ZIndex: =3
+                        ZIndex: =2
 
                     StarVisibleUnitDescription As label:
                         Align: =Align.Center
@@ -556,6 +546,22 @@ UnitScreen As screen:
                         Width: =30
                         Wrap: =false
                         Y: =lblUnitDescription.Y
+                        ZIndex: =3
+
+                    lblUnitDescription As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =If(VarUnitDescription,48,0)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Unit Description"
+                        Visible: =VarUnitDescription
+                        Width: =Parent.Width - 50
+                        Wrap: =false
+                        X: =28
+                        Y: =10
                         ZIndex: =4
 
             ctnbuttonUS As groupContainer.horizontalAutoLayoutContainer:
