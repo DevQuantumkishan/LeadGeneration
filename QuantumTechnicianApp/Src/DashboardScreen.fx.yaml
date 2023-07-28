@@ -455,7 +455,8 @@ DashboardScreen As screen:
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width<378,14,16)
                             Text: |-
-                                =If(cumulatively=true, "Rejected Leads#" & Char(10)& "30","Rejected Leads#" & Char(10) &  "15")
+                                =//If(cumulatively=true, "Rejected Leads#" & Char(10)& "30","Rejected Leads#" & Char(10) &  "15")
+                                If(cumulatively=true,"Rejected Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")),"Rejected Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected" && Year('Created On')=Year(Now())))) 
                             Width: =btnQuotedLeadsDS_2.Width
                             X: =btnQuotedLeadsDS_2.X
                             Y: =(Parent.Height-Self.Height)/2
@@ -779,7 +780,7 @@ DashboardScreen As screen:
                             Size: |-
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width<378,14,16)
-                            Text: |-
+                            Text: |
                                 =If(cumulatively=true, "Quoted Leads #" & Char(10)& "30","Quoted Leads #" & Char(10) &  "15")
                             Width: =btnQuotedLeadsDS.Width
                             X: =btnQuotedLeadsDS.X

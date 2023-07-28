@@ -34,6 +34,8 @@ App As appinfo:
             false
         );
         ClearCollect(GCTotalIncentives,TotalIncentives);
+        ClearCollect(GCPrimaryScopeofWorks, ' PrimaryScopeofWorks');
+        ClearCollect(GCSecondaryScopeofWorks,SecondaryScopeofWorks);
     StartScreen: =
 
     Host As hostControl.DefaultHostControlVariant:

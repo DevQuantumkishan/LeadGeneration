@@ -425,6 +425,7 @@ CreatLeadScreen As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =true
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: ="Contract Number"
                         Width: =Parent.Width - 60
