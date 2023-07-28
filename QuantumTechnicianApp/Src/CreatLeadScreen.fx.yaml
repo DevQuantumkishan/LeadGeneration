@@ -506,7 +506,9 @@ CreatLeadScreen As screen:
 
                     IntxtZipCode As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
-                        Default: =Parent.Default
+                        Default: |-
+                            =//Parent.Default
+                            LookUp(ContractDataVS,CONTR_NUM=IntxtContractNumber.Text,CUST_ZIP)
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         FocusedBorderThickness: =2
@@ -593,7 +595,7 @@ CreatLeadScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
                         Default: |-
                             =//Parent.Default
-                            LookUp(ContractDataVS,CONTR_NUM="4100136911",CUST_CITY)
+                            LookUp(ContractDataVS,CONTR_NUM=IntxtContractNumber.Text,CUST_CITY)
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         FocusedBorderThickness: =2
@@ -676,7 +678,9 @@ CreatLeadScreen As screen:
 
                     IntxtAddress As text:
                         BorderColor: =If(IsBlank(Parent.Error),Color.LightGray, Color.Red)
-                        Default: =Parent.Default
+                        Default: |-
+                            =//Parent.Default
+                            LookUp(ContractDataVS,CONTR_NUM=IntxtContractNumber.Text,CUST_ADDR)
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         FocusedBorderThickness: =2
