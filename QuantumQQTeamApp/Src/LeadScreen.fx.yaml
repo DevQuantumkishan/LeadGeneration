@@ -370,7 +370,7 @@ LeadScreen As screen:
                     ZIndex: =2
 
                     rectmessageLdS As rectangle:
-                        Fill: =If(ThisItem.FromEmail=User().Email, RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
+                        Fill: =If(ThisItem.IsQQApp=true, RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
                         Height: =lblchatmessageLdS.Height+lblsenderreceiverLdS.Height
                         OnSelect: =Select(Parent)
                         Width: =Parent.Width-30
@@ -1366,7 +1366,8 @@ LeadScreen As screen:
                     FromName:User().FullName,
                     ToEmail:glryleadlistLS.Selected.Email,
                     ToName:glryleadlistLS.Selected.MechanicName,
-                    LeadInformationLID:LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID)
+                    LeadInformationLID:LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID),
+                    IsQQApp:true
                 });
                 
                 
@@ -1396,6 +1397,7 @@ LeadScreen As screen:
             RadiusBottomRight: =20
             RadiusTopLeft: =20
             RadiusTopRight: =20
+            Reset: =true
             Visible: =VarChatMessage
             Width: =rectchatmessageLdS.Width
             X: =rectchatmessageLdS.X
