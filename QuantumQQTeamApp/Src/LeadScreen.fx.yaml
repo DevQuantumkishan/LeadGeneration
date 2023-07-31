@@ -1358,7 +1358,20 @@ LeadScreen As screen:
             FocusedBorderThickness: =
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |
-                =Set(VarChatMessage,false);
+                =Patch(LeadChats,Defaults(LeadChats),
+                {
+                    ID:GUID(),
+                    Message:txtinptchatmessageLdS.Text,
+                    FromEmail:User().Email,
+                    FromName:User().FullName,
+                    ToEmail:glryleadlistLS.Selected.Email,
+                    ToName:glryleadlistLS.Selected.MechanicName,
+                    LeadInformationLID:LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID)
+                });
+                
+                
+                
+                Set(VarChatMessage,false);
             PressedColor: =Self.Color
             PressedFill: =Self.Fill
             Text: ="Send Message"
