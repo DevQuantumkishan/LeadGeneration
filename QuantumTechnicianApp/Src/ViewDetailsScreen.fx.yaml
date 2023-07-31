@@ -727,7 +727,7 @@ ViewDetailsScreen As screen:
                         Items: =Choices([@LeadInformations].PrimaryScopeofWorkLID)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
-                        SearchItems: =Search(Choices([@LeadInformations].shlrf_PrimaryScopeofWorkLID),DataCardValue1.SearchText,"shlrf_primaryscopeofworkname")
+                        SearchItems: =Search(Choices([@LeadInformations].PrimaryScopeofWorkLID),DataCardValue1.SearchText,"shlrf_primaryscopeofworkname")
                         SelectMultiple: =false
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Tooltip: =Parent.DisplayName

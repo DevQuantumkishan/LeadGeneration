@@ -421,7 +421,8 @@ SubmittedLeadScreen As screen:
                         Icon: =Icon.Message
                         OnSelect: |-
                             =Navigate(ChatScreen);
-                            Set(VarLtdName,ThisItem.'BuildingName ')
+                            Set(VarLtdName,ThisItem.'BuildingName ');
+                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ')
                         Width: =Parent.Width/10
                         X: =Parent.Width-Self.Width-30
                         Y: =Parent.TemplateHeight/2.3
