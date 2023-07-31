@@ -332,7 +332,8 @@ LeadScreen As screen:
                     Height: =Parent.Height-100
                     Items: |-
                         =//Sort(Filter(Chats,LeadNo.crd59_leadinformationid=Gallery1.Selected.LeadInformation),Datetime,SortOrder.Ascending)
-                        [{
+                        Sort(Filter(LeadChats,LeadInformationLID.ID=glryleadlistLS.Selected.ID),'Modified On',SortOrder.Descending)
+                        /*[{
                             message:"Check doors again",
                             time:"12.59 AM",
                             name:"QQ Team",
@@ -350,7 +351,7 @@ LeadScreen As screen:
                             name:"QQ Team",
                             from:"you"
                         }
-                        ]
+                        ]*/
                     Layout: =Layout.Vertical
                     LoadingSpinner: =LoadingSpinner.Data
                     OnSelect: |-
@@ -369,7 +370,7 @@ LeadScreen As screen:
                     ZIndex: =2
 
                     rectmessageLdS As rectangle:
-                        Fill: =If(ThisItem.from="you", RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
+                        Fill: =If(ThisItem.FromEmail=User().Email, RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
                         Height: =lblchatmessageLdS.Height+lblsenderreceiverLdS.Height
                         OnSelect: =Select(Parent)
                         Width: =Parent.Width-30
@@ -377,7 +378,7 @@ LeadScreen As screen:
                         ZIndex: =1
 
                     lblchatmessageLdS As label:
-                        Align: =If(ThisItem.from="you",Align.Right,Align.Left)
+                        Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
                         AutoHeight: =true
                         Font: =Font.Arial
                         Height: =25
@@ -385,12 +386,12 @@ LeadScreen As screen:
                         PaddingLeft: =20
                         PaddingRight: =50
                         Size: =18
-                        Text: =ThisItem.message
+                        Text: =ThisItem.Message
                         Width: =Parent.Width
                         ZIndex: =2
 
                     lblsenderreceiverLdS As label:
-                        Align: =If(ThisItem.from="you",Align.Right,Align.Left)
+                        Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
                         Font: =Font.Arial
                         Height: =30
                         OnSelect: =Select(Parent)
@@ -399,7 +400,7 @@ LeadScreen As screen:
                         Size: =14
                         Text: |-
                             =//ThisItem.From & "  "& ThisItem.Datetime
-                            ThisItem.name & "  " &ThisItem.time
+                            ThisItem.FromEmail & "  " &ThisItem.'Modified On'
                         Width: =Parent.Width
                         Y: =lblchatmessageLdS.Y+lblchatmessageLdS.Height
                         ZIndex: =3
