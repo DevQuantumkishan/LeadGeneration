@@ -400,7 +400,7 @@ LeadScreen As screen:
                         Size: =14
                         Text: |-
                             =//ThisItem.From & "  "& ThisItem.Datetime
-                            ThisItem.FromEmail & "  " &ThisItem.'Modified On'
+                            ThisItem.FromName & "  " &ThisItem.'Modified On'
                         Width: =Parent.Width
                         Y: =lblchatmessageLdS.Y+lblchatmessageLdS.Height
                         ZIndex: =3
