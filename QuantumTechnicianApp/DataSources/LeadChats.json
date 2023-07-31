@@ -24,6 +24,7 @@
       "shlrf_fromemail": "FromEmail",
       "shlrf_fromname": "FromName",
       "shlrf_id": "ID",
+      "shlrf_isqqapp": "IsQQApp",
       "shlrf_leadchat_AsyncOperations": "System Jobs",
       "shlrf_leadchat_BulkDeleteFailures": "Bulk Delete Failures",
       "shlrf_leadchat_DuplicateBaseRecord": "Duplicate Records (shlrf_leadchat_DuplicateBaseRecord)",
@@ -60,6 +61,26 @@
       "98f47626-80db-42a8-b7b4-59177569f62b": "Inactive LeadChats",
       "d65846e2-2a7d-4428-af56-fd4cd6c64b47": "LeadChat Lookup View"
     }
+  },
+  {
+    "DisplayName": "IsQQApp (LeadChats)",
+    "Name": "shlrf_leadchat_shlrf_isqqapp",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "shlrf_isqqapp",
+        "OptionSetReferenceEntityName": "LeadChats"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "shlrf_isqqapp",
+    "RelatedEntityName": "LeadChats",
+    "Type": "OptionSetInfo"
   },
   {
     "DisplayName": "Read  (LeadChats)",

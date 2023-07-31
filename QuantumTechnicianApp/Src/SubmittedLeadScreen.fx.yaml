@@ -226,7 +226,7 @@ SubmittedLeadScreen As screen:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderThickness: =2
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =Parent.TemplateHeight/1.06
+                        Height: =Parent.TemplateHeight/1.04
                         HoverFill: =RGBA(0, 0, 0, 0)
                         OnSelect: |-
                             =//Navigate(ViewLeadScreen);
@@ -417,7 +417,7 @@ SubmittedLeadScreen As screen:
                     Icon4 As icon.Message:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
-                        Height: =Parent.Width/10
+                        Height: =Parent.Height/10
                         Icon: =Icon.Message
                         OnSelect: |
                             =Navigate(ChatScreen);
