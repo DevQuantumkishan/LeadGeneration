@@ -5,6 +5,7 @@ Screen1 As screen:
             =
             If(i<1500,
             Set(i,i+1);
+            Set(patchresult,
             Patch(
                 ContractDataVS,
                 Defaults(ContractDataVS),
@@ -25,6 +26,7 @@ Screen1 As screen:
                     
                 }
             );
+            );,Notify("limit completed i : "& i,NotificationType.Information)
             
              // Reset(Timer1);
              //Set(var1,true)
@@ -36,9 +38,47 @@ Screen1 As screen:
         ZIndex: =1
 
     Button3 As button:
-        OnSelect: =Set(i,59)
+        OnSelect: =Set(i,759)
         Text: ="Button"
         X: =60
         Y: =60
         ZIndex: =2
+
+    Timer1 As timer:
+        Duration: =7000
+        OnTimerStart: |-
+            =
+            If(i<1500,
+            Set(i,i+1);
+            Set(patchresult,
+            Patch(
+                ContractDataVS,
+                Defaults(ContractDataVS),
+                {
+                    CONTR_NUM:4300015001+i,
+                    ARBPL_CONTRACT:"M"&300001+i,
+                    WC_SUPER:"Farid Adenuga"&i,
+                    WC_TECH:"Farid Adenuga"&i,
+                    CUST_NAME:15001+i&" BROADWAY",
+                    TOT_UNITS:6+i,
+                    CUST_ADDR:1372+i&" BROADWAY",
+                    CUST_CITY:"NEW YORK",
+                    CUST_STATE:"NY",
+                    CUST_ZIP:10018+i,
+                    CUST_CLASS:"NA",
+                    CONTR_TYPE:"FM",
+                    Guid_column:GUID()
+                    
+                }
+            );
+            );,Notify("limit completed i : "& i,NotificationType.Information)
+            
+             // Reset(Timer1);
+             //Set(var1,true)
+              
+            )
+        Repeat: =true
+        X: =586
+        Y: =118
+        ZIndex: =3
 
