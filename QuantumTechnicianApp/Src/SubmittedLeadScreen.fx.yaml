@@ -141,7 +141,7 @@ SubmittedLeadScreen As screen:
                 PaddingRight: =20
                 PaddingTop: =0
                 Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
-                Text: ="Submitted Leads"
+                Text: =Header &" Leads"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -209,7 +209,9 @@ SubmittedLeadScreen As screen:
                     Items: |-
                         =//Sort
                         Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        Text(Year('Created On'))=Title2.Text&&LeadStatus<>"Sold"&&Email=User().Email),'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname")
+                        Text(Year('Created On'))=Title2.Text &&
+                                     If(Header="Open", LeadStatus = "Submitted",LeadStatus =Header)
+                            && Email=User().Email),'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname")
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =260
@@ -415,11 +417,15 @@ SubmittedLeadScreen As screen:
                     Icon4 As icon.Message:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
-                        Height: =Parent.TemplateHeight/6
+                        Height: =Parent.Width/10
                         Icon: =Icon.Message
-                        OnSelect: =Navigate(ChatScreen)
-                        Width: =Parent.TemplateHeight/6
-                        X: =Parent.TemplateWidth/1.13
+                        OnSelect: |
+                            =Navigate(ChatScreen);
+                            Set(VarLtdName,ThisItem.'BuildingName ');
+                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
+                            Set(VarLtdID,ThisItem.ID);
+                        Width: =Parent.Width/10
+                        X: =Parent.Width-Self.Width-30
                         Y: =Parent.TemplateHeight/2.3
                         ZIndex: =23
 
@@ -455,11 +461,9 @@ SubmittedLeadScreen As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: |+
-                        =CountRows(Filter
-                        (LeadInformations,Email=User().Email  && 
-                        Year('Created On')=Year(Title2.Text)))
-                        
+                    Text: |-
+                        =//LookUp(GCTotalIncentives,Year(Year)=Year(Now()),'ToalLeads ')
+                        CountRows(glryLeadsSLS.AllItems)
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSLS.Width
                     X: =lblTotalLeadsSLS.X
@@ -500,12 +504,11 @@ SubmittedLeadScreen As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
                     Text: |-
-                        =Sum(
+                        =Value(Sum(
                             Filter(
                                 GCTotalIncentives,
-                                Year(Year) = Year(ThisItem.Value)),
-                            TotalIncentives
-                        )
+                                Year(Year) = Year(Now())),TotalIncentives
+                        ))
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width/3
                     X: =lblTotalLeadsSLS.Width+lblTotalLeadsSLS.X+20

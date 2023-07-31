@@ -128,6 +128,7 @@ ChatScreen As screen:
             ZIndex: =2
 
             Button3_9 As button:
+                Align: =Align.Right
                 BorderColor: =RGBA(219, 219, 219, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: =DisplayMode.View
@@ -136,11 +137,24 @@ ChatScreen As screen:
                 Height: =Parent.Height
                 PaddingLeft: =20
                 PaddingRight: =20
-                PaddingTop: =0
-                Size: =24
-                Text: ="Lead Chat"
+                Size: =If(Parent.Width<500,14,Parent.Width>500,20)
+                Text: =VarLtdName
                 Width: =Parent.Width
                 ZIndex: =1
+
+            lblHeaderDS_5 As label:
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Bold
+                Height: =Parent.Height
+                PaddingLeft: =20
+                PaddingRight: =5.34
+                Size: |
+                    =//21.36
+                    If(Parent.Width<500,14,Parent.Width>500,20)
+                Text: =VarLtdCntNumber
+                Width: =Parent.Width-imgSchindlerLogoDS_3.Width-IconMenuDS_3.Width-Button2_4.Width-60
+                ZIndex: =2
 
         Container8 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
@@ -188,7 +202,8 @@ ChatScreen As screen:
                                     FromEmail:myMail,
                                  // To:personEmail,
                                     Message:TextInput1_2.Text,
-                                    LeadInformationLID:LookUp(LeadInformations,ID=glryLeadsSLS.Selected.ID)
+                                    FromName:User().FullName,
+                                    LeadInformationLID:LookUp(LeadInformations,ID=VarLtdID)
                                     
                                 }
                             );
@@ -208,8 +223,8 @@ ChatScreen As screen:
                     RGBA(0, 0, 0, 0)
                 Height: =Parent.Height-TextInput1_2.Height
                 Items: |-
-                    =//Sort(Filter(Chats,LeadNo.crd59_leadinformationid=Gallery1.Selected.LeadInformation),Datetime,SortOrder.Ascending)
-                    [{
+                    =Sort(Filter(LeadChats,LeadInformationLID.ID=VarLtdID),'Created On',SortOrder.Ascending)
+                    /*[{
                         message:"Check doors again",
                         time:"12.59 AM",
                         name:"QQ Team",
@@ -227,7 +242,7 @@ ChatScreen As screen:
                         name:"QQ Team",
                         from:"you"
                     }
-                    ]
+                    ]*/
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 OnSelect: |-
@@ -245,7 +260,7 @@ ChatScreen As screen:
                 ZIndex: =3
 
                 Rectangle6 As rectangle:
-                    Fill: =If(ThisItem.from="you", RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
+                    Fill: =If(ThisItem.FromEmail=User().Email, RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
                     Height: =Label6_2.Height+Label8_2.Height
                     OnSelect: =Select(Parent)
                     Width: =Parent.Width-30
@@ -253,7 +268,7 @@ ChatScreen As screen:
                     ZIndex: =1
 
                 Label6_2 As label:
-                    Align: =If(ThisItem.from="me",Align.Right,Align.Left)
+                    Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
                     AutoHeight: =true
                     Font: =Font.Arial
                     Height: =25
@@ -261,12 +276,12 @@ ChatScreen As screen:
                     PaddingLeft: =20
                     PaddingRight: =50
                     Size: =18
-                    Text: =ThisItem.message
+                    Text: =ThisItem.Message
                     Width: =Parent.Width
                     ZIndex: =2
 
                 Label8_2 As label:
-                    Align: =If(ThisItem.from="me",Align.Right,Align.Left)
+                    Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
                     Font: =Font.Arial
                     Height: =30
                     OnSelect: =Select(Parent)
@@ -275,7 +290,7 @@ ChatScreen As screen:
                     Size: =14
                     Text: |-
                         =//ThisItem.From & "  "& ThisItem.Datetime
-                        ThisItem.name & "  " &ThisItem.time
+                        ThisItem.FromName & "  " &ThisItem.'Created On'
                     Width: =Parent.Width
                     Y: =Label6_2.Y+Label6_2.Height
                     ZIndex: =3
