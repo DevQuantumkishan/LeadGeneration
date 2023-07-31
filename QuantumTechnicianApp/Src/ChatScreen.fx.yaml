@@ -202,7 +202,8 @@ ChatScreen As screen:
                                     FromEmail:myMail,
                                  // To:personEmail,
                                     Message:TextInput1_2.Text,
-                                    LeadInformationLID:LookUp(LeadInformations,ID=glryLeadsSLS.Selected.ID)
+                                    FromName:User().FullName,
+                                    LeadInformationLID:LookUp(LeadInformations,ID=VarLtdID)
                                     
                                 }
                             );
@@ -222,7 +223,7 @@ ChatScreen As screen:
                     RGBA(0, 0, 0, 0)
                 Height: =Parent.Height-TextInput1_2.Height
                 Items: |-
-                    =Sort(Filter(LeadChats,LeadInformationLID.ID=glryLeadsSLS.Selected.ID),'Created On',SortOrder.Ascending)
+                    =Sort(Filter(LeadChats,LeadInformationLID.ID=VarLtdID),'Created On',SortOrder.Ascending)
                     /*[{
                         message:"Check doors again",
                         time:"12.59 AM",

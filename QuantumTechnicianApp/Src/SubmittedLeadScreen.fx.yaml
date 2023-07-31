@@ -419,10 +419,11 @@ SubmittedLeadScreen As screen:
                         Fill: =RGBA(255, 255, 255, 1)
                         Height: =Parent.Width/10
                         Icon: =Icon.Message
-                        OnSelect: |-
+                        OnSelect: |
                             =Navigate(ChatScreen);
                             Set(VarLtdName,ThisItem.'BuildingName ');
-                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ')
+                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
+                            Set(VarLtdID,ThisItem.ID);
                         Width: =Parent.Width/10
                         X: =Parent.Width-Self.Width-30
                         Y: =Parent.TemplateHeight/2.3
