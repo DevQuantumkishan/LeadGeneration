@@ -378,7 +378,7 @@ LeadScreen As screen:
                         ZIndex: =1
 
                     lblchatmessageLdS As label:
-                        Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
+                        Align: =If(ThisItem.IsQQApp=true,Align.Right,Align.Left)
                         AutoHeight: =true
                         Font: =Font.Arial
                         Height: =25
@@ -391,7 +391,7 @@ LeadScreen As screen:
                         ZIndex: =2
 
                     lblsenderreceiverLdS As label:
-                        Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
+                        Align: =If(ThisItem.IsQQApp=true,Align.Right,Align.Left)
                         Font: =Font.Arial
                         Height: =30
                         OnSelect: =Select(Parent)
