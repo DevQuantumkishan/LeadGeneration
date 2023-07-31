@@ -370,7 +370,7 @@ LeadScreen As screen:
                     ZIndex: =2
 
                     rectmessageLdS As rectangle:
-                        Fill: =If(ThisItem.IsQQApp=true, RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
+                        Fill: =If(ThisItem.IsQQApp=true,RGBA(255,255,255,1),RGBA(237, 237, 237, 1))
                         Height: =lblchatmessageLdS.Height+lblsenderreceiverLdS.Height
                         OnSelect: =Select(Parent)
                         Width: =Parent.Width-30
@@ -1309,7 +1309,7 @@ LeadScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 PaddingLeft: =20
                 Text: |-
-                    ="Enter message to technician : Schindler guest "
+                    ="Enter message to technician : " & glryleadlistLS.Selected.MechanicName
                 Width: =Parent.Width-70
                 ZIndex: =1
 
@@ -1371,7 +1371,7 @@ LeadScreen As screen:
                 });
                 
                 
-                
+                Reset(txtinptchatmessageLdS);
                 Set(VarChatMessage,false);
             PressedColor: =Self.Color
             PressedFill: =Self.Fill
