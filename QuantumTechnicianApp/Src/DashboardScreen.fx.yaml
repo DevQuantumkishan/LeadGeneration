@@ -341,9 +341,9 @@ DashboardScreen As screen:
                                 Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
-                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Potential Future Incentives"});Set(VarFutureIncetives,true);
+                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Open"});Set(VarFutureIncetives,false);
                                 Set(VarSoldIncetives,false);
-                                Set(VarTotalIncentives,false);
+                                Set(VarTotalIncentives,true);
                             PaddingRight: =5.34
                             PaddingTop: =50
                             RadiusBottomLeft: =6
@@ -405,9 +405,10 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Sold Incentives"});
+                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
+                                Set(VarTotalIncentives,false);
                             PaddingRight: =5.34
                             PaddingTop: =53.40
                             RadiusBottomLeft: =6
@@ -470,7 +471,8 @@ DashboardScreen As screen:
                                 Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
-                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Potential Future Incentives"});Set(VarFutureIncetives,true);
+                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Rejected"});
+                                Set(VarFutureIncetives,true);
                                 Set(VarSoldIncetives,false);
                                 Set(VarTotalIncentives,false);
                             PaddingRight: =5.34
@@ -592,7 +594,8 @@ DashboardScreen As screen:
                                 Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
-                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Potential Future Incentives"});Set(VarFutureIncetives,true);
+                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
+                                Set(VarFutureIncetives,true);
                                 Set(VarSoldIncetives,false);
                                 Set(VarTotalIncentives,false);
                             PaddingRight: =5.34
@@ -696,7 +699,7 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Sold Incentives"});
+                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Sold"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                             PaddingRight: =5.34

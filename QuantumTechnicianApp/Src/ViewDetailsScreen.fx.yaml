@@ -724,7 +724,7 @@ ViewDetailsScreen As screen:
                         DisplayFields: =["shlrf_primaryscopeofworkname"]
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Items: =Choices([@LeadInformations].shlrf_PrimaryScopeofWorkLID)
+                        Items: =Choices([@LeadInformations].PrimaryScopeofWorkLID)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
                         SearchItems: =Search(Choices([@LeadInformations].shlrf_PrimaryScopeofWorkLID),DataCardValue1.SearchText,"shlrf_primaryscopeofworkname")

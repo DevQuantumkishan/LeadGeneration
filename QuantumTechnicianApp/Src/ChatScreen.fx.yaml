@@ -128,6 +128,7 @@ ChatScreen As screen:
             ZIndex: =2
 
             Button3_9 As button:
+                Align: =Align.Right
                 BorderColor: =RGBA(219, 219, 219, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: =DisplayMode.View
@@ -136,11 +137,24 @@ ChatScreen As screen:
                 Height: =Parent.Height
                 PaddingLeft: =20
                 PaddingRight: =20
-                PaddingTop: =0
-                Size: =24
-                Text: ="Lead Chat"
+                Size: =If(Parent.Width<500,14,Parent.Width>500,20)
+                Text: =VarLtdName
                 Width: =Parent.Width
                 ZIndex: =1
+
+            lblHeaderDS_5 As label:
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Bold
+                Height: =Parent.Height
+                PaddingLeft: =20
+                PaddingRight: =5.34
+                Size: |
+                    =//21.36
+                    If(Parent.Width<500,14,Parent.Width>500,20)
+                Text: ="Technician Lead Generation"
+                Width: =Parent.Width-imgSchindlerLogoDS_3.Width-IconMenuDS_3.Width-Button2_4.Width-60
+                ZIndex: =2
 
         Container8 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
