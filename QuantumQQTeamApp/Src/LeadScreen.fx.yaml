@@ -1359,7 +1359,7 @@ LeadScreen As screen:
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |+
                 =If(IsBlank(txtinptchatmessageLdS.Text),
-                Notify("Please enter message to send",NotificationType.Information); ,
+                Notify("Please enter message to send",NotificationType.Warning); ,
                 Patch(LeadChats,Defaults(LeadChats),
                 {
                     ID:GUID(),
@@ -1371,8 +1371,21 @@ LeadScreen As screen:
                     LeadInformationLID:LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID),
                     IsQQApp:true
                 });
-                Reset(txtinptchatmessageLdS);
+                
+                If(
+                        (!IsEmpty(Errors(LeadChats))),
+                        Notify(
+                            "Sending message Patch function Error -- " & Concat(
+                                Errors(LeadChats),
+                                Column & ": " & Message
+                            ),
+                            NotificationType.Error
+                        );
+                        ,
+                        Reset(txtinptchatmessageLdS);
                 Set(VarChatMessage,false);
+                Notify("Message send successfully.",NotificationType.Success);
+                    );
                 );
                 
                 
