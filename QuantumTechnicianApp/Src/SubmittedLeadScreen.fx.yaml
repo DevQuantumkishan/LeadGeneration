@@ -210,7 +210,7 @@ SubmittedLeadScreen As screen:
                         =//Sort
                         Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
                         Text(Year('Created On'))=Title2.Text &&
-                                     If(Header="Open", LeadStatus = "Submitted",LeadStatus =Header)
+                                     If(Header="Open", LeadStatus = "Submitted" ,LeadStatus =Header)
                             && Email=User().Email),'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname")
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
@@ -417,16 +417,16 @@ SubmittedLeadScreen As screen:
                     Icon4 As icon.Message:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
-                        Height: =Parent.Height/10
+                        Height: =Parent.Width/20
                         Icon: =Icon.Message
                         OnSelect: |
                             =Navigate(ChatScreen);
                             Set(VarLtdName,ThisItem.'BuildingName ');
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
-                        Width: =Parent.Width/10
-                        X: =Parent.Width-Self.Width-30
-                        Y: =Parent.TemplateHeight/2.3
+                        Width: =Parent.Width/20
+                        X: =Parent.Width-2*(Self.Width)
+                        Y: =Parent.TemplateHeight/2.2
                         ZIndex: =23
 
                 lblTitleYearSLS As label:

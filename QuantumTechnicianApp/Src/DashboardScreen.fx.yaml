@@ -391,7 +391,7 @@ DashboardScreen As screen:
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
-                                =If(cumulatively=true,"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")),"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
+                                =If(cumulatively=true,"InProgress Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress")),"InProgress Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" && Year('Created On')=Year(Now())))) 
                             Width: =btnSoldLeadsDS_1.Width
                             X: =btnSoldLeadsDS_1.X
                             Y: =(Parent.Height-Self.Height)/2
@@ -405,7 +405,7 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
+                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "InProgress"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);

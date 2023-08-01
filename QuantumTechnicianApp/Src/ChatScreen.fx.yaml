@@ -260,7 +260,7 @@ ChatScreen As screen:
                 ZIndex: =3
 
                 Rectangle6 As rectangle:
-                    Fill: =If(ThisItem.FromEmail=User().Email, RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
+                    Fill: =If(ThisItem.IsQQApp=true,RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
                     Height: =Label6_2.Height+Label8_2.Height
                     OnSelect: =Select(Parent)
                     Width: =Parent.Width-30
@@ -268,13 +268,13 @@ ChatScreen As screen:
                     ZIndex: =1
 
                 Label6_2 As label:
-                    Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
+                    Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
                     AutoHeight: =true
                     Font: =Font.Arial
                     Height: =25
                     OnSelect: =Select(Parent)
                     PaddingLeft: =20
-                    PaddingRight: =50
+                    PaddingRight: =40
                     Size: =18
                     Text: =ThisItem.Message
                     Width: =Parent.Width-Button1.Width-Button1.X
@@ -282,13 +282,13 @@ ChatScreen As screen:
                     ZIndex: =2
 
                 Label8_2 As label:
-                    Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
+                    Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
                     AutoHeight: =true
                     Font: =Font.Arial
                     Height: =30
                     OnSelect: =Select(Parent)
                     PaddingLeft: =20
-                    PaddingRight: =50
+                    PaddingRight: =40
                     Size: =14
                     Text: |-
                         =//ThisItem.From & "  "& ThisItem.Datetime
@@ -325,9 +325,7 @@ ChatScreen As screen:
                             ThisItem.FromName,
                             Find(" ", ThisItem.FromName) + 1,
                             1)
-                    Visible: |-
-                        =//If(ThisItem.FromEmail<>User().Email,true)
-                        true
+                    Visible: =If(ThisItem.IsQQApp=true,true,false)
                     Width: =40
                     X: =20
                     Y: =15

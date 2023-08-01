@@ -410,7 +410,7 @@ ScopeScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =If(VarScope,48,0)
+                        Height: =If(VarScope,48)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: |-
                             =//Parent.DisplayName
