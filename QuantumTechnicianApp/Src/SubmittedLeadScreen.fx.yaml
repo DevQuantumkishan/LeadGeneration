@@ -425,7 +425,7 @@ SubmittedLeadScreen As screen:
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
                         Width: =Parent.Width/20
-                        X: =Parent.Width-2*(Self.Width)
+                        X: =Parent.Width-3*(Self.Width)
                         Y: =Parent.TemplateHeight/2.2
                         ZIndex: =23
 
