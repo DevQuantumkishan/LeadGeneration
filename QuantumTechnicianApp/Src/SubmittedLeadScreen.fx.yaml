@@ -327,10 +327,10 @@ SubmittedLeadScreen As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =lineEstimateSLS_1.Y+lineEstimateSLS_1.Height+10
+                        Y: =lineEstimatenoSLS.Y+lineEstimatenoSLS.Height+10
                         ZIndex: =17
 
-                    HtmlText2_5 As htmlViewer:
+                    htmltxtAddressSLS As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Height: =20
@@ -345,7 +345,7 @@ SubmittedLeadScreen As screen:
                         Y: =HtmlText2_3.Y+HtmlText2_3.Height
                         ZIndex: =18
 
-                    HtmlText2_6 As htmlViewer:
+                    htmltxtZipcodeSLS As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Height: =20
@@ -357,10 +357,10 @@ SubmittedLeadScreen As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =HtmlText2_5.Y+HtmlText2_5.Height
+                        Y: =htmltxtAddressSLS.Y+htmltxtAddressSLS.Height
                         ZIndex: =19
 
-                    HtmlText2_7 As htmlViewer:
+                    htmltxtDateSLS As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Height: =20
@@ -372,7 +372,7 @@ SubmittedLeadScreen As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =HtmlText2_6.Y+HtmlText2_6.Height
+                        Y: =htmltxtZipcodeSLS.Y+htmltxtZipcodeSLS.Height
                         ZIndex: =20
 
                     btnSubmittedLeadSLS As button:
@@ -403,7 +403,7 @@ SubmittedLeadScreen As screen:
                         Y: =10
                         ZIndex: =21
 
-                    lineEstimateSLS_1 As rectangle:
+                    lineEstimatenoSLS As rectangle:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(202, 202, 202, 1)
@@ -414,7 +414,7 @@ SubmittedLeadScreen As screen:
                         Y: =lblPriceSLS.Height+lblPriceSLS.Y
                         ZIndex: =22
 
-                    iconmsgsls As icon.Message:
+                    iconmsgSLS As icon.Message:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Height: =Parent.Width/20
