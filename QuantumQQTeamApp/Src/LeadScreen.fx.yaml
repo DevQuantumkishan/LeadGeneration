@@ -399,8 +399,8 @@ LeadScreen As screen:
                         PaddingRight: =50
                         Size: =14
                         Text: |-
-                            =//ThisItem.From & "  "& ThisItem.Datetime
-                            ThisItem.FromName & "  " &ThisItem.'Modified On'
+                            =//ThisItem.FromName & "  " &ThisItem.'Modified On'
+                            If(ThisItem.IsQQApp=true,ThisItem.FromName &  " " &ThisItem.'Modified On',ThisItem.ToName & " " & ThisItem.'Modified On')
                         Width: =Parent.Width
                         Y: =lblchatmessageLdS.Y+lblchatmessageLdS.Height
                         ZIndex: =3
