@@ -177,7 +177,7 @@ ChatScreen As screen:
                 DisabledColor: =RGBA(255, 0, 0, 1)
                 Fill: =RGBA(0, 0, 0, 0)
                 Font: =Font.Arial
-                Height: =80
+                Height: =If(Parent.Height<Parent.Width,60,80)
                 HintText: ="Enter message"
                 HoverFill: =RGBA(0, 0, 0, 0)
                 Mode: =TextMode.MultiLine
@@ -193,7 +193,7 @@ ChatScreen As screen:
                 Color: =RGBA(255, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
                 DisabledColor: =RGBA(255, 0, 0, 1)
-                Height: =80
+                Height: =If(Parent.Height<Parent.Width,60,80)
                 Icon: =Icon.Send
                 OnSelect: |-
                     =Patch(LeadChats,Defaults(LeadChats),
@@ -277,11 +277,13 @@ ChatScreen As screen:
                     PaddingRight: =50
                     Size: =18
                     Text: =ThisItem.Message
-                    Width: =Parent.Width
+                    Width: =Parent.Width-Button1.Width-Button1.X
+                    X: =Button1.X+Button1.Width
                     ZIndex: =2
 
                 Label8_2 As label:
                     Align: =If(ThisItem.FromEmail=User().Email,Align.Right,Align.Left)
+                    AutoHeight: =true
                     Font: =Font.Arial
                     Height: =30
                     OnSelect: =Select(Parent)
@@ -290,8 +292,9 @@ ChatScreen As screen:
                     Size: =14
                     Text: |-
                         =//ThisItem.From & "  "& ThisItem.Datetime
-                        ThisItem.FromName & "  " &ThisItem.'Created On'
-                    Width: =Parent.Width
+                        ThisItem.FromName  & " "& TimeValue(ThisItem.'Created On')
+                    Width: =Parent.Width-Button1.Width-Button1.X
+                    X: =Button1.X+Button1.Width
                     Y: =Label6_2.Y+Label6_2.Height
                     ZIndex: =3
 
@@ -302,4 +305,29 @@ ChatScreen As screen:
                     X: =10
                     Y: =Label8_2.Height+Label8_2.Y+5
                     ZIndex: =4
+
+                Button1 As button:
+                    BorderColor: =ColorFade(Self.Color, -15%)
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
+                    FontWeight: =FontWeight.Normal
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Text: |-
+                        =Left(ThisItem.FromName, 1) &
+                        Mid(
+                            ThisItem.FromName,
+                            Find(" ", ThisItem.FromName) + 1,
+                            1)
+                    Visible: =If(ThisItem.FromEmail<>User().Email,true)
+                    Width: =40
+                    X: =20
+                    Y: =15
+                    ZIndex: =5
 
