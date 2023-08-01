@@ -399,8 +399,8 @@ LeadScreen As screen:
                         PaddingRight: =50
                         Size: =14
                         Text: |-
-                            =//ThisItem.From & "  "& ThisItem.Datetime
-                            ThisItem.FromName & "  " &ThisItem.'Modified On'
+                            =ThisItem.FromName & "  " &ThisItem.'Modified On'
+                            //If(ThisItem.IsQQApp=true,ThisItem.FromName &  " " &ThisItem.'Modified On',ThisItem.ToName & " " & ThisItem.'Modified On')
                         Width: =Parent.Width
                         Y: =lblchatmessageLdS.Y+lblchatmessageLdS.Height
                         ZIndex: =3
@@ -1357,8 +1357,10 @@ LeadScreen As screen:
             Fill: =RGBA(255, 0, 0, 1)
             FocusedBorderThickness: =
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-            OnSelect: |
-                =Patch(LeadChats,Defaults(LeadChats),
+            OnSelect: |+
+                =If(IsBlank(txtinptchatmessageLdS.Text),
+                Notify("Please enter message to send",NotificationType.Warning); ,
+                Patch(LeadChats,Defaults(LeadChats),
                 {
                     ID:GUID(),
                     Message:txtinptchatmessageLdS.Text,
@@ -1370,9 +1372,24 @@ LeadScreen As screen:
                     IsQQApp:true
                 });
                 
-                
-                Reset(txtinptchatmessageLdS);
+                If(
+                        (!IsEmpty(Errors(LeadChats))),
+                        Notify(
+                            "Sending message Patch function Error -- " & Concat(
+                                Errors(LeadChats),
+                                Column & ": " & Message
+                            ),
+                            NotificationType.Error
+                        );
+                        ,
+                        Reset(txtinptchatmessageLdS);
                 Set(VarChatMessage,false);
+                Notify("Message send successfully.",NotificationType.Success);
+                    );
+                );
+                
+                
+                
             PressedColor: =Self.Color
             PressedFill: =Self.Fill
             Text: ="Send Message"
