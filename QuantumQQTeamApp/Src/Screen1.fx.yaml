@@ -38,7 +38,7 @@ Screen1 As screen:
         ZIndex: =1
 
     Button3 As button:
-        OnSelect: =Set(i,759)
+        OnSelect: =Set(i,4100)
         Text: ="Button"
         X: =60
         Y: =60
@@ -48,7 +48,7 @@ Screen1 As screen:
         Duration: =7000
         OnTimerStart: |-
             =
-            If(i<1500,
+            If(i<7000,
             Set(i,i+1);
             Set(patchresult,
             Patch(
