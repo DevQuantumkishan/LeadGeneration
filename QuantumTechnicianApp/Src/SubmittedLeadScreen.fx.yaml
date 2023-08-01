@@ -67,7 +67,7 @@ SubmittedLeadScreen As screen:
                     UpdateContext({locInfoExpanded:false})
                 PaddingBottom: =5
                 PaddingTop: =5
-                Width: =Parent.Width/20
+                Width: =Parent.Height/2
                 X: =18
                 Y: =11
                 ZIndex: =3
@@ -180,7 +180,7 @@ SubmittedLeadScreen As screen:
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =4
-                TemplateSize: =Min(870, Self.Height - 40)
+                TemplateSize: =Min(1000, Self.Height - 20)
                 Width: =Parent.Width/1.02
                 X: =10
                 Y: =ctnSearchBarSLS.Y+ctnSearchBarSLS.Height+10
@@ -552,7 +552,9 @@ SubmittedLeadScreen As screen:
                     Height: =rectangleYearSLS.Height/8
                     Icon: =Icon.ChevronDown
                     OnSelect: =Select(Parent)
-                    Visible: = //locInfoExpanded 
+                    Visible: |
+                        = //locInfoExpanded 
+                         false
                     Width: =Parent.Width/58
                     X: =rectangleYearSLS.Width/2.0
                     Y: =rectangleYearSLS.Height/1.035
