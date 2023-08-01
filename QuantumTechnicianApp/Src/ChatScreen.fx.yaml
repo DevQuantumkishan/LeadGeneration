@@ -325,7 +325,9 @@ ChatScreen As screen:
                             ThisItem.FromName,
                             Find(" ", ThisItem.FromName) + 1,
                             1)
-                    Visible: =If(ThisItem.FromEmail<>User().Email,true)
+                    Visible: |-
+                        =//If(ThisItem.FromEmail<>User().Email,true)
+                        true
                     Width: =40
                     X: =20
                     Y: =15
