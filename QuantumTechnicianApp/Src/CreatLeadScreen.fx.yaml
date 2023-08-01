@@ -19,16 +19,13 @@ CreatLeadScreen As screen:
         ZIndex: =1
 
         ctnHeaderCL As groupContainer.horizontalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
-            FillPortions: =0
             Height: |-
                 =//Parent.Height/13.5
                 ///If(Parent.Height<Parent.Width,Parent.Height/6,Parent.Height/18)
                 If(Parent.Height<Parent.Width,60,80)
             LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutMinHeight: =100
-            LayoutMinWidth: =Parent.Width/1.02
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =10
             PaddingRight: =10
@@ -54,8 +51,6 @@ CreatLeadScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Image: ='1x'
-                LayoutMinHeight: =320
-                LayoutMinWidth: =320
                 PaddingBottom: =5
                 PaddingTop: =0.00
                 Width: =If(Parent.Width>Parent.Height,Parent.Width/8,Parent.Width/12)
@@ -63,12 +58,10 @@ CreatLeadScreen As screen:
                 ZIndex: =2
 
             lblHeaderDS_1 As label:
-                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
                 Height: =Parent.Height
-                LayoutMinHeight: =70
                 PaddingLeft: =20
                 PaddingRight: =5.34
                 PaddingTop: =5.34
@@ -81,7 +74,6 @@ CreatLeadScreen As screen:
                 ZIndex: =3
 
             Button2_1 As button:
-                AlignInContainer: =AlignInContainer.Center
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -106,12 +98,10 @@ CreatLeadScreen As screen:
                 ZIndex: =4
 
         ctnUserHeaderCL As groupContainer.manualLayoutContainer:
-            FillPortions: =0
+            AlignInContainer: =AlignInContainer.SetByContainer
             Height: |-
                 =//Parent.Height/14
                 If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
-            LayoutMinHeight: =100
-            LayoutMinWidth: =250
             PaddingRight: =0.00
             PaddingTop: =0.00
             Width: =Parent.Width-40
@@ -137,23 +127,16 @@ CreatLeadScreen As screen:
         ctnLeadCL As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
-            FillPortions: =0
             Height: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height-30
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
-            LayoutMinHeight: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height
-            LayoutMinWidth: =Parent.Width/1.08
             LayoutMode: =LayoutMode.Auto
             LayoutOverflowY: =LayoutOverflow.Scroll
             Width: =Parent.Width
             ZIndex: =3
 
             ctnProgressBarCreatLead As groupContainer.manualLayoutContainer:
-                AlignInContainer: =AlignInContainer.Center
-                FillPortions: =0
                 Height: =130
-                LayoutMinHeight: =100
-                LayoutMinWidth: =Parent.Width/1.04
                 Width: =Parent.Width
                 X: =87
                 Y: =77
@@ -377,13 +360,9 @@ CreatLeadScreen As screen:
                     ZIndex: =24
 
             BuildingInfoForm As form:
-                AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
-                FillPortions: =0
                 Height: =If(Parent.Width>375,(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+30),(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+30))
                 Item: =VarFormMode
-                LayoutMinHeight: =400
-                LayoutMinWidth: =400
                 Width: =Parent.Width/1.04
                 Y: =143
                 ZIndex: =2
@@ -743,15 +722,11 @@ CreatLeadScreen As screen:
                         ZIndex: =4
 
             ctnbuttonUS_1 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
-                FillPortions: =0
                 Height: =80
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =20
                 LayoutJustifyContent: =LayoutJustifyContent.Center
-                LayoutMinHeight: =100
-                LayoutMinWidth: =Parent.Width
                 LayoutMode: =LayoutMode.Auto
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -793,13 +768,9 @@ CreatLeadScreen As screen:
                     ZIndex: =2
 
             ctnForSpaceCL As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
-                FillPortions: =0
                 Height: =Parent.Height-ctnProgressBarCreatLead.Height-ctnbuttonUS_1.Height-BuildingInfoForm.Height
                 LayoutDirection: =LayoutDirection.Vertical
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
