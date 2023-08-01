@@ -293,7 +293,7 @@ DashboardScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                ctnQuatedLeadsDS_1 As groupContainer.manualLayoutContainer:
+                ctnOpenLeadsDS As groupContainer.manualLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
@@ -307,14 +307,14 @@ DashboardScreen As screen:
                     Width: =Parent.Width/3.35
                     ZIndex: =1
 
-                    grpQuotedLeadsDS_1 As group:
+                    grpOpenLeadsDS As group:
                         Height: =5
                         Width: =5
                         X: =20
                         Y: =40
                         ZIndex: =3
 
-                        lblQuotedLeadsDS_1 As label:
+                        lblOpenLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             Color: =RGBA(116, 116, 116, 1)
@@ -327,15 +327,14 @@ DashboardScreen As screen:
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width<378,14,16)
                             Text: |-
-                                =//If(cumulatively=true, "Open" & Char(10)& "Leads#" & Char(10)& "30","Open" & Char(10)& "Leads#" & Char(10) &  "15")
-                                
+                                =//its for count of yealy/cumulatively open leads
                                 If(cumulatively=true,"Open Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")),"Open Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
                             Width: =Parent.Width
-                            X: =btnQuotedLeadsDS_1.X
+                            X: =btnopenLeadsDS.X
                             Y: =(Parent.Height-Self.Height)/2
                             ZIndex: =1
 
-                        btnQuotedLeadsDS_1 As button:
+                        btnopenLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             Fill: =RGBA(0, 0, 0, 0)
