@@ -44,7 +44,7 @@ DashboardScreen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
-                OnSelect: =//Set(varshowMenu,!varshowMenu)
+                OnSelect: =Set(varshowMenu,!varshowMenu)
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -103,7 +103,8 @@ DashboardScreen As screen:
                 RadiusTopRight: =50
                 Size: =If(Parent.Width<500,11,Parent.Width>500,12,12)
                 Text: |-
-                    =Left(User().FullName, 1) &
+                    =//username profile
+                    Left(User().FullName, 1) &
                     Mid(
                         User().FullName,
                         Find(" ", User().FullName) + 1,
@@ -244,10 +245,12 @@ DashboardScreen As screen:
                     Font: =Font.Arial
                     Height: =Parent.Height/2.02
                     OnCheck: |-
-                        =Set(cumulatively,false);
+                        =//for cumulatively record
+                        Set(cumulatively,false);
                         Set(yearly,true);
                     OnUncheck: |-
-                        =Set(yearly,false);
+                        =//for yearly record
+                        Set(yearly,false);
                         Set(cumulatively,true);
                     Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
                     TextPosition: =TextPosition.Left
