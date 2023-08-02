@@ -209,8 +209,10 @@ ChatScreen As screen:
                             );
                     Refresh(LeadChats);
                     Reset(TextInput1_2);
-                PaddingLeft: =5
-                PaddingRight: =5
+                PaddingBottom: =10
+                PaddingLeft: =25
+                PaddingRight: =25
+                PaddingTop: =10
                 Width: =100
                 X: =TextInput1_2.Width-(Self.Width)
                 Y: =Gallery4_2.Height
@@ -284,15 +286,16 @@ ChatScreen As screen:
                 Label8_2 As label:
                     Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
                     AutoHeight: =true
+                    Color: =RGBA(149, 149, 149, 1)
                     Font: =Font.Arial
                     Height: =30
                     OnSelect: =Select(Parent)
                     PaddingLeft: =20
                     PaddingRight: =40
-                    Size: =If(Parent.Width<500,12,Parent.Width>500,14)
+                    Size: =If(Parent.Width<500,10,Parent.Width>500,11)
                     Text: |-
                         =//ThisItem.From & "  "& ThisItem.Datetime
-                        ThisItem.FromName  & " "& TimeValue(ThisItem.'Created On')
+                        DateValue(ThisItem.'Created On')  & " "& TimeValue(ThisItem.'Created On')
                     Width: =Parent.Width-Button1.Width-Button1.X
                     X: =Button1.X+Button1.Width
                     Y: =Label6_2.Y+Label6_2.Height
@@ -308,8 +311,12 @@ ChatScreen As screen:
 
                 Button1 As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(255, 0, 0, 1)
+                    DisabledColor: =RGBA(255, 0, 0, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
                     DisplayMode: =DisplayMode.View
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
                     Font: =Font.Arial
                     FontWeight: =FontWeight.Normal
                     Height: =Parent.TemplateHeight/1.4
