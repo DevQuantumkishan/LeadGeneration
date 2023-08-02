@@ -137,23 +137,23 @@ ChatScreen As screen:
                 Height: =Parent.Height
                 PaddingLeft: =20
                 PaddingRight: =20
-                Size: =If(Parent.Width<500,14,Parent.Width>500,20)
-                Text: =VarLtdName
+                Size: =If(Parent.Width<500,12,Parent.Width>500,16)
+                Text: ="Building Name" & Char(10) & VarLtdName
                 Width: =Parent.Width
                 ZIndex: =1
 
             lblHeaderDS_5 As label:
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
-                FontWeight: =FontWeight.Bold
+                FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
                 PaddingLeft: =20
                 PaddingRight: =5.34
                 Size: |
                     =//21.36
-                    If(Parent.Width<500,14,Parent.Width>500,20)
-                Text: =VarLtdCntNumber
-                Width: =Parent.Width-imgSchindlerLogoDS_3.Width-IconMenuDS_3.Width-Button2_4.Width-60
+                    If(Parent.Width<500,12,Parent.Width>500,16)
+                Text: ="Contract Number" & Char(10) & VarLtdCntNumber
+                Width: =Parent.Width
                 ZIndex: =2
 
         Container8 As groupContainer.manualLayoutContainer:
@@ -170,19 +170,19 @@ ChatScreen As screen:
             ZIndex: =3
 
             TextInput1_2 As text:
-                BorderColor: =Self.Color
-                Color: =RGBA(255, 0, 0, 1)
+                BorderColor: =Color.Red
                 Default: =""
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
-                DisabledColor: =RGBA(255, 0, 0, 1)
+                DisabledColor: =RGBA(0, 0, 0, 1)
                 Fill: =RGBA(0, 0, 0, 0)
                 Font: =Font.Arial
-                Height: =If(Parent.Height<Parent.Width,60,80)
+                Height: =60
                 HintText: ="Enter message"
+                HoverBorderColor: =RGBA(255, 0, 0, 1)
                 HoverFill: =RGBA(0, 0, 0, 0)
                 Mode: =TextMode.MultiLine
                 PaddingLeft: =10
-                Size: =16
+                Size: =If(Parent.Width<500,12,Parent.Width>500,14)
                 Width: =Parent.Width
                 Y: =Gallery4_2.Height
                 ZIndex: =1
@@ -193,7 +193,7 @@ ChatScreen As screen:
                 Color: =RGBA(255, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
                 DisabledColor: =RGBA(255, 0, 0, 1)
-                Height: =If(Parent.Height<Parent.Width,60,80)
+                Height: =If(Parent.Height<Parent.Width,50,70)
                 Icon: =Icon.Send
                 OnSelect: |-
                     =Patch(LeadChats,Defaults(LeadChats),
@@ -210,10 +210,10 @@ ChatScreen As screen:
                     Refresh(LeadChats);
                     Reset(TextInput1_2);
                 PaddingBottom: =10
-                PaddingLeft: =25
-                PaddingRight: =25
+                PaddingLeft: =10
+                PaddingRight: =10
                 PaddingTop: =10
-                Width: =100
+                Width: =If(Parent.Width<500,60,80)
                 X: =TextInput1_2.Width-(Self.Width)
                 Y: =Gallery4_2.Height
                 ZIndex: =2
@@ -277,7 +277,7 @@ ChatScreen As screen:
                     OnSelect: =Select(Parent)
                     PaddingLeft: =20
                     PaddingRight: =40
-                    Size: =If(Parent.Width<500,16,Parent.Width>500,18)
+                    Size: =If(Parent.Width<500,14,Parent.Width>500,16)
                     Text: =ThisItem.Message
                     Width: =Parent.Width-Button1.Width-Button1.X
                     X: =Button1.X+Button1.Width
@@ -292,7 +292,7 @@ ChatScreen As screen:
                     OnSelect: =Select(Parent)
                     PaddingLeft: =20
                     PaddingRight: =40
-                    Size: =If(Parent.Width<500,10,Parent.Width>500,11)
+                    Size: =If(Parent.Width<500,9,Parent.Width>500,11)
                     Text: |-
                         =//ThisItem.From & "  "& ThisItem.Datetime
                         DateValue(ThisItem.'Created On')  & " "& TimeValue(ThisItem.'Created On')
@@ -310,24 +310,27 @@ ChatScreen As screen:
                     ZIndex: =4
 
                 Button1 As button:
-                    BorderColor: =ColorFade(Self.Color, -15%)
-                    Color: =RGBA(255, 0, 0, 1)
+                    BorderColor: =Color.Red
+                    BorderThickness: =1
+                    Color: =RGBA(0, 0, 0, 1)
                     DisabledBorderColor: =RGBA(255, 0, 0, 1)
-                    DisabledColor: =RGBA(255, 0, 0, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
                     DisabledFill: =RGBA(255, 255, 255, 1)
-                    DisplayMode: =DisplayMode.View
+                    DisplayMode: =DisplayMode.Disabled
                     Fill: =RGBA(255, 255, 255, 1)
                     Font: =Font.Arial
                     FontWeight: =FontWeight.Normal
-                    Height: =Parent.TemplateHeight/1.4
+                    Height: =28
                     OnSelect: =Select(Parent)
+                    PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
+                    PaddingTop: =0
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Size: =If(Parent.Width<500,11,Parent.Width>500,12)
+                    Size: =If(Parent.Width<500,9,Parent.Width>500,10)
                     Text: |-
                         =Left(ThisItem.FromName, 1) &
                         Mid(
@@ -335,8 +338,8 @@ ChatScreen As screen:
                             Find(" ", ThisItem.FromName) + 1,
                             1)
                     Visible: =If(ThisItem.IsQQApp=true,true,false)
-                    Width: =Parent.TemplateHeight/1.4
-                    X: =20
+                    Width: =28
+                    X: =15
                     Y: =15
                     ZIndex: =5
 
