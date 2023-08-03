@@ -1,6 +1,6 @@
 ChatScreen As screen:
 
-    Container7 As groupContainer.verticalAutoLayoutContainer:
+    ctnMainCS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -12,7 +12,7 @@ ChatScreen As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderDS_9 As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeaderCS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -23,7 +23,7 @@ ChatScreen As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            IconMenuDS_3 As icon.Hamburger:
+            IconMenuCS As icon.Hamburger:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -35,8 +35,7 @@ ChatScreen As screen:
                 Y: =11
                 ZIndex: =5
 
-            imgSchindlerLogoDS_3 As image:
-                AlignInContainer: =AlignInContainer.Center
+            imgSchindlerLogoCS As image:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -49,8 +48,7 @@ ChatScreen As screen:
                 X: =0.00
                 ZIndex: =6
 
-            iconBackCL_2 As icon.BackArrow:
-                AlignInContainer: =AlignInContainer.Center
+            iconBackCS As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -64,8 +62,7 @@ ChatScreen As screen:
                 Y: =11
                 ZIndex: =7
 
-            lblHeaderDS_4 As label:
-                AlignInContainer: =AlignInContainer.Center
+            lblHeaderCS As label:
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
@@ -78,12 +75,11 @@ ChatScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoDS_3.Width-IconMenuDS_3.Width-Button2_4.Width-60
+                Width: =Parent.Width-imgSchindlerLogoCS.Width-IconMenuCS.Width-btnUserNameCS.Width-60
                 X: =96.12
                 ZIndex: =8
 
-            Button2_4 As button:
-                AlignInContainer: =AlignInContainer.Center
+            btnUserNameCS As button:
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -108,7 +104,7 @@ ChatScreen As screen:
                 ZIndex: =9
 
         Container1_9 As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
+            AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(219, 219, 219, 1)
             BorderThickness: =2
             Fill: =RGBA(255, 255, 255, 1)
@@ -157,10 +153,10 @@ ChatScreen As screen:
                 ZIndex: =2
 
         Container8 As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderDS_9.Height-Container1_9.Height-40
+            Height: =Parent.Height-ctnHeaderCS.Height-Container1_9.Height-40
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =5
