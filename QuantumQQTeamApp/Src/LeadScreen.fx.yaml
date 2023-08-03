@@ -1423,7 +1423,7 @@ LeadScreen As screen:
             Y: =rectchatmessageLdS.Y
             ZIndex: =9
 
-    Timer2 As timer:
+    tmrgetmessage As timer:
         AutoPause: =false
         AutoStart: =false//VarLeadMessages
         OnTimerEnd: =Refresh(LeadChats);
