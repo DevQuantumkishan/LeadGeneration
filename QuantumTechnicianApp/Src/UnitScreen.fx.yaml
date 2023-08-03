@@ -1,8 +1,8 @@
 UnitScreen As screen:
-    OnVisible: |
+    OnVisible: |+
         =If(IsBlank(IntxtUnitCount),Set(VarUnitDescription,false));
         If(IsBlank(IntxtUnitDescription),Set(VarUnitCount,false));
-        Set(varshowMenu,!varshowMenu);
+        
 
     ctnMainUS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)

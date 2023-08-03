@@ -1,7 +1,6 @@
 DashboardScreen As screen:
-    OnVisible: |-
+    OnVisible: |
         =Refresh(LeadInformations);
-        Set(varshowMenu,!varshowMenu);
 
     ctnMainDS As groupContainer.horizontalAutoLayoutContainer:
         DropShadow: =DropShadow.None
@@ -792,73 +791,88 @@ DashboardScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    "glryMenuBarDS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
-        BorderColor: =RGBA(255, 255, 255, 1)
-        BorderThickness: =1
-        Fill: =RGBA(237, 237, 237, 1)
-        Height: =1.08*(CountRows(glryMenuBarDS.AllItems)*(glryMenuBarDS.TemplateHeight))
-        Items: =Menu
-        Layout: =Layout.Vertical
-        ShowScrollbar: =false
-        TemplatePadding: =0
-        TemplateSize: =90
-        Visible: =varshowMenu
-        Width: =Parent.Width/4
-        X: =10
-        Y: =ctnHeaderDS.Y+ctnHeaderDS.Height+5
-        ZIndex: =2
+    grpMenuDS As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =4
 
-        ctnMenuDS As groupContainer.manualLayoutContainer:
-            DropShadow: =DropShadow.ExtraBold
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: =80
-            Width: =Parent.Width/1.02
-            ZIndex: =8
+        ctnBackgroundMenuDS As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(0, 0.19, 0.19, 0.19)
+            Height: =Parent.Height-ctnHeaderDS.Height
+            Visible: =varshowMenu
+            Width: =Parent.Width
+            Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
+            ZIndex: =2
 
-            lblMenuDS As label:
-                AutoHeight: =true
-                Color: =RGBA(255, 0, 0, 1)
-                Height: =24
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =If(Parent.Width<500,10,12)
-                Text: =ThisItem.Title
-                Width: =Parent.Width-iconMenuDS.Width-lineIndicatorDS.Width
-                X: =iconMenuDS.Width+iconMenuDS.X
-                Y: =30
-                ZIndex: =1
+        "glryMenuBarDS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =1.08*(CountRows(glryMenuBarDS.AllItems)*(glryMenuBarDS.TemplateHeight))
+            Items: =Menu
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =90
+            Visible: =varshowMenu
+            Width: =Parent.Width/4
+            X: =10
+            Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
+            ZIndex: =3
 
-            iconMenuDS As icon.Add:
-                Color: =RGBA(255, 0, 0, 1)
-                Height: =Parent.Height/4.5
-                Icon: =ThisItem.icon
-                Width: =Parent.Width/4.5
-                X: =12
-                Y: =30
-                ZIndex: =3
-
-            btnMensuDS As button:
-                Fill: =RGBA(0, 0, 0, 0)
+            ctnMenuDS As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.ExtraBold
+                Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
-                HoverFill: =
-                OnSelect: |+
-                    =Navigate(ThisItem.Navigate);Set(varshowMenu,!varshowMenu);
-                    
-                PressedFill: =
-                Size: =24
-                Text: =""
-                Width: =Parent.Width
-                ZIndex: =4
+                Width: =Parent.Width/1.02
+                ZIndex: =8
 
-            lineIndicatorDS As rectangle:
-                BorderColor: =RGBA(255, 0, 0, 1)
-                BorderThickness: =5
-                Fill: =RGBA(255, 0, 0, 1)
-                Height: =Parent.Height
-                Visible: =If(ThisItem.Navigate=DashboardScreen,true,false)
-                Width: =4
-                X: =1
-                ZIndex: =5
+                lblMenuDS As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 0, 0, 1)
+                    Height: =24
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =If(Parent.Width<500,10,12)
+                    Text: =ThisItem.Title
+                    Width: =Parent.Width-iconMenuDS.Width-lineIndicatorDS.Width
+                    X: =iconMenuDS.Width+iconMenuDS.X
+                    Y: =30
+                    ZIndex: =1
+
+                iconMenuDS As icon.Add:
+                    Color: =RGBA(255, 0, 0, 1)
+                    Height: =Parent.Height/4.5
+                    Icon: =ThisItem.icon
+                    Width: =Parent.Width/4.5
+                    X: =12
+                    Y: =30
+                    ZIndex: =3
+
+                btnMensuDS As button:
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =80
+                    HoverFill: =
+                    OnSelect: |+
+                        =Set(varshowMenu,!varshowMenu);Navigate(ThisItem.Navigate);
+                        
+                    PressedFill: =
+                    Size: =24
+                    Text: =""
+                    Width: =Parent.Width
+                    ZIndex: =4
+
+                lineIndicatorDS As rectangle:
+                    BorderColor: =RGBA(255, 0, 0, 1)
+                    BorderThickness: =5
+                    Fill: =RGBA(255, 0, 0, 1)
+                    Height: =Parent.Height
+                    Visible: =If(ThisItem.Navigate=DashboardScreen,true,false)
+                    Width: =4
+                    X: =1
+                    ZIndex: =5
 

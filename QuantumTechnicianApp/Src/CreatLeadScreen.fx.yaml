@@ -1,6 +1,6 @@
 CreatLeadScreen As screen:
     OnVisible: |-
-        =Set(varshowMenu,!varshowMenu);
+        =//Set(varshowMenu,!varshowMenu);
         If(IsBlank(IntxtContractNumber),Set(VarContractNumber,false));
         If(IsBlank(IntxtAddress),Set(VarAddress,false));
         If(IsBlank(IntxtBuildingName),Set(VarBuildingName,false));
@@ -846,7 +846,7 @@ CreatLeadScreen As screen:
                 Size: =If(Parent.Width<500,10,12)
                 Text: =ThisItem.Title
                 Width: =Parent.Width-iconMenuCS.Width-lineIndicatorCS.Width
-                X: =45.83006535947712
+                X: =iconMenuCS.X+iconMenuCS.Width
                 Y: =30
                 ZIndex: =1
 
