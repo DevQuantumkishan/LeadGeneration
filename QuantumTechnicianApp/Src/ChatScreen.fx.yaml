@@ -1,6 +1,6 @@
 ChatScreen As screen:
 
-    ctnMainCS As groupContainer.verticalAutoLayoutContainer:
+    Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -12,7 +12,7 @@ ChatScreen As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderCS As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeaderDS_9 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -23,7 +23,7 @@ ChatScreen As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            IconMenuCS As icon.Hamburger:
+            IconMenuDS_3 As icon.Hamburger:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -35,7 +35,8 @@ ChatScreen As screen:
                 Y: =11
                 ZIndex: =5
 
-            imgSchindlerLogoCS As image:
+            imgSchindlerLogoDS_3 As image:
+                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -48,7 +49,8 @@ ChatScreen As screen:
                 X: =0.00
                 ZIndex: =6
 
-            iconBackCS As icon.BackArrow:
+            iconBackCL_2 As icon.BackArrow:
+                AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -62,7 +64,8 @@ ChatScreen As screen:
                 Y: =11
                 ZIndex: =7
 
-            lblHeaderCS As label:
+            lblHeaderDS_4 As label:
+                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
@@ -75,11 +78,12 @@ ChatScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoCS.Width-IconMenuCS.Width-btnUserNameCS.Width-60
+                Width: =Parent.Width-imgSchindlerLogoDS_3.Width-IconMenuDS_3.Width-Button2_4.Width-60
                 X: =96.12
                 ZIndex: =8
 
-            btnUserNameCS As button:
+            Button2_4 As button:
+                AlignInContainer: =AlignInContainer.Center
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -102,6 +106,250 @@ ChatScreen As screen:
                         1)
                 Width: =Parent.Height/1.5
                 ZIndex: =9
+
+        Container1_9 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =RGBA(219, 219, 219, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingLeft: =10
+            PaddingRight: =10
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Width: =Parent.Width-20
+            X: =10
+            Y: =85
+            ZIndex: =2
+
+            Button3_9 As button:
+                Align: =Align.Right
+                BorderColor: =RGBA(219, 219, 219, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                Font: =Font.Arial
+                Height: =Parent.Height
+                PaddingLeft: =20
+                PaddingRight: =20
+                Size: =If(Parent.Width<500,12,Parent.Width>500,16)
+                Text: ="Building Name" & Char(10) & VarLtdName
+                Width: =Parent.Width
+                ZIndex: =1
+
+            lblHeaderDS_5 As label:
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                PaddingLeft: =20
+                PaddingRight: =5.34
+                Size: |
+                    =//21.36
+                    If(Parent.Width<500,12,Parent.Width>500,16)
+                Text: ="Contract Number" & Char(10) & VarLtdCntNumber
+                Width: =Parent.Width
+                ZIndex: =2
+
+        Container8 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =Parent.Height-ctnHeaderDS_9.Height-Container1_9.Height-40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingLeft: =5
+            PaddingRight: =5
+            Width: =Parent.Width-20
+            Y: =180
+            ZIndex: =3
+
+            Gallery4_2 As gallery.variableTemplateHeightGallery:
+                DelayItemLoading: =true
+                Fill: |-
+                    =//RGBA(237,237,237,1) 
+                    RGBA(0, 0, 0, 0)
+                Height: =Parent.Height-TextInput1_2.Height
+                Items: |-
+                    =Sort(Filter(LeadChats,LeadInformationLID.ID=VarLtdID),'Created On',SortOrder.Ascending)
+                    /*[{
+                        message:"Check doors again",
+                        time:"12.59 AM",
+                        name:"QQ Team",
+                        from:"you"
+                    },
+                    {
+                        message:"Gap problem",
+                        time:"1.15 AM",
+                        name:"Schindler guest",
+                        from:"me"
+                    },
+                    {
+                        message:"Okay",
+                        time:"2.05 AM",
+                        name:"QQ Team",
+                        from:"you"
+                    }
+                    ]*/
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: |-
+                    =/*Patch(Chats,
+                            ThisItem,
+                            {
+                               Read:true
+                            }
+                        );
+                    
+                    Set(MessageRead,true);
+                    Refresh(Chats);*/
+                TemplateSize: =Label6_2.Height+Label8_2.Height
+                Width: =Parent.Width
+                ZIndex: =3
+
+                Rectangle6 As rectangle:
+                    Fill: =If(ThisItem.IsQQApp=true,RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
+                    Height: =Label6_2.Height+Label8_2.Height
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.Width-30
+                    X: =10
+                    ZIndex: =1
+
+                Label6_2 As label:
+                    Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
+                    AutoHeight: =true
+                    Font: =Font.Arial
+                    Height: =25
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =20
+                    PaddingRight: =40
+                    Size: =If(Parent.Width<500,14,Parent.Width>500,16)
+                    Text: =ThisItem.Message
+                    Width: =Parent.Width-Button1.Width-Button1.X
+                    X: =Button1.X+Button1.Width
+                    ZIndex: =2
+
+                Label8_2 As label:
+                    Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
+                    AutoHeight: =true
+                    Color: =RGBA(149, 149, 149, 1)
+                    Font: =Font.Arial
+                    Height: =30
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =20
+                    PaddingRight: =40
+                    Size: =If(Parent.Width<500,9,Parent.Width>500,11)
+                    Text: |-
+                        =//ThisItem.From & "  "& ThisItem.Datetime
+                        DateValue(ThisItem.'Created On')  & " "& TimeValue(ThisItem.'Created On')
+                    Width: =Parent.Width-Button1.Width-Button1.X
+                    X: =Button1.X+Button1.Width
+                    Y: =Label6_2.Y+Label6_2.Height
+                    ZIndex: =3
+
+                Rectangle5 As rectangle:
+                    Fill: =RGBA(102, 102, 102, 1)
+                    Height: =3
+                    Width: =Parent.Width-30
+                    X: =10
+                    Y: =Label8_2.Height+Label8_2.Y+5
+                    ZIndex: =4
+
+                Button1 As button:
+                    BorderColor: =Color.Red
+                    BorderThickness: =1
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(255, 0, 0, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Font: =Font.Arial
+                    FontWeight: =FontWeight.Normal
+                    Height: =28
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =If(Parent.Width<500,9,Parent.Width>500,10)
+                    Text: |-
+                        =Left(ThisItem.FromName, 1) &
+                        Mid(
+                            ThisItem.FromName,
+                            Find(" ", ThisItem.FromName) + 1,
+                            1)
+                    Visible: =If(ThisItem.IsQQApp=true,true,false)
+                    Width: =28
+                    X: =15
+                    Y: =15
+                    ZIndex: =5
+
+            Group1 As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =4
+
+                TextInput1_2 As text:
+                    BorderColor: =Color.Red
+                    Default: =""
+                    DisabledBorderColor: =RGBA(255, 0, 0, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =2
+                    Font: =Font.Arial
+                    Height: =If(Parent.Height<Parent.Width,50,70)
+                    HintText: ="Enter message"
+                    HoverBorderColor: =RGBA(255, 0, 0, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =10
+                    Size: =If(Parent.Width<500,12,Parent.Width>500,14)
+                    Width: =Parent.Width-Icon6_2.Width
+                    Y: =Gallery4_2.Height
+                    ZIndex: =1
+
+                Icon6_2 As icon.Send:
+                    BorderColor: =Self.Color
+                    BorderThickness: =2
+                    Color: =RGBA(255, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(255, 0, 0, 1)
+                    DisabledColor: =RGBA(255, 0, 0, 1)
+                    Height: =If(Parent.Height<Parent.Width,50,70)
+                    Icon: =Icon.Send
+                    OnSelect: |-
+                        =Patch(LeadChats,Defaults(LeadChats),
+                                    {
+                                        ID:GUID(),
+                                        FromEmail:myMail,
+                                     // To:personEmail,
+                                        Message:TextInput1_2.Text,
+                                        FromName:User().FullName,
+                                        LeadInformationLID:LookUp(LeadInformations,ID=VarLtdID)
+                                        
+                                    }
+                                );
+                        Refresh(LeadChats);
+                        Reset(TextInput1_2);
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    Width: =If(Parent.Width<500,60,80)
+                    X: =TextInput1_2.Width
+                    Y: =Gallery4_2.Height
+                    ZIndex: =2
 
     grpMenuCS As group:
         Height: =5
@@ -187,4 +435,3 @@ ChatScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
-
