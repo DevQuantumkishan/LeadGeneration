@@ -1,7 +1,6 @@
 DashboardScreen As screen:
     OnVisible: |-
-        =
-        Refresh(LeadInformations);
+        =Refresh(LeadInformations);
         Set(VarAllLeads,false);
 
     ctnmainDS As groupContainer.verticalAutoLayoutContainer:

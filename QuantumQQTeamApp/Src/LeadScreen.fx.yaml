@@ -5,6 +5,8 @@ LeadScreen As screen:
         Set(VarLeadProposal,false);
         Set(VarLeadMessages,false);
         Refresh(LeadInformations);
+        Refresh(LeadImages);
+        Refresh(LeadChats);
 
     ctnmainLdS As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -410,7 +412,7 @@ LeadScreen As screen:
                         Height: =3
                         Width: =Parent.Width-30
                         X: =10
-                        Y: =lblsenderreceiverLdS.Height+lblsenderreceiverLdS.Y
+                        Y: =lblsenderreceiverLdS.Height+lblsenderreceiverLdS.Y+5
                         ZIndex: =4
 
                 txtinptchatmessageldS As text:
@@ -1420,6 +1422,16 @@ LeadScreen As screen:
             X: =rectchatmessageLdS.X
             Y: =rectchatmessageLdS.Y
             ZIndex: =9
+
+    tmrgetmessage As timer:
+        AutoPause: =false
+        AutoStart: =false//VarLeadMessages
+        OnTimerEnd: =Refresh(LeadChats);
+        Repeat: =true
+        Start: =VarLeadMessages
+        X: =40
+        Y: =40
+        ZIndex: =13
 
     Group1 As group:
         Height: =5
