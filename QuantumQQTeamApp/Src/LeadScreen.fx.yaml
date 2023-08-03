@@ -1440,10 +1440,10 @@ LeadScreen As screen:
     tmrgetmessage As timer:
         AutoPause: =false
         AutoStart: =false//VarLeadMessages
+        Duration: =3000
         OnTimerEnd: =Refresh(LeadChats);
         Repeat: =true
         Start: =VarLeadMessages
-        Visible: =false
         X: =40
         Y: =40
         ZIndex: =13
