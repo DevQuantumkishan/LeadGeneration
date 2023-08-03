@@ -148,6 +148,7 @@ LeadScreen As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width //500
             ZIndex: =8
 
             ctnleaddetailstabLdS As groupContainer.verticalAutoLayoutContainer:
@@ -277,6 +278,29 @@ LeadScreen As screen:
                     Width: =150
                     ZIndex: =2
 
+            Container1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Start
+                Height: =Parent.Height
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =40
+                ZIndex: =4
+
+                btnnewmessageLdS As button:
+                    AlignInContainer: =AlignInContainer.Center
+                    Fill: =RGBA(255, 0, 0, 1)
+                    Height: =30
+                    HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    OnSelect: =Set(VarChatMessage,true)
+                    Text: ="+ New Message"
+                    Visible: =VarLeadMessages
+                    Width: =200
+                    X: =Parent.Width-Self.Width-20
+                    Y: =10
+                    ZIndex: =1
+
         ctnhorizontallineleaddetailsglryLdS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
@@ -368,7 +392,7 @@ LeadScreen As screen:
                         Refresh(Chats);*/
                     TemplateSize: =lblchatmessageLdS.Height+lblsenderreceiverLdS.Height
                     Width: =Parent.Width
-                    Y: =btnnewmessageLdS.Height+btnnewmessageLdS.Y+10
+                    Y: =//btnnewmessageLdS.Height+btnnewmessageLdS.Y+10
                     ZIndex: =2
 
                     rectmessageLdS As rectangle:
@@ -461,16 +485,6 @@ LeadScreen As screen:
                     X: =txtinptchatmessageldS.Width+txtinptchatmessageldS.X
                     Y: =glrychatmessageLdS.Height+glrychatmessageLdS.Y
                     ZIndex: =4
-
-                btnnewmessageLdS As button:
-                    Fill: =RGBA(255, 0, 0, 1)
-                    HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                    OnSelect: =Set(VarChatMessage,true)
-                    Text: ="+ New Message"
-                    Width: =300
-                    X: =Parent.Width-Self.Width-20
-                    Y: =10
-                    ZIndex: =5
 
             Container16 As groupContainer.manualLayoutContainer:
                 BorderColor: =RGBA(0, 0, 0, 0.16)
@@ -1426,6 +1440,7 @@ LeadScreen As screen:
     tmrgetmessage As timer:
         AutoPause: =false
         AutoStart: =false//VarLeadMessages
+        Duration: =3000
         OnTimerEnd: =Refresh(LeadChats);
         Repeat: =true
         Start: =VarLeadMessages
