@@ -134,6 +134,7 @@ CreatLeadScreen As screen:
         ctnLeadCL As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
             Height: =Parent.Height-ctnHeaderCL.Height-ctnUserHeaderCL.Height-30
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
