@@ -1,5 +1,7 @@
 LeadListScreen As screen:
-    OnVisible: =Set(VarPopUpInprogress,false);
+    OnVisible: |-
+        =Refresh(LeadInformations);
+        Set(VarPopUpInprogress,false);
 
     ctnmainLS As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
