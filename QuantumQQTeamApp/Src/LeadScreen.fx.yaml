@@ -282,6 +282,8 @@ LeadScreen As screen:
                 AlignInContainer: =AlignInContainer.Start
                 Height: =Parent.Height
                 LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 PaddingRight: =40
                 ZIndex: =4
@@ -1441,6 +1443,7 @@ LeadScreen As screen:
         OnTimerEnd: =Refresh(LeadChats);
         Repeat: =true
         Start: =VarLeadMessages
+        Visible: =false
         X: =40
         Y: =40
         ZIndex: =13
