@@ -23,7 +23,7 @@ ChatScreen As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            IconMenuDS_3 As icon.Hamburger:
+            IconMenuCS As icon.Hamburger:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -78,7 +78,7 @@ ChatScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoDS_3.Width-IconMenuDS_3.Width-Button2_4.Width-60
+                Width: =Parent.Width-imgSchindlerLogoDS_3.Width-IconMenuCS.Width-Button2_4.Width-60
                 X: =96.12
                 ZIndex: =8
 
@@ -435,3 +435,4 @@ ChatScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
+
