@@ -196,6 +196,7 @@ LeadListScreen As screen:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(204, 204, 204, 1)
                         BorderThickness: =3
+                        FillPortions: =0
                         Height: =Parent.Height
                         Items: |-
                             =Sort(If(VarMyLeads=true, Filter(LeadInformations,QQTeamName=User().FullName),
@@ -227,7 +228,7 @@ LeadListScreen As screen:
                             ZIndex: =3
 
                         ctnlistheadingvalueLS As groupContainer.horizontalAutoLayoutContainer:
-                            Height: =If(lbldistrictvalueLS.Height>60 ,lbldistrictvalueLS.Height+lbldistrictvalueLS.Y, lblareavalueLS.Height>60,lblareavalueLS.Height+lblareavalueLS.Y,60)
+                            Height: =60//If(lbldistrictvalueLS.Height>60 ,lbldistrictvalueLS.Height+lbldistrictvalueLS.Y, lblareavalueLS.Height>60,lblareavalueLS.Height+lblareavalueLS.Y,60)
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutGap: =10
                             LayoutMode: =LayoutMode.Auto
