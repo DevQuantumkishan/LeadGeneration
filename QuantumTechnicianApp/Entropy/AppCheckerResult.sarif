@@ -8291,7 +8291,7 @@
                 },
                 "region": {
                   "charLength": 18,
-                  "charOffset": 297,
+                  "charOffset": 293,
                   "snippet": {
                     "text": "Year('Created On')"
                   }
@@ -8331,7 +8331,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 315,
+                  "charOffset": 311,
                   "snippet": {
                     "text": "="
                   }
@@ -8371,7 +8371,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 294,
+                  "charOffset": 290,
                   "snippet": {
                     "text": "&&"
                   }
@@ -8395,123 +8395,6 @@
           },
           "ruleId": "app-SuggestRemoteExecutionHint",
           "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 268,
-                  "charOffset": 67,
-                  "snippet": {
-                    "text": "If( LookUp(\r\n            GCTotalIncentives,\r\n            Year(Year) = Year(Now()),\r\n            YearlyCapReached) = true,\r\n        \"10000\",\r\n        LookUp(\r\n            GCTotalIncentives,\r\n            Year(Year) = Year(Now()),\r\n            TotalIncentives\r\n        ))"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Text, Number, Decimal, Date, Time, DateTimeNoTimeZone, DateTime, Boolean, OptionSetValue, ViewValue, UntypedObject"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrBadType-ExpectedTypesCSV",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 15,
-                  "charOffset": 427,
-                  "snippet": {
-                    "text": "TotalIncentives"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrNumberExpected",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 64,
-                  "charOffset": 385,
-                  "snippet": {
-                    "text": "Sum(\r\n        GCTotalIncentives,\r\n        TotalIncentives\r\n    )"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Sum"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 1
         },
         {
           "locations": [

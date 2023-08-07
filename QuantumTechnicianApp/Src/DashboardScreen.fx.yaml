@@ -535,25 +535,10 @@ DashboardScreen As screen:
                             =//19.22
                             If(Parent.Width<358,11,Parent.Width>358,12,16)
                         Text: |-
-                            =If(
+                            ="Proposed Incentives $" & Char(10) &""
+                            /*If(
                                yearly = true,
-                                "Proposed Incentives $" & Char(10) & 
-                            If( LookUp(
-                                        GCTotalIncentives,
-                                        Year(Year) = Year(Now()),
-                                        YearlyCapReached) = true,
-                                    "10000",
-                                    LookUp(
-                                        GCTotalIncentives,
-                                        Year(Year) = Year(Now()),
-                                        TotalIncentives
-                                    ))
-                                ,
-                                "Proposed Incentives $" & Char(10) & Sum(
-                                    GCTotalIncentives,
-                                    TotalIncentives
-                                )
-                            )
+                               If(LookUp(GCTotalIncentives,Year(Year)=Year(Now())),'YearlyCapReached (TotalIncentives)'.Yes=true,10000,LookUp(GCTotalIncentives,Value(TotalproposedIncentives))*/
                         Width: =btnQuotedLeadsDS.Width
                         X: =btnQuotedLeadsDS.X
                         Y: =lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
@@ -579,7 +564,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,12,Parent.Width<378,14,16)
                             Text: |-
                                 =///its for count of yealy/cumulatively InProgress leads
-                                If(cumulatively=true,"Proposed Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")),"Proposed Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
+                                If(cumulatively=true,"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")),"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
                             Width: =btnQuotedLeadsDS.Width
                             X: =btnQuotedLeadsDS.X
                             Y: =(Parent.Height-Self.Height)/3.5
