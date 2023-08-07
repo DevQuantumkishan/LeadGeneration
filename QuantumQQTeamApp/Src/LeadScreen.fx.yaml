@@ -1157,14 +1157,14 @@ LeadScreen As screen:
                                             LeadIncentive:LookUp(SHFPEstimates,Estimate=txtinptestimatenumber.Text,BidPrice) * 0.02
                                         }
                                     );
-                                /*If(!IsBlank(LookUp(LeadInformations,LeadStatus="InProgress" &&ID=glryleadlistLS.Selected.ID)),
+                                If(!IsBlank(LookUp(LeadInformations,LeadStatus="InProgress" &&ID=glryleadlistLS.Selected.ID)),
                                 Patch(TotalIncentives,Defaults(TotalIncentives),
                                 {
                                  ID:GUID(),
                                  Year:Now(),
-                                 TotalProposedLead:Count(LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID))
-                                 //TotalproposedIncentives:""
-                                }););*/
+                                 TotalProposedLead:CountRows(Filter(LeadInformations,ID=glryleadlistLS.Selected.ID)),
+                                 TotalproposedIncentives:LookUp(SHFPEstimates,Estimate=txtinptestimatenumber.Text,BidPrice) * 0.02
+                                });
                                     Notify(
                                         "Estimate number saved successfully.",
                                         NotificationType.Success
@@ -1173,7 +1173,7 @@ LeadScreen As screen:
                                     ,
                                     Notify("Estimate number not found");
                                     );
-                                    
+                                    );
                                 )
                             Text: ="Submit Estimate Number"
                             Width: =300
