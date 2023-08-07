@@ -1125,7 +1125,7 @@ LeadScreen As screen:
                         txtinptestimatenumber As text:
                             BorderColor: =RGBA(149, 149, 149, 1)
                             Color: =RGBA(116, 116, 116, 1)
-                            Default: =""
+                            Default: =LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadEstimateNumber)
                             Height: =60
                             HintText: ="Enter Estimate Number"
                             HoverBorderColor: =//RGBA(0, 18, 107, 1)
@@ -1147,35 +1147,67 @@ LeadScreen As screen:
                                         "Please enter estimate number.",
                                         NotificationType.Information
                                     ),
-                                    If(!IsBlank(LookUp(SHFPEstimates,Estimate=txtinptestimatenumber.Text)),
-                                    UpdateIf(
-                                        LeadInformations,
-                                        ID = glryleadlistLS.Selected.ID,
-                                        {
-                                            LeadEstimateNumber: txtinptestimatenumber.Text,
-                                            LeadStatus: "Quoted",
-                                            'LeadPrice ':LookUp(SHFPEstimates,Estimate=txtinptestimatenumber.Text,BidPrice),
-                                            LeadIncentive:LookUp(SHFPEstimates,Estimate=txtinptestimatenumber.Text,BidPrice) * 0.02
-                                        }
-                                    );
-                                If(!IsBlank(LookUp(LeadInformations,LeadStatus="InProgress" &&ID=glryleadlistLS.Selected.ID)),
-                                Patch(TotalIncentives,Defaults(TotalIncentives),
-                                {
-                                 ID:GUID(),
-                                 Year:Now(),
-                                 TotalProposedLead:CountRows(Filter(LeadInformations,ID=glryleadlistLS.Selected.ID)),
-                                 TotalproposedIncentives:LookUp(SHFPEstimates,Estimate=txtinptestimatenumber.Text,BidPrice) * 0.02
-                                });
-                                    Notify(
-                                        "Estimate number saved successfully.",
-                                        NotificationType.Success
-                                    );
-                                    Navigate(DashboardScreen);
-                                    ,
-                                    Notify("Estimate number not found");
-                                    );
-                                    );
-                                )
+                                    If(
+                                        !IsBlank(
+                                            LookUp(
+                                                SHFPEstimates,
+                                                Estimate = txtinptestimatenumber.Text
+                                            )
+                                        ),
+                                        UpdateIf(
+                                            LeadInformations,
+                                            ID = glryleadlistLS.Selected.ID,
+                                            {
+                                                LeadEstimateNumber: txtinptestimatenumber.Text,
+                                                LeadStatus: "Quoted",
+                                                'LeadPrice ': LookUp(
+                                                    SHFPEstimates,
+                                                    Estimate = txtinptestimatenumber.Text,
+                                                    BidPrice
+                                                ),
+                                                LeadIncentive: LookUp(
+                                                    SHFPEstimates,
+                                                    Estimate = txtinptestimatenumber.Text,
+                                                    BidPrice
+                                                ) * 0.02
+                                            }
+                                        );
+                                        If(
+                                            !IsBlank(
+                                                LookUp(
+                                                    LeadInformations,
+                                                    LeadStatus = "InProgress" && ID = glryleadlistLS.Selected.ID
+                                                )
+                                            ),
+                                            Patch(
+                                                TotalIncentives,
+                                                Defaults(TotalIncentives),
+                                                {
+                                                    ID: GUID(),
+                                                    Year: Now(),
+                                                    TotalProposedLead: CountRows(
+                                                        Filter(
+                                                            LeadInformations,
+                                                            ID = glryleadlistLS.Selected.ID
+                                                        )
+                                                    ),
+                                                    TotalproposedIncentives: LookUp(
+                                                        SHFPEstimates,
+                                                        Estimate = txtinptestimatenumber.Text,
+                                                        BidPrice
+                                                    ) * 0.02
+                                                }
+                                            );
+                                        );
+                                        Notify(
+                                            "Proposed Incentives updated for the estimateId" & txtinptestimatenumber.Text,
+                                            NotificationType.Success
+                                        );
+                                        Navigate(DashboardScreen);
+                                        ,
+                                        Notify("Estimate number not found in the FP Estimate file.");
+                                    );//estimate no found if end
+                                )//isblank estimate no if end
                             Text: ="Submit Estimate Number"
                             Width: =300
                             X: =410
