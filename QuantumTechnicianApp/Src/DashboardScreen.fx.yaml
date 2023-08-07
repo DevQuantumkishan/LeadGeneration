@@ -355,7 +355,7 @@ DashboardScreen As screen:
                             RadiusTopRight: =6
                             Size: |-
                                 =//14.95
-                                If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
+                                //If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
                             Text: =
                             VerticalAlign: =VerticalAlign.Top
                             Width: =Parent.Width
@@ -419,9 +419,9 @@ DashboardScreen As screen:
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
                             RadiusTopRight: =6
-                            Size: |-
+                            Size: |
                                 =//14.95
-                                If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
+                                //If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
                             Text: =""
                             Width: =Parent.Width
                             ZIndex: =3
@@ -486,8 +486,8 @@ DashboardScreen As screen:
                             RadiusTopLeft: =6
                             RadiusTopRight: =6
                             Size: |-
-                                =//14.95
-                                If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
+                                =
+                                //If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
                             Text: =
                             VerticalAlign: =VerticalAlign.Top
                             Width: =Parent.Width
@@ -534,14 +534,11 @@ DashboardScreen As screen:
                         OnSelect: =Navigate(SubmittedLeadScreen);Set(VarFutureIncetives,true)
                         Size: |-
                             =//19.22
-                            If(Parent.Width<358,11,Parent.Width>358,12,14)
+                            If(Parent.Width<358,11,Parent.Width>358,12,16)
                         Text: |-
-                            =//If(cumulatively=true,"Future Incentives $" & Char(10) & "9560.45","Future Incentives $" & Char(10) &"2034.64")
-                            //If(cumulatively=true,"Future Incentives $" & Char(10) & "","Future Incentives $" & Char(10) &"2034.64")
-                            //If(yearly=true,"Future Incentives $" & Char(10) & LookUp(GCTotalIncentives,Year(Year)=Year(Today()),TotalIncentives),"Future Incentives $" & Char(10) & Sum(GCTotalIncentives,TotalIncentives))
-                            If(
+                            =If(
                                yearly = true,
-                                "Future Incentives $" & Char(10) & 
+                                "Proposed Incentives $" & Char(10) & 
                             If( LookUp(
                                         GCTotalIncentives,
                                         Year(Year) = Year(Now()),
@@ -553,7 +550,7 @@ DashboardScreen As screen:
                                         TotalIncentives
                                     ))
                                 ,
-                                "Future Incentives $" & Char(10) & Sum(
+                                "Proposed Incentives $" & Char(10) & Sum(
                                     GCTotalIncentives,
                                     TotalIncentives
                                 )
@@ -583,7 +580,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,12,Parent.Width<378,14,16)
                             Text: |-
                                 =///its for count of yealy/cumulatively InProgress leads
-                                If(cumulatively=true,"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")),"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
+                                If(cumulatively=true,"Proposed Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")),"Proposed Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
                             Width: =btnQuotedLeadsDS.Width
                             X: =btnQuotedLeadsDS.X
                             Y: =(Parent.Height-Self.Height)/3.5
@@ -640,12 +637,12 @@ DashboardScreen As screen:
                         OnSelect: =Navigate(SubmittedLeadScreen);Set(VarFutureIncetives,true)
                         Size: |-
                             =//19.22
-                            If(Parent.Width<358,11,Parent.Width>358,12,14)
+                            If(Parent.Width<358,11,Parent.Width>358,12,16)
                         Text: |-
                             =//If(cumulatively=true,"Sold Incentives $" & Char(10) &"15684.22","Sold Incentives $" & Char(10) &"7045.22")
                             If(
                                yearly = true,
-                                "Future Incentives $" & Char(10) & 
+                                "Sold Incentives $" & Char(10) & 
                             If( LookUp(
                                         GCTotalIncentives,
                                         Year(Year) = Year(Now()),
@@ -657,7 +654,7 @@ DashboardScreen As screen:
                                         TotalIncentives
                                     ))
                                 ,
-                                "Future Incentives $" & Char(10) & Sum(
+                                "Sold Incentives $" & Char(10) & Sum(
                                     GCTotalIncentives,
                                     TotalIncentives
                                 )
@@ -686,7 +683,7 @@ DashboardScreen As screen:
                             PaddingTop: =5.34
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,14,16)
+                                If(Parent.Width<358,12,Parent.Width<378,14,16)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
                                 If(cumulatively=true,"Sold Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold")),"Sold Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold" && Year('Created On')=Year(Now())))) 
@@ -712,9 +709,8 @@ DashboardScreen As screen:
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
                             RadiusTopRight: =6
-                            Size: |-
+                            Size: |
                                 =//14.95
-                                If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
                             Text: =""
                             Width: =Parent.Width
                             ZIndex: =3

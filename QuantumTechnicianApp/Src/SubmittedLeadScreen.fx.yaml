@@ -205,13 +205,11 @@ SubmittedLeadScreen As screen:
                     ZIndex: =1
 
                 "glryLeadsSLS As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-                    Height: =Parent.Height
+                    Height: =If(CountRows(glryLeadsSLS.AllItems)<2,glryLeadsSLS.TemplateHeight+20,Parent.Height)
                     Items: |-
                         =//Sort
                         Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        Text(Year('Created On'))=Title2.Text &&
-                                     If(Header="Open", LeadStatus = "Submitted" ,LeadStatus =Header)
-                            && Email=User().Email),'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname")
+                        Text(Year('Created On'))=Title2.Text&&If(Header="Open",LeadStatus="Submitted",LeadStatus=Header)&&Email=User().Email),'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname")
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =260
