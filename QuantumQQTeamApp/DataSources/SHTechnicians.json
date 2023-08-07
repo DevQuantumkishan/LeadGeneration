@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr02d_shtechnicians",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr02d_shtechnician",
+    "Name": "SHTechnicians",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr02d_column1": "WC_TECH",
+      "cr02d_column2": "WC_SUPER",
+      "cr02d_column3": "Tech Work Center",
+      "cr02d_column4": "contr_office",
+      "cr02d_column5": "District",
+      "cr02d_column6": "Territory",
+      "cr02d_column7": "Region",
+      "cr02d_shtechnician_AsyncOperations": "System Jobs",
+      "cr02d_shtechnician_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr02d_shtechnician_DuplicateBaseRecord": "Duplicate Records (cr02d_shtechnician_DuplicateBaseRecord)",
+      "cr02d_shtechnician_DuplicateMatchingRecord": "Duplicate Records (cr02d_shtechnician_DuplicateMatchingRecord)",
+      "cr02d_shtechnician_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr02d_shtechnician_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr02d_shtechnician_ProcessSession": "Process Sessions",
+      "cr02d_shtechnician_SyncErrors": "Sync Errors",
+      "cr02d_shtechnicianid": "SHTechnician",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "SHTechnicians",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "SHTechnicians (Views)",
+    "Name": "_cr02d_shtechnician_views",
+    "RelatedEntityName": "SHTechnicians",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "08e26e35-03ec-40ca-a7de-94ad581e5333": "SHTechnician Advanced Find View",
+      "5aea4998-1fa1-4f42-a69c-bb3ba29bee00": "SHTechnician Lookup View",
+      "5ecf9720-6eb3-459b-b4aa-c75e25c21d5d": "SHTechnician Associated View",
+      "8ac86f0c-f308-47ef-972c-fcf1ac302490": "Inactive SHTechnicians",
+      "9199016c-4e9e-4224-a3ef-abf5bb1f1e00": "Active SHTechnicians"
+    }
+  },
+  {
+    "DisplayName": "Status (SHTechnicians)",
+    "Name": "cr02d_shtechnician_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "SHTechnicians"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "SHTechnicians",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (SHTechnicians)",
+    "Name": "cr02d_shtechnician_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "SHTechnicians"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "SHTechnicians",
+    "Type": "OptionSetInfo"
+  }
+]
