@@ -618,7 +618,7 @@ ImageUploadScreen As screen:
                     ZIndex: =1
 
     Container4 As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(0, 0, 0, 0.69)
+        Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarImagePopup
         Width: =Parent.Width
@@ -635,10 +635,10 @@ ImageUploadScreen As screen:
 
         IconImageIS_1 As icon.Cancel:
             Color: =RGBA(0, 0, 0, 1)
-            Height: =Parent.Height/12
+            Height: =Parent.Height/18
             Icon: =Icon.Cancel
             OnSelect: =Set(VarImagePopup,false)
-            Width: =Parent.Height/12
+            Width: =Parent.Height/18
             X: =Image2.X+(Image2.Width-Self.Width)
             Y: =Image2.Y
             ZIndex: =2
