@@ -277,8 +277,7 @@ DashboardScreen As screen:
             Width: =Parent.Width
             ZIndex: =4
 
-            ctnLeadsButtonsDS_1 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.Center
+            ctnLeadsButtonDS As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: |
@@ -768,7 +767,7 @@ DashboardScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonsDS_1.Height-ctnLeadsButtonsDS_1.Height-100
+                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-100
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 RadiusBottomLeft: =0
