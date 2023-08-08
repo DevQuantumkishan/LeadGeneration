@@ -1202,7 +1202,7 @@ LeadScreen As screen:
                                                 }
                                             );
                                             ,
-                                            UpdateIf(TotalIncentives,leadinformationli=glryleadlistLS.Selected.ID,
+                                            UpdateIf(TotalIncentives,LeadInformationLID.ID=glryleadlistLS.Selected.ID,
                                             {
                                                 TotalproposedIncentives: (LookUp(TotalIncentives,LeadInformationLID.ID=glryleadlistLS.Selected.ID,TotalproposedIncentives) - VarPreviousIncentive) + 
                                                     LookUp(
