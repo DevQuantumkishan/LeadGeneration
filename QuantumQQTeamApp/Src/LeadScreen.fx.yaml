@@ -1158,29 +1158,12 @@ LeadScreen As screen:
                                         If(!IsBlank(LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID && LeadStatus="Quoted")),
                                         Set(VarPopUpEstimateNumber,true););
                                 
-                                        UpdateIf(
-                                            LeadInformations,
-                                            ID = glryleadlistLS.Selected.ID,
-                                            {
-                                                LeadEstimateNumber: txtinptestimatenumber.Text,
-                                                LeadStatus: "Quoted",
-                                                'LeadPrice ': LookUp(
-                                                    SHFPEstimates,
-                                                    Estimate = txtinptestimatenumber.Text,
-                                                    BidPrice
-                                                ),
-                                                LeadIncentive: LookUp(
-                                                    SHFPEstimates,
-                                                    Estimate = txtinptestimatenumber.Text,
-                                                    BidPrice
-                                                ) * 0.02
-                                            }
-                                        );
+                                       
                                         If(
                                             !IsBlank(
                                                 LookUp(
                                                     LeadInformations,
-                                                   // LeadStatus = "InProgress" &&
+                                                    LeadStatus = "InProgress" &&
                                                      ID = glryleadlistLS.Selected.ID
                                                 )
                                             ),
@@ -1216,6 +1199,25 @@ LeadScreen As screen:
                                                     ) * 0.02
                                             });
                                         );
+                                 UpdateIf(
+                                            LeadInformations,
+                                            ID = glryleadlistLS.Selected.ID,
+                                            {
+                                                LeadEstimateNumber: txtinptestimatenumber.Text,
+                                                LeadStatus: "Quoted",
+                                                'LeadPrice ': LookUp(
+                                                    SHFPEstimates,
+                                                    Estimate = txtinptestimatenumber.Text,
+                                                    BidPrice
+                                                ),
+                                                LeadIncentive: LookUp(
+                                                    SHFPEstimates,
+                                                    Estimate = txtinptestimatenumber.Text,
+                                                    BidPrice
+                                                ) * 0.02
+                                            }
+                                        );
+                                
                                         Notify(
                                             "Proposed Incentives updated for the estimateId " & txtinptestimatenumber.Text,
                                             NotificationType.Success
