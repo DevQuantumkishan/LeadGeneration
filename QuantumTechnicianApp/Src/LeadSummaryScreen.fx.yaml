@@ -1091,8 +1091,11 @@ LeadSummaryScreen As screen:
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
                             Default: =CboxUnitDown.Value
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
+                            HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Unit Down"
                             Width: =Parent.Width-60
@@ -1146,8 +1149,11 @@ LeadSummaryScreen As screen:
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
                             Default: =CboxAdditionalExpensesRequired.Value
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
+                            HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Additional Expenses Required"
                             Width: =Parent.Width-60
@@ -1201,8 +1207,11 @@ LeadSummaryScreen As screen:
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
                             Default: =CboxTravelRequired.Value
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
+                            HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Travel Required"
                             Width: =Parent.Width-60
@@ -1256,8 +1265,11 @@ LeadSummaryScreen As screen:
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
                             Default: =CboxCommunicatedtoCustomer.Value
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
+                            HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Communicated to customer"
                             Width: =Parent.Width-60

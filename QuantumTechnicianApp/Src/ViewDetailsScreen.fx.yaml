@@ -154,7 +154,7 @@ ViewDetailsScreen As screen:
             LayoutOverflowY: =LayoutOverflow.Scroll
             PaddingLeft: =10
             PaddingRight: =10
-            Width: =Parent.Width-20
+            Width: =Parent.Width-30
             ZIndex: =3
 
             SummaryForm_3 As form:
@@ -163,7 +163,7 @@ ViewDetailsScreen As screen:
                 DefaultMode: =FormMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
-                Height: ='Contract Number_DataCard1_3'.Height+'Building Name_DataCard2_3'.Height+PinCode_DataCard2_3.Height+Address_DataCard2_3.Height+UnitCount_DataCard3_3.Height+UnitDescription_DataCard3_3.Height+PrimaryScopeofWorkLID_DataCard1.Height+SecondaryScopeofWorkLID_DataCard1.Height+ManuallyScopeOfWork_DataCard3_3.Height+EstimatedHours_DataCard1_4.Height+Material_DataCard1_4.Height+'Unit Down_DataCard2_4'.Height+'Additional expenses required_DataCard2_3'.Height+'Travel Required_DataCard2_3'.Height+'Communicated to Customer_DataCard2_3'.Height+40
+                Height: ='Contract Number_DataCard1_3'.Height+'Building Name_DataCard2_3'.Height+PinCode_DataCard2_3.Height+Address_DataCard2_3.Height+UnitCount_DataCard3_3.Height+UnitDescription_DataCard3_3.Height+PrimaryScopeofWorkLID_DataCard1.Height+SecondaryScopeofWorkLID_DataCard1.Height+ManuallyScopeOfWork_DataCard3_3.Height+EstimatedHours_DataCard1_4.Height+Material_DataCard1_4.Height+'Unit Down_DataCard2_4'.Height+'Additional expenses required_DataCard2_3'.Height+'Travel Required_DataCard2_3'.Height+'Communicated to Customer_DataCard2_3'.Height+30
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -189,11 +189,10 @@ ViewDetailsScreen As screen:
                     ZIndex: =1
 
                     DataCardKey26_3 As label:
-                        AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
-                        Height: =48
+                        Height: =30
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
@@ -214,7 +213,6 @@ ViewDetailsScreen As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -229,7 +227,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey26_3.Y + DataCardKey26_3.Height + 5
+                        Y: =DataCardKey26_3.Y + DataCardKey26_3.Height 
                         ZIndex: =2
 
                     ErrorMessage26_3 As label:
@@ -277,7 +275,6 @@ ViewDetailsScreen As screen:
                     ZIndex: =1
 
                     DataCardKey34_3 As label:
-                        AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
@@ -303,7 +300,6 @@ ViewDetailsScreen As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -318,7 +314,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey34_3.Y + DataCardKey34_3.Height + 5
+                        Y: =DataCardKey34_3.Y + DataCardKey34_3.Height 
                         ZIndex: =2
 
                     ErrorMessage34_3 As label:
@@ -369,7 +365,7 @@ ViewDetailsScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         FontWeight: =FontWeight.Bold
-                        Height: =48
+                        Height: =30
                         Size: |-
                             =//21
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
@@ -387,7 +383,6 @@ ViewDetailsScreen As screen:
                             ThisItem.'ZipCode '
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
-                        Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -402,7 +397,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey1_3.Y + DataCardKey1_3.Height + 5
+                        Y: =DataCardKey1_3.Y + DataCardKey1_3.Height 
                         ZIndex: =2
 
                     ErrorMessage1_3 As label:
@@ -473,7 +468,6 @@ ViewDetailsScreen As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -488,7 +482,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey33_3.Y + DataCardKey33_3.Height + 5
+                        Y: =DataCardKey33_3.Y + DataCardKey33_3.Height
                         ZIndex: =2
 
                     ErrorMessage33_3 As label:
@@ -559,7 +553,6 @@ ViewDetailsScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Format: =TextFormat.Number
-                        Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         PaddingLeft: =5
@@ -573,7 +566,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey30_3.Y + DataCardKey30_3.Height + 5
+                        Y: =DataCardKey30_3.Y + DataCardKey30_3.Height
                         ZIndex: =2
 
                     ErrorMessage30_3 As label:
@@ -659,7 +652,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey31_3.Y + DataCardKey31_3.Height + 5
+                        Y: =DataCardKey31_3.Y + DataCardKey31_3.Height 
                         ZIndex: =2
 
                     ErrorMessage31_3 As label:
@@ -736,7 +729,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                        Y: =DataCardKey1.Y + DataCardKey1.Height 
                         ZIndex: =2
 
                     ErrorMessage1 As label:
@@ -812,7 +805,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                        Y: =DataCardKey2.Y + DataCardKey2.Height
                         ZIndex: =2
 
                     ErrorMessage2 As label:
@@ -879,7 +872,6 @@ ViewDetailsScreen As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -894,7 +886,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey27_3.Y + DataCardKey27_3.Height + 5
+                        Y: =DataCardKey27_3.Y + DataCardKey27_3.Height 
                         ZIndex: =2
 
                     ErrorMessage27_3 As label:
@@ -964,7 +956,6 @@ ViewDetailsScreen As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -979,7 +970,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey19_4.Y + DataCardKey19_4.Height + 5
+                        Y: =DataCardKey19_4.Y + DataCardKey19_4.Height
                         ZIndex: =2
 
                     ErrorMessage19_4 As label:
@@ -1049,7 +1040,6 @@ ViewDetailsScreen As screen:
                             ThisItem.Notes
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
-                        Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -1064,7 +1054,7 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey20_4.Y + DataCardKey20_4.Height + 5
+                        Y: =DataCardKey20_4.Y + DataCardKey20_4.Height 
                         ZIndex: =2
 
                     ErrorMessage20_4 As label:
@@ -1104,7 +1094,7 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_isunitdown")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =60
+                    Height: =56
                     Required: =false
                     Update: =
                     Visible: |-
@@ -1144,11 +1134,12 @@ ViewDetailsScreen As screen:
 
                     Checkbox4_16 As checkbox:
                         CheckboxBorderColor: =RGBA(0, 0, 0, 1)
-                        Default: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
-                        Height: =57
+                        HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
+                        PressedBorderColor: =
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
@@ -1167,7 +1158,7 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_additionalexpensesrequired")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =61
+                    Height: =50
                     Required: =false
                     Update: =
                     Visible: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
@@ -1205,7 +1196,6 @@ ViewDetailsScreen As screen:
 
                     Checkbox4_17 As checkbox:
                         CheckboxBorderColor: =RGBA(0, 0, 0, 1)
-                        Default: =true
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
                         Height: =56
@@ -1270,7 +1260,6 @@ ViewDetailsScreen As screen:
 
                     Checkbox4_18 As checkbox:
                         CheckboxBorderColor: =RGBA(0, 0, 0, 1)
-                        Default: =true
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
                         Height: =56
@@ -1332,8 +1321,8 @@ ViewDetailsScreen As screen:
                         ZIndex: =4
 
                     Checkbox4_19 As checkbox:
-                        CheckboxBorderColor: =RGBA(0, 0, 0, 1)
-                        Default: =true
+                        CheckboxBorderColor: =
+                        DisabledBorderColor: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
                         Height: =56
