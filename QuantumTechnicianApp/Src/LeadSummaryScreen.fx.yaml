@@ -1044,7 +1044,7 @@ LeadSummaryScreen As screen:
                             ZIndex: =4
 
                     UnitDownLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
-                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="crd59_checklist"
                         Default: =ThisItem.IsUnitDown
@@ -1087,12 +1087,15 @@ LeadSummaryScreen As screen:
                             ZIndex: =4
 
                         CboxUDLSS As checkbox:
-                            BorderColor: =RGBA(202, 202, 202, 1)
+                            BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
                             Default: =CboxUnitDown.Value
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
+                            HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Unit Down"
                             Width: =Parent.Width-60
@@ -1100,7 +1103,7 @@ LeadSummaryScreen As screen:
                             ZIndex: =5
 
                     AdditionalExpensesRequiredLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
-                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="crd59_additionalexpensesrequired"
                         Default: =ThisItem.AdditionalExpensesRequired
@@ -1143,11 +1146,15 @@ LeadSummaryScreen As screen:
                             ZIndex: =4
 
                         cboxAELSS As checkbox:
+                            BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
                             Default: =CboxAdditionalExpensesRequired.Value
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
+                            HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Additional Expenses Required"
                             Width: =Parent.Width-60
@@ -1155,7 +1162,7 @@ LeadSummaryScreen As screen:
                             ZIndex: =5
 
                     TravelRequiredLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
-                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="crd59_travelrequired"
                         Default: =ThisItem.TravelRequired
@@ -1198,11 +1205,15 @@ LeadSummaryScreen As screen:
                             ZIndex: =4
 
                         cboxTravelRequiredLSS As checkbox:
+                            BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
                             Default: =CboxTravelRequired.Value
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
+                            HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Travel Required"
                             Width: =Parent.Width-60
@@ -1210,7 +1221,7 @@ LeadSummaryScreen As screen:
                             ZIndex: =5
 
                     CommunicatedtoCustomerLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
-                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="crd59_communicatedtocustomer"
                         Default: =ThisItem.CommunicatedToCustomer
@@ -1253,11 +1264,15 @@ LeadSummaryScreen As screen:
                             ZIndex: =4
 
                         CboxCCLSS As checkbox:
+                            BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
                             Default: =CboxCommunicatedtoCustomer.Value
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
+                            HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Communicated to customer"
                             Width: =Parent.Width-60
@@ -1390,6 +1405,7 @@ LeadSummaryScreen As screen:
                                 }
                             )
                         );
+                        Set(VarNotificationSuccess,true);
                         /*Notify(
                             "Form has been submitted succuessfully.",
                             NotificationType.Success

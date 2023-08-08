@@ -173,11 +173,12 @@ UnitScreen As screen:
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.Disabled
-                    Height: =Parent.Height/13
+                    Fill: =RGBA(202, 202, 202, 1)
+                    Height: =Image1_7.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
-                        If(Parent.Width<378,Parent.Width/10,Parent.Width<500,Parent.Width/12,Parent.Width/14)
+                        If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
                     X: =Image1_7.X+Image1_7.Width
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =8
@@ -187,11 +188,12 @@ UnitScreen As screen:
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.Disabled
-                    Height: =Parent.Height/13
+                    Fill: =RGBA(202, 202, 202, 1)
+                    Height: =Image1_7.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
-                        If(Parent.Width<378,Parent.Width/10,Parent.Width<500,Parent.Width/12,Parent.Width/14)
+                        If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
                     X: =Image1_8.X+Image1_8.Width
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =9
@@ -201,11 +203,12 @@ UnitScreen As screen:
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.Disabled
-                    Height: =Parent.Height/13
+                    Fill: =RGBA(202, 202, 202, 1)
+                    Height: =Image1_7.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
-                        If(Parent.Width<378,Parent.Width/10,Parent.Width<500,Parent.Width/12,Parent.Width/14)
+                        If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
                     X: =Image1_6.X+Image1_6.Width
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =10
@@ -215,11 +218,12 @@ UnitScreen As screen:
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.Disabled
-                    Height: =Parent.Height/13
+                    Fill: =RGBA(202, 202, 202, 1)
+                    Height: =Image1_7.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
-                        If(Parent.Width<378,Parent.Width/10,Parent.Width<500,Parent.Width/12,Parent.Width/14)
+                        If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
                     X: =Image1_5.X+Image1_5.Width
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =11
@@ -305,7 +309,7 @@ UnitScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =If(Parent.Width<378,Parent.Width/6,Parent.Width<500,Parent.Width/5,Parent.Width/5)
+                    X: =If(Parent.Width<378,Parent.Width/9,Parent.Width<500,Parent.Width/10,Parent.Width/11)
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =20
 
