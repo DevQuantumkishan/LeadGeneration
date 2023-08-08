@@ -1200,7 +1200,7 @@ LeadScreen As screen:
                                             );
                                         );
                                         Notify(
-                                            "Proposed Incentives updated for the estimateId" & txtinptestimatenumber.Text,
+                                            "Proposed Incentives updated for the estimateId " & txtinptestimatenumber.Text,
                                             NotificationType.Success
                                         );
                                         Navigate(DashboardScreen);
