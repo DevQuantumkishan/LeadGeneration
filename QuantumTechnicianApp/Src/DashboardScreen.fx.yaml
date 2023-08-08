@@ -563,7 +563,7 @@ DashboardScreen As screen:
                 Height: |
                     =//180
                     //Parent.Height/5.5
-                    If(Parent.Height<Parent.Width,Parent.Height/2.5,Parent.Height/4.5)
+                    If(Parent.Height<Parent.Width,Parent.Height/2.4,Parent.Height/4.4)
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -586,49 +586,49 @@ DashboardScreen As screen:
                     Width: =Parent.Width/2.2
                     ZIndex: =1
 
+                    lblInprogressLeadsDS_6 As label:
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.View
+                        FontWeight: =FontWeight.Bold
+                        Height: =30
+                        LineHeight: =1.05
+                        OnSelect: =Set(VarPopup,true)
+                        Size: |-
+                            =//19.22
+                            If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: |-
+                            =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
+                            "Incentives" &
+                            If(
+                               yearly = true,
+                            If( LookUp(
+                                        GCTotalIncentives,
+                                        Year(Year) = Year(Now()),
+                                        YearlyCapReached) = true,
+                                    "10000" ,
+                                    LookUp(
+                                        GCTotalIncentives,
+                                        Year(Year) = Year(Now()),
+                                        TotalproposedIncentives
+                                    ))
+                                ,
+                                Sum(
+                                    GCTotalIncentives,
+                                    TotalproposedIncentives
+                                )
+                            ) & " " & "$"
+                        Width: =Parent.Width
+                        X: =
+                        Y: =lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
+                        ZIndex: =3
+
                     grpQuotedLeadsDS As group:
                         Height: =5
                         Width: =5
                         X: =40
                         Y: =0.07304526748976059
                         ZIndex: =7
-
-                        lblInprogressLeadsDS_6 As label:
-                            Align: =Align.Center
-                            AutoHeight: =true
-                            DisplayMode: =DisplayMode.View
-                            FontWeight: =FontWeight.Bold
-                            Height: =30
-                            LineHeight: =1.05
-                            OnSelect: =Set(VarPopup,true)
-                            Size: |-
-                                =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: |-
-                                =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
-                                "Incentives" &
-                                If(
-                                   yearly = true,
-                                If( LookUp(
-                                            GCTotalIncentives,
-                                            Year(Year) = Year(Now()),
-                                            YearlyCapReached) = true,
-                                        "10000" ,
-                                        LookUp(
-                                            GCTotalIncentives,
-                                            Year(Year) = Year(Now()),
-                                            TotalproposedIncentives
-                                        ))
-                                    ,
-                                    Sum(
-                                        GCTotalIncentives,
-                                        TotalproposedIncentives
-                                    )
-                                ) & " " & "$"
-                            Width: =Parent.Width
-                            X: =
-                            Y: =lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
-                            ZIndex: =3
 
                         lblQuotedLeadsDS As label:
                             Align: =Align.Center
