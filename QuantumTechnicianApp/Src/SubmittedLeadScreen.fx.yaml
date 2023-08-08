@@ -505,7 +505,7 @@ SubmittedLeadScreen As screen:
                         =Value(Sum(
                             Filter(
                                 GCTotalIncentives,
-                                Year(Year) = Year(Now())),TotalIncentives
+                                Year(Year) = Year(Now())),TotalSoldIncentives
                         ))
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width/3
