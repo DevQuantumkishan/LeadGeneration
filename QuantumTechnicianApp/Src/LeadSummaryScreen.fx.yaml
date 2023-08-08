@@ -1430,6 +1430,17 @@ LeadSummaryScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
+    ctnSuccessDS As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(120, 199, 10, 1)
+        Height: |
+            =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
+        LayoutMode: =LayoutMode.Auto
+        PaddingLeft: =20
+        Visible: =VarSuccessNotification
+        Width: =Parent.Width
+        Y: =20
+        ZIndex: =4
+
     grpMenuDS_4 As group:
         Height: =5
         Width: =5
