@@ -113,60 +113,6 @@ DashboardScreen As screen:
                 Width: =Parent.Height/1.5
                 ZIndex: =4
 
-        ctnSuccessDS As groupContainer.horizontalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
-            Fill: =RGBA(120, 199, 10, 1)
-            FillPortions: =0
-            Height: |
-                =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
-            LayoutMinHeight: =100
-            LayoutMinWidth: =250
-            LayoutMode: =LayoutMode.Auto
-            PaddingLeft: =20
-            Visible: =VarSuccessNotification
-            Width: =Parent.Width
-            ZIndex: =2
-
-            Icon1_1 As icon.CheckBadge:
-                AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height/2
-                Icon: =Icon.CheckBadge
-                Width: =Parent.Height/2
-                X: =38
-                Y: =Parent.Y
-                ZIndex: =1
-
-            lblUserNameDS_2 As label:
-                AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
-                Font: =Font.Arial
-                Height: =Parent.Height
-                PaddingLeft: =20
-                PaddingRight: =10.68
-                PaddingTop: =5.34
-                Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
-                Text: ="Lead Successfully Created."
-                Width: =Parent.Width/1.2
-                X: =Icon1_1.X+Icon1_1.Width
-                ZIndex: =2
-
-            TimerLS_1 As timer:
-                AutoStart: =true
-                Duration: =5000
-                OnTimerEnd: |-
-                    =//Navigate(DashboardScreen)
-                    Set(VarSuccessNotification,false);
-                PaddingRight: =5.34
-                PaddingTop: =5.34
-                Size: =13.88
-                Start: =true
-                Visible: =false
-                Width: =170.88
-                X: =85.44
-                Y: =80
-                ZIndex: =3
-
         ctnUserNameDS As groupContainer.manualLayoutContainer:
             FillPortions: =0
             Height: |
@@ -266,7 +212,7 @@ DashboardScreen As screen:
         ctnMiddleDS As groupContainer.verticalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-20
+            Height: =Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-10
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutGap: =10
@@ -280,6 +226,7 @@ DashboardScreen As screen:
             ZIndex: =4
 
             ctnLeadsButtonDS As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: |
@@ -330,13 +277,13 @@ DashboardScreen As screen:
                                 =//its for count of yealy/cumulatively InProgress leads
                                 
                                 //"InProgress Leads#" & Char(10)&  
-                                If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" && Year('Created On')=Year(Now())))) 
+                                If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblInprogressLeadsDS_4.Height+lblInprogressLeadsDS_4.Y
+                            Y: =lblOpenLeadsDS.Height+lblOpenLeadsDS.Y
                             ZIndex: =1
 
-                        lblInprogressLeadsDS_4 As label:
+                        lblOpenLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -351,10 +298,10 @@ DashboardScreen As screen:
                                 ="Leads#"
                             Width: =Parent.Width
                             X: =
-                            Y: =lblOpen.Height+lblOpen.Y
+                            Y: =lblOpenDS.Height+lblOpenDS.Y
                             ZIndex: =2
 
-                        lblOpen As label:
+                        lblOpenDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -368,7 +315,7 @@ DashboardScreen As screen:
                             Text: ="Open"
                             Width: =Parent.Width
                             X: =
-                            Y: =20.07304526748976
+                            Y: =Parent.Height/10
                             ZIndex: =3
 
                         btnOpenLeadsDS As button:
@@ -384,7 +331,7 @@ DashboardScreen As screen:
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
                             PaddingRight: =5.34
-                            PaddingTop: =30
+                            PaddingTop: =0
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -473,7 +420,7 @@ DashboardScreen As screen:
                             Text: ="InProgress"
                             Width: =Parent.Width
                             X: =
-                            Y: =20
+                            Y: =Parent.Height/10
                             ZIndex: =3
 
                         btnInprogressLeadsDS As button:
@@ -577,7 +524,7 @@ DashboardScreen As screen:
                             Text: ="Rejected"
                             Width: =Parent.Width
                             X: =
-                            Y: =20.07304526748976
+                            Y: =Parent.Height/10
                             ZIndex: =6
 
                         btnRejectedLeadsDS As button:
@@ -593,7 +540,7 @@ DashboardScreen As screen:
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
                             PaddingRight: =5.34
-                            PaddingTop: =30
+                            PaddingTop: =0
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -633,102 +580,119 @@ DashboardScreen As screen:
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     FillPortions: =0
-                    Height: =Parent.Height/1.08
+                    Height: =Parent.Height/1.06
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/2.2
                     ZIndex: =1
 
-                    lblFutureIncentivesDS As label:
-                        Align: =Align.Center
-                        AutoHeight: =true
-                        Color: =RGBA(116, 116, 116, 1)
-                        DisplayMode: =DisplayMode.View
-                        FontWeight: =FontWeight.Semibold
-                        Height: =Parent.Height/3
-                        LineHeight: =1.05
-                        OnSelect: =Navigate(SubmittedLeadScreen);Set(VarFutureIncetives,true)
-                        Size: |-
-                            =//19.22
-                            If(Parent.Width<358,11,Parent.Width>358,12,16)
-                        Text: |-
-                            =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
-                            "Proposed Incentives $" & Char(10) &
-                            If(
-                               yearly = true,
-                            If( LookUp(
-                                        GCTotalIncentives,
-                                        Year(Year) = Year(Now()),
-                                        YearlyCapReached) = true,
-                                    "10000",
-                                    LookUp(
-                                        GCTotalIncentives,
-                                        Year(Year) = Year(Now()),
-                                        TotalproposedIncentives
-                                    ))
-                                ,
-                                Sum(
-                                    GCTotalIncentives,
-                                    TotalproposedIncentives
-                                )
-                            )
-                        Width: =btnQuotedLeadsDS.Width
-                        X: =btnQuotedLeadsDS.X
-                        Y: =lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
-                        ZIndex: =2
-
                     grpQuotedLeadsDS As group:
                         Height: =5
                         Width: =5
-                        X: =20
-                        Y: =40
-                        ZIndex: =3
+                        X: =40
+                        Y: =0.07304526748976059
+                        ZIndex: =7
+
+                        lblInprogressLeadsDS_6 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.View
+                            FontWeight: =FontWeight.Bold
+                            Height: =30
+                            LineHeight: =1.05
+                            OnSelect: =Set(VarPopup,true)
+                            Size: |-
+                                =//19.22
+                                If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Text: |-
+                                =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
+                                "Incentives" &
+                                If(
+                                   yearly = true,
+                                If( LookUp(
+                                            GCTotalIncentives,
+                                            Year(Year) = Year(Now()),
+                                            YearlyCapReached) = true,
+                                        "10000" ,
+                                        LookUp(
+                                            GCTotalIncentives,
+                                            Year(Year) = Year(Now()),
+                                            TotalproposedIncentives
+                                        ))
+                                    ,
+                                    Sum(
+                                        GCTotalIncentives,
+                                        TotalproposedIncentives
+                                    )
+                                ) & " " & "$"
+                            Width: =Parent.Width
+                            X: =
+                            Y: =lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
+                            ZIndex: =3
 
                         lblQuotedLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =RGBA(116, 116, 116, 1)
                             DisplayMode: =DisplayMode.View
                             FontWeight: =FontWeight.Semibold
+                            Height: =30
                             LineHeight: =1.05
-                            OnSelect: =Navigate(SubmittedLeadScreen);Set(VarFutureIncetives,true)
+                            OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width<378,14,16)
+                                If(Parent.Width<358,12,Parent.Width>358,14,18)
                             Text: |-
-                                =///its for count of yealy/cumulatively InProgress leads
-                                If(cumulatively=true,"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")),"Quoted Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
-                            Width: =btnQuotedLeadsDS.Width
-                            X: =btnQuotedLeadsDS.X
-                            Y: =(Parent.Height-Self.Height)/3.5
-                            ZIndex: =1
+                                ="Leads#" & " " & If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted" && Year('Created On')=Year(Now())))) 
+                            Width: =Parent.Width
+                            X: =
+                            Y: =lblQuotedDS.Height+lblQuotedDS.Y
+                            ZIndex: =4
+
+                        lblQuotedDS As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.View
+                            FontWeight: =FontWeight.Bold
+                            Height: =30
+                            LineHeight: =1.05
+                            OnSelect: =Set(VarPopup,true)
+                            Size: |
+                                =//19.22
+                                If(Parent.Width<358,12,Parent.Width>358,14,18)
+                            Text: ="Quoted"
+                            Width: =Parent.Width
+                            X: =
+                            Y: =Parent.Height/10
+                            ZIndex: =5
 
                         btnQuotedLeadsDS As button:
-                            Color: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(0, 0, 0, 1)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             Fill: =RGBA(0, 0, 0, 0)
-                            Height: |-
-                                =//180
-                                Parent.Height
+                            Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
-                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
-                                Set(VarFutureIncetives,true);
-                                Set(VarSoldIncetives,false);
+                                =//Set(VarPopup,true)
+                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
+                                Set(VarSoldIncetives,true);
+                                Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
                             PaddingRight: =5.34
-                            PaddingTop: =50
+                            PaddingTop: =30
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
                             RadiusTopRight: =6
                             Size: |-
                                 =//14.95
-                                If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
+                                //If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
+                                If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: =
                             VerticalAlign: =VerticalAlign.Top
                             Width: =Parent.Width
-                            ZIndex: =3
+                            X: =
+                            Y: =0.07304526748976059
+                            ZIndex: =6
 
                 ctnSoldLeadsDS As groupContainer.manualLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -737,80 +701,93 @@ DashboardScreen As screen:
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     FillPortions: =0
-                    Height: =Parent.Height/1.08
+                    Height: =Parent.Height/1.06
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/2.2
                     ZIndex: =2
 
-                    lblSoldIncentivesDS As label:
-                        Align: =Align.Center
-                        AutoHeight: =true
-                        Color: =RGBA(116, 116, 116, 1)
-                        DisplayMode: =DisplayMode.View
-                        FontWeight: =FontWeight.Semibold
-                        Height: =Parent.Height/3
-                        LineHeight: =1.05
-                        OnSelect: =Navigate(SubmittedLeadScreen);Set(VarFutureIncetives,true)
-                        Size: |-
-                            =//19.22
-                            If(Parent.Width<358,11,Parent.Width>358,12,16)
-                        Text: |-
-                            =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show totalsoldIncentives and if user select span for cumulatively, then need to show sum of total sold incentives .
-                            "Sold Incentives $" & Char(10) & 
-                            If(
-                               yearly = true,
-                            If( LookUp(
-                                        GCTotalIncentives,
-                                        Year(Year) = Year(Now()),
-                                        YearlyCapReached) = true,
-                                    "10000",
-                                    LookUp(
-                                        GCTotalIncentives,
-                                        Year(Year) = Year(Now()),
-                                        TotalSoldIncentives
-                                    ))
-                                ,
-                                Sum(
-                                    GCTotalIncentives,
-                                    TotalSoldIncentives
-                                )
-                            )
-                        Width: =btnQuotedLeadsDS.Width
-                        X: =btnQuotedLeadsDS.X
-                        Y: =lblSoldLeadsDS.Height+lblSoldLeadsDS.Y
-                        ZIndex: =2
-
-                    grpSoldLeadsDS As group:
+                    grpQuotedLeadsDS_1 As group:
                         Height: =5
                         Width: =5
-                        X: =28.74418604651163
-                        Y: =40
-                        ZIndex: =3
+                        X: =40
+                        Y: =0.41647255221678847
+                        ZIndex: =8
 
-                        lblSoldLeadsDS As label:
+                        lblInprogressLeadsDS_7 As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =RGBA(116, 116, 116, 1)
                             DisplayMode: =DisplayMode.View
-                            FontWeight: =FontWeight.Semibold
+                            FontWeight: =FontWeight.Bold
+                            Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
-                            PaddingRight: =5.34
-                            PaddingTop: =5.34
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width<378,14,16)
+                                If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
-                                =//its for count of yealy/cumulatively InProgress leads
-                                If(cumulatively=true,"Sold Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold")),"Sold Leads#" & Char(10)&  CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold" && Year('Created On')=Year(Now())))) 
-                            Width: =btnSoldLeadsDS.Width
-                            X: =btnSoldLeadsDS.X
-                            Y: =(Parent.Height-Self.Height)/3.5
-                            ZIndex: =1
+                                =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
+                                "Incentives" &
+                                If(
+                                   yearly = true,
+                                If( LookUp(
+                                            GCTotalIncentives,
+                                            Year(Year) = Year(Now()),
+                                            YearlyCapReached) = true,
+                                        "10000" ,
+                                        LookUp(
+                                            GCTotalIncentives,
+                                            Year(Year) = Year(Now()),
+                                            TotalSoldIncentives
+                                        ))
+                                    ,
+                                    Sum(
+                                        GCTotalIncentives,
+                                        TotalSoldIncentives
+                                    )
+                                ) & " " & "$"
+                            Width: =Parent.Width
+                            X: =
+                            Y: =lblQuotedLeadsDS_1.Height+lblQuotedLeadsDS_1.Y
+                            ZIndex: =4
 
-                        btnSoldLeadsDS As button:
-                            Color: =RGBA(0, 0, 0, 0)
+                        lblQuotedLeadsDS_1 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.View
+                            FontWeight: =FontWeight.Semibold
+                            Height: =30
+                            LineHeight: =1.05
+                            OnSelect: =Set(VarPopup,true)
+                            Size: |-
+                                =//19.22
+                                If(Parent.Width<358,12,Parent.Width>358,14,18)
+                            Text: |-
+                                ="Leads#" & " " & If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Sold" && Year('Created On')=Year(Now())))) 
+                            Width: =Parent.Width
+                            X: =
+                            Y: =lblQuotedDS_1.Height+lblQuotedDS_1.Y
+                            ZIndex: =5
+
+                        lblQuotedDS_1 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.View
+                            FontWeight: =FontWeight.Bold
+                            Height: =30
+                            LineHeight: =1.05
+                            OnSelect: =Set(VarPopup,true)
+                            Size: |
+                                =//19.22
+                                If(Parent.Width<358,12,Parent.Width>358,14,18)
+                            Text: ="Sold"
+                            Width: =Parent.Width
+                            X: =
+                            Y: =Parent.Height/10
+                            ZIndex: =6
+
+                        btnQuotedLeadsDS_1 As button:
+                            Color: =RGBA(0, 0, 0, 1)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
@@ -820,17 +797,23 @@ DashboardScreen As screen:
                                 Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Sold"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
+                                Set(VarTotalIncentives,false);
                             PaddingRight: =5.34
-                            PaddingTop: =53.40
+                            PaddingTop: =30
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
                             RadiusTopRight: =6
-                            Size: |
+                            Size: |-
                                 =//14.95
-                            Text: =""
+                                //If(Parent.Width<358,9,Parent.Width>358 && Parent.Width<500,12,Parent.Width>500,14)
+                                If(Parent.Width<358,14,Parent.Width>358,16,18)
+                            Text: =
+                            VerticalAlign: =VerticalAlign.Top
                             Width: =Parent.Width
-                            ZIndex: =3
+                            X: =
+                            Y: =0.48951781970654906
+                            ZIndex: =7
 
             ctnCreateLeadDS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
