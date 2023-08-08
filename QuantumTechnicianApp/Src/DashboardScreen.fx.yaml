@@ -204,7 +204,7 @@ DashboardScreen As screen:
                 PaddingLeft: =0
                 PaddingRight: =0
                 Size: =If(Parent.Width>500,16,Parent.Width<500,14,12)
-                Text: ="Select Time Span"
+                Text: ="Time Span"
                 Width: =If(Parent.Width<500,Parent.Width/2,Parent.Width/3)
                 X: =Parent.X
                 ZIndex: =4
@@ -242,7 +242,7 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Default: =true
                     FalseFill: =RGBA(202, 202, 202, 1)
-                    FalseText: = Year(Now())-10& "-" & Year(Now())
+                    FalseText: =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On'))
                     Font: =Font.Arial
                     Height: =Parent.Height/2.02
                     OnCheck: |-
@@ -535,10 +535,26 @@ DashboardScreen As screen:
                             =//19.22
                             If(Parent.Width<358,11,Parent.Width>358,12,16)
                         Text: |-
-                            ="Proposed Incentives $" & Char(10) &""
-                            /*If(
+                            =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
+                            "Proposed Incentives $" & Char(10) &
+                            If(
                                yearly = true,
-                               If(LookUp(GCTotalIncentives,Year(Year)=Year(Now())),'YearlyCapReached (TotalIncentives)'.Yes=true,10000,LookUp(GCTotalIncentives,Value(TotalproposedIncentives))*/
+                            If( LookUp(
+                                        GCTotalIncentives,
+                                        Year(Year) = Year(Now()),
+                                        YearlyCapReached) = true,
+                                    "10000",
+                                    LookUp(
+                                        GCTotalIncentives,
+                                        Year(Year) = Year(Now()),
+                                        TotalproposedIncentives
+                                    ))
+                                ,
+                                Sum(
+                                    GCTotalIncentives,
+                                    TotalproposedIncentives
+                                )
+                            )
                         Width: =btnQuotedLeadsDS.Width
                         X: =btnQuotedLeadsDS.X
                         Y: =lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
@@ -623,10 +639,10 @@ DashboardScreen As screen:
                             =//19.22
                             If(Parent.Width<358,11,Parent.Width>358,12,16)
                         Text: |-
-                            =//If(cumulatively=true,"Sold Incentives $" & Char(10) &"15684.22","Sold Incentives $" & Char(10) &"7045.22")
+                            =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show totalsoldIncentives and if user select span for cumulatively, then need to show sum of total sold incentives .
+                            "Sold Incentives $" & Char(10) & 
                             If(
                                yearly = true,
-                                "Sold Incentives $" & Char(10) & 
                             If( LookUp(
                                         GCTotalIncentives,
                                         Year(Year) = Year(Now()),
@@ -635,12 +651,12 @@ DashboardScreen As screen:
                                     LookUp(
                                         GCTotalIncentives,
                                         Year(Year) = Year(Now()),
-                                        TotalIncentives
+                                        TotalSoldIncentives
                                     ))
                                 ,
-                                "Sold Incentives $" & Char(10) & Sum(
+                                Sum(
                                     GCTotalIncentives,
-                                    TotalIncentives
+                                    TotalSoldIncentives
                                 )
                             )
                         Width: =btnQuotedLeadsDS.Width
