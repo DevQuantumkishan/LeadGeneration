@@ -1179,7 +1179,8 @@ LeadScreen As screen:
                                             !IsBlank(
                                                 LookUp(
                                                     LeadInformations,
-                                                    LeadStatus = "InProgress" && ID = glryleadlistLS.Selected.ID
+                                                   // LeadStatus = "InProgress" &&
+                                                     ID = glryleadlistLS.Selected.ID
                                                 )
                                             ),
                                             Patch(
@@ -1198,9 +1199,11 @@ LeadScreen As screen:
                                                         SHFPEstimates,
                                                         Estimate = txtinptestimatenumber.Text,
                                                         BidPrice
-                                                    ) * 0.02
+                                                    ) * 0.02,
+                                                    LeadInformationLID:LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID)
                                                 }
                                             );
+                                            Notify("Total Incentives row patched");
                                             ,
                                             UpdateIf(TotalIncentives,LeadInformationLID.ID=glryleadlistLS.Selected.ID,
                                             {
