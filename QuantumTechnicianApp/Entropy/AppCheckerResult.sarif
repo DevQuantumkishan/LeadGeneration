@@ -7746,30 +7746,6 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
-            },
-            {
-              "associatedRule": {
-                "id": "app-InefficientDelayLoading",
-                "index": 10
-              },
-              "descriptor": {
-                "id": "app-InefficientDelayLoading"
-              },
-              "message": {
-                "text": "Error occurred running rule app-InefficientDelayLoading."
-              }
-            },
-            {
-              "associatedRule": {
-                "id": "app-InefficientDelayLoading",
-                "index": 10
-              },
-              "descriptor": {
-                "id": "app-InefficientDelayLoading"
-              },
-              "message": {
-                "text": "Error occurred running rule app-InefficientDelayLoading."
-              }
             }
           ]
         }
@@ -8070,7 +8046,7 @@
                 },
                 "region": {
                   "charLength": 18,
-                  "charOffset": 281,
+                  "charOffset": 283,
                   "snippet": {
                     "text": "Year('Created On')"
                   }
@@ -8110,7 +8086,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 299,
+                  "charOffset": 301,
                   "snippet": {
                     "text": "="
                   }
@@ -8150,7 +8126,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 278,
+                  "charOffset": 280,
                   "snippet": {
                     "text": "&&"
                   }
@@ -8190,7 +8166,7 @@
                 },
                 "region": {
                   "charLength": 18,
-                  "charOffset": 197,
+                  "charOffset": 293,
                   "snippet": {
                     "text": "Year('Created On')"
                   }
@@ -8230,7 +8206,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 215,
+                  "charOffset": 311,
                   "snippet": {
                     "text": "="
                   }
@@ -8270,7 +8246,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 194,
+                  "charOffset": 290,
                   "snippet": {
                     "text": "&&"
                   }
@@ -8280,6 +8256,126 @@
                 "member": "Text",
                 "module": "DashboardScreen",
                 "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 284,
+                  "snippet": {
+                    "text": "Year('Created On')"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "DashboardScreen",
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Year"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 302,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "DashboardScreen",
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 281,
+                  "snippet": {
+                    "text": "&&"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "DashboardScreen",
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS"
               }
             }
           ],
@@ -8400,126 +8496,6 @@
                 "member": "Text",
                 "module": "DashboardScreen",
                 "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnRejectedLeadsDS.lblLeadsCountDS"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 18,
-                  "charOffset": 193,
-                  "snippet": {
-                    "text": "Year('Created On')"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Year"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 1,
-                  "charOffset": 211,
-                  "snippet": {
-                    "text": "="
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 2,
-                  "charOffset": 190,
-                  "snippet": {
-                    "text": "&&"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1"
               }
             }
           ],
@@ -12259,19 +12235,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenDS.FocusedBorderThickness"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpen.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenDS.FocusedBorderThickness",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpen.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenDS"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpen"
               }
             }
           ],
@@ -12289,19 +12265,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenDS.TabIndex"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpen.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenDS.TabIndex",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpen.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenDS"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpen"
               }
             }
           ],
@@ -12439,49 +12415,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedDS.TabIndex"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedDS.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedDS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedDS.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedDS.FocusedBorderThickness",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedDS"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS"
               }
             }
           ],
@@ -12499,19 +12445,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblInprogressLeadsDS_7.TabIndex"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblInprogressLeadsDS_7.TabIndex",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblInprogressLeadsDS_7"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS"
               }
             }
           ],
@@ -12529,19 +12475,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblInprogressLeadsDS_7.FocusedBorderThickness"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblInprogressLeadsDS_7.FocusedBorderThickness",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblInprogressLeadsDS_7"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS"
               }
             }
           ],
@@ -12559,19 +12505,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.TabIndex"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.TabIndex",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblFutureIncentivesDS"
               }
             }
           ],
@@ -12589,19 +12535,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedLeadsDS_1"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS"
               }
             }
           ],
@@ -12619,19 +12565,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedDS_1.TabIndex"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedDS_1.TabIndex",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedDS_1"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldLeadsDS"
               }
             }
           ],
@@ -12649,19 +12595,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedDS_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldIncentivesDS.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedDS_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldIncentivesDS.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblQuotedDS_1"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldIncentivesDS"
               }
             }
           ],
@@ -12673,6 +12619,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldIncentivesDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldIncentivesDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "DashboardScreen",
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnSoldLeadsDS.lblSoldIncentivesDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -14869,19 +14845,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenLeadsDS.FocusedBorderThickness"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblInprogressLeadsDS_4.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenLeadsDS.FocusedBorderThickness",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblInprogressLeadsDS_4.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenLeadsDS"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblInprogressLeadsDS_4"
               }
             }
           ],
@@ -14899,19 +14875,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenLeadsDS.TabIndex"
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblInprogressLeadsDS_4.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenLeadsDS.TabIndex",
+                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblInprogressLeadsDS_4.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblOpenLeadsDS"
+                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblInprogressLeadsDS_4"
               }
             }
           ],
@@ -14972,126 +14948,6 @@
                 "member": "TabIndex",
                 "module": "DashboardScreen",
                 "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonDS.ctnOpenLeadsDS.lblInprogressLeadsDS_5"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblQuotedLeadsDS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblInprogressLeadsDS_6.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblInprogressLeadsDS_6.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblInprogressLeadsDS_6"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblInprogressLeadsDS_6.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblInprogressLeadsDS_6.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen.ctnMainDS.ctnMiddleDS.ctnLeadsButtonsDS.ctnQuatedLeadsDS.lblInprogressLeadsDS_6"
               }
             }
           ],

@@ -1430,57 +1430,6 @@ LeadSummaryScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    ctnSuccessDS As groupContainer.horizontalAutoLayoutContainer:
-        Fill: =RGBA(120, 199, 10, 1)
-        Height: |
-            =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
-        LayoutMode: =LayoutMode.Auto
-        PaddingLeft: =20
-        Visible: =VarSuccessNotification
-        Width: =Parent.Width
-        Y: =20
-        ZIndex: =4
-
-        Icon1_1 As icon.CheckBadge:
-            AlignInContainer: =AlignInContainer.Center
-            Color: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/2
-            Icon: =Icon.CheckBadge
-            Width: =Parent.Height/2
-            X: =38
-            Y: =Parent.Y
-            ZIndex: =1
-
-        lblUserNameDS_2 As label:
-            AlignInContainer: =AlignInContainer.Center
-            Color: =RGBA(255, 255, 255, 1)
-            Font: =Font.Arial
-            Height: =Parent.Height
-            PaddingLeft: =20
-            PaddingRight: =10.68
-            PaddingTop: =5.34
-            Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
-            Text: ="Lead Successfully Created."
-            Width: =Parent.Width/1.2
-            X: =Icon1_1.X+Icon1_1.Width
-            ZIndex: =2
-
-        TimerLS_1 As timer:
-            AutoStart: =true
-            Duration: =5000
-            OnTimerEnd: |-
-                =//Navigate(DashboardScreen)
-                Set(VarSuccessNotification,false);
-            PaddingRight: =5.34
-            PaddingTop: =5.34
-            Size: =13.88
-            Start: =true
-            Visible: =false
-            Width: =170.88
-            X: =85.44
-            Y: =80
-            ZIndex: =3
-
     grpMenuDS_4 As group:
         Height: =5
         Width: =5
@@ -1565,4 +1514,15 @@ LeadSummaryScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
+
+    ctnSuccessDS As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(120, 199, 10, 1)
+        Height: |
+            =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
+        LayoutMode: =LayoutMode.Auto
+        PaddingLeft: =20
+        Visible: =VarSuccessNotification
+        Width: =Parent.Width
+        Y: =20
+        ZIndex: =4
 
