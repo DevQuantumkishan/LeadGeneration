@@ -1,0 +1,106 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr02d_shcontractdetails",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr02d_shcontractdetail",
+    "Name": "SHContractDetails",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr02d_arbplcontract": "ARBPL_CONTRACT",
+      "cr02d_contrdist": "Contr_dist",
+      "cr02d_contrnum": "CONTR_NUM",
+      "cr02d_contrtype": "CONTR_TYPE",
+      "cr02d_custaddr": "CUST_ADDR",
+      "cr02d_custcity": "CUST_CITY",
+      "cr02d_custclass": "CUST_CLASS",
+      "cr02d_custname": "CUST_NAME",
+      "cr02d_custstate": "CUST_STATE",
+      "cr02d_custzip": "CUST_ZIP",
+      "cr02d_shcontractdetail_AsyncOperations": "System Jobs",
+      "cr02d_shcontractdetail_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr02d_shcontractdetail_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr02d_shcontractdetail_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr02d_shcontractdetail_ProcessSession": "Process Sessions",
+      "cr02d_shcontractdetail_SyncErrors": "Sync Errors",
+      "cr02d_shcontractdetailid": "SHContractDetail",
+      "cr02d_totunits": "TOT_UNITS",
+      "cr02d_wcsuper": "WC_SUPER",
+      "cr02d_wctech": "WC_TECH",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "SHContractDetails",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "SHContractDetails (Views)",
+    "Name": "_cr02d_shcontractdetail_views",
+    "RelatedEntityName": "SHContractDetails",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "15f38a57-18e8-46d6-87a0-bf5d703035c5": "Active SHContractDetails",
+      "512e40fd-23c0-468d-8fe5-10b935ce7ed7": "SHContractDetail Advanced Find View",
+      "53768c14-0594-4560-8442-e02363f237e4": "Inactive SHContractDetails",
+      "63901fd0-5f11-4b3f-b00c-6a86483505e4": "SHContractDetail Associated View",
+      "f775b16a-846c-45e3-b474-07c019e49950": "SHContractDetail Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (SHContractDetails)",
+    "Name": "cr02d_shcontractdetail_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "SHContractDetails"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "SHContractDetails",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (SHContractDetails)",
+    "Name": "cr02d_shcontractdetail_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "SHContractDetails"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "SHContractDetails",
+    "Type": "OptionSetInfo"
+  }
+]
