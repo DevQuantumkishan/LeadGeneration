@@ -1360,7 +1360,9 @@ LeadSummaryScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =Set(VarLeadInformationID,GUID());
+                        =Set(VarNotification,true);
+                        Set(VarNotificationloding,true);
+                        Set(VarLeadInformationID,GUID());
                         Patch(
                             LeadInformations,
                             Defaults(LeadInformations),
@@ -1411,7 +1413,6 @@ LeadSummaryScreen As screen:
                             NotificationType.Success
                         );*/
                         Set(VarSuccessNotification,true);
-                        Navigate(DashboardScreen);
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Submit"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
@@ -1446,16 +1447,66 @@ LeadSummaryScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    ctnSuccessDS As groupContainer.horizontalAutoLayoutContainer:
-        Fill: =RGBA(120, 199, 10, 1)
-        Height: |
-            =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
-        LayoutMode: =LayoutMode.Auto
-        PaddingLeft: =20
-        Visible: =VarSuccessNotification
+    Container5 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
         Width: =Parent.Width
-        Y: =20
         ZIndex: =4
+
+        Rectangle1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/4
+            Width: =Parent.Width/1.3
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        Container6 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =Rectangle1.Height/1.06
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle1.Width/1.04
+            X: =Rectangle1.X+10
+            Y: =Rectangle1.Y+10
+            ZIndex: =2
+
+            Container9 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =Parent.Height/5
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Image4 As image:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =Parent.Height
+                    Image: =If(VarNotificationloding,'waiting-icon-gif-4',VarNotificationSuccess,Group)
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Label3 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Font: =Font.Arial
+                Height: =200
+                Text: =If(VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead Submitted Successfully.")
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Button4 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                OnSelect: =Navigate(DashboardScreen);
+                Size: =14
+                Text: ="Ok"
+                Width: =Parent.Width/5
+                ZIndex: =3
 
     grpMenuDS_4 As group:
         Height: =5
