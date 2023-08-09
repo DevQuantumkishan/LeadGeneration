@@ -499,16 +499,11 @@ CreatLeadScreen As screen:
                                 IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text ,Color.DimGrey,Color.Black)
                         Height: =IntxtContractNumber.Height
                         Icon: =Icon.Search
-                        OnSelect: |-
+                        OnSelect: |
                             =Set(
-                                VarContractError,
-                                false
-                            );
-                            Set(
-                                VarLoader,
-                                true
-                            );
-                            
+                                    VarLoader,
+                                    true
+                                );
                             Set(
                                 VarcontractRecord,
                                 LookUp(
@@ -516,21 +511,23 @@ CreatLeadScreen As screen:
                                     CONTR_NUM = IntxtContractNumber.Text
                                 )
                             );
-                             If(IsBlank(VarcontractRecord),
+                            If(
+                                !IsBlank(VarcontractRecord),
                                 Set(
                                     VarLoader,
-                                    true
-                                );
-                                ,
-                                Set(
+                                    false
+                                );,
+                                 Set(
                                     VarLoader,
-                                    true
+                                    false
                                 );,
                                 Set(
                                     VarContractError,
                                     true
                                 );
-                             )
+                               
+                                
+                            );
                         PaddingBottom: =5
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -910,7 +907,7 @@ CreatLeadScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    PopopSuccessSS As groupContainer.manualLayoutContainer:
+    PopopContracterrorSS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarNotification
@@ -1058,7 +1055,7 @@ CreatLeadScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
-                Height: =150
+                Height: =100
                 Size: =14
                 Text: |-
                     =
@@ -1130,7 +1127,7 @@ CreatLeadScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
-                Height: =150
+                Height: =100
                 Size: =14
                 Text: |
                     =
