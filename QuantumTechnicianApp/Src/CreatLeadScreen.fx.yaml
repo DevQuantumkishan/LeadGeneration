@@ -907,7 +907,7 @@ CreatLeadScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    PopopContracterrorSS As groupContainer.manualLayoutContainer:
+    PopopContracterrorNextSS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarNotification
@@ -1006,7 +1006,7 @@ CreatLeadScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height+5
             ZIndex: =3
 
-    PopopSuccessSS_1 As groupContainer.manualLayoutContainer:
+    PopoploaderCS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarContractError 
