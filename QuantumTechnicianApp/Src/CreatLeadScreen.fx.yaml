@@ -5,6 +5,9 @@ CreatLeadScreen As screen:
         If(IsBlank(IntxtAddress),Set(VarAddress,false));
         If(IsBlank(IntxtBuildingName),Set(VarBuildingName,false));
         If(IsBlank(IntxtZipCode),Set(VarZipcode,false));
+        Set(VarLoader,false);
+        Set(VarNotification,false);
+        Set(VarContractError,false)
 
     ctnMainCLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -422,9 +425,10 @@ CreatLeadScreen As screen:
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
-                        OnChange: =Set(VarContractNumber,true);
+                        OnChange: =Set(VarContractNumber,true);Set(VarLoader,true);
                         PaddingBottom: =0
                         PaddingLeft: =5
+                        PaddingRight: =50
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
@@ -449,8 +453,9 @@ CreatLeadScreen As screen:
                         Size: =12
                         Text: ="Contract number is not found"
                         Visible: |-
-                            =If(LookUp(SHContracts,CONTR_NUM=Value(
-                                IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
+                            =//If(LookUp(SHContracts,CONTR_NUM=Value(
+                              //  IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
+                              false
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtContractNumber.Y + IntxtContractNumber.Height
@@ -463,8 +468,9 @@ CreatLeadScreen As screen:
                         Size: =21
                         Text: ="*"
                         Visible: |-
-                            =If(LookUp(SHContracts,CONTR_NUM=Value(
-                                IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
+                            =//If(LookUp(SHContracts,CONTR_NUM=Value(
+                              //  IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
+                              false
                         Width: =30
                         Wrap: =false
                         Y: =lblContractNumber.Y
@@ -484,6 +490,56 @@ CreatLeadScreen As screen:
                         X: =28
                         Y: =10
                         ZIndex: =4
+
+                    Icon3 As icon.Search:
+                        BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
+                        BorderThickness: =1
+                        Color: |-
+                            =If(LookUp(SHContractDetails,CONTR_NUM=
+                                IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text ,Color.DimGrey,Color.Black)
+                        Height: =IntxtContractNumber.Height
+                        Icon: =Icon.Search
+                        OnSelect: |-
+                            =Set(
+                                VarContractError,
+                                false
+                            );
+                            Set(
+                                VarLoader,
+                                true
+                            );
+                            
+                            Set(
+                                VarcontractRecord,
+                                LookUp(
+                                    SHContractDetails,
+                                    CONTR_NUM = IntxtContractNumber.Text
+                                )
+                            );
+                            If(
+                                IsBlank(VarcontractRecord),
+                                Set(
+                                    VarLoader,
+                                    true
+                                );
+                                Set(
+                                    VarContractError,
+                                    true
+                                ),
+                                Set(
+                                    VarLoader,
+                                    false
+                                );
+                                
+                            )
+                        PaddingBottom: =5
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =IntxtContractNumber.Width/12
+                        X: =IntxtContractNumber.Width-Self.Width+30
+                        Y: =IntxtContractNumber.Y
+                        ZIndex: =5
 
                 ZipCode As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
@@ -506,7 +562,8 @@ CreatLeadScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
                         Default: |-
                             =//Parent.Default
-                            LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text),CUST_ZIP)
+                            //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_ZIP)
+                            VarcontractRecord.CUST_ZIP
                         DelayOutput: =true
                         DisplayMode: |-
                             =//Parent.DisplayMode
@@ -595,7 +652,8 @@ CreatLeadScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
                         Default: |-
                             =//Parent.Default
-                            LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text),CUST_CITY)
+                            //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_CITY)
+                            VarcontractRecord.CUST_CITY
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(149, 149, 149, 1)
                         DisplayMode: =DisplayMode.Disabled
@@ -692,7 +750,8 @@ CreatLeadScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error),Color.LightGray, Color.Red)
                         Default: |-
                             =//Parent.Default
-                            LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text),CUST_ADDR)
+                            //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_ADDR)
+                            VarcontractRecord.CUST_ADDR
                         DelayOutput: =true
                         DisplayMode: =DisplayMode.Disabled
                         FocusedBorderThickness: =2
@@ -703,7 +762,7 @@ CreatLeadScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: =Set(VarAddress,true)
+                        OnChange: =Set(VarAddress,true);
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =15
@@ -801,7 +860,7 @@ CreatLeadScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =If(LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text) || IsBlank(IntxtContractNumber.Text),
+                        =If(LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text),
                         Set(VarNotification,true);,
                         Set(VarIndicatorUS,false);
                         Set(VarIndicator,true);
@@ -935,4 +994,147 @@ CreatLeadScreen As screen:
             X: =10
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height+5
             ZIndex: =3
+
+    PopopSuccessSS_1 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarContractError 
+        Width: =Parent.Width
+        ZIndex: =5
+
+        Rectangle1_2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/4
+            Width: =Parent.Width/1.3
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        Container6_2 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =Rectangle1_2.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle1_2.Width
+            X: =Rectangle1_2.X
+            Y: =Rectangle1_2.Y
+            ZIndex: =2
+
+            Container9_2 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =Parent.Height/3
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Image4_2 As image:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =Parent.Height
+                    Image: =    error
+                    PaddingTop: =40
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Label3_2 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =150
+                Size: =14
+                Text: |-
+                    =
+                        "Contract number is not found,Please try again"
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Button4_2 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =
+                    Set(VarContractError,false);
+                    Navigate(CreatLeadScreen);
+                Size: =14
+                Text: ="Ok"
+                Width: =Parent.Width/5
+                ZIndex: =3
+
+    PopopSuccessSS_2 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarLoader 
+        Width: =Parent.Width
+        ZIndex: =6
+
+        Rectangle1_3 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/4
+            Width: =Parent.Width/1.3
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        Container6_3 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =Rectangle1_3.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle1_3.Width
+            X: =Rectangle1_3.X
+            Y: =Rectangle1_3.Y
+            ZIndex: =2
+
+            Container9_3 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =Parent.Height/3
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Image4_3 As image:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =Parent.Height
+                    Image: |
+                        =    'waiting-icon-gif-4'
+                    PaddingTop: =40
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Label3_3 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =150
+                Size: =14
+                Text: |
+                    =
+                        "Getting contract record.Please wait."
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Button4_3 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =
+                    Set(VarLoader,false);
+                    Navigate(CreatLeadScreen);
+                Size: =14
+                Text: ="Ok"
+                Width: =Parent.Width/5
+                ZIndex: =3
 
