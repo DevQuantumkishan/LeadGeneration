@@ -1142,66 +1142,55 @@ LeadScreen As screen:
                             Height: =60
                             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             OnSelect: |-
-                                =If(
+                                =//here checking estimate number is entered or not
+                                If(
                                     IsBlank(txtinptestimatenumber.Text),
                                     Notify(
                                         "Please enter estimate number.",
                                         NotificationType.Information
                                     ),
-                                    If(
-                                        !IsBlank(
-                                            LookUp(
-                                                SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text
-                                            )
-                                        ),
-                                        If(!IsBlank(LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID && LeadStatus="Quoted")),
-                                        Set(VarPopUpEstimateNumber,true););
+                                    Set(
+                                        FlagEstimateNumberEntered,
+                                        true
+                                    )
+                                );
+                                //here checking entered estimate number is present in FP file or not
+                                If(FlagEstimateNumberEntered=true,
+                                If(
+                                    !IsBlank(
+                                        LookUp(
+                                            SHFPEstimates,
+                                            Estimate = txtinptestimatenumber.Text
+                                        )
+                                    ),
+                                    Set(
+                                        FlagEstimateNumberFound,
+                                        true
+                                    );
+                                    Set(
+                                        VarBidPrice,
+                                        LookUp(
+                                            SHFPEstimates,
+                                            Estimate = txtinptestimatenumber.Text,
+                                            BidPrice
+                                        )
+                                    );
+                                    Set(
+                                        VarLeadGeneratorId,
+                                        LookUp(
+                                            SHFPEstimates,
+                                            Estimate = txtinptestimatenumber.Text,
+                                            'Lead Generator Id'
+                                        )
+                                    ),
+                                    Notify("Estimate number not found in the FP Estimate file.")
+                                );
+                                );
                                 
-                                       
-                                        If(
-                                            !IsBlank(
-                                                LookUp(
-                                                    LeadInformations,
-                                                    LeadStatus = "InProgress" &&
-                                                     ID = glryleadlistLS.Selected.ID
-                                                )
-                                            ),
-                                            Patch(
-                                                TotalIncentives,
-                                                Defaults(TotalIncentives),
-                                                {
-                                                    ID: GUID(),
-                                                    Year: Now(),
-                                                    TotalProposedLead: CountRows(
-                                                        Filter(
-                                                            LeadInformations,
-                                                            ID = glryleadlistLS.Selected.ID
-                                                        )
-                                                    ),
-                                                    TotalproposedIncentives: LookUp(
-                                                        SHFPEstimates,
-                                                        Estimate = txtinptestimatenumber.Text,
-                                                        BidPrice
-                                                    ) * 0.02,
-                                                    LeadInformationLID:LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID)
-                                                }
-                                            );
-                                            Notify("Total Incentives row patched");
-                                            ,
-                                            UpdateIf(TotalIncentives,LeadInformationLID.ID=glryleadlistLS.Selected.ID,
-                                            {
-                                                TotalproposedIncentives: (LookUp(TotalIncentives,LeadInformationLID.ID=glryleadlistLS.Selected.ID,TotalproposedIncentives) - VarPreviousIncentive) + 
-                                                    LookUp(
-                                                        SHFPEstimates,
-                                                        Estimate = txtinptestimatenumber.Text,
-                                                        BidPrice
-                                                    ) * 0.02
-                                            });
-                                        );
-                                 UpdateIf(
+                                If(FlagEstimateNumberEntered=true && FlagEstimateNumberFound=true,
+                                UpdateIf(
                                             LeadInformations,
-                                            ID = glryleadlistLS.Selected.ID,
+                                            ID = VarSelectedLeadId,
                                             {
                                                 LeadEstimateNumber: txtinptestimatenumber.Text,
                                                 LeadStatus: "Quoted",
@@ -1218,15 +1207,7 @@ LeadScreen As screen:
                                             }
                                         );
                                 
-                                        Notify(
-                                            "Proposed Incentives updated for the estimateId " & txtinptestimatenumber.Text,
-                                            NotificationType.Success
-                                        );
-                                        Navigate(DashboardScreen);
-                                        ,
-                                        Notify("Estimate number not found in the FP Estimate file.");
-                                    );//estimate no found if end
-                                )//isblank estimate no if end
+                                );
                             Text: ="Submit Estimate Number"
                             Width: =300
                             X: =410
