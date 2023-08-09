@@ -1210,6 +1210,7 @@ LeadScreen As screen:
                                             TechnicianID: VarLeadGeneratorId
                                         }
                                     );
+                                    Notify("Proposed Incentives updated for the estimateId " & txtinptestimatenumber.Text,NotificationType.Success);
                                     
                                 );
                             Text: ="Submit Estimate Number"
