@@ -381,7 +381,7 @@ CreatLeadScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(Parent.Width>375,(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+30),(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+30))
+                Height: =If(Parent.Width>375,(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+50),(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+40))
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -392,12 +392,13 @@ CreatLeadScreen As screen:
                 ContractNumber As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
                     DataField: ="crd59_contractnumber"
                     Default: =ThisItem.'ContractNumber '
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_contractnumber")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =100
+                    Height: =80
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_contractnumber")
                     Required: =false
                     Update: =IntxtContractNumber.Text
@@ -415,6 +416,7 @@ CreatLeadScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         FocusedBorderThickness: =2
                         Font: =Font.Arial
+                        Format: =TextFormat.Number
                         Height: =50
                         HintText: ="Contract Number"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
@@ -438,7 +440,7 @@ CreatLeadScreen As screen:
                     ErrorMessageContractNumber As label:
                         AutoHeight: =true
                         Color: =RGBA(255, 0, 0, 1)
-                        Height: =0
+                        Height: =If(LookUp(ContractDataVS,CONTR_NUM=IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text,30,0)
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -446,7 +448,9 @@ CreatLeadScreen As screen:
                         PaddingTop: =0
                         Size: =12
                         Text: ="Contract number is not found"
-                        Visible: =If(LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
+                        Visible: |-
+                            =If(LookUp(SHContracts,CONTR_NUM=Value(
+                                IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtContractNumber.Y + IntxtContractNumber.Height
@@ -458,7 +462,9 @@ CreatLeadScreen As screen:
                         Height: =lblContractNumber.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =If(LookUp(ContractDataVS,CONTR_NUM=IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text,true,false)
+                        Visible: |-
+                            =If(LookUp(SHContracts,CONTR_NUM=Value(
+                                IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
                         Width: =30
                         Wrap: =false
                         Y: =lblContractNumber.Y
@@ -618,7 +624,7 @@ CreatLeadScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(255, 0, 0, 1)
                         DisplayMode: =DisplayMode.View
-                        Height: =lblBuildingName.Height
+                        Height: =If(VarContractNumber,48,0)
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -795,11 +801,11 @@ CreatLeadScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =If(LookUp(SHContracts,ARBPL_CONTRACT=IntxtContractNumber.Text).ARBPL_CONTRACT<>IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text),
+                        =If(LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text) || IsBlank(IntxtContractNumber.Text),
                         Set(VarNotification,true);,
                         Set(VarIndicatorUS,false);
                         Set(VarIndicator,true);
-                        Navigate(UnitScreen);)
+                        Navigate(UnitScreen))
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14)
                     Text: ="Next"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
@@ -848,12 +854,12 @@ CreatLeadScreen As screen:
 
         Container6_1 As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =Rectangle1_1.Height/1.06
+            Height: =Rectangle1_1.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =Rectangle1_1.Width/1.04
-            X: =Rectangle1_1.X+10
-            Y: =Rectangle1_1.Y+10
+            Width: =Rectangle1_1.Width
+            X: =Rectangle1_1.X
+            Y: =Rectangle1_1.Y
             ZIndex: =2
 
             Container9_1 As groupContainer.verticalAutoLayoutContainer:
