@@ -446,7 +446,7 @@ CreatLeadScreen As screen:
                         PaddingTop: =0
                         Size: =12
                         Text: ="Contract number is not found"
-                        Visible: =If(LookUp(ContractDataVS,CONTR_NUM=IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text,true,false)
+                        Visible: =If(LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =IntxtContractNumber.Y + IntxtContractNumber.Height
@@ -500,7 +500,7 @@ CreatLeadScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
                         Default: |-
                             =//Parent.Default
-                            LookUp(SHContracts,ARBPL_CONTRACT=IntxtContractNumber.Text,CUST_ZIP)
+                            LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text),CUST_ZIP)
                         DelayOutput: =true
                         DisplayMode: |-
                             =//Parent.DisplayMode
@@ -589,7 +589,7 @@ CreatLeadScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
                         Default: |-
                             =//Parent.Default
-                            LookUp(SHContracts,ARBPL_CONTRACT=IntxtContractNumber.Text,CUST_CITY)
+                            LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text),CUST_CITY)
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(149, 149, 149, 1)
                         DisplayMode: =DisplayMode.Disabled
@@ -640,7 +640,9 @@ CreatLeadScreen As screen:
                         Height: =lblBuildingName.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =IsBlankOrError(IntxtContractNumber.Text)
+                        Visible: |-
+                            =//IsBlankOrError(IntxtContractNumber.Text)
+                            false
                         Width: =30
                         Wrap: =false
                         Y: =lblBuildingName.Y
@@ -684,7 +686,7 @@ CreatLeadScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error),Color.LightGray, Color.Red)
                         Default: |-
                             =//Parent.Default
-                            LookUp(SHContracts,ARBPL_CONTRACT=IntxtContractNumber.Text,CUST_ADDR)
+                            LookUp(SHContracts,CONTR_NUM=Value(IntxtContractNumber.Text),CUST_ADDR)
                         DelayOutput: =true
                         DisplayMode: =DisplayMode.Disabled
                         FocusedBorderThickness: =2
@@ -794,7 +796,7 @@ CreatLeadScreen As screen:
                     HoverFill: =Color.Red
                     OnSelect: |
                         =If(LookUp(SHContracts,ARBPL_CONTRACT=IntxtContractNumber.Text).ARBPL_CONTRACT<>IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text),
-                        Notify("Contract number is mandatory"),
+                        Set(VarNotification,true);,
                         Set(VarIndicatorUS,false);
                         Set(VarIndicator,true);
                         Navigate(UnitScreen);)
@@ -828,6 +830,74 @@ CreatLeadScreen As screen:
                     Transparency: =0.9
                     Width: =Parent.Width
                     ZIndex: =1
+
+    PopopSuccessSS As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarNotification
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Rectangle1_1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/4
+            Width: =Parent.Width/1.3
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        Container6_1 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =Rectangle1_1.Height/1.06
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle1_1.Width/1.04
+            X: =Rectangle1_1.X+10
+            Y: =Rectangle1_1.Y+10
+            ZIndex: =2
+
+            Container9_1 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =Parent.Height/3
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Image4_1 As image:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =Parent.Height
+                    Image: =error
+                    PaddingTop: =40
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Label3_1 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: ="Contract Number is mandatory"
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Button4_1 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Navigate(CreatLeadScreen);
+                    Set(VarNotification,false);
+                Size: =14
+                Text: ="Ok"
+                Width: =Parent.Width/5
+                ZIndex: =3
 
     Group2 As group:
         Height: =5
