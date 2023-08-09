@@ -1186,7 +1186,7 @@ LeadScreen As screen:
                                     Notify("Estimate number not found in the FP Estimate file.")
                                 );
                                 );
-                                
+                                //here checking FlagEstimateNumberEntered & FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
                                 If(FlagEstimateNumberEntered=true && FlagEstimateNumberFound=true,
                                 UpdateIf(
                                             LeadInformations,
@@ -1203,7 +1203,8 @@ LeadScreen As screen:
                                                     SHFPEstimates,
                                                     Estimate = txtinptestimatenumber.Text,
                                                     BidPrice
-                                                ) * 0.02
+                                                ) * 0.02,TechnicianID:VarLeadGeneratorId
+                                
                                             }
                                         );
                                 
