@@ -1148,6 +1148,10 @@ LeadScreen As screen:
                                     Notify(
                                         "Please enter estimate number.",
                                         NotificationType.Information
+                                    );
+                                    Set(
+                                        FlagEstimateNumberEntered,
+                                        false
                                     ),
                                     Set(
                                         FlagEstimateNumberEntered,
@@ -1169,48 +1173,59 @@ LeadScreen As screen:
                                             true
                                         );
                                         Set(
-                                            VarBidPrice,
+                                            VarFPEstimateData,
                                             LookUp(
                                                 SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text,
-                                                BidPrice
+                                                Estimate = txtinptestimatenumber.Text
                                             )
                                         );
                                         Set(
-                                            VarLeadGeneratorId,
+                                            VarleadYear,
                                             LookUp(
-                                                SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text,
-                                                'Lead Generator Id'
+                                                LeadInformations,
+                                                ID = VarSelectedLeadId,
+                                                'Created On'
                                             )
                                         ),
-                                        Notify("Estimate number not found in the FP Estimate file.")
+                                        Notify("Estimate number not found in the FP Estimate file.");
+                                        Set(
+                                            FlagEstimateNumberFound,
+                                            false
+                                        );
                                     );
                                     
                                 );
                                 //here checking FlagEstimateNumberEntered & FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
                                 If(
-                                    FlagEstimateNumberEntered = true && FlagEstimateNumberFound = true,
+                                    FlagEstimateNumberFound = true,
                                     UpdateIf(
                                         LeadInformations,
                                         ID = VarSelectedLeadId,
                                         {
                                             LeadEstimateNumber: txtinptestimatenumber.Text,
                                             LeadStatus: "Quoted",
-                                            'LeadPrice ': LookUp(
-                                                SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text,
-                                                BidPrice
-                                            ),
-                                            LeadIncentive: LookUp(
-                                                SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text,
-                                                BidPrice
-                                            ) * 0.02,
-                                            TechnicianID: VarLeadGeneratorId
+                                            'LeadPrice ': VarFPEstimateData.BidPrice,
+                                            LeadIncentive: VarFPEstimateData.BidPrice * 0.02,
+                                            TechnicianID: VarFPEstimateData.'Lead Generator Id'
                                         }
                                     );
-                                    Notify("Proposed Incentives updated for the estimateId " & txtinptestimatenumber.Text,NotificationType.Success);
+                                    UpdateIf(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year(Year) = Year(VarleadYear),
+                                        {
+                                            TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                            TotalProposedLead: CountRows(
+                                                Filter(
+                                                    TotalIncentives,
+                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year(Year) = Year(VarleadYear)
+                                                )
+                                            ) + 1
+                                        }
+                                    );
+                                    Notify(
+                                        "Proposed Incentives updated for the estimateId " & txtinptestimatenumber.Text,
+                                        NotificationType.Success
+                                    );
                                     
                                 );
                             Text: ="Submit Estimate Number"
