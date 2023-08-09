@@ -519,13 +519,14 @@ CreatLeadScreen As screen:
                             If(
                                 IsBlank(VarcontractRecord),
                                 Set(
-                                    VarLoader,
+                                    VarContractError,
                                     true
                                 );
                                 Set(
-                                    VarContractError,
-                                    true
-                                ),
+                                    VarLoader,
+                                    false
+                                );
+                                ,
                                 Set(
                                     VarLoader,
                                     false
