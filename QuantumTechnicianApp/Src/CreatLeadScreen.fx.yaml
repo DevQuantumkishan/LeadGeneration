@@ -425,7 +425,7 @@ CreatLeadScreen As screen:
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
-                        OnChange: =Set(VarContractNumber,true);Set(VarLoader,true);
+                        OnChange: =Set(VarContractNumber,true);
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =50
@@ -516,23 +516,21 @@ CreatLeadScreen As screen:
                                     CONTR_NUM = IntxtContractNumber.Text
                                 )
                             );
-                            If(
-                                IsBlank(VarcontractRecord),
-                                Set(
-                                    VarContractError,
-                                    true
-                                );
+                             If(IsBlank(VarcontractRecord),
                                 Set(
                                     VarLoader,
-                                    false
+                                    true
                                 );
                                 ,
                                 Set(
                                     VarLoader,
-                                    false
+                                    true
+                                );,
+                                Set(
+                                    VarContractError,
+                                    true
                                 );
-                                
-                            )
+                             )
                         PaddingBottom: =5
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -860,12 +858,27 @@ CreatLeadScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
-                    OnSelect: |
-                        =If(LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text),
-                        Set(VarNotification,true);,
-                        Set(VarIndicatorUS,false);
-                        Set(VarIndicator,true);
-                        Navigate(UnitScreen))
+                    OnSelect: |-
+                        =If(
+                            LookUp(
+                                SHContractDetails,
+                                CONTR_NUM = IntxtContractNumber.Text
+                            ).CONTR_NUM <> IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text),
+                            Set(
+                                VarNotification,
+                                true
+                            );
+                            ,
+                            Set(
+                                VarIndicatorUS,
+                                false
+                            );
+                            Set(
+                                VarIndicator,
+                                true
+                            );
+                            Navigate(UnitScreen)
+                        )
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14)
                     Text: ="Next"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
