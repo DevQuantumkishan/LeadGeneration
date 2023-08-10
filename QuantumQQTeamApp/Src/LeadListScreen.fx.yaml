@@ -263,21 +263,21 @@ LeadListScreen As screen:
 
                             lblregionvalueLS As label:
                                 Align: =Align.Center
-                                Text: ="Region"
+                                Text: =ThisItem.Territory
                                 ZIndex: =5
 
                             lbldistrictvalueLS As label:
                                 Align: =Align.Center
                                 AutoHeight: =true
                                 Height: =60
-                                Text: ="District"//ThisItem.BuildingName
+                                Text: =ThisItem.District
                                 ZIndex: =6
 
                             lblareavalueLS As label:
                                 Align: =Align.Center
                                 AutoHeight: =true
                                 Height: =60
-                                Text: ="Area"//ThisItem.Address
+                                Text: =ThisItem.Area
                                 ZIndex: =7
 
                             lblleadstatusvalueLS As label:
@@ -372,7 +372,7 @@ LeadListScreen As screen:
 
                     lblregionLS As label:
                         Align: =Align.Center
-                        Text: ="Region"
+                        Text: ="Territory"
                         ZIndex: =5
 
                     lbldistrictLS As label:
