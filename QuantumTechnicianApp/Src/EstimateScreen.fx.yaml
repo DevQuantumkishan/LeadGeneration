@@ -402,7 +402,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+40
+                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+50
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -445,6 +445,7 @@ EstimateScreen As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
+                        Format: =TextFormat.Number
                         Height: =50
                         HintText: ="Estimate Hours (Total man Hours)"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
@@ -842,12 +843,14 @@ EstimateScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |-
-                        =Set(VarIndicator, true );
+                        =If(IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial),
+                        Set(VarNotification,true),
+                        Set(VarIndicator, true );
                         Set(VarIndicatorUS, true );
                         Set(VarIndicatorSS, true );
                         Set(VarIndicatorES,true);
                         Set(VarIndicatorIS,false);
-                        Navigate(ImageUploadScreen);
+                        Navigate(ImageUploadScreen));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Next"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
@@ -881,6 +884,76 @@ EstimateScreen As screen:
                     Transparency: =0.9
                     Width: =Parent.Width
                     ZIndex: =1
+
+    PopopContracterrorNextSS_3 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarNotification
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Rectangle1_6 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/3.5
+            Width: =Parent.Width/1.3
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        Container6_6 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =Rectangle1_6.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle1_6.Width
+            X: =Rectangle1_6.X
+            Y: =Rectangle1_6.Y
+            ZIndex: =2
+
+            Container9_6 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =Parent.Height/3
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Image4_6 As image:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =Parent.Height
+                    Image: =error
+                    PaddingTop: =40
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Label3_6 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: |-
+                    =
+                        "Estimated Hours and Materials,Part Number and other things  are mandatory "
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Button4_6 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Navigate(EstimateScreen);
+                    Set(VarNotification,false);
+                Size: =14
+                Text: ="Ok"
+                Width: =Parent.Width/5
+                ZIndex: =3
 
     grpMenuDS_2 As group:
         Height: =5

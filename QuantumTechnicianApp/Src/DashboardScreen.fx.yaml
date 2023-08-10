@@ -884,7 +884,7 @@ DashboardScreen As screen:
                     Height: =Parent.Height
                     HoverBorderColor: =Color.Red
                     HoverFill: =RGBA(255, 0, 0, 1)
-                    OnSelect: |
+                    OnSelect: |+
                         =//for new form
                         Set(VarFormMode,Defaults(LeadInformations));
                         Navigate(CreatLeadScreen);
@@ -896,6 +896,7 @@ DashboardScreen As screen:
                         NewForm(ScopeInfoForm);ResetForm(ScopeInfoForm);
                         NewForm(UnitInfoForm);ResetForm(UnitInfoForm);
                         Clear(LeadImagesCollection);
+                        
                     PressedBorderColor: =Color.Red
                     RadiusBottomLeft: =6
                     RadiusBottomRight: =6

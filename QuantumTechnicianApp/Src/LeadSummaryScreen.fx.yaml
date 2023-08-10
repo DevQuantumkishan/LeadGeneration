@@ -651,7 +651,7 @@ LeadSummaryScreen As screen:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="crd59_Scope"
-                        Default: =intxtScope.Selected
+                        Default: =CboxScope.Selected
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_PrimaryScopeofWorkLID")
                         Fill: =RGBA(0, 0, 0, 0)
@@ -763,8 +763,8 @@ LeadSummaryScreen As screen:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             ChevronBackground: =RGBA(202, 202, 202, 1)
                             ChevronHoverBackground: =Color.DimGray
-                            Default: =IntxtScopeofwork.Selected
-                            DefaultSelectedItems: =IntxtScopeofwork.SelectedItems
+                            Default: =CboxScopeofwork.Selected
+                            DefaultSelectedItems: =CboxScopeofwork.SelectedItems
                             DisplayFields: =["shlrf_secondaryscopeofworkname"]
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
@@ -773,7 +773,7 @@ LeadSummaryScreen As screen:
                             IsSearchable: =false
                             Items: |-
                                 =//Choices([@LeadInformations].ScopeOfWorkLID)
-                                Filter(SecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=intxtScope.Selected.'PrimaryScopeofWorkName ')
+                                Filter(SecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
                             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             SearchFields: =["shlrf_secondaryscopeofworkname"]
                             SearchItems: =[]
@@ -1302,7 +1302,8 @@ LeadSummaryScreen As screen:
                         BorderThickness: =2
                         Height: =If(Parent.Width>Parent.Height,Parent.TemplateHeight/1.2,Parent.TemplateHeight/1.4)
                         Image: =ThisItem.Image
-                        OnSelect: =Select(Parent)
+                        OnSelect: |
+                            =Set(VarImagePopup,true)
                         PaddingBottom: =10
                         PaddingLeft: =2
                         PaddingRight: =2
@@ -1393,7 +1394,8 @@ LeadSummaryScreen As screen:
                                 CommunicatedToCustomer: CboxCCLSS.Value,
                                 LeadStatus: "Submitted",
                                 Email: User().Email,
-                                MechanicName: User().FullName
+                                MechanicName: User().FullName,
+                                TechnicianID:VarTechnicianID.'Personnel No'
                             }
                         );
                         ForAll(
@@ -1457,7 +1459,7 @@ LeadSummaryScreen As screen:
 
         Rectangle1 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/4
+            Height: =Parent.Height/3.5
             Width: =Parent.Width/1.3
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
@@ -1465,12 +1467,12 @@ LeadSummaryScreen As screen:
 
         Container6 As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =Rectangle1.Height/1.06
+            Height: =Rectangle1.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =Rectangle1.Width/1.04
-            X: =Rectangle1.X+10
-            Y: =Rectangle1.Y+10
+            Width: =Rectangle1.Width
+            X: =Rectangle1.X
+            Y: =Rectangle1.Y
             ZIndex: =2
 
             Container9 As groupContainer.verticalAutoLayoutContainer:
@@ -1598,4 +1600,32 @@ LeadSummaryScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
+
+    Container4_1 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarImagePopup
+        Width: =Parent.Width
+        ZIndex: =5
+
+        Image2_1 As image:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/2
+            Image: =glryImageIS.Selected.Image
+            PaddingLeft: =5
+            PaddingRight: =5
+            Width: =Parent.Width/1.2
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Parent.Width)/2
+            ZIndex: =1
+
+        IconImageIS_2 As icon.Cancel:
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =Parent.Height/20
+            Icon: =Icon.Cancel
+            OnSelect: =Set(VarImagePopup,false)
+            Width: =Parent.Height/20
+            X: =Image2_1.X+(Image2_1.Width-Self.Width)
+            Y: =Image2_1.Y
+            ZIndex: =2
 

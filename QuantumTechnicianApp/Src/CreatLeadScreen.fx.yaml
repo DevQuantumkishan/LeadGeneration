@@ -7,7 +7,8 @@ CreatLeadScreen As screen:
         If(IsBlank(IntxtZipCode),Set(VarZipcode,false));
         Set(VarLoader,false);
         Set(VarNotification,false);
-        Set(VarContractError,false)
+        Set(VarContractError,false);
+        Set(VarcontractRecord,Blank());
 
     ctnMainCLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -556,6 +557,7 @@ CreatLeadScreen As screen:
 
                     IntxtZipCode As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
+                        Clear: =true
                         Default: |-
                             =//Parent.Default
                             //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_ZIP)
@@ -577,6 +579,7 @@ CreatLeadScreen As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =true
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -646,6 +649,7 @@ CreatLeadScreen As screen:
 
                     IntxtBuildingName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
+                        Clear: =true
                         Default: |-
                             =//Parent.Default
                             //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_CITY)
@@ -667,6 +671,7 @@ CreatLeadScreen As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =true
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -744,6 +749,7 @@ CreatLeadScreen As screen:
 
                     IntxtAddress As text:
                         BorderColor: =If(IsBlank(Parent.Error),Color.LightGray, Color.Red)
+                        Clear: =true
                         Default: |-
                             =//Parent.Default
                             //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_ADDR)

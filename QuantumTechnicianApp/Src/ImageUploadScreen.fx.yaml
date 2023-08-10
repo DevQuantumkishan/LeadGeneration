@@ -630,11 +630,13 @@ ImageUploadScreen As screen:
 
         Image2 As image:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/1.5
+            Height: =Parent.Height/2
             Image: =glryImageIS.Selected.Image
+            PaddingLeft: =5
+            PaddingRight: =5
             Width: =Parent.Width/1.2
             X: =(Parent.Width-Self.Width)/2
-            Y: =(Parent.Height-Parent.Width)/3
+            Y: =(Parent.Height-Parent.Width)/2
             ZIndex: =1
 
         IconImageIS_1 As icon.Cancel:
