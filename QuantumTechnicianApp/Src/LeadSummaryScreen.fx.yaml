@@ -1395,7 +1395,10 @@ LeadSummaryScreen As screen:
                                 LeadStatus: "Submitted",
                                 Email: User().Email,
                                 MechanicName: User().FullName,
-                                TechnicianID:VarTechnicianID.'Personnel No'
+                                TechnicianID:VarTechnicianID.'Personnel No',
+                                Area:VarTechnicianID.Area,
+                                Territory:VarTechnicianID.Territory,
+                                District:VarTechnicianID.District
                             }
                         );
                         ForAll(
@@ -1410,6 +1413,16 @@ LeadSummaryScreen As screen:
                                 }
                             )
                         );
+                        Patch(TotalIncentives,
+                        Defaults(TotalIncentives),{
+                            ID:GUID(),
+                            TechnicianID:VarTechnicianID.'Personnel No',
+                            TotalproposedIncentives:0,
+                            TotalProposedLead:0,
+                            TotalSoldIncentives:0,
+                            TotalSoldLead:0,
+                            Year:Year(Now())
+                        });
                         Set(VarNotificationloding,false);
                         Set(VarNotificationSuccess,true);
                         /*Notify(
