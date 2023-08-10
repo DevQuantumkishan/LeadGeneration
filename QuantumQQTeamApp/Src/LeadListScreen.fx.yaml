@@ -103,15 +103,15 @@ LeadListScreen As screen:
                         BorderColor: =RGBA(255, 0, 0, 1)
                         ChevronBackground: =RGBA(255, 0, 0, 1)
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        DisplayFields: =["Value"]
+                        DisplayFields: =["cr02d_territory"]
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: ="Select Region"
-                        Items: =["Region1","Region2","Region3","Region4"]
+                        Items: =SHTechnicians
                         PressedColor: =RGBA(0, 0, 0, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         Reset: =true
-                        SearchFields: =["Value"]
-                        SearchItems: =Search(["Region1","Region2","Region3","Region4"],cmbxregionfilterLS.SearchText,"Value")
+                        SearchFields: =["cr02d_territory"]
+                        SearchItems: =Search(SHTechnicians,cmbxregionfilterLS.SearchText,"cr02d_territory")
                         SelectionFill: =RGBA(0, 0, 0, 0)
                         SelectMultiple: =false
                         Width: =200
@@ -121,14 +121,14 @@ LeadListScreen As screen:
                         BorderColor: =RGBA(255, 0, 0, 1)
                         ChevronBackground: =RGBA(255, 0, 0, 1)
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        DisplayFields: =["Value"]
+                        DisplayFields: =["cr02d_district"]
                         InputTextPlaceholder: ="Select District"
-                        Items: =["District1","District2","District3","District4"]
+                        Items: =Filter(SHTechnicians, Territory = cmbxregionfilterLS.Selected.Territory)
                         PressedColor: =RGBA(0, 0, 0, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         Reset: =true
-                        SearchFields: =["Value"]
-                        SearchItems: =Search(["District1","District2","District3","District4"],cmbxdistrictfilterLS.SearchText,"Value")
+                        SearchFields: =["cr02d_district"]
+                        SearchItems: =Search(Filter(SHTechnicians, Territory = cmbxregionfilterLS.Selected.Territory),cmbxdistrictfilterLS.SearchText,"cr02d_district")
                         Width: =200
                         ZIndex: =3
 
@@ -136,14 +136,14 @@ LeadListScreen As screen:
                         BorderColor: =RGBA(255, 0, 0, 1)
                         ChevronBackground: =RGBA(255, 0, 0, 1)
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        DisplayFields: =["Value"]
+                        DisplayFields: =["cr02d_area"]
                         InputTextPlaceholder: ="Select Area"
-                        Items: =["Area1","Area2","Area3","Area4"]
+                        Items: =Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.District)
                         PressedColor: =RGBA(0, 0, 0, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         Reset: =true
-                        SearchFields: =["Value"]
-                        SearchItems: =Search(["Area1","Area2","Area3","Area4"],cmbxareafilterLS.SearchText,"Value")
+                        SearchFields: =["cr02d_area"]
+                        SearchItems: =Search(Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.District),cmbxareafilterLS.SearchText,"cr02d_area")
                         Width: =200
                         ZIndex: =4
 
@@ -263,21 +263,21 @@ LeadListScreen As screen:
 
                             lblregionvalueLS As label:
                                 Align: =Align.Center
-                                Text: ="Region"
+                                Text: =ThisItem.Territory
                                 ZIndex: =5
 
                             lbldistrictvalueLS As label:
                                 Align: =Align.Center
                                 AutoHeight: =true
                                 Height: =60
-                                Text: ="District"//ThisItem.BuildingName
+                                Text: =ThisItem.District
                                 ZIndex: =6
 
                             lblareavalueLS As label:
                                 Align: =Align.Center
                                 AutoHeight: =true
                                 Height: =60
-                                Text: ="Area"//ThisItem.Address
+                                Text: =ThisItem.Area
                                 ZIndex: =7
 
                             lblleadstatusvalueLS As label:
@@ -372,7 +372,7 @@ LeadListScreen As screen:
 
                     lblregionLS As label:
                         Align: =Align.Center
-                        Text: ="Region"
+                        Text: ="Territory"
                         ZIndex: =5
 
                     lbldistrictLS As label:
