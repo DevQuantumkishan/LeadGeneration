@@ -209,13 +209,12 @@ LeadListScreen As screen:
                                     VarMyLeads = true,
                                     Filter(
                                         LeadInformations,
-                                        QQTeamName = User().FullName , Territory=cmbxregionfilterLS.Selected.Territory ,District=cmbxdistrictfilterLS.Selected.District ,Area=cmbxareafilterLS.Selected.Area
+                                        QQTeamName = User().FullName ,Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                     ),
                                     If(
                                         VarOpenLeads = true,
                                         Filter(
                                             LeadInformations,
-                                            //LeadStatus <>"Quoted"
                                             (LeadStatus = "Submitted"|| LeadStatus = "Rejected" ||LeadStatus = "InProgress")
                                             , Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                         ),
@@ -223,13 +222,13 @@ LeadListScreen As screen:
                                             VarQuotedLeads = true,
                                             Filter(
                                                 LeadInformations,
-                                                LeadStatus = "Quoted"
+                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                             ),
                                             If(
                                                 VarSoldLeads = true,
                                                 Filter(
                                                     LeadInformations,
-                                                    LeadStatus = "Sold"
+                                                    LeadStatus = "Sold",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                                 )
                                             )
                                         )
