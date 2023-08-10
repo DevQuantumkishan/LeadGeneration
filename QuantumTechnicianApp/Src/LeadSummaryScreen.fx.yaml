@@ -1421,7 +1421,8 @@ LeadSummaryScreen As screen:
                             TotalProposedLead:0,
                             TotalSoldIncentives:0,
                             TotalSoldLead:0,
-                            Year:Year(Now())
+                            Year:Year(Now()),
+                            LeadYear:Year(Now())
                         });
                         Set(VarNotificationloding,false);
                         Set(VarNotificationSuccess,true);

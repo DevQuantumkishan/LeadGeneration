@@ -612,31 +612,18 @@ DashboardScreen As screen:
                                 If(
                                     LookUp(
                                             GCTotalIncentives,
-                                            Year(Year) = Year(Now()),
+                                            Year = Year(Now()),
                                             YearlyCapReached) = true,
                                         "10000" ,
-                                                If(
-                                                 IsBlank(
-                                                         LookUp(
-                                                             GCTotalIncentives,
-                                                                Year(Year) = Year(Now()),
-                                                                         TotalproposedIncentives
-                                                                )
-                                                         ),
-                                                         0,
-                                                         LookUp(
+                                        LookUp(
                                             GCTotalIncentives,
-                                            Year(Year) = Year(Now()),
-                                            TotalproposedIncentives)))
+                                            Year = Year(Now()),
+                                            TotalproposedIncentives))
                                         ,
-                                       If( IsBlank(
                                        Sum(
                                         GCTotalIncentives,
                                         TotalproposedIncentives
-                                )),0,Sum(
-                                        GCTotalIncentives,
-                                        TotalproposedIncentives
-                                )
+                                
                                 )) & " " & "$"
                             Width: =Parent.Width
                             X: =
@@ -661,9 +648,9 @@ DashboardScreen As screen:
                                     If(
                                     IsBlank(
                                         LookUp(
-                                            GCTotalIncentives,Year(Year)=Year(Now()))),
+                                            GCTotalIncentives,Year=Year(Now()))),
                                             "0",
-                                            LookUp(GCTotalIncentives,Year(Year)=Year(Now()),TotalProposedLead)),
+                                            LookUp(GCTotalIncentives,Year=Year(Now()),TotalProposedLead)),
                                     If(
                                         Sum(GCTotalIncentives,TotalProposedLead)=0,0,Sum(GCTotalIncentives,TotalProposedLead)))
                             Width: =Parent.Width
@@ -755,31 +742,18 @@ DashboardScreen As screen:
                                 If(
                                     LookUp(
                                             GCTotalIncentives,
-                                            Year(Year) = Year(Now()),
+                                            Year= Year(Now()),
                                             YearlyCapReached) = true,
                                         "10000" ,
-                                                If(
-                                                 IsBlank(
-                                                         LookUp(
-                                                             GCTotalIncentives,
-                                                                Year(Year) = Year(Now()),
-                                                                         TotalSoldIncentives
-                                                                )
-                                                         ),
-                                                         0,
-                                                         LookUp(
+                                                 LookUp(
                                             GCTotalIncentives,
-                                            Year(Year) = Year(Now()),
-                                            TotalSoldIncentives)))
-                                        ,
-                                       If( IsBlank(
-                                       Sum(
+                                            Year = Year(Now()),
+                                            TotalSoldIncentives)
+                                ),
+                                      Sum(
                                         GCTotalIncentives,
                                         TotalSoldIncentives
-                                )),0,Sum(
-                                        GCTotalIncentives,
-                                        TotalSoldIncentives
-                                )
+                                
                                 )) & " " & "$"
                             Width: =Parent.Width
                             X: =
@@ -801,14 +775,13 @@ DashboardScreen As screen:
                                 ="Leads#" & " " & 
                                 If(
                                     yearly=true ,
-                                    If(
+                                    /*If(
                                     IsBlank(
                                         LookUp(
-                                            GCTotalIncentives,Year(Year)=Year(Now()))),
-                                            "0",
-                                            LookUp(GCTotalIncentives,Year(Year)=Year(Now()),TotalSoldLead)),
-                                    If(
-                                        Sum(GCTotalIncentives,TotalSoldLead)=0,0,Sum(GCTotalIncentives,TotalSoldLead)))
+                                            GCTotalIncentives,Year=Year(Now()))),0*/
+                                            LookUp(GCTotalIncentives,Year=Year(Now()),TotalSoldLead),
+                                    /*If(
+                                        Sum(GCTotalIncentives,TotalSoldLead)=0,0,*/Sum(GCTotalIncentives,TotalSoldLead))
                             Width: =Parent.Width
                             X: =
                             Y: =lblQuotedDS_3.Height+lblQuotedDS_3.Y
