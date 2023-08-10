@@ -162,7 +162,11 @@ LeadListScreen As screen:
                     Fill: =Header.Red
                     FocusedBorderThickness: =0
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                    OnSelect: =Navigate(DashboardScreen)
+                    OnSelect: |-
+                        =Reset(cmbxregionfilterLS);
+                        Reset(cmbxdistrictfilterLS);
+                        Reset(cmbxareafilterLS);
+                        Navigate(DashboardScreen)
                     PressedFill: =//Self.Color
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
@@ -184,7 +188,7 @@ LeadListScreen As screen:
                 ZIndex: =2
 
                 ctnleadlistglryLS As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.Height//-420
+                    Height: =Parent.Height+1000
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
                     Width: =Parent.Width-20
@@ -199,10 +203,40 @@ LeadListScreen As screen:
                         FillPortions: =0
                         Height: =Parent.Height
                         Items: |-
-                            =Sort(If(VarMyLeads=true, Filter(LeadInformations,QQTeamName=User().FullName),
-                            If(VarOpenLeads=true,Filter(LeadInformations,LeadStatus ="Submitted" || LeadStatus="Rejected" || LeadStatus="InProgress"),
-                            If(VarQuotedLeads=true,Filter(LeadInformations,LeadStatus ="Quoted"),
-                            If(VarSoldLeads=true,Filter(LeadInformations,LeadStatus ="Sold") )))) ,'Created On',SortOrder.Descending)
+                            =Sort(
+                                If(
+                                    VarMyLeads = true,
+                                    Filter(
+                                        LeadInformations,
+                                        QQTeamName = User().FullName , Territory=cmbxregionfilterLS.Selected.Territory ,District=cmbxdistrictfilterLS.Selected.District ,Area=cmbxareafilterLS.Selected.Area
+                                    ),
+                                    If(
+                                        VarOpenLeads = true,
+                                        Filter(
+                                            LeadInformations,
+                                            LeadStatus = "Submitted" || "Rejected" || "InProgress"
+                                           // || LeadStatus = "Rejected" || LeadStatus = "InProgress"
+                                             , Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                        ),
+                                        If(
+                                            VarQuotedLeads = true,
+                                            Filter(
+                                                LeadInformations,
+                                                LeadStatus = "Quoted"
+                                            ),
+                                            If(
+                                                VarSoldLeads = true,
+                                                Filter(
+                                                    LeadInformations,
+                                                    LeadStatus = "Sold"
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
+                                'Created On',
+                                SortOrder.Descending
+                            )
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
