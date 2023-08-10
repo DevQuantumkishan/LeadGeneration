@@ -2,15 +2,19 @@ App As appinfo:
     BackEnabled: =false
     OnStart: |
         =// CSS
-        
         Set(
             AllScreenCSS,
-            {
-            fontsize:22
-            }
+            {fontsize: 22}
         );
-        Set(myMail,User().Email);
-        Set(yearly,true);
+        Set(
+            myMail,
+            User().Email
+        );
+        Set(VarTechnicianID,LookUp(SHTechnicians,'Email Address'=User().Email));
+        Set(
+            yearly,
+            true
+        );
         ClearCollect(
             Menu,
             {
@@ -20,23 +24,33 @@ App As appinfo:
             },
             {
                 Title: "About",
-                icon: Icon.Information //,
-                //Navigate: BuildingInfoScreen
+                icon: Icon.Information//,
+        //Navigate: BuildingInfoScreen
             },
             {
                 Title: "Support",
-                icon: Icon.Support //,
-                //Navigate: SubmittedLeadsScreen
+                icon: Icon.Support//,
+        //Navigate: SubmittedLeadsScreen
             }
         );
         Set(
             varshowMenu,
             false
         );
-        ClearCollect(GCTotalIncentives,TotalIncentives);
-        ClearCollect(GCPrimaryScopeofWorks, ' PrimaryScopeofWorks');
-        ClearCollect(GCSecondaryScopeofWorks,SecondaryScopeofWorks);
+        ClearCollect(
+            GCTotalIncentives,
+            TotalIncentives
+        );
+        ClearCollect(
+            GCPrimaryScopeofWorks,
+            ' PrimaryScopeofWorks'
+        );
+        ClearCollect(
+            GCSecondaryScopeofWorks,
+            SecondaryScopeofWorks
+        );
     StartScreen: =
+    Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false

@@ -507,8 +507,8 @@ CreatLeadScreen As screen:
                             Set(
                                 VarcontractRecord,
                                 LookUp(
-                                    SHContractDetails,
-                                    CONTR_NUM = IntxtContractNumber.Text
+                                    SHContractDetails,Contr_dist=VarTechnicianID.District &&
+                                    CONTR_NUM = IntxtContractNumber.Text 
                                 )
                             );
                             If(
@@ -1059,7 +1059,7 @@ CreatLeadScreen As screen:
                 Size: =14
                 Text: |-
                     =
-                        "Contract number is not found,Please try again"
+                        "Contract number is not found in your area,Please try again"
                 Width: =Parent.Width
                 ZIndex: =2
 
