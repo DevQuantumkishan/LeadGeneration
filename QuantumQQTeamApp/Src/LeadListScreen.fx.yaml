@@ -188,9 +188,10 @@ LeadListScreen As screen:
                 ZIndex: =2
 
                 ctnleadlistglryLS As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.Height+1000
+                    Height: =Parent.Height//+5000
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowY: =LayoutOverflow.Scroll
                     Width: =Parent.Width-20
                     X: =10//Parent.X+10
                     Y: =ctnlistheadingLS.X+ctnlistheadingLS.Height
@@ -214,9 +215,9 @@ LeadListScreen As screen:
                                         VarOpenLeads = true,
                                         Filter(
                                             LeadInformations,
-                                            LeadStatus = "Submitted" || "Rejected" || "InProgress"
-                                           // || LeadStatus = "Rejected" || LeadStatus = "InProgress"
-                                             , Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                            //LeadStatus <>"Quoted"
+                                            (LeadStatus = "Submitted"|| LeadStatus = "Rejected" ||LeadStatus = "InProgress")
+                                            , Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                         ),
                                         If(
                                             VarQuotedLeads = true,
@@ -372,6 +373,15 @@ LeadListScreen As screen:
                             Width: =10
                             X: =10
                             ZIndex: =6
+
+                    Container5 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =250
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =2
 
                 ctnlistheadingLS As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =RGBA(230, 230, 230, 1)
