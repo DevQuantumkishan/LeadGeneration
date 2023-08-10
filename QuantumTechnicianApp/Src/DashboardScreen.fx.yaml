@@ -188,15 +188,19 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Default: =true
                     DisabledColor: =Color.Black
-                    DisplayMode: =If(toggleDS_1.TrueText=toggleDS_1.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
+                    DisplayMode: |
+                        =If(toggleDS_1.TrueText=toggleDS_1.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
                     FalseFill: =Color.Black
-                    FalseText: =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On'))
+                    FalseText: |
+                        =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On'))
                     Font: =Font.Arial
                     Height: =Parent.Height/2.02
                     OnCheck: |-
                         =//for cumulatively record
                         Set(cumulatively,false);
                         Set(yearly,true);
+                    OnSelect: |
+                        =//Set(VarStartingYear,Year(First(Filter(LeadInformations,Email=User().Email)).'Created On'));
                     OnUncheck: |-
                         =//for yearly record
                         Set(yearly,false);
@@ -530,6 +534,8 @@ DashboardScreen As screen:
                         btnRejectedLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0|| CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -669,12 +675,16 @@ DashboardScreen As screen:
                         btnQuotedLeadsDS_2 As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: |-
+                                =If(Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalProposedLead))=0||
+                                        Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead)=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
+                                    Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
@@ -701,7 +711,7 @@ DashboardScreen As screen:
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     FillPortions: =0
-                    Height: =Parent.Height/1.06
+                    Height: =Parent.Height/1.05
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/2.2
@@ -798,6 +808,10 @@ DashboardScreen As screen:
                         btnQuotedLeadsDS_3 As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: |-
+                                =If(Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalSoldLead))=0||
+                                        Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead)=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =255
                             HoverFill: =RGBA(0, 0, 0, 0)
