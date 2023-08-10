@@ -176,8 +176,10 @@ SubmittedLeadScreen As screen:
                     // )],yearly=true,[Text( Year(Now()))])
                     
                           //  First(Filter(LeadInformations,Email=User().Email)).Year('Created On')
-                    If(cumulatively=true, [ 
-                       Text( Year(Today())),
+                    If(cumulatively=true,/* [ 
+                    Year(First(Filter(LeadInformations,Email=User().Email)).'Created On'),
+                       // First(Filter(LeadInformations,Email=User().Email)),*/
+                       [Text( Year(Today())),
                         Text( Year(Today())-1),
                         Text( Year(Today())-2),
                         Text( Year(Today())-3),
@@ -188,7 +190,11 @@ SubmittedLeadScreen As screen:
                         Text(Year(Today())-8),
                         Text(Year(Today())-9),
                         Text(Year(Today())-10),
-                        Text(Year(Today())-11)],yearly=true,[Text( Year(Today()))])
+                        Text(Year(Today())-11)]
+                        //Year(First(Filter(LeadInformations,Email=User().Email)).'Created On'),
+                        //Year(First(Filter(LeadInformations,Email=User().Email)).'Created On')]*/
+                       // If(VarStartingYear < Year(Now()),Value(VarStartingYear)+1)
+                        ,yearly=true,[Text( Year(Today()))])
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =4
@@ -210,7 +216,7 @@ SubmittedLeadScreen As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: =Year(ThisItem.Value)
+                    Text: =ThisItem.Value
                     Width: =Parent.Width/8
                     X: =lblTitleYearSLS.X
                     Y: =lblTitleYearSLS.Y+lblTitleYearSLS.Height+10
