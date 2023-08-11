@@ -1527,6 +1527,7 @@ LeadSummaryScreen As screen:
                 OnSelect: =Navigate(DashboardScreen);
                 Size: =14
                 Text: ="Ok"
+                Visible: =If(Label3.Text="Lead Submitted Successfully.",true,false)
                 Width: =Parent.Width/5
                 ZIndex: =3
 
