@@ -3,6 +3,7 @@ ScopeScreen As screen:
         =If(IsBlank(CboxScope),Set(VarScope,false));
         If(IsBlank(CboxScopeofwork),Set(VarScopeofwork,false));
         If(IsBlank(IntxtManuallyScopeofwork),Set(VarCustomScopeofwork,false));
+        Set(VarNotification,false);
 
     ctnMainSS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -89,7 +90,7 @@ ScopeScreen As screen:
                 DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(0, 0, 0, 0)
                 Font: =Font.Arial
-                Height: =Parent.Height/1.5
+                Height: =Parent.Height/1.8
                 RadiusBottomLeft: =50
                 RadiusBottomRight: =50
                 RadiusTopLeft: =50
@@ -101,7 +102,7 @@ ScopeScreen As screen:
                         User().FullName,
                         Find(" ", User().FullName) + 1,
                         1)
-                Width: =Parent.Height/1.5
+                Width: =Parent.Height/1.8
                 ZIndex: =7
 
         ctnUserHeaderSS As groupContainer.manualLayoutContainer:
@@ -442,7 +443,7 @@ ScopeScreen As screen:
                         Items: |-
                             =//' PrimaryScopeofWorks'
                             GCPrimaryScopeofWorks
-                        OnChange: =Set(VarScope,true);
+                        OnChange: =Set(VarScope,true);Set(VarNotificationScope,false);
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
@@ -493,7 +494,7 @@ ScopeScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_PrimaryScopeofWorkLID")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =120
                     Required: =false
                     Update: =CboxScopeofwork.Selected
                     Width: =Parent.Width
@@ -521,15 +522,17 @@ ScopeScreen As screen:
                         ChevronHoverBackground: =RGBA(202, 202, 202, 1)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["shlrf_secondaryscopeofworkname"]
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: =If(IsBlank(CboxScope.Selected),DisplayMode.Disabled,DisplayMode.Edit)
                         FocusedBorderThickness: =2
                         Font: =Font.Arial
                         Height: =50
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: =If(VarNotificationScope, "Please select primary scope first.","Search scope of work")
+                        InputTextPlaceholder: |-
+                            = 
+                                "Search scope of work"
                         Items: =Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
-                        OnChange: =Set(VarScopeofwork,true)
-                        OnSelect: =If(IsBlank(CboxScope),Set(VarNotificationScope,true));
+                        OnChange: =Set(VarScopeofwork,true);Set(VarNotificationScope,false);
+                        OnSelect: =If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
                         SearchItems: =Search(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),CboxScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
@@ -550,9 +553,9 @@ ScopeScreen As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Size: =12
+                        Text: ="Please select primary scope first."
+                        Visible: =If(CboxScopeofwork.DisplayMode=DisplayMode.Disabled,true,false)
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =CboxScopeofwork.Y + CboxScopeofwork.Height
@@ -600,7 +603,7 @@ ScopeScreen As screen:
                         Mode: =TextMode.MultiLine
                         OnChange: =Set(VarCustomScopeofwork,true)
                         PaddingLeft: =5
-                        PaddingTop: =20
+                        PaddingTop: =15
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
@@ -694,7 +697,8 @@ ScopeScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |-
-                        =If(!IsBlank(CboxScope.Selected)&&!IsBlank(CboxScopeofwork.Selected) || !IsBlank(CboxScope.Selected) ||!IsBlank(CboxScopeofwork.Selected),
+                        =If(
+                            !IsBlank(CboxScope.Selected) && !IsBlank(CboxScopeofwork.Selected) ,
                         Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);
                         Set(VarIndicatorSS,true);
@@ -943,7 +947,7 @@ ScopeScreen As screen:
                 Size: =14
                 Text: |-
                     =
-                        "Please select primary scope first."
+                        "Scope  & Scope of Work are mandatory "
                 Width: =Parent.Width
                 ZIndex: =2
 
