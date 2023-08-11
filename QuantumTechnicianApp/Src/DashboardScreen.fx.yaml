@@ -1,6 +1,10 @@
 DashboardScreen As screen:
     OnVisible: |
         =Refresh(LeadInformations);
+        ClearCollect(
+            GCTotalIncentives,
+            TotalIncentives
+        );
 
     ctnMainDS As groupContainer.horizontalAutoLayoutContainer:
         DropShadow: =DropShadow.None

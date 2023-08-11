@@ -444,7 +444,7 @@ CreatLeadScreen As screen:
                     ErrorMessageContractNumber As label:
                         AutoHeight: =true
                         Color: =RGBA(255, 0, 0, 1)
-                        Height: =If(LookUp(ContractDataVS,CONTR_NUM=IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text,30,0)
+                        Height: =If(LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text,30,0)
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
