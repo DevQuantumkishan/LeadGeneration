@@ -86,7 +86,7 @@ ImageUploadScreen As screen:
                 DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(0, 0, 0, 0)
                 Font: =Font.Arial
-                Height: =Parent.Height/1.5
+                Height: =Parent.Height/1.8
                 RadiusBottomLeft: =50
                 RadiusBottomRight: =50
                 RadiusTopLeft: =50
@@ -98,7 +98,7 @@ ImageUploadScreen As screen:
                         User().FullName,
                         Find(" ", User().FullName) + 1,
                         1)
-                Width: =Parent.Height/1.5
+                Width: =Parent.Height/1.8
                 ZIndex: =7
 
         ctnUsernameIS As groupContainer.manualLayoutContainer:
@@ -438,7 +438,7 @@ ImageUploadScreen As screen:
                         PaddingBottom: =10
                         PaddingLeft: =2
                         PaddingRight: =2
-                        PaddingTop: =10
+                        PaddingTop: =15
                         RadiusBottomLeft: =1
                         RadiusBottomRight: =1
                         RadiusTopLeft: =1
@@ -448,10 +448,12 @@ ImageUploadScreen As screen:
 
                     IconImageIS As icon.Cancel:
                         Color: =RGBA(255, 0, 0, 1)
-                        Height: =Parent.Height/8
+                        Height: =Parent.Height/6
                         Icon: =Icon.Cancel
                         OnSelect: =Remove(LeadImagesCollection,ThisItem);
-                        Width: =Parent.Height/8
+                        PaddingBottom: =5
+                        PaddingTop: =5
+                        Width: =Parent.Height/6
                         X: =ImageIS.Width-Self.Width
                         Y: =ImageIS.Y
                         ZIndex: =2
@@ -628,10 +630,9 @@ ImageUploadScreen As screen:
         Width: =Parent.Width
         ZIndex: =2
 
-        Image2 As image:
+        Container5 As groupContainer.manualLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height/2
-            Image: =glryImageIS.Selected.Image
             PaddingLeft: =5
             PaddingRight: =5
             Width: =Parent.Width/1.2
@@ -639,15 +640,29 @@ ImageUploadScreen As screen:
             Y: =(Parent.Height-Parent.Width)/2
             ZIndex: =1
 
-        IconImageIS_1 As icon.Cancel:
-            Color: =RGBA(0, 0, 0, 1)
-            Height: =Parent.Height/20
-            Icon: =Icon.Cancel
-            OnSelect: =Set(VarImagePopup,false)
-            Width: =Parent.Height/20
-            X: =Image2.X+(Image2.Width-Self.Width)
-            Y: =Image2.Y
-            ZIndex: =2
+            Image2 As image:
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =Parent.Height
+                Image: =glryImageIS.Selected.Image
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =25
+                Width: =Parent.Width
+                ZIndex: =1
+
+            IconImageIS_1 As icon.Cancel:
+                Color: =RGBA(0, 0, 0, 1)
+                Height: |-
+                    =//Container5.Height-Image2.Height
+                    30
+                Icon: =Icon.Cancel
+                OnSelect: =Set(VarImagePopup,false)
+                Width: =30
+                X: =Parent.Width-1.4*(Self.Width)
+                Y: =6
+                ZIndex: =2
 
     grpMenuDS_3 As group:
         Height: =5

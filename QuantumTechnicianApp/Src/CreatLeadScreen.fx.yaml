@@ -1,5 +1,5 @@
 CreatLeadScreen As screen:
-    OnVisible: |-
+    OnVisible: |
         =//Set(varshowMenu,!varshowMenu);
         If(IsBlank(IntxtContractNumber),Set(VarContractNumber,false));
         If(IsBlank(IntxtAddress),Set(VarAddress,false));
@@ -8,7 +8,6 @@ CreatLeadScreen As screen:
         Set(VarLoader,false);
         Set(VarNotification,false);
         Set(VarContractError,false);
-        Set(VarcontractRecord,Blank());
 
     ctnMainCLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -90,7 +89,7 @@ CreatLeadScreen As screen:
                 DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(0, 0, 0, 0)
                 Font: =Font.Arial
-                Height: =Parent.Height/1.5
+                Height: =Parent.Height/1.8
                 RadiusBottomLeft: =50
                 RadiusBottomRight: =50
                 RadiusTopLeft: =50
@@ -102,7 +101,7 @@ CreatLeadScreen As screen:
                         User().FullName,
                         Find(" ", User().FullName) + 1,
                         1)
-                Width: =Parent.Height/1.5
+                Width: =Parent.Height/1.8
                 ZIndex: =4
 
         ctnUserHeaderCL As groupContainer.manualLayoutContainer:
@@ -387,7 +386,7 @@ CreatLeadScreen As screen:
                 FillPortions: =0
                 Height: =If(Parent.Width>375,(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+50),(BuildingName.Height+Address.Height+ContractNumber.Height+ZipCode.Height+40))
                 Item: =VarFormMode
-                LayoutMinHeight: =250
+                LayoutMinHeight: =300
                 LayoutMinWidth: =400
                 Width: =Parent.Width/1.04
                 Y: =143
@@ -557,7 +556,6 @@ CreatLeadScreen As screen:
 
                     IntxtZipCode As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
-                        Clear: =true
                         Default: |-
                             =//Parent.Default
                             //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_ZIP)
@@ -649,7 +647,6 @@ CreatLeadScreen As screen:
 
                     IntxtBuildingName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
-                        Clear: =true
                         Default: |-
                             =//Parent.Default
                             //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_CITY)
@@ -749,7 +746,6 @@ CreatLeadScreen As screen:
 
                     IntxtAddress As text:
                         BorderColor: =If(IsBlank(Parent.Error),Color.LightGray, Color.Red)
-                        Clear: =true
                         Default: |-
                             =//Parent.Default
                             //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_ADDR)

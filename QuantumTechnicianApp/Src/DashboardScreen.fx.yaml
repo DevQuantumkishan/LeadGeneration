@@ -97,7 +97,7 @@ DashboardScreen As screen:
                 DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(0, 0, 0, 0)
                 Font: =Font.Arial
-                Height: =Parent.Height/1.5
+                Height: =Parent.Height/1.8
                 RadiusBottomLeft: =50
                 RadiusBottomRight: =50
                 RadiusTopLeft: =50
@@ -110,7 +110,7 @@ DashboardScreen As screen:
                         User().FullName,
                         Find(" ", User().FullName) + 1,
                         1)
-                Width: =Parent.Height/1.5
+                Width: =Parent.Height/1.8
                 ZIndex: =4
 
         ctnUserNameDS As groupContainer.manualLayoutContainer:
@@ -865,15 +865,16 @@ DashboardScreen As screen:
                     OnSelect: |+
                         =//for new form
                         Set(VarFormMode,Defaults(LeadInformations));
-                        Navigate(CreatLeadScreen);
+                        
                         //VArindicator is indcates first step in progress bar
                         Set(VarIndicator,false);
-                        
                         NewForm(BuildingInfoForm);ResetForm(BuildingInfoForm);
                         NewForm(EstimateForm);ResetForm(EstimateForm);
                         NewForm(ScopeInfoForm);ResetForm(ScopeInfoForm);
                         NewForm(UnitInfoForm);ResetForm(UnitInfoForm);
                         Clear(LeadImagesCollection);
+                        Set(VarcontractRecord,Blank());
+                        Navigate(CreatLeadScreen);
                         
                     PressedBorderColor: =Color.Red
                     RadiusBottomLeft: =6
