@@ -228,7 +228,7 @@ SubmittedLeadScreen As screen:
                     Items: |-
                         =//Sort
                         Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        Text(Year('Created On'))=Title2.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) &&Email=User().Email),'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode")
+                        Text(Year('Created On'))=Title2.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode")
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderCL_1.Text="Quoted Leads" ||"Sold Leads",280,180)
@@ -282,11 +282,12 @@ SubmittedLeadScreen As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
-                        Text: |
-                            =If(VarFutureIncetives = true,
+                        Text: |-
+                            =/*If(VarFutureIncetives = true,
                             "Potential Future Incentives $ :" & " " & "0",
                                       VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
-                                      VarTotalIncentives=true,"Total Incentives $:" & " "& "0")
+                                      VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
+                            If(btnheaderCL_1.Text="Quoted Leads","Proposed Incentives","Sold Incentives")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderCL_1.Text="Quoted Leads" ||"Sold Leads",true,false)
                         Width: =Parent.Width/1.08
@@ -484,9 +485,8 @@ SubmittedLeadScreen As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: |-
-                        =//LookUp(GCTotalIncentives,Year(Year)=Year(Now()),'ToalLeads ')
-                        CountRows(glryLeadsSLS.AllItems)
+                    Text: |
+                        =LookUp(GCTotalIncentives,Year=Text(Year(Now())) &&  TechnicianID=VarTechnicianID.'Personnel No',TotalProposedLead)
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSLS.Width
                     X: =lblTotalLeadsSLS.X
@@ -529,11 +529,11 @@ SubmittedLeadScreen As screen:
                     Text: |-
                         =If(btnheaderCL_1.Text="Quoted Leads",Value(Sum(
                             Filter(
-                                GCTotalIncentives,
+                                GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                 Year(Year) = Year(Now())),TotalproposedIncentives
                         )),Value(Sum(
                             Filter(
-                                GCTotalIncentives,
+                                GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                 Year(Year) = Year(Now())),TotalSoldIncentives
                         )))
                     VerticalAlign: =VerticalAlign.Top
