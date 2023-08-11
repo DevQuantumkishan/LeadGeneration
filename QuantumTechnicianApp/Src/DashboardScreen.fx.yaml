@@ -189,7 +189,7 @@ DashboardScreen As screen:
                     Default: =true
                     DisabledColor: =Color.Black
                     DisplayMode: |
-                        =If(toggleDS_1.TrueText=toggleDS_1.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
+                        =If(toggleDS_1.TrueText<>toggleDS_1.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
                     FalseFill: =Color.Black
                     FalseText: |
                         =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
