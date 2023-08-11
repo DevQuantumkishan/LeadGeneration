@@ -1226,7 +1226,7 @@ LeadScreen As screen:
                                         "Proposed Incentives updated for the estimateId " & txtinptestimatenumber.Text,
                                         NotificationType.Success
                                     );
-                                    
+                                    Navigate(DashboardScreen);
                                 );
                             Text: ="Submit Estimate Number"
                             Width: =300
