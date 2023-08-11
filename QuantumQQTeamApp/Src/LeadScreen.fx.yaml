@@ -40,6 +40,7 @@ LeadScreen As screen:
                 HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                 OnSelect: |-
                     =Set(VarPopUpInprogress,false);
+                    Reset(txtinptestimatenumber);
                     Navigate(LeadListScreen)
                 PressedFill: =//Self.Color
                 RadiusBottomLeft: =0
@@ -1211,15 +1212,15 @@ LeadScreen As screen:
                                     );
                                     UpdateIf(
                                         TotalIncentives,
-                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Year(VarleadYear),
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
                                         {
                                             TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
-                                            TotalProposedLead: CountRows(
-                                                Filter(
+                                            TotalProposedLead: 
+                                                LookUp(
                                                     TotalIncentives,
-                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Year(VarleadYear)
+                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),TotalProposedLead
                                                 )
-                                            ) + 1
+                                             + 1
                                         }
                                     );
                                     Notify(

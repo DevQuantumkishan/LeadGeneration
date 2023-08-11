@@ -21,6 +21,11 @@
     "TableName": "cr02d_shcontractdetail",
     "Views": "{\"@odata.context\":\"https://sec08technicianleadgenerationdev.crm4.dynamics.com/api/data/v9.0/$metadata#savedqueries(savedqueryid,name,querytype)\",\"value\":[{\"@odata.etag\":\"W/\\\"3219945\\\"\",\"savedqueryid\":\"f775b16a-846c-45e3-b474-07c019e49950\",\"name\":\"SHContractDetail Lookup View\",\"querytype\":64},{\"@odata.etag\":\"W/\\\"3219961\\\"\",\"savedqueryid\":\"512e40fd-23c0-468d-8fe5-10b935ce7ed7\",\"name\":\"SHContractDetail Advanced Find View\",\"querytype\":1},{\"@odata.etag\":\"W/\\\"3219929\\\"\",\"savedqueryid\":\"63901fd0-5f11-4b3f-b00c-6a86483505e4\",\"name\":\"SHContractDetail Associated View\",\"querytype\":2},{\"@odata.etag\":\"W/\\\"3222335\\\"\",\"savedqueryid\":\"15f38a57-18e8-46d6-87a0-bf5d703035c5\",\"name\":\"Active SHContractDetails\",\"querytype\":0},{\"@odata.etag\":\"W/\\\"3219914\\\"\",\"savedqueryid\":\"53768c14-0594-4560-8442-e02363f237e4\",\"name\":\"Inactive SHContractDetails\",\"querytype\":0}]}"
   },
-  "UnusedDataSources": {},
+  "UnusedDataSources": {
+    "ContractDataVS": {
+      "entitySetName": "shlrf_contractdatavs",
+      "logicalName": "shlrf_contractdatav"
+    }
+  },
   "webApiVersion": "v9.0"
 }
