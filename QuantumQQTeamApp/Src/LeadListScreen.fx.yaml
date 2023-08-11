@@ -356,7 +356,7 @@ LeadListScreen As screen:
                             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             OnSelect: |
                                 =If(ThisItem.LeadStatus="Submitted",Set(VarPopUpInprogress,true),Navigate(LeadScreen));
-                                Set(VarSelectedLeadId,ThisItem.ID);
+                                Set(VarSelectedLead,ThisItem);
                                 Refresh(LeadImages);
                             PressedColor: =//Self.Fill
                             PressedFill: =//Self.Color

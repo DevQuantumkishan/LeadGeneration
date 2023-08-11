@@ -1165,7 +1165,7 @@ LeadScreen As screen:
                                         !IsBlank(
                                             LookUp(
                                                 SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text
+                                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id'=VarSelectedLead.TechnicianID
                                             )
                                         ),
                                         Set(
@@ -1183,11 +1183,11 @@ LeadScreen As screen:
                                             VarleadYear,
                                            LookUp(
                                                 LeadInformations,
-                                                ID = VarSelectedLeadId,
+                                                ID = VarSelectedLead.ID,
                                                 'Created On'
                                             )
                                         ),
-                                        Notify("Estimate number not found in the FP Estimate file.");
+                                        Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
                                         Set(
                                             FlagEstimateNumberFound,
                                             false
@@ -1200,7 +1200,7 @@ LeadScreen As screen:
                                     FlagEstimateNumberFound = true,
                                     UpdateIf(
                                         LeadInformations,
-                                        ID = VarSelectedLeadId,
+                                        ID = VarSelectedLead.ID,
                                         {
                                             LeadEstimateNumber: txtinptestimatenumber.Text,
                                             LeadStatus: "Quoted",
@@ -1211,13 +1211,13 @@ LeadScreen As screen:
                                     );
                                     UpdateIf(
                                         TotalIncentives,
-                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year(Year) = Year(VarleadYear),
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Year(VarleadYear),
                                         {
                                             TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
                                             TotalProposedLead: CountRows(
                                                 Filter(
                                                     TotalIncentives,
-                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year(Year) = Year(VarleadYear)
+                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Year(VarleadYear)
                                                 )
                                             ) + 1
                                         }
