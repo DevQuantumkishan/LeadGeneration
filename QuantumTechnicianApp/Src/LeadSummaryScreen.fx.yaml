@@ -1415,7 +1415,7 @@ LeadSummaryScreen As screen:
                                 }
                             )
                         );
-                        If(CountRows(Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && LeadYear=Year(Now())))<=1,
+                        If(CountRows(Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now()))))<1,
                         Patch(TotalIncentives,
                         Defaults(TotalIncentives),{
                             ID:GUID(),
