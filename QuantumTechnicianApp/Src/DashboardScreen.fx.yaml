@@ -612,7 +612,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
-                                "Incentives  " &
+                                "Incentives  " &  "$" & " " &
                                 If(
                                    yearly = true,
                                 If(
@@ -626,7 +626,7 @@ DashboardScreen As screen:
                                        Sum(
                                        Filter( GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),
                                         TotalproposedIncentives
-                                )) & " " & "$"
+                                )) 
                             Width: =Parent.Width
                             X: =
                             Y: =lblQuotedLeadsDS_2.Height+lblQuotedLeadsDS_2.Y
@@ -737,7 +737,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalsoldIncentives and if user select span for cumulatively, then need to show sum of TotalsoldIncentives .
-                                "Incentives  " &
+                                "Incentives  "  &  "$" & " " &
                                 If(
                                    yearly = true,
                                 If(
@@ -755,7 +755,7 @@ DashboardScreen As screen:
                                         Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),
                                         TotalSoldIncentives
                                 
-                                )) & " " & "$"
+                                ))
                             Width: =Parent.Width
                             X: =
                             Y: =lblQuotedLeadsDS_3.Height+lblQuotedLeadsDS_3.Y
