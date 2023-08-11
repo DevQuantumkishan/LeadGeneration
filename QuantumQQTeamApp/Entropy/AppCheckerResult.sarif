@@ -3301,10 +3301,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 1,
-                  "charOffset": 1955,
+                  "charLength": 10,
+                  "charOffset": 2128,
                   "snippet": {
-                    "text": "="
+                    "text": "Year(Year)"
                   }
                 }
               },
@@ -3317,15 +3317,14 @@
           ],
           "message": {
             "arguments": [
-              "Text",
-              "Number"
+              "Year"
             ],
             "id": "issue"
           },
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "app-ErrIncompatibleTypesForEquality-Left-Right",
+          "ruleId": "app-SuggestRemoteExecutionHint",
           "ruleIndex": 0
         },
         {
@@ -3343,7 +3342,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2242,
+                  "charOffset": 2139,
                   "snippet": {
                     "text": "="
                   }
@@ -3358,15 +3357,54 @@
           ],
           "message": {
             "arguments": [
-              "Text",
-              "Number"
+              "Filter"
             ],
             "id": "issue"
           },
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "app-ErrIncompatibleTypesForEquality-Left-Right",
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnleaddetailsLdS.ctnverleaddetailsLdS.ctnapproverejectLdS.btnestimatenumberLdS.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnleaddetailsLdS.ctnverleaddetailsLdS.ctnapproverejectLdS.btnestimatenumberLdS.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 2125,
+                  "snippet": {
+                    "text": "&&"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "LeadScreen",
+                "type": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnleaddetailsLdS.ctnverleaddetailsLdS.ctnapproverejectLdS.btnestimatenumberLdS"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
           "ruleIndex": 0
         },
         {
@@ -5385,17 +5423,18 @@
           "name": "PowerApps app checker",
           "rules": [
             {
-              "id": "app-ErrIncompatibleTypesForEquality-Left-Right",
+              "id": "app-SuggestRemoteExecutionHint",
               "messageStrings": {
                 "issue": {
-                  "text": "Incompatible types for comparison. These types can't be compared: {0}, {1}."
+                  "text": "Delegation warning. The \"{0}\" part of this formula might not work correctly on large data sets."
                 }
               },
               "properties": {
                 "componentType": "app",
                 "howToFix": [
-                  "You might need to convert the value to be the same type, such as converting a date string (e.g., \"12/31/2018\") to a date value.",
-                  "If you’re comparing records or tables, the field or column types must match exactly."
+                  "If your data set exceeds the 500 record limit but contains less than 2,000 records, try resetting the limit.",
+                  "Try simplifying the formula.",
+                  "Try moving your data to a different data source."
                 ],
                 "level": "Medium",
                 "primaryCategory": "formula",

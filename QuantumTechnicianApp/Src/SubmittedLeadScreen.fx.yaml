@@ -64,7 +64,8 @@ SubmittedLeadScreen As screen:
                 Icon: =Icon.ChevronLeft
                 OnSelect: |-
                     =Navigate(DashboardScreen);
-                    UpdateContext({locInfoExpanded:false})
+                    UpdateContext({locInfoExpanded:false});
+                    Reset(IntxtSearchBoxSLS);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
@@ -142,7 +143,7 @@ SubmittedLeadScreen As screen:
                 PaddingRight: =20
                 PaddingTop: =0
                 Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
-                Text: =Header &" Leads"
+                Text: =If( Header = "InProgress","In Progress" ,Header) &" Leads"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -409,6 +410,7 @@ SubmittedLeadScreen As screen:
                             Set(VarLtdID,ThisItem.ID);
                             Set(VarBackColor,true);
                             Navigate([@ViewDetailsScreen],ScreenTransition.None);
+                            Reset(IntxtSearchBoxSLS);
                             /*{LtdID:ThisItem.ID,ContractNumber:ThisItem.'ContractNumber ',BuildingName:ThisItem.'BuildingName ',Address:ThisItem.Address,Zipcode:ThisItem.'ZipCode ',UnitCount:ThisItem.NumberofUnits,UnitDescription:ThisItem.UnitDescription,Scope:ThisItem.PrimaryScopeofWorkLID,ScopeOfWork:ThisItem.SecondaryScopeofWorkLID,CustomScope:ThisItem.CustomScopeofWork,unitdown:ThisItem.IsUnitDown,AdditionalExpensesRequired:ThisItem.AdditionalExpensesRequired,CommunicatedtoCustomer:ThisItem.CommunicatedToCustomer,EstimatedHours:ThisItem.'EstimatedHours ',Material:ThisItem.Notes,travelRequired:ThisItem.TravelRequired//LeadImage:ThisItem.LeadImages
                             }*/
                         PressedBorderColor: =RGBA(0, 0, 0, 0)
@@ -657,6 +659,7 @@ SubmittedLeadScreen As screen:
                 Height: =80
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =2
                 Width: =Parent.Width
                 X: =10
                 ZIndex: =5
@@ -665,19 +668,19 @@ SubmittedLeadScreen As screen:
                     AlignInContainer: =AlignInContainer.Center
                     BorderColor: =RGBA(255, 0, 0, 1)
                     Clear: =true
-                    Color: =RGBA(255, 0, 0, 1)
                     Default: =""
                     DisabledBorderColor: =RGBA(255, 0, 0, 1)
+                    FocusedBorderThickness: =2
                     Font: =Font.Arial
                     Height: =50
-                    HintText: ="Search Leads by Contract number or building name or address or zipcode "
+                    HintText: ="Search leads by contract number or building name or address or zipcode "
                     HoverBorderColor: =RGBA(255, 0, 0, 1)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     LayoutMinHeight: =70
                     LayoutMinWidth: =Self.Width
                     Mode: =TextMode.MultiLine
                     OnChange: |-
-                        =UpdateContext({locInfoExpanded:true})
+                        =UpdateContext({locInfoExpanded:true});
                     OnSelect: =
                     PaddingLeft: =5
                     RadiusBottomLeft: =1
@@ -685,14 +688,15 @@ SubmittedLeadScreen As screen:
                     RadiusTopLeft: =1
                     RadiusTopRight: =1
                     Reset: =true
-                    Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Width: =(ctnSearchBarSLS.Width)/1.14
+                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                    Width: =(ctnSearchBarSLS.Width)/1.17
                     ZIndex: =1
 
                 IconSearchSLS As icon.Search:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =2
                     Color: =RGBA(116, 116, 116, 1)
+                    FocusedBorderThickness: =1
                     Height: =50
                     Icon: =Icon.Search
                     OnSelect: |-
@@ -701,7 +705,7 @@ SubmittedLeadScreen As screen:
                     PaddingLeft: =5
                     PaddingRight: =5
                     PaddingTop: =5
-                    Width: =(ctnSearchBarSLS.Width-IntxtSearchBoxSLS.Width)/2
+                    Width: =(ctnSearchBarSLS.Width-IntxtSearchBoxSLS.Width)/1.5
                     X: =468
                     Y: =000
                     ZIndex: =2
