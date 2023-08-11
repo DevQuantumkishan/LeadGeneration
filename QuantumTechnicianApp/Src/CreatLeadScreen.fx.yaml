@@ -575,11 +575,11 @@ CreatLeadScreen As screen:
                         OnChange: =Set(VarZipcode,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
+                        PaddingTop: =0
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =true
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -667,11 +667,11 @@ CreatLeadScreen As screen:
                         OnChange: =Set(VarBuildingName,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
+                        PaddingTop: =0
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =true
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -772,7 +772,6 @@ CreatLeadScreen As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Reset: =true
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -1065,7 +1064,7 @@ CreatLeadScreen As screen:
                 Size: =14
                 Text: |-
                     =
-                        "Contract number is not found in your District,Please try again"
+                        "Contract number is not found in your district,please try again"
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -1152,6 +1151,7 @@ CreatLeadScreen As screen:
                     Navigate(CreatLeadScreen);
                 Size: =14
                 Text: ="Ok"
+                Visible: =false
                 Width: =Parent.Width/5
                 ZIndex: =3
 

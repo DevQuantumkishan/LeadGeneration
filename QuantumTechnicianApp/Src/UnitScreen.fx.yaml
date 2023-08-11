@@ -429,6 +429,7 @@ UnitScreen As screen:
                         OnChange: =Set(VarUnitCount,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
+                        PaddingTop: =0
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
@@ -474,7 +475,7 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarUnitCount,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="No. of Units"
+                        Text: ="No. of units"
                         Visible: =VarUnitCount || !IsBlank(IntxtUnitCount)
                         Width: =Parent.Width - 50
                         Wrap: =false
@@ -506,7 +507,7 @@ UnitScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =137
-                        HintText: ="Unit Description"
+                        HintText: ="Unit description"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -561,7 +562,7 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarUnitDescription,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Unit Description"
+                        Text: ="Unit description"
                         Visible: =VarUnitDescription || !IsBlank(IntxtUnitDescription)
                         Width: =Parent.Width - 50
                         Wrap: =false

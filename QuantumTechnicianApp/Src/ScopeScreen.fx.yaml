@@ -74,7 +74,7 @@ ScopeScreen As screen:
                 Size: |
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,18)
-                Text: ="Technician Lead Generation"
+                Text: ="Technician lead generation"
                 Width: =Parent.Width-imgSchindlerLogoSS.Width-iconBackSS.Width-btnuserSS.Width-20
                 X: =96.12
                 ZIndex: =6
@@ -130,7 +130,7 @@ ScopeScreen As screen:
                 PaddingRight: =20
                 PaddingTop: =0
                 Size: =If(Parent.Width<500,16,Parent.Width>500,20,18)
-                Text: ="Create New Lead"
+                Text: ="Create new lead"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -386,7 +386,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height+60
+                Height: =Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height+80
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -438,7 +438,7 @@ ScopeScreen As screen:
                         Height: =50
                         HoverBorderColor: =
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: ="Search Scope"
+                        InputTextPlaceholder: ="Search scope"
                         Items: |-
                             =//' PrimaryScopeofWorks'
                             GCPrimaryScopeofWorks
@@ -526,9 +526,10 @@ ScopeScreen As screen:
                         Font: =Font.Arial
                         Height: =50
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: ="Search Scope of Work"
+                        InputTextPlaceholder: =If(VarNotificationScope, "Please select primary scope first.","Search scope of work")
                         Items: =Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
                         OnChange: =Set(VarScopeofwork,true)
+                        OnSelect: =If(IsBlank(CboxScope),Set(VarNotificationScope,true));
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
                         SearchItems: =Search(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),CboxScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
@@ -592,7 +593,7 @@ ScopeScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =100
-                        HintText: ="Custom Scope of work(Manually Entered)"
+                        HintText: ="Custom scope of work(manually entered)"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -888,4 +889,74 @@ ScopeScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
+
+    PopopContracterrorNextSS_4 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarNotificationScope
+        Width: =Parent.Width
+        ZIndex: =5
+
+        Rectangle1_7 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/3.5
+            Width: =Parent.Width/1.3
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        Container6_7 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =Rectangle1_7.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle1_7.Width
+            X: =Rectangle1_7.X
+            Y: =Rectangle1_7.Y
+            ZIndex: =2
+
+            Container9_7 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =Parent.Height/3
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Image4_7 As image:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =Parent.Height
+                    Image: =error
+                    PaddingTop: =40
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Label3_7 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: |-
+                    =
+                        "Please select primary scope first."
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Button4_7 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Navigate(ScopeScreen);
+                    Set(VarNotificationScope,false);
+                Size: =14
+                Text: ="Ok"
+                Width: =Parent.Width/5
+                ZIndex: =3
 
