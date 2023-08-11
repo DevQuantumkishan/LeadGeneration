@@ -1215,12 +1215,12 @@ LeadScreen As screen:
                                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
                                         {
                                             TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
-                                            TotalProposedLead: CountRows(
-                                                Filter(
+                                            TotalProposedLead: 
+                                                LookUp(
                                                     TotalIncentives,
-                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear))
+                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),TotalProposedLead
                                                 )
-                                            ) + 1
+                                             + 1
                                         }
                                     );
                                     Notify(
