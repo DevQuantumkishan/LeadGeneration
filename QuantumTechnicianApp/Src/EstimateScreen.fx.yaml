@@ -1,6 +1,7 @@
 EstimateScreen As screen:
     OnVisible: |
         =If(IsBlank(IntxtEstimatedHours),Set(VarEstimateHours,false));
+        
         If(IsBlank(IntxtMaterial),Set(VarNotes,false));
 
     ctnMainES As groupContainer.verticalAutoLayoutContainer:
@@ -402,7 +403,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+50
+                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+'CustomerName _DataCard1'.Height+CustomerContactES.Height+50
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -796,6 +797,8 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
+                        OnCheck: =Set(VarCommunication,true)
+                        OnUncheck: =Set(VarCommunication,false);
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Communicated to customer"
@@ -804,6 +807,7 @@ EstimateScreen As screen:
                         ZIndex: =5
 
                 "'CustomerName _DataCard1' As typedDataCard.textualEditCard":
+                    BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="shlrf_customername"
                     Default: =ThisItem.'CustomerName '
@@ -814,18 +818,23 @@ EstimateScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
                     Required: =false
                     Update: =DataCardValue3.Text
-                    Width: =719
+                    Visible: =VarCommunication
+                    Width: =Parent.Width
                     X: =0
                     Y: =6
                     ZIndex: =1
 
                     DataCardKey3 As label:
                         AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =34
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
+                        PaddingLeft: =0
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Customer Name"
+                        Width: =Parent.Width - 120
                         Wrap: =false
-                        X: =30
+                        X: =60
                         Y: =10
                         ZIndex: =1
 
@@ -834,15 +843,19 @@ EstimateScreen As screen:
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Arial
+                        HoverBorderColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        X: =30
+                        Width: =Parent.Width - 120
+                        X: =60
                         Y: =DataCardKey3.Y + DataCardKey3.Height + 5
                         ZIndex: =2
 
@@ -871,7 +884,8 @@ EstimateScreen As screen:
                         Y: =DataCardKey3.Y
                         ZIndex: =4
 
-                "'CustomerContact _DataCard1' As typedDataCard.textualEditCard":
+                CustomerContactES As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="shlrf_customercontact"
                     Default: =ThisItem.'CustomerContact '
@@ -881,43 +895,52 @@ EstimateScreen As screen:
                     Height: =50
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
                     Required: =false
-                    Update: =DataCardValue4.Text
-                    Width: =719
+                    Update: =IntxtContactNumberES.Text
+                    Visible: =VarCommunication
+                    Width: =Parent.Width
                     X: =0
                     Y: =7
                     ZIndex: =1
 
-                    DataCardKey4 As label:
+                    lblContactES As label:
                         AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =34
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
+                        PaddingLeft: =0
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Customer Contact"
+                        Width: =Parent.Width - 120
                         Wrap: =false
-                        X: =30
+                        X: =60
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue4 As text:
+                    IntxtContactNumberES As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: |-
-                            =If(IsBlank(Parent.Default), VarformattedNumber, If(VarchangeNumber, VarformattedNumber, Text(Parent.Default, "[$-en-US](###) ###-####")))
+                        Clear: =true
+                        Default: =
                         DelayOutput: =true
+                        DisabledFill: =RGBA(0, 0, 0, 0)
                         DisplayMode: =Parent.DisplayMode
                         Format: =TextFormat.Number
-                        HintText: |
-                            ="###-###-####"
+                        HintText: =""
+                        HoverBorderColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =10
                         OnChange: |-
-                            =If(Len(DataCardValue4.Text)=10, Set(VarformattedNumber, Text(Value(DataCardValue4.Text), "[$-en-US](###) ###-####"));Set(VarchangeNumber, true), If(!IsBlank(DataCardValue4.Text) && Len(DataCardValue4.Text)<>10, Set(Varerrormessage, true); Set(VarchangeNumber, false)))
+                            =If(Len(IntxtContactNumberES.Text)=10, Set(VarformattedNumber, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(VarchangeNumber, true), If(!IsBlank(IntxtContactNumberES.Text) && Len(IntxtContactNumberES.Text)<>10, Set(Varerrormessage, true); Set(VarchangeNumber, false)));
+                            Set(varContactNumber,true);
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =true
                         Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                        Width: =Parent.Width - 120
+                        X: =60
+                        Y: =lblContactES.Y + lblContactES.Height + 5
                         ZIndex: =2
 
                     ErrorMessage4 As label:
@@ -932,26 +955,30 @@ EstimateScreen As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue4.Y + DataCardValue4.Height
+                        Y: =IntxtContactNumberES.Y + IntxtContactNumberES.Height
                         ZIndex: =3
 
                     StarVisible4 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey4.Height
+                        Height: =lblContactES.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey4.Y
+                        Y: =lblContactES.Y
                         ZIndex: =4
 
-                    Label5 As label:
-                        Height: =39
+                    lblContactNumber As label:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =IntxtContactNumberES.Height
+                        OnSelect: =Set(varContactNumber,false);
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: =VarformattedNumber
-                        Visible: =VarchangeNumber
-                        Width: =514
-                        X: =175
-                        Y: =10
+                        Visible: =VarchangeNumber && varContactNumber
+                        Width: =IntxtContactNumberES.Width
+                        X: =IntxtContactNumberES.X
+                        Y: =IntxtContactNumberES.Y
                         ZIndex: =5
 
             ctnButtonES As groupContainer.verticalAutoLayoutContainer:
@@ -1046,8 +1073,8 @@ EstimateScreen As screen:
 
         Rectangle1_6 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/3.5
-            Width: =Parent.Width/1.3
+            Height: =Parent.Height/3
+            Width: =Parent.Width/1.2
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1

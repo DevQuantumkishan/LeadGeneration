@@ -696,7 +696,7 @@ ScopeScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
-                    OnSelect: |-
+                    OnSelect: |
                         =If(
                             !IsBlank(CboxScope.Selected) && !IsBlank(CboxScopeofwork.Selected) ,
                         Set(VarIndicator,true);
@@ -705,6 +705,9 @@ ScopeScreen As screen:
                         Set(VarIndicatorES,false);
                         Navigate(EstimateScreen),
                         Set(VarNotification,true););
+                        If(CboxCommunicatedtoCustomer.Value=false,
+                        Set(VarCommunication,false));
+                        If(IsBlank(lblContactNumber),Set(VarformattedNumber,Blank()));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,12)
                     Text: ="Next"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
@@ -748,8 +751,8 @@ ScopeScreen As screen:
 
         Rectangle1_5 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/3.5
-            Width: =Parent.Width/1.3
+            Height: =Parent.Height/3
+            Width: =Parent.Width/1.2
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
@@ -903,8 +906,8 @@ ScopeScreen As screen:
 
         Rectangle1_7 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/3.5
-            Width: =Parent.Width/1.3
+            Height: =Parent.Height/3
+            Width: =Parent.Width/1.2
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1

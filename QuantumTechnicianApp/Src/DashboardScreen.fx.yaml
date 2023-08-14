@@ -878,6 +878,7 @@ DashboardScreen As screen:
                         NewForm(UnitInfoForm);ResetForm(UnitInfoForm);
                         Clear(LeadImagesCollection);
                         Set(VarcontractRecord,Blank());
+                        Set(VarformattedNumber,Blank());
                         Navigate(CreatLeadScreen);
                         
                     PressedBorderColor: =Color.Red
