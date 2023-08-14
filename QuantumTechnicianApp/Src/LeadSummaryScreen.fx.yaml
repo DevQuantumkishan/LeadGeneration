@@ -1282,6 +1282,190 @@ LeadSummaryScreen As screen:
                             X: =40
                             ZIndex: =5
 
+                    "'CustomerName _DataCard3' As typedDataCard.textualEditCard":
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="shlrf_customername"
+                        Default: =ThisItem.'CustomerName '
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customername")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
+                        Required: =false
+                        Update: =DataCardValue7.Text
+                        Width: =727
+                        X: =0
+                        Y: =15
+                        ZIndex: =1
+
+                        DataCardKey7 As label:
+                            AutoHeight: =true
+                            Font: =Font.Arial
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 120
+                            Wrap: =false
+                            X: =50
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue7 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Font: =Font.Arial
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 120
+                            X: =50
+                            Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage7 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue7.Y + DataCardValue7.Height
+                            ZIndex: =3
+
+                        StarVisible7 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey7.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey7.Y
+                            ZIndex: =4
+
+                        Rectangle7_2 As rectangle:
+                            BorderColor: =RGBA(237, 237, 237, 1)
+                            Fill: =RGBA(237, 237, 237, 1)
+                            Height: =96
+                            Width: =Parent.Width-60
+                            X: =40
+                            ZIndex: =5
+
+                    "'CustomerContact _DataCard3' As typedDataCard.textualEditCard":
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="shlrf_customercontact"
+                        Default: =ThisItem.'CustomerContact '
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
+                        Required: =false
+                        Update: =IntxtContactNumberES_1.Text
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =16
+                        ZIndex: =1
+
+                        DataCardKey8 As label:
+                            AutoHeight: =true
+                            Font: =Font.Arial
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width-120
+                            Wrap: =false
+                            X: =50
+                            Y: =10
+                            ZIndex: =1
+
+                        ErrorMessage8 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =IntxtContactNumberES_1.Y + IntxtContactNumberES_1.Height
+                            ZIndex: =3
+
+                        StarVisible8 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey8.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey8.Y
+                            ZIndex: =4
+
+                        IntxtContactNumberES_1 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            BorderThickness: =1
+                            Default: =lblContactNumber
+                            DelayOutput: =true
+                            DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: =Parent.DisplayMode
+                            Font: =Font.Arial
+                            Format: =TextFormat.Number
+                            HintText: =""
+                            HoverBorderColor: =Self.BorderColor
+                            HoverFill: =RGBA(255, 255, 255, 1)
+                            MaxLength: =10
+                            OnChange: |-
+                                =If(Len(IntxtContactNumberES_1.Text)=10, Set(VarformattedNumber, Text(Value(IntxtContactNumberES_1.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true), If(!IsBlank(IntxtContactNumberES_1.Text) && Len(IntxtContactNumberES_1.Text)<>10, Set(Varerrormessage, true); Set(varContactNumber, false)));
+                            OnSelect: =If(varContactNumber=true,Set(varContactNumber,true));
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Reset: =true
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width-120
+                            X: =50
+                            Y: =lblContactES.Y + lblContactES.Height + 5
+                            ZIndex: =5
+
+                        lblContactNumber_1 As label:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                            DisabledFill: =RGBA(255, 255, 255, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =Font.Arial
+                            Height: =IntxtContactNumberES_1.Height
+                            OnSelect: =Set(varContactNumber,false);
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Text: =If(IsBlank(IntxtContactNumberES_1),"",VarformattedNumber)
+                            Visible: =varContactNumber
+                            Width: =Parent.Width-120
+                            X: =50
+                            Y: =IntxtContactNumberES_1.Y
+                            ZIndex: =6
+
+                        Rectangle7_3 As rectangle:
+                            BorderColor: =RGBA(237, 237, 237, 1)
+                            Fill: =RGBA(237, 237, 237, 1)
+                            Height: =96
+                            Width: =Parent.Width-60
+                            X: =40
+                            ZIndex: =7
+
                 "glryImageLSS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(39, 113, 194, 1)

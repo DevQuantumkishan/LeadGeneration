@@ -799,7 +799,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
-                        OnCheck: =Set(VarCommunication,true);Reset(DataCardValue3);Reset(IntxtContactNumberES);
+                        OnCheck: =Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
                         OnUncheck: =Set(VarCommunication,false);
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -820,7 +820,7 @@ EstimateScreen As screen:
                     Height: =50
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
                     Required: =false
-                    Update: =DataCardValue3.Text
+                    Update: =IntxtContactName.Text
                     Visible: =VarCommunication
                     Width: =Parent.Width
                     X: =333
@@ -835,7 +835,7 @@ EstimateScreen As screen:
                         X: =30
                         ZIndex: =1
 
-                    DataCardKey3 As label:
+                    lblContactName As label:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
@@ -849,20 +849,19 @@ EstimateScreen As screen:
                         Y: =10
                         ZIndex: =2
 
-                    DataCardValue3 As text:
+                    IntxtContactName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisabledColor: =RGBA(0, 0, 0, 1)
-                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
                         DisplayMode: =Parent.DisplayMode
-                        Fill: =RGBA(0, 0, 0, 0)
                         Font: =Font.Arial
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
-                        HoverFill: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
-                        PressedFill: =
+                        PressedFill: =RGBA(255, 255, 255, 1)
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
@@ -871,7 +870,7 @@ EstimateScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 120
                         X: =60
-                        Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                        Y: =lblContactName.Y + lblContactName.Height + 5
                         ZIndex: =3
 
                     ErrorMessage3 As label:
@@ -886,17 +885,17 @@ EstimateScreen As screen:
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardValue3.Y + DataCardValue3.Height
+                        Y: =IntxtContactName.Y + IntxtContactName.Height
                         ZIndex: =4
 
                     StarVisible3 As label:
                         Align: =Align.Center
-                        Height: =DataCardKey3.Height
+                        Height: =lblContactName.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         Wrap: =false
-                        Y: =DataCardKey3.Y
+                        Y: =lblContactName.Y
                         ZIndex: =5
 
                 CustomerContactES As typedDataCard.textualEditCard:
@@ -951,7 +950,7 @@ EstimateScreen As screen:
                         Format: =TextFormat.Number
                         HintText: =""
                         HoverBorderColor: =Self.BorderColor
-                        HoverFill: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =10
                         OnChange: |-
                             =If(Len(IntxtContactNumberES.Text)=10, Set(VarformattedNumber, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true), If(!IsBlank(IntxtContactNumberES.Text) && Len(IntxtContactNumberES.Text)<>10, Set(Varerrormessage, true); Set(varContactNumber, false)));
@@ -997,6 +996,7 @@ EstimateScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =2
                         DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
                         Height: =IntxtContactNumberES.Height
@@ -1050,7 +1050,7 @@ EstimateScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |-
-                        =If(IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial),
+                        =If(IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactNumberES) || IsBlank(IntxtContactName)) ,
                         Set(VarNotification,true),
                         Set(VarIndicator, true );
                         Set(VarIndicatorUS, true );
@@ -1143,9 +1143,7 @@ EstimateScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: |-
-                    =
-                        "Estimated Hours and Materials,Part Number and other things  are mandatory "
+                Text: ="Estimated Hours and Materials,Part Number and other things" & If(CboxCommunicatedtoCustomer.Value=true," Contact Name & Contact Number") & " are mandatory"
                 Width: =Parent.Width
                 ZIndex: =2
 
