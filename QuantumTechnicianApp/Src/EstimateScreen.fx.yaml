@@ -406,6 +406,7 @@ EstimateScreen As screen:
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
+                NumberOfColumns: =1
                 Width: =Parent.Width/1.04
                 Y: =252
                 ZIndex: =3
@@ -422,7 +423,7 @@ EstimateScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_estimatedhours")
                     Required: =false
                     Update: =IntxtEstimatedHours.Text
-                    Width: =Parent.Width
+                    Width: =719
                     X: =0
                     Y: =0
                     ZIndex: =1
@@ -503,7 +504,7 @@ EstimateScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_notes")
                     Required: =false
                     Update: =IntxtMaterial.Text
-                    Width: =Parent.Width
+                    Width: =719
                     X: =0
                     Y: =1
                     ZIndex: =1
@@ -584,7 +585,7 @@ EstimateScreen As screen:
                     Required: =false
                     Update: =
                     Visible: =true
-                    Width: =Parent.Width
+                    Width: =719
                     X: =0
                     Y: =2
                     ZIndex: =1
@@ -644,7 +645,7 @@ EstimateScreen As screen:
                     Height: =60
                     Required: =false
                     Update: =
-                    Width: =Parent.Width
+                    Width: =719
                     X: =0
                     Y: =3
                     ZIndex: =1
@@ -700,7 +701,7 @@ EstimateScreen As screen:
                     Height: =60
                     Required: =false
                     Update: =
-                    Width: =Parent.Width
+                    Width: =719
                     X: =0
                     Y: =4
                     ZIndex: =1
@@ -756,7 +757,7 @@ EstimateScreen As screen:
                     Height: =60
                     Required: =false
                     Update: =
-                    Width: =Parent.Width
+                    Width: =719
                     X: =0
                     Y: =5
                     ZIndex: =1
@@ -801,6 +802,145 @@ EstimateScreen As screen:
                         Width: =Parent.Width-50
                         X: =30
                         ZIndex: =5
+
+                "'CustomerName _DataCard1' As typedDataCard.textualEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_customername"
+                    Default: =ThisItem.'CustomerName '
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customername")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
+                    Required: =false
+                    Update: =DataCardValue3.Text
+                    Width: =719
+                    X: =0
+                    Y: =6
+                    ZIndex: =1
+
+                    DataCardKey3 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue3 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage3 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue3.Y + DataCardValue3.Height
+                        ZIndex: =3
+
+                    StarVisible3 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey3.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey3.Y
+                        ZIndex: =4
+
+                "'CustomerContact _DataCard1' As typedDataCard.textualEditCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_customercontact"
+                    Default: =ThisItem.'CustomerContact '
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
+                    Required: =false
+                    Update: =DataCardValue4.Text
+                    Width: =719
+                    X: =0
+                    Y: =7
+                    ZIndex: =1
+
+                    DataCardKey4 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =formattedNumber
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Format: =TextFormat.Number
+                        MaxLength: =10
+                        OnChange: |-
+                            =Set(formattedNumber, Text(Value(DataCardValue4.Text), "[$-en-US](###) ###-####"));
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage4 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue4.Y + DataCardValue4.Height
+                        ZIndex: =3
+
+                    StarVisible4 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey4.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey4.Y
+                        ZIndex: =4
 
             ctnButtonES As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer

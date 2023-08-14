@@ -441,16 +441,16 @@ SubmittedLeadScreen As screen:
                     iconmsgSLS As icon.Message:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
-                        Height: =Parent.Width/20
+                        Height: =Parent.Width/15
                         Icon: =Icon.Message
                         OnSelect: |
                             =Navigate(ChatScreen);
                             Set(VarLtdName,ThisItem.'BuildingName ');
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
-                        Width: =Parent.Width/20
-                        X: =Parent.Width-3*(Self.Width)
-                        Y: =Parent.TemplateHeight/2.2
+                        Width: =Parent.Width/15
+                        X: =Parent.Width-2.5*(Self.Width)
+                        Y: =HtmlText2_4.Y
                         ZIndex: =23
 
                 lblTitleYearSLS As label:
@@ -626,6 +626,7 @@ SubmittedLeadScreen As screen:
                     HoverFill: =
                     OnSelect: =Select(Parent)
                     PressedBorderColor: =Self.BorderColor
+                    PressedFill: =Self.Fill
                     Text: =""
                     Width: =If(Parent.Width<378,Parent.Width/1.06,Parent.Width<500,Parent.Width/1.06,Parent.Width/1.03)
                     X: =5

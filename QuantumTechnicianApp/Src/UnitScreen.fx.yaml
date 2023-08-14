@@ -438,7 +438,7 @@ UnitScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblUnitCount.Y + lblUnitCount.Height 
+                        Y: =lblUnitCount.Y + lblUnitCount.Height +2
                         ZIndex: =1
 
                     ErrorMessageUnitCount As label:
@@ -524,7 +524,7 @@ UnitScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblUnitDescription.Y + lblUnitDescription.Height 
+                        Y: =lblUnitDescription.Y + lblUnitDescription.Height +2
                         ZIndex: =1
 
                     ErrorMessageUnitDescription As label:

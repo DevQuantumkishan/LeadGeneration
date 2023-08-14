@@ -438,7 +438,7 @@ CreatLeadScreen As screen:
                         Tooltip: ="Contract Number"
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblContractNumber.Y + lblContractNumber.Height
+                        Y: =lblContractNumber.Y + lblContractNumber.Height+2
                         ZIndex: =1
 
                     ErrorMessageContractNumber As label:
@@ -582,7 +582,7 @@ CreatLeadScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblZipcode.Y + lblZipcode.Height 
+                        Y: =lblZipcode.Y + lblZipcode.Height +2
                         ZIndex: =1
 
                     ErrorMessageZipcode As label:
@@ -673,7 +673,7 @@ CreatLeadScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblBuildingName.Y + lblBuildingName.Height
+                        Y: =lblBuildingName.Y + lblBuildingName.Height+2
                         ZIndex: =1
 
                     ErrorMessageBuilldingName As label:
@@ -772,7 +772,7 @@ CreatLeadScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblAddress.Y + lblAddress.Height 
+                        Y: =lblAddress.Y + lblAddress.Height +2
                         ZIndex: =1
 
                     ErrorMessageAddress As label:
