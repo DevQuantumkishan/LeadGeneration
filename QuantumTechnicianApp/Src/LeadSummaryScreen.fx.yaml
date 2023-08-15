@@ -527,7 +527,9 @@ LeadSummaryScreen As screen:
 
                         IntxtUnitCountLSS As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =IntxtUnitCount.Text
+                            Default: |-
+                                =//IntxtUnitCount.Text
+                                VarUnitcountSummary
                             DelayOutput: =true
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
@@ -535,7 +537,7 @@ LeadSummaryScreen As screen:
                             Height: =50
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            OnChange: =
+                            OnChange: =Set(VarUnitcountSummary,IntxtUnitCountLSS.Text)
                             PaddingLeft: =5
                             RadiusBottomLeft: =0
                             RadiusBottomRight: =0

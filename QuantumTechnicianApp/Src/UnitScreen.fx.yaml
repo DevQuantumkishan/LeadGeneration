@@ -417,7 +417,7 @@ UnitScreen As screen:
 
                     IntxtUnitCount As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =VarUnitcountSummary
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -426,7 +426,7 @@ UnitScreen As screen:
                         HintText: ="No. of Units"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        OnChange: =Set(VarUnitCount,true)
+                        OnChange: =Set(VarUnitcountSummary,IntxtUnitCount.Text);Set(VarUnitCount,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
@@ -502,7 +502,7 @@ UnitScreen As screen:
 
                     IntxtUnitDescription As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =VarUnitDescriptionSummary
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -512,7 +512,9 @@ UnitScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: =Set(VarUnitDescription,true)
+                        OnChange: |-
+                            =Set(VarUnitDescriptionSummary,IntxtUnitDescription.Text);
+                            Set(VarUnitDescription,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =15

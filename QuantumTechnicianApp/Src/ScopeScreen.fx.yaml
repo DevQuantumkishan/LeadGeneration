@@ -431,7 +431,7 @@ ScopeScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error),Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(202, 202, 202, 1)
                         ChevronHoverBackground: =RGBA(202, 202, 202, 1)
-                        DefaultSelectedItems: =Parent.Default
+                        DefaultSelectedItems: =VarScopeSummary
                         DisplayFields: =["shlrf_primaryscopeofworkname"]
                         DisplayMode: =Parent.DisplayMode
                         FocusedBorderThickness: =2
@@ -443,7 +443,7 @@ ScopeScreen As screen:
                         Items: |-
                             =//' PrimaryScopeofWorks'
                             GCPrimaryScopeofWorks
-                        OnChange: =Set(VarScope,true);Set(VarNotificationScope,false);
+                        OnChange: =Set(VarScopeSummary,CboxScope.SelectedItems);Set(VarScope,true);Set(VarNotificationScope,false);
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
@@ -520,7 +520,7 @@ ScopeScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(202, 202, 202, 1)
                         ChevronHoverBackground: =RGBA(202, 202, 202, 1)
-                        DefaultSelectedItems: =Parent.Default
+                        DefaultSelectedItems: =VarScopeofworkSummary
                         DisplayFields: =["shlrf_secondaryscopeofworkname"]
                         DisplayMode: =If(IsBlank(CboxScope.Selected),DisplayMode.Disabled,DisplayMode.Edit)
                         FocusedBorderThickness: =2
@@ -531,7 +531,7 @@ ScopeScreen As screen:
                             = 
                                 "Search scope of work"
                         Items: =Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
-                        OnChange: =Set(VarScopeofwork,true);Set(VarNotificationScope,false);
+                        OnChange: =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);Set(VarScopeofwork,true);Set(VarNotificationScope,false);
                         OnSelect: =If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
@@ -591,7 +591,7 @@ ScopeScreen As screen:
 
                     IntxtManuallyScopeofwork As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =VarCustomWorkSummary
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -601,7 +601,7 @@ ScopeScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: =Set(VarCustomScopeofwork,true)
+                        OnChange: =Set(VarCustomWorkSummary,IntxtManuallyScopeofwork.Text);Set(VarCustomScopeofwork,true);
                         PaddingLeft: =5
                         PaddingTop: =15
                         RadiusBottomLeft: =0

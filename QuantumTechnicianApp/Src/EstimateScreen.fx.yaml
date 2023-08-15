@@ -443,7 +443,7 @@ EstimateScreen As screen:
 
                     IntxtEstimatedHours As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =VarEstimateHoursSummary
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -453,7 +453,7 @@ EstimateScreen As screen:
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
-                        OnChange: =Set(VarEstimateHours,true)
+                        OnChange: =Set(VarEstimateHoursSummary,IntxtEstimatedHours);Set(VarEstimateHours,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -524,7 +524,7 @@ EstimateScreen As screen:
 
                     IntxtMaterial As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =varNotesSummary
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -534,7 +534,7 @@ EstimateScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: =Set(VarNotes,true)
+                        OnChange: =Set(varNotesSummary,IntxtMaterial);Set(VarNotes,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
