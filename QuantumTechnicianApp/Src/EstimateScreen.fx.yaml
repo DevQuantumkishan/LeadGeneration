@@ -628,6 +628,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
+                        OnCheck: =Set(VarUnitDownSummary,CboxUnitDown)
                         PressedBorderColor: =
                         PressedColor: =RGBA(0, 0, 0, 1)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
