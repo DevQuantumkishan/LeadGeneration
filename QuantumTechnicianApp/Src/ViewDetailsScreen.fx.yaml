@@ -1373,7 +1373,8 @@ ViewDetailsScreen As screen:
                     BorderThickness: =2
                     Height: =If(Parent.Width>Parent.Height,Parent.TemplateHeight/1.2,Parent.TemplateHeight/1.4)
                     Image: =ThisItem.Images
-                    OnSelect: =Select(Parent)
+                    OnSelect: |
+                        =Set(VarImagePopup,true)
                     PaddingBottom: =10
                     PaddingLeft: =2
                     PaddingRight: =2
@@ -1384,6 +1385,34 @@ ViewDetailsScreen As screen:
                     RadiusTopRight: =8
                     Width: =Parent.TemplateWidth/1.10
                     ZIndex: =1
+
+    Container4_2 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarImagePopup
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Image2_2 As image:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/2
+            Image: =glryImageLSS_2.Selected.Images
+            PaddingLeft: =5
+            PaddingRight: =5
+            Width: =Parent.Width/1.2
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Parent.Width)/2
+            ZIndex: =1
+
+        IconImageIS_3 As icon.Cancel:
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =Parent.Height/20
+            Icon: =Icon.Cancel
+            OnSelect: =Set(VarImagePopup,false)
+            Width: =Parent.Height/20
+            X: =Image2_2.X+(Image2_2.Width-Self.Width)
+            Y: =Image2_2.Y
+            ZIndex: =2
 
     grpMenuDS_6 As group:
         Height: =5

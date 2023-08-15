@@ -424,7 +424,7 @@ EstimateScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_estimatedhours")
                     Required: =false
                     Update: =IntxtEstimatedHours.Text
-                    Width: =719
+                    Width: =Parent.Width
                     X: =0
                     Y: =0
                     ZIndex: =1
@@ -505,7 +505,7 @@ EstimateScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_notes")
                     Required: =false
                     Update: =IntxtMaterial.Text
-                    Width: =719
+                    Width: =Parent.Width
                     X: =0
                     Y: =1
                     ZIndex: =1
@@ -586,7 +586,7 @@ EstimateScreen As screen:
                     Required: =false
                     Update: =
                     Visible: =true
-                    Width: =719
+                    Width: =Parent.Width
                     X: =0
                     Y: =2
                     ZIndex: =1
@@ -646,7 +646,7 @@ EstimateScreen As screen:
                     Height: =60
                     Required: =false
                     Update: =
-                    Width: =719
+                    Width: =Parent.Width
                     X: =0
                     Y: =3
                     ZIndex: =1
@@ -702,7 +702,7 @@ EstimateScreen As screen:
                     Height: =60
                     Required: =false
                     Update: =
-                    Width: =719
+                    Width: =Parent.Width
                     X: =0
                     Y: =4
                     ZIndex: =1
@@ -760,7 +760,7 @@ EstimateScreen As screen:
                     Height: =60
                     Required: =false
                     Update: =
-                    Width: =719
+                    Width: =Parent.Width
                     X: =0
                     Y: =5
                     ZIndex: =1

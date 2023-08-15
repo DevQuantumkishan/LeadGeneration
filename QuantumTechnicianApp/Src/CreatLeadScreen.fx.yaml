@@ -561,6 +561,7 @@ CreatLeadScreen As screen:
                             //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_ZIP)
                             VarcontractRecord.CUST_ZIP
                         DelayOutput: =true
+                        DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: |-
                             =//Parent.DisplayMode
                             DisplayMode.Disabled
@@ -653,6 +654,7 @@ CreatLeadScreen As screen:
                             VarcontractRecord.CUST_CITY
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(149, 149, 149, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: =DisplayMode.Disabled
                         FocusedBorderThickness: =2
                         Font: =Font.Arial
@@ -751,6 +753,7 @@ CreatLeadScreen As screen:
                             //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_ADDR)
                             VarcontractRecord.CUST_ADDR
                         DelayOutput: =true
+                        DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: =DisplayMode.Disabled
                         FocusedBorderThickness: =2
                         Font: =Font.Arial
@@ -1060,7 +1063,7 @@ CreatLeadScreen As screen:
                 Size: =14
                 Text: |-
                     =
-                        "Contract number is not found in your district,please try again"
+                        "Contract number is not found in your district,Please try again."
                 Width: =Parent.Width
                 ZIndex: =2
 
