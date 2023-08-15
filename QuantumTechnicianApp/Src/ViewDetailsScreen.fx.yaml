@@ -163,7 +163,7 @@ ViewDetailsScreen As screen:
                 DefaultMode: =FormMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
-                Height: ='Contract Number_DataCard1_3'.Height+'Building Name_DataCard2_3'.Height+PinCode_DataCard2_3.Height+Address_DataCard2_3.Height+UnitCount_DataCard3_3.Height+UnitDescription_DataCard3_3.Height+PrimaryScopeofWorkLID_DataCard1.Height+SecondaryScopeofWorkLID_DataCard1.Height+ManuallyScopeOfWork_DataCard3_3.Height+EstimatedHours_DataCard1_4.Height+Material_DataCard1_4.Height+'Unit Down_DataCard2_4'.Height+'Additional expenses required_DataCard2_3'.Height+'Travel Required_DataCard2_3'.Height+'Communicated to Customer_DataCard2_3'.Height+'CustomerName _DataCard2'.Height+'CustomerName _DataCard2'.Height+40
+                Height: ='Contract Number_DataCard1_3'.Height+'Building Name_DataCard2_3'.Height+PinCode_DataCard2_3.Height+Address_DataCard2_3.Height+UnitCount_DataCard3_3.Height+UnitDescription_DataCard3_3.Height+PrimaryScopeofWorkLID_DataCard1.Height+SecondaryScopeofWorkLID_DataCard1.Height+ManuallyScopeOfWork_DataCard3_3.Height+EstimatedHours_DataCard1_4.Height+Material_DataCard1_4.Height+'Unit Down_DataCard2_4'.Height+'Additional expenses required_DataCard2_3'.Height+'Travel Required_DataCard2_3'.Height+'Communicated to Customer_DataCard2_3'.Height+'CustomerName _DataCard2'.Height+'CustomerName _DataCard2'.Height
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -197,7 +197,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Contract Number"
+                        Text: ="Contract number"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -285,7 +285,7 @@ ViewDetailsScreen As screen:
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Text: |-
                             =//Parent.DisplayName
-                            "Building Name"
+                            "Building name"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -538,7 +538,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="No of Units"
+                        Text: ="No of units"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -623,7 +623,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Unit Description"
+                        Text: ="Unit description"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -859,7 +859,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Scope of Work (Manually Entered)"
+                        Text: ="Scope of work (manually entered)"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =10
@@ -943,7 +943,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Estimated Hours (Total Man Hours)"
+                        Text: ="Estimated hours (total man hours)"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =10
@@ -1028,7 +1028,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//21
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Material, Part Number and other things"
+                        Text: ="Material, part number and other things"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =10
@@ -1144,7 +1144,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Unit Down"
+                        Text: ="Unit down"
                         Visible: =If(ThisItem.IsUnitDown='IsUnitDown (LeadInformations)'.Yes,true,false)
                         Width: =Parent.Width - 60
                         X: =30
@@ -1205,7 +1205,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Additional Expenses Required"
+                        Text: ="Additional expenses required"
                         Visible: |-
                             =//If(Gallery1.Selected.'Additional expenses required'='Additional expenses required (LeadInformations)'.Yes,true,false)
                             If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
@@ -1354,6 +1354,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
                     Required: =false
                     Update: =DataCardValue3.Text
+                    Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
                     Width: =Parent.Width/1.04
                     X: =0
                     Y: =15
@@ -1362,8 +1363,11 @@ ViewDetailsScreen As screen:
                     DataCardKey3 As label:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
+                        FontWeight: =FontWeight.Semibold
                         Height: =34
-                        Text: =Parent.DisplayName
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                        Text: ="Customer name"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -1376,12 +1380,15 @@ ViewDetailsScreen As screen:
                         Default: =ThisItem.'CustomerName '
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Arial
+                        HoverBorderColor: =RGBA(0, 0, 0, 1)
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -1425,6 +1432,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
                     Required: =false
                     Update: =DataCardValue4.Text
+                    Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
                     Width: =Parent.Width/1.04
                     X: =0
                     Y: =16
@@ -1432,8 +1440,12 @@ ViewDetailsScreen As screen:
 
                     DataCardKey4 As label:
                         AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
+                        FontWeight: =FontWeight.Semibold
                         Height: =34
-                        Text: =Parent.DisplayName
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                        Text: ="Customer contact"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -1445,12 +1457,15 @@ ViewDetailsScreen As screen:
                         Default: =ThisItem.'CustomerContact '
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Arial
+                        HoverBorderColor: =RGBA(0, 0, 0, 1)
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -1484,6 +1499,7 @@ ViewDetailsScreen As screen:
 
             Label4 As label:
                 FontWeight: =FontWeight.Semibold
+                PaddingLeft: =30
                 Size: =14
                 Text: ="Uploaded Images"
                 Width: =Parent.Width
@@ -1525,6 +1541,7 @@ ViewDetailsScreen As screen:
                     RadiusTopLeft: =8
                     RadiusTopRight: =8
                     Width: =Parent.TemplateWidth/1.10
+                    X: =10
                     ZIndex: =1
 
     Container4_2 As groupContainer.manualLayoutContainer:
