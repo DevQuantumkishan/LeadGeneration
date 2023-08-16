@@ -1662,7 +1662,7 @@ LeadSummaryScreen As screen:
                     Y: =790
                     ZIndex: =2
 
-            ctnSpaceES_2 As groupContainer.verticalAutoLayoutContainer:
+            ctnSpaceLSS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -1680,7 +1680,7 @@ LeadSummaryScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =4
 
-                Image3_6 As image:
+                imgLogoLSS As image:
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
