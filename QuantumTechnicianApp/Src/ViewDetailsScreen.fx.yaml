@@ -1,6 +1,6 @@
 ViewDetailsScreen As screen:
 
-    Container5_1 As groupContainer.verticalAutoLayoutContainer:
+    ctnMainVDS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
@@ -112,7 +112,7 @@ ViewDetailsScreen As screen:
                 ZIndex: =8
 
         ctnUserHeaderVDS As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
+            AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
             Height: |-
                 =//Parent.Height/14
@@ -143,7 +143,7 @@ ViewDetailsScreen As screen:
                 ZIndex: =1
 
         Container2 As groupContainer.verticalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =SummaryForm_3.Height+glryImageLSS_2.Height+Label4.Height
