@@ -158,7 +158,7 @@ ImageUploadScreen As screen:
             LayoutOverflowY: =LayoutOverflow.Scroll
             ZIndex: =7
 
-            ctnProgressBarCreatLead_4 As groupContainer.manualLayoutContainer:
+            ctnProgressBarIS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
                 FillPortions: =0
                 Height: =130
@@ -600,7 +600,7 @@ ImageUploadScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnProgressBarCreatLead_4.Height-ctnButtonIS.Height-ctnImageIS.Height
+                Height: =Parent.Height-ctnProgressBarIS.Height-ctnButtonIS.Height-ctnImageIS.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
