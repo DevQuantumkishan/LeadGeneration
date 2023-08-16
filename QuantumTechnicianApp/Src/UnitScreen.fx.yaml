@@ -198,7 +198,7 @@ UnitScreen As screen:
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =9
 
-                IconLine3CL_1 As icon.HorizontalLine:
+                IconLine3US As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     DisabledColor: =RGBA(202, 202, 202, 1)
@@ -363,7 +363,7 @@ UnitScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine3CL_1.X+IconLine3CL_1.Width
+                    X: =IconLine3US.X+IconLine3US.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
