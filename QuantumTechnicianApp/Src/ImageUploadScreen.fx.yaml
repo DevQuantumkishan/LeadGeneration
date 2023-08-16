@@ -169,7 +169,7 @@ ImageUploadScreen As screen:
                 Y: =77
                 ZIndex: =1
 
-                IconLine1CL_4 As icon.HorizontalLine:
+                IconLine1IS As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
@@ -185,7 +185,7 @@ ImageUploadScreen As screen:
                         If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =8
 
-                IconLine2CL_4 As icon.HorizontalLine:
+                IconLine2IS As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
@@ -201,7 +201,7 @@ ImageUploadScreen As screen:
                         If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =9
 
-                IconLine3CL_4 As icon.HorizontalLine:
+                IconLine3IS As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
@@ -217,7 +217,7 @@ ImageUploadScreen As screen:
                         If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =10
 
-                IconLine4CL_4 As icon.HorizontalLine:
+                IconLine4IS As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
@@ -329,7 +329,7 @@ ImageUploadScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine1CL_4.X+IconLine1CL_4.Width
+                    X: =IconLine1IS.X+IconLine1IS.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =21
 
@@ -348,7 +348,7 @@ ImageUploadScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine2CL_4.X+IconLine2CL_4.Width
+                    X: =IconLine2IS.X+IconLine2IS.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =22
 
@@ -367,7 +367,7 @@ ImageUploadScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine3CL_4.X+IconLine3CL_4.Width
+                    X: =IconLine3IS.X+IconLine3IS.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
@@ -386,7 +386,7 @@ ImageUploadScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine4CL_4.X+IconLine4CL_4.Width
+                    X: =IconLine4IS.X+IconLine4IS.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
