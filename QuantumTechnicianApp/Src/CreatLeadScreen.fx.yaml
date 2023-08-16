@@ -911,14 +911,6 @@ CreatLeadScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    ctnBackgroundMenuDS_1 As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(0, 0.19, 0.19, 0.19)
-        Height: =Parent.Height-ctnHeaderDS.Height
-        Visible: =varshowMenu
-        Width: =Parent.Width
-        Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
-        ZIndex: =2
-
     PopopContracterrorNextSS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
