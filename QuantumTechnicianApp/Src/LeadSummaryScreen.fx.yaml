@@ -1704,7 +1704,7 @@ LeadSummaryScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        Container6 As groupContainer.verticalAutoLayoutContainer:
+        ctnNotificationSS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
             Height: =Rectangle1.Height
             LayoutDirection: =LayoutDirection.Vertical
@@ -1715,6 +1715,7 @@ LeadSummaryScreen As screen:
             ZIndex: =2
 
             Container9 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =Parent.Height/3
@@ -1735,7 +1736,6 @@ LeadSummaryScreen As screen:
 
             Label3 As label:
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =100
@@ -1745,7 +1745,6 @@ LeadSummaryScreen As screen:
                 ZIndex: =2
 
             Button4 As button:
-                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
@@ -1841,14 +1840,14 @@ LeadSummaryScreen As screen:
                     X: =1
                     ZIndex: =5
 
-    Container4_1 As groupContainer.manualLayoutContainer:
+    ctnImagePopupLSS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarImagePopup
         Width: =Parent.Width
         ZIndex: =5
 
-        Image2_1 As image:
+        imgPopupLSS As image:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
             Image: =glryImageLSS.Selected.Image
@@ -1862,13 +1861,13 @@ LeadSummaryScreen As screen:
             Y: =If(Parent.Width>500,Parent.Height/4,Parent.Width>1000,Parent.Height/2,(Parent.Height-Parent.Width)/2)
             ZIndex: =1
 
-        IconImageIS_2 As icon.Cancel:
+        iconImagePopupLSS As icon.Cancel:
             Color: =RGBA(0, 0, 0, 1)
             Height: =Parent.Height/20
             Icon: =Icon.Cancel
             OnSelect: =Set(VarImagePopup,false)
             Width: =Parent.Height/20
-            X: =Image2_1.X+(Image2_1.Width-Self.Width)
-            Y: =Image2_1.Y
+            X: =imgPopupLSS.X+(imgPopupLSS.Width-Self.Width)
+            Y: =imgPopupLSS.Y
             ZIndex: =2
 
