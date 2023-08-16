@@ -1696,7 +1696,7 @@ LeadSummaryScreen As screen:
         Width: =Parent.Width
         ZIndex: =4
 
-        Rectangle1 As rectangle:
+        borderNotificationLSS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
@@ -1706,12 +1706,12 @@ LeadSummaryScreen As screen:
 
         ctnNotificationLSS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =Rectangle1.Height
+            Height: =borderNotificationLSS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =Rectangle1.Width
-            X: =Rectangle1.X
-            Y: =Rectangle1.Y
+            Width: =borderNotificationLSS.Width
+            X: =borderNotificationLSS.X
+            Y: =borderNotificationLSS.Y
             ZIndex: =2
 
             ctnImageLSS As groupContainer.verticalAutoLayoutContainer:
