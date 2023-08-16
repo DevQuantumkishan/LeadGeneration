@@ -1714,7 +1714,7 @@ LeadSummaryScreen As screen:
             Y: =Rectangle1.Y
             ZIndex: =2
 
-            Container9 As groupContainer.verticalAutoLayoutContainer:
+            ctnImageSS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -1726,8 +1726,7 @@ LeadSummaryScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Image4 As image:
-                    AlignInContainer: =AlignInContainer.Center
+                imgNotificationSS As image:
                     Height: =Parent.Height
                     Image: =If(VarNotificationloding,'waiting-icon-gif-4',VarNotificationSuccess,Group)
                     PaddingTop: =40
