@@ -1160,6 +1160,7 @@ EstimateScreen As screen:
                 ZIndex: =2
 
             btnErrorES As button:
+                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
@@ -1171,7 +1172,7 @@ EstimateScreen As screen:
                 Width: =Parent.Width/5
                 ZIndex: =3
 
-    grpMenuDS_2 As group:
+    grpMenuES As group:
         Height: =5
         Width: =5
         X: =40
@@ -1186,11 +1187,11 @@ EstimateScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =2
 
-        "glryMenuBarDS_2 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+        "glryMenuBarES As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)
-            Height: =1.08*(CountRows(glryMenuBarDS_2.AllItems)*(glryMenuBarDS_2.TemplateHeight))
+            Height: =1.08*(CountRows(glryMenuBarES.AllItems)*(glryMenuBarES.TemplateHeight))
             Items: =Menu
             Layout: =Layout.Vertical
             ShowScrollbar: =false
