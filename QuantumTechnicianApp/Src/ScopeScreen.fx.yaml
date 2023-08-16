@@ -742,14 +742,14 @@ ScopeScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    PopopContracterrorNextSS_2 As groupContainer.manualLayoutContainer:
+    PopopErrorSS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarNotification
         Width: =Parent.Width
         ZIndex: =4
 
-        Rectangle1_5 As rectangle:
+        borderErrorImageSS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
@@ -757,17 +757,18 @@ ScopeScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        Container6_5 As groupContainer.verticalAutoLayoutContainer:
+        ctnErrorSS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =Rectangle1_5.Height
+            Height: =borderErrorImageSS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =Rectangle1_5.Width
-            X: =Rectangle1_5.X
-            Y: =Rectangle1_5.Y
+            Width: =borderErrorImageSS.Width
+            X: =borderErrorImageSS.X
+            Y: =borderErrorImageSS.Y
             ZIndex: =2
 
-            Container9_5 As groupContainer.verticalAutoLayoutContainer:
+            ctnErrorImageSS As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =Parent.Height/3
@@ -778,17 +779,15 @@ ScopeScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Image4_5 As image:
-                    AlignInContainer: =AlignInContainer.Center
+                imgErrorImageSS As image:
                     Height: =Parent.Height
                     Image: =error
                     PaddingTop: =40
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Label3_5 As label:
+            lblErrorImageSS As label:
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =100
@@ -799,7 +798,7 @@ ScopeScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            Button4_5 As button:
+            btnErrorImageSS As button:
                 AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
@@ -896,72 +895,4 @@ ScopeScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
-
-    ctnPopopContracterrorNextSS As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(0, 0, 0, 0.29)
-        Height: =Parent.Height
-        Visible: =VarNotificationScope
-        Width: =Parent.Width
-        ZIndex: =5
-
-        borderPopopContracterrorNextSS As rectangle:
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
-            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
-            X: =(Parent.Width-Self.Width)/2
-            Y: =(Parent.Height-Self.Height)/2
-            ZIndex: =1
-
-        ctnPopopContracterrorSS As groupContainer.verticalAutoLayoutContainer:
-            BorderThickness: =1
-            Height: =borderPopopContracterrorNextSS.Height
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutMode: =LayoutMode.Auto
-            Width: =borderPopopContracterrorNextSS.Width
-            X: =borderPopopContracterrorNextSS.X
-            Y: =borderPopopContracterrorNextSS.Y
-            ZIndex: =2
-
-            ctnPopopContracterrorImageSS As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                DropShadow: =DropShadow.None
-                FillPortions: =0
-                Height: =Parent.Height/3
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width
-                ZIndex: =1
-
-                imgPopupContractorImageSS As image:
-                    Height: =Parent.Height
-                    Image: =error
-                    PaddingTop: =40
-                    Width: =Parent.Width
-                    ZIndex: =1
-
-            lblPopopContracterrorSS As label:
-                Align: =Align.Center
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Semibold
-                Height: =100
-                Size: =14
-                Text: |-
-                    =
-                        "Scope  & Scope of Work are mandatory "
-                Width: =Parent.Width
-                ZIndex: =2
-
-            btnPopopContracterrorNextSS As button:
-                Fill: =RGBA(255, 0, 0, 1)
-                Font: =Font.Arial
-                HoverFill: =ColorFade(Self.Fill, -20%)
-                OnSelect: |-
-                    =Navigate(ScopeScreen);
-                    Set(VarNotificationScope,false);
-                Size: =14
-                Text: ="Ok"
-                Width: =Parent.Width/5
-                ZIndex: =3
 
