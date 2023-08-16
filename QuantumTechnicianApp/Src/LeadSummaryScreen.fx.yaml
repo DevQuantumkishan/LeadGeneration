@@ -1626,9 +1626,9 @@ LeadSummaryScreen As screen:
                         Defaults(TotalIncentives),{
                             ID:GUID(),
                             TechnicianID:VarTechnicianID.'Personnel No',
-                            TotalproposedIncentives:0,
+                            TotalproposedIncentives:0.00,
                             TotalProposedLead:0,
-                            TotalSoldIncentives:0,
+                            TotalSoldIncentives:0.00,
                             TotalSoldLead:0,
                             Year:Year(Now()),
                             LeadYear:Year(Now())
