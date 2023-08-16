@@ -171,7 +171,7 @@ DashboardScreen As screen:
                 Width: =Parent.Width/3
                 ZIndex: =6
 
-            Container3 As groupContainer.horizontalAutoLayoutContainer:
+            ctnYearToggleDS As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -188,12 +188,12 @@ DashboardScreen As screen:
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =7
 
-                toggleDS_1 As toggleSwitch:
+                toggleYearDS As toggleSwitch:
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Default: =true
                     DisabledColor: =Color.Black
                     DisplayMode: |
-                        =If(toggleDS_1.TrueText<>toggleDS_1.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
+                        =If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
                     FalseFill: =Color.Black
                     FalseText: |
                         =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
