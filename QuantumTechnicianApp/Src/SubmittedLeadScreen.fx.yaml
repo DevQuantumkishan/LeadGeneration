@@ -101,7 +101,7 @@ SubmittedLeadScreen As screen:
                 DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(0, 0, 0, 0)
                 Font: =Font.Arial
-                Height: =Parent.Height/1.8
+                Height: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
                 RadiusBottomLeft: =50
                 RadiusBottomRight: =50
                 RadiusTopLeft: =50
@@ -113,7 +113,7 @@ SubmittedLeadScreen As screen:
                         User().FullName,
                         Find(" ", User().FullName) + 1,
                         1)
-                Width: =Parent.Height/1.8
+                Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
                 ZIndex: =5
 
         ctnUserNameSLS As groupContainer.manualLayoutContainer:
