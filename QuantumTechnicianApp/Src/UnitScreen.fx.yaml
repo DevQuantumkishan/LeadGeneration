@@ -759,7 +759,7 @@ UnitScreen As screen:
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuDS_8 As label:
+                lblMenuUS As label:
                     AutoHeight: =true
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =24
@@ -769,12 +769,12 @@ UnitScreen As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuDS_8.Width-lineIndicatorDS_8.Width
-                    X: =iconMenuDS_8.Width+iconMenuDS_8.X
+                    Width: =Parent.Width-iconMenuUS.Width-lineIndicatorUS.Width
+                    X: =iconMenuUS.Width+iconMenuUS.X
                     Y: =30
                     ZIndex: =1
 
-                iconMenuDS_8 As icon.Add:
+                iconMenuUS As icon.Add:
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -783,7 +783,7 @@ UnitScreen As screen:
                     Y: =30
                     ZIndex: =3
 
-                btnMensuDS_8 As button:
+                btnMenuUS As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -796,7 +796,7 @@ UnitScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorDS_8 As rectangle:
+                lineIndicatorUS As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
