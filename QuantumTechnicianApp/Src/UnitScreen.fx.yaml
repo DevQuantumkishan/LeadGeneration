@@ -708,6 +708,7 @@ UnitScreen As screen:
                 ZIndex: =2
 
             btnPopopErrorUS As button:
+                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
