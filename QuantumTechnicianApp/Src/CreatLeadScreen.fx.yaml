@@ -64,7 +64,7 @@ CreatLeadScreen As screen:
                 X: =0.00
                 ZIndex: =2
 
-            lblHeaderDS_1 As label:
+            lblHeaderCL As label:
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
@@ -76,11 +76,11 @@ CreatLeadScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,18)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoCL.Width-iconBackCL.Width-Button2_1.Width-20
+                Width: =Parent.Width-imgSchindlerLogoCL.Width-iconBackCL.Width-btnUsernameCL.Width-20
                 X: =96.12
                 ZIndex: =3
 
-            Button2_1 As button:
+            btnUsernameCL As button:
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -278,7 +278,7 @@ CreatLeadScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 5"
                     Width: =Parent.Width/5
-                    X: =Image1_4.X-Image1_4.Width/3
+                    X: =imgStep5CL.X-imgStep5CL.Width/3
                     Y: =Image1.Y+Image1.Height+20
                     ZIndex: =16
 
@@ -360,7 +360,7 @@ CreatLeadScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
-                Image1_4 As image:
+                imgStep5CL As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
@@ -1117,14 +1117,14 @@ CreatLeadScreen As screen:
                 Width: =Parent.Width/5
                 ZIndex: =3
 
-    grpMenuDS_9 As group:
+    grpMenuCLS As group:
         Height: =5
         Width: =5
         X: =40
         Y: =80
         ZIndex: =9
 
-        ctnBackgroundMenuDS_10 As groupContainer.manualLayoutContainer:
+        ctnBackgroundMenuCLS As groupContainer.manualLayoutContainer:
             Fill: =RGBA(0, 0.19, 0.19, 0.19)
             Height: =Parent.Height-ctnHeaderDS.Height
             Visible: =varshowMenu
@@ -1132,11 +1132,11 @@ CreatLeadScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =7
 
-        "glryMenuBarDS_9 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+        "glryMenuBarCLS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)
-            Height: =1.08*(CountRows(glryMenuBarDS_9.AllItems)*(glryMenuBarDS_9.TemplateHeight))
+            Height: =1.08*(CountRows(glryMenuBarCLS.AllItems)*(glryMenuBarCLS.TemplateHeight))
             Items: =Menu
             Layout: =Layout.Vertical
             ShowScrollbar: =false
@@ -1148,14 +1148,14 @@ CreatLeadScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =8
 
-            ctnMenuDS_9 As groupContainer.manualLayoutContainer:
+            ctnMenuCLS As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuDS_9 As label:
+                lblMenuCLS As label:
                     AutoHeight: =true
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =24
@@ -1165,12 +1165,12 @@ CreatLeadScreen As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuDS_9.Width-lineIndicatorDS_9.Width
+                    Width: =Parent.Width-iconMenuCLS.Width-lineIndicatorCLS.Width
                     X: =45.83006535947712
                     Y: =30
                     ZIndex: =1
 
-                iconMenuDS_9 As icon.Add:
+                iconMenuCLS As icon.Add:
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -1179,7 +1179,7 @@ CreatLeadScreen As screen:
                     Y: =30
                     ZIndex: =3
 
-                btnMensuDS_9 As button:
+                btnMensuCLS As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -1192,7 +1192,7 @@ CreatLeadScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorDS_9 As rectangle:
+                lineIndicatorCLS As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)

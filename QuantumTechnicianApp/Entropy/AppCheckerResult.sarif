@@ -8958,6 +8958,66 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -13577,19 +13637,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCS.AccessibleLabel"
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCS.AccessibleLabel",
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "CreatLeadScreen",
-                "type": "CreatLeadScreen.glryMenuBarCS"
+                "type": "CreatLeadScreen.glryMenuBarCLS"
               }
             }
           ],
@@ -13607,19 +13667,199 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCS.TabIndex"
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCS.TabIndex",
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "CreatLeadScreen",
-                "type": "CreatLeadScreen.glryMenuBarCS"
+                "type": "CreatLeadScreen.glryMenuBarCLS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lineIndicatorCLS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lineIndicatorCLS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CreatLeadScreen",
+                "type": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lineIndicatorCLS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lineIndicatorCLS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lineIndicatorCLS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "CreatLeadScreen",
+                "type": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lineIndicatorCLS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.iconMenuCLS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.iconMenuCLS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CreatLeadScreen",
+                "type": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.iconMenuCLS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.iconMenuCLS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.iconMenuCLS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "CreatLeadScreen",
+                "type": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.iconMenuCLS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lblMenuCLS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lblMenuCLS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "CreatLeadScreen",
+                "type": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lblMenuCLS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lblMenuCLS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lblMenuCLS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "CreatLeadScreen",
+                "type": "CreatLeadScreen.glryMenuBarCLS.ctnMenuCLS.lblMenuCLS"
               }
             }
           ],
