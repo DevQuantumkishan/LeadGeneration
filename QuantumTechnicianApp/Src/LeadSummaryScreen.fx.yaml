@@ -1682,8 +1682,8 @@ LeadSummaryScreen As screen:
 
         Rectangle1 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/3
-            Width: =Parent.Width/1.2
+            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
@@ -1834,13 +1834,16 @@ LeadSummaryScreen As screen:
 
         Image2_1 As image:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/2
+            Height: =If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
             Image: =glryImageLSS.Selected.Image
+            PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
-            Width: =Parent.Width/1.2
+            PaddingTop: =25
+            Width: |
+                =If(Parent.Width>500,Parent.Width/2,Parent.Width>1000,Parent.Width/4,Parent.Width/1.2)
             X: =(Parent.Width-Self.Width)/2
-            Y: =(Parent.Height-Parent.Width)/2
+            Y: =If(Parent.Width>500,Parent.Height/4,Parent.Width>1000,Parent.Height/2,(Parent.Height-Parent.Width)/2)
             ZIndex: =1
 
         IconImageIS_2 As icon.Cancel:

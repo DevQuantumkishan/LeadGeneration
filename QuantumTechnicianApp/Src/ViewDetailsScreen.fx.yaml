@@ -1553,13 +1553,18 @@ ViewDetailsScreen As screen:
 
         Image2_2 As image:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/2
+            Height: |-
+                =
+                If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
             Image: =glryImageLSS_2.Selected.Images
+            PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
-            Width: =Parent.Width/1.2
+            PaddingTop: =25
+            Width: |
+                =If(Parent.Width>500,Parent.Width/2,Parent.Width>1000,Parent.Width/4,Parent.Width/1.2)
             X: =(Parent.Width-Self.Width)/2
-            Y: =(Parent.Height-Parent.Width)/2
+            Y: =If(Parent.Width>500,Parent.Height/4,Parent.Width>1000,Parent.Height/2,(Parent.Height-Parent.Width)/2)
             ZIndex: =1
 
         IconImageIS_3 As icon.Cancel:
