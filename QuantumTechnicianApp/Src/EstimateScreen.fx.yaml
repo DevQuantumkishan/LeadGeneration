@@ -453,7 +453,7 @@ EstimateScreen As screen:
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
-                        OnChange: =Set(VarEstimateHoursSummary,IntxtEstimatedHours);Set(VarEstimateHours,true)
+                        OnChange: =Set(VarEstimateHoursSummary,IntxtEstimatedHours.Text);Set(VarEstimateHours,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -524,7 +524,7 @@ EstimateScreen As screen:
 
                     IntxtMaterial As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =varNotesSummary
+                        Default: =VarNotesSummary
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -534,7 +534,7 @@ EstimateScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: =Set(varNotesSummary,IntxtMaterial);Set(VarNotes,true)
+                        OnChange: =Set(VarNotesSummary,IntxtMaterial.Text);Set(VarNotes,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -623,12 +623,14 @@ EstimateScreen As screen:
                         CheckboxBackgroundFill: =RGBA(0, 0, 0, 0)
                         CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                         Color: =If(CboxUnitDown.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                        Default: =VarUnitDownSummary
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         DisabledColor: =RGBA(202, 202, 202, 1)
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
-                        OnCheck: =Set(VarUnitDownSummary,CboxUnitDown)
+                        OnCheck: =Set(VarUnitDownSummary,CboxUnitDown.Value)
+                        OnUncheck: =Set(VarUnitDownSummary,CboxUnitDown.Value)
                         PressedBorderColor: =
                         PressedColor: =RGBA(0, 0, 0, 1)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -683,9 +685,12 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                         Color: =If(CboxAdditionalExpensesRequired.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                        Default: =VarAdditionExpenseSummary
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
+                        OnCheck: =Set(VarAdditionExpenseSummary,CboxAdditionalExpensesRequired.Value)
+                        OnUncheck: =Set(VarAdditionExpenseSummary,CboxAdditionalExpensesRequired.Value)
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Additional expenses required"
@@ -739,9 +744,12 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                         Color: =If(CboxTravelRequired.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                        Default: =VarTravelSummary
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
+                        OnCheck: =Set(VarTravelSummary,CboxTravelRequired.Value)
+                        OnUncheck: =Set(VarTravelSummary,CboxTravelRequired.Value)
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Travel required"
@@ -797,11 +805,14 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                         Color: =If(CboxCommunicatedtoCustomer.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                        Default: =VarCommunicationSummary
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
-                        OnCheck: =Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
-                        OnUncheck: =Set(VarCommunication,false);
+                        OnCheck: |-
+                            =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);
+                            Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
+                        OnUncheck: =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);Set(VarCommunication,false);
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Communicated to customer"
@@ -852,7 +863,7 @@ EstimateScreen As screen:
 
                     IntxtContactName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =VarCustomerNameSummary
                         DelayOutput: =true
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         DisabledFill: =RGBA(255, 255, 255, 1)
@@ -861,6 +872,7 @@ EstimateScreen As screen:
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =Parent.MaxLength
+                        OnChange: =Set(VarCustomerNameSummary,IntxtContactName.Text)
                         PaddingLeft: =5
                         PressedFill: =RGBA(255, 255, 255, 1)
                         RadiusBottomLeft: =0
@@ -953,8 +965,8 @@ EstimateScreen As screen:
                         HoverBorderColor: =Self.BorderColor
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =10
-                        OnChange: |-
-                            =If(Len(IntxtContactNumberES.Text)=10, Set(VarformattedNumber, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true), If(!IsBlank(IntxtContactNumberES.Text) && Len(IntxtContactNumberES.Text)<>10, Set(Varerrormessage, true); Set(varContactNumber, false)));
+                        OnChange: |
+                            =If(Len(IntxtContactNumberES.Text)=10, Set(VarformattedNumberSummary, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true), If(!IsBlank(IntxtContactNumberES.Text) && Len(IntxtContactNumberES.Text)<>10, Set(Varerrormessage, true); Set(varContactNumber, false)));
                         OnSelect: =If(varContactNumber=true,Set(varContactNumber,true));
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
@@ -1003,7 +1015,7 @@ EstimateScreen As screen:
                         Height: =IntxtContactNumberES.Height
                         OnSelect: =Set(varContactNumber,false);
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: =If(IsBlank(IntxtContactNumberES),"",VarformattedNumber)
+                        Text: =If(IsBlank(IntxtContactNumberES),"",VarformattedNumberSummary)
                         Visible: =varContactNumber
                         Width: =IntxtContactNumberES.Width
                         X: =IntxtContactNumberES.X

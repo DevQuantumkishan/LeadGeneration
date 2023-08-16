@@ -87,11 +87,11 @@ DashboardScreen As screen:
                 Text: |-
                     =//"Technicians Lead Generation"
                     "Dashboard"
-                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-Button2.Width-20
+                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-20
                 X: =96.12
                 ZIndex: =3
 
-            Button2 As button:
+            btnUsernameDS As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
@@ -171,7 +171,7 @@ DashboardScreen As screen:
                 Width: =Parent.Width/3
                 ZIndex: =6
 
-            Container3 As groupContainer.horizontalAutoLayoutContainer:
+            ctnYearToggleDS As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -188,12 +188,12 @@ DashboardScreen As screen:
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =7
 
-                toggleDS_1 As toggleSwitch:
+                toggleYearDS As toggleSwitch:
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Default: =true
                     DisabledColor: =Color.Black
                     DisplayMode: |
-                        =If(toggleDS_1.TrueText<>toggleDS_1.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
+                        =If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
                     FalseFill: =Color.Black
                     FalseText: |
                         =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
@@ -596,14 +596,14 @@ DashboardScreen As screen:
                     Width: =Parent.Width/2.2
                     ZIndex: =1
 
-                    grpQuotedLeadsDS_2 As group:
+                    grpQuotedLeadsDS As group:
                         Height: =5
                         Width: =5
                         X: =40
                         Y: =-0.48951781970654906
                         ZIndex: =5
 
-                        lblInprogressLeadsDS_8 As label:
+                        lblInprogressIncentivesDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -633,10 +633,10 @@ DashboardScreen As screen:
                                 )) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblQuotedLeadsDS_2.Height+lblQuotedLeadsDS_2.Y
+                            Y: =lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
                             ZIndex: =1
 
-                        lblQuotedLeadsDS_2 As label:
+                        lblQuotedLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -656,10 +656,10 @@ DashboardScreen As screen:
                                         Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead))
                             Width: =Parent.Width
                             X: =
-                            Y: =lblQuotedDS_2.Height+lblQuotedDS_2.Y
+                            Y: =lblQuotedDS.Height+lblQuotedDS.Y
                             ZIndex: =2
 
-                        lblQuotedDS_2 As label:
+                        lblQuotedDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -676,7 +676,7 @@ DashboardScreen As screen:
                             Y: =Parent.Height/10
                             ZIndex: =3
 
-                        btnQuotedLeadsDS_2 As button:
+                        btnQuotedLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
@@ -721,14 +721,14 @@ DashboardScreen As screen:
                     Width: =Parent.Width/2.2
                     ZIndex: =2
 
-                    grpQuotedLeadsDS_3 As group:
+                    grpSoldLeadsDS As group:
                         Height: =5
                         Width: =5
                         X: =40
                         Y: =-0.48951781970654906
                         ZIndex: =5
 
-                        lblInprogressLeadsDS_9 As label:
+                        lbllIncentivesLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -762,10 +762,10 @@ DashboardScreen As screen:
                                 ))
                             Width: =Parent.Width
                             X: =
-                            Y: =lblQuotedLeadsDS_3.Height+lblQuotedLeadsDS_3.Y
+                            Y: =lblSoldLeadsCountDS.Height+lblSoldLeadsCountDS.Y
                             ZIndex: =1
 
-                        lblQuotedLeadsDS_3 As label:
+                        lblSoldLeadsCountDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -789,10 +789,10 @@ DashboardScreen As screen:
                                         Sum(GCTotalIncentives,TotalSoldLead)=0,0,*/Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead))
                             Width: =Parent.Width
                             X: =
-                            Y: =lblQuotedDS_3.Height+lblQuotedDS_3.Y
+                            Y: =lblSoldLeadsDS.Height+lblSoldLeadsDS.Y
                             ZIndex: =2
 
-                        lblQuotedDS_3 As label:
+                        lblSoldLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -809,7 +809,7 @@ DashboardScreen As screen:
                             Y: =Parent.Height/10
                             ZIndex: =3
 
-                        btnQuotedLeadsDS_3 As button:
+                        btnSoldLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
@@ -876,6 +876,19 @@ DashboardScreen As screen:
                         NewForm(EstimateForm);ResetForm(EstimateForm);
                         NewForm(ScopeInfoForm);ResetForm(ScopeInfoForm);
                         NewForm(UnitInfoForm);ResetForm(UnitInfoForm);
+                        Set(VarUnitcountSummary,Blank());
+                        Set(VarUnitDescriptionSummary,Blank());
+                        Set(VarScopeSummary,Blank());
+                        Set(VarScopeofworkSummary,Blank());
+                        Set(VarCustomWorkSummary,Blank());
+                        Set(VarEstimateHoursSummary,Blank());
+                        Set(VarNotesSummary,Blank());
+                        Set(VarUnitDownSummary,Blank());
+                        Set(VarAdditionExpenseSummary,Blank());
+                        Set(VarTravelSummary,Blank());
+                        Set(VarCommunicationSummary,Blank());
+                        Set(VarCustomerNameSummary,Blank());
+                        Set(VarformattedNumberSummary,Blank());
                         Clear(LeadImagesCollection);
                         Set(VarcontractRecord,Blank());
                         Set(VarformattedNumber,Blank());
@@ -907,7 +920,7 @@ DashboardScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =5
 
-                Image3 As image:
+                imgLogoDS As image:
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height

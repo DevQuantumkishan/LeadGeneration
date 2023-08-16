@@ -151,7 +151,7 @@ SubmittedLeadScreen As screen:
                 Align: =Align.Right
                 Height: =Parent.Height
                 PaddingRight: =40
-                Text: =If(toggleDS_1.Value=true,toggleDS_1.TrueText,toggleDS_1.FalseText)
+                Text: =If(toggleYearDS.Value=true,toggleYearDS.TrueText,toggleYearDS.FalseText)
                 Width: =Parent.Width
                 ZIndex: =2
 
