@@ -87,11 +87,11 @@ DashboardScreen As screen:
                 Text: |-
                     =//"Technicians Lead Generation"
                     "Dashboard"
-                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-Button2.Width-20
+                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-20
                 X: =96.12
                 ZIndex: =3
 
-            Button2 As button:
+            btnUsernameDS As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
