@@ -213,7 +213,7 @@ ScopeScreen As screen:
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =10
 
-                IconLine4CL_2 As icon.HorizontalLine:
+                IconLine4SS As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
@@ -226,7 +226,7 @@ ScopeScreen As screen:
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =11
 
-                lblStep1CL_2 As label:
+                lblStep1SS As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -241,7 +241,7 @@ ScopeScreen As screen:
                     Y: =imgStep1SS.Y+imgStep1SS.Height+20
                     ZIndex: =12
 
-                lblStep2CL_2 As label:
+                lblStep2SS As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -254,7 +254,7 @@ ScopeScreen As screen:
                     Y: =imgStep1SS.Y+imgStep1SS.Height+20
                     ZIndex: =13
 
-                lblStep3CL_2 As label:
+                lblStep3SS As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -267,7 +267,7 @@ ScopeScreen As screen:
                     Y: =imgStep1SS.Y+imgStep1SS.Height+20
                     ZIndex: =14
 
-                lblSteo4CL_2 As label:
+                lblSteo4SS As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -379,7 +379,7 @@ ScopeScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine4CL_2.X+IconLine4CL_2.Width
+                    X: =IconLine4SS.X+IconLine4SS.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
