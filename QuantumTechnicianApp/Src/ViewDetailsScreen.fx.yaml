@@ -147,7 +147,7 @@ ViewDetailsScreen As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =SummaryForm_3.Height+glryImageLSS_2.Height+Label4.Height
+            Height: =SummaryFormVDS.Height+glryImageLSS_2.Height+Label4.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -158,7 +158,7 @@ ViewDetailsScreen As screen:
             Width: =Parent.Width-30
             ZIndex: =3
 
-            SummaryForm_3 As form:
+            SummaryFormVDS As form:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 DefaultMode: =FormMode.View
@@ -185,7 +185,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_contractnumber")
                     Required: =false
                     Update: =DataCardValue25_3.Text
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =0
                     ZIndex: =1
@@ -271,7 +271,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_buildingname")
                     Required: =false
                     Update: =DataCardValue33_3.Text
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =1
                     ZIndex: =1
@@ -358,7 +358,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_zipcode")
                     Required: =false
                     Update: =DataCardValue1_3.Text
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =2
                     ZIndex: =1
@@ -441,7 +441,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_address")
                     Required: =false
                     Update: =DataCardValue32_3.Text
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =3
                     ZIndex: =1
@@ -525,7 +525,7 @@ ViewDetailsScreen As screen:
                     Height: =50
                     Required: =false
                     Update: =Value(DataCardValue29_3.Text)
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =4
                     ZIndex: =1
@@ -610,7 +610,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_unitdescription")
                     Required: =false
                     Update: =DataCardValue30_3.Text
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =5
                     ZIndex: =1
@@ -695,7 +695,7 @@ ViewDetailsScreen As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue1.Selected
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =6
                     ZIndex: =1
@@ -770,7 +770,7 @@ ViewDetailsScreen As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue2.Selected
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =7
                     ZIndex: =1
@@ -847,7 +847,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customscopeofwork")
                     Required: =false
                     Update: =DataCardValue26_3.Text
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =8
                     ZIndex: =1
@@ -930,7 +930,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_estimatedhours")
                     Required: =false
                     Update: =DataCardValue18_4.Text
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =9
                     ZIndex: =1
@@ -1016,7 +1016,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_notes")
                     Required: =false
                     Update: =DataCardValue19_4.Text
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =10
                     ZIndex: =1
@@ -1102,7 +1102,7 @@ ViewDetailsScreen As screen:
                     Visible: |-
                         =//If(Gallery1.Selected.'Unit Down'='Unit Down (LeadInformations)'.Yes,true,false)
                         If(ThisItem.IsUnitDown='IsUnitDown (LeadInformations)'.Yes,true,false)
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =11
                     ZIndex: =1
@@ -1164,7 +1164,7 @@ ViewDetailsScreen As screen:
                     Required: =false
                     Update: =
                     Visible: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =12
                     ZIndex: =1
@@ -1229,7 +1229,7 @@ ViewDetailsScreen As screen:
                     Visible: |-
                         =//If(Gallery1.Selected.'Travel Required'='Travel Required (LeadInformations)'.Yes,true,false)
                         If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =13
                     ZIndex: =1
@@ -1292,7 +1292,7 @@ ViewDetailsScreen As screen:
                     Visible: |-
                         =//If(Gallery1_1.Selected.'Communicated to Customer'='Communicated to Customer (LeadInformations)'.Yes,true,false)
                         If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =14
                     ZIndex: =1
@@ -1356,7 +1356,7 @@ ViewDetailsScreen As screen:
                     Required: =false
                     Update: =DataCardValue3.Text
                     Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =15
                     ZIndex: =1
@@ -1434,7 +1434,7 @@ ViewDetailsScreen As screen:
                     Required: =false
                     Update: =DataCardValue4.Text
                     Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
-                    Width: =Parent.Width/1.04
+                    Width: =738
                     X: =0
                     Y: =16
                     ZIndex: =1
@@ -1526,7 +1526,7 @@ ViewDetailsScreen As screen:
                 Width: =Parent.Width
                 WrapCount: =4
                 X: =40
-                Y: =SummaryForm_3.Height
+                Y: =SummaryFormVDS.Height
                 ZIndex: =3
 
                 ImageLSS_2 As image:
