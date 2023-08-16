@@ -820,7 +820,7 @@ CreatLeadScreen As screen:
                         Y: =10
                         ZIndex: =4
 
-            ctnbuttonUS_1 As groupContainer.horizontalAutoLayoutContainer:
+            ctnbuttonCLS As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -839,7 +839,7 @@ CreatLeadScreen As screen:
                 Y: =UnitInfoForm.Y+UnitInfoForm.Height
                 ZIndex: =3
 
-                ctnPreviousUS_1 As button:
+                ctnPreviousCLS As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
                     Color: =RGBA(255, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
@@ -855,7 +855,7 @@ CreatLeadScreen As screen:
                     Y: =692
                     ZIndex: =1
 
-                ctnNextUS_1 As button:
+                ctnNextCLS As button:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
@@ -890,7 +890,7 @@ CreatLeadScreen As screen:
             ctnForSpaceCL As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
-                Height: =Parent.Height-ctnProgressBarCreatLead.Height-ctnbuttonUS_1.Height-BuildingInfoForm.Height
+                Height: =Parent.Height-ctnProgressBarCreatLead.Height-ctnbuttonCLS.Height-BuildingInfoForm.Height
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
