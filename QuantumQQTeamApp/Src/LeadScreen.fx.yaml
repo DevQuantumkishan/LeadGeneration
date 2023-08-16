@@ -1166,7 +1166,7 @@ LeadScreen As screen:
                                         !IsBlank(
                                             LookUp(
                                                 SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id'=VarSelectedLead.TechnicianID
+                                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID
                                             )
                                         ),
                                         Set(
@@ -1182,7 +1182,7 @@ LeadScreen As screen:
                                         );
                                         Set(
                                             VarleadYear,
-                                           LookUp(
+                                            LookUp(
                                                 LeadInformations,
                                                 ID = VarSelectedLead.ID,
                                                 'Created On'
@@ -1214,13 +1214,18 @@ LeadScreen As screen:
                                         TotalIncentives,
                                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
                                         {
-                                            TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
-                                            TotalProposedLead: 
+                                            TotalproposedIncentives: LookUp(
+                                                TotalIncentives,
+                                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                                TotalproposedIncentives
+                                            ) + VarFPEstimateData.BidPrice * 0.02,
+                                            TotalProposedLead: Value(
                                                 LookUp(
                                                     TotalIncentives,
-                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),TotalProposedLead
+                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                                    TotalProposedLead
                                                 )
-                                             + 1
+                                            ) + 1
                                         }
                                     );
                                     Notify(
@@ -1228,6 +1233,7 @@ LeadScreen As screen:
                                         NotificationType.Success
                                     );
                                     Navigate(DashboardScreen);
+                                    
                                 );
                             Text: ="Submit Estimate Number"
                             Width: =300
