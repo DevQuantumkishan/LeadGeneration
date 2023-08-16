@@ -289,7 +289,7 @@ ScopeScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 5"
                     Width: =Parent.Width/5
-                    X: =Image1_15.X-Image1_15.Width/3
+                    X: =imgStep5SS.X-imgStep5SS.Width/3
                     Y: =Image1_10.Y+Image1_10.Height+20
                     ZIndex: =16
 
@@ -365,7 +365,7 @@ ScopeScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
-                Image1_15 As image:
+                imgStep5SS As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
