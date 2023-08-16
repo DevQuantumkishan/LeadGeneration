@@ -199,7 +199,7 @@ SubmittedLeadScreen As screen:
                 Y: =ctnSearchBarSLS.Y+ctnSearchBarSLS.Height+10
                 ZIndex: =1
 
-                Title2 As label:
+                lblLeadYearSLS As label:
                     Align: =Align.Center
                     AutoHeight: =true
                     Color: =RGBA(255, 0, 0, 1)
@@ -222,7 +222,7 @@ SubmittedLeadScreen As screen:
                     Items: |-
                         =//Sort
                         Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        Text(Year('Created On'))=Title2.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode")
+                        Text(Year('Created On'))=lblLeadYearSLS.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode")
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",280,180)
@@ -233,7 +233,7 @@ SubmittedLeadScreen As screen:
                     Y: =rectangleYearSLS.Height
                     ZIndex: =2
 
-                    Separator3_1 As rectangle:
+                    borderLeadsSLS As rectangle:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderThickness: =2
                         Fill: =RGBA(0, 0, 0, 0)
@@ -250,6 +250,7 @@ SubmittedLeadScreen As screen:
                         ZIndex: =1
 
                     lblPriceSLS As label:
+                        Font: =Font.Arial
                         Height: =25
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
@@ -269,6 +270,7 @@ SubmittedLeadScreen As screen:
 
                     lblTitleTotalIncentivesSLS As label:
                         Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =25
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
@@ -296,12 +298,13 @@ SubmittedLeadScreen As screen:
                         Height: =2
                         OnSelect: =Select(Parent)
                         Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
-                        Width: =Separator3_1.Width-40
+                        Width: =borderLeadsSLS.Width-40
                         X: =20
                         Y: =lblTitleTotalIncentivesSLS.Y+lblTitleTotalIncentivesSLS.Height
                         ZIndex: =14
 
                     lblEstimateNumberSLS As label:
+                        Font: =Font.Arial
                         Height: =25
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
@@ -318,8 +321,9 @@ SubmittedLeadScreen As screen:
                         Y: =lineEstimateSLS.Y+lineEstimateSLS.Height+10
                         ZIndex: =15
 
-                    HtmlText2_3 As htmlViewer:
+                    HtmlTextBuildingNameSLS As htmlViewer:
                         AutoHeight: =true
+                        Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
                             ="<b>Building Name : </b>" &  ThisItem.'BuildingName '
@@ -334,6 +338,7 @@ SubmittedLeadScreen As screen:
 
                     htmltextContractNumberSLS As htmlViewer:
                         AutoHeight: =true
+                        Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
                             ="<b>Contract Number : </b>" &  ThisItem.'ContractNumber '
@@ -349,6 +354,7 @@ SubmittedLeadScreen As screen:
                     htmltxtAddressSLS As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
+                        Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
                             ="<b>Address : </b>" & ThisItem.Address
@@ -358,12 +364,13 @@ SubmittedLeadScreen As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =HtmlText2_3.Y+HtmlText2_3.Height
+                        Y: =HtmlTextBuildingNameSLS.Y+HtmlTextBuildingNameSLS.Height
                         ZIndex: =18
 
                     htmltxtZipcodeSLS As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
+                        Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
                             ="<b>Zipcode : </b>" & ThisItem.'ZipCode '
@@ -379,6 +386,7 @@ SubmittedLeadScreen As screen:
                     htmltxtDateSLS As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
+                        Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
                             ="<b>Date Created : </b>" & ThisItem.'Created On'
@@ -396,7 +404,7 @@ SubmittedLeadScreen As screen:
                         BorderThickness: =4
                         Color: =RGBA(0, 0, 0, 0)
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =Separator3_1.Height
+                        Height: =borderLeadsSLS.Height
                         HoverColor: =RGBA(0, 0, 0, 0)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         OnSelect: |
@@ -427,7 +435,7 @@ SubmittedLeadScreen As screen:
                         Height: =2
                         OnSelect: =Select(Parent)
                         Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
-                        Width: =Separator3_1.Width-40
+                        Width: =borderLeadsSLS.Width-40
                         X: =20
                         Y: =lblPriceSLS.Height+lblPriceSLS.Y
                         ZIndex: =22
@@ -483,7 +491,7 @@ SubmittedLeadScreen As screen:
                         =//If(btnheaderCL_1.Text="Quoted Leads",
                           //  LookUp(GCTotalIncentives,Year=Text(Year(Now())) &&  TechnicianID=VarTechnicianID.'Personnel No',TotalProposedLead,
                         CountRows(Filter(LeadInformations, Email=User().Email &&
-                        Text(Year('Created On'))=Title2.Text && If(Header="Open",LeadStatus="Submitted" ,LeadStatus=Header)))
+                        Text(Year('Created On'))=lblLeadYearSLS.Text && If(Header="Open",LeadStatus="Submitted" ,LeadStatus=Header)))
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSLS.Width
                     X: =lblTotalLeadsSLS.X
