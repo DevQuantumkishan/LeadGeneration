@@ -164,12 +164,12 @@ CreatLeadScreen As screen:
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.Disabled
                     Fill: =RGBA(202, 202, 202, 1)
-                    Height: =Image1.Height/4
+                    Height: =imgStep1CL.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
-                    X: =Image1.X+Image1.Width
+                    X: =imgStep1CL.X+imgStep1CL.Width
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =8
 
@@ -178,7 +178,7 @@ CreatLeadScreen As screen:
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.Disabled
                     Fill: =RGBA(202, 202, 202, 1)
-                    Height: =Image1.Height/4
+                    Height: =imgStep1CL.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
@@ -192,7 +192,7 @@ CreatLeadScreen As screen:
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.Disabled
                     Fill: =RGBA(202, 202, 202, 1)
-                    Height: =Image1.Height/4
+                    Height: =imgStep1CL.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
@@ -206,7 +206,7 @@ CreatLeadScreen As screen:
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.Disabled
                     Fill: =RGBA(202, 202, 202, 1)
-                    Height: =Image1.Height/4
+                    Height: =imgStep1CL.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
@@ -226,8 +226,8 @@ CreatLeadScreen As screen:
                     Width: =Parent.Width/5
                     X: |-
                         =//If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/7,Parent.Width/4)
-                        Image1.X-Image1.Width/3
-                    Y: =Image1.Y+Image1.Height+20
+                        imgStep1CL.X-imgStep1CL.Width/3
+                    Y: =imgStep1CL.Y+imgStep1CL.Height+20
                     ZIndex: =12
 
                 lblStep2CL As label:
@@ -240,7 +240,7 @@ CreatLeadScreen As screen:
                     Text: ="Step 2"
                     Width: =Parent.Width/5
                     X: =imgStep2CL.X-imgStep2CL.Width/3
-                    Y: =Image1.Y+Image1.Height+20
+                    Y: =imgStep1CL.Y+imgStep1CL.Height+20
                     ZIndex: =13
 
                 lblStep3CL As label:
@@ -253,7 +253,7 @@ CreatLeadScreen As screen:
                     Text: ="Step 3"
                     Width: =Parent.Width/5
                     X: =imgStep3CL.X-imgStep3CL.Width/3
-                    Y: =Image1.Y+Image1.Height+20
+                    Y: =imgStep1CL.Y+imgStep1CL.Height+20
                     ZIndex: =14
 
                 lblSteo4CL As label:
@@ -266,7 +266,7 @@ CreatLeadScreen As screen:
                     Text: ="Step 4"
                     Width: =Parent.Width/5
                     X: =img4StepCL.X-img4StepCL.Width/3
-                    Y: =Image1.Y+Image1.Height+20
+                    Y: =imgStep1CL.Y+imgStep1CL.Height+20
                     ZIndex: =15
 
                 lblStep5CL As label:
@@ -279,10 +279,10 @@ CreatLeadScreen As screen:
                     Text: ="Step 5"
                     Width: =Parent.Width/5
                     X: =imgStep5CL.X-imgStep5CL.Width/3
-                    Y: =Image1.Y+Image1.Height+20
+                    Y: =imgStep1CL.Y+imgStep1CL.Height+20
                     ZIndex: =16
 
-                Image1 As image:
+                imgStep1CL As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
