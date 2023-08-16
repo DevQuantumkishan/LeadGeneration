@@ -1112,7 +1112,7 @@ EstimateScreen As screen:
         Width: =Parent.Width
         ZIndex: =4
 
-        Rectangle1_6 As rectangle:
+        borderErrorES As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
@@ -1122,12 +1122,12 @@ EstimateScreen As screen:
 
         ctnErrorES As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =Rectangle1_6.Height
+            Height: =borderErrorES.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =Rectangle1_6.Width
-            X: =Rectangle1_6.X
-            Y: =Rectangle1_6.Y
+            Width: =borderErrorES.Width
+            X: =borderErrorES.X
+            Y: =borderErrorES.Y
             ZIndex: =2
 
             ctnErrorImageES As groupContainer.verticalAutoLayoutContainer:
@@ -1142,14 +1142,14 @@ EstimateScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Image4_6 As image:
+                imgErrorES As image:
                     Height: =Parent.Height
                     Image: =error
                     PaddingTop: =40
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Label3_6 As label:
+            lblErrorES As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -1159,7 +1159,7 @@ EstimateScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            Button4_6 As button:
+            btnErrorES As button:
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
