@@ -491,7 +491,7 @@ CreatLeadScreen As screen:
                         Y: =10
                         ZIndex: =4
 
-                    Icon3 As icon.Search:
+                    iconSearchContractNumber As icon.Search:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
                         BorderThickness: =1
                         Color: |-
