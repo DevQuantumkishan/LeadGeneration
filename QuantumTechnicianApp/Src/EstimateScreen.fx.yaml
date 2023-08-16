@@ -1203,14 +1203,14 @@ EstimateScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
-            ctnMenuDS_2 As groupContainer.manualLayoutContainer:
+            ctnMenuES As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuDS_2 As label:
+                lblMenuES As label:
                     AutoHeight: =true
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =24
@@ -1220,12 +1220,12 @@ EstimateScreen As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuDS_2.Width-lineIndicatorDS_2.Width
-                    X: =iconMenuDS_2.Width+iconMenuDS_2.X
+                    Width: =Parent.Width-iconMenuES.Width-lineIndicatorES.Width
+                    X: =iconMenuES.Width+iconMenuES.X
                     Y: =30
                     ZIndex: =1
 
-                iconMenuDS_2 As icon.Add:
+                iconMenuES As icon.Add:
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -1234,7 +1234,7 @@ EstimateScreen As screen:
                     Y: =30
                     ZIndex: =3
 
-                btnMensuDS_2 As button:
+                btnMenuES As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -1247,7 +1247,7 @@ EstimateScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorDS_2 As rectangle:
+                lineIndicatorES As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
