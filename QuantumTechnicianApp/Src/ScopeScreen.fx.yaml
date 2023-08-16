@@ -904,7 +904,7 @@ ScopeScreen As screen:
         Width: =Parent.Width
         ZIndex: =5
 
-        Rectangle1_7 As rectangle:
+        borderPopopContracterrorNextSS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
@@ -914,12 +914,12 @@ ScopeScreen As screen:
 
         ctnPopopContracterrorSS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =Rectangle1_7.Height
+            Height: =borderPopopContracterrorNextSS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =Rectangle1_7.Width
-            X: =Rectangle1_7.X
-            Y: =Rectangle1_7.Y
+            Width: =borderPopopContracterrorNextSS.Width
+            X: =borderPopopContracterrorNextSS.X
+            Y: =borderPopopContracterrorNextSS.Y
             ZIndex: =2
 
             ctnPopopContracterrorImageSS As groupContainer.verticalAutoLayoutContainer:
@@ -941,7 +941,7 @@ ScopeScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Label3_7 As label:
+            lblPopopContracterrorNextSS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -953,7 +953,7 @@ ScopeScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            Button4_7 As button:
+            btnPopopContracterrorNextSS As button:
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
