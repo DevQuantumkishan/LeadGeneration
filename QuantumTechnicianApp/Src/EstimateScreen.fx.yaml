@@ -839,7 +839,7 @@ EstimateScreen As screen:
                     Y: =6
                     ZIndex: =1
 
-                    Rectangle7 As rectangle:
+                    borderCustomerName As rectangle:
                         BorderColor: =RGBA(237, 237, 237, 1)
                         Fill: =RGBA(237, 237, 237, 1)
                         Height: =96
@@ -886,7 +886,7 @@ EstimateScreen As screen:
                         Y: =lblContactName.Y + lblContactName.Height + 5
                         ZIndex: =3
 
-                    ErrorMessage3 As label:
+                    ErrorMessageCustomerName As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
