@@ -403,7 +403,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+'CustomerName _DataCard1'.Height+CustomerContactES.Height+50
+                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+50
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -820,7 +820,7 @@ EstimateScreen As screen:
                         X: =30
                         ZIndex: =5
 
-                "'CustomerName _DataCard1' As typedDataCard.textualEditCard":
+                CustomerName As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
                     BorderThickness: =0
@@ -901,7 +901,7 @@ EstimateScreen As screen:
                         Y: =IntxtContactName.Y + IntxtContactName.Height
                         ZIndex: =4
 
-                    StarVisible3 As label:
+                    StarVisibleCustomerName As label:
                         Align: =Align.Center
                         Height: =lblContactName.Height
                         Text: ="*"
