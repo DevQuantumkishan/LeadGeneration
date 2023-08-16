@@ -161,7 +161,7 @@ EstimateScreen As screen:
             Width: =Parent.Width
             ZIndex: =7
 
-            ctnProgressBarCreatLead_3 As groupContainer.manualLayoutContainer:
+            ctnProgressBarES As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
                 FillPortions: =0
                 Height: =130
@@ -230,7 +230,7 @@ EstimateScreen As screen:
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
-                    X: =Image1_19.X+Image1_19.Width
+                    X: =imgStep4ES.X+imgStep4ES.Width
                     Y: |-
                         =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
                         If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
@@ -286,7 +286,7 @@ EstimateScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 4"
                     Width: =Parent.Width/5
-                    X: =Image1_19.X-Image1_19.Width/3
+                    X: =imgStep4ES.X-imgStep4ES.Width/3
                     Y: =Image1_16.Y+Image1_16.Height+20
                     ZIndex: =15
 
@@ -299,7 +299,7 @@ EstimateScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 5"
                     Width: =Parent.Width/5
-                    X: =Image1_20.X-Image1_20.Width/3
+                    X: =imgStep5ES.X-imgStep5ES.Width/3
                     Y: =Image1_16.Y+Image1_16.Height+20
                     ZIndex: =16
 
@@ -360,7 +360,7 @@ EstimateScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =22
 
-                Image1_19 As image:
+                imgStep4ES As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
@@ -379,7 +379,7 @@ EstimateScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
-                Image1_20 As image:
+                imgStep5ES As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
@@ -1082,7 +1082,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnProgressBarCreatLead_3.Height-ctnButtonES.Height-EstimateForm.Height
+                Height: =Parent.Height-ctnProgressBarES.Height-ctnButtonES.Height-EstimateForm.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =20
                 LayoutJustifyContent: =LayoutJustifyContent.Center
