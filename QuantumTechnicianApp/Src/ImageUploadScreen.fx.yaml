@@ -45,7 +45,7 @@ ImageUploadScreen As screen:
                 Y: =11
                 ZIndex: =4
 
-            imgSchindlerLogoES_1 As image:
+            imgSchindlerLogoIS As image:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -58,7 +58,7 @@ ImageUploadScreen As screen:
                 X: =0.00
                 ZIndex: =5
 
-            lblHeaderES_1 As label:
+            lblHeaderIS As label:
                 AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
@@ -72,11 +72,11 @@ ImageUploadScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,18)
                 Text: =" Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoES_1.Width-iconBackIS.Width-btnuserES_1.Width-20
+                Width: =Parent.Width-imgSchindlerLogoIS.Width-iconBackIS.Width-btnuserIS.Width-20
                 X: =96.12
                 ZIndex: =6
 
-            btnuserES_1 As button:
+            btnuserIS As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
