@@ -1017,7 +1017,7 @@ CreatLeadScreen As screen:
         Width: =Parent.Width
         ZIndex: =5
 
-        Rectangle1_2 As rectangle:
+        borderErrorpopupCS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
@@ -1025,17 +1025,18 @@ CreatLeadScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        Container6_2 As groupContainer.verticalAutoLayoutContainer:
+        ctnErrorCS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =Rectangle1_2.Height
+            Height: =borderErrorpopupCS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =Rectangle1_2.Width
-            X: =Rectangle1_2.X
-            Y: =Rectangle1_2.Y
+            Width: =borderErrorpopupCS.Width
+            X: =borderErrorpopupCS.X
+            Y: =borderErrorpopupCS.Y
             ZIndex: =2
 
-            Container9_2 As groupContainer.verticalAutoLayoutContainer:
+            ctnErrorPopupCS As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =Parent.Height/3
@@ -1046,17 +1047,15 @@ CreatLeadScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Image4_2 As image:
-                    AlignInContainer: =AlignInContainer.Center
+                imgErrorPopupCS As image:
                     Height: =Parent.Height
                     Image: =    error
                     PaddingTop: =40
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Label3_2 As label:
+            lblErrorPopuoCS As label:
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =100
@@ -1067,8 +1066,7 @@ CreatLeadScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            Button4_2 As button:
-                AlignInContainer: =AlignInContainer.Center
+            btnOkErrorPopupCS As button:
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
