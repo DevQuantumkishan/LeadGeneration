@@ -1,5 +1,6 @@
 ChatScreen As screen:
-    OnVisible: =Refresh (LeadChats);
+    OnVisible: |
+        =Refresh (LeadChats);Set(VarLeadMessages,true);
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -351,6 +352,17 @@ ChatScreen As screen:
                     X: =TextInput1_2.Width
                     Y: =Gallery4_2.Height
                     ZIndex: =2
+
+    Timer1 As timer:
+        AutoPause: =false
+        Duration: =3000
+        OnTimerEnd: =Refresh(LeadChats);
+        Repeat: =true
+        Start: =VarLeadMessages
+        Visible: =false
+        X: =40
+        Y: =40
+        ZIndex: =4
 
     grpMenuCS As group:
         Height: =5
