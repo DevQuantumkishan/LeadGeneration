@@ -1216,10 +1216,10 @@ LeadScreen As screen:
                                         {
                                             TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
                                             TotalProposedLead: 
-                                                LookUp(
+                                               Value( LookUp(
                                                     TotalIncentives,
                                                     TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),TotalProposedLead
-                                                )
+                                                ))
                                              + 1
                                         }
                                     );
