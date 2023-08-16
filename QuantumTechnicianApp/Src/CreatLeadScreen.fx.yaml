@@ -444,7 +444,7 @@ CreatLeadScreen As screen:
                     ErrorMessageContractNumber As label:
                         AutoHeight: =true
                         Color: =RGBA(255, 0, 0, 1)
-                        Height: =If(LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text).CONTR_NUM<>IntxtContractNumber.Text,30,0)
+                        Height: =20
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -920,8 +920,8 @@ CreatLeadScreen As screen:
 
         Rectangle1_1 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/3
-            Width: =Parent.Width/1.2
+            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
@@ -1019,8 +1019,8 @@ CreatLeadScreen As screen:
 
         Rectangle1_2 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/3
-            Width: =Parent.Width/1.2
+            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
@@ -1090,8 +1090,8 @@ CreatLeadScreen As screen:
 
         Rectangle1_3 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =Parent.Height/3
-            Width: =Parent.Width/1.2
+            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
