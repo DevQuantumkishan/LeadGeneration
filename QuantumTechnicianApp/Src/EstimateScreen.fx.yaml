@@ -172,7 +172,7 @@ EstimateScreen As screen:
                 Y: =77
                 ZIndex: =1
 
-                IconLine1CL_3 As icon.HorizontalLine:
+                IconLine1ES As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
@@ -188,7 +188,7 @@ EstimateScreen As screen:
                         If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =8
 
-                IconLine2CL_3 As icon.HorizontalLine:
+                IconLine2ES As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
@@ -204,7 +204,7 @@ EstimateScreen As screen:
                         If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =9
 
-                IconLine3CL_3 As icon.HorizontalLine:
+                IconLine3ES As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
@@ -220,7 +220,7 @@ EstimateScreen As screen:
                         If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =10
 
-                IconLine4CL_3 As icon.HorizontalLine:
+                IconLine4ES As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
@@ -236,7 +236,7 @@ EstimateScreen As screen:
                         If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =11
 
-                lblStep1CL_3 As label:
+                lblStep1ES As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -251,7 +251,7 @@ EstimateScreen As screen:
                     Y: =imgStep1ES.Y+imgStep1ES.Height+20
                     ZIndex: =12
 
-                lblStep2CL_3 As label:
+                lblStep2ES As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -264,7 +264,7 @@ EstimateScreen As screen:
                     Y: =imgStep1ES.Y+imgStep1ES.Height+20
                     ZIndex: =13
 
-                lblStep3CL_3 As label:
+                lblStep3ES As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -277,7 +277,7 @@ EstimateScreen As screen:
                     Y: =imgStep1ES.Y+imgStep1ES.Height+20
                     ZIndex: =14
 
-                lblSteo4CL_3 As label:
+                lblSteo4ES As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -290,7 +290,7 @@ EstimateScreen As screen:
                     Y: =imgStep1ES.Y+imgStep1ES.Height+20
                     ZIndex: =15
 
-                lblStep5CL_3 As label:
+                lblStep5ES As label:
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
                     Height: =Parent.Height/5
@@ -337,7 +337,7 @@ EstimateScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
-                    X: =IconLine1CL_3.X+IconLine1CL_3.Width
+                    X: =IconLine1ES.X+IconLine1ES.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =21
 
@@ -356,7 +356,7 @@ EstimateScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
-                    X: =IconLine2CL_3.X+IconLine2CL_3.Width
+                    X: =IconLine2ES.X+IconLine2ES.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =22
 
@@ -375,7 +375,7 @@ EstimateScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
-                    X: =IconLine3CL_3.X+IconLine3CL_3.Width
+                    X: =IconLine3ES.X+IconLine3ES.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
@@ -394,7 +394,7 @@ EstimateScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
-                    X: =IconLine4CL_3.X+IconLine4CL_3.Width
+                    X: =IconLine4ES.X+IconLine4ES.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
