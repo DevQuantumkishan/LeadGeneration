@@ -210,7 +210,7 @@ ImageUploadScreen As screen:
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
-                    X: =Image1_23.X+Image1_23.Width
+                    X: =imgStep3IS.X+imgStep3IS.Width
                     Y: |-
                         =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
                         
@@ -226,7 +226,7 @@ ImageUploadScreen As screen:
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
-                    X: =Image1_24.X+Image1_24.Width
+                    X: =imgStep4IS.X+imgStep4IS.Width
                     Y: |-
                         =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
                         
@@ -267,7 +267,7 @@ ImageUploadScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 3"
                     Width: =Parent.Width/5
-                    X: =Image1_23.X-Image1_23.Width/3
+                    X: =imgStep3IS.X-imgStep3IS.Width/3
                     Y: =Image1_21.Y+Image1_21.Height+20
                     ZIndex: =14
 
@@ -279,7 +279,7 @@ ImageUploadScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 4"
                     Width: =Parent.Width/5
-                    X: =Image1_24.X-Image1_24.Width/3
+                    X: =imgStep4IS.X-imgStep4IS.Width/3
                     Y: =Image1_21.Y+Image1_21.Height+20
                     ZIndex: =15
 
@@ -333,7 +333,7 @@ ImageUploadScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =21
 
-                Image1_23 As image:
+                imgStep3IS As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
@@ -352,7 +352,7 @@ ImageUploadScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =22
 
-                Image1_24 As image:
+                imgStep4IS As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
