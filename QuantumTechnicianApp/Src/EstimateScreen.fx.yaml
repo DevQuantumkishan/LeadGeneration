@@ -1120,7 +1120,7 @@ EstimateScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        Container6_6 As groupContainer.verticalAutoLayoutContainer:
+        ctnErrorES As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
             Height: =Rectangle1_6.Height
             LayoutDirection: =LayoutDirection.Vertical
@@ -1130,7 +1130,8 @@ EstimateScreen As screen:
             Y: =Rectangle1_6.Y
             ZIndex: =2
 
-            Container9_6 As groupContainer.verticalAutoLayoutContainer:
+            ctnErrorImageES As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =Parent.Height/3
@@ -1142,7 +1143,6 @@ EstimateScreen As screen:
                 ZIndex: =1
 
                 Image4_6 As image:
-                    AlignInContainer: =AlignInContainer.Center
                     Height: =Parent.Height
                     Image: =error
                     PaddingTop: =40
@@ -1151,7 +1151,6 @@ EstimateScreen As screen:
 
             Label3_6 As label:
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =100
@@ -1161,7 +1160,6 @@ EstimateScreen As screen:
                 ZIndex: =2
 
             Button4_6 As button:
-                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
