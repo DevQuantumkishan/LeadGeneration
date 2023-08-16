@@ -668,7 +668,7 @@ UnitScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        ctnPopopContracterrorUS As groupContainer.verticalAutoLayoutContainer:
+        ctnPopopMandatoryUS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
             Height: =borderPopopContracterrorUS.Height
             LayoutDirection: =LayoutDirection.Vertical
@@ -679,7 +679,7 @@ UnitScreen As screen:
             ZIndex: =2
 
             ctnPopopContracterrorImageUS As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.Center
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =Parent.Height/3
@@ -709,7 +709,6 @@ UnitScreen As screen:
                 ZIndex: =2
 
             btnPopopContracterrorUS As button:
-                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
