@@ -1704,7 +1704,7 @@ LeadSummaryScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        ctnNotificationSS As groupContainer.verticalAutoLayoutContainer:
+        ctnNotificationLSS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
             Height: =Rectangle1.Height
             LayoutDirection: =LayoutDirection.Vertical
@@ -1714,7 +1714,7 @@ LeadSummaryScreen As screen:
             Y: =Rectangle1.Y
             ZIndex: =2
 
-            ctnImageSS As groupContainer.verticalAutoLayoutContainer:
+            ctnImageLSS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -1726,14 +1726,14 @@ LeadSummaryScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                imgNotificationSS As image:
+                imgNotificationLSS As image:
                     Height: =Parent.Height
                     Image: =If(VarNotificationloding,'waiting-icon-gif-4',VarNotificationSuccess,Group)
                     PaddingTop: =40
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Label3 As label:
+            lblNotificationLSS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -1743,14 +1743,14 @@ LeadSummaryScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            Button4 As button:
+            btnOkLSS As button:
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: =Navigate(DashboardScreen);
                 Size: =14
                 Text: ="Ok"
-                Visible: =If(Label3.Text="Lead submitted successfully.",true,false)
+                Visible: =If(lblNotificationLSS.Text="Lead submitted successfully.",true,false)
                 Width: =Parent.Width/5
                 ZIndex: =3
 
