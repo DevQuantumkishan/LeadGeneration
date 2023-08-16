@@ -596,7 +596,7 @@ ImageUploadScreen As screen:
                         Y: =790
                         ZIndex: =2
 
-            ctnSpaceES_1 As groupContainer.verticalAutoLayoutContainer:
+            ctnSpaceIS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -614,7 +614,7 @@ ImageUploadScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =4
 
-                Image3_5 As image:
+                imgLogoIS As image:
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
