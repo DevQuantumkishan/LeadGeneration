@@ -291,7 +291,7 @@ ImageUploadScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 5"
                     Width: =Parent.Width/5
-                    X: =Image1_25.X-Image1_25.Width/3
+                    X: =imgStep5IS.X-imgStep5IS.Width/3
                     Y: =Image1_21.Y+Image1_21.Height+20
                     ZIndex: =16
 
@@ -371,7 +371,7 @@ ImageUploadScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
-                Image1_25 As image:
+                imgStep5IS As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
