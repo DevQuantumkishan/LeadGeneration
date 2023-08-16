@@ -897,7 +897,7 @@ ScopeScreen As screen:
                     X: =1
                     ZIndex: =5
 
-    PopopContracterrorNextSS_4 As groupContainer.manualLayoutContainer:
+    ctnPopopContracterrorNextSS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarNotificationScope
@@ -912,7 +912,7 @@ ScopeScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        Container6_7 As groupContainer.verticalAutoLayoutContainer:
+        ctnPopopContracterrorSS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
             Height: =Rectangle1_7.Height
             LayoutDirection: =LayoutDirection.Vertical
@@ -922,7 +922,8 @@ ScopeScreen As screen:
             Y: =Rectangle1_7.Y
             ZIndex: =2
 
-            Container9_7 As groupContainer.verticalAutoLayoutContainer:
+            ctnPopopContracterrorImageSS As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =Parent.Height/3
@@ -933,8 +934,7 @@ ScopeScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Image4_7 As image:
-                    AlignInContainer: =AlignInContainer.Center
+                imgPopupContractorImageSS As image:
                     Height: =Parent.Height
                     Image: =error
                     PaddingTop: =40
@@ -943,7 +943,6 @@ ScopeScreen As screen:
 
             Label3_7 As label:
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =100
@@ -955,7 +954,6 @@ ScopeScreen As screen:
                 ZIndex: =2
 
             Button4_7 As button:
-                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
