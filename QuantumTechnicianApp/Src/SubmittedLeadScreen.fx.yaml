@@ -32,7 +32,7 @@ SubmittedLeadScreen As screen:
             X: =0.00
             ZIndex: =1
 
-            IconMenuDS_1 As icon.Hamburger:
+            IconMenuSLS As icon.Hamburger:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -44,7 +44,7 @@ SubmittedLeadScreen As screen:
                 Y: =11
                 ZIndex: =1
 
-            imgSchindlerLogoDS_1 As image:
+            imgSchindlerLogoSLS As image:
                 AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
@@ -58,7 +58,7 @@ SubmittedLeadScreen As screen:
                 X: =0.00
                 ZIndex: =2
 
-            iconBackCL_1 As icon.BackArrow:
+            iconBackSLS As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -73,7 +73,7 @@ SubmittedLeadScreen As screen:
                 Y: =11
                 ZIndex: =3
 
-            lblHeaderDS_2 As label:
+            lblHeaderSLS As label:
                 AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
@@ -87,11 +87,11 @@ SubmittedLeadScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoDS_1.Width-IconMenuDS_1.Width-Button2_2.Width-60
+                Width: =Parent.Width-imgSchindlerLogoSLS.Width-IconMenuSLS.Width-btnUserNameSLS.Width-60
                 X: =96.12
                 ZIndex: =4
 
-            Button2_2 As button:
+            btnUserNameSLS As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
