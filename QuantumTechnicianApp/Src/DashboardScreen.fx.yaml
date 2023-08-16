@@ -728,7 +728,7 @@ DashboardScreen As screen:
                         Y: =-0.48951781970654906
                         ZIndex: =5
 
-                        lblInprogressLeadsDS_9 As label:
+                        lbllIncentivesLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -762,10 +762,10 @@ DashboardScreen As screen:
                                 ))
                             Width: =Parent.Width
                             X: =
-                            Y: =lblQuotedLeadsDS_3.Height+lblQuotedLeadsDS_3.Y
+                            Y: =lblSoldLeadsCountDS.Height+lblSoldLeadsCountDS.Y
                             ZIndex: =1
 
-                        lblQuotedLeadsDS_3 As label:
+                        lblSoldLeadsCountDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -789,10 +789,10 @@ DashboardScreen As screen:
                                         Sum(GCTotalIncentives,TotalSoldLead)=0,0,*/Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead))
                             Width: =Parent.Width
                             X: =
-                            Y: =lblQuotedDS_3.Height+lblQuotedDS_3.Y
+                            Y: =lblSoldLeadsDS.Height+lblSoldLeadsDS.Y
                             ZIndex: =2
 
-                        lblQuotedDS_3 As label:
+                        lblSoldLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -809,7 +809,7 @@ DashboardScreen As screen:
                             Y: =Parent.Height/10
                             ZIndex: =3
 
-                        btnQuotedLeadsDS_3 As button:
+                        btnSoldLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
