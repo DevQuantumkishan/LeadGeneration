@@ -291,7 +291,7 @@ UnitScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 5"
                     Width: =Parent.Width/5
-                    X: =Image1_9.X-Image1_9.Width/3
+                    X: =imgStep5US.X-imgStep5US.Width/3
                     Y: =Image1_7.Y+Image1_7.Height+20
                     ZIndex: =16
 
@@ -367,7 +367,7 @@ UnitScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
-                Image1_9 As image:
+                imgStep5US As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
