@@ -1578,14 +1578,14 @@ ViewDetailsScreen As screen:
             Y: =imgImagePopupVDS.Y
             ZIndex: =2
 
-    grpMenuDS_6 As group:
+    grpMenuVDS As group:
         Height: =5
         Width: =5
         X: =40
         Y: =80
         ZIndex: =4
 
-        ctnBackgroundMenuDS_7 As groupContainer.manualLayoutContainer:
+        ctnBackgroundMenuVDS As groupContainer.manualLayoutContainer:
             Fill: =RGBA(0, 0.19, 0.19, 0.19)
             Height: =Parent.Height-ctnHeaderDS.Height
             Visible: =varshowMenu
@@ -1593,11 +1593,11 @@ ViewDetailsScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =2
 
-        "glryMenuBarDS_6 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+        "glryMenuBarVDS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)
-            Height: =1.08*(CountRows(glryMenuBarDS_6.AllItems)*(glryMenuBarDS_6.TemplateHeight))
+            Height: =1.08*(CountRows(glryMenuBarVDS.AllItems)*(glryMenuBarVDS.TemplateHeight))
             Items: =Menu
             Layout: =Layout.Vertical
             ShowScrollbar: =false
@@ -1609,14 +1609,14 @@ ViewDetailsScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
-            ctnMenuDS_6 As groupContainer.manualLayoutContainer:
+            ctnMenuVDS As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuDS_6 As label:
+                lblMenuVDS As label:
                     AutoHeight: =true
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =24
@@ -1626,12 +1626,12 @@ ViewDetailsScreen As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuDS_6.Width-lineIndicatorDS_6.Width
-                    X: =iconMenuDS_6.Width+iconMenuDS_6.X
+                    Width: =Parent.Width-iconMenuVDS.Width-lineIndicatorVDS.Width
+                    X: =iconMenuVDS.Width+iconMenuVDS.X
                     Y: =30
                     ZIndex: =1
 
-                iconMenuDS_6 As icon.Add:
+                iconMenuVDS As icon.Add:
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -1640,7 +1640,7 @@ ViewDetailsScreen As screen:
                     Y: =30
                     ZIndex: =3
 
-                btnMensuDS_6 As button:
+                btnMenuVDS As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -1653,7 +1653,7 @@ ViewDetailsScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorDS_6 As rectangle:
+                lineIndicatorVDS As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
