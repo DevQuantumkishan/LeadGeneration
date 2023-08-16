@@ -660,7 +660,7 @@ UnitScreen As screen:
         Width: =Parent.Width
         ZIndex: =5
 
-        Rectangle1_4 As rectangle:
+        borderPopopContracterrorUS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
@@ -670,12 +670,12 @@ UnitScreen As screen:
 
         ctnPopopContracterrorUS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =Rectangle1_4.Height
+            Height: =borderPopopContracterrorUS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =Rectangle1_4.Width
-            X: =Rectangle1_4.X
-            Y: =Rectangle1_4.Y
+            Width: =borderPopopContracterrorUS.Width
+            X: =borderPopopContracterrorUS.X
+            Y: =borderPopopContracterrorUS.Y
             ZIndex: =2
 
             ctnPopopContracterrorImageUS As groupContainer.verticalAutoLayoutContainer:
