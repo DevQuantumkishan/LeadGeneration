@@ -1545,14 +1545,14 @@ ViewDetailsScreen As screen:
                     X: =10
                     ZIndex: =1
 
-    Container4_2 As groupContainer.manualLayoutContainer:
+    ctnPopupImageVDS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarImagePopup
         Width: =Parent.Width
         ZIndex: =4
 
-        Image2_2 As image:
+        imgImagePopupVDS As image:
             Fill: =RGBA(255, 255, 255, 1)
             Height: |-
                 =
@@ -1568,14 +1568,14 @@ ViewDetailsScreen As screen:
             Y: =If(Parent.Width>500,Parent.Height/4,Parent.Width>1000,Parent.Height/2,(Parent.Height-Parent.Width)/2)
             ZIndex: =1
 
-        IconImageIS_3 As icon.Cancel:
+        IconClosePopupVDS As icon.Cancel:
             Color: =RGBA(0, 0, 0, 1)
             Height: =Parent.Height/20
             Icon: =Icon.Cancel
             OnSelect: =Set(VarImagePopup,false)
             Width: =Parent.Height/20
-            X: =Image2_2.X+(Image2_2.Width-Self.Width)
-            Y: =Image2_2.Y
+            X: =imgImagePopupVDS.X+(imgImagePopupVDS.Width-Self.Width)
+            Y: =imgImagePopupVDS.Y
             ZIndex: =2
 
     grpMenuDS_6 As group:
