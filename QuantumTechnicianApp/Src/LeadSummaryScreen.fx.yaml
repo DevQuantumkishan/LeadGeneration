@@ -608,7 +608,7 @@ LeadSummaryScreen As screen:
 
                         IntxtUnitDescriptionLSS As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =IntxtUnitDescription.Text
+                            Default: =VarUnitDescriptionSummary
                             DelayOutput: =true
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
@@ -617,6 +617,7 @@ LeadSummaryScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
                             Mode: =TextMode.MultiLine
+                            OnChange: =Set(VarUnitDescriptionSummary,IntxtUnitDescriptionLSS.Text)
                             PaddingLeft: =5
                             RadiusBottomLeft: =0
                             RadiusBottomRight: =0
@@ -666,7 +667,7 @@ LeadSummaryScreen As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =false
-                        Update: =IntxtScopeLSS.Selected
+                        Update: =CboxScopeLSS.Selected
                         Width: =Parent.Width
                         X: =0
                         Y: =6
@@ -685,12 +686,12 @@ LeadSummaryScreen As screen:
                             Y: =10
                             ZIndex: =1
 
-                        IntxtScopeLSS As combobox:
+                        CboxScopeLSS As combobox:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             ChevronBackground: =RGBA(202, 202, 202, 1)
                             ChevronHoverBackground: =Color.DimGrey
-                            Default: =ThisItem.PrimaryScopeofWorkLID
-                            DefaultSelectedItems: =Parent.Default
+                            Default: =CboxScope.Selected
+                            DefaultSelectedItems: =VarScopeSummary
                             DisplayFields: =["shlrf_primaryscopeofworkname"]
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
@@ -698,12 +699,12 @@ LeadSummaryScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             InputTextPlaceholder: ="Find Scope"
                             Items: =' PrimaryScopeofWorks'
-                            OnChange: =
+                            OnChange: =Set(VarScopeSummary,CboxScopeLSS.SelectedItems)
                             OnSelect: =
                             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             PressedFill: =RGBA(0, 0, 0, 1)
                             SearchFields: =["shlrf_primaryscopeofworkname"]
-                            SearchItems: =Search(' PrimaryScopeofWorks',IntxtScopeLSS.SearchText,"shlrf_primaryscopeofworkname")
+                            SearchItems: =Search(' PrimaryScopeofWorks',CboxScopeLSS.SearchText,"shlrf_primaryscopeofworkname")
                             SelectionFill: =RGBA(0, 0, 0, 1)
                             SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -726,7 +727,7 @@ LeadSummaryScreen As screen:
                             Visible: =Parent.DisplayMode=DisplayMode.Edit
                             Width: =Parent.Width - 60
                             X: =30
-                            Y: =IntxtScopeLSS.Y + IntxtScopeLSS.Height
+                            Y: =CboxScopeLSS.Y + CboxScopeLSS.Height
                             ZIndex: =3
 
                         StarVisibleScopeLSS As label:
@@ -750,7 +751,7 @@ LeadSummaryScreen As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =false
-                        Update: =IntxtScopeofWorkLSS.Selected
+                        Update: =CboxScopeofWorkLSS.Selected
                         Width: =Parent.Width
                         X: =0
                         Y: =7
@@ -768,12 +769,11 @@ LeadSummaryScreen As screen:
                             Y: =10
                             ZIndex: =1
 
-                        IntxtScopeofWorkLSS As combobox:
+                        CboxScopeofWorkLSS As combobox:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             ChevronBackground: =RGBA(202, 202, 202, 1)
                             ChevronHoverBackground: =Color.DimGray
-                            Default: =CboxScopeofwork.Selected
-                            DefaultSelectedItems: =CboxScopeofwork.SelectedItems
+                            DefaultSelectedItems: =VarScopeofworkSummary
                             DisplayFields: =["shlrf_secondaryscopeofworkname"]
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
@@ -783,6 +783,7 @@ LeadSummaryScreen As screen:
                             Items: |-
                                 =//Choices([@LeadInformations].ScopeOfWorkLID)
                                 Filter(SecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
+                            OnChange: =Set(VarScopeofworkSummary,CboxScopeofWorkLSS.Selected)
                             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             SearchFields: =["shlrf_secondaryscopeofworkname"]
                             SearchItems: =[]
@@ -808,7 +809,7 @@ LeadSummaryScreen As screen:
                             Visible: =Parent.DisplayMode=DisplayMode.Edit
                             Width: =Parent.Width - 60
                             X: =30
-                            Y: =IntxtScopeofWorkLSS.Y + IntxtScopeofWorkLSS.Height
+                            Y: =CboxScopeofWorkLSS.Y + CboxScopeofWorkLSS.Height
                             ZIndex: =3
 
                         StarVisibleScopeofWorkLSS As label:
@@ -852,7 +853,7 @@ LeadSummaryScreen As screen:
 
                         IntxtManuallyScopeofWorkLSS As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =IntxtManuallyScopeofwork.Text
+                            Default: =VarCustomWorkSummary
                             DelayOutput: =true
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
@@ -860,6 +861,7 @@ LeadSummaryScreen As screen:
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
+                            OnChange: =Set(VarCustomWorkSummary,IntxtManuallyScopeofWorkLSS.Text)
                             PaddingLeft: =5
                             RadiusBottomLeft: =0
                             RadiusBottomRight: =0
@@ -930,7 +932,7 @@ LeadSummaryScreen As screen:
 
                         IntxtEstimatedHoursLSS As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =IntxtEstimatedHours.Text
+                            Default: =VarEstimateHoursSummary
                             DelayOutput: =true
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
@@ -938,6 +940,7 @@ LeadSummaryScreen As screen:
                             HoverBorderColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
+                            OnChange: =Set(VarEstimateHoursSummary,IntxtEstimatedHoursLSS.Text)
                             PaddingLeft: =5
                             RadiusBottomLeft: =0
                             RadiusBottomRight: =0
@@ -1007,13 +1010,14 @@ LeadSummaryScreen As screen:
 
                         IntxtNotesLSS As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =IntxtMaterial.Text
+                            Default: =VarNotesSummary
                             DelayOutput: =true
                             DisplayMode: =Parent.DisplayMode
                             Height: =50
                             HoverBorderColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
+                            OnChange: =Set(VarNotesSummary,IntxtNotesLSS.Text)
                             PaddingLeft: =5
                             RadiusBottomLeft: =0
                             RadiusBottomRight: =0
@@ -1100,11 +1104,13 @@ LeadSummaryScreen As screen:
                             BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
-                            Default: =CboxUnitDown.Value
+                            Default: =VarUnitDownSummary
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
                             HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            OnCheck: =Set(VarUnitDownSummary,CboxUDLSS.Value)
+                            OnUncheck: =Set(VarUnitDownSummary,CboxUDLSS.Value)
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Unit down"
@@ -1159,11 +1165,13 @@ LeadSummaryScreen As screen:
                             BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
-                            Default: =CboxAdditionalExpensesRequired.Value
+                            Default: =VarAdditionExpenseSummary
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
                             HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            OnCheck: =Set(VarAdditionExpenseSummary,cboxAELSS.Value)
+                            OnUncheck: =Set(VarAdditionExpenseSummary,cboxAELSS.Value)
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Additional expenses required"
@@ -1218,11 +1226,13 @@ LeadSummaryScreen As screen:
                             BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
-                            Default: =CboxTravelRequired.Value
+                            Default: =VarTravelSummary
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
                             HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
+                            OnCheck: =Set(VarTravelSummary,cboxTravelRequiredLSS.Value)
+                            OnUncheck: =Set(VarTravelSummary,cboxTravelRequiredLSS.Value)
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Travel required"
@@ -1277,13 +1287,17 @@ LeadSummaryScreen As screen:
                             BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
-                            Default: =CboxCommunicatedtoCustomer.Value
+                            Default: =VarCommunicationSummary
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
                             HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
-                            OnCheck: =Set(VarCommunication,true)
-                            OnUncheck: =Set(VarCommunication,false)
+                            OnCheck: |-
+                                =Set(VarCommunicationSummary,CboxCCLSS.Value);
+                                Set(VarCommunication,true)
+                            OnUncheck: |-
+                                =Set(VarCommunicationSummary,CboxCCLSS.Value);
+                                Set(VarCommunication,false)
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Communicated to customer"
@@ -1331,7 +1345,7 @@ LeadSummaryScreen As screen:
 
                         DataCardValue7 As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =IntxtContactName
+                            Default: =VarCustomerNameSummary
                             DelayOutput: =true
                             DisabledFill: =RGBA(255, 255, 255, 1)
                             DisplayMode: =Parent.DisplayMode
@@ -1339,6 +1353,7 @@ LeadSummaryScreen As screen:
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =Parent.MaxLength
+                            OnChange: =Set(VarCustomerNameSummary,DataCardValue7.Text)
                             PaddingLeft: =5
                             RadiusBottomLeft: =0
                             RadiusBottomRight: =0
@@ -1441,7 +1456,7 @@ LeadSummaryScreen As screen:
                         IntxtContactNumberES_1 As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             BorderThickness: =1
-                            Default: =lblContactNumber
+                            Default: =VarformattedNumberSummary
                             DelayOutput: =true
                             DisabledBorderColor: =RGBA(202, 202, 202, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
@@ -1479,7 +1494,7 @@ LeadSummaryScreen As screen:
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
                                 =
-                                If(IsBlank(lblContactNumber),"",VarformattedNumber)
+                                If(IsBlank(lblContactNumber),"",VarformattedNumberSummary)
                             Visible: =varContactNumber
                             Width: =Parent.Width-120
                             X: =50
@@ -1584,11 +1599,11 @@ LeadSummaryScreen As screen:
                                 UnitDescription: IntxtUnitDescriptionLSS.Text,
                                 PrimaryScopeofWorkLID: LookUp(
                                     GCPrimaryScopeofWorks,
-                                    ID =IntxtScopeLSS.Selected.ID        
+                                    ID =CboxScopeLSS.Selected.ID        
                          ),
                                 SecondaryScopeofWorkLID: LookUp(
                                     GCSecondaryScopeofWorks,
-                                    ID = IntxtScopeofWorkLSS.Selected.ID
+                                    ID = CboxScopeofWorkLSS.Selected.ID
                                 ),
                                 CustomScopeofWork: IntxtManuallyScopeofWorkLSS.Text,
                                 'EstimatedHours ': IntxtEstimatedHoursLSS.Text,
