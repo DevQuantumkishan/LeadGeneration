@@ -623,14 +623,14 @@ ImageUploadScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    Container4 As groupContainer.manualLayoutContainer:
+    ctnPopupImageIS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarImagePopup
         Width: =Parent.Width
         ZIndex: =2
 
-        Container5 As groupContainer.manualLayoutContainer:
+        CtnPopupUploadedImageIS As groupContainer.manualLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
             PaddingLeft: =5
@@ -641,7 +641,7 @@ ImageUploadScreen As screen:
             Y: =If(Parent.Width>500,Parent.Height/4,Parent.Width>1000,Parent.Height/2,(Parent.Height-Parent.Width)/2)
             ZIndex: =1
 
-            Image2 As image:
+            imgUploadedImageIS As image:
                 BorderThickness: =1
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -653,7 +653,7 @@ ImageUploadScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-            IconImageIS_1 As icon.Cancel:
+            iconclosePopupIS As icon.Cancel:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: |-
                     =//Container5.Height-Image2.Height
