@@ -32,7 +32,7 @@ LeadSummaryScreen As screen:
             X: =0.00
             ZIndex: =1
 
-            iconBackES_3 As icon.BackArrow:
+            iconBackLSS As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -44,7 +44,7 @@ LeadSummaryScreen As screen:
                 Y: =11
                 ZIndex: =8
 
-            imgSchindlerLogoES_3 As image:
+            imgSchindlerLogoLSS As image:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -57,7 +57,7 @@ LeadSummaryScreen As screen:
                 X: =0.00
                 ZIndex: =9
 
-            lblHeaderES_3 As label:
+            lblHeaderLSS As label:
                 AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
@@ -71,11 +71,11 @@ LeadSummaryScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,18)
                 Text: =" Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoES_3.Width-iconBackES_3.Width-btnuserES_3.Width-20
+                Width: =Parent.Width-imgSchindlerLogoLSS.Width-iconBackLSS.Width-btnuserLSS.Width-20
                 X: =96.12
                 ZIndex: =10
 
-            btnuserES_3 As button:
+            btnuserLSS As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
