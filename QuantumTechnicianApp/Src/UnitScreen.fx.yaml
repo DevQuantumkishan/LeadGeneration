@@ -678,8 +678,8 @@ UnitScreen As screen:
             Y: =Rectangle1_4.Y
             ZIndex: =2
 
-            Container9_4 As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
+            ctnPopopContracterrorImageUS As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =Parent.Height/3
@@ -690,7 +690,7 @@ UnitScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Image4_4 As image:
+                imgPopopContracterrorUS As image:
                     AlignInContainer: =AlignInContainer.Center
                     Height: =Parent.Height
                     Image: =error
