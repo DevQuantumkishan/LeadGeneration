@@ -660,7 +660,7 @@ UnitScreen As screen:
         Width: =Parent.Width
         ZIndex: =5
 
-        borderPopopContracterrorUS As rectangle:
+        borderPopopErrorUS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
@@ -670,15 +670,15 @@ UnitScreen As screen:
 
         ctnPopopMandatoryUS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =borderPopopContracterrorUS.Height
+            Height: =borderPopopErrorUS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =borderPopopContracterrorUS.Width
-            X: =borderPopopContracterrorUS.X
-            Y: =borderPopopContracterrorUS.Y
+            Width: =borderPopopErrorUS.Width
+            X: =borderPopopErrorUS.X
+            Y: =borderPopopErrorUS.Y
             ZIndex: =2
 
-            ctnPopopContracterrorImageUS As groupContainer.verticalAutoLayoutContainer:
+            ctnPopopMandatoryImageUS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -690,15 +690,14 @@ UnitScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                imgPopopContracterrorUS As image:
-                    AlignInContainer: =AlignInContainer.Center
+                imgPopopErrorUS As image:
                     Height: =Parent.Height
                     Image: =error
                     PaddingTop: =40
                     Width: =Parent.Width
                     ZIndex: =1
 
-            lblPopopContracterrorUS As label:
+            lblPopopErrorUS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -708,7 +707,7 @@ UnitScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            btnPopopContracterrorUS As button:
+            btnPopopErrorUS As button:
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
