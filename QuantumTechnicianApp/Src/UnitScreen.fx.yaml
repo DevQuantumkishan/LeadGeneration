@@ -698,7 +698,7 @@ UnitScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Label3_4 As label:
+            lblPopopContracterrorUS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -708,7 +708,8 @@ UnitScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            Button4_4 As button:
+            btnPopopContracterrorUS As button:
+                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
