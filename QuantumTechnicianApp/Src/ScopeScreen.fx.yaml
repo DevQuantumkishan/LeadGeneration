@@ -174,7 +174,7 @@ ScopeScreen As screen:
                 Y: =77
                 ZIndex: =1
 
-                IconLine1CL_2 As icon.HorizontalLine:
+                IconLine1SS As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
@@ -187,7 +187,7 @@ ScopeScreen As screen:
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =8
 
-                IconLine2CL_2 As icon.HorizontalLine:
+                IconLine2SS As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
@@ -200,7 +200,7 @@ ScopeScreen As screen:
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =9
 
-                IconLine3CL_2 As icon.HorizontalLine:
+                IconLine3SS As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
@@ -325,7 +325,7 @@ ScopeScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine1CL_2.X+IconLine1CL_2.Width
+                    X: =IconLine1SS.X+IconLine1SS.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =21
 
@@ -343,7 +343,7 @@ ScopeScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine2CL_2.X+IconLine2CL_2.Width
+                    X: =IconLine2SS.X+IconLine2SS.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =22
 
@@ -361,7 +361,7 @@ ScopeScreen As screen:
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
                     Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    X: =IconLine3CL_2.X+IconLine3CL_2.Width
+                    X: =IconLine3SS.X+IconLine3SS.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
 
