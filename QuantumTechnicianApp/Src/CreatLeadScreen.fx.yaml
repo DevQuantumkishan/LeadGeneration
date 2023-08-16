@@ -183,7 +183,7 @@ CreatLeadScreen As screen:
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
-                    X: =Image1_1.X+Image1_1.Width
+                    X: =imgStep2CL.X+imgStep2CL.Width
                     Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =9
 
@@ -239,7 +239,7 @@ CreatLeadScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 2"
                     Width: =Parent.Width/5
-                    X: =Image1_1.X-Image1_1.Width/3
+                    X: =imgStep2CL.X-imgStep2CL.Width/3
                     Y: =Image1.Y+Image1.Height+20
                     ZIndex: =13
 
@@ -300,7 +300,7 @@ CreatLeadScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =20
 
-                Image1_1 As image:
+                imgStep2CL As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
