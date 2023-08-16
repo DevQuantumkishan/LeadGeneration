@@ -163,7 +163,7 @@ ScopeScreen As screen:
             Width: =Parent.Width
             ZIndex: =7
 
-            ctnProgressBarCreatLead_2 As groupContainer.manualLayoutContainer:
+            ctnProgressBarSS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
                 FillPortions: =0
                 Height: =130
@@ -719,7 +719,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnProgressBarCreatLead_2.Height-ScopeInfoForm.Height-ctnButtonSS.Height
+                Height: =Parent.Height-ctnProgressBarSS.Height-ScopeInfoForm.Height-ctnButtonSS.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =20
                 LayoutJustifyContent: =LayoutJustifyContent.Center
