@@ -157,7 +157,7 @@ UnitScreen As screen:
             Width: =Parent.Width
             ZIndex: =3
 
-            ctnProgressBarCreatLead_1 As groupContainer.manualLayoutContainer:
+            ctnProgressBarUS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
                 FillPortions: =0
                 Height: =130
@@ -632,7 +632,7 @@ UnitScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnProgressBarCreatLead_1.Height-UnitInfoForm.Height-ctnbuttonUS.Height
+                Height: =Parent.Height-ctnProgressBarUS.Height-UnitInfoForm.Height-ctnbuttonUS.Height
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
