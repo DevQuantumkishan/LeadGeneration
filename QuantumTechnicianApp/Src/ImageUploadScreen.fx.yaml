@@ -173,12 +173,12 @@ ImageUploadScreen As screen:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
-                    Height: =Image1_21.Height/4
+                    Height: =imgStep1IS.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
-                    X: =Image1_21.X+Image1_21.Width
+                    X: =imgStep1IS.X+imgStep1IS.Width
                     Y: |-
                         =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
                         
@@ -189,12 +189,12 @@ ImageUploadScreen As screen:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
-                    Height: =Image1_21.Height/4
+                    Height: =imgStep1IS.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
-                    X: =Image1_22.X+Image1_22.Width
+                    X: =imgStep2IS.X+imgStep2IS.Width
                     Y: |-
                         =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
                         
@@ -205,7 +205,7 @@ ImageUploadScreen As screen:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
-                    Height: =Image1_21.Height/4
+                    Height: =imgStep1IS.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
@@ -221,7 +221,7 @@ ImageUploadScreen As screen:
                     Color: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
-                    Height: =Image1_21.Height/4
+                    Height: =imgStep1IS.Height/4
                     Icon: =Icon.HorizontalLine
                     Width: |-
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
@@ -243,8 +243,8 @@ ImageUploadScreen As screen:
                     Width: =Parent.Width/5
                     X: |-
                         =//If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/7,Parent.Width/4)
-                        Image1_21.X-Image1_21.Width/3
-                    Y: =Image1_21.Y+Image1_21.Height+20
+                        imgStep1IS.X-imgStep1IS.Width/3
+                    Y: =imgStep1IS.Y+imgStep1IS.Height+20
                     ZIndex: =12
 
                 lblStep2CL_4 As label:
@@ -255,8 +255,8 @@ ImageUploadScreen As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Step 2"
                     Width: =Parent.Width/5
-                    X: =Image1_22.X-Image1_22.Width/3
-                    Y: =Image1_21.Y+Image1_21.Height+20
+                    X: =imgStep2IS.X-imgStep2IS.Width/3
+                    Y: =imgStep1IS.Y+imgStep1IS.Height+20
                     ZIndex: =13
 
                 lblStep3CL_4 As label:
@@ -268,7 +268,7 @@ ImageUploadScreen As screen:
                     Text: ="Step 3"
                     Width: =Parent.Width/5
                     X: =imgStep3IS.X-imgStep3IS.Width/3
-                    Y: =Image1_21.Y+Image1_21.Height+20
+                    Y: =imgStep1IS.Y+imgStep1IS.Height+20
                     ZIndex: =14
 
                 lblSteo4CL_4 As label:
@@ -280,7 +280,7 @@ ImageUploadScreen As screen:
                     Text: ="Step 4"
                     Width: =Parent.Width/5
                     X: =imgStep4IS.X-imgStep4IS.Width/3
-                    Y: =Image1_21.Y+Image1_21.Height+20
+                    Y: =imgStep1IS.Y+imgStep1IS.Height+20
                     ZIndex: =15
 
                 lblStep5CL_4 As label:
@@ -292,10 +292,10 @@ ImageUploadScreen As screen:
                     Text: ="Step 5"
                     Width: =Parent.Width/5
                     X: =imgStep5IS.X-imgStep5IS.Width/3
-                    Y: =Image1_21.Y+Image1_21.Height+20
+                    Y: =imgStep1IS.Y+imgStep1IS.Height+20
                     ZIndex: =16
 
-                Image1_21 As image:
+                imgStep1IS As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
@@ -314,7 +314,7 @@ ImageUploadScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =20
 
-                Image1_22 As image:
+                imgStep2IS As image:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =1
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
