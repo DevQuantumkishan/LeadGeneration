@@ -291,7 +291,8 @@ LeadListScreen As screen:
 
                             lblcreatedatevalueLS As label:
                                 Align: =Align.Center
-                                Text: =Text(ThisItem.'Created On',"yyyy mmm dd")
+                                Text: =ThisItem.'Created On'//Text(ThisItem.'Created On',"yyyy mmm dd")
+                                Width: =180
                                 ZIndex: =1
 
                             lblqqteamnamvalueLS As label:
@@ -340,6 +341,7 @@ LeadListScreen As screen:
                                 Text: |-
                                     =//"Active"
                                     ThisItem.LeadStatus
+                                Width: =120
                                 ZIndex: =8
 
                             icnviewLS As icon.Add:
@@ -414,6 +416,7 @@ LeadListScreen As screen:
                     lblcreatedateLS As label:
                         Align: =Align.Center
                         Text: ="Created Date"
+                        Width: =180
                         ZIndex: =1
 
                     lblqqteamnameLS As label:
@@ -457,6 +460,7 @@ LeadListScreen As screen:
                         Align: =Align.Center
                         Text: ="Action"
                         Visible: =false
+                        Width: =180
                         ZIndex: =9
 
     grpinprogressconfirmationLS As group:
