@@ -1367,7 +1367,7 @@ LeadSummaryScreen As screen:
                         borderCustomerNameLSS As rectangle:
                             BorderColor: =RGBA(237, 237, 237, 1)
                             Fill: =RGBA(237, 237, 237, 1)
-                            Height: =96
+                            Height: =Parent.Height
                             Width: =Parent.Width-20
                             X: =30
                             ZIndex: =1
@@ -1462,7 +1462,7 @@ LeadSummaryScreen As screen:
                         borderCustomerContactLSS As rectangle:
                             BorderColor: =RGBA(237, 237, 237, 1)
                             Fill: =RGBA(237, 237, 237, 1)
-                            Height: =96
+                            Height: =Parent.Height
                             Width: =Parent.Width-20
                             X: =30
                             ZIndex: =1
