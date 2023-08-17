@@ -297,7 +297,9 @@ DashboardScreen As screen:
                                 If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblOpenLeadsDS.Height+lblOpenLeadsDS.Y
+                            Y: |-
+                                =//lblOpenLeadsDS.Height+lblOpenLeadsDS.Y
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =1
 
                         lblOpenLeadsDS As label:
@@ -328,13 +330,14 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,16)
                             Text: ="Open"
                             Width: =Parent.Width
                             X: =
                             Y: |-
                                 =//Parent.Height/10
-                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                //If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                lblOpenLeadsCountDS.Y+lblOpenLeadsCountDS.Height
                             ZIndex: =3
 
                         btnOpenLeadsDS As button:
@@ -385,7 +388,7 @@ DashboardScreen As screen:
                         Y: =40
                         ZIndex: =5
 
-                        lblInprogressLeadsDS As label:
+                        lblInprogressLeadsCountDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -402,10 +405,12 @@ DashboardScreen As screen:
                                 If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" && Year('Created On')=Year(Now())))) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblInprogressLeadsDS_1.Height+lblInprogressLeadsDS_1.Y
+                            Y: |-
+                                =//lblInprogressLeadsDS_1.Height+lblInprogressLeadsDS_1.Y
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =1
 
-                        lblInprogressLeadsDS_1 As label:
+                        lblInprogressLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -420,10 +425,10 @@ DashboardScreen As screen:
                                 ="Leads#"
                             Width: =Parent.Width
                             X: =
-                            Y: =lblInprogressLeadsDS_2.Height+lblInprogressLeadsDS_2.Y
+                            Y: =lblInprogressDS.Height+lblInprogressDS.Y
                             ZIndex: =2
 
-                        lblInprogressLeadsDS_2 As label:
+                        lblInprogressDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -433,11 +438,14 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,16)
                             Text: ="In Progress"
                             Width: =Parent.Width
                             X: =
-                            Y: =If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                            Y: |-
+                                =//If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                lblInprogressLeadsCountDS.Height+lblInprogressLeadsCountDS.Y
                             ZIndex: =3
 
                         btnInprogressLeadsDS As button:
@@ -496,7 +504,8 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,16)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
                                 
@@ -504,7 +513,9 @@ DashboardScreen As screen:
                                 If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected" && Year('Created On')=Year(Now())))) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblLeadsDS.Height+lblLeadsDS.Y
+                            Y: |-
+                                =//lblLeadsDS.Height+lblLeadsDS.Y
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =4
 
                         lblLeadsDS As label:
@@ -539,7 +550,9 @@ DashboardScreen As screen:
                             Text: ="Rejected"
                             Width: =Parent.Width
                             X: =
-                            Y: =If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                            Y: |-
+                                =//If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                lblLeadsCountDS.Y+lblLeadsCountDS.Height
                             ZIndex: =6
 
                         btnRejectedLeadsDS As button:
