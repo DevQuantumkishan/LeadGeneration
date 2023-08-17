@@ -1030,7 +1030,8 @@ LeadSummaryScreen As screen:
                         lblNotesLSS As label:
                             AutoHeight: =true
                             Color: =RGBA(0, 0, 0, 1)
-                            Height: =48
+                            Font: =Font.Arial
+                            Height: =31
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Material, part number and other things"
                             Width: =Parent.Width - 60
@@ -1043,6 +1044,7 @@ LeadSummaryScreen As screen:
                             Default: =VarNotesSummary
                             DelayOutput: =true
                             DisplayMode: =Parent.DisplayMode
+                            Font: =Font.Arial
                             Height: =50
                             HoverBorderColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -1375,6 +1377,7 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
                             Height: =34
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: =Parent.DisplayName
                             Width: =Parent.Width - 120
                             Wrap: =false
@@ -1389,6 +1392,7 @@ LeadSummaryScreen As screen:
                             DisabledFill: =RGBA(255, 255, 255, 1)
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
+                            Height: =50
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =Parent.MaxLength
@@ -1398,6 +1402,7 @@ LeadSummaryScreen As screen:
                             RadiusBottomRight: =0
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Tooltip: =Parent.DisplayName
                             Width: =Parent.Width - 120
                             X: =50
@@ -1467,6 +1472,7 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
                             Height: =34
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: =Parent.DisplayName
                             Width: =Parent.Width-120
                             Wrap: =false
@@ -1516,6 +1522,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Format: =TextFormat.Number
+                            Height: =50
                             HintText: =""
                             HoverBorderColor: =Self.BorderColor
                             HoverFill: =RGBA(255, 255, 255, 1)
@@ -1529,6 +1536,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Reset: =true
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Tooltip: =Parent.DisplayName
                             Width: =Parent.Width-120
                             X: =50
