@@ -280,7 +280,7 @@ DashboardScreen As screen:
                         Y: =0.07304526748976059
                         ZIndex: =5
 
-                        lblInprogressLeadsDS_5 As label:
+                        lblOpenLeadsCountDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -347,8 +347,6 @@ DashboardScreen As screen:
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
-                            PaddingRight: =5.34
-                            PaddingTop: =0
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -452,8 +450,6 @@ DashboardScreen As screen:
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
-                            PaddingRight: =5.34
-                            PaddingTop: =30
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
