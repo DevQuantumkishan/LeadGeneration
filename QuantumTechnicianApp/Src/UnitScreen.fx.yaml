@@ -423,9 +423,10 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: ="No. of Units"
+                        HintText: ="Quantity of Units"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
+                        MaxLength: =3
                         OnChange: =Set(VarUnitcountSummary,IntxtUnitCount.Text);Set(VarUnitCount,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
@@ -435,7 +436,7 @@ UnitScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Quantity of Units"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblUnitCount.Y + lblUnitCount.Height +2
@@ -475,7 +476,8 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarUnitCount,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="No. of units"
+                        Text: ="Quantity of Units"
+                        Tooltip: ="Quantity of Units"
                         Visible: =VarUnitCount || !IsBlank(IntxtUnitCount)
                         Width: =Parent.Width - 50
                         Wrap: =false
@@ -507,7 +509,7 @@ UnitScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =137
-                        HintText: ="Unit description"
+                        HintText: ="Unit Description"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -523,7 +525,7 @@ UnitScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Unit Description"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblUnitDescription.Y + lblUnitDescription.Height +2
@@ -564,7 +566,7 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarUnitDescription,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Unit description"
+                        Text: ="Unit Description"
                         Visible: =VarUnitDescription || !IsBlank(IntxtUnitDescription)
                         Width: =Parent.Width - 50
                         Wrap: =false

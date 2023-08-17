@@ -877,7 +877,7 @@ DashboardScreen As screen:
                 FillPortions: =0
                 Height: |-
                     =//Parent.Height/10
-                    If(Parent.Height<Parent.Width,Parent.Height/8,Parent.Height/10)
+                    If(Parent.Height<Parent.Width,Parent.Height/8,Parent.Height/14)
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 Width: |-
