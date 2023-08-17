@@ -53,7 +53,7 @@ DashboardScreen As screen:
 
                 lblmyleadcountDS As label:
                     Align: =Align.Center
-                    Color: =Header.Red
+                    Color: =Header.SHRed
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
@@ -106,7 +106,7 @@ DashboardScreen As screen:
 
                 lblopenleadcountDS As label:
                     Align: =Align.Center
-                    Color: =Header.Red
+                    Color: =Header.SHRed
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
@@ -157,7 +157,7 @@ DashboardScreen As screen:
 
                 lblquotedleadcountDS As label:
                     Align: =Align.Center
-                    Color: =Header.Red
+                    Color: =Header.SHRed
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
@@ -208,7 +208,7 @@ DashboardScreen As screen:
 
                 lblsoldleadcountDS As label:
                     Align: =Align.Center
-                    Color: =Header.Red
+                    Color: =Header.SHRed
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
@@ -574,7 +574,7 @@ DashboardScreen As screen:
                 ZIndex: =1
 
     ctnHeaderDashboardScreen As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(227, 43, 43, 1)
+        Fill: =Header.SHRed
         Height: =80
         Width: =Parent.Width
         ZIndex: =2
@@ -610,7 +610,7 @@ DashboardScreen As screen:
         lblheaderDS As label:
             Align: =Align.Center
             Color: =Header.White
-            Fill: =RGBA(227, 43, 43, 1)
+            Fill: =Header.SHRed //RGBA(227, 43, 43, 1)
             FontWeight: =FontWeight.Bold
             Height: =Parent.Height
             Size: =26

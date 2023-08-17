@@ -13,7 +13,7 @@ LeadListScreen As screen:
 
         ctnHeaderLeadListScreen As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(227, 43, 43, 1)
+            Fill: =Header.SHRed
             FillPortions: =0
             Height: =80
             LayoutMinHeight: =100
@@ -51,7 +51,7 @@ LeadListScreen As screen:
             lblheaderLS As label:
                 Align: =Align.Center
                 Color: =Header.White
-                Fill: =RGBA(227, 43, 43, 1)
+                Fill: =Header.SHRed
                 FontWeight: =FontWeight.Bold
                 Height: =Parent.Height
                 Size: =26
@@ -100,8 +100,8 @@ LeadListScreen As screen:
                     ZIndex: =1
 
                     cmbxregionfilterLS As combobox:
-                        BorderColor: =RGBA(255, 0, 0, 1)
-                        ChevronBackground: =RGBA(255, 0, 0, 1)
+                        BorderColor: =Header.SHRed
+                        ChevronBackground: =Header.SHRed
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                         DisplayFields: =["cr02d_territory"]
                         HoverFill: =RGBA(0, 0, 0, 0)
@@ -118,8 +118,8 @@ LeadListScreen As screen:
                         ZIndex: =2
 
                     cmbxdistrictfilterLS As combobox:
-                        BorderColor: =RGBA(255, 0, 0, 1)
-                        ChevronBackground: =RGBA(255, 0, 0, 1)
+                        BorderColor: =Header.SHRed
+                        ChevronBackground: =Header.SHRed
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                         DisplayFields: =["cr02d_district"]
                         InputTextPlaceholder: ="Select District"
@@ -133,8 +133,8 @@ LeadListScreen As screen:
                         ZIndex: =3
 
                     cmbxareafilterLS As combobox:
-                        BorderColor: =RGBA(255, 0, 0, 1)
-                        ChevronBackground: =RGBA(255, 0, 0, 1)
+                        BorderColor: =Header.SHRed
+                        ChevronBackground: =Header.SHRed
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                         DisplayFields: =["cr02d_area"]
                         InputTextPlaceholder: ="Select Area"
@@ -148,10 +148,10 @@ LeadListScreen As screen:
                         ZIndex: =4
 
                     txtinptsearchLS As text:
-                        BorderColor: =RGBA(255, 0, 0, 1)
+                        BorderColor: =Header.SHRed
                         Default: =""
                         HintText: ="Search on Contract No./Mechanic Name"
-                        HoverBorderColor: =RGBA(255, 0, 0, 1)
+                        HoverBorderColor: =Header.SHRed
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Width: =340
                         ZIndex: =5
@@ -159,7 +159,7 @@ LeadListScreen As screen:
                 btnbackLS As button:
                     BorderColor: =//ColorFade(Self.Fill, -15%)
                     BorderThickness: =0
-                    Fill: =Header.Red
+                    Fill: =Header.SHRed
                     FocusedBorderThickness: =0
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                     OnSelect: |-
