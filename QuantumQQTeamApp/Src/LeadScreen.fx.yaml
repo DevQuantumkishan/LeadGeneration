@@ -293,7 +293,7 @@ LeadScreen As screen:
                 btnnewmessageLdS As button:
                     AlignInContainer: =AlignInContainer.Center
                     DisplayMode: =If((glryleadlistLS.Selected.LeadStatus="Quoted" || glryleadlistLS.Selected.LeadStatus="Rejected"),DisplayMode.Disabled,DisplayMode.Edit)
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =Header.SHRed
                     Height: =30
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                     OnSelect: =Set(VarChatMessage,true)
@@ -1453,7 +1453,7 @@ LeadScreen As screen:
                     DisplayMode.Edit,
                     DisplayMode.Disabled
                 )
-            Fill: =RGBA(255, 0, 0, 1)
+            Fill: =Header.SHRed
             FocusedBorderThickness: =
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |+
