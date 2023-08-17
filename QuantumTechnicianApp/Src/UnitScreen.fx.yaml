@@ -389,7 +389,7 @@ UnitScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =UnitCount.Height+UnitDescription.Height+40
+                Height: =If(UnitCount.Height+UnitDescription.Height=0,300,UnitCount.Height+UnitDescription.Height+40)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -620,7 +620,7 @@ UnitScreen As screen:
                               Set(VarNotification,true);,
                             Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);
-                        Set(VarIndicatorSS,false);
+                        Set(VarIndicatorSS,true);
                         Navigate(ScopeScreen));
                         
                     Size: =If(Parent.Width<358,12,Parent.Width>358,12)

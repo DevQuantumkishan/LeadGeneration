@@ -198,6 +198,7 @@ DashboardScreen As screen:
                 ZIndex: =7
 
                 toggleYearDS As toggleSwitch:
+                    AlignInContainer: =AlignInContainer.Center
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Default: =true
                     DisabledColor: =Color.Black
@@ -207,7 +208,7 @@ DashboardScreen As screen:
                     FalseText: |
                         =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
                     Font: =Font.Arial
-                    Height: =Parent.Height/2.02
+                    Height: =Parent.Height/2.05
                     OnCheck: |-
                         =//for cumulatively record
                         Set(cumulatively,false);
@@ -921,6 +922,10 @@ DashboardScreen As screen:
                         Set(VarcontractRecord,Blank());
                         Set(VarformattedNumber,Blank());
                         Navigate(CreatLeadScreen);
+                        Set(
+                                VarIndicator,
+                                true
+                            );
                         
                     PressedBorderColor: =Color.Red
                     RadiusBottomLeft: =6

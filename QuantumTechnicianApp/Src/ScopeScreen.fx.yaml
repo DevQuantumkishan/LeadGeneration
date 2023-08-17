@@ -387,7 +387,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height+50
+                Height: =If(Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height=0,350,Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -403,7 +403,7 @@ ScopeScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_PrimaryScopeofWorkLID")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =90
                     Required: =false
                     Update: =CboxScope.Selected
                     Width: =Parent.Width
@@ -443,7 +443,7 @@ ScopeScreen As screen:
                         Items: |-
                             =//' PrimaryScopeofWorks'
                             GCPrimaryScopeofWorks
-                        OnChange: =Set(VarScopeSummary,CboxScope.SelectedItems);Set(VarScope,true);Set(VarNotificationScope,false);
+                        OnChange: =Set(VarScopeSummary,CboxScope.SelectedItems);Set(VarScope,true);Set(VarNotificationScope,false);Set(VarScopeofworkSummary,Blank());
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
@@ -453,7 +453,7 @@ ScopeScreen As screen:
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Search scope"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblScope.Y + lblScope.Height 
@@ -520,6 +520,7 @@ ScopeScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(202, 202, 202, 1)
                         ChevronHoverBackground: =RGBA(202, 202, 202, 1)
+                        Default: =VarScopeofworkSummary
                         DefaultSelectedItems: =VarScopeofworkSummary
                         DisplayFields: =["shlrf_secondaryscopeofworkname"]
                         DisplayMode: =If(IsBlank(CboxScope.Selected),DisplayMode.Disabled,DisplayMode.Edit)
@@ -539,7 +540,7 @@ ScopeScreen As screen:
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Search scope of work"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblScopeofwork.Y + lblScopeofwork.Height
@@ -609,7 +610,7 @@ ScopeScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Custom scope of work(manually entered)"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblManuallyScopeofwork.Y + lblManuallyScopeofwork.Height
@@ -794,7 +795,7 @@ ScopeScreen As screen:
                 Size: =14
                 Text: |-
                     =
-                        "Scope  & Scope of work are mandatory "
+                        "Scope & Scope of work are mandatory. "
                 Width: =Parent.Width
                 ZIndex: =2
 
