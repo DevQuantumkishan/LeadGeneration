@@ -381,19 +381,30 @@ EstimateScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
+            htmltxtRequiredES As htmlViewer:
+                AlignInContainer: =AlignInContainer.Stretch
+                Font: =Font.Arial
+                Height: =60
+                HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
+                PaddingLeft: =40
+                PaddingTop: =20
+                Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                Width: =Parent.Width
+                ZIndex: =2
+
             EstimateForm As form:
                 AcceptsFocus: =false
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height=0,890,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+50)
+                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height=0,900,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+50)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
                 NumberOfColumns: =1
                 Width: =Parent.Width/1.04
                 Y: =252
-                ZIndex: =2
+                ZIndex: =3
 
                 EstimatedHours As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
@@ -468,10 +479,13 @@ EstimateScreen As screen:
 
                     StarVisibleEstimatedHours As label:
                         Align: =Align.Center
-                        Height: =lblEstimatedHours.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Height: =IntxtEstimatedHours.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            true
                         Width: =30
                         Wrap: =false
                         Y: =lblEstimatedHours.Y
@@ -550,10 +564,14 @@ EstimateScreen As screen:
 
                     StarVisibleMaterial As label:
                         Align: =Align.Center
-                        Height: =lblMaterial.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Height: =IntxtMaterial.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            true
                         Width: =30
                         Wrap: =false
                         Y: =lblMaterial.Y
@@ -828,8 +846,7 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(237, 237, 237, 1)
                         Fill: =RGBA(237, 237, 237, 1)
                         Height: =96
-                        Width: =Parent.Width-60
-                        X: =30
+                        Width: =Parent.Width-20
                         ZIndex: =1
 
                     lblContactName As label:
@@ -888,11 +905,16 @@ EstimateScreen As screen:
 
                     StarVisibleCustomerName As label:
                         Align: =Align.Center
-                        Height: =lblContactName.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Height: =IntxtContactName.Height
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            true
                         Width: =30
                         Wrap: =false
+                        X: =30
                         Y: =lblContactName.Y
                         ZIndex: =5
 
@@ -919,8 +941,7 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(237, 237, 237, 1)
                         Fill: =RGBA(237, 237, 237, 1)
                         Height: =96
-                        Width: =Parent.Width-60
-                        X: =30
+                        Width: =Parent.Width-20
                         ZIndex: =1
 
                     lblContactES As label:
@@ -982,11 +1003,15 @@ EstimateScreen As screen:
 
                     StarVisibleContactNumber As label:
                         Align: =Align.Center
-                        Height: =lblContactES.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Height: =IntxtContactNumberES.Height
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            true
                         Width: =30
                         Wrap: =false
+                        X: =30
                         Y: =lblContactES.Y
                         ZIndex: =5
 
@@ -1023,7 +1048,7 @@ EstimateScreen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Width: =Parent.Width
-                ZIndex: =3
+                ZIndex: =4
 
                 btnPreviousES As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
@@ -1079,7 +1104,7 @@ EstimateScreen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Width: =Parent.Width
-                ZIndex: =4
+                ZIndex: =5
 
                 imgSpaceES As image:
                     DisplayMode: =DisplayMode.View
@@ -1140,7 +1165,9 @@ EstimateScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: ="Estimated hours, materials, part number and other notes" & If(CboxCommunicatedtoCustomer.Value=true,", customer name & customer phone number") & " are mandatory."
+                Text: |-
+                    =//"Estimated hours, materials, part number and other notes" & If(CboxCommunicatedtoCustomer.Value=true,", customer name & customer phone number") & " are mandatory."
+                    If(CboxCommunicatedtoCustomer.Value=true,"All required fields are mandatory","All required fields are mandatory")
                 Width: =Parent.Width
                 ZIndex: =2
 

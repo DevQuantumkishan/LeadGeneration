@@ -165,7 +165,7 @@ LeadSummaryScreen As screen:
                 SummaryForm As form:
                     DataSource: =LeadInformations
                     FillPortions: =0
-                    Height: =ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+30
+                    Height: =ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+50
                     Item: =VarFormMode
                     LayoutMinHeight: =250
                     LayoutMinWidth: =Parent.Width
@@ -518,7 +518,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =48
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="No of units"
+                            Text: ="Quantity of units"
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -535,6 +535,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Format: =TextFormat.Number
                             Height: =50
+                            HintText: ="Quantity of units"
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnChange: =Set(VarUnitcountSummary,IntxtUnitCountLSS.Text)
@@ -544,7 +545,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: ="Quantity of units"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblUnitCountLSS.Y + lblUnitCountLSS.Height + 5
@@ -568,12 +569,14 @@ LeadSummaryScreen As screen:
 
                         StarVisibleUnitCountLSS As label:
                             Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
                             Height: =lblUnitCountLSS.Height
+                            PaddingTop: =15
                             Size: =21
                             Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                             Width: =30
                             Wrap: =false
+                            X: =5
                             Y: =lblUnitCountLSS.Y
                             ZIndex: =4
 
@@ -613,6 +616,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =70
+                            HintText: ="Unit description"
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
@@ -624,7 +628,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: ="Unit description"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblUnitDescriptionLSS.Y + lblUnitDescriptionLSS.Height + 5
@@ -648,12 +652,17 @@ LeadSummaryScreen As screen:
 
                         StarVisibleUnitDescriptionLSS As label:
                             Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
                             Height: =lblUnitDescriptionLSS.Height
+                            PaddingTop: =15
                             Size: =21
                             Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
                             Width: =30
                             Wrap: =false
+                            X: =5
                             Y: =lblUnitDescriptionLSS.Y
                             ZIndex: =4
 
@@ -732,12 +741,17 @@ LeadSummaryScreen As screen:
 
                         StarVisibleScopeLSS As label:
                             Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
                             Height: =lblScopeLSS.Height
+                            PaddingTop: =15
                             Size: =21
                             Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
                             Width: =30
                             Wrap: =false
+                            X: =5
                             Y: =lblScopeLSS.Y
                             ZIndex: =4
 
@@ -814,12 +828,17 @@ LeadSummaryScreen As screen:
 
                         StarVisibleScopeofWorkLSS As label:
                             Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
                             Height: =lblScopeofWorkLSS.Height
+                            PaddingTop: =15
                             Size: =21
                             Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
                             Width: =30
                             Wrap: =false
+                            X: =5
                             Y: =lblScopeofWorkLSS.Y
                             ZIndex: =4
 
@@ -971,12 +990,17 @@ LeadSummaryScreen As screen:
 
                         StarVisibleEstimatedHoursLSS As label:
                             Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
                             Height: =lblEstimatedHoursLSS.Height
+                            PaddingTop: =15
                             Size: =21
                             Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
                             Width: =30
                             Wrap: =false
+                            X: =5
                             Y: =lblEstimatedHoursLSS.Y
                             ZIndex: =4
 
@@ -1048,12 +1072,17 @@ LeadSummaryScreen As screen:
 
                         StarVisibleNotesLSS As label:
                             Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
                             Height: =lblNotesLSS.Height
+                            PaddingTop: =15
                             Size: =21
                             Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
                             Width: =30
                             Wrap: =false
+                            X: =5
                             Y: =lblNotesLSS.Y
                             ZIndex: =4
 
@@ -1327,8 +1356,8 @@ LeadSummaryScreen As screen:
                             BorderColor: =RGBA(237, 237, 237, 1)
                             Fill: =RGBA(237, 237, 237, 1)
                             Height: =96
-                            Width: =Parent.Width-60
-                            X: =40
+                            Width: =Parent.Width-20
+                            X: =30
                             ZIndex: =1
 
                         lblCustomerNameLSS As label:
@@ -1382,11 +1411,16 @@ LeadSummaryScreen As screen:
 
                         StarVisibleLSS As label:
                             Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
                             Height: =lblCustomerNameLSS.Height
+                            PaddingTop: =15
                             Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
                             Width: =30
                             Wrap: =false
+                            X: =30
                             Y: =lblCustomerNameLSS.Y
                             ZIndex: =5
 
@@ -1412,8 +1446,8 @@ LeadSummaryScreen As screen:
                             BorderColor: =RGBA(237, 237, 237, 1)
                             Fill: =RGBA(237, 237, 237, 1)
                             Height: =96
-                            Width: =Parent.Width-60
-                            X: =40
+                            Width: =Parent.Width-20
+                            X: =30
                             ZIndex: =1
 
                         lblCustomerContactLSS As label:
@@ -1445,11 +1479,16 @@ LeadSummaryScreen As screen:
 
                         StarVisibleContactNumberLSS As label:
                             Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
                             Height: =lblCustomerContactLSS.Height
+                            PaddingTop: =15
                             Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
                             Width: =30
                             Wrap: =false
+                            X: =30
                             Y: =lblCustomerContactLSS.Y
                             ZIndex: =4
 
@@ -1878,4 +1917,69 @@ LeadSummaryScreen As screen:
             X: =imgPopupLSS.X+(imgPopupLSS.Width-Self.Width)
             Y: =imgPopupLSS.Y
             ZIndex: =2
+
+    PopopErrorLSS As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarNotification
+        Width: =Parent.Width
+        ZIndex: =6
+
+        borderErrorLSS As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        ctnErrorLSS As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =borderErrorLSS.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =borderErrorLSS.Width
+            X: =borderErrorLSS.X
+            Y: =borderErrorLSS.Y
+            ZIndex: =2
+
+            ctnErrorImageLSS As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =Parent.Height/3
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                imgNotificationLSS_1 As image:
+                    Height: =Parent.Height
+                    Image: =If(VarNotificationloding,'waiting-icon-gif-4',VarNotificationSuccess,Group)
+                    PaddingTop: =40
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            lblErrorLSS As label:
+                Align: =Align.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: =If(VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead submitted successfully.")
+                Width: =Parent.Width
+                ZIndex: =2
+
+            btnOkErrorLSS As button:
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: =Navigate(DashboardScreen);
+                Size: =14
+                Text: ="Ok"
+                Visible: =If(lblErrorLSS.Text="Lead submitted successfully.",true,false)
+                Width: =Parent.Width/5
+                ZIndex: =3
 

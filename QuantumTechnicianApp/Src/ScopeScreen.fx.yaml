@@ -383,6 +383,17 @@ ScopeScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
+            htmltxtRequiredSS As htmlViewer:
+                AlignInContainer: =AlignInContainer.Stretch
+                Font: =Font.Arial
+                Height: =60
+                HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
+                PaddingLeft: =40
+                PaddingTop: =20
+                Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                Width: =Parent.Width
+                ZIndex: =2
+
             ScopeInfoForm As form:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
@@ -477,10 +488,14 @@ ScopeScreen As screen:
 
                     StarVisibleScope As label:
                         Align: =Align.Center
-                        Height: =lblScope.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
+                        Height: =CboxScope.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            true
                         Width: =30
                         Wrap: =false
                         Y: =lblScope.Y
@@ -564,10 +579,13 @@ ScopeScreen As screen:
 
                     StarVisibleScopeofwork As label:
                         Align: =Align.Center
-                        Height: =lblScopeofwork.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Height: =CboxScopeofwork.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            true
                         Width: =30
                         Wrap: =false
                         Y: =lblScopeofwork.Y
@@ -634,10 +652,12 @@ ScopeScreen As screen:
 
                     StarVisibleManuallyScopeofwork As label:
                         Align: =Align.Center
-                        Height: =lblManuallyScopeofwork.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Height: =IntxtManuallyScopeofwork.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =false
                         Width: =30
                         Wrap: =false
                         Y: =lblManuallyScopeofwork.Y
@@ -795,7 +815,7 @@ ScopeScreen As screen:
                 Size: =14
                 Text: |-
                     =
-                        "Scope & Scope of work are mandatory. "
+                    "All required fields are mandatory"
                 Width: =Parent.Width
                 ZIndex: =2
 
