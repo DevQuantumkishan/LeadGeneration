@@ -703,7 +703,7 @@ ScopeScreen As screen:
                         Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);
                         Set(VarIndicatorSS,true);
-                        Set(VarIndicatorES,false);
+                        Set(VarIndicatorES,true);
                         Navigate(EstimateScreen),
                         Set(VarNotification,true););
                         If(CboxCommunicatedtoCustomer.Value=false,
