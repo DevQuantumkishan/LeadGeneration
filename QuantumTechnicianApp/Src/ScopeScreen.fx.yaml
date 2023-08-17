@@ -387,7 +387,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height+80
+                Height: =If(Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height=0,340,Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -403,7 +403,7 @@ ScopeScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_PrimaryScopeofWorkLID")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =90
                     Required: =false
                     Update: =CboxScope.Selected
                     Width: =Parent.Width

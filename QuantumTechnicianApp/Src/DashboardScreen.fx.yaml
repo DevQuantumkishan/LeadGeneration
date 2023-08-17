@@ -921,6 +921,10 @@ DashboardScreen As screen:
                         Set(VarcontractRecord,Blank());
                         Set(VarformattedNumber,Blank());
                         Navigate(CreatLeadScreen);
+                        Set(
+                                VarIndicator,
+                                true
+                            );
                         
                     PressedBorderColor: =Color.Red
                     RadiusBottomLeft: =6

@@ -620,7 +620,7 @@ UnitScreen As screen:
                               Set(VarNotification,true);,
                             Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);
-                        Set(VarIndicatorSS,false);
+                        Set(VarIndicatorSS,true);
                         Navigate(ScopeScreen));
                         
                     Size: =If(Parent.Width<358,12,Parent.Width>358,12)
