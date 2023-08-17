@@ -453,7 +453,7 @@ ScopeScreen As screen:
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Search scope"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblScope.Y + lblScope.Height 
@@ -540,7 +540,7 @@ ScopeScreen As screen:
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Search scope of work"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblScopeofwork.Y + lblScopeofwork.Height
@@ -610,7 +610,7 @@ ScopeScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Custom scope of work(manually entered)"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblManuallyScopeofwork.Y + lblManuallyScopeofwork.Height

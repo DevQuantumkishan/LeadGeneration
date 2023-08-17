@@ -419,6 +419,7 @@ EstimateScreen As screen:
                         Height: =If(VarEstimateHours,48,0)
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
                         Text: ="Estimated hours(total man hours)"
+                        Tooltip: ="Estimated hours(total man hours)"
                         Visible: =VarEstimateHours
                         Width: =Parent.Width - 60
                         X: =30
@@ -432,7 +433,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: ="Estimate hours (total man hours)"
+                        HintText: ="Estimated hours(total man hours)"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
@@ -443,7 +444,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Estimated hours(total man hours)"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblEstimatedHours.Y + lblEstimatedHours.Height + 5
@@ -499,7 +500,8 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarNotes,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Material , part number and other things"
+                        Text: ="Material, part numbers, and other notes"
+                        Tooltip: ="Material, part numbers, and other notes"
                         Visible: =VarNotes
                         Width: =Parent.Width - 60
                         X: =30
@@ -512,7 +514,7 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =80
-                        HintText: ="Material,part number and other things"
+                        HintText: ="Material, part numbers, and other notes"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -524,7 +526,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Material, part numbers, and other notes"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblMaterial.Y + lblMaterial.Height + 5
