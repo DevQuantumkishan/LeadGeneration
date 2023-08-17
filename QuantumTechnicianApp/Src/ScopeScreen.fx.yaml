@@ -387,7 +387,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height=0,340,Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height)
+                Height: =If(Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height=0,350,Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -443,7 +443,7 @@ ScopeScreen As screen:
                         Items: |-
                             =//' PrimaryScopeofWorks'
                             GCPrimaryScopeofWorks
-                        OnChange: =Set(VarScopeSummary,CboxScope.SelectedItems);Set(VarScope,true);Set(VarNotificationScope,false);
+                        OnChange: =Set(VarScopeSummary,CboxScope.SelectedItems);Set(VarScope,true);Set(VarNotificationScope,false);Set(VarScopeofworkSummary,Blank());
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
@@ -520,6 +520,7 @@ ScopeScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(202, 202, 202, 1)
                         ChevronHoverBackground: =RGBA(202, 202, 202, 1)
+                        Default: =VarScopeofworkSummary
                         DefaultSelectedItems: =VarScopeofworkSummary
                         DisplayFields: =["shlrf_secondaryscopeofworkname"]
                         DisplayMode: =If(IsBlank(CboxScope.Selected),DisplayMode.Disabled,DisplayMode.Edit)
@@ -794,7 +795,7 @@ ScopeScreen As screen:
                 Size: =14
                 Text: |-
                     =
-                        "Scope  & Scope of work are mandatory "
+                        "Scope & Scope of work are mandatory. "
                 Width: =Parent.Width
                 ZIndex: =2
 

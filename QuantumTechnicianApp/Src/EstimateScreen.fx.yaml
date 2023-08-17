@@ -353,7 +353,7 @@ EstimateScreen As screen:
                     DisplayMode: =DisplayMode.Disabled
                     Fill: =Color.White
                     Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
-                    Image: =
+                    Image: =If(VarIndicatorSS=true,'Check_green_icon.svg')
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
@@ -418,7 +418,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarEstimateHours,48,0)
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
-                        Text: ="Estimate hours(total man hours)"
+                        Text: ="Estimated hours(total man hours)"
                         Visible: =VarEstimateHours
                         Width: =Parent.Width - 60
                         X: =30
@@ -435,7 +435,7 @@ EstimateScreen As screen:
                         HintText: ="Estimate hours (total man hours)"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        MaxLength: =Parent.MaxLength
+                        MaxLength: =3
                         OnChange: =Set(VarEstimateHoursSummary,IntxtEstimatedHours.Text);Set(VarEstimateHours,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
