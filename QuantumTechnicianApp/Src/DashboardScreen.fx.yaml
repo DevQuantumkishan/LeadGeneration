@@ -232,7 +232,7 @@ DashboardScreen As screen:
             Height: =Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-10
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
-            LayoutGap: =10
+            LayoutGap: =5
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -249,7 +249,7 @@ DashboardScreen As screen:
                 Height: |
                     =//180
                     //Parent.Height/5.5
-                    If(Parent.Height<Parent.Width,Parent.Height/2.2,Parent.Height/4.5)
+                    If(Parent.Height<Parent.Width,Parent.Height/2.8,Parent.Height/4.2)
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -578,7 +578,7 @@ DashboardScreen As screen:
                 Height: |
                     =//180
                     //Parent.Height/5.5
-                    If(Parent.Height<Parent.Width,Parent.Height/2.4,Parent.Height/4.4)
+                    If(Parent.Height<Parent.Width,Parent.Height/2.4,Parent.Height/4.2)
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -913,7 +913,7 @@ DashboardScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-150
+                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-100
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 RadiusBottomLeft: =0
