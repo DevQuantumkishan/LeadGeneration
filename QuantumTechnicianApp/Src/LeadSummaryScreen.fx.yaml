@@ -1583,8 +1583,16 @@ LeadSummaryScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =Set(VarNotification,true);
+                        =If(IsBlank(IntxtUnitCountLSS.Text) & IsBlank(IntxtUnitDescriptionLSS.Text)& IsBlank(LookUp(
+                                    GCPrimaryScopeofWorks,
+                                    ID =CboxScopeLSS.Selected.ID        
+                         )) & IsBlank(LookUp(
+                                    GCSecondaryScopeofWorks,
+                                    ID = CboxScopeofWorkLSS.Selected.ID
+                                )) & IsBlank(IntxtManuallyScopeofWorkLSS.Text)& IsBlank(IntxtEstimatedHoursLSS.Text)& IsBlank(IntxtNotesLSS.Text) ,
+                        Set(VarMandatoryPopup,true),
                         Set(VarNotificationloding,true);
+                        Set(VarNotification,true);
                         Set(VarLeadInformationID,GUID());
                         Patch(
                             LeadInformations,
@@ -1649,7 +1657,7 @@ LeadSummaryScreen As screen:
                             LeadYear:Year(Now())
                         }));
                         Set(VarNotificationloding,false);
-                        Set(VarNotificationSuccess,true);
+                        Set(VarNotificationSuccess,true));
                         
                         /*Notify(
                             "Form has been submitted succuessfully.",
@@ -1744,6 +1752,7 @@ LeadSummaryScreen As screen:
                 ZIndex: =2
 
             btnOkLSS As button:
+                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)

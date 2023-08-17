@@ -386,7 +386,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+50
+                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height=0,890,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+50)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -930,7 +930,7 @@ EstimateScreen As screen:
                         Height: =34
                         PaddingLeft: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Customer Contact"
+                        Text: ="Customer Phone Number"
                         Width: =Parent.Width - 120
                         Wrap: =false
                         X: =60
@@ -1054,7 +1054,7 @@ EstimateScreen As screen:
                         Set(VarIndicatorUS, true );
                         Set(VarIndicatorSS, true );
                         Set(VarIndicatorES,true);
-                        Set(VarIndicatorIS,false);
+                        Set(VarIndicatorIS,true);
                         Navigate(ImageUploadScreen));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Next"
@@ -1140,7 +1140,7 @@ EstimateScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: ="Estimated hours, materials, part number and other notes" & If(CboxCommunicatedtoCustomer.Value=true,", Contact Name & Contact Number") & " are mandatory."
+                Text: ="Estimated hours, materials, part number and other notes" & If(CboxCommunicatedtoCustomer.Value=true,", customer name & customer phone number") & " are mandatory."
                 Width: =Parent.Width
                 ZIndex: =2
 
