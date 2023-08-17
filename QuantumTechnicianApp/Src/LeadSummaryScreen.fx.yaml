@@ -1622,14 +1622,8 @@ LeadSummaryScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =If(IsBlank(IntxtUnitCountLSS.Text) & IsBlank(IntxtUnitDescriptionLSS.Text)& IsBlank(LookUp(
-                                    GCPrimaryScopeofWorks,
-                                    ID =CboxScopeLSS.Selected.ID        
-                         )) & IsBlank(LookUp(
-                                    GCSecondaryScopeofWorks,
-                                    ID = CboxScopeofWorkLSS.Selected.ID
-                                )) & IsBlank(IntxtManuallyScopeofWorkLSS.Text)& IsBlank(IntxtEstimatedHoursLSS.Text)& IsBlank(IntxtNotesLSS.Text) ,
-                        Set(VarMandatoryPopup,true),
+                        =If(IsBlank(IntxtUnitCountLSS.Text) ||IsBlank(IntxtUnitDescriptionLSS.Text)|| IsBlank(CboxScopeLSS) || IsBlank(CboxScopeofWorkLSS) || IsBlank(IntxtManuallyScopeofWorkLSS.Text)|| IsBlank(IntxtEstimatedHoursLSS.Text) ||IsBlank(IntxtNotesLSS.Text) ,
+                        Set(VarErrorPopup,true),
                         Set(VarNotificationloding,true);
                         Set(VarNotification,true);
                         Set(VarLeadInformationID,GUID());
@@ -1921,7 +1915,7 @@ LeadSummaryScreen As screen:
     PopopErrorLSS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
-        Visible: =VarNotification
+        Visible: =VarErrorPopup
         Width: =Parent.Width
         ZIndex: =6
 
