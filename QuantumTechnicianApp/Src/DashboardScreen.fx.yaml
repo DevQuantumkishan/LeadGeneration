@@ -58,18 +58,29 @@ DashboardScreen As screen:
                 ZIndex: =1
 
             imgSchindlerLogoDS As image:
-                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Image: ='1x'
-                LayoutMinHeight: =320
-                LayoutMinWidth: =320
                 PaddingBottom: =5
                 PaddingTop: =0.00
                 Width: =If(Parent.Width>Parent.Height,Parent.Width/8,Parent.Width/12)
                 X: =0.00
                 ZIndex: =2
+
+            imgTechnicianlogoDS As image:
+                AlignInContainer: =AlignInContainer.Center
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =Parent.Height
+                Image: ='technician logo'
+                LayoutMinHeight: =320
+                LayoutMinWidth: =320
+                PaddingBottom: =5
+                PaddingTop: =0.00
+                Width: =If(Parent.Width>Parent.Height,Parent.Width/10,Parent.Width/14)
+                X: =0.00
+                ZIndex: =3
 
             lblHeaderDS As label:
                 AlignInContainer: =AlignInContainer.Center
@@ -84,12 +95,10 @@ DashboardScreen As screen:
                 Size: |
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
-                Text: |-
-                    =//"Technicians Lead Generation"
-                    "Dashboard"
-                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-20
+                Text: ="Technician"
+                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-imgSchindlerLogoDS.Width-20
                 X: =96.12
-                ZIndex: =3
+                ZIndex: =4
 
             btnUsernameDS As button:
                 AlignInContainer: =AlignInContainer.Center
@@ -115,7 +124,7 @@ DashboardScreen As screen:
                         Find(" ", User().FullName) + 1,
                         1)
                 Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
-                ZIndex: =4
+                ZIndex: =5
 
         ctnUserNameDS As groupContainer.manualLayoutContainer:
             FillPortions: =0
@@ -817,7 +826,7 @@ DashboardScreen As screen:
                                 =If(Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalSoldLead))=0||
                                         Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead)=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
-                            Height: =255
+                            Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
