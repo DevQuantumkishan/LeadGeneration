@@ -385,11 +385,13 @@ UnitScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
-            HtmlText1_1 As htmlViewer:
+            htmltxtRequiredUS As htmlViewer:
                 AlignInContainer: =AlignInContainer.Stretch
                 Font: =Font.Arial
+                Height: =60
                 HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
                 PaddingLeft: =40
+                PaddingTop: =20
                 Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                 Width: =Parent.Width
                 ZIndex: =2
