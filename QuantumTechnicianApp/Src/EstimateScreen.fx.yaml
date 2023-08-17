@@ -1140,7 +1140,7 @@ EstimateScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: ="Estimated Hours and Materials,Part Number and other things" & If(CboxCommunicatedtoCustomer.Value=true," Contact Name & Contact Number") & " are mandatory"
+                Text: ="Estimated hours, materials, part number and other notes" & If(CboxCommunicatedtoCustomer.Value=true,", Contact Name & Contact Number") & " are mandatory."
                 Width: =Parent.Width
                 ZIndex: =2
 
