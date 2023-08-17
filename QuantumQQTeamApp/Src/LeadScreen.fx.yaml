@@ -1132,6 +1132,8 @@ LeadScreen As screen:
                             HintText: ="Enter Estimate Number"
                             HoverBorderColor: =//RGBA(0, 18, 107, 1)
                             HoverFill: =//RGBA(186, 202, 226, 1)
+                            MaxLength: =11
+                            OnChange: =Notify("Estimate number should not be greater than 11 digit.")
                             PaddingLeft: =20
                             X: =20
                             Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y //Label14_10.Height+Label14_10.Y
