@@ -1266,7 +1266,7 @@ LeadScreen As screen:
                         txitnptrejectLdS As text:
                             BorderColor: =RGBA(149, 149, 149, 1)
                             Color: =RGBA(116, 116, 116, 1)
-                            Default: =""
+                            Default: =LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadComment)
                             Height: =300
                             HintText: ="Add Rejection Comment"
                             HoverBorderColor: =//RGBA(0, 18, 107, 1)
@@ -1274,6 +1274,7 @@ LeadScreen As screen:
                             Mode: =TextMode.MultiLine
                             PaddingLeft: =20
                             PaddingTop: =20
+                            Reset: =true
                             Width: =Parent.Width-100
                             X: =20
                             Y: =lblcommentLdS.Height+lblcommentLdS.Y
