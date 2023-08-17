@@ -380,6 +380,17 @@ CreatLeadScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
+            HtmlText1 As htmlViewer:
+                AlignInContainer: =AlignInContainer.Stretch
+                Font: =Font.Arial
+                Height: =60
+                HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
+                PaddingLeft: =40
+                PaddingTop: =20
+                Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                Width: =Parent.Width
+                ZIndex: =2
+
             BuildingInfoForm As form:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
@@ -390,7 +401,7 @@ CreatLeadScreen As screen:
                 LayoutMinWidth: =400
                 Width: =Parent.Width/1.04
                 Y: =143
-                ZIndex: =2
+                ZIndex: =3
 
                 ContractNumber As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
@@ -464,13 +475,13 @@ CreatLeadScreen As screen:
                     StarVisibleContractNumber As label:
                         Align: =Align.Center
                         Color: =RGBA(255, 0, 0, 1)
-                        Height: =lblContractNumber.Height
+                        Height: =IntxtContractNumber.Height
                         Size: =21
                         Text: ="*"
                         Visible: |-
                             =//If(LookUp(SHContracts,CONTR_NUM=Value(
                               //  IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
-                              false
+                              true
                         Width: =30
                         Wrap: =false
                         Y: =lblContractNumber.Y
@@ -481,7 +492,7 @@ CreatLeadScreen As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
-                        Height: =If(VarContractNumber,48,0)
+                        Height: =If(VarContractNumber,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Contract Number"
                         Visible: =VarContractNumber || !IsBlank(IntxtContractNumber)
@@ -618,7 +629,7 @@ CreatLeadScreen As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
-                        Height: =If(VarZipcode,48,0)
+                        Height: =If(VarZipcode,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: =Parent.DisplayName
                         Visible: =VarZipcode || !IsBlank(IntxtZipCode)
@@ -682,6 +693,7 @@ CreatLeadScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(255, 0, 0, 1)
                         DisplayMode: =DisplayMode.View
+                        Font: =Font.Arial
                         Height: =If(VarContractNumber,48,0)
                         Live: =Live.Assertive
                         PaddingBottom: =0
@@ -701,6 +713,7 @@ CreatLeadScreen As screen:
                     StarVisibleBuildingName As label:
                         Align: =Align.Center
                         Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =lblBuildingName.Height
                         Size: =21
                         Text: ="*"
@@ -717,7 +730,7 @@ CreatLeadScreen As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
-                        Height: =If(VarBuildingName,48,0)
+                        Height: =If(VarBuildingName,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: |-
                             =//Parent.DisplayName
@@ -810,7 +823,7 @@ CreatLeadScreen As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
-                        Height: =If(VarAddress,48,0)
+                        Height: =If(VarAddress,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: =Parent.DisplayName
                         Visible: =VarAddress || !IsBlank(IntxtAddress)
@@ -837,7 +850,7 @@ CreatLeadScreen As screen:
                 RadiusTopRight: =0
                 Width: =Parent.Width
                 Y: =UnitInfoForm.Y+UnitInfoForm.Height
-                ZIndex: =3
+                ZIndex: =4
 
                 ctnPreviousCLS As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
@@ -900,7 +913,7 @@ CreatLeadScreen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Width: =Parent.Width
-                ZIndex: =4
+                ZIndex: =5
 
                 imgLogoCL As image:
                     DisplayMode: =DisplayMode.View

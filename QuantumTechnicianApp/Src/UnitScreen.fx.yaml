@@ -385,6 +385,15 @@ UnitScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
+            HtmlText1_1 As htmlViewer:
+                AlignInContainer: =AlignInContainer.Stretch
+                Font: =Font.Arial
+                HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
+                PaddingLeft: =40
+                Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                Width: =Parent.Width
+                ZIndex: =2
+
             UnitInfoForm As form:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
@@ -460,10 +469,13 @@ UnitScreen As screen:
 
                     StarVisibleUnitCount As label:
                         Align: =Align.Center
-                        Height: =lblUnitCount.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Height: =IntxtUnitCount.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            true
                         Width: =30
                         Wrap: =false
                         Y: =lblUnitCount.Y
@@ -549,10 +561,14 @@ UnitScreen As screen:
 
                     StarVisibleUnitDescription As label:
                         Align: =Align.Center
-                        Height: =lblUnitDescription.Height
+                        Color: =RGBA(255, 0, 0, 1)
+                        Height: =IntxtUnitDescription.Height
                         Size: =21
                         Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: |-
+                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            true
                         Width: =30
                         Wrap: =false
                         Y: =lblUnitDescription.Y
@@ -705,7 +721,7 @@ UnitScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: ="All fields are mandatory"
+                Text: ="All required fields are mandatory"
                 Width: =Parent.Width
                 ZIndex: =2
 

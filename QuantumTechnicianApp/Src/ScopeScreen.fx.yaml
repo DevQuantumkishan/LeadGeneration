@@ -387,7 +387,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height=0,350,Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height)
+                Height: =If(Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height=0,350,Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height+20)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400

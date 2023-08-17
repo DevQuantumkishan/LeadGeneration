@@ -8934,6 +8934,30 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -13493,19 +13517,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.ZipCode.IntxtZipCode.AccessibleLabel"
+                  "fullyQualifiedName": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.Address.IntxtAddress.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.ZipCode.IntxtZipCode.AccessibleLabel",
+                  "fullyQualifiedName": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.Address.IntxtAddress.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "CreatLeadScreen",
-                "type": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.ZipCode.IntxtZipCode"
+                "type": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.Address.IntxtAddress"
               }
             }
           ],
@@ -13523,19 +13547,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.Address.IntxtAddress.AccessibleLabel"
+                  "fullyQualifiedName": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.ZipCode.IntxtZipCode.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.Address.IntxtAddress.AccessibleLabel",
+                  "fullyQualifiedName": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.ZipCode.IntxtZipCode.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "CreatLeadScreen",
-                "type": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.Address.IntxtAddress"
+                "type": "CreatLeadScreen.ctnMainCLS.ctnLeadCL.BuildingInfoForm.ZipCode.IntxtZipCode"
               }
             }
           ],
@@ -17374,6 +17398,36 @@
               },
               "properties": {
                 "member": "Varerrormessage",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.VarMandatoryPopup"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.VarMandatoryPopup",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "VarMandatoryPopup",
                 "module": "App",
                 "type": "App"
               }
