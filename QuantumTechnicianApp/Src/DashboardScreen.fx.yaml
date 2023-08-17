@@ -249,7 +249,7 @@ DashboardScreen As screen:
                 Height: |
                     =//180
                     //Parent.Height/5.5
-                    If(Parent.Height<Parent.Width,Parent.Height/2.5,Parent.Height/4.5)
+                    If(Parent.Height<Parent.Width,Parent.Height/2.2,Parent.Height/4.5)
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -332,7 +332,9 @@ DashboardScreen As screen:
                             Text: ="Open"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: |-
+                                =//Parent.Height/10
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =3
 
                         btnOpenLeadsDS As button:
@@ -435,7 +437,7 @@ DashboardScreen As screen:
                             Text: ="In Progress"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: =If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =3
 
                         btnInprogressLeadsDS As button:
@@ -537,7 +539,7 @@ DashboardScreen As screen:
                             Text: ="Rejected"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: =If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =6
 
                         btnRejectedLeadsDS As button:
@@ -554,8 +556,6 @@ DashboardScreen As screen:
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
-                            PaddingRight: =5.34
-                            PaddingTop: =0
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -621,7 +621,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
-                                "Incentives  " &  "$" & " " &
+                                "Incentives  " &  "$" & Char(10) &
                                 If(
                                    yearly = true,
                                 If(
@@ -678,7 +678,7 @@ DashboardScreen As screen:
                             Text: ="Quoted"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: =If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =3
 
                         btnQuotedLeadsDS As button:
@@ -697,8 +697,6 @@ DashboardScreen As screen:
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
-                            PaddingRight: =5.34
-                            PaddingTop: =30
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -746,7 +744,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalsoldIncentives and if user select span for cumulatively, then need to show sum of TotalsoldIncentives .
-                                "Incentives  "  &  "$" & " " &
+                                "Incentives  "  &  "$" & Char(10) &
                                 If(
                                    yearly = true,
                                 If(
@@ -811,7 +809,9 @@ DashboardScreen As screen:
                             Text: ="Sold"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: |-
+                                =//Parent.Height/10
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =3
 
                         btnSoldLeadsDS As button:
@@ -830,8 +830,6 @@ DashboardScreen As screen:
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
-                            PaddingRight: =5.34
-                            PaddingTop: =30
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -915,7 +913,7 @@ DashboardScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-100
+                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-150
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 RadiusBottomLeft: =0
