@@ -174,7 +174,6 @@ EstimateScreen As screen:
 
                 IconLine1ES As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
-                    DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
                     Height: =imgStep1ES.Height/4
@@ -183,14 +182,11 @@ EstimateScreen As screen:
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
                     X: =imgStep1ES.X+imgStep1ES.Width
-                    Y: |-
-                        =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
-                        If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
+                    Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =8
 
                 IconLine2ES As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
-                    DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
                     Height: =imgStep1ES.Height/4
@@ -199,14 +195,11 @@ EstimateScreen As screen:
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
                     X: =imgStep2ES.X+imgStep2ES.Width
-                    Y: |-
-                        =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
-                        If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
+                    Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =9
 
                 IconLine3ES As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
-                    DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
                     Height: =imgStep1ES.Height/4
@@ -215,14 +208,11 @@ EstimateScreen As screen:
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
                     X: =imgStep3ES.X+imgStep3ES.Width
-                    Y: |-
-                        =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
-                        If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
+                    Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =10
 
                 IconLine4ES As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
-                    DisabledColor: =RGBA(202, 202, 202, 1)
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
                     Height: =imgStep1ES.Height/4
@@ -231,9 +221,7 @@ EstimateScreen As screen:
                         =//If(Parent.Width<440,40,Parent.Width<500,55,70)
                         If(Parent.Width<378,Parent.Width/8,Parent.Width<500,Parent.Width/8,Parent.Width/6)
                     X: =imgStep4ES.X+imgStep4ES.Width
-                    Y: |-
-                        =//If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/6,(Parent.Height-Self.Height)/3)
-                        If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
+                    Y: =If(Parent.Height>Parent.Width,(Parent.Height-Self.Height)/5.5,(Parent.Height-Self.Height)/3.2)
                     ZIndex: =11
 
                 lblStep1ES As label:
@@ -310,14 +298,13 @@ EstimateScreen As screen:
                     DisabledFill: =RGBA(255, 255, 255, 1)
                     DisplayMode: =DisplayMode.Disabled
                     Fill: =If(VarIndicator=true,Color.Green,Color.Red)
-                    FocusedBorderThickness: =0
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =If(VarIndicator=true,'Check_green_icon.svg')
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =If(Parent.Width<378,Parent.Width/9,Parent.Width<500,Parent.Width/10,Parent.Width/11)
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =20
@@ -329,14 +316,13 @@ EstimateScreen As screen:
                     DisabledFill: =RGBA(255, 255, 255, 1)
                     DisplayMode: =DisplayMode.Disabled
                     Fill: =If(VarIndicatorUS=true,Color.Green,Color.Red)
-                    FocusedBorderThickness: =0
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =If(VarIndicatorUS=true,'Check_green_icon.svg')
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =IconLine1ES.X+IconLine1ES.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =21
@@ -347,15 +333,14 @@ EstimateScreen As screen:
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
                     DisabledFill: =RGBA(255, 255, 255, 1)
                     DisplayMode: =DisplayMode.Disabled
-                    Fill: =If(VarIndicatorSS=true,Color.Green,Color.Red)
-                    FocusedBorderThickness: =0
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Fill: =Color.White
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =If(VarIndicatorSS=true,'Check_green_icon.svg')
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =IconLine2ES.X+IconLine2ES.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =22
@@ -366,15 +351,14 @@ EstimateScreen As screen:
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
                     DisabledFill: =RGBA(255, 255, 255, 1)
                     DisplayMode: =DisplayMode.Disabled
-                    Fill: =If(VarIndicatorES=true,Color.Green,Color.White)
-                    FocusedBorderThickness: =0
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
-                    Image: =If(VarIndicatorES=true,'Check_green_icon.svg')
+                    Fill: =Color.White
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
+                    Image: =
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =IconLine3ES.X+IconLine3ES.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =23
@@ -385,15 +369,14 @@ EstimateScreen As screen:
                     DisabledBorderColor: =RGBA(202, 202, 202, 1)
                     DisabledFill: =RGBA(255, 255, 255, 1)
                     DisplayMode: =DisplayMode.Disabled
-                    Fill: =RGBA(255, 255, 255, 1)
-                    FocusedBorderThickness: =0
-                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Fill: =Color.White
+                    Height: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     Image: =
                     RadiusBottomLeft: =50
                     RadiusBottomRight: =50
                     RadiusTopLeft: =50
                     RadiusTopRight: =50
-                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/20)
+                    Width: =If(Parent.Width<378,Parent.Width/16,Parent.Width<500,Parent.Width/18,Parent.Width/28)
                     X: =IconLine4ES.X+IconLine4ES.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
@@ -410,7 +393,7 @@ EstimateScreen As screen:
                 NumberOfColumns: =1
                 Width: =Parent.Width/1.04
                 Y: =252
-                ZIndex: =3
+                ZIndex: =2
 
                 EstimatedHours As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
@@ -1038,7 +1021,7 @@ EstimateScreen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Width: =Parent.Width
-                ZIndex: =4
+                ZIndex: =3
 
                 btnPreviousES As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
@@ -1094,7 +1077,7 @@ EstimateScreen As screen:
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
                 Width: =Parent.Width
-                ZIndex: =5
+                ZIndex: =4
 
                 imgSpaceES As image:
                     DisplayMode: =DisplayMode.View
