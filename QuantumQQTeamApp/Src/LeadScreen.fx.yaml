@@ -35,7 +35,7 @@ LeadScreen As screen:
             btnbackLdS As button:
                 BorderColor: =//ColorFade(Self.Fill, -15%)
                 BorderThickness: =0
-                Fill: =Header.Red
+                Fill: =Header.SHRed
                 FocusedBorderThickness: =0
                 HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                 OnSelect: |-
@@ -168,7 +168,7 @@ LeadScreen As screen:
 
                 btnleaddetailstabLdS As button:
                     BorderThickness: =0
-                    Color: =If(VarLeadDetails= true,Header.Black,Header.Red)
+                    Color: =If(VarLeadDetails= true,Header.Black,Header.SHRed)
                     Fill: =Header.White
                     FocusedBorderThickness: =
                     HoverColor: =//RGBA(255, 255, 255, 1)
@@ -187,8 +187,8 @@ LeadScreen As screen:
                     ZIndex: =1
 
                 icnhorizontalleaddetailsLdS As icon.Add:
-                    Color: =Header.Red
-                    Fill: =Header.Red
+                    Color: =Header.SHRed
+                    Fill: =Header.SHRed
                     Height: =3
                     Icon: =Icon.HorizontalLine
                     Visible: =If(VarLeadDetails= true,true,false)
@@ -210,7 +210,7 @@ LeadScreen As screen:
 
                 btnleadmessagetabLdS As button:
                     BorderThickness: =0
-                    Color: =If(VarLeadMessages= true,Header.Black,Header.Red)
+                    Color: =If(VarLeadMessages= true,Header.Black,Header.SHRed)
                     Fill: =Header.White
                     FocusedBorderThickness: =
                     HoverColor: =//RGBA(255, 255, 255, 1)
@@ -644,7 +644,7 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             lblcontractnumbervalueleaddetailsLdS As label:
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.'ContractNumber '
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -667,7 +667,7 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             lblzipcodevalueleaddetailsLdS As label:
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.'ZipCode '
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -691,7 +691,7 @@ LeadScreen As screen:
 
                             lblbuildingnamevalueleaddetailsLdS As label:
                                 AutoHeight: =true
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.'BuildingName '
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -715,7 +715,7 @@ LeadScreen As screen:
 
                             lbladdresslvalueeaddetailsLdS As label:
                                 AutoHeight: =true
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.Address
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -762,7 +762,7 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             lblstatusdatevalueleaddetailsLdS As label:
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.StatusDate
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -785,7 +785,7 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             lblnotesvaluedetailsLdS As label:
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.Notes
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -810,7 +810,7 @@ LeadScreen As screen:
 
                             lblemailvalueleaddetailsLdS As label:
                                 AutoHeight: =true
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Size: =12
                                 Text: =glryleadlistLS.Selected.Email
                                 Width: =Parent.Width
@@ -835,7 +835,7 @@ LeadScreen As screen:
 
                             lblestimatedhoursvalueleaddetailsLdS As label:
                                 AutoHeight: =true
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.'EstimatedHours '
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -882,7 +882,7 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             lblnoofunitsvalueleaddetailsLdS As label:
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.NumberofUnits
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -906,7 +906,7 @@ LeadScreen As screen:
 
                             lblunitdescriptionleaddescriptionLdS As label:
                                 AutoHeight: =true
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.UnitDescription
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -930,7 +930,7 @@ LeadScreen As screen:
 
                             lblscopeofworkvalueleaddetailsLdS As label:
                                 AutoHeight: =true
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -954,7 +954,7 @@ LeadScreen As screen:
 
                             lblcustomscopeofworkvalueleaddetailsLdS As label:
                                 AutoHeight: =true
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.CustomScopeofWork
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -1001,7 +1001,7 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             lblmaterialvalueleaddetailsLdS As label:
-                                Color: =Header.Red
+                                Color: =Header.SHRed
                                 Text: =glryleadlistLS.Selected.Notes
                                 Width: =Parent.Width
                                 ZIndex: =2
@@ -1244,7 +1244,7 @@ LeadScreen As screen:
                             ZIndex: =4
 
                         lblrejectionLdS As label:
-                            Color: =RGBA(255, 0, 0, 1)
+                            Color: =Header.SHRed
                             FontWeight: =FontWeight.Semibold
                             Height: =50
                             Size: =16
@@ -1282,7 +1282,7 @@ LeadScreen As screen:
 
                         btnbacktotechnicianLdS As button:
                             DisplayMode: =If(glryleadlistLS.Selected.LeadStatus="InProgress" && glryleadlistLS.Selected.QQTeamName=User().FullName,DisplayMode.Edit,DisplayMode.Disabled)
-                            Fill: =RGBA(255, 0, 0, 1)
+                            Fill: =Header.SHRed
                             Height: =60
                             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             OnSelect: |-
@@ -1317,7 +1317,7 @@ LeadScreen As screen:
             ZIndex: =11
 
     ctnHeaderLeadScreen As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(227, 43, 43, 1)
+        Fill: =Header.SHRed
         Height: =80
         Width: =Parent.Width
         ZIndex: =2
@@ -1352,7 +1352,7 @@ LeadScreen As screen:
         lblheaderLdS As label:
             Align: =Align.Center
             Color: =Header.White
-            Fill: =RGBA(227, 43, 43, 1)
+            Fill: =Header.SHRed
             FontWeight: =FontWeight.Bold
             Height: =Parent.Height
             Size: =26

@@ -317,7 +317,7 @@ LeadListScreen As screen:
 
                             lblleadstatusvalueLS As label:
                                 Align: =Align.Center
-                                Color: =If(ThisItem.LeadStatus="Submitted",RGBA(39,113,194,1),ThisItem.LeadStatus="InProgress",RGBA(54,176,75,1),ThisItem.LeadStatus="Rejected",RGBA(255,0,0,1))
+                                Color: =If(ThisItem.LeadStatus="Submitted",RGBA(39,113,194,1),ThisItem.LeadStatus="InProgress",RGBA(54,176,75,1),ThisItem.LeadStatus="Rejected",Header.SHRed)
                                 FontWeight: =FontWeight.Semibold
                                 Text: |-
                                     =//"Active"
@@ -341,7 +341,7 @@ LeadListScreen As screen:
                                 ZIndex: =10
 
                             icnrightLS As icon.ChevronRight:
-                                Color: =RGBA(255, 0, 0, 1)
+                                Color: =Header.SHRed
                                 Height: =60
                                 Icon: =Icon.ChevronRight
                                 OnSelect: =//Navigate(LeadScreen)
