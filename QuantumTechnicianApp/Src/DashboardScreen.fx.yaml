@@ -232,7 +232,7 @@ DashboardScreen As screen:
             Height: =Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-10
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
-            LayoutGap: =10
+            LayoutGap: =5
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -249,7 +249,7 @@ DashboardScreen As screen:
                 Height: |
                     =//180
                     //Parent.Height/5.5
-                    If(Parent.Height<Parent.Width,Parent.Height/2.5,Parent.Height/4.5)
+                    If(Parent.Height<Parent.Width,Parent.Height/2.8,Parent.Height/4.2)
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -297,7 +297,9 @@ DashboardScreen As screen:
                                 If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblOpenLeadsDS.Height+lblOpenLeadsDS.Y
+                            Y: |-
+                                =//lblOpenLeadsDS.Height+lblOpenLeadsDS.Y
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =1
 
                         lblOpenLeadsDS As label:
@@ -308,6 +310,7 @@ DashboardScreen As screen:
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
+                            PaddingTop: =0
                             Size: |-
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width>358,16,18)
@@ -328,11 +331,14 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: ="Open"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: |-
+                                =//Parent.Height/10
+                                //If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                lblOpenLeadsCountDS.Y+lblOpenLeadsCountDS.Height
                             ZIndex: =3
 
                         btnOpenLeadsDS As button:
@@ -383,7 +389,7 @@ DashboardScreen As screen:
                         Y: =40
                         ZIndex: =5
 
-                        lblInprogressLeadsDS As label:
+                        lblInprogressLeadsCountDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -400,10 +406,12 @@ DashboardScreen As screen:
                                 If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" && Year('Created On')=Year(Now())))) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblInprogressLeadsDS_1.Height+lblInprogressLeadsDS_1.Y
+                            Y: |-
+                                =//lblInprogressLeadsDS_1.Height+lblInprogressLeadsDS_1.Y
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =1
 
-                        lblInprogressLeadsDS_1 As label:
+                        lblInprogressLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -411,6 +419,7 @@ DashboardScreen As screen:
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
+                            PaddingTop: =0
                             Size: |-
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width>358,16,18)
@@ -418,10 +427,10 @@ DashboardScreen As screen:
                                 ="Leads#"
                             Width: =Parent.Width
                             X: =
-                            Y: =lblInprogressLeadsDS_2.Height+lblInprogressLeadsDS_2.Y
+                            Y: =lblInprogressDS.Height+lblInprogressDS.Y
                             ZIndex: =2
 
-                        lblInprogressLeadsDS_2 As label:
+                        lblInprogressDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
@@ -431,11 +440,14 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: ="In Progress"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: |-
+                                =//If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                lblInprogressLeadsCountDS.Height+lblInprogressLeadsCountDS.Y
                             ZIndex: =3
 
                         btnInprogressLeadsDS As button:
@@ -494,7 +506,8 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,16)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
                                 
@@ -502,7 +515,9 @@ DashboardScreen As screen:
                                 If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected" && Year('Created On')=Year(Now())))) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblLeadsDS.Height+lblLeadsDS.Y
+                            Y: |-
+                                =//lblLeadsDS.Height+lblLeadsDS.Y
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =4
 
                         lblLeadsDS As label:
@@ -513,6 +528,7 @@ DashboardScreen As screen:
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
+                            PaddingTop: =0
                             Size: |-
                                 =//19.22
                                 If(Parent.Width<358,12,Parent.Width>358,16,18)
@@ -533,11 +549,13 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: ="Rejected"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: |-
+                                =//If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                lblLeadsCountDS.Y+lblLeadsCountDS.Height
                             ZIndex: =6
 
                         btnRejectedLeadsDS As button:
@@ -554,8 +572,6 @@ DashboardScreen As screen:
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
-                            PaddingRight: =5.34
-                            PaddingTop: =0
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -578,7 +594,7 @@ DashboardScreen As screen:
                 Height: |
                     =//180
                     //Parent.Height/5.5
-                    If(Parent.Height<Parent.Width,Parent.Height/2.4,Parent.Height/4.4)
+                    If(Parent.Height<Parent.Width,Parent.Height/2.4,Parent.Height/4.2)
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -616,12 +632,13 @@ DashboardScreen As screen:
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
+                            PaddingTop: =0
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,14,16)
+                                If(Parent.Width<358,11,Parent.Width>358,12,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
-                                "Incentives  " &  "$" & " " &
+                                "Incentives  " &  "$" & Char(10) &
                                 If(
                                    yearly = true,
                                 If(
@@ -638,22 +655,22 @@ DashboardScreen As screen:
                                 )) 
                             Width: =Parent.Width
                             X: =
-                            Y: =lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
+                            Y: =lblQuotedDS.Height+lblQuotedDS.Y
                             ZIndex: =1
 
                         lblQuotedLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
-                            FontWeight: =FontWeight.Semibold
+                            FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,14,18)
+                                If(Parent.Width>800,20,Parent.Width<358,14,Parent.Width>358,16)
                             Text: |-
-                                ="Leads#" & " " & 
+                                =
                                 If(
                                     yearly=true ,
                                 
@@ -661,7 +678,9 @@ DashboardScreen As screen:
                                         Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead))
                             Width: =Parent.Width
                             X: =
-                            Y: =lblQuotedDS.Height+lblQuotedDS.Y
+                            Y: |-
+                                =//lblQuotedDS.Height+lblQuotedDS.Y
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =2
 
                         lblQuotedDS As label:
@@ -672,13 +691,16 @@ DashboardScreen As screen:
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
-                            Size: |
+                            Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,14,18)
-                            Text: ="Quoted"
+                                If(Parent.Width>800,20,Parent.Width<358,11,Parent.Width>358,12)
+                            Text: |-
+                                ="Quoted Leads #"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: |-
+                                =//If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                lblQuotedLeadsDS.Height+lblQuotedLeadsDS.Y
                             ZIndex: =3
 
                         btnQuotedLeadsDS As button:
@@ -697,8 +719,6 @@ DashboardScreen As screen:
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
-                            PaddingRight: =5.34
-                            PaddingTop: =30
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -741,12 +761,13 @@ DashboardScreen As screen:
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
+                            PaddingTop: =0
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,14,16)
+                                If(Parent.Width<358,11,Parent.Width>358,12,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalsoldIncentives and if user select span for cumulatively, then need to show sum of TotalsoldIncentives .
-                                "Incentives  "  &  "$" & " " &
+                                "Incentives  "  &  "$" & Char(10) &
                                 If(
                                    yearly = true,
                                 If(
@@ -767,22 +788,23 @@ DashboardScreen As screen:
                                 ))
                             Width: =Parent.Width
                             X: =
-                            Y: =lblSoldLeadsCountDS.Height+lblSoldLeadsCountDS.Y
+                            Y: |
+                                =lblSoldLeadsDS.Height+lblSoldLeadsDS.Y
                             ZIndex: =1
 
                         lblSoldLeadsCountDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
                             DisplayMode: =DisplayMode.View
-                            FontWeight: =FontWeight.Semibold
+                            FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,14,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
-                                ="Leads#" & " " & 
+                                =
                                 If(
                                     yearly=true ,
                                     /*If(
@@ -794,7 +816,7 @@ DashboardScreen As screen:
                                         Sum(GCTotalIncentives,TotalSoldLead)=0,0,*/Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead))
                             Width: =Parent.Width
                             X: =
-                            Y: =lblSoldLeadsDS.Height+lblSoldLeadsDS.Y
+                            Y: =If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
                             ZIndex: =2
 
                         lblSoldLeadsDS As label:
@@ -805,13 +827,16 @@ DashboardScreen As screen:
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
-                            Size: |
+                            Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,14,18)
-                            Text: ="Sold"
+                                If(Parent.Width>800,20,Parent.Width<358,11,Parent.Width>358,12)
+                            Text: |-
+                                ="Sold Leads #"
                             Width: =Parent.Width
                             X: =
-                            Y: =Parent.Height/10
+                            Y: |
+                                =//Parent.Height/10
+                                lblSoldLeadsCountDS.Height+lblSoldLeadsCountDS.Y
                             ZIndex: =3
 
                         btnSoldLeadsDS As button:
@@ -830,8 +855,6 @@ DashboardScreen As screen:
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
-                            PaddingRight: =5.34
-                            PaddingTop: =30
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
