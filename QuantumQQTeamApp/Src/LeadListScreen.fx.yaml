@@ -177,6 +177,24 @@ LeadListScreen As screen:
                     Y: =25
                     ZIndex: =2
 
+            Container4 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                FillPortions: =0
+                Height: =40
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =Parent.Width
+                ZIndex: =2
+
+                Label3 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Click on specific lead to see details."
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.Width
+                    X: =10
+                    Y: =10
+                    ZIndex: =1
+
             ctnleadlistLS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
@@ -185,7 +203,7 @@ LeadListScreen As screen:
                 LayoutMinWidth: =250
                 Visible: =true // VarAllLeads
                 Width: =Parent.Width
-                ZIndex: =2
+                ZIndex: =3
 
                 ctnleadlistglryLS As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.Height//+5000
