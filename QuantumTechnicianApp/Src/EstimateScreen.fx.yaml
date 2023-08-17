@@ -480,6 +480,7 @@ EstimateScreen As screen:
                     StarVisibleEstimatedHours As label:
                         Align: =Align.Center
                         Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =IntxtEstimatedHours.Height
                         Size: =21
                         Text: ="*"
@@ -565,6 +566,7 @@ EstimateScreen As screen:
                     StarVisibleMaterial As label:
                         Align: =Align.Center
                         Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =IntxtMaterial.Height
                         Size: =21
                         Text: ="*"
@@ -906,7 +908,9 @@ EstimateScreen As screen:
                     StarVisibleCustomerName As label:
                         Align: =Align.Center
                         Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =IntxtContactName.Height
+                        Size: =21
                         Text: ="*"
                         VerticalAlign: =VerticalAlign.Top
                         Visible: |-
@@ -1004,7 +1008,9 @@ EstimateScreen As screen:
                     StarVisibleContactNumber As label:
                         Align: =Align.Center
                         Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =IntxtContactNumberES.Height
+                        Size: =21
                         Text: ="*"
                         Visible: |-
                             =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)

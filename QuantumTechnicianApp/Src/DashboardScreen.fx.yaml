@@ -921,6 +921,7 @@ DashboardScreen As screen:
                         Clear(LeadImagesCollection);
                         Set(VarcontractRecord,Blank());
                         Set(VarformattedNumber,Blank());
+                        Set(VarCommunication,false);
                         Navigate(CreatLeadScreen);
                         Set(
                                 VarIndicator,

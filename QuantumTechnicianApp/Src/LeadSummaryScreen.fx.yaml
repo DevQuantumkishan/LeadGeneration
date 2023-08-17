@@ -247,6 +247,7 @@ LeadSummaryScreen As screen:
 
                         StarVisibleCNLSS As label:
                             Align: =Align.Center
+                            Font: =Font.Arial
                             Height: =lblContractNumberLSS.Height
                             Size: =21
                             Text: ="*"
@@ -328,6 +329,7 @@ LeadSummaryScreen As screen:
 
                         StarVisibleBNLSS As label:
                             Align: =Align.Center
+                            Font: =Font.Arial
                             Height: =lblBuildingNameLSS.Height
                             Size: =21
                             Text: ="*"
@@ -406,6 +408,7 @@ LeadSummaryScreen As screen:
 
                         StarVisibleZipcodeLSS As label:
                             Align: =Align.Center
+                            Font: =Font.Arial
                             Height: =lblZipcodeLSS.Height
                             Size: =21
                             Text: ="*"
@@ -487,6 +490,7 @@ LeadSummaryScreen As screen:
 
                         StarVisibleAddressLSS As label:
                             Align: =Align.Center
+                            Font: =Font.Arial
                             Height: =lblAddressLSS.Height
                             Size: =21
                             Text: ="*"
@@ -570,6 +574,7 @@ LeadSummaryScreen As screen:
                         StarVisibleUnitCountLSS As label:
                             Align: =Align.Center
                             Color: =RGBA(255, 0, 0, 1)
+                            Font: =Font.Arial
                             Height: =lblUnitCountLSS.Height
                             PaddingTop: =15
                             Size: =21
@@ -653,6 +658,7 @@ LeadSummaryScreen As screen:
                         StarVisibleUnitDescriptionLSS As label:
                             Align: =Align.Center
                             Color: =RGBA(255, 0, 0, 1)
+                            Font: =Font.Arial
                             Height: =lblUnitDescriptionLSS.Height
                             PaddingTop: =15
                             Size: =21
@@ -1120,6 +1126,7 @@ LeadSummaryScreen As screen:
 
                         StarVisibleUDLSS As label:
                             Align: =Align.Center
+                            Font: =Font.Arial
                             Height: =CboxUDLSS.Height
                             Size: =21
                             Text: ="*"
@@ -1181,6 +1188,7 @@ LeadSummaryScreen As screen:
 
                         StarVisibleAELSS As label:
                             Align: =Align.Center
+                            Font: =Font.Arial
                             Height: =
                             Size: =21
                             Text: ="*"
@@ -1242,6 +1250,7 @@ LeadSummaryScreen As screen:
 
                         StarVisibleTravelRequiredLSS As label:
                             Align: =Align.Center
+                            Font: =Font.Arial
                             Height: =
                             Size: =21
                             Text: ="*"
@@ -1303,6 +1312,7 @@ LeadSummaryScreen As screen:
 
                         StarVisibleCCLSS As label:
                             Align: =Align.Center
+                            Font: =Font.Arial
                             Height: =
                             Size: =21
                             Text: ="*"
@@ -1412,8 +1422,10 @@ LeadSummaryScreen As screen:
                         StarVisibleLSS As label:
                             Align: =Align.Center
                             Color: =RGBA(255, 0, 0, 1)
+                            Font: =Font.Arial
                             Height: =lblCustomerNameLSS.Height
                             PaddingTop: =15
+                            Size: =21
                             Text: ="*"
                             Visible: |-
                                 =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -1480,8 +1492,10 @@ LeadSummaryScreen As screen:
                         StarVisibleContactNumberLSS As label:
                             Align: =Align.Center
                             Color: =RGBA(255, 0, 0, 1)
+                            Font: =Font.Arial
                             Height: =lblCustomerContactLSS.Height
                             PaddingTop: =15
+                            Size: =21
                             Text: ="*"
                             Visible: |-
                                 =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -1622,7 +1636,7 @@ LeadSummaryScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =If(IsBlank(IntxtUnitCountLSS.Text) ||IsBlank(IntxtUnitDescriptionLSS.Text)|| IsBlank(CboxScopeLSS) || IsBlank(CboxScopeofWorkLSS) || IsBlank(IntxtManuallyScopeofWorkLSS.Text)|| IsBlank(IntxtEstimatedHoursLSS.Text) ||IsBlank(IntxtNotesLSS.Text) ,
+                        =If(IsBlank(IntxtUnitCountLSS.Text) ||IsBlank(IntxtUnitDescriptionLSS.Text)|| IsBlank(CboxScopeLSS) || IsBlank(CboxScopeofWorkLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) ||IsBlank(IntxtNotesLSS.Text) ||If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactNumberES) || IsBlank(IntxtContactName)) ,
                         Set(VarErrorPopup,true),
                         Set(VarNotificationloding,true);
                         Set(VarNotification,true);
@@ -1951,7 +1965,7 @@ LeadSummaryScreen As screen:
 
                 imgNotificationLSS_1 As image:
                     Height: =Parent.Height
-                    Image: =If(VarNotificationloding,'waiting-icon-gif-4',VarNotificationSuccess,Group)
+                    Image: =error
                     PaddingTop: =40
                     Width: =Parent.Width
                     ZIndex: =1
@@ -1962,18 +1976,18 @@ LeadSummaryScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: =If(VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead submitted successfully.")
+                Text: ="All required fields are mandatory"
                 Width: =Parent.Width
                 ZIndex: =2
 
             btnOkErrorLSS As button:
+                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
-                OnSelect: =Navigate(DashboardScreen);
+                OnSelect: =Set(VarErrorPopup,false);
                 Size: =14
                 Text: ="Ok"
-                Visible: =If(lblErrorLSS.Text="Lead submitted successfully.",true,false)
                 Width: =Parent.Width/5
                 ZIndex: =3
 
