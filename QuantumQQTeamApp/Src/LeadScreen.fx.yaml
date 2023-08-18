@@ -632,12 +632,13 @@ LeadScreen As screen:
                     ctnleadinfoleaddetailsLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
-                        Height: |-
+                        Height: |
                             =If(
                                 ctnemailleaddetailsLdS.Height > ctnestimatedhoursleaddetailsLdS.Height,
                                 ctnemailleaddetailsLdS.Height+30,
                                 ctnestimatedhoursleaddetailsLdS.Height+30
                             )
+                            //ctnnotesleaddetailsLdS.Height+30
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
