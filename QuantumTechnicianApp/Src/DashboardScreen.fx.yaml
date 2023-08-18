@@ -933,6 +933,8 @@ DashboardScreen As screen:
                         Set(VarcontractRecord,Blank());
                         Set(VarformattedNumber,Blank());
                         Set(VarCommunication,false);
+                        Set(VarAdditionExpense,false);
+                        Set(VarTravel,false);
                         Navigate(CreatLeadScreen);
                         Set(
                                 VarIndicator,
