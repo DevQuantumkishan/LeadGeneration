@@ -46,13 +46,16 @@ DashboardScreen As screen:
             ZIndex: =1
 
             IconMenuDS As icon.Hamburger:
+                AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
                 OnSelect: =Set(varshowMenu,!varshowMenu)
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
-                Width: =Parent.Height
+                Width: |-
+                    =//Parent.Height
+                    60
                 X: =18
                 Y: =11
                 ZIndex: =1
@@ -64,7 +67,9 @@ DashboardScreen As screen:
                 Image: ='1x'
                 PaddingBottom: =5
                 PaddingTop: =0.00
-                Width: =If(Parent.Width>Parent.Height,Parent.Width/8,Parent.Width/12)
+                Width: |-
+                    =//If(Parent.Width>Parent.Height,Parent.Width/8,Parent.Width/12)
+                    60
                 X: =0.00
                 ZIndex: =2
 
@@ -78,6 +83,7 @@ DashboardScreen As screen:
                 LayoutMinWidth: =320
                 PaddingBottom: =5
                 PaddingTop: =0.00
+                Visible: =false
                 Width: =If(Parent.Width>Parent.Height,Parent.Width/10,Parent.Width/14)
                 X: =0.00
                 ZIndex: =3
@@ -96,7 +102,7 @@ DashboardScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician"
-                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-imgSchindlerLogoDS.Width-20
+                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-30
                 X: =96.12
                 ZIndex: =4
 
@@ -223,7 +229,7 @@ DashboardScreen As screen:
                     TextPosition: =TextPosition.Left
                     TrueFill: =RGBA(255, 0, 0, 1)
                     TrueText: =Year(Now())
-                    Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width>1000,Parent.Width/30)
+                    Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width>1000,Parent.Width/10,Parent.Width>2000,Parent.Width)
                     X: =lblUserNameDS.X+lblUserNameDS.Width
                     ZIndex: =1
 
