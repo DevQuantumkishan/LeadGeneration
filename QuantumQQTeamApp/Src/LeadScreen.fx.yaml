@@ -205,6 +205,7 @@ LeadScreen As screen:
                 LayoutMinHeight: =50
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                Visible: =If((glryleadlistLS.Selected.LeadStatus="InProgress" /*||glryleadlistLS.Selected.LeadStatus="Quoted"*/) && glryleadlistLS.Selected.QQTeamName=User().FullName,true,false)
                 Width: =180
                 ZIndex: =2
 
@@ -511,6 +512,7 @@ LeadScreen As screen:
 
                     ctnaddressdetailsLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
                         Height: |-
                             =If(
                                 ctnbuildingnameleaddetailsLdS.Height > ctnaddressleaddetailsLdS.Height,
@@ -629,6 +631,7 @@ LeadScreen As screen:
 
                     ctnleadinfoleaddetailsLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
                         Height: |-
                             =If(
                                 ctnemailleaddetailsLdS.Height > ctnestimatedhoursleaddetailsLdS.Height,
@@ -749,6 +752,7 @@ LeadScreen As screen:
 
                     ctnunitinfoleaddetailsLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
                         Height: |-
                             =If(
                                 ctnunitdescriptionleaddetailsLdS.Height > ctncustomscopeofworkleaddetailsLdS.Height,
