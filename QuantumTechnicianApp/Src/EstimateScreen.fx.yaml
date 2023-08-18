@@ -871,6 +871,70 @@ EstimateScreen As screen:
                         Y: =lblTotalEstimatedExpense.Y
                         ZIndex: =5
 
+                CommunicatedtoCustomer As typedDataCard.comboBoxOptionSetSingleEditCard:
+                    BorderColor: =RGBA(202, 202, 202, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DataField: ="crd59_communicatedtocustomer"
+                    Default: =ThisItem.CommunicatedToCustomer
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_communicatedtocustomer")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =60
+                    Required: =false
+                    Update: =
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =7
+                    ZIndex: =1
+
+                    ErrorMessageCommunicatedtoCustomer As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =24
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =
+                        ZIndex: =3
+
+                    StarVisibleCommunicatedtoCustomer As label:
+                        Align: =Align.Center
+                        Font: =Font.Arial
+                        Height: =
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =
+                        ZIndex: =4
+
+                    CboxCommunicatedtoCustomer As checkbox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                        Color: =If(CboxCommunicatedtoCustomer.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                        Default: =VarCommunicationSummary
+                        Font: =Font.Arial
+                        HoverBorderColor: =
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        OnCheck: |-
+                            =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);
+                            Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
+                        OnUncheck: =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);Set(VarCommunication,false);Reset(IntxtContactName);Reset(IntxtContactNumberES);
+                        PressedBorderColor: =
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Communicated to customer"
+                        Width: =Parent.Width-50
+                        X: =30
+                        ZIndex: =5
+
                 TotalEstimatedHoursofTravelES As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
@@ -966,70 +1030,6 @@ EstimateScreen As screen:
                         Wrap: =false
                         X: =30
                         Y: =lblTotalEstimatedHoursofTravel.Y
-                        ZIndex: =5
-
-                CommunicatedtoCustomer As typedDataCard.comboBoxOptionSetSingleEditCard:
-                    BorderColor: =RGBA(202, 202, 202, 1)
-                    BorderStyle: =BorderStyle.Solid
-                    BorderThickness: =0
-                    DataField: ="crd59_communicatedtocustomer"
-                    Default: =ThisItem.CommunicatedToCustomer
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_communicatedtocustomer")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =60
-                    Required: =false
-                    Update: =
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =7
-                    ZIndex: =1
-
-                    ErrorMessageCommunicatedtoCustomer As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =
-                        ZIndex: =3
-
-                    StarVisibleCommunicatedtoCustomer As label:
-                        Align: =Align.Center
-                        Font: =Font.Arial
-                        Height: =
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =
-                        ZIndex: =4
-
-                    CboxCommunicatedtoCustomer As checkbox:
-                        BorderColor: =RGBA(0, 0, 0, 0)
-                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
-                        Color: =If(CboxCommunicatedtoCustomer.Value=true,Color.Black,RGBA(149, 149, 149, 1))
-                        Default: =VarCommunicationSummary
-                        Font: =Font.Arial
-                        HoverBorderColor: =
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        OnCheck: |-
-                            =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);
-                            Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
-                        OnUncheck: =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);Set(VarCommunication,false);Reset(IntxtContactName);Reset(IntxtContactNumberES);
-                        PressedBorderColor: =
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Communicated to customer"
-                        Width: =Parent.Width-50
-                        X: =30
                         ZIndex: =5
 
                 CustomerName As typedDataCard.textualEditCard:
