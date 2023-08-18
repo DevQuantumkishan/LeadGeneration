@@ -984,6 +984,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Reset: =true
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 120
                         X: =60
@@ -1037,6 +1038,156 @@ EstimateScreen As screen:
                         X: =IntxtContactNumberES.X
                         Y: =IntxtContactNumberES.Y
                         ZIndex: =6
+
+                TotalEstimatedExpenseES As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(202, 202, 202, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_totalestimatedexpense"
+                    Default: =ThisItem.TotalEstimatedExpense
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedexpense")
+                    Fill: =RGBA(237, 237, 237, 1)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedexpense")
+                    Required: =false
+                    Update: =IntxtTotalEstimatedExpense.Text
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =8
+                    ZIndex: =1
+
+                    lblTotalEstimatedExpense As label:
+                        AutoHeight: =true
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
+                        Height: =34
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Total Estimated Expense"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    IntxtTotalEstimatedExpense As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Arial
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =lblTotalEstimatedExpense.Y + lblTotalEstimatedExpense.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessagelblTotalEstimatedExpense As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =IntxtTotalEstimatedExpense.Y + IntxtTotalEstimatedExpense.Height
+                        ZIndex: =3
+
+                    StarVisiblelblTotalEstimatedExpense As label:
+                        Align: =Align.Center
+                        Height: =lblTotalEstimatedExpense.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =lblTotalEstimatedExpense.Y
+                        ZIndex: =4
+
+                TotalEstimatedHoursofTravelES As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(202, 202, 202, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_totalestimatedhoursoftravel"
+                    Default: =ThisItem.TotalEstimatedHoursofTravel
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
+                    Fill: =RGBA(237, 237, 237, 1)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
+                    Required: =false
+                    Update: =IntxtTotalEstimatedHoursofTravel.Text
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =9
+                    ZIndex: =1
+
+                    lblTotalEstimatedHoursofTravel As label:
+                        AutoHeight: =true
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
+                        Height: =34
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    IntxtTotalEstimatedHoursofTravel As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Arial
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =lblTotalEstimatedHoursofTravel.Y + lblTotalEstimatedHoursofTravel.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessageTotalEstimatedHoursofTravel As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =IntxtTotalEstimatedHoursofTravel.Y + IntxtTotalEstimatedHoursofTravel.Height
+                        ZIndex: =3
+
+                    StarVisibleTotalEstimatedHoursofTravel As label:
+                        Align: =Align.Center
+                        Height: =lblTotalEstimatedHoursofTravel.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =lblTotalEstimatedHoursofTravel.Y
+                        ZIndex: =4
 
             ctnButtonES As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer

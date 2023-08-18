@@ -489,7 +489,7 @@ UnitScreen As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
-                        Height: =If(VarUnitCount,48,0)
+                        Height: =If(VarUnitCount,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Quantity of Units"
                         Tooltip: ="Quantity of Units"
@@ -584,7 +584,7 @@ UnitScreen As screen:
                         DisabledColor: =
                         Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
-                        Height: =If(VarUnitDescription,48,0)
+                        Height: =If(VarUnitDescription,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Unit Description"
                         Visible: =VarUnitDescription || !IsBlank(IntxtUnitDescription)

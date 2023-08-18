@@ -398,7 +398,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height=0,350,Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height+20)
+                Height: =If(Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height=0,380,Scope.Height+ScopeOfWork.Height+ManuallyScopeOfWork.Height+40)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -426,7 +426,7 @@ ScopeScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =If(VarScope,48)
+                        Height: =If(VarScope,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: |-
                             =//Parent.DisplayName
@@ -467,7 +467,7 @@ ScopeScreen As screen:
                         Tooltip: ="Search scope"
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblScope.Y + lblScope.Height 
+                        Y: =lblScope.Y + lblScope.Height +2
                         ZIndex: =2
 
                     ErrorMessageScope As label:
@@ -509,7 +509,7 @@ ScopeScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_PrimaryScopeofWorkLID")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =120
+                    Height: =100
                     Required: =false
                     Update: =CboxScopeofwork.Selected
                     Width: =Parent.Width
@@ -521,7 +521,7 @@ ScopeScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =If(VarScopeofwork,48,0)
+                        Height: =If(VarScopeofwork,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Scope of work"
                         Visible: =VarScopeofwork
@@ -558,12 +558,12 @@ ScopeScreen As screen:
                         Tooltip: ="Search scope of work"
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblScopeofwork.Y + lblScopeofwork.Height
+                        Y: =lblScopeofwork.Y + lblScopeofwork.Height+2
                         ZIndex: =2
 
                     ErrorMessageScopeofwork As label:
                         AutoHeight: =true
-                        Height: =10
+                        Height: =If(VarNotificationScope,20,0)
                         Live: =Live.Assertive
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -632,7 +632,7 @@ ScopeScreen As screen:
                         Tooltip: ="Custom scope of work(manually entered)"
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =lblManuallyScopeofwork.Y + lblManuallyScopeofwork.Height
+                        Y: =lblManuallyScopeofwork.Y + lblManuallyScopeofwork.Height+2
                         ZIndex: =1
 
                     ErrorMessageManuallyScopeofwork As label:
@@ -654,6 +654,7 @@ ScopeScreen As screen:
                     StarVisibleManuallyScopeofwork As label:
                         Align: =Align.Center
                         Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
                         Height: =IntxtManuallyScopeofwork.Height
                         Size: =21
                         Text: ="*"
@@ -669,7 +670,7 @@ ScopeScreen As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Font: =Font.Arial
-                        Height: =If(VarCustomScopeofwork,48,0)
+                        Height: =If(VarCustomScopeofwork,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Custom Scope of work(Manually Entered)"
                         Visible: =VarCustomScopeofwork
