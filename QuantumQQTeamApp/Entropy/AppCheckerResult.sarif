@@ -4198,19 +4198,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.Container16.TextInput2.AccessibleLabel"
+                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnapproverejectLdS_1.txitnptrejectLdS_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.Container16.TextInput2.AccessibleLabel",
+                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnapproverejectLdS_1.txitnptrejectLdS_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "LeadScreen",
-                "type": "LeadScreen.ctnmainLdS.ctnglrymainLdS.Container16.TextInput2"
+                "type": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnapproverejectLdS_1.txitnptrejectLdS_1"
               }
             }
           ],
@@ -4228,19 +4228,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.Container16.TextInput3.AccessibleLabel"
+                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnapproverejectLdS_1.txtinptestimatenumber_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.Container16.TextInput3.AccessibleLabel",
+                  "fullyQualifiedName": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnapproverejectLdS_1.txtinptestimatenumber_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "LeadScreen",
-                "type": "LeadScreen.ctnmainLdS.ctnglrymainLdS.Container16.TextInput3"
+                "type": "LeadScreen.ctnmainLdS.ctnglrymainLdS.ctnapproverejectLdS_1.txtinptestimatenumber_1"
               }
             }
           ],
@@ -4691,6 +4691,66 @@
                 "member": "TabIndex",
                 "module": "LeadScreen",
                 "type": "LeadScreen.lblmsgLS_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LeadListScreen.ctnmainLS.ctnlistLS.ctnleadlistLS.ctnlistheadingLS.lblcreatedateLS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LeadListScreen.ctnmainLS.ctnlistLS.ctnleadlistLS.ctnlistheadingLS.lblcreatedateLS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "LeadListScreen",
+                "type": "LeadListScreen.ctnmainLS.ctnlistLS.ctnleadlistLS.ctnlistheadingLS.lblcreatedateLS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LeadListScreen.ctnmainLS.ctnlistLS.ctnleadlistLS.ctnlistheadingLS.lblcreatedateLS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LeadListScreen.ctnmainLS.ctnlistLS.ctnleadlistLS.ctnlistheadingLS.lblcreatedateLS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "LeadListScreen",
+                "type": "LeadListScreen.ctnmainLS.ctnlistLS.ctnleadlistLS.ctnlistheadingLS.lblcreatedateLS"
               }
             }
           ],
