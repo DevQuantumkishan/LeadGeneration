@@ -195,7 +195,7 @@ LeadScreen As screen:
                     Width: =150
                     ZIndex: =2
 
-            ctnleadmessagestabLdS As groupContainer.verticalAutoLayoutContainer:
+            ctnleadproposaltabLdS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
                 Height: =Parent.Height
@@ -207,6 +207,48 @@ LeadScreen As screen:
                 LayoutMode: =LayoutMode.Auto
                 Width: =180
                 ZIndex: =2
+
+                btnleadproposaltabLdS As button:
+                    BorderThickness: =0
+                    Color: =If(VarLeadProposal= true,Header.Black,Header.Red)
+                    Fill: =Header.White
+                    FocusedBorderThickness: =
+                    HoverColor: =//RGBA(255, 255, 255, 1)
+                    HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    OnSelect: |
+                        =Set(VarLeadDetails,false);
+                        Set(VarLeadProposal,true);
+                        Set(VarLeadMessages,false);
+                    PressedFill: =//Self.Color
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Text: ="Lead Proposal"
+                    Width: =170
+                    ZIndex: =1
+
+                icnhorizontalleadproposalLdS As icon.Add:
+                    Color: =Header.Red
+                    Fill: =Header.Red
+                    Height: =3
+                    Icon: =Icon.HorizontalLine
+                    Visible: =If(VarLeadProposal= true,true,false)
+                    Width: =150
+                    ZIndex: =2
+
+            ctnleadmessagestabLdS As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =50
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =180
+                ZIndex: =3
 
                 btnleadmessagetabLdS As button:
                     BorderThickness: =0
@@ -234,49 +276,6 @@ LeadScreen As screen:
                     Height: =3
                     Icon: =Icon.HorizontalLine
                     Visible: =If(VarLeadMessages= true,true,false)
-                    Width: =150
-                    ZIndex: =2
-
-            ctnleadproposaltabLdS As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                FillPortions: =0
-                Height: =Parent.Height
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutJustifyContent: =LayoutJustifyContent.Center
-                LayoutMinHeight: =50
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Width: =180
-                ZIndex: =3
-
-                btnleadproposaltabLdS As button:
-                    BorderThickness: =0
-                    Color: =If(VarLeadProposal= true,Header.Black,Header.Red)
-                    Fill: =Header.White
-                    FocusedBorderThickness: =
-                    HoverColor: =//RGBA(255, 255, 255, 1)
-                    HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                    OnSelect: |
-                        =Set(VarLeadDetails,false);
-                        Set(VarLeadProposal,true);
-                        Set(VarLeadMessages,false);
-                    PressedFill: =//Self.Color
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Text: ="Lead Proposal"
-                    Visible: =false
-                    Width: =170
-                    ZIndex: =1
-
-                icnhorizontalleadproposalLdS As icon.Add:
-                    Color: =Header.Red
-                    Fill: =Header.Red
-                    Height: =3
-                    Icon: =Icon.HorizontalLine
-                    Visible: =If(VarLeadProposal= true,true,false)
                     Width: =150
                     ZIndex: =2
 
