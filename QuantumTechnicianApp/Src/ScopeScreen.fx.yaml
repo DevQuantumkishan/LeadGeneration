@@ -584,9 +584,7 @@ ScopeScreen As screen:
                         Height: =CboxScopeofwork.Height
                         Size: =21
                         Text: ="*"
-                        Visible: |-
-                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            true
+                        Visible: =false
                         Width: =30
                         Wrap: =false
                         Y: =lblScopeofwork.Y
@@ -721,7 +719,7 @@ ScopeScreen As screen:
                     HoverFill: =Color.Red
                     OnSelect: |
                         =If(
-                            !IsBlank(CboxScope.Selected) && !IsBlank(CboxScopeofwork.Selected) ,
+                            !IsBlank(CboxScope.Selected)  ,
                         Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);
                         Set(VarIndicatorSS,true);

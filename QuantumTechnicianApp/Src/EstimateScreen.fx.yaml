@@ -709,70 +709,6 @@ EstimateScreen As screen:
                         X: =30
                         ZIndex: =5
 
-                TravelRequired As typedDataCard.comboBoxOptionSetSingleEditCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="crd59_travelrequired"
-                    Default: =ThisItem.TravelRequired
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =60
-                    Required: =false
-                    Update: =
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =5
-                    ZIndex: =1
-
-                    ErrorMessageTravelRequired As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =
-                        ZIndex: =3
-
-                    StarVisibleTravelRequired As label:
-                        Align: =Align.Center
-                        Font: =Font.Arial
-                        Height: =
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =
-                        ZIndex: =4
-
-                    CboxTravelRequired As checkbox:
-                        BorderColor: =RGBA(0, 0, 0, 0)
-                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
-                        Color: =If(CboxTravelRequired.Value=true,Color.Black,RGBA(149, 149, 149, 1))
-                        Default: =VarTravelSummary
-                        Font: =Font.Arial
-                        HoverBorderColor: =
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        OnCheck: |-
-                            =Set(VarTravelSummary,CboxTravelRequired.Value);
-                            Set(VarTravel,true);Reset(IntxtTotalEstimatedHoursofTravel);
-                        OnUncheck: |-
-                            =Set(VarTravelSummary,CboxTravelRequired.Value);
-                            Set(VarTravel,false);Reset(IntxtTotalEstimatedHoursofTravel);
-                        PressedBorderColor: =
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Travel required"
-                        Width: =Parent.Width-50
-                        X: =30
-                        ZIndex: =5
-
                 TotalEstimatedExpenseES As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
@@ -869,6 +805,70 @@ EstimateScreen As screen:
                         Wrap: =false
                         X: =30
                         Y: =lblTotalEstimatedExpense.Y
+                        ZIndex: =5
+
+                TravelRequired As typedDataCard.comboBoxOptionSetSingleEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="crd59_travelrequired"
+                    Default: =ThisItem.TravelRequired
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =60
+                    Required: =false
+                    Update: =
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =5
+                    ZIndex: =1
+
+                    ErrorMessageTravelRequired As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =24
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =
+                        ZIndex: =3
+
+                    StarVisibleTravelRequired As label:
+                        Align: =Align.Center
+                        Font: =Font.Arial
+                        Height: =
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =
+                        ZIndex: =4
+
+                    CboxTravelRequired As checkbox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                        Color: =If(CboxTravelRequired.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                        Default: =VarTravelSummary
+                        Font: =Font.Arial
+                        HoverBorderColor: =
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        OnCheck: |-
+                            =Set(VarTravelSummary,CboxTravelRequired.Value);
+                            Set(VarTravel,true);Reset(IntxtTotalEstimatedHoursofTravel);
+                        OnUncheck: |-
+                            =Set(VarTravelSummary,CboxTravelRequired.Value);
+                            Set(VarTravel,false);Reset(IntxtTotalEstimatedHoursofTravel);
+                        PressedBorderColor: =
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Travel required"
+                        Width: =Parent.Width-50
+                        X: =30
                         ZIndex: =5
 
                 TotalEstimatedHoursofTravelES As typedDataCard.textualEditCard:
@@ -1246,7 +1246,7 @@ EstimateScreen As screen:
                         Height: =IntxtContactNumberES.Height
                         OnSelect: =Set(varContactNumber,false);
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: =If(IsBlank(IntxtContactNumberES),"",VarformattedNumberSummary)
+                        Text: =VarformattedNumberSummary
                         Visible: =varContactNumber
                         Width: =IntxtContactNumberES.Width
                         X: =IntxtContactNumberES.X
