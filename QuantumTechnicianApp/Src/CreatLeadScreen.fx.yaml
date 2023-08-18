@@ -479,10 +479,7 @@ CreatLeadScreen As screen:
                         Height: =IntxtContractNumber.Height
                         Size: =21
                         Text: ="*"
-                        Visible: |-
-                            =//If(LookUp(SHContracts,CONTR_NUM=Value(
-                              //  IntxtContractNumber.Text)).CONTR_NUM<>Value(IntxtContractNumber.Text),true,false)
-                              true
+                        Visible: =false
                         Width: =30
                         Wrap: =false
                         Y: =lblContractNumber.Y
@@ -495,7 +492,7 @@ CreatLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarContractNumber,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Contract Number"
+                        Text: ="Contract Number *"
                         Visible: =VarContractNumber || !IsBlank(IntxtContractNumber)
                         Width: =Parent.Width - 50
                         Wrap: =false
@@ -544,6 +541,7 @@ CreatLeadScreen As screen:
                         PaddingLeft: =5
                         PaddingRight: =5
                         PaddingTop: =5
+                        Visible: =false
                         Width: =IntxtContractNumber.Width/12
                         X: =IntxtContractNumber.Width-Self.Width+30
                         Y: =IntxtContractNumber.Y
@@ -735,7 +733,7 @@ CreatLeadScreen As screen:
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: |-
                             =//Parent.DisplayName
-                            "Building Name"
+                            "Building Name "
                         Visible: =VarBuildingName || !IsBlank(IntxtBuildingName)
                         Width: =Parent.Width - 50
                         Wrap: =false

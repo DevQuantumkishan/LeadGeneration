@@ -391,6 +391,7 @@ ScopeScreen As screen:
                 PaddingLeft: =40
                 PaddingTop: =20
                 Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                Visible: =false
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -430,7 +431,7 @@ ScopeScreen As screen:
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: |-
                             =//Parent.DisplayName
-                            "Scope"
+                            "Scope *"
                         Visible: =VarScope
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -493,9 +494,7 @@ ScopeScreen As screen:
                         Height: =CboxScope.Height
                         Size: =21
                         Text: ="*"
-                        Visible: |-
-                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            true
+                        Visible: =false
                         Width: =30
                         Wrap: =false
                         Y: =lblScope.Y

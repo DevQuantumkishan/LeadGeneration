@@ -5776,6 +5776,14 @@
           "InvariantPropertyName": "PaddingTop",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Visible",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "DynamicProperties": [
@@ -5929,6 +5937,11 @@
         {
           "Category": "Design",
           "PropertyName": "PaddingLeft",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -14433,7 +14446,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Visible",
           "IsLockable": true,
           "NameMapSourceSchema": "?"
@@ -14735,7 +14748,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Visible",
           "IsLockable": true,
           "NameMapSourceSchema": "?"

@@ -10598,7 +10598,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "Visible",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Visible",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -15691,8 +15698,8 @@
       "ControlPropertyState": [
         {
           "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": true,
-          "AutoRuleBindingString": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "//Parent.DisplayName\n\"Building Name\"",
           "InvariantPropertyName": "Text",
           "IsLockable": true,
           "NameMapSourceSchema": "?"
@@ -21451,7 +21458,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Visible",
           "IsLockable": true,
           "NameMapSourceSchema": "?"

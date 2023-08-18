@@ -393,6 +393,7 @@ UnitScreen As screen:
                 PaddingLeft: =40
                 PaddingTop: =20
                 Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                Visible: =false
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -476,9 +477,7 @@ UnitScreen As screen:
                         Height: =IntxtUnitCount.Height
                         Size: =21
                         Text: ="*"
-                        Visible: |-
-                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            true
+                        Visible: =false
                         Width: =30
                         Wrap: =false
                         Y: =lblUnitCount.Y
@@ -491,7 +490,7 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarUnitCount,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Quantity of Units"
+                        Text: ="Quantity of Units *"
                         Tooltip: ="Quantity of Units"
                         Visible: =VarUnitCount || !IsBlank(IntxtUnitCount)
                         Width: =Parent.Width - 50
@@ -570,9 +569,7 @@ UnitScreen As screen:
                         Size: =21
                         Text: ="*"
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: |-
-                            =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            true
+                        Visible: =false
                         Width: =30
                         Wrap: =false
                         Y: =lblUnitDescription.Y
@@ -586,7 +583,7 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarUnitDescription,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Unit Description"
+                        Text: ="Unit Description *"
                         Visible: =VarUnitDescription || !IsBlank(IntxtUnitDescription)
                         Width: =Parent.Width - 50
                         Wrap: =false
