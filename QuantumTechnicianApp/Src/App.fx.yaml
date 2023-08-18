@@ -3,8 +3,90 @@ App As appinfo:
     OnStart: |
         =// CSS
         Set(
-            AllScreenCSS,
-            {fontsize: 22}
+        //for header
+            Header,
+            {
+                HeaderFont: "Arial",
+                HeaderColor: RGBA(
+                    0,
+                    0,
+                    0,
+                    1
+                ),
+                HeaderFill: RGBA(
+                    255,
+                    255,
+                    255,
+                    1
+                ),
+                HUserColor: RGBA(
+                    220,
+                    0,
+                    0,
+                    1
+                ),
+                HeaderFontSize: If(App.Width<500,14,App.Width>500,20),
+                FontWeight: "bold",
+                HeaderUserFontSize: If(App.Width<500,11,App.Width>500,12,12)
+            }
+        );
+        Set(
+        //for Dashbord Screen
+            Dashboard,
+            {
+                DFont: "SF UI Display",
+                DColor: RGBA(
+                    0,
+                    0,
+                    0,
+                    1
+                ),
+                DCountColor: RGBA(
+                    220,
+                    0,
+                    0,
+                    1
+                ),
+                DFontSize: If(App.Width<358,12,App.Width>358,16,18),
+                DCountSize: If(App.Width<358,14,App.Width>358,16,18),
+                DheadingSize:If(App.Width>800,20,App.Width<358,12,App.Width>358,14)
+            }
+        );
+        Set(
+        //for all screens
+            AllScreensCSS,
+            {
+                RInActiveColor: RGBA(//black
+                    0,
+                    0,
+                    0,
+                    1
+                ),
+                RActiveColor: RGBA(//red
+                    220,
+                    0,
+                    0,
+                    1
+                ),
+                RColorWhite: RGBA(//white
+                    255,
+                    255,
+                    255,
+                    1
+                ),
+                RColorBlack: RGBA(//black
+                    0,
+                    0,
+                    0,
+                    1
+                ),
+                RFont: "SF UI Display",
+                ButtonFont: "Poppins",
+                RFontSize: If(App.Width<500,16,App.Width>500,20,18),
+                RLabelFontSize: If(App.Width<358,14,App.Width>358,16,18),
+                RFontWeight: "Bold",
+                RfontsizeInput: If(App.Width<358,12,App.Width>358,14,16)
+            }
         );
         Set(
             myMail,
