@@ -974,7 +974,9 @@ CreatLeadScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: ="Contract Number is mandatory"
+                Text: |-
+                    =If(
+                        IsBlank(VarcontractRecord) && !IsBlank(IntxtContractNumber.Text),"Contract number is not found in your district, Please try again.","Contract Number is mandatory.")
                 Width: =Parent.Width
                 ZIndex: =2
 
