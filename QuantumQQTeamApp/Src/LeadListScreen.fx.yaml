@@ -291,7 +291,8 @@ LeadListScreen As screen:
 
                             lblcreatedatevalueLS As label:
                                 Align: =Align.Center
-                                Text: =ThisItem.'Created On'//Text(ThisItem.'Created On',"yyyy mmm dd")
+                                Text: |-
+                                    =Text(ThisItem.'Created On',"yy/mm/dd hh:mm AM/PM")
                                 Width: =180
                                 ZIndex: =1
 
