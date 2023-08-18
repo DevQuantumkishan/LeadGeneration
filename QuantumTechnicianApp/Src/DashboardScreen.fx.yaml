@@ -311,7 +311,7 @@ DashboardScreen As screen:
                             X: =
                             Y: |-
                                 =//lblOpenLeadsDS.Height+lblOpenLeadsDS.Y
-                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/10)
                             ZIndex: =1
 
                         lblOpenLeadsDS As label:
@@ -420,7 +420,7 @@ DashboardScreen As screen:
                             X: =
                             Y: |-
                                 =//lblInprogressLeadsDS_1.Height+lblInprogressLeadsDS_1.Y
-                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/10)
                             ZIndex: =1
 
                         lblInprogressLeadsDS As label:
@@ -519,7 +519,7 @@ DashboardScreen As screen:
                             Size: |-
                                 =//19.22
                                 //If(Parent.Width<358,14,Parent.Width>358,16,18)
-                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,16)
+                                If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
                                 
@@ -529,7 +529,7 @@ DashboardScreen As screen:
                             X: =
                             Y: |-
                                 =//lblLeadsDS.Height+lblLeadsDS.Y
-                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/10)
                             ZIndex: =4
 
                         lblLeadsDS As label:
@@ -680,7 +680,7 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width>800,20,Parent.Width<358,14,Parent.Width>358,16)
+                                If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
                                 =
                                 If(
@@ -692,7 +692,7 @@ DashboardScreen As screen:
                             X: =
                             Y: |-
                                 =//lblQuotedDS.Height+lblQuotedDS.Y
-                                If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                                If(Parent.Height>Parent.Width,Parent.Height/6,Parent.Width>1000,Parent.Height/2,Parent.Height/8)
                             ZIndex: =2
 
                         lblQuotedDS As label:
@@ -814,7 +814,7 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
+                                If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
                                 =
                                 If(
@@ -828,7 +828,7 @@ DashboardScreen As screen:
                                         Sum(GCTotalIncentives,TotalSoldLead)=0,0,*/Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead))
                             Width: =Parent.Width
                             X: =
-                            Y: =If(Parent.Height>Parent.Width,Parent.Height/5,Parent.Height/12)
+                            Y: =If(Parent.Height>Parent.Width,Parent.Height/6,Parent.Height/10)
                             ZIndex: =2
 
                         lblSoldLeadsDS As label:
