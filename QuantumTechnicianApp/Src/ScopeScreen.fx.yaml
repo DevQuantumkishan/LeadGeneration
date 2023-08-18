@@ -730,6 +730,10 @@ ScopeScreen As screen:
                         Set(VarNotification,true););
                         If(CboxCommunicatedtoCustomer.Value=false,
                         Set(VarCommunication,false));
+                        If(CboxAdditionalExpensesRequired.Value=false,
+                        Set(VarAdditionExpense,false));
+                        If(CboxTravelRequired.Value=false,
+                        Set(VarTravel,false));
                         If(IsBlank(lblContactNumber),Set(VarformattedNumber,Blank()));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,12)
                     Text: ="Next"
