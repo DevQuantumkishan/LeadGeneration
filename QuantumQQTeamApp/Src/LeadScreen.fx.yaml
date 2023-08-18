@@ -995,7 +995,7 @@ LeadScreen As screen:
                         Height: =Parent.Height
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
-                        Visible: =true //VarLeadProposal
+                        Visible: =false
                         Width: =Parent.Width-40
                         X: =20
                         Y: =ctnphotosmaterialinfoleaddetailsLdS.Height+ctnphotosmaterialinfoleaddetailsLdS.Y
@@ -1206,11 +1206,12 @@ LeadScreen As screen:
 
             ctnapproverejectLdS_1 As groupContainer.manualLayoutContainer:
                 BorderColor: =RGBA(0, 0, 0, 0.16)
+                BorderThickness: =2
                 Fill: =RGBA(249, 249, 249, 1)
                 Height: =Parent.Height
                 Visible: =VarLeadProposal
                 Width: =Parent.Width-40
-                X: =40
+                X: =20
                 ZIndex: =4
 
                 lbl_1 As label:
