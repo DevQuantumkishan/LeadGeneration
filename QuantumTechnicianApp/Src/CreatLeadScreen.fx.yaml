@@ -863,7 +863,7 @@ CreatLeadScreen As screen:
                         Set(VarIndicator,false);
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14)
                     Text: ="Back"
-                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
+                    Width: =If(Parent.Width<Parent.Height,Parent.Width/10,Parent.Width/5)
                     X: =172
                     Y: =692
                     ZIndex: =1
@@ -895,7 +895,7 @@ CreatLeadScreen As screen:
                         )
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14)
                     Text: ="Next"
-                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
+                    Width: =If(Parent.Width<Parent.Height,Parent.Width/10,Parent.Width/5)
                     X: =145
                     Y: =692
                     ZIndex: =2

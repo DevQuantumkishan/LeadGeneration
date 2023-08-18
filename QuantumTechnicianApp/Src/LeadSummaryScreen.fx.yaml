@@ -1222,6 +1222,99 @@ LeadSummaryScreen As screen:
                             X: =40
                             ZIndex: =5
 
+                    TotalEstimatedExpenseLSS As typedDataCard.textualEditCard:
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="shlrf_totalestimatedexpense"
+                        Default: =ThisItem.TotalEstimatedExpense
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedexpense")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedexpense")
+                        Required: =false
+                        Update: =IntxtTotalEstimatedExpenseLSS.Text
+                        Visible: =VarAdditionExpense
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =13
+                        ZIndex: =1
+
+                        borderTotalExpenseLSS As rectangle:
+                            BorderColor: =RGBA(116, 116, 116, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(237, 237, 237, 1)
+                            Height: =Parent.Height
+                            Width: =Parent.Width-60
+                            X: =30
+                            ZIndex: =1
+
+                        lblTotalEstimatedExpenseLSS As label:
+                            AutoHeight: =true
+                            Color: =RGBA(0, 0, 0, 1)
+                            Font: =Font.Arial
+                            Height: =34
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Text: ="Total estimated expense"
+                            Tooltip: ="Total estimated expense"
+                            Width: =Parent.Width - 120
+                            Wrap: =false
+                            X: =50
+                            Y: =10
+                            ZIndex: =2
+
+                        IntxtTotalEstimatedExpenseLSS As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =VarTotalEstimateExpenseSummary
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Font: =Font.Arial
+                            HoverBorderColor: =RGBA(149, 149, 149, 1)
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 120
+                            X: =50
+                            Y: =lblTotalEstimatedExpenseLSS.Y + lblTotalEstimatedExpenseLSS.Height + 5
+                            ZIndex: =3
+
+                        ErrorMessageTotalEstimatedExpenseLSS As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =IntxtTotalEstimatedExpenseLSS.Y + IntxtTotalEstimatedExpenseLSS.Height
+                            ZIndex: =4
+
+                        StarVisibleTotalEstimatedExpenseLSS As label:
+                            Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
+                            Font: =Font.Arial
+                            Height: =lblTotalEstimatedExpenseLSS.Height
+                            Size: =21
+                            Text: ="*"
+                            VerticalAlign: =VerticalAlign.Top
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
+                            Width: =30
+                            Wrap: =false
+                            X: =30
+                            Y: =lblTotalEstimatedExpenseLSS.Y
+                            ZIndex: =5
+
                     TravelRequiredLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
@@ -1235,7 +1328,7 @@ LeadSummaryScreen As screen:
                         Update: =TravelRequiredLSS.Default
                         Width: =Parent.Width
                         X: =0
-                        Y: =13
+                        Y: =14
                         ZIndex: =1
 
                         ErrorMessageTravelRequiredLSS As label:
@@ -1277,15 +1370,107 @@ LeadSummaryScreen As screen:
                             HoverColor: =RGBA(0, 0, 0, 1)
                             OnCheck: |-
                                 =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
-                                Set(VarTravel,true);Reset(IntxtTotalEstimatedHoursofTravel);
+                                Set(VarTravel,true);Reset(intxtTotalEstimatedHoursofTravelLSS);
                             OnUncheck: |-
                                 =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
-                                Set(VarTravel,false);Reset(IntxtTotalEstimatedHoursofTravel);
+                                Set(VarTravel,false);Reset(intxtTotalEstimatedHoursofTravelLSS);
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Travel required"
                             Width: =Parent.Width-60
                             X: =40
+                            ZIndex: =5
+
+                    TotalEstimatedHoursofTravelLSS As typedDataCard.textualEditCard:
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="shlrf_totalestimatedhoursoftravel"
+                        Default: =ThisItem.TotalEstimatedHoursofTravel
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
+                        Required: =false
+                        Update: =intxtTotalEstimatedHoursofTravelLSS.Text
+                        Visible: =VarTravel
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =15
+                        ZIndex: =1
+
+                        borderTotalEstimatedHoursTravelLSS As rectangle:
+                            BorderColor: =RGBA(116, 116, 116, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(237, 237, 237, 1)
+                            Height: =Parent.Height
+                            Width: =Parent.Width-60
+                            X: =30
+                            ZIndex: =1
+
+                        lblTotalEstimatedHoursofTravelLSS As label:
+                            AutoHeight: =true
+                            Color: =RGBA(0, 0, 0, 1)
+                            Height: =34
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 120
+                            Wrap: =false
+                            X: =50
+                            Y: =10
+                            ZIndex: =2
+
+                        intxtTotalEstimatedHoursofTravelLSS As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            HoverBorderColor: =RGBA(149, 149, 149, 1)
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Reset: =true
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 120
+                            X: =50
+                            Y: =lblTotalEstimatedHoursofTravelLSS.Y + lblTotalEstimatedHoursofTravelLSS.Height + 5
+                            ZIndex: =3
+
+                        ErrorMessageTotalEstimatedHoursofTravelLSS As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            VerticalAlign: =VerticalAlign.Top
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =intxtTotalEstimatedHoursofTravelLSS.Y + intxtTotalEstimatedHoursofTravelLSS.Height
+                            ZIndex: =4
+
+                        StarVisibleTotalEstimatedHoursofTravelLSS As label:
+                            Align: =Align.Center
+                            Color: =RGBA(255, 0, 0, 1)
+                            Font: =Font.Arial
+                            Height: =lblTotalEstimatedHoursofTravelLSS.Height
+                            Size: =21
+                            Text: ="*"
+                            VerticalAlign: =VerticalAlign.Top
+                            Visible: |-
+                                =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                true
+                            Width: =30
+                            Wrap: =false
+                            X: =30
+                            Y: =lblTotalEstimatedHoursofTravelLSS.Y
                             ZIndex: =5
 
                     CommunicatedtoCustomerLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
@@ -1301,7 +1486,7 @@ LeadSummaryScreen As screen:
                         Update: =CommunicatedtoCustomerLSS.Default
                         Width: =Parent.Width
                         X: =0
-                        Y: =14
+                        Y: =16
                         ZIndex: =1
 
                         ErrorMessageCCLSS As label:
@@ -1343,10 +1528,10 @@ LeadSummaryScreen As screen:
                             HoverColor: =RGBA(0, 0, 0, 1)
                             OnCheck: |-
                                 =Set(VarCommunicationSummary,CboxCCLSS.Value);
-                                Set(VarCommunication,true)
+                                Set(VarCommunication,true);Reset(IntxtCustomerNameLSS);Reset(IntxtContactNumberLSS);
                             OnUncheck: |-
                                 =Set(VarCommunicationSummary,CboxCCLSS.Value);
-                                Set(VarCommunication,false)
+                                Set(VarCommunication,false);Reset(IntxtCustomerNameLSS);Reset(IntxtContactNumberLSS);
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Communicated to customer"
@@ -1368,8 +1553,8 @@ LeadSummaryScreen As screen:
                         Update: =IntxtCustomerNameLSS.Text
                         Visible: =VarCommunication
                         Width: =Parent.Width
-                        X: =50
-                        Y: =15
+                        X: =0
+                        Y: =17
                         ZIndex: =1
 
                         borderCustomerNameLSS As rectangle:
@@ -1386,7 +1571,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =34
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: =Parent.DisplayName
+                            Text: ="Customer Name"
                             Width: =Parent.Width - 120
                             Wrap: =false
                             X: =50
@@ -1401,6 +1586,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
+                            HintText: ="""Customer Name"""
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =Parent.MaxLength
@@ -1411,7 +1597,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: ="Customer Name"
                             Width: =Parent.Width - 120
                             X: =50
                             Y: =lblCustomerNameLSS.Y + lblCustomerNameLSS.Height + 5
@@ -1437,9 +1623,9 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(255, 0, 0, 1)
                             Font: =Font.Arial
                             Height: =lblCustomerNameLSS.Height
-                            PaddingTop: =15
                             Size: =21
                             Text: ="*"
+                            VerticalAlign: =VerticalAlign.Top
                             Visible: |-
                                 =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 true
@@ -1463,8 +1649,8 @@ LeadSummaryScreen As screen:
                         Update: =IntxtContactNumberLSS.Text
                         Visible: =VarCommunication
                         Width: =Parent.Width
-                        X: =50
-                        Y: =16
+                        X: =0
+                        Y: =18
                         ZIndex: =1
 
                         borderCustomerContactLSS As rectangle:
@@ -1483,7 +1669,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =34
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: =Parent.DisplayName
+                            Text: ="Customer Phone Number"
                             Width: =Parent.Width-120
                             Wrap: =false
                             X: =50
@@ -1510,9 +1696,9 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(255, 0, 0, 1)
                             Font: =Font.Arial
                             Height: =lblCustomerContactLSS.Height
-                            PaddingTop: =15
                             Size: =21
                             Text: ="*"
+                            VerticalAlign: =VerticalAlign.Top
                             Visible: |-
                                 =//And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 true
@@ -1533,7 +1719,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Format: =TextFormat.Number
                             Height: =50
-                            HintText: =""
+                            HintText: ="Customer Phone Number"
                             HoverBorderColor: =Self.BorderColor
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =10
@@ -1547,7 +1733,7 @@ LeadSummaryScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: ="Customer Phone Number"
                             Width: =Parent.Width-120
                             X: =50
                             Y: =lblContactES.Y + lblContactES.Height + 5
@@ -1571,169 +1757,6 @@ LeadSummaryScreen As screen:
                             X: =50
                             Y: =IntxtContactNumberLSS.Y
                             ZIndex: =6
-
-                    TotalEstimatedExpenseLSS As typedDataCard.textualEditCard:
-                        BorderStyle: =BorderStyle.Solid
-                        DataField: ="shlrf_totalestimatedexpense"
-                        Default: =ThisItem.TotalEstimatedExpense
-                        DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedexpense")
-                        Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedexpense")
-                        Required: =false
-                        Update: =IntxtTotalEstimatedExpenseLSS.Text
-                        Visible: =VarAdditionExpense
-                        Width: =Parent.Width
-                        X: =0
-                        Y: =17
-                        ZIndex: =1
-
-                        lblTotalEstimatedExpenseLSS As label:
-                            AutoHeight: =true
-                            Font: =Font.Arial
-                            Height: =34
-                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Total estimated expense"
-                            Tooltip: ="Total estimated expense"
-                            Width: =Parent.Width - 120
-                            Wrap: =false
-                            X: =30
-                            Y: =10
-                            ZIndex: =1
-
-                        IntxtTotalEstimatedExpenseLSS As text:
-                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =VarTotalEstimateExpenseSummary
-                            DelayOutput: =true
-                            DisplayMode: =Parent.DisplayMode
-                            Font: =Font.Arial
-                            MaxLength: =Parent.MaxLength
-                            PaddingLeft: =5
-                            RadiusBottomLeft: =0
-                            RadiusBottomRight: =0
-                            RadiusTopLeft: =0
-                            RadiusTopRight: =0
-                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
-                            Width: =Parent.Width - 120
-                            X: =30
-                            Y: =lblTotalEstimatedExpenseLSS.Y + lblTotalEstimatedExpenseLSS.Height + 5
-                            ZIndex: =2
-
-                        ErrorMessageTotalEstimatedExpenseLSS As label:
-                            AutoHeight: =true
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtTotalEstimatedExpenseLSS.Y + IntxtTotalEstimatedExpenseLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleTotalEstimatedExpenseLSS As label:
-                            Align: =Align.Center
-                            Height: =lblTotalEstimatedExpenseLSS.Height
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =lblTotalEstimatedExpenseLSS.Y
-                            ZIndex: =4
-
-                        borderTotalExpenseLSS As rectangle:
-                            BorderColor: =RGBA(116, 116, 116, 1)
-                            BorderThickness: =1
-                            Fill: =RGBA(237, 237, 237, 1)
-                            Height: =Parent.Height/1.04
-                            Width: =Parent.Width-60
-                            X: =40
-                            ZIndex: =5
-
-                    TotalEstimatedHoursofTravelLSS As typedDataCard.textualEditCard:
-                        BorderStyle: =BorderStyle.Solid
-                        DataField: ="shlrf_totalestimatedhoursoftravel"
-                        Default: =ThisItem.TotalEstimatedHoursofTravel
-                        DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
-                        Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
-                        Required: =false
-                        Update: =intxtTotalEstimatedHoursofTravelLSS.Text
-                        Visible: =VarTravel
-                        Width: =Parent.Width
-                        X: =0
-                        Y: =18
-                        ZIndex: =1
-
-                        lblTotalEstimatedHoursofTravelLSS As label:
-                            AutoHeight: =true
-                            Height: =34
-                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: =Parent.DisplayName
-                            Width: =Parent.Width - 120
-                            Wrap: =false
-                            X: =30
-                            Y: =10
-                            ZIndex: =1
-
-                        intxtTotalEstimatedHoursofTravelLSS As text:
-                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =Parent.Default
-                            DelayOutput: =true
-                            DisplayMode: =Parent.DisplayMode
-                            MaxLength: =Parent.MaxLength
-                            PaddingLeft: =5
-                            RadiusBottomLeft: =0
-                            RadiusBottomRight: =0
-                            RadiusTopLeft: =0
-                            RadiusTopRight: =0
-                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
-                            Width: =Parent.Width - 120
-                            X: =30
-                            Y: =lblTotalEstimatedHoursofTravelLSS.Y + lblTotalEstimatedHoursofTravelLSS.Height + 5
-                            ZIndex: =2
-
-                        ErrorMessageTotalEstimatedHoursofTravelLSS As label:
-                            AutoHeight: =true
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =intxtTotalEstimatedHoursofTravelLSS.Y + intxtTotalEstimatedHoursofTravelLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleTotalEstimatedHoursofTravelLSS As label:
-                            Align: =Align.Center
-                            Height: =lblTotalEstimatedHoursofTravelLSS.Height
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =lblTotalEstimatedHoursofTravelLSS.Y
-                            ZIndex: =4
-
-                        borderTotalEstimatedHoursTravelLSS As rectangle:
-                            BorderColor: =RGBA(116, 116, 116, 1)
-                            BorderThickness: =1
-                            Fill: =RGBA(237, 237, 237, 1)
-                            Height: =Parent.Height/1.04
-                            Width: =Parent.Width-60
-                            X: =40
-                            ZIndex: =5
 
                 "glryImageLSS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
