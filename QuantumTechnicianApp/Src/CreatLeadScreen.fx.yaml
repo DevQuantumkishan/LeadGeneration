@@ -433,11 +433,12 @@ CreatLeadScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: ="Contract Number"
+                        HintText: =If(VarContractNumber,"","Contract Number")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
-                        OnChange: =Set(VarContractNumber,true);
+                        OnChange: =
+                        OnSelect: =Set(VarContractNumber,true);
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingRight: =50
@@ -541,7 +542,6 @@ CreatLeadScreen As screen:
                         PaddingLeft: =5
                         PaddingRight: =5
                         PaddingTop: =5
-                        Visible: =false
                         Width: =IntxtContractNumber.Width/12
                         X: =IntxtContractNumber.Width-Self.Width+30
                         Y: =IntxtContractNumber.Y
