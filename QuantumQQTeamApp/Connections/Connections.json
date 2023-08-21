@@ -1,1 +1,56 @@
-{}
+{
+  "208c9814-c9e1-4c20-ae09-86c3efe7829e": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1645/1.0.1645.3345/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "fd958eef-e1a7-4002-820a-eb82f1e05913": {
+          "value": "shared_powerappsnotificationv2"
+        },
+        "workflowEntityId": {
+          "value": "5dc5dbe6-f33f-ee11-bdf4-0022487f85ed"
+        },
+        "workflowName": {
+          "value": "3ebe22e8-7f85-2fda-9a64-9da918941159"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_powerappsnotificationv2": {
+          "value": "fd958eef-e1a7-4002-820a-eb82f1e05913"
+        },
+        "workflowEntityId": {
+          "value": "5dc5dbe6-f33f-ee11-bdf4-0022487f85ed"
+        },
+        "workflowName": {
+          "value": "3ebe22e8-7f85-2fda-9a64-9da918941159"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "TechnicianMessage"
+    ],
+    "dependencies": {
+      "shared_powerappsnotificationv2": "fd958eef-e1a7-4002-820a-eb82f1e05913"
+    },
+    "dependents": [],
+    "id": "208c9814-c9e1-4c20-ae09-86c3efe7829e"
+  },
+  "fd958eef-e1a7-4002-820a-eb82f1e05913": {
+    "connectionRef": {
+      "displayName": "Power Apps Notification V2",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1623/1.0.1623.3209/powerappsnotificationv2/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_powerappsnotificationv2",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_powerappsnotificationv2/connections/shared-powerappsnoti-28933855-0216-4eeb-8106-5e7f0d2f093e",
+      "xrmConnectionReferenceLogicalName": "shlrf_sharedpowerappsnotificationv2_e7f6f"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "208c9814-c9e1-4c20-ae09-86c3efe7829e"
+    ],
+    "id": "fd958eef-e1a7-4002-820a-eb82f1e05913"
+  }
+}
