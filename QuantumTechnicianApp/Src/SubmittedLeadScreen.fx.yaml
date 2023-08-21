@@ -225,7 +225,7 @@ SubmittedLeadScreen As screen:
                         Text(Year('Created On'))=lblLeadYearSLS.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Descending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode")
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
-                    TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",280,180)
+                    TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",260,160)
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
@@ -237,7 +237,7 @@ SubmittedLeadScreen As screen:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderThickness: =2
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =Parent.TemplateHeight/1.06
+                        Height: =Parent.TemplateHeight/1.02
                         HoverFill: =RGBA(0, 0, 0, 0)
                         OnSelect: |-
                             =//Navigate(ViewLeadScreen);
@@ -404,7 +404,7 @@ SubmittedLeadScreen As screen:
                         BorderThickness: =4
                         Color: =RGBA(0, 0, 0, 0)
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =borderLeadsSLS.Height
+                        Height: =borderLeadsSLS.Height/1.08
                         HoverColor: =RGBA(0, 0, 0, 0)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         OnSelect: |
