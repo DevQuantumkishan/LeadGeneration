@@ -713,6 +713,71 @@ EstimateScreen As screen:
                         X: =30
                         ZIndex: =5
 
+                TravelRequired As typedDataCard.comboBoxOptionSetSingleEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="crd59_travelrequired"
+                    Default: =ThisItem.TravelRequired
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =60
+                    Required: =false
+                    Update: =
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =5
+                    ZIndex: =1
+
+                    ErrorMessageTravelRequired As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =24
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =
+                        ZIndex: =3
+
+                    StarVisibleTravelRequired As label:
+                        Align: =Align.Center
+                        Font: =Font.Arial
+                        Height: =
+                        Size: =21
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =
+                        ZIndex: =4
+
+                    CboxTravelRequired As checkbox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                        Color: =If(CboxTravelRequired.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                        Default: =VarTravelSummary
+                        Font: =Font.Arial
+                        HoverBorderColor: =
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        OnCheck: |-
+                            =Set(VarTravelSummary,CboxTravelRequired.Value);
+                            Set(VarTravel,true);Reset(IntxtTotalEstimatedHoursofTravel);
+                            Set(VarTotalEstimateHoursfortravel,false);
+                        OnUncheck: |-
+                            =Set(VarTravelSummary,CboxTravelRequired.Value);
+                            Set(VarTravel,false);Reset(IntxtTotalEstimatedHoursofTravel);
+                        PressedBorderColor: =
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Travel required"
+                        Width: =Parent.Width-50
+                        X: =30
+                        ZIndex: =5
+
                 TotalEstimatedExpenseES As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
@@ -745,7 +810,7 @@ EstimateScreen As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =34
+                        Height: =If(VarTotalEstimatesExpense,31,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Total estimated expense *"
                         Visible: =VarTotalEstimatesExpense
@@ -811,22 +876,74 @@ EstimateScreen As screen:
                         Y: =lblTotalEstimatedExpense.Y
                         ZIndex: =5
 
-                TravelRequired As typedDataCard.comboBoxOptionSetSingleEditCard:
+                TotalEstimatedHoursofTravelES As typedDataCard.textualEditCard:
+                    BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="crd59_travelrequired"
-                    Default: =ThisItem.TravelRequired
+                    DataField: ="shlrf_totalestimatedhoursoftravel"
+                    Default: =ThisItem.TotalEstimatedHoursofTravel
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =60
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
                     Required: =false
-                    Update: =
+                    Update: =IntxtTotalEstimatedHoursofTravel.Text
+                    Visible: =VarTravel
                     Width: =Parent.Width
                     X: =0
-                    Y: =5
+                    Y: =6
                     ZIndex: =1
 
-                    ErrorMessageTravelRequired As label:
+                    borderCustomerContactES_2 As rectangle:
+                        BorderColor: =RGBA(116, 116, 116, 1)
+                        BorderThickness: =1
+                        Fill: =RGBA(237, 237, 237, 1)
+                        Height: =Parent.Height
+                        Width: =Parent.Width-60
+                        X: =30
+                        ZIndex: =1
+
+                    lblTotalEstimatedHoursofTravel As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
+                        Height: =If(VarTotalEstimateHoursfortravel,32,0)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Total estimated hours of travel *"
+                        Visible: =VarTotalEstimateHoursfortravel
+                        Width: =Parent.Width - 120
+                        X: =60
+                        Y: =10
+                        ZIndex: =2
+
+                    IntxtTotalEstimatedHoursofTravel As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =VarTotalEstimateHoursofTravelSummary
+                        DelayOutput: =true
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Arial
+                        Format: =TextFormat.Number
+                        HintText: =If(VarTotalEstimateHoursfortravel,"","Total estimated hours of travel *")
+                        HoverBorderColor: =RGBA(149, 149, 149, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        MaxLength: =3
+                        OnChange: =Set(VarTotalEstimateHoursofTravelSummary,IntxtTotalEstimatedHoursofTravel.Text)
+                        OnSelect: =Set(VarTotalEstimateHoursfortravel,true)
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Tooltip: ="Total estimated hours of travel"
+                        Width: =Parent.Width - 120
+                        X: =60
+                        Y: =lblTotalEstimatedHoursofTravel.Y + lblTotalEstimatedHoursofTravel.Height + 5
+                        ZIndex: =3
+
+                    ErrorMessageTotalEstimatedHoursofTravel As label:
                         AutoHeight: =true
                         Height: =10
                         Live: =Live.Assertive
@@ -834,45 +951,26 @@ EstimateScreen As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =24
                         Text: =Parent.Error
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =
-                        ZIndex: =3
-
-                    StarVisibleTravelRequired As label:
-                        Align: =Align.Center
-                        Font: =Font.Arial
-                        Height: =
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =
+                        Y: =IntxtTotalEstimatedHoursofTravel.Y + IntxtTotalEstimatedHoursofTravel.Height
                         ZIndex: =4
 
-                    CboxTravelRequired As checkbox:
-                        BorderColor: =RGBA(0, 0, 0, 0)
-                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
-                        Color: =If(CboxTravelRequired.Value=true,Color.Black,RGBA(149, 149, 149, 1))
-                        Default: =VarTravelSummary
+                    StarVisibleTotalEstimatedHoursofTravel As label:
+                        Align: =Align.Center
+                        Color: =RGBA(255, 0, 0, 1)
                         Font: =Font.Arial
-                        HoverBorderColor: =
-                        HoverColor: =RGBA(0, 0, 0, 1)
-                        OnCheck: |-
-                            =Set(VarTravelSummary,CboxTravelRequired.Value);
-                            Set(VarTravel,true);Reset(IntxtTotalEstimatedHoursofTravel);
-                        OnUncheck: |-
-                            =Set(VarTravelSummary,CboxTravelRequired.Value);
-                            Set(VarTravel,false);Reset(IntxtTotalEstimatedHoursofTravel);
-                        PressedBorderColor: =
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Travel required"
-                        Width: =Parent.Width-50
+                        Height: =lblTotalEstimatedHoursofTravel.Height
+                        Size: =21
+                        Text: ="*"
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =false
+                        Width: =30
+                        Wrap: =false
                         X: =30
+                        Y: =lblTotalEstimatedHoursofTravel.Y
                         ZIndex: =5
 
                 CommunicatedtoCustomer As typedDataCard.comboBoxOptionSetSingleEditCard:
@@ -931,107 +1029,14 @@ EstimateScreen As screen:
                         OnCheck: |-
                             =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);
                             Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
+                            Set(VarCustomerName,false);
+                            Set(varCustomerPhonenumber,false);
                         OnUncheck: =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);Set(VarCommunication,false);Reset(IntxtContactName);Reset(IntxtContactNumberES);
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Communicated to customer"
                         Width: =Parent.Width-50
                         X: =30
-                        ZIndex: =5
-
-                TotalEstimatedHoursofTravelES As typedDataCard.textualEditCard:
-                    BorderColor: =RGBA(202, 202, 202, 1)
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="shlrf_totalestimatedhoursoftravel"
-                    Default: =ThisItem.TotalEstimatedHoursofTravel
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =50
-                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
-                    Required: =false
-                    Update: =IntxtTotalEstimatedHoursofTravel.Text
-                    Visible: =VarTravel
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =6
-                    ZIndex: =1
-
-                    borderCustomerContactES_2 As rectangle:
-                        BorderColor: =RGBA(116, 116, 116, 1)
-                        BorderThickness: =1
-                        Fill: =RGBA(237, 237, 237, 1)
-                        Height: =Parent.Height
-                        Width: =Parent.Width-60
-                        X: =30
-                        ZIndex: =1
-
-                    lblTotalEstimatedHoursofTravel As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =34
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Total estimated hours of travel *"
-                        Width: =Parent.Width - 120
-                        X: =60
-                        Y: =10
-                        ZIndex: =2
-
-                    IntxtTotalEstimatedHoursofTravel As text:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =VarTotalEstimateHoursofTravelSummary
-                        DelayOutput: =true
-                        DisabledColor: =RGBA(0, 0, 0, 1)
-                        DisplayMode: =Parent.DisplayMode
-                        Font: =Font.Arial
-                        Format: =TextFormat.Number
-                        HintText: ="Total estimated hours of travel"
-                        HoverBorderColor: =RGBA(149, 149, 149, 1)
-                        HoverFill: =RGBA(255, 255, 255, 1)
-                        MaxLength: =3
-                        OnChange: =Set(VarTotalEstimateHoursofTravelSummary,IntxtTotalEstimatedHoursofTravel.Text)
-                        PaddingLeft: =5
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Total estimated hours of travel"
-                        Width: =Parent.Width - 120
-                        X: =60
-                        Y: =lblTotalEstimatedHoursofTravel.Y + lblTotalEstimatedHoursofTravel.Height + 5
-                        ZIndex: =3
-
-                    ErrorMessageTotalEstimatedHoursofTravel As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =IntxtTotalEstimatedHoursofTravel.Y + IntxtTotalEstimatedHoursofTravel.Height
-                        ZIndex: =4
-
-                    StarVisibleTotalEstimatedHoursofTravel As label:
-                        Align: =Align.Center
-                        Color: =RGBA(255, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =lblTotalEstimatedHoursofTravel.Height
-                        Size: =21
-                        Text: ="*"
-                        VerticalAlign: =VerticalAlign.Top
-                        Visible: =false
-                        Width: =30
-                        Wrap: =false
-                        X: =30
-                        Y: =lblTotalEstimatedHoursofTravel.Y
                         ZIndex: =5
 
                 CustomerName As typedDataCard.textualEditCard:
@@ -1066,10 +1071,11 @@ EstimateScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =34
+                        Height: =If(VarCustomerName,31,0)
                         PaddingLeft: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Customer Name *"
+                        Visible: =VarCustomerName
                         Width: =Parent.Width - 120
                         Wrap: =false
                         X: =60
@@ -1084,10 +1090,12 @@ EstimateScreen As screen:
                         DisabledFill: =RGBA(255, 255, 255, 1)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
+                        HintText: =If(VarCustomerName,"","Customer Name *")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =Parent.MaxLength
                         OnChange: =Set(VarCustomerNameSummary,IntxtContactName.Text);
+                        OnSelect: =Set(VarCustomerName,true)
                         PaddingLeft: =5
                         PressedFill: =RGBA(255, 255, 255, 1)
                         RadiusBottomLeft: =0
@@ -1164,10 +1172,11 @@ EstimateScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =34
+                        Height: =If(varCustomerPhonenumber,31,0)
                         PaddingLeft: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Customer Phone Number *"
+                        Visible: =varCustomerPhonenumber
                         Width: =Parent.Width - 120
                         Wrap: =false
                         X: =60
@@ -1184,13 +1193,15 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Format: =TextFormat.Number
-                        HintText: ="Customer Phone Number"
+                        HintText: =If(varCustomerPhonenumber,"","Customer Phone Number")
                         HoverBorderColor: =Self.BorderColor
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =10
                         OnChange: |
                             =If(Len(IntxtContactNumberES.Text)=10, Set(VarformattedNumberSummary, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true), If(!IsBlank(IntxtContactNumberES.Text) && Len(IntxtContactNumberES.Text)<>10, Set(Varerrormessage, true); Set(varContactNumber, false)));
-                        OnSelect: =If(varContactNumber=true,Set(varContactNumber,true));
+                        OnSelect: |-
+                            =Set(varCustomerPhonenumber,true);
+                            If(varContactNumber=true,Set(varContactNumber,true));
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -1200,7 +1211,7 @@ EstimateScreen As screen:
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: ="Customer Phone Number"
                         Width: =Parent.Width - 120
-                        X: =60
+                        X: =47
                         Y: =lblContactES.Y + lblContactES.Height + 5
                         ZIndex: =3
 
