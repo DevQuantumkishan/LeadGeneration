@@ -445,14 +445,14 @@ SubmittedLeadScreen As screen:
                     iconmsgSLS As icon.Message:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
-                        Height: =Parent.Width/15
+                        Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
                         Icon: =Icon.Message
                         OnSelect: |
                             =Navigate(ChatScreen);
                             Set(VarLtdName,ThisItem.'BuildingName ');
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
-                        Width: =Parent.Width/15
+                        Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextContractNumberSLS.Y
                         ZIndex: =23
