@@ -228,7 +228,7 @@ SubmittedLeadScreen As screen:
                     TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",280,180)
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
-                    Width: =Parent.Width/1.05
+                    Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
                     X: =5
                     Y: =rectangleYearSLS.Height
                     ZIndex: =2
@@ -244,7 +244,7 @@ SubmittedLeadScreen As screen:
                             Set(VarFormMode,Defaults(LeadInformations));
                         PressedFill: =RGBA(255, 0, 0, 1)
                         Visible: =false
-                        Width: =If(Parent.Width<378,Parent.Width/1.07,Parent.Width<500,Parent.Width/1.07,Parent.Width/1.03)
+                        Width: =If(Parent.Width<378,Parent.Width/1.07,Parent.Width>500,Parent.Width/1.02)
                         X: =1
                         Y: =10
                         ZIndex: =1
@@ -424,7 +424,9 @@ SubmittedLeadScreen As screen:
                         RadiusTopRight: =8
                         Size: =24
                         Text: =""
-                        Width: =If(Parent.Width<378,Parent.Width/1.07,Parent.Width<500,Parent.Width/1.05,Parent.Width/1.03)
+                        Width: |-
+                            =//If(Parent.Width<378,Parent.Width/1.07,Parent.Width<500,Parent.Width/1.05,Parent.Width/1.03)
+                            If(Parent.Width<378,Parent.Width/1.07,Parent.Width>500,Parent.Width/1.02)
                         Y: =10
                         ZIndex: =21
 

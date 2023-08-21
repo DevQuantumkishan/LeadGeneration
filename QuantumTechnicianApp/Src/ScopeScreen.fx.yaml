@@ -451,11 +451,15 @@ ScopeScreen As screen:
                         Height: =50
                         HoverBorderColor: =
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: ="Search scope"
+                        InputTextPlaceholder: =If(VarScope,"","Search scope")
                         Items: |-
                             =//' PrimaryScopeofWorks'
                             GCPrimaryScopeofWorks
-                        OnChange: =Set(VarScopeSummary,CboxScope.SelectedItems);Set(VarScope,true);Set(VarNotificationScope,false);Set(VarScopeofworkSummary,Blank());
+                        OnChange: |-
+                            =Set(VarScopeSummary,CboxScope.SelectedItems);
+                            //Set(VarScope,true);
+                            Set(VarNotificationScope,false);Set(VarScopeofworkSummary,Blank());
+                        OnSelect: =Set(VarScope,true);
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
@@ -542,12 +546,13 @@ ScopeScreen As screen:
                         Font: =Font.Arial
                         Height: =50
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: |-
-                            = 
-                                "Search scope of work"
+                        InputTextPlaceholder: = If(VarScopeofwork,"","Search scope of work")
                         Items: =Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
-                        OnChange: =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);Set(VarScopeofwork,true);Set(VarNotificationScope,false);
-                        OnSelect: =If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
+                        OnChange: |-
+                            =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);
+                            //Set(VarScopeofwork,true);
+                            Set(VarNotificationScope,false);
+                        OnSelect: =Set(VarScopeofwork,true);If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
                         SearchItems: =Search(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),CboxScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
@@ -613,12 +618,15 @@ ScopeScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =100
-                        HintText: ="Custom scope of work(manually entered)"
+                        HintText: =If(VarCustomScopeofwork,"","Custom scope of work(manually entered)")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: =Set(VarCustomWorkSummary,IntxtManuallyScopeofwork.Text);Set(VarCustomScopeofwork,true);
+                        OnChange: |-
+                            =Set(VarCustomWorkSummary,IntxtManuallyScopeofwork.Text);
+                            //Set(VarCustomScopeofwork,true);
+                        OnSelect: =Set(VarCustomScopeofwork,true);
                         PaddingLeft: =5
                         PaddingTop: =15
                         RadiusBottomLeft: =0

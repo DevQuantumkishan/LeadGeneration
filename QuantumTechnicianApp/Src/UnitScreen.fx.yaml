@@ -435,11 +435,14 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: ="Quantity of Units"
+                        HintText: =If(VarUnitCount,"","Quantity of Units *")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
-                        OnChange: =Set(VarUnitcountSummary,IntxtUnitCount.Text);Set(VarUnitCount,true)
+                        OnChange: |-
+                            =Set(VarUnitcountSummary,IntxtUnitCount.Text);
+                            //Set(VarUnitCount,true)
+                        OnSelect: =Set(VarUnitCount,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
@@ -523,14 +526,15 @@ UnitScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =137
-                        HintText: ="Unit Description"
+                        HintText: =If(VarUnitDescription,"","Unit Description *")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
                         OnChange: |-
                             =Set(VarUnitDescriptionSummary,IntxtUnitDescription.Text);
-                            Set(VarUnitDescription,true)
+                            //Set(VarUnitDescription,true)
+                        OnSelect: =Set(VarUnitDescription,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =15

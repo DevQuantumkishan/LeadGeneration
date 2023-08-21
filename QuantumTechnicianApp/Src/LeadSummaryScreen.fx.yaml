@@ -1215,72 +1215,6 @@ LeadSummaryScreen As screen:
                             X: =40
                             ZIndex: =5
 
-                    TravelRequiredLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
-                        BorderColor: =RGBA(0, 0, 0, 0)
-                        BorderStyle: =BorderStyle.Solid
-                        DataField: ="crd59_travelrequired"
-                        Default: =ThisItem.TravelRequired
-                        DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
-                        Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
-                        Required: =false
-                        Update: =TravelRequiredLSS.Default
-                        Width: =Parent.Width
-                        X: =0
-                        Y: =14
-                        ZIndex: =1
-
-                        ErrorMessageTravelRequiredLSS As label:
-                            AutoHeight: =true
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =
-                            ZIndex: =3
-
-                        StarVisibleTravelRequiredLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =
-                            ZIndex: =4
-
-                        cboxTravelRequiredLSS As checkbox:
-                            BorderColor: =RGBA(0, 0, 0, 0)
-                            CheckboxBorderColor: =RGBA(202, 202, 202, 1)
-                            CheckboxSize: =50
-                            Default: =VarTravelSummary
-                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                            Font: =Font.Arial
-                            HoverBorderColor: =
-                            HoverColor: =RGBA(0, 0, 0, 1)
-                            OnCheck: |-
-                                =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
-                                Set(VarTravel,true);Reset(intxtTotalEstimatedHoursofTravelLSS);
-                            OnUncheck: |-
-                                =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
-                                Set(VarTravel,false);Reset(intxtTotalEstimatedHoursofTravelLSS);
-                            PressedBorderColor: =
-                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Travel required"
-                            Width: =Parent.Width-60
-                            X: =40
-                            ZIndex: =5
-
                     TotalEstimatedExpenseLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -1375,23 +1309,23 @@ LeadSummaryScreen As screen:
                             Y: =lblTotalEstimatedExpenseLSS.Y
                             ZIndex: =5
 
-                    CommunicatedtoCustomerLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
+                    TravelRequiredLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
-                        DataField: ="crd59_communicatedtocustomer"
-                        Default: =ThisItem.CommunicatedToCustomer
+                        DataField: ="crd59_travelrequired"
+                        Default: =ThisItem.TravelRequired
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_communicatedtocustomer")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =false
-                        Update: =CommunicatedtoCustomerLSS.Default
+                        Update: =TravelRequiredLSS.Default
                         Width: =Parent.Width
                         X: =0
-                        Y: =16
+                        Y: =14
                         ZIndex: =1
 
-                        ErrorMessageCCLSS As label:
+                        ErrorMessageTravelRequiredLSS As label:
                             AutoHeight: =true
                             Height: =10
                             Live: =Live.Assertive
@@ -1407,7 +1341,7 @@ LeadSummaryScreen As screen:
                             Y: =
                             ZIndex: =3
 
-                        StarVisibleCCLSS As label:
+                        StarVisibleTravelRequiredLSS As label:
                             Align: =Align.Center
                             Font: =Font.Arial
                             Height: =
@@ -1419,24 +1353,24 @@ LeadSummaryScreen As screen:
                             Y: =
                             ZIndex: =4
 
-                        CboxCCLSS As checkbox:
+                        cboxTravelRequiredLSS As checkbox:
                             BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
-                            Default: =VarCommunicationSummary
+                            Default: =VarTravelSummary
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
                             HoverBorderColor: =
                             HoverColor: =RGBA(0, 0, 0, 1)
                             OnCheck: |-
-                                =Set(VarCommunicationSummary,CboxCCLSS.Value);
-                                Set(VarCommunication,true);Reset(IntxtCustomerNameLSS);Reset(IntxtContactNumberES_1);
+                                =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
+                                Set(VarTravel,true);Reset(intxtTotalEstimatedHoursofTravelLSS);
                             OnUncheck: |-
-                                =Set(VarCommunicationSummary,CboxCCLSS.Value);
-                                Set(VarCommunication,false);Reset(IntxtCustomerNameLSS);Reset(IntxtContactNumberES_1);
+                                =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
+                                Set(VarTravel,false);Reset(intxtTotalEstimatedHoursofTravelLSS);
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Communicated to customer"
+                            Text: ="Travel required"
                             Width: =Parent.Width-60
                             X: =40
                             ZIndex: =5
@@ -1535,6 +1469,72 @@ LeadSummaryScreen As screen:
                             Wrap: =false
                             X: =50
                             Y: =lblTotalEstimatedHoursofTravelLSS.Y
+                            ZIndex: =5
+
+                    CommunicatedtoCustomerLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="crd59_communicatedtocustomer"
+                        Default: =ThisItem.CommunicatedToCustomer
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_communicatedtocustomer")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =CommunicatedtoCustomerLSS.Default
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =16
+                        ZIndex: =1
+
+                        ErrorMessageCCLSS As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =24
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =
+                            ZIndex: =3
+
+                        StarVisibleCCLSS As label:
+                            Align: =Align.Center
+                            Font: =Font.Arial
+                            Height: =
+                            Size: =21
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =
+                            ZIndex: =4
+
+                        CboxCCLSS As checkbox:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            CheckboxBorderColor: =RGBA(202, 202, 202, 1)
+                            CheckboxSize: =50
+                            Default: =VarCommunicationSummary
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            Font: =Font.Arial
+                            HoverBorderColor: =
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            OnCheck: |-
+                                =Set(VarCommunicationSummary,CboxCCLSS.Value);
+                                Set(VarCommunication,true);Reset(IntxtCustomerNameLSS);Reset(IntxtContactNumberES_1);
+                            OnUncheck: |-
+                                =Set(VarCommunicationSummary,CboxCCLSS.Value);
+                                Set(VarCommunication,false);Reset(IntxtCustomerNameLSS);Reset(IntxtContactNumberES_1);
+                            PressedBorderColor: =
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Text: ="Communicated to customer"
+                            Width: =Parent.Width-60
+                            X: =40
                             ZIndex: =5
 
                     CustomerNameLSS As typedDataCard.textualEditCard:
