@@ -180,11 +180,8 @@ LeadListScreen As screen:
                     ZIndex: =2
 
             Container4 As groupContainer.manualLayoutContainer:
-                AlignInContainer: =AlignInContainer.Center
-                FillPortions: =0
-                Height: =40
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
+                AlignInContainer: =AlignInContainer.SetByContainer
+                Height: =50
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -192,10 +189,29 @@ LeadListScreen As screen:
                     FontWeight: =FontWeight.Semibold
                     Text: ="Click on specific lead to see details."
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =Parent.Width
+                    Width: =Parent.Width/2
                     X: =10
                     Y: =10
                     ZIndex: =1
+
+                Label4 As label:
+                    Text: ="Created Date Order"
+                    Width: =170
+                    X: =1012
+                    Y: =5
+                    ZIndex: =2
+
+                Dropdown1 As dropdown:
+                    BorderColor: =Header.SHRed
+                    ChevronBackground: =Header.SHRed
+                    ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    Items: =["Ascending","Descending"]
+                    PressedFill: =//RGBA(0, 18, 107, 1)
+                    SelectionFill: =Header.SHRed
+                    Width: =150
+                    X: =1198
+                    Y: =5
+                    ZIndex: =3
 
             ctnleadlistLS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
