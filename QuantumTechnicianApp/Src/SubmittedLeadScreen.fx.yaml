@@ -176,7 +176,7 @@ SubmittedLeadScreen As screen:
                     =//If(cumulatively=true,
                     // )],yearly=true,[Text( Year(Now()))])
                     
-                    If(cumulatively=true,
+                    /*If(cumulatively=true,
                        [Text( Year(Today())),
                         Text( Year(Today())-1),
                         Text( Year(Today())-2),
@@ -189,7 +189,11 @@ SubmittedLeadScreen As screen:
                         Text(Year(Today())-9),
                         Text(Year(Today())-10),
                         Text(Year(Today())-11)]
-                        ,yearly=true,[Text( Year(Today()))])
+                        ,yearly=true,[Text( Year(Today()))])*/
+                    
+                     //If(cumulatively=true,Sequence(50,Year(Today())) ,yearly=true,[Text( Year(Today()))])
+                     If(cumulatively=true,Sequence(50,LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On'))),yearly=true,[Year(Today())])
+                     
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =4
