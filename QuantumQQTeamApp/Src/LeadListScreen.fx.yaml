@@ -519,7 +519,8 @@ LeadListScreen As screen:
             OnSelect: |-
                 =Set(QQname,true);
                 UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,{LeadStatus:"InProgress",QQTeamName:User().FullName});
-                Navigate(LeadScreen)
+                LeadInProgress.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.'BuildingName ',User().FullName);
+                Navigate(LeadScreen);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
             Text: ="Yes"
