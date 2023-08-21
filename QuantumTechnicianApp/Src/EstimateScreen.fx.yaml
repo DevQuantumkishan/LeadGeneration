@@ -1211,7 +1211,7 @@ EstimateScreen As screen:
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: ="Customer Phone Number"
                         Width: =Parent.Width - 120
-                        X: =47
+                        X: =60
                         Y: =lblContactES.Y + lblContactES.Height + 5
                         ZIndex: =3
 
@@ -1258,7 +1258,7 @@ EstimateScreen As screen:
                         Text: =VarformattedNumberSummary
                         Visible: =varContactNumber
                         Width: =IntxtContactNumberES.Width
-                        X: =IntxtContactNumberES.X
+                        X: =60
                         Y: =IntxtContactNumberES.Y
                         ZIndex: =6
 
