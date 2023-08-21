@@ -222,7 +222,7 @@ SubmittedLeadScreen As screen:
                     Items: |-
                         =//Sort
                         Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        Text(Year('Created On'))=lblLeadYearSLS.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Ascending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode")
+                        Text(Year('Created On'))=lblLeadYearSLS.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Descending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode")
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",280,180)
