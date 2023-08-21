@@ -389,7 +389,7 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Date Created : </b>" & ThisItem.'Created On'
+                            =If(btnheaderSLS.Text="Quoted Leads","<b>BID Date : </b>" & ThisItem.'Created On',"<b>Date Created : </b>" & ThisItem.'Created On')
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
