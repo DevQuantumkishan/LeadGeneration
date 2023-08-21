@@ -263,7 +263,7 @@ LeadListScreen As screen:
                         LayoutMinWidth: =320
                         OnSelect: =//Navigate(CommingSoonUnused)
                         TemplatePadding: =0
-                        TemplateSize: =ctnlistheadingvalueLS.Height+10
+                        TemplateSize: =ctnlistheadingvalueLS.Height+20
                         Width: =Parent.Width
                         ZIndex: =1
 
@@ -276,14 +276,19 @@ LeadListScreen As screen:
                             Width: =Parent.TemplateWidth -30
                             X: =1
                             Y: |-
-                                =//Parent.TemplateHeight - 1
+                                =//If(lbldistrictvalueLS.Height>60 ,lbldistrictvalueLS.Height+lbldistrictvalueLS.Y, lblareavalueLS.Height>60,lblareavalueLS.Height+lblareavalueLS.Y,60)
+                                //Parent.TemplateHeight - 1
                                 //If(Label8_3.Height>60 ,Label8_3.Height+Label8_3.Y, Label9_3.Height>60,Label9_3.Height+Label9_3.Y,50)
                                 //If(Label8_3.Height>Label9_3.Height ,Label8_3.LayoutMinHeight+Label8_3.Y,Label9_3.LayoutMinHeight+Label9_3.Y)
-                                ctnlistheadingvalueLS.Y+ctnlistheadingvalueLS.Height-10
+                                //ctnlistheadingvalueLS.Y+ctnlistheadingvalueLS.Height-10
+                                ctnlistheadingvalueLS.Y+ctnlistheadingvalueLS.Height
+                                
+                                //If(!IsBlank(lbldistrictvalueLS.Height) || !IsBlank(lblareavalueLS.Height),If(lbldistrictvalueLS.Height>lblareavalueLS.Height,lbldistrictvalueLS.Height+10,lblareavalueLS.Height+10),70)
                             ZIndex: =3
 
                         ctnlistheadingvalueLS As groupContainer.horizontalAutoLayoutContainer:
-                            Height: =60//If(lbldistrictvalueLS.Height>60 ,lbldistrictvalueLS.Height+lbldistrictvalueLS.Y, lblareavalueLS.Height>60,lblareavalueLS.Height+lblareavalueLS.Y,60)
+                            Height: |
+                                =100//If(lbldistrictvalueLS.Height>60 ,lbldistrictvalueLS.Height+lbldistrictvalueLS.Y, lblareavalueLS.Height>60,lblareavalueLS.Height+lblareavalueLS.Y,90)
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutGap: =10
                             LayoutMode: =LayoutMode.Auto
@@ -293,6 +298,7 @@ LeadListScreen As screen:
 
                             lblcreatedatevalueLS As label:
                                 Align: =Align.Center
+                                AlignInContainer: =AlignInContainer.Start
                                 Text: |-
                                     =Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
                                 Width: =190
@@ -300,13 +306,16 @@ LeadListScreen As screen:
 
                             lblqqteamnamvalueLS As label:
                                 Align: =Align.Center
-                                Text: |-
+                                AlignInContainer: =AlignInContainer.Start
+                                AutoHeight: =true
+                                Text: |
                                     =If(!IsBlank(LookUp(LeadInformations,LeadStatus="Submitted" && ID=ThisItem.ID)),"Not Assigned",LookUp(LeadInformations,ID=ThisItem.ID,QQTeamName))
-                                    //"QQ name"
                                 ZIndex: =2
 
                             lblmechanicnamevalueLS As label:
                                 Align: =Align.Center
+                                AlignInContainer: =AlignInContainer.Start
+                                AutoHeight: =true
                                 Text: |-
                                     =ThisItem.MechanicName
                                     //"Mechanic Name"
@@ -314,32 +323,37 @@ LeadListScreen As screen:
 
                             lblcontractnovalueLS As label:
                                 Align: =Align.Center
+                                AlignInContainer: =AlignInContainer.Start
                                 Text: =ThisItem.'ContractNumber '
                                 Width: =120
                                 ZIndex: =4
 
                             lblregionvalueLS As label:
                                 Align: =Align.Center
-                                Text: =ThisItem.Territory
+                                AlignInContainer: =AlignInContainer.Start
+                                Text: =ThisItem.LeadTrackingNumber //ThisItem.Territory
                                 ZIndex: =5
 
                             lbldistrictvalueLS As label:
                                 Align: =Align.Center
+                                AlignInContainer: =AlignInContainer.Start
                                 AutoHeight: =true
                                 Height: =60
-                                Text: =ThisItem.District
+                                Text: =ThisItem.'BuildingName '
                                 ZIndex: =6
 
                             lblareavalueLS As label:
                                 Align: =Align.Center
+                                AlignInContainer: =AlignInContainer.Start
                                 AutoHeight: =true
                                 Height: =60
-                                Text: =ThisItem.Area
+                                Text: =ThisItem.Address
                                 Width: =140
                                 ZIndex: =7
 
                             lblleadstatusvalueLS As label:
                                 Align: =Align.Center
+                                AlignInContainer: =AlignInContainer.Start
                                 Color: =If(ThisItem.LeadStatus="Submitted",RGBA(39,113,194,1),ThisItem.LeadStatus="InProgress",RGBA(54,176,75,1),ThisItem.LeadStatus="Rejected",Header.SHRed)
                                 FontWeight: =FontWeight.Semibold
                                 Text: |-
@@ -365,8 +379,9 @@ LeadListScreen As screen:
                                 ZIndex: =10
 
                             icnrightLS As icon.ChevronRight:
+                                AlignInContainer: =AlignInContainer.Start
                                 Color: =Header.SHRed
-                                Height: =60
+                                Height: =50
                                 Icon: =Icon.ChevronRight
                                 OnSelect: =//Navigate(LeadScreen)
                                 PaddingLeft: =40
@@ -435,23 +450,25 @@ LeadListScreen As screen:
 
                     lblcontractnoLS As label:
                         Align: =Align.Center
-                        Text: ="Contract No. "
-                        Width: =120
+                        Text: |-
+                            ="Contract #"
+                        Width: =130
                         ZIndex: =4
 
                     lblregionLS As label:
                         Align: =Align.Center
-                        Text: ="Territory"
+                        Text: |
+                            ="Lead Tracking #"//"Territory"
                         ZIndex: =5
 
                     lbldistrictLS As label:
                         Align: =Align.Center
-                        Text: ="District"
+                        Text: ="Building Name"//"District"
                         ZIndex: =6
 
                     lblareaLS As label:
                         Align: =Align.Center
-                        Text: ="Area"
+                        Text: ="Address"
                         ZIndex: =7
 
                     lblleadstatusLS As label:
