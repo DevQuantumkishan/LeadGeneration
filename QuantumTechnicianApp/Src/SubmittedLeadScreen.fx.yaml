@@ -1,6 +1,6 @@
 SubmittedLeadScreen As screen:
-    OnVisible: |-
-        =UpdateContext({locInfoExpanded:false})
+    OnVisible: |
+        =UpdateContext({locInfoExpanded:false});
 
     ctnMainSLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(219, 219, 219, 1)
@@ -200,7 +200,7 @@ SubmittedLeadScreen As screen:
                 TemplateSize: =Min(1000, Self.Height - 20)
                 Width: =Parent.Width/1.02
                 X: =10
-                Y: =ctnSearchBarSLS.Y+ctnSearchBarSLS.Height+10
+                Y: =ctnSearchBarSLS_1.Y+ctnSearchBarSLS_1.Height+10
                 ZIndex: =1
 
                 lblLeadYearSLS As label:
@@ -224,12 +224,11 @@ SubmittedLeadScreen As screen:
                 "glryLeadsSLS As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
                     Height: =If(CountRows(glryLeadsSLS.AllItems)<2,glryLeadsSLS.TemplateHeight+20,Parent.Height)
                     Items: |-
-                        =//Sort
-                        Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        Text(Year('Created On'))=lblLeadYearSLS.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Descending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode")
+                        =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
+                        Text(Year('Created On'))=lblLeadYearSLS.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Descending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode"),ComboBox1.Selected.Value,Dropdown1.Selected.Value)
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
-                    TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",260,160)
+                    TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",260,200)
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
@@ -340,12 +339,12 @@ SubmittedLeadScreen As screen:
                         Y: =htmltextContractNumberSLS.Y+htmltextContractNumberSLS.Height
                         ZIndex: =16
 
-                    htmltextContractNumberSLS As htmlViewer:
+                    htmltextTrackingNumberSLS As htmlViewer:
                         AutoHeight: =true
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Contract Number : </b>" &  ThisItem.'ContractNumber '
+                            ="<b>Tracking Number : </b>" &  ThisItem.LeadTrackingNumber
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -458,16 +457,16 @@ SubmittedLeadScreen As screen:
                             Set(VarLtdID,ThisItem.ID);
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
-                        Y: =htmltextContractNumberSLS.Y
+                        Y: =htmltextTrackingNumberSLS.Y
                         ZIndex: =23
 
-                    htmltxtDateSLS_1 As htmlViewer:
+                    htmltxtStatusDateSLS As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            =If(btnheaderSLS.Text="Quoted Leads","<b>BID Date : </b>" & ThisItem.'Created On',"<b>Date Created : </b>" & ThisItem.'Created On')
+                            =If(btnheaderSLS.Text="Quoted Leads","<b>BID Date : </b>" & ThisItem.LeadDate,btnheaderSLS.Text="Sold Leads","<b>Sold Date : </b>" & ThisItem.LeadDate,"<b>Lead status Date : </b>" & ThisItem.LeadDate)
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -477,9 +476,25 @@ SubmittedLeadScreen As screen:
                         Y: =htmltxtDateSLS.Y+htmltxtDateSLS.Height
                         ZIndex: =24
 
+                    htmltextContractNumberSLS As htmlViewer:
+                        AutoHeight: =true
+                        Font: =Font.Arial
+                        Height: =20
+                        HtmlText: |-
+                            ="<b>Contract Number : </b>" &  ThisItem.'ContractNumber '
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                        Width: =Parent.Width/1.08
+                        X: =20
+                        Y: =htmltextTrackingNumberSLS.Y+htmltextTrackingNumberSLS.Height
+                        ZIndex: =25
+
                 lblTitleYearSLS As label:
                     Align: =Align.Center
                     AutoHeight: =true
+                    Font: =Font.Arial
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =30
                     OnSelect: =Select(Parent)
@@ -499,6 +514,7 @@ SubmittedLeadScreen As screen:
                 lblCountTotalLeadsSLS As label:
                     Align: =Align.Center
                     Color: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: |-
                         =//30
@@ -523,6 +539,7 @@ SubmittedLeadScreen As screen:
                 lblTotalLeadsSLS As label:
                     Align: =Align.Center
                     AutoHeight: =true
+                    Font: =Font.Arial
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: |-
                         =//Self.Size * 1.8
@@ -545,6 +562,7 @@ SubmittedLeadScreen As screen:
                 lblCountTotalIncentivesSLS As label:
                     Align: =Align.Center
                     Color: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =30
                     OnSelect: =Select(Parent)
@@ -573,6 +591,7 @@ SubmittedLeadScreen As screen:
                 lblTotalIncentivesSLS As label:
                     Align: =Align.Center
                     AutoHeight: =true
+                    Font: =Font.Arial
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =30
                     OnSelect: =Select(Parent)
@@ -599,6 +618,7 @@ SubmittedLeadScreen As screen:
                     Width: |-
                         =//Parent.Width/1.02
                         If(Parent.Width<378,Parent.Width/1.06,Parent.Width<500,Parent.Width/1.06,Parent.Width/1.03)
+                    Y: =1
                     ZIndex: =8
 
                 iconLine1LSLS As icon.HorizontalLine:
@@ -610,7 +630,7 @@ SubmittedLeadScreen As screen:
                     OnSelect: =Select(Parent)
                     Width: =2
                     X: =lblTotalLeadsSLS.X
-                    Y: =Parent.Y/3
+                    Y: =rectangleYearSLS.Y*20
                     ZIndex: =10
 
                 iconLine2SLS As icon.HorizontalLine:
@@ -623,7 +643,7 @@ SubmittedLeadScreen As screen:
                     Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
                     Width: =2
                     X: =lblTotalIncentivesSLS.X
-                    Y: =Parent.Y/3
+                    Y: =rectangleYearSLS.Y*20
                     ZIndex: =11
 
                 btnLeadsSLS As button:
@@ -651,7 +671,7 @@ SubmittedLeadScreen As screen:
                         =!(ThisItem.IsSelected && locInfoExpanded)
                     Width: =Parent.Width/14
                     X: =rectangleYearSLS.Width -(1.08*Self.Width)
-                    Y: =Parent.Y/8
+                    Y: =(Parent.Y-Self.Height)/8
                     ZIndex: =13
 
                 imgCollapseSLS As image:
@@ -663,7 +683,7 @@ SubmittedLeadScreen As screen:
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =Parent.Width/14
                     X: =rectangleYearSLS.Width -(1.08*Self.Width)
-                    Y: =Parent.Y/8
+                    Y: =(Parent.Y-Self.Height)/8
                     ZIndex: =14
 
             ctnSearchBarSLS As groupContainer.horizontalAutoLayoutContainer:
@@ -686,11 +706,12 @@ SubmittedLeadScreen As screen:
                     FocusedBorderThickness: =2
                     Font: =Font.Arial
                     Height: =50
-                    HintText: ="Search leads by contract number or building name or address or zipcode "
+                    HintText: ="Search leads by  tracking number or contract number or building name or address or zipcode "
                     HoverBorderColor: =RGBA(255, 0, 0, 1)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     LayoutMinHeight: =70
                     LayoutMinWidth: =Self.Width
+                    LineHeight: =1
                     Mode: =TextMode.MultiLine
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true});
@@ -721,6 +742,50 @@ SubmittedLeadScreen As screen:
                     Width: =(ctnSearchBarSLS.Width-IntxtSearchBoxSLS.Width)/1.5
                     X: =468
                     Y: =000
+                    ZIndex: =2
+
+            ctnSearchBarSLS_1 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =10
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =2
+                Width: =Parent.Width/1.04
+                X: =10
+                Y: =ctnSearchBarSLS.Height
+                ZIndex: =6
+
+                ComboBox1 As combobox:
+                    BorderColor: =RGBA(255, 0, 0, 1)
+                    ChevronBackground: =RGBA(255, 0, 0, 1)
+                    DisplayFields: =["Value"]
+                    Font: =Font.Arial
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    IsSearchable: =false
+                    Items: |-
+                        =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
+                        ["createdon"  ,"shlrf_qqteamname","shlrf_mechanicname","shlrf_contractnumber","shlrf_leadtrackingnumber","shlrf_buildingname"," shlrf_address","shlrf_leadstatus"]
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(0, 0, 0, 1)
+                    SelectionFill: =RGBA(237, 237, 237, 1)
+                    SelectMultiple: =false
+                    Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
+                    Width: =Parent.Width/2.2
+                    ZIndex: =1
+
+                Dropdown1 As dropdown:
+                    BorderColor: =RGBA(255, 0, 0, 1)
+                    ChevronBackground: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Items: =["Ascending","Descending"]
+                    SelectionColor: =RGBA(0, 0, 0, 1)
+                    SelectionFill: =RGBA(237, 237, 237, 1)
+                    Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
+                    Width: =Parent.Width/2.2
                     ZIndex: =2
 
     grpMenuSLS As group:
