@@ -199,7 +199,7 @@ LeadListScreen As screen:
                 Label4 As label:
                     Text: ="Created Date Order"
                     Width: =170
-                    X: =1012
+                    X: =844
                     Y: =5
                     ZIndex: =2
 
@@ -214,6 +214,20 @@ LeadListScreen As screen:
                     X: =1198
                     Y: =5
                     ZIndex: =3
+
+                Dropdown1_1 As dropdown:
+                    BorderColor: =Header.SHRed
+                    ChevronBackground: =Header.SHRed
+                    ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    Items: |-
+                        =["createdon","shlrf_qqteamname","shlrf_mechanicname","shlrf_contractnumber","shlrf_leadtrackingnumber","shlrf_buildingname"," shlrf_address","shlrf_leadstatus"]
+                        //["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address","Lead Status"]
+                    PressedFill: =//RGBA(0, 18, 107, 1)
+                    SelectionFill: =Header.SHRed
+                    Width: =150
+                    X: =1036
+                    Y: =5
+                    ZIndex: =4
 
             ctnleadlistLS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -242,7 +256,7 @@ LeadListScreen As screen:
                         FillPortions: =0
                         Height: =Parent.Height
                         Items: |-
-                            =Sort(
+                            =SortByColumns(
                                 If(
                                     VarMyLeads = true,
                                     Search(Filter(
@@ -273,8 +287,7 @@ LeadListScreen As screen:
                                         )
                                     )
                                 ),
-                                'Created On',
-                            Dropdown1.Selected.Value
+                              Dropdown1_1.Selected.Value,Dropdown1.Selected.Value
                             )
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
