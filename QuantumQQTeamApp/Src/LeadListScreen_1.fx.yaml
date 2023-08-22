@@ -1,9 +1,9 @@
-LeadListScreen As screen:
+LeadListScreen_1 As screen:
     OnVisible: |-
         =Refresh(LeadInformations);
         Set(VarPopUpInprogress,false);
 
-    ctnmainLS As groupContainer.verticalAutoLayoutContainer:
+    ctnmainLS_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =10
@@ -11,7 +11,7 @@ LeadListScreen As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderLeadListScreen As groupContainer.manualLayoutContainer:
+        ctnHeaderLeadListScreen_1 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =Header.SHRed
             FillPortions: =0
@@ -21,7 +21,7 @@ LeadListScreen As screen:
             Width: =Parent.Width
             ZIndex: =7
 
-            imguserLS As image:
+            imguserLS_1 As image:
                 Fill: =RGBA(253, 222, 207, 1)
                 Height: =50
                 Image: |-
@@ -32,11 +32,11 @@ LeadListScreen As screen:
                 RadiusTopLeft: =91
                 RadiusTopRight: =91
                 Width: =50
-                X: =lblheaderLS.X+lblheaderLS.Width
+                X: =lblheaderLS_1.X+lblheaderLS_1.Width
                 Y: =16
                 ZIndex: =1
 
-            lblusernameLS As label:
+            lblusernameLS_1 As label:
                 Align: =Align.Center
                 Color: =Header.White
                 FontWeight: =FontWeight.Semibold
@@ -44,11 +44,11 @@ LeadListScreen As screen:
                 Text: |-
                     =//"Hi Sam Martin"
                     User().FullName
-                Width: =ctnHeaderLeadListScreen.Width/8
-                X: =imguserLS.X+ imguserLS.Height
+                Width: =ctnHeaderLeadListScreen_1.Width/8
+                X: =imguserLS_1.X+ imguserLS_1.Height
                 ZIndex: =2
 
-            lblheaderLS As label:
+            lblheaderLS_1 As label:
                 Align: =Align.Center
                 Color: =Header.White
                 Fill: =Header.SHRed
@@ -56,11 +56,11 @@ LeadListScreen As screen:
                 Height: =Parent.Height
                 Size: =26
                 Text: =If(VarMyLeads=true,"My Leads",VarOpenLeads=true,"Open Leads",VarQuotedLeads=true,"Quoted Leads",VarSoldLeads=true,"Sold Leads")
-                Width: =ctnHeaderLeadListScreen.Width/1.5
-                X: =imgSchindlerlogoLS.Width+imgSchindlerlogoLS.X
+                Width: =ctnHeaderLeadListScreen_1.Width/1.5
+                X: =imgSchindlerlogoLS_1.Width+imgSchindlerlogoLS_1.X
                 ZIndex: =3
 
-            imgSchindlerlogoLS As image:
+            imgSchindlerlogoLS_1 As image:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 Image: =SchindlerImage
@@ -68,10 +68,10 @@ LeadListScreen As screen:
                 PaddingLeft: =2
                 PaddingRight: =1
                 PaddingTop: =5
-                Width: =ctnHeaderLeadListScreen.Width/10
+                Width: =ctnHeaderLeadListScreen_1.Width/10
                 ZIndex: =4
 
-        ctnlistLS As groupContainer.verticalAutoLayoutContainer:
+        ctnlistLS_1 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
@@ -80,26 +80,26 @@ LeadListScreen As screen:
             Width: =Parent.Width
             ZIndex: =8
 
-            ctnfilterLS As groupContainer.manualLayoutContainer:
+            ctnfilterLS_1 As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
-                Height: =120
+                Height: =100
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 Width: =Parent.Width
                 ZIndex: =1
 
-                ctnfiltersearchLS As groupContainer.horizontalAutoLayoutContainer:
-                    Height: =120
-                    LayoutGap: =20
+                ctnfiltersearchLS_1 As groupContainer.horizontalAutoLayoutContainer:
+                    Height: =100
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =5
                     LayoutJustifyContent: =LayoutJustifyContent.End
                     LayoutMode: =LayoutMode.Auto
                     PaddingRight: =10
-                    PaddingTop: =10
                     Width: =Parent.Width
                     ZIndex: =1
 
-                    cmbxregionfilterLS As combobox:
+                    cmbxregionfilterLS_1 As combobox:
                         BorderColor: =Header.SHRed
                         ChevronBackground: =Header.SHRed
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
@@ -111,49 +111,45 @@ LeadListScreen As screen:
                         PressedFill: =RGBA(0, 0, 0, 0)
                         Reset: =true
                         SearchFields: =["cr02d_territory"]
-                        SearchItems: =Search(SHTechnicians,cmbxregionfilterLS.SearchText,"cr02d_territory")
+                        SearchItems: =Search(SHTechnicians,cmbxregionfilterLS_1.SearchText,"cr02d_territory")
                         SelectionFill: =Header.SHRed
                         SelectMultiple: =false
-                        Visible: =false
                         Width: =200
                         ZIndex: =2
 
-                    cmbxdistrictfilterLS As combobox:
+                    cmbxdistrictfilterLS_1 As combobox:
                         BorderColor: =Header.SHRed
                         ChevronBackground: =Header.SHRed
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                         DisplayFields: =["cr02d_district"]
                         InputTextPlaceholder: ="Select District"
-                        Items: =Filter(SHTechnicians, Territory = cmbxregionfilterLS.Selected.Territory)
+                        Items: =Filter(SHTechnicians, Territory = cmbxregionfilterLS_1.Selected.Territory)
                         PressedColor: =RGBA(0, 0, 0, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         Reset: =true
                         SearchFields: =["cr02d_district"]
-                        SearchItems: =Search(Filter(SHTechnicians, Territory = cmbxregionfilterLS.Selected.Territory),cmbxdistrictfilterLS.SearchText,"cr02d_district")
+                        SearchItems: =Search(Filter(SHTechnicians, Territory = cmbxregionfilterLS_1.Selected.Territory),cmbxdistrictfilterLS_1.SearchText,"cr02d_district")
                         SelectionFill: =Header.SHRed
-                        Visible: =false
                         Width: =200
                         ZIndex: =3
 
-                    cmbxareafilterLS As combobox:
+                    cmbxareafilterLS_1 As combobox:
                         BorderColor: =Header.SHRed
                         ChevronBackground: =Header.SHRed
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                         DisplayFields: =["cr02d_area"]
                         InputTextPlaceholder: ="Select Area"
-                        Items: =Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.District)
+                        Items: =Filter(SHTechnicians, District = cmbxdistrictfilterLS_1.Selected.District)
                         PressedColor: =RGBA(0, 0, 0, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         Reset: =true
                         SearchFields: =["cr02d_area"]
-                        SearchItems: =Search(Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.District),cmbxareafilterLS.SearchText,"cr02d_area")
+                        SearchItems: =Search(Filter(SHTechnicians, District = cmbxdistrictfilterLS_1.Selected.District),cmbxareafilterLS_1.SearchText,"cr02d_area")
                         SelectionFill: =Header.SHRed
-                        Visible: =false
                         Width: =200
                         ZIndex: =4
 
-                    txtinptsearchLS As text:
-                        AlignInContainer: =AlignInContainer.Center
+                    txtinptsearchLS_1 As text:
                         BorderColor: =Header.SHRed
                         Default: =""
                         HintText: ="Search on Contract No./Mechanic Name"
@@ -162,69 +158,16 @@ LeadListScreen As screen:
                         Width: =340
                         ZIndex: =5
 
-                    Container7 As groupContainer.manualLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(202, 202, 202, 1)
-                        BorderThickness: =3
-                        FillPortions: =0
-                        Height: =100
-                        LayoutMinHeight: =80
-                        LayoutMinWidth: =250
-                        PaddingBottom: =2
-                        PaddingTop: =2
-                        RadiusBottomLeft: =20
-                        RadiusBottomRight: =20
-                        RadiusTopLeft: =20
-                        RadiusTopRight: =20
-                        ZIndex: =6
-
-                        Label4 As label:
-                            Color: =RGBA(116, 116, 116, 1)
-                            FontWeight: =FontWeight.Semibold
-                            Text: ="Sort column by order"
-                            Width: =300
-                            X: =Parent.Width-Self.Width
-                            Y: =10
-                            ZIndex: =1
-
-                        Dropdown1 As dropdown:
-                            BorderColor: =Header.SHRed
-                            ChevronBackground: =Header.SHRed
-                            ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            HoverFill: =//RGBA(186, 202, 226, 1)
-                            Items: =["Ascending","Descending"]
-                            PressedFill: =//RGBA(0, 18, 107, 1)
-                            SelectionFill: =Header.SHRed
-                            Width: =150
-                            X: =326
-                            Y: =50
-                            ZIndex: =2
-
-                        Dropdown1_1 As dropdown:
-                            BorderColor: =Header.SHRed
-                            ChevronBackground: =Header.SHRed
-                            ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            HoverFill: =//RGBA(186, 202, 226, 1)
-                            Items: |-
-                                =["createdon","shlrf_qqteamname","shlrf_mechanicname","shlrf_contractnumber","shlrf_leadtrackingnumber","shlrf_buildingname"," shlrf_address","shlrf_leadstatus"]
-                                //["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address","Lead Status"]
-                            PressedFill: =//RGBA(0, 18, 107, 1)
-                            SelectionFill: =Header.SHRed
-                            Width: =270
-                            X: =40
-                            Y: =50
-                            ZIndex: =3
-
-                btnbackLS As button:
+                btnbackLS_1 As button:
                     BorderColor: =//ColorFade(Self.Fill, -15%)
                     BorderThickness: =0
                     Fill: =Header.SHRed
                     FocusedBorderThickness: =0
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                     OnSelect: |-
-                        =Reset(cmbxregionfilterLS);
-                        Reset(cmbxdistrictfilterLS);
-                        Reset(cmbxareafilterLS);
+                        =Reset(cmbxregionfilterLS_1);
+                        Reset(cmbxdistrictfilterLS_1);
+                        Reset(cmbxareafilterLS_1);
                         Navigate(DashboardScreen)
                     PressedFill: =//Self.Color
                     RadiusBottomLeft: =0
@@ -236,16 +179,16 @@ LeadListScreen As screen:
                     Y: =25
                     ZIndex: =2
 
-            Container4 As groupContainer.manualLayoutContainer:
+            Container4_1 As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
-                Height: =50
+                Height: =100
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 Width: =Parent.Width
                 ZIndex: =2
 
-                Label3 As label:
+                Label3_1 As label:
                     FontWeight: =FontWeight.Semibold
                     Text: ="Click on specific lead to see details."
                     VerticalAlign: =VerticalAlign.Top
@@ -254,7 +197,41 @@ LeadListScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-            ctnleadlistLS As groupContainer.manualLayoutContainer:
+                Label4_1 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Text: ="Sort Columns"
+                    Width: =130
+                    X: =1100
+                    Y: =5
+                    ZIndex: =2
+
+                Dropdown1_2 As dropdown:
+                    BorderColor: =Header.SHRed
+                    ChevronBackground: =Header.SHRed
+                    ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    Items: =["Ascending","Descending"]
+                    PressedFill: =//RGBA(0, 18, 107, 1)
+                    SelectionFill: =Header.SHRed
+                    Width: =150
+                    X: =1198
+                    Y: =45
+                    ZIndex: =3
+
+                Dropdown1_3 As dropdown:
+                    BorderColor: =Header.SHRed
+                    ChevronBackground: =Header.SHRed
+                    ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    Items: |-
+                        =["createdon","shlrf_qqteamname","shlrf_mechanicname","shlrf_contractnumber","shlrf_leadtrackingnumber","shlrf_buildingname"," shlrf_address","shlrf_leadstatus"]
+                        //["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address","Lead Status"]
+                    PressedFill: =//RGBA(0, 18, 107, 1)
+                    SelectionFill: =Header.SHRed
+                    Width: =270
+                    X: =912
+                    Y: =45
+                    ZIndex: =4
+
+            ctnleadlistLS_1 As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
                 Height: =Parent.Height
@@ -264,17 +241,17 @@ LeadListScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =3
 
-                ctnleadlistglryLS As groupContainer.verticalAutoLayoutContainer:
+                ctnleadlistglryLS_1 As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.Height//+5000
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
                     LayoutOverflowY: =LayoutOverflow.Scroll
                     Width: =Parent.Width-20
                     X: =10//Parent.X+10
-                    Y: =ctnlistheadingLS.X+ctnlistheadingLS.Height
+                    Y: =ctnlistheadingLS_1.X+ctnlistheadingLS_1.Height
                     ZIndex: =1
 
-                    "glryleadlistLS As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+                    "glryleadlistLS_1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(204, 204, 204, 1)
                         BorderThickness: =3
@@ -286,45 +263,45 @@ LeadListScreen As screen:
                                     VarMyLeads = true,
                                     Search(Filter(
                                         LeadInformations,
-                                        QQTeamName = User().FullName ,Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
-                                    ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname"),
+                                        QQTeamName = User().FullName ,Territory=cmbxregionfilterLS_1.Selected.Territory ||IsBlank(cmbxregionfilterLS_1.Selected.Territory) ,District=cmbxdistrictfilterLS_1.Selected.District ||IsBlank(cmbxdistrictfilterLS_1.Selected.District) ,Area=cmbxareafilterLS_1.Selected.Area ||IsBlank(cmbxareafilterLS_1.Selected.Area)
+                                    ),txtinptsearchLS_1.Text,"shlrf_contractnumber","shlrf_mechanicname"),
                                     If(
                                         VarOpenLeads = true,
                                         Search(Filter(
                                             LeadInformations,
                                             (LeadStatus = "Submitted"|| LeadStatus = "Rejected" ||LeadStatus = "InProgress")
-                                            , Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
-                                        ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname")
+                                            , Territory=cmbxregionfilterLS_1.Selected.Territory ||IsBlank(cmbxregionfilterLS_1.Selected.Territory) ,District=cmbxdistrictfilterLS_1.Selected.District ||IsBlank(cmbxdistrictfilterLS_1.Selected.District) ,Area=cmbxareafilterLS_1.Selected.Area ||IsBlank(cmbxareafilterLS_1.Selected.Area)
+                                        ),txtinptsearchLS_1.Text,"shlrf_contractnumber","shlrf_mechanicname")
                                         ,
                                         If(
                                             VarQuotedLeads = true,
                                            Search( Filter(
                                                 LeadInformations,
-                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
-                                            ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname"),
+                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS_1.Selected.Territory ||IsBlank(cmbxregionfilterLS_1.Selected.Territory) ,District=cmbxdistrictfilterLS_1.Selected.District ||IsBlank(cmbxdistrictfilterLS_1.Selected.District) ,Area=cmbxareafilterLS_1.Selected.Area ||IsBlank(cmbxareafilterLS_1.Selected.Area)
+                                            ),txtinptsearchLS_1.Text,"shlrf_contractnumber","shlrf_mechanicname"),
                                             If(
                                                 VarSoldLeads = true,
                                                Search( Filter(
                                                     LeadInformations,
-                                                    LeadStatus = "Sold",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
-                                                ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname")
+                                                    LeadStatus = "Sold",Territory=cmbxregionfilterLS_1.Selected.Territory ||IsBlank(cmbxregionfilterLS_1.Selected.Territory) ,District=cmbxdistrictfilterLS_1.Selected.District ||IsBlank(cmbxdistrictfilterLS_1.Selected.District) ,Area=cmbxareafilterLS_1.Selected.Area ||IsBlank(cmbxareafilterLS_1.Selected.Area)
+                                                ),txtinptsearchLS_1.Text,"shlrf_contractnumber","shlrf_mechanicname")
                                             )
                                         )
                                     )
                                 ),
-                              Dropdown1_1.Selected.Value,Dropdown1.Selected.Value
+                              Dropdown1_3.Selected.Value,Dropdown1_2.Selected.Value
                             )
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
                         OnSelect: =//Navigate(CommingSoonUnused)
                         TemplatePadding: =0
-                        TemplateSize: =ctnlistheadingvalueLS.Height+20
+                        TemplateSize: =ctnlistheadingvalueLS_1.Height+20
                         Visible: =true//VarListLoad
                         Width: =Parent.Width
                         ZIndex: =1
 
-                        rectglrylistLS As rectangle:
+                        rectglrylistLS_1 As rectangle:
                             Fill: |-
                                 =//If(ThisItem.LeadStatus="Submitted",RGBA(39,113,194,1),ThisItem.LeadStatus="Inprogess",RGBA(54,176,75,1),ThisItem.LeadStatus="Reject",RGBA(255,0,0,1)) 
                                 RGBA(204, 204, 204, 1)
@@ -338,12 +315,12 @@ LeadListScreen As screen:
                                 //If(Label8_3.Height>60 ,Label8_3.Height+Label8_3.Y, Label9_3.Height>60,Label9_3.Height+Label9_3.Y,50)
                                 //If(Label8_3.Height>Label9_3.Height ,Label8_3.LayoutMinHeight+Label8_3.Y,Label9_3.LayoutMinHeight+Label9_3.Y)
                                 //ctnlistheadingvalueLS.Y+ctnlistheadingvalueLS.Height-10
-                                ctnlistheadingvalueLS.Y+ctnlistheadingvalueLS.Height
+                                ctnlistheadingvalueLS_1.Y+ctnlistheadingvalueLS_1.Height
                                 
                                 //If(!IsBlank(lbldistrictvalueLS.Height) || !IsBlank(lblareavalueLS.Height),If(lbldistrictvalueLS.Height>lblareavalueLS.Height,lbldistrictvalueLS.Height+10,lblareavalueLS.Height+10),70)
                             ZIndex: =3
 
-                        ctnlistheadingvalueLS As groupContainer.horizontalAutoLayoutContainer:
+                        ctnlistheadingvalueLS_1 As groupContainer.horizontalAutoLayoutContainer:
                             Height: |
                                 =100//If(lbldistrictvalueLS.Height>60 ,lbldistrictvalueLS.Height+lbldistrictvalueLS.Y, lblareavalueLS.Height>60,lblareavalueLS.Height+lblareavalueLS.Y,90)
                             LayoutAlignItems: =LayoutAlignItems.Center
@@ -353,7 +330,7 @@ LeadListScreen As screen:
                             Width: =Parent.Width
                             ZIndex: =4
 
-                            lblcreatedatevalueLS As label:
+                            lblcreatedatevalueLS_1 As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
                                 Text: |-
@@ -361,7 +338,7 @@ LeadListScreen As screen:
                                 Width: =190
                                 ZIndex: =1
 
-                            lblqqteamnamvalueLS As label:
+                            lblqqteamnamvalueLS_1 As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
                                 AutoHeight: =true
@@ -369,7 +346,7 @@ LeadListScreen As screen:
                                     =If(!IsBlank(LookUp(LeadInformations,LeadStatus="Submitted" && ID=ThisItem.ID)),"Not Assigned",LookUp(LeadInformations,ID=ThisItem.ID,QQTeamName))
                                 ZIndex: =2
 
-                            lblmechanicnamevalueLS As label:
+                            lblmechanicnamevalueLS_1 As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
                                 AutoHeight: =true
@@ -378,20 +355,20 @@ LeadListScreen As screen:
                                     //"Mechanic Name"
                                 ZIndex: =3
 
-                            lblcontractnovalueLS As label:
+                            lblcontractnovalueLS_1 As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
                                 Text: =ThisItem.'ContractNumber '
                                 Width: =120
                                 ZIndex: =4
 
-                            lblregionvalueLS As label:
+                            lblregionvalueLS_1 As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
                                 Text: =ThisItem.LeadTrackingNumber //ThisItem.Territory
                                 ZIndex: =5
 
-                            lbldistrictvalueLS As label:
+                            lbldistrictvalueLS_1 As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
                                 AutoHeight: =true
@@ -399,7 +376,7 @@ LeadListScreen As screen:
                                 Text: =ThisItem.'BuildingName '
                                 ZIndex: =6
 
-                            lblareavalueLS As label:
+                            lblareavalueLS_1 As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
                                 AutoHeight: =true
@@ -408,7 +385,7 @@ LeadListScreen As screen:
                                 Width: =140
                                 ZIndex: =7
 
-                            lblleadstatusvalueLS As label:
+                            lblleadstatusvalueLS_1 As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
                                 Color: =If(ThisItem.LeadStatus="Submitted",RGBA(39,113,194,1),ThisItem.LeadStatus="InProgress",RGBA(54,176,75,1),ThisItem.LeadStatus="Rejected",Header.SHRed)
@@ -419,14 +396,14 @@ LeadListScreen As screen:
                                 Width: =120
                                 ZIndex: =8
 
-                            icnviewLS As icon.Add:
+                            icnviewLS_1 As icon.Add:
                                 Height: =40
                                 Icon: =Icon.View
                                 Visible: =false
                                 Width: =40
                                 ZIndex: =9
 
-                            icneditLS As icon.Add:
+                            icneditLS_1 As icon.Add:
                                 Height: =40
                                 Icon: =Icon.Edit
                                 OnSelect: =//Navigate(LeadScreen)
@@ -435,7 +412,7 @@ LeadListScreen As screen:
                                 Width: =40
                                 ZIndex: =10
 
-                            icnrightLS As icon.ChevronRight:
+                            icnrightLS_1 As icon.ChevronRight:
                                 AlignInContainer: =AlignInContainer.Start
                                 Color: =Header.SHRed
                                 Height: =50
@@ -443,12 +420,12 @@ LeadListScreen As screen:
                                 OnSelect: =//Navigate(LeadScreen)
                                 PaddingLeft: =40
                                 Width: =60
-                                X: =lblleadstatusvalueLS.Width+lblleadstatusvalueLS.X
+                                X: =lblleadstatusvalueLS_1.Width+lblleadstatusvalueLS_1.X
                                 ZIndex: =11
 
-                        btnglryleadlistLS As button:
+                        btnglryleadlistLS_1 As button:
                             Fill: =RGBA(0, 0, 0, 0)
-                            Height: =ctnlistheadingvalueLS.Height
+                            Height: =ctnlistheadingvalueLS_1.Height
                             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             OnSelect: |
                                 =If(ThisItem.LeadStatus="Submitted",Set(VarPopUpInprogress,true),Navigate(LeadScreen));
@@ -457,20 +434,20 @@ LeadListScreen As screen:
                             PressedColor: =//Self.Fill
                             PressedFill: =//Self.Color
                             Text: =""
-                            Width: =ctnlistheadingvalueLS.Width
-                            X: =ctnlistheadingvalueLS.X
-                            Y: =ctnlistheadingvalueLS.Y
+                            Width: =ctnlistheadingvalueLS_1.Width
+                            X: =ctnlistheadingvalueLS_1.X
+                            Y: =ctnlistheadingvalueLS_1.Y
                             ZIndex: =5
 
-                        rectvertLS As rectangle:
+                        rectvertLS_1 As rectangle:
                             Fill: =If(ThisItem.LeadStatus="Submitted",RGBA(39,113,194,1),ThisItem.LeadStatus="Inprogess",RGBA(54,176,75,1),ThisItem.LeadStatus="Reject",RGBA(255,0,0,1))
-                            Height: =ctnlistheadingvalueLS.Height-10
+                            Height: =ctnlistheadingvalueLS_1.Height-10
                             Visible: =false
                             Width: =10
                             X: =10
                             ZIndex: =6
 
-                    Container5 As groupContainer.verticalAutoLayoutContainer:
+                    Container5_1 As groupContainer.verticalAutoLayoutContainer:
                         FillPortions: =0
                         Height: =250
                         LayoutDirection: =LayoutDirection.Vertical
@@ -479,7 +456,7 @@ LeadListScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =2
 
-                ctnlistheadingLS As groupContainer.horizontalAutoLayoutContainer:
+                ctnlistheadingLS_1 As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =RGBA(230, 230, 230, 1)
                     Height: =60
                     LayoutAlignItems: =LayoutAlignItems.Center
@@ -489,59 +466,59 @@ LeadListScreen As screen:
                     X: =10
                     ZIndex: =2
 
-                    lblcreatedateLS As label:
+                    lblcreatedateLS_1 As label:
                         Align: =Align.Center
                         Text: ="Created Date"
                         Width: =180
                         ZIndex: =1
 
-                    lblqqteamnameLS As label:
+                    lblqqteamnameLS_1 As label:
                         Align: =Align.Center
                         Text: ="QQ Team name"
                         ZIndex: =2
 
-                    lblmechanicnameLS As label:
+                    lblmechanicnameLS_1 As label:
                         Align: =Align.Center
                         Text: ="Mechanic Name"
                         ZIndex: =3
 
-                    lblcontractnoLS As label:
+                    lblcontractnoLS_1 As label:
                         Align: =Align.Center
                         Text: |-
                             ="Contract #"
                         Width: =130
                         ZIndex: =4
 
-                    lblregionLS As label:
+                    lblregionLS_1 As label:
                         Align: =Align.Center
                         Text: |
                             ="Lead Tracking #"//"Territory"
                         ZIndex: =5
 
-                    lbldistrictLS As label:
+                    lbldistrictLS_1 As label:
                         Align: =Align.Center
                         Text: ="Building Name"//"District"
                         ZIndex: =6
 
-                    lblareaLS As label:
+                    lblareaLS_1 As label:
                         Align: =Align.Center
                         Text: ="Address"
                         ZIndex: =7
 
-                    lblleadstatusLS As label:
+                    lblleadstatusLS_1 As label:
                         Align: =Align.Center
                         Text: ="Lead Status"
                         Width: =120
                         ZIndex: =8
 
-                    lblactionLS As label:
+                    lblactionLS_1 As label:
                         Align: =Align.Center
                         Text: ="Action"
                         Visible: =false
                         Width: =180
                         ZIndex: =9
 
-    Timer1 As timer:
+    Timer1_1 As timer:
         Duration: =2000
         OnTimerEnd: =Set(VarListLoad,true)
         Visible: =false
@@ -549,21 +526,21 @@ LeadListScreen As screen:
         Y: =40
         ZIndex: =8
 
-    grpinprogressconfirmationLS As group:
+    grpinprogressconfirmationLS_2 As group:
         Height: =5
         Width: =5
         X: =40
         Y: =40
         ZIndex: =8
 
-        rectfullinprogressconfirmtionLS As rectangle:
+        rectfullinprogressconfirmtionLS_2 As rectangle:
             Fill: =RGBA(0, 0, 0, 0.29)
             Height: =Parent.Height
             Visible: =VarPopUpInprogress
             Width: =Parent.Width
             ZIndex: =2
 
-        rectinprogressconfirmationLS As rectangle:
+        rectinprogressconfirmationLS_2 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =280
             Visible: =VarPopUpInprogress
@@ -572,16 +549,16 @@ LeadListScreen As screen:
             Y: =Parent.Height/3
             ZIndex: =3
 
-        imginfoLS As image:
+        imginfoLS_2 As image:
             Height: =52
             Image: =images
             Visible: =VarPopUpInprogress
             Width: =52
             X: =(Parent.Width-Self.Width)/2
-            Y: =rectinprogressconfirmationLS.Y+20
+            Y: =rectinprogressconfirmationLS_2.Y+20
             ZIndex: =4
 
-        lblmsgLS As label:
+        lblmsgLS_2 As label:
             Align: =Align.Center
             Font: =Font.Arial
             FontWeight: =FontWeight.Bold
@@ -591,17 +568,17 @@ LeadListScreen As screen:
             Visible: =VarPopUpInprogress
             Width: =350
             X: =(Parent.Width-Self.Width)/2
-            Y: =imginfoLS.Y+ imginfoLS.Height+2
+            Y: =imginfoLS_2.Y+ imginfoLS_2.Height+2
             ZIndex: =5
 
-        btnyesLS As button:
+        btnyesLS_2 As button:
             Fill: =RGBA(54, 176, 75, 1)
             Font: =Font.Arial
             HoverFill: =RGBA(75, 125, 6, 1)
             OnSelect: |-
                 =Set(QQname,true);
-                UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,{LeadStatus:"InProgress",QQTeamName:User().FullName});
-                LeadInProgress.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.'BuildingName ',User().FullName);
+                UpdateIf(LeadInformations,ID=glryleadlistLS_1.Selected.ID,{LeadStatus:"InProgress",QQTeamName:User().FullName});
+                LeadInProgress.Run(glryleadlistLS_1.Selected.Email,glryleadlistLS_1.Selected.'BuildingName ',User().FullName);
                 Navigate(LeadScreen);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
@@ -609,10 +586,10 @@ LeadListScreen As screen:
             Visible: =VarPopUpInprogress
             Width: =120
             X: =(Parent.Width-Self.Width)/2.3
-            Y: =lblmsgLS.Y+ lblmsgLS.Height+10
+            Y: =lblmsgLS_2.Y+ lblmsgLS_2.Height+10
             ZIndex: =6
 
-        btnnoLS As button:
+        btnnoLS_2 As button:
             BorderColor: =RGBA(75, 125, 6, 1)
             Fill: =RGBA(54, 176, 75, 1)
             Font: =Font.Arial
@@ -627,7 +604,7 @@ LeadListScreen As screen:
             Text: ="No"
             Visible: =VarPopUpInprogress
             Width: =120
-            X: =btnyesLS.X+btnyesLS.Width+20
-            Y: =lblmsgLS.Y+ lblmsgLS.Height+10
+            X: =btnyesLS_2.X+btnyesLS_2.Width+20
+            Y: =lblmsgLS_2.Y+ lblmsgLS_2.Height+10
             ZIndex: =7
 
