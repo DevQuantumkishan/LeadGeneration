@@ -239,7 +239,7 @@ LeadListScreen As screen:
             Container4 As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
-                Height: =50
+                Height: =60
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 Width: =Parent.Width
@@ -247,9 +247,12 @@ LeadListScreen As screen:
 
                 Label3 As label:
                     FontWeight: =FontWeight.Semibold
-                    Text: ="Click on specific lead to see details."
+                    Height: =50
+                    Text: |-
+                        ="Note:1)Search on Contract No. or Mechanic Name or Lead Tracking No.
+                                  2)Click on specific lead to see details."
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =Parent.Width/2
+                    Width: =Parent.Width
                     X: =10
                     Y: =10
                     ZIndex: =1
