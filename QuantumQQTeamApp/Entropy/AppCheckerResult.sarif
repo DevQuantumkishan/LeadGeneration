@@ -3282,6 +3282,18 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 8
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -3556,6 +3568,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LeadListScreen.ctnmainLS.ctnlistLS.Container4.Dropdown1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LeadListScreen.ctnmainLS.ctnlistLS.Container4.Dropdown1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LeadListScreen",
+                "type": "LeadListScreen.ctnmainLS.ctnlistLS.Container4.Dropdown1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -4792,36 +4834,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "LeadListScreen.ctnmainLS.ctnlistLS.Container4.Dropdown1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "LeadListScreen.ctnmainLS.ctnlistLS.Container4.Dropdown1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "LeadListScreen",
-                "type": "LeadListScreen.ctnmainLS.ctnlistLS.Container4.Dropdown1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.VarAllLeads"
                 }
               ],
@@ -5302,17 +5314,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.TechnicianMessage"
+                  "fullyQualifiedName": "App.LeadInProgress"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.TechnicianMessage",
+                  "fullyQualifiedName": "App.LeadInProgress",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "TechnicianMessage",
+                "member": "LeadInProgress",
                 "module": "App",
                 "type": "App"
               }
@@ -5332,17 +5344,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.LeadInProgress"
+                  "fullyQualifiedName": "App.TechnicianMessage"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.LeadInProgress",
+                  "fullyQualifiedName": "App.TechnicianMessage",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "LeadInProgress",
+                "member": "TechnicianMessage",
                 "module": "App",
                 "type": "App"
               }

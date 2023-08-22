@@ -182,6 +182,8 @@ LeadListScreen As screen:
             Container4 As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 Height: =50
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -277,9 +279,10 @@ LeadListScreen As screen:
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
-                        OnSelect: =//Navigate(CommingSoonUnused)
+                        OnSelect: =VarListLoad //Navigate(CommingSoonUnused)
                         TemplatePadding: =0
                         TemplateSize: =ctnlistheadingvalueLS.Height+20
+                        Visible: =true//VarListLoad
                         Width: =Parent.Width
                         ZIndex: =1
 
@@ -499,6 +502,15 @@ LeadListScreen As screen:
                         Visible: =false
                         Width: =180
                         ZIndex: =9
+
+    Timer1 As timer:
+        AutoStart: =true
+        Duration: =2000
+        OnTimerEnd: =Set(VarListLoad,true)
+        Visible: =false
+        X: =40
+        Y: =40
+        ZIndex: =8
 
     grpinprogressconfirmationLS As group:
         Height: =5
