@@ -760,6 +760,7 @@ SubmittedLeadScreen As screen:
                 ComboBox1 As combobox:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     ChevronBackground: =RGBA(255, 0, 0, 1)
+                    ChevronHoverBackground: =Self.ChevronBackground
                     DisplayFields: =["Value"]
                     Font: =Font.Arial
                     HoverFill: =RGBA(0, 0, 0, 0)
@@ -767,6 +768,8 @@ SubmittedLeadScreen As screen:
                     Items: |-
                         =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
                         ["createdon"  ,"shlrf_qqteamname","shlrf_mechanicname","shlrf_contractnumber","shlrf_leadtrackingnumber","shlrf_buildingname"," shlrf_address","shlrf_leadstatus"]
+                    PressedColor: =RGBA(0, 0, 0, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
                     SearchFields: =["Value"]
                     SearchItems: =[]
                     SelectionColor: =RGBA(0, 0, 0, 1)
@@ -779,9 +782,12 @@ SubmittedLeadScreen As screen:
                 Dropdown1 As dropdown:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     ChevronBackground: =RGBA(255, 0, 0, 1)
+                    ChevronHoverBackground: =Self.ChevronBackground
                     Font: =Font.Arial
                     HoverFill: =RGBA(0, 0, 0, 0)
                     Items: =["Ascending","Descending"]
+                    PressedColor: =RGBA(0, 0, 0, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
                     SelectionColor: =RGBA(0, 0, 0, 1)
                     SelectionFill: =RGBA(237, 237, 237, 1)
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
