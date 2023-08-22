@@ -393,7 +393,7 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            =If(btnheaderSLS.Text="Quoted Leads","<b>BID Date : </b>" & ThisItem.'Created On',"<b>Date Created : </b>" & ThisItem.'Created On')
+                            ="<b>Date Created : </b>" & ThisItem.'Created On'
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -460,6 +460,22 @@ SubmittedLeadScreen As screen:
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextContractNumberSLS.Y
                         ZIndex: =23
+
+                    htmltxtDateSLS_1 As htmlViewer:
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Arial
+                        Height: =20
+                        HtmlText: |-
+                            =If(btnheaderSLS.Text="Quoted Leads","<b>BID Date : </b>" & ThisItem.'Created On',"<b>Date Created : </b>" & ThisItem.'Created On')
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                        Width: =Parent.Width/1.08
+                        X: =20
+                        Y: =htmltxtDateSLS.Y+htmltxtDateSLS.Height
+                        ZIndex: =24
 
                 lblTitleYearSLS As label:
                     Align: =Align.Center
