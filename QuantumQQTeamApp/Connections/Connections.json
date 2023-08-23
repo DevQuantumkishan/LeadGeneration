@@ -37,6 +37,38 @@
     "dependents": [],
     "id": "208c9814-c9e1-4c20-ae09-86c3efe7829e"
   },
+  "59cbd020-900b-4923-bf18-82ab8f248577": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowEntityId": {
+          "value": "20a31e7a-9c41-ee11-bdf3-000d3abcf12e"
+        },
+        "workflowName": {
+          "value": "b3de7c59-e234-67f8-7bb4-fdc8a1eacd98"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowEntityId": {
+          "value": "20a31e7a-9c41-ee11-bdf3-000d3abcf12e"
+        },
+        "workflowName": {
+          "value": "b3de7c59-e234-67f8-7bb4-fdc8a1eacd98"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "LeadQuoted"
+    ],
+    "dependencies": {
+      "shared_powerappsnotificationv2": "fd958eef-e1a7-4002-820a-eb82f1e05913"
+    },
+    "dependents": [],
+    "id": "59cbd020-900b-4923-bf18-82ab8f248577"
+  },
   "89a50342-6311-43e7-b1d2-b18a5fcf818e": {
     "connectionRef": {
       "displayName": "Logic flows",
@@ -113,44 +145,6 @@
     "dependents": [],
     "id": "8ddeeebd-0c4f-4282-a3de-1a8506aaa734"
   },
-  "b0d8e516-c866-44b5-94f0-db4645c04880": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "fd958eef-e1a7-4002-820a-eb82f1e05913": {
-          "value": "shared_powerappsnotificationv2"
-        },
-        "workflowEntityId": {
-          "value": "20a31e7a-9c41-ee11-bdf3-000d3abcf12e"
-        },
-        "workflowName": {
-          "value": "b3de7c59-e234-67f8-7bb4-fdc8a1eacd98"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_powerappsnotificationv2": {
-          "value": "fd958eef-e1a7-4002-820a-eb82f1e05913"
-        },
-        "workflowEntityId": {
-          "value": "20a31e7a-9c41-ee11-bdf3-000d3abcf12e"
-        },
-        "workflowName": {
-          "value": "b3de7c59-e234-67f8-7bb4-fdc8a1eacd98"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "LeadQuoted"
-    ],
-    "dependencies": {
-      "shared_powerappsnotificationv2": "fd958eef-e1a7-4002-820a-eb82f1e05913"
-    },
-    "dependents": [],
-    "id": "b0d8e516-c866-44b5-94f0-db4645c04880"
-  },
   "fd958eef-e1a7-4002-820a-eb82f1e05913": {
     "connectionRef": {
       "displayName": "Power Apps Notification V2",
@@ -165,8 +159,8 @@
     "dependents": [
       "208c9814-c9e1-4c20-ae09-86c3efe7829e",
       "8ddeeebd-0c4f-4282-a3de-1a8506aaa734",
-      "b0d8e516-c866-44b5-94f0-db4645c04880",
-      "89a50342-6311-43e7-b1d2-b18a5fcf818e"
+      "89a50342-6311-43e7-b1d2-b18a5fcf818e",
+      "59cbd020-900b-4923-bf18-82ab8f248577"
     ],
     "id": "fd958eef-e1a7-4002-820a-eb82f1e05913"
   }
