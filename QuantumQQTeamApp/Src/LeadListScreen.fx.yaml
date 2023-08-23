@@ -603,8 +603,8 @@ LeadListScreen As screen:
             HoverFill: =RGBA(75, 125, 6, 1)
             OnSelect: |-
                 =Set(QQname,true);
-                UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,{LeadStatus:"InProgress",QQTeamName:User().FullName,StatusDate:Now()});
-                LeadInProgress.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,User().FullName);
+                UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,{LeadStatus:"InProgress",QQTeamName:VarLoggedInUser.FullName,StatusDate:Now()});
+                LeadInProgress.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
                 Navigate(LeadScreen);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill

@@ -2,10 +2,7 @@ App As appinfo:
     BackEnabled: =false
     OnStart: |
         =Refresh(LeadInformations);
-        /*ClearCollect(
-            LeadInformations,
-            LeadInformations
-        );*/
+        Set(VarLoggedInUser,User());
         // Global CSS
         Set(
             //for header
