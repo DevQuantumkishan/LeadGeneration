@@ -1351,6 +1351,7 @@ LeadScreen As screen:
                                     ) + 1
                                 }
                             );
+                            LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,User().FullName);
                             Notify(
                                 "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                                 NotificationType.Success
@@ -1425,6 +1426,7 @@ LeadScreen As screen:
                                     StatusDate:Now()
                                 }
                             );
+                            LeadRejected.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,User().FullName);
                             Notify("Lead rejected with comment successfully.");
                         )
                     Text: ="Submit back to technician"
