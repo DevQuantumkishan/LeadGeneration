@@ -1286,7 +1286,8 @@ LeadScreen As screen:
                                 !IsBlank(
                                     LookUp(
                                         SHFPEstimates,
-                                        Estimate = txtinptestimatenumber_1.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID
+                                        Estimate = txtinptestimatenumber_1.Text 
+                                        && 'Lead Generator Id' = VarSelectedLead.TechnicianID
                                     )
                                 ),
                                 Set(
@@ -1308,7 +1309,8 @@ LeadScreen As screen:
                                         'Created On'
                                     )
                                 ),
-                                Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
+                               // Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
+                               Notify("Estimate number saved successfully.Incentives Details updated when FPEstimate file is processed");
                                 Set(
                                     FlagEstimateNumberFound,
                                     false
@@ -1353,8 +1355,14 @@ LeadScreen As screen:
                                 "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                                 NotificationType.Success
                             );
-                            Navigate(DashboardScreen);
-                            
+                            Navigate(DashboardScreen);,
+                         UpdateIf(
+                                LeadInformations,
+                                ID = VarSelectedLead.ID,
+                                {
+                                    LeadEstimateNumber: txtinptestimatenumber_1.Text
+                                }
+                            );
                         );
                     Text: ="Submit Estimate Number"
                     Width: =300
