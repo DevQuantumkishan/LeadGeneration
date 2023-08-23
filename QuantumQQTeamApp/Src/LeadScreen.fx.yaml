@@ -1326,7 +1326,8 @@ LeadScreen As screen:
                                     LeadStatus: "Quoted",
                                     'LeadPrice ': VarFPEstimateData.BidPrice,
                                     LeadIncentive: VarFPEstimateData.BidPrice * 0.02,
-                                    TechnicianID: VarFPEstimateData.'Lead Generator Id'
+                                    TechnicianID: VarFPEstimateData.'Lead Generator Id',
+                                    LeadDate:Now()
                                 }
                             );
                             UpdateIf(
@@ -1411,7 +1412,8 @@ LeadScreen As screen:
                                 ID = glryleadlistLS.Selected.ID,
                                 {
                                     LeadComment: txitnptrejectLdS_1.Text,
-                                    LeadStatus: "Rejected"
+                                    LeadStatus: "Rejected",
+                                    LeadDate:Now()
                                 }
                             );
                             Notify("Lead rejected with comment successfully.");
