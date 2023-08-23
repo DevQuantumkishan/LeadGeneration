@@ -11435,19 +11435,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Dropdown1.AccessibleLabel"
+                  "fullyQualifiedName": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Icon1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Dropdown1.AccessibleLabel",
+                  "fullyQualifiedName": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Icon1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "AccessibleLabel",
+                "member": "TabIndex",
                 "module": "SubmittedLeadScreen",
-                "type": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Dropdown1"
+                "type": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Icon1"
               }
             }
           ],
@@ -11457,8 +11457,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -17789,6 +17789,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Icon1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Icon1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "SubmittedLeadScreen",
+                "type": "SubmittedLeadScreen.ctnMainSLS.ctnMiddleSLS.ctnSearchBarSLS_1.Icon1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
         },
         {
           "locations": [

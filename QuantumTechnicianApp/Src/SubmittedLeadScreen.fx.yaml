@@ -244,7 +244,7 @@ SubmittedLeadScreen As screen:
                                 "shlrf_buildingname",
                                 "shlrf_zipcode"
                             ),
-                          If(ComboBox1.Selected.Value="Created Date","createdon",ComboBox1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1.Selected.Value="Address","shlrf_address",ComboBox1.Selected.Value="Lead Status","shlrf_leadstatus"),Dropdown1.Selected.Value
+                          If(ComboBox1.Selected.Value="Created Date","createdon",ComboBox1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1.Selected.Value="Address","shlrf_address",ComboBox1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1.Icon=Icon.ArrowUp,SortOrder.Ascending)
                         )
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
@@ -782,8 +782,8 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     FontWeight: =FontWeight.Semibold
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Sort column by order"
-                    Width: =Parent.Width/2.5
+                    Text: ="Sort by order"
+                    Width: =If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
                     X: =Parent.Width-Self.Width
                     Y: =10
                     ZIndex: =1
@@ -799,7 +799,7 @@ SubmittedLeadScreen As screen:
                     IsSearchable: =false
                     Items: |-
                         =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address","Lead Status"]
+                        ["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address"]
                     PressedColor: =RGBA(0, 0, 0, 1)
                     PressedFill: =RGBA(0, 0, 0, 0)
                     SearchFields: =["Value"]
@@ -808,25 +808,34 @@ SubmittedLeadScreen As screen:
                     SelectionFill: =RGBA(237, 237, 237, 1)
                     SelectMultiple: =false
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =Parent.Width/3.4
+                    Width: =Parent.Width/2
                     ZIndex: =2
 
-                Dropdown1 As dropdown:
+                Icon1 As icon.ArrowsUpDown:
                     BorderColor: =RGBA(255, 0, 0, 1)
-                    ChevronBackground: =RGBA(255, 0, 0, 1)
-                    ChevronHoverBackground: =Self.ChevronBackground
-                    FocusedBorderThickness: =2
-                    Font: =Font.Arial
-                    HoverFill: =RGBA(0, 0, 0, 0)
-                    Items: =["Ascending","Descending"]
-                    PaddingLeft: =5
-                    PaddingRight: =5
-                    PressedColor: =RGBA(0, 0, 0, 1)
-                    PressedFill: =RGBA(0, 0, 0, 0)
-                    SelectionColor: =RGBA(0, 0, 0, 1)
-                    SelectionFill: =RGBA(237, 237, 237, 1)
-                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =Parent.Width/3.5
+                    Color: =RGBA(255, 0, 0, 1)
+                    Height: =40
+                    Icon: =If(VarUpperIcon,Icon.ArrowUp,VarDownIcon,Icon.ArrowDown)
+                    OnSelect: |-
+                        =If(
+                            Icon1.Icon = Icon.ArrowDown,
+                            Set(
+                                VarUpperIcon,
+                                true
+                            );
+                            Set(VarDownIcon,false);,
+                            Icon1.Icon = Icon.ArrowUp,
+                            Set(
+                                VarDownIcon,
+                                true
+                            );
+                            Set(
+                                VarUpperIcon,
+                                false
+                            );
+                        );
+                        UpdateContext({locInfoExpanded:true});
+                    Width: =40
                     ZIndex: =3
 
     grpMenuSLS As group:
