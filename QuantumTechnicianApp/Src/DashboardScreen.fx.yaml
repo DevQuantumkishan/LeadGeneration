@@ -650,7 +650,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,11,Parent.Width>358,12,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
-                                "Incentives  " &  "$" & Char(10) &
+                                "Incentive  " &  "$" & Char(10) &
                                 If(
                                    yearly = true,
                                 If(
@@ -779,7 +779,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,11,Parent.Width>358,12,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalsoldIncentives and if user select span for cumulatively, then need to show sum of TotalsoldIncentives .
-                                "Incentives  "  &  "$" & Char(10) &
+                                "Incentive  "  &  "$" & Char(10) &
                                 If(
                                    yearly = true,
                                 If(

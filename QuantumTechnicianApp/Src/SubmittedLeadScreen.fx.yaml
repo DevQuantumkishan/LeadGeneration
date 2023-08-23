@@ -224,8 +224,28 @@ SubmittedLeadScreen As screen:
                 "glryLeadsSLS As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
                     Height: =If(CountRows(glryLeadsSLS.AllItems)<2,glryLeadsSLS.TemplateHeight+20,Parent.Height)
                     Items: |-
-                        =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        Text(Year('Created On'))=lblLeadYearSLS.Text && If(Header="Open",LeadStatus="Submitted",LeadStatus=Header) && Email=User().Email) ,'Created On',SortOrder.Descending),IntxtSearchBoxSLS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode"),ComboBox1.Selected.Value,Dropdown1.Selected.Value)
+                        =SortByColumns(
+                            Search(
+                                Sort(
+                                    Filter(
+                                        LeadInformations,//Email=User().Email  && 
+                                        Text(Year('Created On')) = lblLeadYearSLS.Text && If(
+                                            Header = "Open",
+                                            LeadStatus = "Submitted",
+                                            LeadStatus = Header
+                                        ) && Email = User().Email
+                                    ),
+                                    'Created On',
+                                    SortOrder.Descending
+                                ),
+                                IntxtSearchBoxSLS.Text,
+                                "shlrf_contractnumber",
+                                "shlrf_address",
+                                "shlrf_buildingname",
+                                "shlrf_zipcode"
+                            ),
+                          If(ComboBox1.Selected.Value="Created Date","createdon",ComboBox1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1.Selected.Value="Address","shlrf_address",ComboBox1.Selected.Value="Lead Status","shlrf_leadstatus"),Dropdown1.Selected.Value
+                        )
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",260,200)
@@ -705,7 +725,7 @@ SubmittedLeadScreen As screen:
                     DisabledBorderColor: =RGBA(255, 0, 0, 1)
                     FocusedBorderThickness: =2
                     Font: =Font.Arial
-                    Height: =50
+                    Height: =60
                     HintText: ="Search leads by  tracking number or contract number or building name or address or zipcode "
                     HoverBorderColor: =RGBA(255, 0, 0, 1)
                     HoverFill: =RGBA(0, 0, 0, 0)
@@ -731,7 +751,7 @@ SubmittedLeadScreen As screen:
                     BorderThickness: =2
                     Color: =RGBA(116, 116, 116, 1)
                     FocusedBorderThickness: =1
-                    Height: =50
+                    Height: =60
                     Icon: =Icon.Search
                     OnSelect: |-
                         =UpdateContext({locInfoExpanded:true})
@@ -757,17 +777,29 @@ SubmittedLeadScreen As screen:
                 Y: =ctnSearchBarSLS.Height
                 ZIndex: =6
 
+                Label4_1 As label:
+                    Color: =RGBA(116, 116, 116, 1)
+                    Font: =Font.Arial
+                    FontWeight: =FontWeight.Semibold
+                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                    Text: ="Sort column by order"
+                    Width: =Parent.Width/2.5
+                    X: =Parent.Width-Self.Width
+                    Y: =10
+                    ZIndex: =1
+
                 ComboBox1 As combobox:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     ChevronBackground: =RGBA(255, 0, 0, 1)
                     ChevronHoverBackground: =Self.ChevronBackground
                     DisplayFields: =["Value"]
+                    FocusedBorderThickness: =2
                     Font: =Font.Arial
                     HoverFill: =RGBA(0, 0, 0, 0)
                     IsSearchable: =false
                     Items: |-
                         =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["createdon"  ,"shlrf_qqteamname","shlrf_mechanicname","shlrf_contractnumber","shlrf_leadtrackingnumber","shlrf_buildingname"," shlrf_address","shlrf_leadstatus"]
+                        ["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address","Lead Status"]
                     PressedColor: =RGBA(0, 0, 0, 1)
                     PressedFill: =RGBA(0, 0, 0, 0)
                     SearchFields: =["Value"]
@@ -775,24 +807,27 @@ SubmittedLeadScreen As screen:
                     SelectionColor: =RGBA(0, 0, 0, 1)
                     SelectionFill: =RGBA(237, 237, 237, 1)
                     SelectMultiple: =false
-                    Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Width: =Parent.Width/2.2
-                    ZIndex: =1
+                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                    Width: =Parent.Width/3.4
+                    ZIndex: =2
 
                 Dropdown1 As dropdown:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     ChevronBackground: =RGBA(255, 0, 0, 1)
                     ChevronHoverBackground: =Self.ChevronBackground
+                    FocusedBorderThickness: =2
                     Font: =Font.Arial
                     HoverFill: =RGBA(0, 0, 0, 0)
                     Items: =["Ascending","Descending"]
+                    PaddingLeft: =5
+                    PaddingRight: =5
                     PressedColor: =RGBA(0, 0, 0, 1)
                     PressedFill: =RGBA(0, 0, 0, 0)
                     SelectionColor: =RGBA(0, 0, 0, 1)
                     SelectionFill: =RGBA(237, 237, 237, 1)
-                    Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Width: =Parent.Width/2.2
-                    ZIndex: =2
+                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                    Width: =Parent.Width/3.5
+                    ZIndex: =3
 
     grpMenuSLS As group:
         Height: =5

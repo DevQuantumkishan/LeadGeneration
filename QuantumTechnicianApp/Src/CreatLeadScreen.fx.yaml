@@ -1001,7 +1001,7 @@ CreatLeadScreen As screen:
 
         borderErrorpopupCS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+            Height: =If(Parent.Height<500,Parent.Height/1.2,Parent.Height/4)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
@@ -1012,6 +1012,7 @@ CreatLeadScreen As screen:
             Height: =borderErrorpopupCS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
             Width: =borderErrorpopupCS.Width
             X: =borderErrorpopupCS.X
             Y: =borderErrorpopupCS.Y
@@ -1021,7 +1022,7 @@ CreatLeadScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height/3
+                Height: =If(Parent.Width<500,60,80)
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -1030,10 +1031,11 @@ CreatLeadScreen As screen:
                 ZIndex: =1
 
                 imgErrorPopupCS As image:
+                    AlignInContainer: =AlignInContainer.Center
                     Height: =Parent.Height
                     Image: =    error
-                    PaddingTop: =40
-                    Width: =Parent.Width
+                    PaddingTop: =30
+                    Width: =Parent.Width/2
                     ZIndex: =1
 
             lblErrorPopuoCS As label:
@@ -1041,10 +1043,10 @@ CreatLeadScreen As screen:
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =100
-                Size: =14
+                Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                 Text: |-
                     =
-                        "Contract number is not found in your district, Please try again."
+                        "Contract number not found in your district ("& VarTechnicianID.District  & "). Please try again."
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -1057,7 +1059,7 @@ CreatLeadScreen As screen:
                     =
                     Set(VarContractError,false);
                     Navigate(CreatLeadScreen);
-                Size: =14
+                Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                 Text: ="Ok"
                 Width: =Parent.Width/5
                 ZIndex: =3
