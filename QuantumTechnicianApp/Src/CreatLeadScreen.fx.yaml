@@ -433,7 +433,7 @@ CreatLeadScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: =If(VarContractNumber,"","Contract Number")
+                        HintText: =If(VarContractNumber,"","Contract Number *")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -975,7 +975,7 @@ CreatLeadScreen As screen:
                 Size: =14
                 Text: |-
                     =If(
-                        IsBlank(VarcontractRecord) && !IsBlank(IntxtContractNumber.Text),"Contract number is not found in your district, Please try again.","Contract Number is mandatory.")
+                        IsBlank(VarcontractRecord) && !IsBlank(IntxtContractNumber.Text),"Contract number not found in your district ("& VarTechnicianID.District  & "). Please try again.","Contract Number is mandatory.")
                 Width: =Parent.Width
                 ZIndex: =2
 

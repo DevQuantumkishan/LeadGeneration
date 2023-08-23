@@ -458,8 +458,8 @@ ScopeScreen As screen:
                         OnChange: |-
                             =Set(VarScopeSummary,CboxScope.SelectedItems);
                             //Set(VarScope,true);
-                            Set(VarNotificationScope,false);Set(VarScopeofworkSummary,Blank());
-                        OnSelect: =Set(VarScope,true);
+                            Set(VarNotificationScope,true);Set(VarScopeofworkSummary,Blank());
+                        OnSelect: =Set(VarScope,true);Set(VarNotificationScope,true);
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
@@ -550,8 +550,9 @@ ScopeScreen As screen:
                         Items: =Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
                         OnChange: |-
                             =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);
-                            //Set(VarScopeofwork,true);
-                            Set(VarNotificationScope,false);
+                            Set(VarScopeofwork,true);
+                            If(IsBlank(CboxScopeofwork),
+                            Set(VarNotificationScope,true);Set(VarNotificationScope,false))
                         OnSelect: =Set(VarScopeofwork,true);If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
@@ -567,6 +568,7 @@ ScopeScreen As screen:
 
                     ErrorMessageScopeofwork As label:
                         AutoHeight: =true
+                        Color: =RGBA(149, 149, 149, 1)
                         Height: =If(VarNotificationScope,20,0)
                         Live: =Live.Assertive
                         PaddingBottom: =0
@@ -575,7 +577,9 @@ ScopeScreen As screen:
                         PaddingTop: =0
                         Size: =12
                         Text: ="Please select primary scope first."
-                        Visible: =If(CboxScopeofwork.DisplayMode=DisplayMode.Disabled,true,false)
+                        Visible: |-
+                            =//If(CboxScopeofwork.DisplayMode=DisplayMode.Disabled,true,false)
+                            If(VarNotificationScope,true,false)
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =CboxScopeofwork.Y + CboxScopeofwork.Height
