@@ -666,7 +666,8 @@ LeadScreen As screen:
 
                             lblstatusdatevalueleaddetailsLdS As label:
                                 Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.StatusDate
+                                Text: |-
+                                    =Text(glryleadlistLS.Selected.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
                                 Width: =Parent.Width
                                 ZIndex: =2
 
@@ -1327,7 +1328,7 @@ LeadScreen As screen:
                                     'LeadPrice ': VarFPEstimateData.BidPrice,
                                     LeadIncentive: VarFPEstimateData.BidPrice * 0.02,
                                     TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                                    LeadDate:Now()
+                                    StatusDate:Now()
                                 }
                             );
                             UpdateIf(
@@ -1413,7 +1414,7 @@ LeadScreen As screen:
                                 {
                                     LeadComment: txitnptrejectLdS_1.Text,
                                     LeadStatus: "Rejected",
-                                    LeadDate:Now()
+                                    StatusDate:Now()
                                 }
                             );
                             Notify("Lead rejected with comment successfully.");
