@@ -206,8 +206,8 @@ LeadListScreen As screen:
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             HoverFill: =//RGBA(186, 202, 226, 1)
                             Items: |-
-                                =["createdon","shlrf_qqteamname","shlrf_mechanicname","shlrf_contractnumber","shlrf_leadtrackingnumber","shlrf_buildingname"," shlrf_address","shlrf_leadstatus"]
-                                //["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address","Lead Status"]
+                                =//["createdon","shlrf_qqteamname","shlrf_mechanicname","shlrf_contractnumber","shlrf_leadtrackingnumber","shlrf_buildingname"," shlrf_address","shlrf_leadstatus"]
+                                ["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address","Lead Status"]
                             PressedFill: =//RGBA(0, 18, 107, 1)
                             SelectionFill: =Header.SHRed
                             Width: =270
@@ -315,7 +315,7 @@ LeadListScreen As screen:
                                         )
                                     )
                                 ),
-                              Dropdown1_1.Selected.Value,Dropdown1.Selected.Value
+                              If(Dropdown1_1.Selected.Value="Created Date","createdon",Dropdown1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",Dropdown1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",Dropdown1_1.Selected.Value="Contract No.","shlrf_contractnumber",Dropdown1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",Dropdown1_1.Selected.Value="Building Name","shlrf_buildingname",Dropdown1_1.Selected.Value="Address","shlrf_address",Dropdown1_1.Selected.Value="Lead Status","shlrf_leadstatus"),Dropdown1.Selected.Value
                             )
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
