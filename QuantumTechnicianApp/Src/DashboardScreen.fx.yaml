@@ -141,7 +141,7 @@ DashboardScreen As screen:
             LayoutMinWidth: =250
             PaddingRight: =0.00
             PaddingTop: =0.00
-            Width: =Parent.Width-40
+            Width: =Parent.Width-220
             X: =21.36
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height+10
             ZIndex: =3
@@ -241,7 +241,7 @@ DashboardScreen As screen:
         ctnMiddleDS As groupContainer.verticalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-10
+            Height: =Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-20
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutGap: =5
@@ -251,7 +251,7 @@ DashboardScreen As screen:
             LayoutOverflowY: =LayoutOverflow.Scroll
             PaddingBottom: =5
             PaddingTop: =10
-            Width: =Parent.Width
+            Width: =Parent.Width-20
             ZIndex: =4
 
             ctnLeadsButtonDS As groupContainer.horizontalAutoLayoutContainer:
