@@ -248,7 +248,7 @@ SubmittedLeadScreen As screen:
                         )
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
-                    TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",260,200)
+                    TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",280,220)
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
@@ -427,7 +427,7 @@ SubmittedLeadScreen As screen:
                         BorderThickness: =4
                         Color: =RGBA(0, 0, 0, 0)
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =borderLeadsSLS.Height/1.08
+                        Height: =borderLeadsSLS.Height/1.06
                         HoverColor: =RGBA(0, 0, 0, 0)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         OnSelect: |
