@@ -1310,7 +1310,7 @@ LeadScreen As screen:
                                     )
                                 ),
                                // Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
-                               Notify("Estimate number saved successfully.Incentives Details updated when FPEstimate file is processed");
+                               Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
                                 Set(
                                     FlagEstimateNumberFound,
                                     false
@@ -1318,9 +1318,10 @@ LeadScreen As screen:
                             );
                             
                         );
-                        //here checking FlagEstimateNumberEntered & FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
+                        //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
                         If(
                             FlagEstimateNumberFound = true,
+                            LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
                             UpdateIf(
                                 LeadInformations,
                                 ID = VarSelectedLead.ID,
@@ -1351,12 +1352,13 @@ LeadScreen As screen:
                                     ) + 1
                                 }
                             );
-                            LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
+                            
                             Notify(
                                 "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                                 NotificationType.Success
                             );
                             Navigate(DashboardScreen);,
+                            //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
                          UpdateIf(
                                 LeadInformations,
                                 ID = VarSelectedLead.ID,
