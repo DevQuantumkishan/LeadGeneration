@@ -241,7 +241,7 @@ DashboardScreen As screen:
         ctnMiddleDS As groupContainer.verticalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-20
+            Height: =If(Parent.Height>Parent.Width,Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-20,Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-10)
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutGap: =5
@@ -261,7 +261,7 @@ DashboardScreen As screen:
                 Height: |
                     =//180
                     //Parent.Height/5.5
-                    If(Parent.Height<Parent.Width,Parent.Height/2.8,Parent.Height/4.2)
+                    If(Parent.Height<Parent.Width,Parent.Height/2.6,Parent.Height/4.2)
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -1062,3 +1062,4 @@ DashboardScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
+
