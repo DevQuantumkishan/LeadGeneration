@@ -803,6 +803,8 @@ SubmittedLeadScreen As screen:
                     Items: |-
                         =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
                         ["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address"]
+                    OnChange: |-
+                        =UpdateContext({locInfoExpanded:true})
                     PressedColor: =RGBA(0, 0, 0, 1)
                     PressedFill: =RGBA(0, 0, 0, 0)
                     SearchFields: =["Value"]
