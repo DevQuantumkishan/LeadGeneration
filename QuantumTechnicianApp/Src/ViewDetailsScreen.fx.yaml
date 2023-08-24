@@ -155,7 +155,7 @@ ViewDetailsScreen As screen:
             LayoutOverflowY: =LayoutOverflow.Scroll
             PaddingLeft: =10
             PaddingRight: =10
-            Width: =Parent.Width-30
+            Width: =Parent.Width-20
             ZIndex: =3
 
             SummaryFormVDS As form:
@@ -164,7 +164,17 @@ ViewDetailsScreen As screen:
                 DefaultMode: =FormMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
-                Height: =ContractNumberVDS.Height+'Building NameVDS'.Height+PinCode_DataCard2_3.Height+Address_DataCard2_3.Height+UnitCount_DataCard3_3.Height+UnitDescription_DataCard3_3.Height+PrimaryScopeofWorkLID_DataCard1.Height+SecondaryScopeofWorkLID_DataCard1.Height+ManuallyScopeOfWork_DataCard3_3.Height+EstimatedHours_DataCard1_4.Height+Material_DataCard1_4.Height+'Unit Down_DataCard2_4'.Height+'Additional expenses required_DataCard2_3'.Height+'Travel Required_DataCard2_3'.Height+'Communicated to Customer_DataCard2_3'.Height+'CustomerName _DataCard2'.Height+'CustomerName _DataCard2'.Height+TotalEstimatedExpense_DataCard1.Height+TotalEstimatedExpense_DataCard1.Height+20
+                Height: |-
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + PinCode_DataCard2_3.Height + Address_DataCard2_3.Height + UnitCount_DataCard3_3.Height + UnitDescription_DataCard3_3.Height + PrimaryScopeofWorkLID_DataCard1.Height + SecondaryScopeofWorkLID_DataCard1.Height + ManuallyScopeOfWork_DataCard3_3.Height + EstimatedHours_DataCard1_4.Height + Material_DataCard1_4.Height + 'Unit Down_DataCard2_4'.Height + 'Additional expenses required_DataCard2_3'.Height + 
+                         'Travel Required_DataCard2_3'.Height + 'Communicated to Customer_DataCard2_3'.Height +
+                         If(IsBlank(DataCardValue3.Text),0,
+                          'CustomerName _DataCard2'.Height) +If(IsBlank(DataCardValue4.Text),0, 'CustomerContact _DataCard1'.Height)+
+                         If(IsBlank(DataCardValue5.Text),0,
+                          TotalEstimatedHoursofTravel_DataCard1.Height) + If(
+                        IsBlank(DataCardValue6.Text),
+                        0,
+                        TotalEstimatedExpense_DataCard1.Height
+                    )+10
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -172,6 +182,49 @@ ViewDetailsScreen As screen:
                 Width: =Parent.Width
                 Y: =10
                 ZIndex: =1
+
+                LeadTrackingNumber_DataCard1 As typedDataCard.textualViewCard:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_leadtrackingnumber"
+                    Default: =ThisItem.LeadTrackingNumber
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_leadtrackingnumber")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =748
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey7 As label:
+                        Color: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                        Text: ="Tracking number"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue7 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Arial
+                        Height: =27
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =45
+                        ZIndex: =2
 
                 ContractNumberVDS As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
@@ -187,7 +240,7 @@ ViewDetailsScreen As screen:
                     Update: =IntxtContractNumberVDS.Text
                     Width: =Parent.Width
                     X: =0
-                    Y: =0
+                    Y: =1
                     ZIndex: =1
 
                     lblContractNumberVDS As label:
@@ -273,7 +326,7 @@ ViewDetailsScreen As screen:
                     Update: =DataCardValue33_3.Text
                     Width: =Parent.Width
                     X: =0
-                    Y: =1
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey34_3 As label:
@@ -358,9 +411,9 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_zipcode")
                     Required: =false
                     Update: =DataCardValue1_3.Text
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =2
+                    Y: =3
                     ZIndex: =1
 
                     DataCardKey1_3 As label:
@@ -441,9 +494,9 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_address")
                     Required: =false
                     Update: =DataCardValue32_3.Text
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =3
+                    Y: =4
                     ZIndex: =1
 
                     DataCardKey33_3 As label:
@@ -525,9 +578,9 @@ ViewDetailsScreen As screen:
                     Height: =50
                     Required: =false
                     Update: =Value(DataCardValue29_3.Text)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =4
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey30_3 As label:
@@ -610,9 +663,9 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_unitdescription")
                     Required: =false
                     Update: =DataCardValue30_3.Text
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =5
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey31_3 As label:
@@ -695,9 +748,9 @@ ViewDetailsScreen As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue1.Selected
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =6
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey1 As label:
@@ -770,9 +823,9 @@ ViewDetailsScreen As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue2.Selected
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =7
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey2 As label:
@@ -847,9 +900,9 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customscopeofwork")
                     Required: =false
                     Update: =DataCardValue26_3.Text
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =8
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey27_3 As label:
@@ -930,9 +983,9 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_estimatedhours")
                     Required: =false
                     Update: =DataCardValue18_4.Text
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =9
+                    Y: =10
                     ZIndex: =1
 
                     DataCardKey19_4 As label:
@@ -1016,9 +1069,9 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_notes")
                     Required: =false
                     Update: =DataCardValue19_4.Text
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =10
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey20_4 As label:
@@ -1102,9 +1155,9 @@ ViewDetailsScreen As screen:
                     Visible: |-
                         =//If(Gallery1.Selected.'Unit Down'='Unit Down (LeadInformations)'.Yes,true,false)
                         If(ThisItem.IsUnitDown='IsUnitDown (LeadInformations)'.Yes,true,false)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =11
+                    Y: =12
                     ZIndex: =1
 
                     ErrorMessage25_4 As label:
@@ -1136,6 +1189,7 @@ ViewDetailsScreen As screen:
 
                     Checkbox4_16 As checkbox:
                         CheckboxBorderColor: =RGBA(0, 0, 0, 1)
+                        Default: =true
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
@@ -1164,9 +1218,9 @@ ViewDetailsScreen As screen:
                     Required: =false
                     Update: =
                     Visible: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =12
+                    Y: =13
                     ZIndex: =1
 
                     ErrorMessage10_3 As label:
@@ -1222,14 +1276,14 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedexpense")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue6.Text),50,0)
+                    Height: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue6.Text),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedexpense")
                     Required: =false
                     Update: =DataCardValue6.Text
                     Visible: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue6.Text),true,false)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =13
+                    Y: =14
                     ZIndex: =1
 
                     DataCardKey6 As label:
@@ -1308,9 +1362,9 @@ ViewDetailsScreen As screen:
                     Visible: |-
                         =//If(Gallery1.Selected.'Travel Required'='Travel Required (LeadInformations)'.Yes,true,false)
                         If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =14
+                    Y: =15
                     ZIndex: =1
 
                     ErrorMessage16_3 As label:
@@ -1366,14 +1420,14 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue5),50,0)
+                    Height: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue5),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
                     Required: =false
                     Update: =DataCardValue5.Text
                     Visible: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue5),true,false)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =15
+                    Y: =16
                     ZIndex: =1
 
                     DataCardKey5 As label:
@@ -1451,9 +1505,9 @@ ViewDetailsScreen As screen:
                     Visible: |-
                         =//If(Gallery1_1.Selected.'Communicated to Customer'='Communicated to Customer (LeadInformations)'.Yes,true,false)
                         If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =16
+                    Y: =17
                     ZIndex: =1
 
                     ErrorMessage17_3 As label:
@@ -1510,14 +1564,14 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customername")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(DataCardValue3),50,0)
+                    Height: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(DataCardValue3),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
                     Required: =false
                     Update: =DataCardValue3.Text
                     Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(DataCardValue3),true,false)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =17
+                    Y: =18
                     ZIndex: =1
 
                     DataCardKey3 As label:
@@ -1588,14 +1642,14 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(DataCardValue4),50,0)
+                    Height: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(DataCardValue4),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
                     Required: =false
                     Update: =DataCardValue4.Text
                     Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(DataCardValue4),true,false)
-                    Width: =738
+                    Width: =Parent.Width
                     X: =0
-                    Y: =18
+                    Y: =19
                     ZIndex: =1
 
                     DataCardKey4 As label:

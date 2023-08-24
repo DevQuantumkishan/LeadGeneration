@@ -1830,7 +1830,7 @@ LeadSummaryScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =If(IsBlank(IntxtUnitCountLSS.Text) ||IsBlank(IntxtUnitDescriptionLSS.Text)|| IsBlank(CboxScopeLSS)  || IsBlank(IntxtEstimatedHoursLSS.Text) ||IsBlank(IntxtNotesLSS.Text) ||If(CboxCCLSS.Value=true,IsBlank(IntxtCustomerNameLSS) || IsBlank(lblContactNumber_1) ||IsBlank(IntxtContactNumberES_1)) || If(cboxAELSS.Value=true,IsBlank(IntxtTotalEstimatedExpenseLSS))||If(cboxTravelRequiredLSS.Value=true,IsBlank(intxtTotalEstimatedHoursofTravelLSS)) ,
+                        =If(IsBlank(IntxtUnitCountLSS.Text) ||IsBlank(IntxtUnitDescriptionLSS.Text)|| IsBlank(CboxScopeLSS)  || IsBlank(IntxtEstimatedHoursLSS.Text) ||IsBlank(IntxtNotesLSS.Text) ||If(CboxCCLSS.Value=true,IsBlank(IntxtCustomerNameLSS) || IsBlank(lblContactNumber_1) ||IsBlank(lblContactES_1)) || If(cboxAELSS.Value=true,IsBlank(IntxtTotalEstimatedExpenseLSS))||If(cboxTravelRequiredLSS.Value=true,IsBlank(intxtTotalEstimatedHoursofTravelLSS)) ,
                         Set(VarErrorPopup,true),
                         Set(VarNotificationloding,true);
                         Set(VarNotification,true);
@@ -1901,6 +1901,7 @@ LeadSummaryScreen As screen:
                         }));
                         Set(VarNotificationloding,false);
                         Set(VarNotificationSuccess,true));
+                        Set(VarLeadTrackingNumber,LookUp(LeadInformations,ID=Text(VarLeadInformationID),LeadTrackingNumber))
                         
                         /*Notify(
                             "Form has been submitted succuessfully.",
@@ -1992,7 +1993,7 @@ LeadSummaryScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: =If(VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead submitted successfully.")
+                Text: =If(VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead submitted successfully.Lead tracking number is " & VarLeadTrackingNumber&".")
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -2004,7 +2005,7 @@ LeadSummaryScreen As screen:
                 OnSelect: =Navigate(DashboardScreen);
                 Size: =14
                 Text: ="Ok"
-                Visible: =If(lblNotificationLSS.Text="Lead submitted successfully.",true,false)
+                Visible: =If(lblNotificationLSS.Text="Lead submitted successfully.Lead tracking number is " & VarLeadTrackingNumber,true,false)
                 Width: =Parent.Width/5
                 ZIndex: =3
 

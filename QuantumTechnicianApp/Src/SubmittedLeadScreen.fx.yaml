@@ -243,7 +243,8 @@ SubmittedLeadScreen As screen:
                                 "shlrf_contractnumber",
                                 "shlrf_address",
                                 "shlrf_buildingname",
-                                "shlrf_zipcode"
+                                "shlrf_zipcode","shlrf_leadtrackingnumber"
+                        
                             ),
                           If(ComboBox1.Selected.Value="Created Date","createdon",ComboBox1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1.Selected.Value="Address","shlrf_address",ComboBox1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1.Icon=Icon.ArrowUp,SortOrder.Ascending)
                         )
@@ -290,7 +291,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/2.55
                         X: =20
                         Y: =lblEstimateNumberSLS.Height+lblEstimateNumberSLS.Y
-                        ZIndex: =12
+                        ZIndex: =2
 
                     lblTitleTotalIncentivesSLS As label:
                         Color: =RGBA(255, 0, 0, 1)
@@ -313,7 +314,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =20
-                        ZIndex: =13
+                        ZIndex: =3
 
                     lineEstimateSLS As rectangle:
                         BorderColor: =RGBA(116, 116, 116, 1)
@@ -325,7 +326,7 @@ SubmittedLeadScreen As screen:
                         Width: =borderLeadsSLS.Width-40
                         X: =20
                         Y: =lblTitleTotalIncentivesSLS.Y+lblTitleTotalIncentivesSLS.Height
-                        ZIndex: =14
+                        ZIndex: =4
 
                     lblEstimateNumberSLS As label:
                         Font: =Font.Arial
@@ -343,7 +344,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =lineEstimateSLS.Y+lineEstimateSLS.Height+10
-                        ZIndex: =15
+                        ZIndex: =5
 
                     HtmlTextBuildingNameSLS As htmlViewer:
                         AutoHeight: =true
@@ -358,7 +359,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltextContractNumberSLS.Y+htmltextContractNumberSLS.Height
-                        ZIndex: =16
+                        ZIndex: =6
 
                     htmltextTrackingNumberSLS As htmlViewer:
                         AutoHeight: =true
@@ -373,7 +374,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",lineEstimatenoSLS.Y+lineEstimatenoSLS.Height+10,20)
-                        ZIndex: =17
+                        ZIndex: =7
 
                     htmltxtAddressSLS As htmlViewer:
                         AutoHeight: =true
@@ -389,7 +390,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =HtmlTextBuildingNameSLS.Y+HtmlTextBuildingNameSLS.Height
-                        ZIndex: =18
+                        ZIndex: =8
 
                     htmltxtZipcodeSLS As htmlViewer:
                         AutoHeight: =true
@@ -405,7 +406,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltxtAddressSLS.Y+htmltxtAddressSLS.Height
-                        ZIndex: =19
+                        ZIndex: =9
 
                     htmltxtDateSLS As htmlViewer:
                         AutoHeight: =true
@@ -421,7 +422,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltxtZipcodeSLS.Y+htmltxtZipcodeSLS.Height
-                        ZIndex: =20
+                        ZIndex: =10
 
                     btnSubmittedLeadSLS As button:
                         BorderColor: =RGBA(219, 219, 219, 1)
@@ -453,7 +454,7 @@ SubmittedLeadScreen As screen:
                             =//If(Parent.Width<378,Parent.Width/1.07,Parent.Width<500,Parent.Width/1.05,Parent.Width/1.03)
                             If(Parent.Width<378,Parent.Width/1.07,Parent.Width>500,Parent.Width/1.02)
                         Y: =10
-                        ZIndex: =21
+                        ZIndex: =11
 
                     lineEstimatenoSLS As rectangle:
                         BorderColor: =RGBA(116, 116, 116, 1)
@@ -465,22 +466,7 @@ SubmittedLeadScreen As screen:
                         Width: =borderLeadsSLS.Width-40
                         X: =20
                         Y: =lblPriceSLS.Height+lblPriceSLS.Y
-                        ZIndex: =22
-
-                    iconmsgSLS As icon.Message:
-                        Color: =RGBA(255, 0, 0, 1)
-                        Fill: =RGBA(255, 255, 255, 1)
-                        Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
-                        Icon: =Icon.Message
-                        OnSelect: |
-                            =Navigate(ChatScreen);
-                            Set(VarLtdName,ThisItem.'BuildingName ');
-                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
-                            Set(VarLtdID,ThisItem.ID);
-                        Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
-                        X: =Parent.Width-2.5*(Self.Width)
-                        Y: =htmltextTrackingNumberSLS.Y
-                        ZIndex: =23
+                        ZIndex: =12
 
                     htmltxtStatusDateSLS As htmlViewer:
                         AutoHeight: =true
@@ -496,7 +482,7 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltxtDateSLS.Y+htmltxtDateSLS.Height
-                        ZIndex: =24
+                        ZIndex: =13
 
                     htmltextContractNumberSLS As htmlViewer:
                         AutoHeight: =true
@@ -511,7 +497,23 @@ SubmittedLeadScreen As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltextTrackingNumberSLS.Y+htmltextTrackingNumberSLS.Height
-                        ZIndex: =25
+                        ZIndex: =14
+
+                    iconmsgSLS As icon.Message:
+                        Color: =RGBA(255, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
+                        Icon: =Icon.Message
+                        OnSelect: |
+                            =Navigate(ChatScreen);
+                            Set(VarLtdName,ThisItem.'BuildingName ');
+                            Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
+                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
+                            Set(VarLtdID,ThisItem.ID);
+                        Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
+                        X: =Parent.Width-2.5*(Self.Width)
+                        Y: =htmltextTrackingNumberSLS.Y
+                        ZIndex: =15
 
                 lblTitleYearSLS As label:
                     Align: =Align.Center

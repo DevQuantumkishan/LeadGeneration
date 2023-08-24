@@ -140,23 +140,43 @@ ChatScreen As screen:
                 PaddingLeft: =20
                 PaddingRight: =20
                 Size: =If(Parent.Width<500,12,Parent.Width>500,16)
-                Text: ="Building Name" & Char(10) & VarLtdName
+                Text: =//"Building name" & Char(10) & VarLtdName
                 Width: =Parent.Width
                 ZIndex: =1
 
             lblHeaderDS_5 As label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                PaddingLeft: =10
+                PaddingRight: =5.34
+                PaddingTop: =10
+                Size: |
+                    =//21.36
+                    If(Parent.Width<500,12,Parent.Width>500,16)
+                Text: ="Tracking number" & Char(10) & VarLeadTrackingNumber
+                Width: =Parent.Width/2
+                ZIndex: =2
+
+            lblHeaderDS_6 As label:
+                Align: =Align.Right
+                AutoHeight: =true
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
                 PaddingLeft: =20
-                PaddingRight: =5.34
+                PaddingRight: =10
+                PaddingTop: =10
                 Size: |
                     =//21.36
                     If(Parent.Width<500,12,Parent.Width>500,16)
-                Text: ="Contract Number" & Char(10) & VarLtdCntNumber
-                Width: =Parent.Width
-                ZIndex: =2
+                Text: ="Building name" & Char(10) & VarLtdName
+                Width: =Parent.Width/1.5
+                X: =Parent.Width/3
+                ZIndex: =3
 
         Container8 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
