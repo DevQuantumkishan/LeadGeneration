@@ -1818,7 +1818,6 @@ LeadScreen As screen:
 
         lblmsgLS_3 As label:
             Align: =Align.Center
-            Font: =Font.Arial
             FontWeight: =FontWeight.Semibold
             Height: =140
             Text: =VarPopUpEstimateNumberSubmittedmsg
@@ -1836,7 +1835,7 @@ LeadScreen As screen:
             OnSelect: =Set(VarPopUpEstimateNumberSubmitted,false);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
-            Text: ="Ok"
+            Text: ="OK"
             Visible: =VarPopUpEstimateNumberSubmitted
             Width: =120
             X: =621
