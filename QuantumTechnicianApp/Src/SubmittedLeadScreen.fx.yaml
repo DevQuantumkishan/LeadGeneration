@@ -1,7 +1,7 @@
 SubmittedLeadScreen As screen:
     OnVisible: |
         =UpdateContext({locInfoExpanded:false});
-        Set(VarDownIcon,false);
+        Set(VarUpperIcon,true);
 
     ctnMainSLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(219, 219, 219, 1)

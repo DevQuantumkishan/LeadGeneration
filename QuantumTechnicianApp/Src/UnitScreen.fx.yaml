@@ -687,7 +687,7 @@ UnitScreen As screen:
             Fill: =RGBA(255, 255, 255, 1)
             Height: |
                 =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
-                If(Parent.Width<500 && Parent.Height<500,260,Parent.Width>500 ,300)
+                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
