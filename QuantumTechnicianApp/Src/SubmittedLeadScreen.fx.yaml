@@ -1,6 +1,7 @@
 SubmittedLeadScreen As screen:
     OnVisible: |
         =UpdateContext({locInfoExpanded:false});
+        Set(VarDownIcon,false);
 
     ctnMainSLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(219, 219, 219, 1)
@@ -818,6 +819,12 @@ SubmittedLeadScreen As screen:
                     Icon: =If(VarUpperIcon,Icon.ArrowUp,VarDownIcon,Icon.ArrowDown)
                     OnSelect: |-
                         =If(
+                           /* Icon1.Icon = Icon.Sort,
+                            Set(
+                                VarUpperIcon,
+                                true
+                            );
+                                Set(VarDownIcon,false);,*/
                             Icon1.Icon = Icon.ArrowDown,
                             Set(
                                 VarUpperIcon,

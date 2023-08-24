@@ -503,6 +503,7 @@ ImageUploadScreen As screen:
                             If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 255, 255, 1),RGBA(255, 0, 0, 1))
                         FocusedBorderThickness: =0
                         Font: =Font.Arial
+                        FontWeight: =FontWeight.Normal
                         Height: =60
                         HoverBorderColor: =//ColorFade(Self.BorderColor, 20%)
                         OnChange: |
@@ -521,7 +522,7 @@ ImageUploadScreen As screen:
                             =//If(CountRows(Gallery1.AllItems)<4,Collect(LeadImagesCollection,{Image:UploadedImage1.Image}),Notify("You Can add only 4 Images."))
                         PressedBorderColor: =//ColorFade(Self.BorderColor, -20%)
                         Reset: =true
-                        Size: =If(Parent.Width<500,16,Parent.Width>500,22,18)
+                        Size: =If(Parent.Width<500,14,Parent.Width>500,18)
                         Text: |-
                             =" Upload Picture"
                             //If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
