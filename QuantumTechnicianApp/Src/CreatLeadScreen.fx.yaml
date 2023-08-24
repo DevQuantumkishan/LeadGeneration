@@ -932,7 +932,9 @@ CreatLeadScreen As screen:
 
         borderContractErrorCS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+                If(Parent.Width<500 && Parent.Height<500,260,Parent.Width>500 ,300)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
@@ -952,7 +954,7 @@ CreatLeadScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height/3
+                Height: =If(Parent.Width<500,60,80)
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -1001,7 +1003,9 @@ CreatLeadScreen As screen:
 
         borderErrorpopupCS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =If(Parent.Height<500,Parent.Height/1.2,Parent.Height/4)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height>500 ,Parent.Height/3,Parent.Height>800,Parent.Height/4.5)
+                If(Parent.Width<500 && Parent.Height<500,260,Parent.Width>500 ,300)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
@@ -1042,7 +1046,7 @@ CreatLeadScreen As screen:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
-                Height: =100
+                Height: =borderErrorpopupCS.Height/2
                 Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                 Text: |-
                     =
@@ -1073,7 +1077,10 @@ CreatLeadScreen As screen:
 
         borderLoaderPopuoCS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+                //If(Parent.Height<500,270,Parent.Height>500 ,300)
+                If(Parent.Width<500 && Parent.Height<500,260,Parent.Width>500 ,300)
             Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
             X: =(Parent.Width-Self.Width)/2
             Y: =(Parent.Height-Self.Height)/2
@@ -1093,7 +1100,7 @@ CreatLeadScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height/3
+                Height: =If(Parent.Width<500,60,80)
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
