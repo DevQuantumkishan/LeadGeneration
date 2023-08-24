@@ -457,7 +457,7 @@ ScopeScreen As screen:
                             GCPrimaryScopeofWorks
                         OnChange: |-
                             =Set(VarScopeSummary,CboxScope.SelectedItems);
-                            //Set(VarScope,true);
+                            Set(VarScope,true);
                             Set(VarNotificationScope,true);Set(VarScopeofworkSummary,Blank());
                         OnSelect: =Set(VarScope,true);Set(VarNotificationScope,true);
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
@@ -551,8 +551,7 @@ ScopeScreen As screen:
                         OnChange: |-
                             =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);
                             Set(VarScopeofwork,true);
-                            If(IsBlank(CboxScopeofwork),
-                            Set(VarNotificationScope,true);Set(VarNotificationScope,false))
+                            Set(VarNotificationScope,false);
                         OnSelect: =Set(VarScopeofwork,true);If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
@@ -579,7 +578,7 @@ ScopeScreen As screen:
                         Text: ="Please select primary scope first."
                         Visible: |-
                             =//If(CboxScopeofwork.DisplayMode=DisplayMode.Disabled,true,false)
-                            If(VarNotificationScope,true,false)
+                            VarNotificationScope
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =CboxScopeofwork.Y + CboxScopeofwork.Height
@@ -809,7 +808,7 @@ ScopeScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =If(Parent.Width<500,60,80)
+                Height: =If(Parent.Width<500,80,60)
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -820,7 +819,7 @@ ScopeScreen As screen:
                 imgErrorImageSS As image:
                     Height: =Parent.Height
                     Image: =error
-                    PaddingTop: =40
+                    PaddingTop: =30
                     Width: =Parent.Width
                     ZIndex: =1
 

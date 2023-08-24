@@ -705,7 +705,7 @@ EstimateScreen As screen:
                             Set(VarTotalEstimatesExpense,false);
                         OnUncheck: |
                             =Set(VarAdditionExpenseSummary,CboxAdditionalExpensesRequired.Value);
-                            Set(VarAdditionExpense,false);Reset(IntxtTotalEstimatedExpense);
+                            Set(VarAdditionExpense,false);Set(VarTotalEstimateExpenseSummary,Blank());
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Additional expenses required"
@@ -721,7 +721,7 @@ EstimateScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedexpense")
                     Fill: =RGBA(255, 255, 255, 1)
-                    Height: =50
+                    Height: =100
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedexpense")
                     Required: =false
                     Update: =IntxtTotalEstimatedExpense.Text
@@ -735,9 +735,10 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         BorderThickness: =1
                         Fill: =RGBA(237, 237, 237, 1)
-                        Height: =Parent.Height
+                        Height: =If(VarTotalEstimatesExpense,90,60)
                         Width: =Parent.Width-60
                         X: =30
+                        Y: =5
                         ZIndex: =1
 
                     lblTotalEstimatedExpense As label:
@@ -748,7 +749,7 @@ EstimateScreen As screen:
                         Height: =If(VarTotalEstimatesExpense,31,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Total estimated expense *"
-                        Visible: =VarTotalEstimatesExpense
+                        Visible: =VarTotalEstimatesExpense || !IsBlank(IntxtTotalEstimatedExpense)
                         Width: =Parent.Width - 120
                         Wrap: =false
                         X: =60
@@ -868,7 +869,7 @@ EstimateScreen As screen:
                             Set(VarTotalEstimateHoursfortravel,false);
                         OnUncheck: |-
                             =Set(VarTravelSummary,CboxTravelRequired.Value);
-                            Set(VarTravel,false);Reset(IntxtTotalEstimatedHoursofTravel);
+                            Set(VarTravel,false);Set(VarTotalEstimateHoursofTravelSummary,Blank())
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Travel required"
@@ -884,7 +885,7 @@ EstimateScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
                     Fill: =RGBA(255, 255, 255, 1)
-                    Height: =50
+                    Height: =120
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
                     Required: =false
                     Update: =IntxtTotalEstimatedHoursofTravel.Text
@@ -898,9 +899,10 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         BorderThickness: =1
                         Fill: =RGBA(237, 237, 237, 1)
-                        Height: =Parent.Height
+                        Height: =If(VarTotalEstimateHoursfortravel,115,60)
                         Width: =Parent.Width-60
                         X: =30
+                        Y: =5
                         ZIndex: =1
 
                     lblTotalEstimatedHoursofTravel As label:
@@ -911,7 +913,7 @@ EstimateScreen As screen:
                         Height: =If(VarTotalEstimateHoursfortravel,32,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Total estimated hours of travel *"
-                        Visible: =VarTotalEstimateHoursfortravel
+                        Visible: =VarTotalEstimateHoursfortravel || !IsBlank(IntxtTotalEstimatedHoursofTravel)
                         Width: =Parent.Width - 120
                         X: =60
                         Y: =10
@@ -924,7 +926,6 @@ EstimateScreen As screen:
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Format: =TextFormat.Number
                         HintText: =If(VarTotalEstimateHoursfortravel,"","Total estimated hours of travel *")
                         HoverBorderColor: =RGBA(149, 149, 149, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
@@ -1031,7 +1032,9 @@ EstimateScreen As screen:
                             Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
                             Set(VarCustomerName,false);
                             Set(varCustomerPhonenumber,false);
-                        OnUncheck: =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);Set(VarCommunication,false);Reset(IntxtContactName);Reset(IntxtContactNumberES);
+                        OnUncheck: |-
+                            =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);Set(VarCommunication,false);Reset(IntxtContactName);Reset(IntxtContactNumberES);Set(VarCustomerNameSummary,Blank());
+                            Set(VarformattedNumberSummary,Blank());
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Communicated to customer"
@@ -1048,7 +1051,7 @@ EstimateScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customername")
                     Fill: =RGBA(255, 255, 255, 1)
-                    Height: =50
+                    Height: =100
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
                     Required: =false
                     Update: =IntxtContactName.Text
@@ -1062,9 +1065,10 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         BorderThickness: =1
                         Fill: =RGBA(237, 237, 237, 1)
-                        Height: =Parent.Height
+                        Height: =If(VarCustomerName,90,60)
                         Width: =Parent.Width-60
                         X: =30
+                        Y: =5
                         ZIndex: =1
 
                     lblContactName As label:
@@ -1075,7 +1079,7 @@ EstimateScreen As screen:
                         PaddingLeft: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Customer Name *"
-                        Visible: =VarCustomerName
+                        Visible: =VarCustomerName || !IsBlank(IntxtContactName)
                         Width: =Parent.Width - 120
                         Wrap: =false
                         X: =60
@@ -1084,7 +1088,7 @@ EstimateScreen As screen:
 
                     IntxtContactName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =VarCustomerNameSummary
+                        Default: =VarCustomerNameSummary 
                         DelayOutput: =true
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         DisabledFill: =RGBA(255, 255, 255, 1)
@@ -1106,7 +1110,7 @@ EstimateScreen As screen:
                         Tooltip: ="Customer Name"
                         Width: =Parent.Width - 120
                         X: =60
-                        Y: =lblContactName.Y + lblContactName.Height + 5
+                        Y: =If(VarCustomerName,lblContactName.Y + lblContactName.Height + 5,15)
                         ZIndex: =3
 
                     ErrorMessageCustomerName As label:
@@ -1162,7 +1166,7 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         BorderThickness: =1
                         Fill: =RGBA(237, 237, 237, 1)
-                        Height: =Parent.Height/1.05
+                        Height: =If(varCustomerPhonenumber,90,60)
                         Width: =Parent.Width-60
                         X: =30
                         Y: =5
@@ -1176,7 +1180,7 @@ EstimateScreen As screen:
                         PaddingLeft: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Customer Phone Number *"
-                        Visible: =varCustomerPhonenumber
+                        Visible: =varCustomerPhonenumber || !IsBlank(lblContactNumber)
                         Width: =Parent.Width - 120
                         Wrap: =false
                         X: =60
@@ -1376,7 +1380,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =If(Parent.Width<500,60,80)
+                Height: =If(Parent.Width<500,80,60)
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -1387,7 +1391,7 @@ EstimateScreen As screen:
                 imgErrorES As image:
                     Height: =Parent.Height
                     Image: =error
-                    PaddingTop: =40
+                    PaddingTop: =30
                     Width: =Parent.Width
                     ZIndex: =1
 
