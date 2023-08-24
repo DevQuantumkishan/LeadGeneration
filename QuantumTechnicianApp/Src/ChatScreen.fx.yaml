@@ -156,7 +156,7 @@ ChatScreen As screen:
                 Size: |
                     =//21.36
                     If(Parent.Width<500,12,Parent.Width>500,16)
-                Text: ="Tracking number" & Char(10) & VarLeadTrackingNumber
+                Text: ="Tracking number" & Char(10) & VarLtdTrackingnumber
                 Width: =Parent.Width/2
                 ZIndex: =2
 
