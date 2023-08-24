@@ -355,7 +355,9 @@ DashboardScreen As screen:
 
                         btnOpenLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
-                            DisabledBorderColor: =RGBA(116, 116, 116, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0||CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit) 
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -465,6 +467,8 @@ DashboardScreen As screen:
                         btnInprogressLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0|| CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit) 
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -720,7 +724,7 @@ DashboardScreen As screen:
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
                             DisplayMode: |-
-                                =If(Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalProposedLead))=0||
+                                =If(IsBlank(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalProposedLead))||Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalProposedLead))=0||
                                         Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead)=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
@@ -856,7 +860,7 @@ DashboardScreen As screen:
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
                             DisplayMode: |-
-                                =If(Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalSoldLead))=0||
+                                =If(Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalSoldLead))=0 ||IsBlank(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalSoldLead))||
                                         Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead)=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
