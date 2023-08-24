@@ -5,6 +5,7 @@ LeadScreen As screen:
         Set(VarLeadProposal,false);
         Set(VarLeadMessages,false);
         Set(VarPopUpEstimateNumber,false);
+        Set(VarPopUpEstimateNumberSubmitted,false);
         Refresh(LeadInformations);
         Refresh(LeadImages);
         Refresh(LeadChats);
@@ -1310,7 +1311,9 @@ LeadScreen As screen:
                                     )
                                 ),
                                // Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
-                               Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
+                              // Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
+                               Set(VarPopUpEstimateNumberSubmitted,true);
+                               Set(VarPopUpEstimateNumberSubmittedmsg,"Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
                                 Set(
                                     FlagEstimateNumberFound,
                                     false
@@ -1353,10 +1356,12 @@ LeadScreen As screen:
                                 }
                             );
                             
-                            Notify(
+                           /* Notify(
                                 "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                                 NotificationType.Success
-                            );
+                            );*/
+                             Set(VarPopUpEstimateNumberSubmitted,true);
+                             Set(VarPopUpEstimateNumberSubmittedmsg,"Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
                             Navigate(DashboardScreen);,
                             //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
                          UpdateIf(
@@ -1602,7 +1607,7 @@ LeadScreen As screen:
                     LeadInformationLID:LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID),
                     IsQQApp:true
                 });
-                TechnicianMessage.Run(glryleadlistLS.Selected.Email,User().FullName,glryleadlistLS.Selected.'BuildingName ');
+                TechnicianMessage.Run(glryleadlistLS.Selected.Email,User().FullName,glryleadlistLS.Selected.LeadTrackingNumber);
                 If(
                         (!IsEmpty(Errors(LeadChats))),
                         Notify(
@@ -1777,4 +1782,82 @@ LeadScreen As screen:
             X: =btnyesLS_1.X+btnyesLS_1.Width+20
             Y: =lblmsgLS_1.Y+ lblmsgLS_1.Height+10
             ZIndex: =19
+
+    grpEstimateNumberSuccessLdS As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =26
+
+        rectfullinprogressconfirmtionLS_3 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.29)
+            Height: =Parent.Height
+            Visible: =VarPopUpEstimateNumberSubmitted
+            Width: =Parent.Width
+            ZIndex: =20
+
+        rectinprogressconfirmationLS_3 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =280
+            Visible: =VarPopUpEstimateNumberSubmitted
+            Width: =400
+            X: =(Parent.Width-Self.Width)/2
+            Y: =Parent.Height/3
+            ZIndex: =21
+
+        imginfoLS_3 As image:
+            Height: =60
+            Image: =Success
+            ImagePosition: =ImagePosition.Fill
+            Visible: =VarPopUpEstimateNumberSubmitted
+            Width: =70
+            X: =(Parent.Width-Self.Width)/2
+            Y: =rectinprogressconfirmationLS_3.Y+20
+            ZIndex: =22
+
+        lblmsgLS_3 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =140
+            Text: =VarPopUpEstimateNumberSubmittedmsg
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =VarPopUpEstimateNumberSubmitted
+            Width: =350
+            X: =(Parent.Width-Self.Width)/2
+            Y: =imginfoLS_3.Y+ imginfoLS_3.Height+2
+            ZIndex: =23
+
+        btnyesLS_3 As button:
+            Fill: =RGBA(54, 176, 75, 1)
+            Font: =Font.Arial
+            HoverFill: =RGBA(75, 125, 6, 1)
+            OnSelect: =Set(VarPopUpEstimateNumberSubmitted,false);
+            PressedBorderColor: =RGBA(1, 43, 1, 0)
+            PressedFill: =Self.Fill
+            Text: ="OK"
+            Visible: =VarPopUpEstimateNumberSubmitted
+            Width: =120
+            X: =621
+            Y: =lblmsgLS_3.Height+lblmsgLS_3.Y
+            ZIndex: =24
+
+        btnnoLS_3 As button:
+            BorderColor: =RGBA(75, 125, 6, 1)
+            Fill: =RGBA(54, 176, 75, 1)
+            Font: =Font.Arial
+            HoverBorderColor: =RGBA(75, 125, 6, 1)
+            HoverFill: =RGBA(75, 125, 6, 1)
+            OnSelect: |-
+                =Set(QQname,false);
+                Navigate(LeadScreen);
+                //Set(VarPopUpInprogress,false);
+            PressedBorderColor: =RGBA(1, 43, 1, 0)
+            PressedFill: =Self.Fill
+            Text: ="No"
+            Visible: =//VarPopUpEstimateNumberSubmitted
+            Width: =120
+            X: =btnyesLS_3.X+btnyesLS_3.Width+20
+            Y: =lblmsgLS_3.Y+ lblmsgLS_3.Height+10
+            ZIndex: =25
 
