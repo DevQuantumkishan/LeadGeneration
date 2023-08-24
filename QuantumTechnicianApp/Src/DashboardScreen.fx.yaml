@@ -244,6 +244,8 @@ DashboardScreen As screen:
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutGap: =5
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             LayoutOverflowY: =LayoutOverflow.Scroll
             PaddingBottom: =5
@@ -252,6 +254,7 @@ DashboardScreen As screen:
             ZIndex: =4
 
             ctnLeadsButtonDS As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 Height: |
                     =//180
@@ -260,17 +263,22 @@ DashboardScreen As screen:
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
                 ZIndex: =1
 
                 ctnOpenLeadsDS As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     Height: |
                         =Parent.Height/1.08
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     Width: =Parent.Width/3.35
                     ZIndex: =1
 
@@ -370,12 +378,15 @@ DashboardScreen As screen:
                             ZIndex: =4
 
                 ctnInprogressLeadsDS As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     Height: |
                         =Parent.Height/1.08
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     Width: =Parent.Width/3.35
                     ZIndex: =2
 
@@ -474,12 +485,15 @@ DashboardScreen As screen:
                             ZIndex: =4
 
                 ctnRejectedLeadsDS As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     Height: |
                         =Parent.Height/1.08
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     Width: =Parent.Width/3.35
                     ZIndex: =3
 
@@ -581,6 +595,7 @@ DashboardScreen As screen:
                             ZIndex: =7
 
             ctnLeadsButtonsDS As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 Height: |
                     =//180
@@ -589,16 +604,21 @@ DashboardScreen As screen:
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
                 ZIndex: =3
 
                 ctnQuatedLeadsDS As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     Height: =Parent.Height/1.05
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     Width: =Parent.Width/2.2
                     ZIndex: =1
 
@@ -719,11 +739,14 @@ DashboardScreen As screen:
                             ZIndex: =4
 
                 ctnSoldLeadsDS As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     Height: =Parent.Height/1.05
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
                     Width: =Parent.Width/2.2
                     ZIndex: =2
 
@@ -851,12 +874,15 @@ DashboardScreen As screen:
                             ZIndex: =4
 
             ctnCreateLeadDS As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(255, 0, 0, 1)
                 BorderThickness: =1
                 DropShadow: =DropShadow.Semilight
                 Height: |-
                     =//Parent.Height/10
                     If(Parent.Height<Parent.Width,Parent.Height/8,Parent.Height/14)
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
                 Width: |-
                     =//Parent.Width-50
                     Parent.Width/1.08
@@ -921,8 +947,11 @@ DashboardScreen As screen:
                     ZIndex: =1
 
             ctnforSpaceLeadDS As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-100
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
