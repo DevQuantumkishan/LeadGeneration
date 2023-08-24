@@ -307,7 +307,7 @@ SubmittedLeadScreen As screen:
                             "Potential Future Incentives $ :" & " " & "0",
                                       VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
                                       VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
-                            If(btnheaderSLS.Text="Quoted Leads","Proposed Incentives","Sold Incentives")
+                            If(btnheaderSLS.Text="Quoted Leads","Proposed incentive","Sold incentive")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
                         Width: =Parent.Width/1.08
@@ -337,7 +337,7 @@ SubmittedLeadScreen As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            ="Estimate Number :" & " " 
+                            ="Estimate number :" & " " 
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
                         Width: =Parent.Width/1.08
@@ -350,7 +350,7 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Building Name : </b>" &  ThisItem.'BuildingName '
+                            ="<b>Building name : </b>" &  ThisItem.'BuildingName '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -365,7 +365,7 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Tracking Number : </b>" &  ThisItem.LeadTrackingNumber
+                            ="<b>Tracking number : </b>" &  ThisItem.LeadTrackingNumber
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -413,7 +413,7 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Date Created : </b>" & ThisItem.'Created On'
+                            ="<b>Date created : </b>" & ThisItem.'Created On'
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -438,6 +438,7 @@ SubmittedLeadScreen As screen:
                             Set(VarBackColor,true);
                             Navigate([@ViewDetailsScreen],ScreenTransition.None);
                             Reset(IntxtSearchBoxSLS);
+                            Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact ', "[$-en-US](###) ###-####"))
                             /*{LtdID:ThisItem.ID,ContractNumber:ThisItem.'ContractNumber ',BuildingName:ThisItem.'BuildingName ',Address:ThisItem.Address,Zipcode:ThisItem.'ZipCode ',UnitCount:ThisItem.NumberofUnits,UnitDescription:ThisItem.UnitDescription,Scope:ThisItem.PrimaryScopeofWorkLID,ScopeOfWork:ThisItem.SecondaryScopeofWorkLID,CustomScope:ThisItem.CustomScopeofWork,unitdown:ThisItem.IsUnitDown,AdditionalExpensesRequired:ThisItem.AdditionalExpensesRequired,CommunicatedtoCustomer:ThisItem.CommunicatedToCustomer,EstimatedHours:ThisItem.'EstimatedHours ',Material:ThisItem.Notes,travelRequired:ThisItem.TravelRequired//LeadImage:ThisItem.LeadImages
                             }*/
                         PressedBorderColor: =RGBA(0, 0, 0, 0)
@@ -487,7 +488,7 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            =If(btnheaderSLS.Text="Quoted Leads","<b>BID Date : </b>" & ThisItem.LeadDate,btnheaderSLS.Text="Sold Leads","<b>Sold Date : </b>" & ThisItem.LeadDate,"<b>Lead status Date : </b>" & ThisItem.LeadDate)
+                            =If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.LeadDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.LeadDate,"<b>Lead status date : </b>" & ThisItem.LeadDate)
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -502,7 +503,7 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Contract Number : </b>" &  ThisItem.'ContractNumber '
+                            ="<b>Contract number : </b>" &  ThisItem.'ContractNumber '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -622,7 +623,7 @@ SubmittedLeadScreen As screen:
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
                     Text: |-
                         =//ThisItem.Value\
-                        "Total Incentives"
+                        "Total Incentive"
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
                     Width: =Parent.Width/3
@@ -799,16 +800,18 @@ SubmittedLeadScreen As screen:
                     FocusedBorderThickness: =2
                     Font: =Font.Arial
                     HoverFill: =RGBA(0, 0, 0, 0)
-                    IsSearchable: =false
+                    InputTextPlaceholder: ="Find leads"
                     Items: |-
                         =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["Created Date","QQ Team Name","Mechanic Name","Contract No.","Lead Tracking No.","Building Name","Address"]
+                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address"]
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true})
                     PressedColor: =RGBA(0, 0, 0, 1)
                     PressedFill: =RGBA(0, 0, 0, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =[]
+                    SearchItems: |-
+                        =Search(//["Tracking number" As , "Created On", "Building Name","Contract Number"]
+                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address"],ComboBox1.SearchText,"Value")
                     SelectionColor: =RGBA(0, 0, 0, 1)
                     SelectionFill: =RGBA(237, 237, 237, 1)
                     SelectMultiple: =false

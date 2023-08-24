@@ -707,7 +707,7 @@ UnitScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =If(Parent.Width<500,60,80)
+                Height: =If(Parent.Width<500,80,60)
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -718,7 +718,7 @@ UnitScreen As screen:
                 imgPopopErrorUS As image:
                     Height: =Parent.Height
                     Image: =error
-                    PaddingTop: =40
+                    PaddingTop: =30
                     Width: =Parent.Width
                     ZIndex: =1
 
