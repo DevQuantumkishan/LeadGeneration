@@ -2,6 +2,7 @@ LeadListScreen As screen:
     OnVisible: |-
         =Refresh(LeadInformations);
         Set(VarPopUpInprogress,false);
+        Set(VarUpperIcon,true);
 
     ctnmainLS As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -116,7 +117,7 @@ LeadListScreen As screen:
                         SelectMultiple: =false
                         Visible: =false
                         Width: =200
-                        ZIndex: =2
+                        ZIndex: =1
 
                     cmbxdistrictfilterLS As combobox:
                         BorderColor: =Header.SHRed
@@ -133,7 +134,7 @@ LeadListScreen As screen:
                         SelectionFill: =Header.SHRed
                         Visible: =false
                         Width: =200
-                        ZIndex: =3
+                        ZIndex: =2
 
                     cmbxareafilterLS As combobox:
                         BorderColor: =Header.SHRed
@@ -150,17 +151,27 @@ LeadListScreen As screen:
                         SelectionFill: =Header.SHRed
                         Visible: =false
                         Width: =200
-                        ZIndex: =4
+                        ZIndex: =3
 
-                    txtinptsearchLS As text:
-                        AlignInContainer: =AlignInContainer.Center
-                        BorderColor: =Header.SHRed
-                        Default: =""
-                        HintText: ="Search on Contract No./Mechanic Name"
-                        HoverBorderColor: =Header.SHRed
-                        HoverFill: =RGBA(0, 0, 0, 0)
-                        Width: =340
+                    Container8 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.End
+                        FillPortions: =0
+                        Height: =100
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        Width: =400
                         ZIndex: =5
+
+                        txtinptsearchLS As text:
+                            BorderColor: =Header.SHRed
+                            Default: =""
+                            HintText: ="Search on Contract No./Mechanic Name"
+                            HoverBorderColor: =Header.SHRed
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Width: =340
+                            X: =40
+                            Y: =40
+                            ZIndex: =1
 
                     Container7 As groupContainer.manualLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -195,6 +206,7 @@ LeadListScreen As screen:
                             Items: =["Ascending","Descending"]
                             PressedFill: =//RGBA(0, 18, 107, 1)
                             SelectionFill: =Header.SHRed
+                            Visible: =false
                             Width: =150
                             X: =326
                             Y: =50
@@ -214,6 +226,33 @@ LeadListScreen As screen:
                             X: =40
                             Y: =50
                             ZIndex: =3
+
+                        Icon6 As icon.ArrowUp:
+                            Color: =Header.SHRed
+                            Height: =40
+                            Icon: =If(VarUpperIcon,Icon.ArrowUp,VarDownIcon,Icon.ArrowDown)
+                            OnSelect: |-
+                                =If(
+                                    Icon6.Icon = Icon.ArrowDown,
+                                    Set(
+                                        VarUpperIcon,
+                                        true
+                                    );
+                                    Set(VarDownIcon,false);,
+                                    Icon6.Icon = Icon.ArrowUp,
+                                    Set(
+                                        VarDownIcon,
+                                        true
+                                    );
+                                    Set(
+                                        VarUpperIcon,
+                                        false
+                                    );
+                                );
+                            Width: =40
+                            X: =326
+                            Y: =50
+                            ZIndex: =4
 
                 btnbackLS As button:
                     BorderColor: =//ColorFade(Self.Fill, -15%)
@@ -246,7 +285,7 @@ LeadListScreen As screen:
                 ZIndex: =2
 
                 Label3 As label:
-                    FontWeight: =FontWeight.Semibold
+                    Color: =RGBA(116, 116, 116, 1)
                     Height: =50
                     Text: |-
                         ="Note:1)Search on Contract No. or Mechanic Name or Lead Tracking No.
@@ -315,7 +354,7 @@ LeadListScreen As screen:
                                         )
                                     )
                                 ),
-                              If(Dropdown1_1.Selected.Value="Created Date","createdon",Dropdown1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",Dropdown1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",Dropdown1_1.Selected.Value="Contract No.","shlrf_contractnumber",Dropdown1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",Dropdown1_1.Selected.Value="Building Name","shlrf_buildingname",Dropdown1_1.Selected.Value="Address","shlrf_address",Dropdown1_1.Selected.Value="Lead Status","shlrf_leadstatus"),Dropdown1.Selected.Value
+                              If(Dropdown1_1.Selected.Value="Created Date","createdon",Dropdown1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",Dropdown1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",Dropdown1_1.Selected.Value="Contract No.","shlrf_contractnumber",Dropdown1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",Dropdown1_1.Selected.Value="Building Name","shlrf_buildingname",Dropdown1_1.Selected.Value="Address","shlrf_address",Dropdown1_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon6.Icon=Icon.ArrowDown,SortOrder.Descending,Icon6.Icon=Icon.ArrowUp,SortOrder.Ascending)
                             )
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
