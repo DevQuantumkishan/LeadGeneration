@@ -239,7 +239,9 @@ DashboardScreen As screen:
                     ZIndex: =1
 
         ctnMiddleDS As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
             Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
             Height: =If(Parent.Height>Parent.Width,Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height-20,Parent.Height-ctnHeaderDS.Height-ctnUserNameDS.Height)
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
@@ -254,8 +256,8 @@ DashboardScreen As screen:
             ZIndex: =4
 
             ctnLeadsButtonDS As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
+                FillPortions: =0
                 Height: |
                     =//180
                     //Parent.Height/5.5
@@ -597,6 +599,7 @@ DashboardScreen As screen:
             ctnLeadsButtonsDS As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
+                FillPortions: =0
                 Height: |
                     =//180
                     //Parent.Height/5.5
@@ -878,6 +881,7 @@ DashboardScreen As screen:
                 BorderColor: =RGBA(255, 0, 0, 1)
                 BorderThickness: =1
                 DropShadow: =DropShadow.Semilight
+                FillPortions: =0
                 Height: |-
                     =//Parent.Height/10
                     If(Parent.Height<Parent.Width,Parent.Height/8,Parent.Height/14)
