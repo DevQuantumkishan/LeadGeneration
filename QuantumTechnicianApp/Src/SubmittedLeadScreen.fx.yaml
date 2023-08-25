@@ -474,7 +474,7 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            =If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.LeadDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.LeadDate,"<b>Lead status date : </b>" & ThisItem.LeadDate)
+                            =If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
