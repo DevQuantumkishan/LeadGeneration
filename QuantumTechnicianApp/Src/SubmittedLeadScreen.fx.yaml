@@ -285,7 +285,7 @@ SubmittedLeadScreen As screen:
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
                             =//"Sold Incentives $ : "&  " " & 0
-                            "Price:" & " " & 0
+                            "Price: $" & " " & ThisItem.'LeadPrice '
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
                         Width: =Parent.Width/2.55
@@ -308,7 +308,7 @@ SubmittedLeadScreen As screen:
                             "Potential Future Incentives $ :" & " " & "0",
                                       VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
                                       VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
-                            If(btnheaderSLS.Text="Quoted Leads","Proposed incentive","Sold incentive")
+                            If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
                         Width: =Parent.Width/1.08
@@ -338,7 +338,7 @@ SubmittedLeadScreen As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            ="Estimate number :" & " " 
+                            ="Estimate number : " & ThisItem.LeadEstimateNumber
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
                         Width: =Parent.Width/1.08

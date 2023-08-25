@@ -1867,6 +1867,7 @@ LeadSummaryScreen As screen:
                                 TotalEstimatedExpense: IntxtTotalEstimatedExpenseLSS.Text,
                                 TotalEstimatedHoursofTravel:intxtTotalEstimatedHoursofTravelLSS.Text,
                                 LeadStatus: "Submitted",
+                                LeadDate:Now(),
                                 Email: User().Email,
                                 MechanicName: User().FullName,
                                 TechnicianID:VarTechnicianID.'Personnel No',
