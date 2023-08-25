@@ -1,7 +1,7 @@
 SubmittedLeadScreen As screen:
     OnVisible: |
         =UpdateContext({locInfoExpanded:false});
-        Set(VarUpperIcon,true);
+        Set(VarDownIcon,true);
 
     ctnMainSLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(219, 219, 219, 1)
@@ -246,7 +246,7 @@ SubmittedLeadScreen As screen:
                                 "shlrf_zipcode","shlrf_leadtrackingnumber"
                         
                             ),
-                          If(ComboBox1.Selected.Value="Created Date","createdon",ComboBox1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1.Selected.Value="Address","shlrf_address",ComboBox1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1.Icon=Icon.ArrowUp,SortOrder.Ascending)
+                          If(ComboBox1.Selected.Value="Created Date","createdon",ComboBox1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1.Selected.Value="Address","shlrf_address",ComboBox1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending)
                         )
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
@@ -802,18 +802,17 @@ SubmittedLeadScreen As screen:
                     FocusedBorderThickness: =2
                     Font: =Font.Arial
                     HoverFill: =RGBA(0, 0, 0, 0)
-                    InputTextPlaceholder: ="Find leads"
+                    InputTextPlaceholder: =//"Created Date"
+                    IsSearchable: =false
                     Items: |-
                         =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address"]
+                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address","Status Date"]
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true})
                     PressedColor: =RGBA(0, 0, 0, 1)
                     PressedFill: =RGBA(0, 0, 0, 0)
                     SearchFields: =["Value"]
-                    SearchItems: |-
-                        =Search(//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address"],ComboBox1.SearchText,"Value")
+                    SearchItems: =[]
                     SelectionColor: =RGBA(0, 0, 0, 1)
                     SelectionFill: =RGBA(237, 237, 237, 1)
                     SelectMultiple: =false
@@ -827,7 +826,7 @@ SubmittedLeadScreen As screen:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =40
-                    Icon: =If(VarUpperIcon,Icon.ArrowUp,VarDownIcon,Icon.ArrowDown)
+                    Icon: =If(VarDownIcon,Icon.ArrowDown,VarUpperIcon,Icon.ArrowUp)
                     OnSelect: |-
                         =If(
                            /* Icon1.Icon = Icon.Sort,

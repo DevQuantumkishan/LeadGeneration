@@ -729,7 +729,7 @@ ScopeScreen As screen:
                     HoverFill: =Color.Red
                     OnSelect: |
                         =If(
-                            !IsBlank(CboxScope.Selected)  ,
+                            !IsBlank(CboxScope.Selected)  && !IsBlank(CboxScopeofwork.Selected)|| !IsBlank(IntxtManuallyScopeofwork),
                         Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);
                         Set(VarIndicatorSS,true);

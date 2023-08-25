@@ -681,7 +681,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnLeadsSLS",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2095,14 +2095,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "false",
-          "InvariantPropertyName": "IsSearchable",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "IsSearchable",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -2126,7 +2119,8 @@
           "InvariantPropertyName": "InputTextPlaceholder",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "Default"
       ],
       "DynamicProperties": [
         {
@@ -2217,6 +2211,11 @@
         {
           "Category": "Data",
           "PropertyName": "InputTextPlaceholder",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Default",
           "RuleProviderType": "Unknown"
         },
         {
@@ -5931,7 +5930,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltxtAddressSLS",
-      "ParentIndex": 10,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6681,7 +6680,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltxtZipcodeSLS",
-      "ParentIndex": 12,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6871,6 +6870,14 @@
           "InvariantPropertyName": "OnSelect",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Visible",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "DynamicProperties": [
@@ -7037,6 +7044,11 @@
         {
           "Category": "Design",
           "PropertyName": "FocusedBorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         },
         {
@@ -8957,7 +8969,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgCollapseSLS",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9220,7 +9232,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgExpandSLS",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12569,7 +12581,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblPriceSLS",
-      "ParentIndex": 11,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14335,7 +14347,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lineEstimatenoSLS",
-      "ParentIndex": 13,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

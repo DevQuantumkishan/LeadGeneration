@@ -2005,7 +2005,7 @@ LeadSummaryScreen As screen:
                 OnSelect: =Navigate(DashboardScreen);
                 Size: =14
                 Text: ="Ok"
-                Visible: =If(lblNotificationLSS.Text="Lead submitted successfully.Lead tracking number is " & VarLeadTrackingNumber,true,false)
+                Visible: =If(lblNotificationLSS.Text="Lead submitted successfully.Lead tracking number is " & VarLeadTrackingNumber&".",true,false)
                 Width: =Parent.Width/5
                 ZIndex: =3
 
