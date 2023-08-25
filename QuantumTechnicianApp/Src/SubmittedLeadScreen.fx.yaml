@@ -802,18 +802,17 @@ SubmittedLeadScreen As screen:
                     FocusedBorderThickness: =2
                     Font: =Font.Arial
                     HoverFill: =RGBA(0, 0, 0, 0)
-                    InputTextPlaceholder: ="Find leads"
+                    InputTextPlaceholder: =//"Created Date"
+                    IsSearchable: =false
                     Items: |-
                         =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address"]
+                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address","Status Date"]
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true})
                     PressedColor: =RGBA(0, 0, 0, 1)
                     PressedFill: =RGBA(0, 0, 0, 0)
                     SearchFields: =["Value"]
-                    SearchItems: |-
-                        =Search(//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address"],ComboBox1.SearchText,"Value")
+                    SearchItems: =[]
                     SelectionColor: =RGBA(0, 0, 0, 1)
                     SelectionFill: =RGBA(237, 237, 237, 1)
                     SelectMultiple: =false
