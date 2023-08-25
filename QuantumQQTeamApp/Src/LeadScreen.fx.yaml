@@ -5,6 +5,7 @@ LeadScreen As screen:
         Set(VarLeadProposal,false);
         Set(VarLeadMessages,false);
         Set(VarPopUpEstimateNumber,false);
+        Set(VarPopUpEstimateNumberResult,false);
         Set(VarPopUpEstimateNumberSubmitted,false);
         Refresh(LeadInformations);
         Refresh(LeadImages);
@@ -1283,6 +1284,11 @@ LeadScreen As screen:
                         //here checking entered estimate number is present in FP file or not
                         If(
                             FlagEstimateNumberEntered = true,
+                            Set(VarPopUpEstimateNumber,true);,
+                            Set(VarPopUpEstimateNumber,false);
+                        );
+                        /*
+                        If(VarPopUpEstimateNumberResult=true,
                             If(
                                 !IsBlank(
                                     LookUp(
@@ -1319,11 +1325,12 @@ LeadScreen As screen:
                                     false
                                 );
                             );
-                            
-                        );
+                        );  
+                        
                         //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
                         If(
-                            FlagEstimateNumberFound = true,
+                            //FlagEstimateNumberFound = true,
+                            VarPopUpEstimateNumberResult=true,
                             LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
                             UpdateIf(
                                 LeadInformations,
@@ -1359,7 +1366,7 @@ LeadScreen As screen:
                            /* Notify(
                                 "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                                 NotificationType.Success
-                            );*/
+                            );
                              Set(VarPopUpEstimateNumberSubmitted,true);
                              Set(VarPopUpEstimateNumberSubmittedmsg,"Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
                             Navigate(DashboardScreen);,
@@ -1371,7 +1378,7 @@ LeadScreen As screen:
                                     LeadEstimateNumber: txtinptestimatenumber_1.Text
                                 }
                             );
-                        );
+                        );*/
                     Text: ="Submit Estimate Number"
                     Width: =300
                     X: =410
@@ -1742,9 +1749,9 @@ LeadScreen As screen:
             Align: =Align.Center
             Font: =Font.Arial
             FontWeight: =FontWeight.Bold
-            Height: =100
+            Height: =110
             Size: =15
-            Text: ="Do you want to change estimate number?"
+            Text: ="Do you want to enter estimate number "& txtinptestimatenumber_1.Text & ", Please confirm it."
             Visible: =VarPopUpEstimateNumber
             Width: =350
             X: =(Parent.Width-Self.Width)/2
@@ -1755,9 +1762,98 @@ LeadScreen As screen:
             Fill: =RGBA(54, 176, 75, 1)
             Font: =Font.Arial
             HoverFill: =RGBA(75, 125, 6, 1)
-            OnSelect: |-
-                =Set(VarPreviousIncentive,LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadIncentive));
-                Set(VarPopUpEstimateNumber,false);
+            OnSelect: |
+                =Set(VarPopUpEstimateNumberResult,true);
+                If(VarPopUpEstimateNumberResult=true,
+                    If(
+                        !IsBlank(
+                            LookUp(
+                                SHFPEstimates,
+                                Estimate = txtinptestimatenumber_1.Text 
+                               // && 'Lead Generator Id' = VarSelectedLead.TechnicianID
+                            )
+                        ),
+                        Set(
+                            FlagEstimateNumberFound,
+                            true
+                        );
+                        Set(
+                            VarFPEstimateData,
+                            LookUp(
+                                SHFPEstimates,
+                                Estimate = txtinptestimatenumber_1.Text
+                            )
+                        );
+                        Set(
+                            VarleadYear,
+                            LookUp(
+                                LeadInformations,
+                                ID = VarSelectedLead.ID,
+                                'Created On'
+                            )
+                        ),
+                       // Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
+                      // Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
+                       Set(VarPopUpEstimateNumberSubmitted,true);
+                       Set(VarPopUpEstimateNumberSubmittedmsg,"Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
+                        Set(
+                            FlagEstimateNumberFound,
+                            false
+                        );
+                    );
+                );  
+                
+                //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
+                If(
+                    FlagEstimateNumberFound = true,
+                    LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
+                    UpdateIf(
+                        LeadInformations,
+                        ID = VarSelectedLead.ID,
+                        {
+                            LeadEstimateNumber: txtinptestimatenumber_1.Text,
+                            LeadStatus: "Quoted",
+                            'LeadPrice ': VarFPEstimateData.BidPrice,
+                            LeadIncentive: VarFPEstimateData.BidPrice * 0.02,
+                            TechnicianID: VarFPEstimateData.'Lead Generator Id',
+                            StatusDate:Now()
+                        }
+                    );
+                    UpdateIf(
+                        TotalIncentives,
+                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                        {
+                            TotalproposedIncentives: LookUp(
+                                TotalIncentives,
+                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                TotalproposedIncentives
+                            ) + VarFPEstimateData.BidPrice * 0.02,
+                            TotalProposedLead: Value(
+                                LookUp(
+                                    TotalIncentives,
+                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                    TotalProposedLead
+                                )
+                            ) + 1
+                        }
+                    );
+                    
+                   /* Notify(
+                        "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
+                        NotificationType.Success
+                    );*/
+                     Set(VarPopUpEstimateNumberSubmitted,true);
+                     Set(VarPopUpEstimateNumberSubmittedmsg,"Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
+                    Navigate(DashboardScreen);,
+                    //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
+                 UpdateIf(
+                        LeadInformations,
+                        ID = VarSelectedLead.ID,
+                        {
+                            LeadEstimateNumber: txtinptestimatenumber_1.Text
+                        }
+                    );
+                );
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
             Text: ="Yes"
@@ -1773,7 +1869,10 @@ LeadScreen As screen:
             Font: =Font.Arial
             HoverBorderColor: =RGBA(75, 125, 6, 1)
             HoverFill: =RGBA(75, 125, 6, 1)
-            OnSelect: =Set(VarPopUpEstimateNumber,false);
+            OnSelect: |-
+                =Reset(txtinptestimatenumber_1);
+                Set(VarPopUpEstimateNumberResult,false);
+                Set(VarPopUpEstimateNumber,false);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
             Text: ="No"
@@ -1832,7 +1931,9 @@ LeadScreen As screen:
             Fill: =RGBA(54, 176, 75, 1)
             Font: =Font.Arial
             HoverFill: =RGBA(75, 125, 6, 1)
-            OnSelect: =Set(VarPopUpEstimateNumberSubmitted,false);
+            OnSelect: |-
+                =Set(VarPopUpEstimateNumberSubmitted,false);
+                Set(VarPopUpEstimateNumber,false);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
             Text: ="OK"
@@ -1848,14 +1949,11 @@ LeadScreen As screen:
             Font: =Font.Arial
             HoverBorderColor: =RGBA(75, 125, 6, 1)
             HoverFill: =RGBA(75, 125, 6, 1)
-            OnSelect: |-
-                =Set(QQname,false);
-                Navigate(LeadScreen);
-                //Set(VarPopUpInprogress,false);
+            OnSelect: =
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
             Text: ="No"
-            Visible: =//VarPopUpEstimateNumberSubmitted
+            Visible: =false
             Width: =120
             X: =btnyesLS_3.X+btnyesLS_3.Width+20
             Y: =lblmsgLS_3.Y+ lblmsgLS_3.Height+10
