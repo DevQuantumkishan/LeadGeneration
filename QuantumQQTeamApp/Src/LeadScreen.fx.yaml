@@ -1770,7 +1770,7 @@ LeadScreen As screen:
                             LookUp(
                                 SHFPEstimates,
                                 Estimate = txtinptestimatenumber_1.Text 
-                               // && 'Lead Generator Id' = VarSelectedLead.TechnicianID
+                               && 'Lead Generator Id' = VarSelectedLead.TechnicianID
                             )
                         ),
                         Set(
@@ -1844,7 +1844,9 @@ LeadScreen As screen:
                     );*/
                      Set(VarPopUpEstimateNumberSubmitted,true);
                      Set(VarPopUpEstimateNumberSubmittedmsg,"Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
-                    Navigate(DashboardScreen);,
+                     Set(VarNavigateDashboardScreen,true);
+                    //Navigate(DashboardScreen);
+                    ,
                     //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
                  UpdateIf(
                         LeadInformations,
@@ -1934,6 +1936,7 @@ LeadScreen As screen:
             OnSelect: |-
                 =Set(VarPopUpEstimateNumberSubmitted,false);
                 Set(VarPopUpEstimateNumber,false);
+                If(VarNavigateDashboardScreen=true,Navigate(DashboardScreen));
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
             Text: ="OK"
