@@ -398,7 +398,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height=0,800,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height+20)
+                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height=0,800,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height+10)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -445,7 +445,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: =If(VarEstimateHours,"","Estimated hours(total man hours) *")
+                        HintText: =If(VarEstimateHours,"","Estimated hours(total man hrs) *")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
@@ -910,7 +910,7 @@ EstimateScreen As screen:
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =If(VarTotalEstimateHoursfortravel,32,0)
+                        Height: =If(VarTotalEstimateHoursfortravel,50,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Total estimated hours of travel *"
                         Visible: =VarTotalEstimateHoursfortravel || !IsBlank(IntxtTotalEstimatedHoursofTravel)
@@ -926,7 +926,7 @@ EstimateScreen As screen:
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        HintText: =If(VarTotalEstimateHoursfortravel,"","Total estimated hours of travel *")
+                        HintText: =If(VarTotalEstimateHoursfortravel,"","Total estimated hrs of travel *")
                         HoverBorderColor: =RGBA(149, 149, 149, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =3

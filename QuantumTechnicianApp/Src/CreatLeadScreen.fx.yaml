@@ -1047,7 +1047,9 @@ CreatLeadScreen As screen:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
-                Height: =borderErrorpopupCS.Height/2
+                Height: |-
+                    =//borderErrorpopupCS.Height/2
+                    120
                 Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                 Text: |-
                     =
