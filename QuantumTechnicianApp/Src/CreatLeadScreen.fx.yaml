@@ -868,6 +868,7 @@ CreatLeadScreen As screen:
                     ZIndex: =1
 
                 ctnNextCLS As button:
+                    DisplayMode: =If(IsBlank(IntxtBuildingName)||IsBlank(IntxtAddress)||IsBlank(IntxtZipCode),DisplayMode.Disabled,DisplayMode.Edit)
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
