@@ -193,7 +193,7 @@ SubmittedLeadScreen As screen:
                         ,yearly=true,[Text( Year(Today()))])*/
                     
                      //If(cumulatively=true,Sequence(50,Year(Today())) ,yearly=true,[Text( Year(Today()))])
-                     If(cumulatively=true,Sequence(50,LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On'))),yearly=true,[Year(Today())])
+                     If(cumulatively=true,Sequence(LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On'))-Year(Today())),yearly=true,[Year(Today())])
                      
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
