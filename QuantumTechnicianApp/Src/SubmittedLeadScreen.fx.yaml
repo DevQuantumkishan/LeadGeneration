@@ -1,7 +1,14 @@
 SubmittedLeadScreen As screen:
-    OnVisible: |
+    OnVisible: |-
         =UpdateContext({locInfoExpanded:false});
         Set(VarDownIcon,true);
+        ClearCollect(YearData, Sequence(100,
+                LookUp(
+                    LeadInformations,
+                    MechanicName = User().FullName,
+                    Year('Created On')
+                ) 
+            ))
 
     ctnMainSLS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(219, 219, 219, 1)
@@ -173,10 +180,9 @@ SubmittedLeadScreen As screen:
                 BorderThickness: =2
                 DelayItemLoading: =true
                 Height: =Parent.Height-ctnSearchBarSLS.Height
-                Items: |-
+                Items: |+
                     =//If(cumulatively=true,
                     // )],yearly=true,[Text( Year(Now()))])
-                    
                     /*If(cumulatively=true,
                        [Text( Year(Today())),
                         Text( Year(Today())-1),
@@ -191,10 +197,42 @@ SubmittedLeadScreen As screen:
                         Text(Year(Today())-10),
                         Text(Year(Today())-11)]
                         ,yearly=true,[Text( Year(Today()))])*/
-                    
                      //If(cumulatively=true,Sequence(50,Year(Today())) ,yearly=true,[Text( Year(Today()))])
-                     If(cumulatively=true,Sequence(LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On'))-Year(Today())),yearly=true,[Year(Today())])
-                     
+                    /*If(
+                        cumulatively = true,
+                        Sequence(50,
+                            LookUp(
+                                LeadInformations,
+                                MechanicName = User().FullName,
+                                Year('Created On')
+                            ) 
+                        ),
+                        yearly = true,
+                        [Year(Today())]
+                    )*/
+                    If(
+                        cumulatively = true,
+                    With(
+                        {
+                            StartYear:LookUp(
+                                LeadInformations,
+                                MechanicName = User().FullName,
+                                Year('Created On')
+                            ) ,
+                            EndYear: Year(Today())
+                            
+                        },
+                        Filter(
+                            YearData,
+                            Value >= StartYear,
+                            Value <= EndYear
+                        )
+                    ),
+                    yearly = true,
+                        [Year(Today())]
+                    )
+                    
+                    
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =4

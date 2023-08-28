@@ -209,8 +209,9 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Default: =true
                     DisabledColor: =Color.Black
-                    DisplayMode: |
+                    DisplayMode: |-
                         =If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
+                        //DisplayMode.Edit
                     FalseFill: =Color.Black
                     FalseText: |
                         =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
