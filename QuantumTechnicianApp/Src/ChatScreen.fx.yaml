@@ -1,6 +1,11 @@
 ChatScreen As screen:
-    OnVisible: |
+    OnVisible: |-
         =Refresh (LeadChats);Set(VarLeadMessages,true);
+        /*ForAll(
+            LookUp(LeadChats,LeadInformationLID.ID=VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)) As i,*/
+        Patch(LeadChats,
+                LookUp(LeadChats,LeadInformationLID.ID=VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes),
+                     {'Read ':true});
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -356,7 +361,8 @@ ChatScreen As screen:
                                      // To:personEmail,
                                         Message:TextInput1_2.Text,
                                         FromName:User().FullName,
-                                        LeadInformationLID:LookUp(LeadInformations,ID=VarLtdID)
+                                        LeadInformationLID:LookUp(LeadInformations,ID=VarLtdID),
+                                        'Read ':false
                                         
                                     }
                                 );

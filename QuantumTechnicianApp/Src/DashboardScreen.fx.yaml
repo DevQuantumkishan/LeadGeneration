@@ -633,6 +633,18 @@ DashboardScreen As screen:
                     Width: =Parent.Width/2.2
                     ZIndex: =1
 
+                    Circle1_1 As circle:
+                        BorderColor: =RGBA(255, 191, 0, 1)
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(255, 191, 0, 1)
+                        Height: =13
+                        Visible: =If(CountRows(Filter(LeadChats,FromEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,true,false)
+                        Width: =13
+                        X: =ctnQuatedLeadsDS.Width/1.2
+                        Y: =Parent.Height/8
+                        ZIndex: =5
+
                     grpQuotedLeadsDS As group:
                         Height: =5
                         Width: =5

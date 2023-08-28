@@ -477,7 +477,8 @@ SubmittedLeadScreen As screen:
                             Set(VarBackColor,true);
                             Navigate([@ViewDetailsScreen],ScreenTransition.None);
                             Reset(IntxtSearchBoxSLS);
-                            Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact ', "[$-en-US](###) ###-####"))
+                            Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact ',"[$-en-US](###) ###-####"));
+                            
                             /*{LtdID:ThisItem.ID,ContractNumber:ThisItem.'ContractNumber ',BuildingName:ThisItem.'BuildingName ',Address:ThisItem.Address,Zipcode:ThisItem.'ZipCode ',UnitCount:ThisItem.NumberofUnits,UnitDescription:ThisItem.UnitDescription,Scope:ThisItem.PrimaryScopeofWorkLID,ScopeOfWork:ThisItem.SecondaryScopeofWorkLID,CustomScope:ThisItem.CustomScopeofWork,unitdown:ThisItem.IsUnitDown,AdditionalExpensesRequired:ThisItem.AdditionalExpensesRequired,CommunicatedtoCustomer:ThisItem.CommunicatedToCustomer,EstimatedHours:ThisItem.'EstimatedHours ',Material:ThisItem.Notes,travelRequired:ThisItem.TravelRequired//LeadImage:ThisItem.LeadImages
                             }*/
                         PressedBorderColor: =RGBA(0, 0, 0, 0)
@@ -552,6 +553,19 @@ SubmittedLeadScreen As screen:
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextTrackingNumberSLS.Y
                         ZIndex: =15
+
+                    Circle1 As circle:
+                        BorderColor: =RGBA(255, 191, 0, 1)
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(255, 191, 0, 1)
+                        Height: =13
+                        OnSelect: =Select(Parent)
+                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,true,false)
+                        Width: =13
+                        X: =iconmsgSLS.X+iconmsgSLS.Width/1.2
+                        Y: =iconmsgSLS.Y+iconmsgSLS.Height/4.2
+                        ZIndex: =16
 
                 lblTitleYearSLS As label:
                     Align: =Align.Center
