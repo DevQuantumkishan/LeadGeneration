@@ -1440,7 +1440,7 @@ LeadScreen As screen:
                                     StatusDate:Now()
                                 }
                             );
-                            LeadRejected.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
+                           // LeadRejected.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
                             Notify("Lead rejected with comment successfully.");
                         )
                     Text: ="Submit back to technician"
@@ -1614,7 +1614,7 @@ LeadScreen As screen:
                     LeadInformationLID:LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID),
                     IsQQApp:true
                 });
-                TechnicianMessage.Run(glryleadlistLS.Selected.Email,User().FullName,glryleadlistLS.Selected.LeadTrackingNumber);
+                //TechnicianMessage.Run(glryleadlistLS.Selected.Email,User().FullName,glryleadlistLS.Selected.LeadTrackingNumber);
                 If(
                         (!IsEmpty(Errors(LeadChats))),
                         Notify(
@@ -1806,7 +1806,7 @@ LeadScreen As screen:
                 //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
                 If(
                     FlagEstimateNumberFound = true,
-                    LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
+                    //LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
                     UpdateIf(
                         LeadInformations,
                         ID = VarSelectedLead.ID,
