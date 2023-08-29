@@ -477,16 +477,23 @@ LeadListScreen As screen:
                                 Width: =40
                                 ZIndex: =10
 
+                            Circle1_2 As circle:
+                                Fill: =RGBA(255, 191, 0, 1)
+                                Height: =25
+                                Width: =25
+                                X: =icnrightLS.Width+icnrightLS.X
+                                ZIndex: =11
+
                             icnrightLS As icon.ChevronRight:
                                 AlignInContainer: =AlignInContainer.Start
                                 Color: =Header.SHRed
                                 Height: =50
                                 Icon: =Icon.ChevronRight
                                 OnSelect: =//Navigate(LeadScreen)
-                                PaddingLeft: =40
-                                Width: =60
+                                PaddingLeft: =20
+                                Width: =40
                                 X: =lblleadstatusvalueLS.Width+lblleadstatusvalueLS.X
-                                ZIndex: =11
+                                ZIndex: =12
 
                         btnglryleadlistLS As button:
                             Fill: =RGBA(0, 0, 0, 0)

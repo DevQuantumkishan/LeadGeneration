@@ -81,6 +81,14 @@ DashboardScreen As screen:
                     Y: =//Parent.Y
                     ZIndex: =3
 
+                Circle1 As circle:
+                    Fill: =RGBA(255, 191, 0, 1)
+                    Height: =30
+                    Width: =30
+                    X: =Parent.Width-Self.Width-20
+                    Y: =20
+                    ZIndex: =4
+
             ctnopenleadtabDS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(204, 204, 204, 1)
@@ -131,6 +139,14 @@ DashboardScreen As screen:
                     Width: =Parent.Width
                     Y: =//Parent.Y
                     ZIndex: =3
+
+                Circle1_1 As circle:
+                    Fill: =RGBA(255, 191, 0, 1)
+                    Height: =30
+                    Width: =30
+                    X: =Parent.Width-Self.Width-20
+                    Y: =20
+                    ZIndex: =4
 
             ctnquotedleadtabDS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
