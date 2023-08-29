@@ -561,7 +561,7 @@ SubmittedLeadScreen As screen:
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
                         OnSelect: =Select(Parent)
-                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,true,false)
+                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))>0,true,false)
                         Width: =13
                         X: =iconmsgSLS.X+iconmsgSLS.Width/1.2
                         Y: =iconmsgSLS.Y+iconmsgSLS.Height/4.2
