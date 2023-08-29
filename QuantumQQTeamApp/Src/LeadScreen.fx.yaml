@@ -1,5 +1,5 @@
 LeadScreen As screen:
-    OnVisible: |-
+    OnVisible: |
         =Set(VarChatMessage,false);
         Set(VarLeadDetails,true);
         Set(VarLeadProposal,false);
@@ -264,6 +264,8 @@ LeadScreen As screen:
                         =Set(VarLeadDetails,false);
                         Set(VarLeadProposal,false);
                         Set(VarLeadMessages,true);
+                        ForAll(Filter(glrychatmessageLdS.AllItems,LeadInformationLID.ID=glryleadlistLS.Selected.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No) As i,
+                        UpdateIf(LeadChats,ID=i.ID,{'Read ':true}));
                     PressedFill: =//Self.Color
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
@@ -1652,6 +1654,9 @@ LeadScreen As screen:
             HoverBorderColor: =RGBA(179, 179, 179, 1)
             HoverFill: =RGBA(0, 0, 0, 0)
             Mode: =TextMode.MultiLine
+            OnChange: |-
+                =ForAll(Filter(glrychatmessageLdS.AllItems,LeadInformationLID.ID=glryleadlistLS.Selected.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No) As i,
+                UpdateIf(LeadChats,ID=i.ID,{'Read ':true}));
             PressedBorderColor: =RGBA(179, 179, 179, 1)
             RadiusBottomLeft: =20
             RadiusBottomRight: =20
