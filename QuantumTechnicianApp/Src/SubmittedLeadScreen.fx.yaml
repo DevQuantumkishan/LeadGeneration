@@ -95,7 +95,7 @@ SubmittedLeadScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoSLS.Width-IconMenuSLS.Width-btnUserNameSLS.Width-60
+                Width: =Parent.Width-imgSchindlerLogoSLS.Width-IconMenuSLS.Width-btnUserNameSLS.Width-70
                 X: =96.12
                 ZIndex: =4
 
@@ -554,6 +554,22 @@ SubmittedLeadScreen As screen:
                         Y: =htmltextTrackingNumberSLS.Y
                         ZIndex: =15
 
+                    Image1 As image:
+                        Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
+                        Image: |
+                            =If(Header="Rejected",'rejected message icon','message icon')
+                        OnSelect: |
+                            =Navigate(ChatScreen);
+                            Set(VarLtdName,ThisItem.'BuildingName ');
+                            Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
+                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
+                            Set(VarLtdID,ThisItem.ID);
+                        Visible: =false
+                        Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
+                        X: =Parent.Width-2.5*(Self.Width)
+                        Y: =htmltextTrackingNumberSLS.Y
+                        ZIndex: =16
+
                     Circle1 As circle:
                         BorderColor: =RGBA(255, 191, 0, 1)
                         BorderThickness: =1
@@ -565,7 +581,20 @@ SubmittedLeadScreen As screen:
                         Width: =13
                         X: =iconmsgSLS.X+iconmsgSLS.Width/1.2
                         Y: =iconmsgSLS.Y+iconmsgSLS.Height/4.2
-                        ZIndex: =16
+                        ZIndex: =17
+
+                    Icon2 As icon.CancelBadge:
+                        Color: =RGBA(255, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =35
+                        Icon: =Icon.CancelBadge
+                        OnSelect: =Select(Parent)
+                        Visible: |
+                            =If(Header="Rejected",true,false)
+                        Width: =35
+                        X: =Parent.Width-2*(Self.Width)
+                        Y: =20
+                        ZIndex: =18
 
                 lblTitleYearSLS As label:
                     Align: =Align.Center
