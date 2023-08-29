@@ -1,11 +1,18 @@
 ChatScreen As screen:
     OnVisible: |-
-        =Refresh (LeadChats);Set(VarLeadMessages,true);
-        /*ForAll(
-            LookUp(LeadChats,LeadInformationLID.ID=VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)) As i,*/
-        Patch(LeadChats,
-                LookUp(LeadChats,LeadInformationLID.ID=VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes),
-                     {'Read ':true});
+        =Refresh (LeadChats);
+        Set(
+            VarLeadMessages,
+            true
+        );
+        ForAll(
+            Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
+        UpdateIf(
+            LeadChats,
+            ID=i.ID,
+            {'Read ': true}
+        )
+        );
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -223,16 +230,7 @@ ChatScreen As screen:
                     ]*/
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
-                OnSelect: |-
-                    =/*Patch(Chats,
-                            ThisItem,
-                            {
-                               Read:true
-                            }
-                        );
-                    
-                    Set(MessageRead,true);
-                    Refresh(Chats);*/
+                OnSelect: =
                 TemplateSize: =Label6_2.Height+Label8_2.Height
                 Width: =Parent.Width
                 ZIndex: =3
@@ -249,7 +247,6 @@ ChatScreen As screen:
                     Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
                     AutoHeight: =true
                     Font: =Font.Arial
-                    Height: =25
                     OnSelect: =Select(Parent)
                     PaddingLeft: =20
                     PaddingRight: =40
@@ -354,7 +351,15 @@ ChatScreen As screen:
                     Height: =If(Parent.Height<Parent.Width,50,70)
                     Icon: =Icon.Send
                     OnSelect: |-
-                        =Patch(LeadChats,Defaults(LeadChats),
+                        =ForAll(
+                            Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
+                        UpdateIf(
+                            LeadChats,
+                            ID=i.ID,
+                            {'Read ': true}
+                        )
+                        );
+                        Patch(LeadChats,Defaults(LeadChats),
                                     {
                                         ID:GUID(),
                                         FromEmail:myMail,
@@ -377,9 +382,11 @@ ChatScreen As screen:
                     Y: =Gallery4_2.Height
                     ZIndex: =2
 
-    Timer1 As timer:
+    TimermessageCS As timer:
         AutoPause: =false
+        AutoStart: =true
         Duration: =3000
+        FontWeight: =FontWeight.Lighter
         OnTimerEnd: =Refresh(LeadChats);
         Repeat: =true
         Start: =VarLeadMessages
