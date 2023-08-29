@@ -1046,6 +1046,19 @@ DashboardScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
+    TimermessageCS_1 As timer:
+        AutoPause: =false
+        AutoStart: =true
+        Duration: =3000
+        FontWeight: =FontWeight.Lighter
+        OnTimerEnd: =Refresh(LeadChats);
+        Repeat: =true
+        Start: =VarLeadMessages
+        Visible: =false
+        X: =40
+        Y: =40
+        ZIndex: =4
+
     grpMenuDS As group:
         Height: =5
         Width: =5
