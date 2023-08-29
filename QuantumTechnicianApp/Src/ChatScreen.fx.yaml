@@ -247,7 +247,6 @@ ChatScreen As screen:
                     Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
                     AutoHeight: =true
                     Font: =Font.Arial
-                    Height: =25
                     OnSelect: =Select(Parent)
                     PaddingLeft: =20
                     PaddingRight: =40
