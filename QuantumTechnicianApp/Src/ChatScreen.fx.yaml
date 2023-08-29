@@ -127,7 +127,7 @@ ChatScreen As screen:
             BorderThickness: =2
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =//If(Parent.Height<Parent.Width,Parent.Height/8,Parent.Height/14)
+            Height: =If(Parent.Height<Parent.Width,Parent.Height/6,Parent.Height/18,Parent.Width>1000,Parent.Height/8)
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =10
@@ -169,6 +169,7 @@ ChatScreen As screen:
                     If(Parent.Width<500,12,Parent.Width>500,16)
                 Text: ="Tracking number" & Char(10) & VarLtdTrackingnumber
                 Width: =Parent.Width/2
+                Y: =4
                 ZIndex: =2
 
             lblHeaderDS_6 As label:
@@ -186,6 +187,7 @@ ChatScreen As screen:
                 Text: ="Building name" & Char(10) & VarLtdName
                 Width: =Parent.Width/1.5
                 X: =Parent.Width/3
+                Y: =4
                 ZIndex: =3
 
         Container8 As groupContainer.manualLayoutContainer:
