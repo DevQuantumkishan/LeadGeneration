@@ -479,8 +479,9 @@ LeadListScreen As screen:
 
                             Circle1_2 As circle:
                                 Fill: =RGBA(255, 191, 0, 1)
-                                Height: =25
-                                Width: =25
+                                Height: =20
+                                Visible: = If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No && LeadInformationLID.LeadStatus=ThisItem.LeadStatus))>0,true,false)
+                                Width: =20
                                 X: =icnrightLS.Width+icnrightLS.X
                                 ZIndex: =11
 
