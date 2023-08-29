@@ -491,7 +491,7 @@ SubmittedLeadScreen As screen:
                         Text: =""
                         Width: |-
                             =//If(Parent.Width<378,Parent.Width/1.07,Parent.Width<500,Parent.Width/1.05,Parent.Width/1.03)
-                            If(Parent.Width<378,Parent.Width/1.07,Parent.Width>500,Parent.Width/1.02)
+                            If(Parent.Width<378,Parent.Width/1.05,Parent.Width>500,Parent.Width/1.02)
                         Y: =10
                         ZIndex: =11
 
@@ -586,14 +586,14 @@ SubmittedLeadScreen As screen:
                     Icon2 As icon.CancelBadge:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
-                        Height: =35
+                        Height: =13
                         Icon: =Icon.CancelBadge
                         OnSelect: =Select(Parent)
                         Visible: |
                             =If(Header="Rejected",true,false)
-                        Width: =35
-                        X: =Parent.Width-2*(Self.Width)
-                        Y: =20
+                        Width: =13
+                        X: =iconmsgSLS.Width/1.2+iconmsgSLS.X
+                        Y: =iconmsgSLS.Height/5+iconmsgSLS.Y
                         ZIndex: =18
 
                 lblTitleYearSLS As label:
