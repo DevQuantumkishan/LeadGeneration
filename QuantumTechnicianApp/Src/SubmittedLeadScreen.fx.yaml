@@ -179,7 +179,7 @@ SubmittedLeadScreen As screen:
                 BorderColor: =RGBA(219, 219, 219, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
-                Height: =Parent.Height-ctnSearchBarSLS.Height
+                Height: =Parent.Height-ctnSearchBarSLS.Height-ctnSearchBarSLS_1.Height
                 Items: |+
                     =//If(cumulatively=true,
                     // )],yearly=true,[Text( Year(Now()))])
