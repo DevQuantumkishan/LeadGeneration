@@ -584,6 +584,22 @@ SubmittedLeadScreen As screen:
                         Y: =iconmsgSLS.Y+iconmsgSLS.Height/4.2
                         ZIndex: =17
 
+                    htmltxtQQTeamMemberSLS As htmlViewer:
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Arial
+                        Height: =20
+                        HtmlText: |-
+                            ="<b>QQ  : </b>" & ThisItem.'Created On'
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                        Width: =Parent.Width/1.08
+                        X: =50.55849500293948
+                        Y: =htmltxtZipcodeSLS.Y+htmltxtZipcodeSLS.Height
+                        ZIndex: =18
+
                 lblTitleYearSLS As label:
                     Align: =Align.Center
                     AutoHeight: =true
