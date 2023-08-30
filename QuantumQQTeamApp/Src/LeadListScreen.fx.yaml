@@ -2,7 +2,7 @@ LeadListScreen As screen:
     OnVisible: |-
         =Refresh(LeadInformations);
         Set(VarPopUpInprogress,false);
-        Set(VarUpperIcon,true);
+        Set(VarDownIcon,true);
 
     ctnmainLS As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -230,7 +230,7 @@ LeadListScreen As screen:
                         Icon6 As icon.ArrowUp:
                             Color: =Header.SHRed
                             Height: =40
-                            Icon: =If(VarUpperIcon,Icon.ArrowUp,VarDownIcon,Icon.ArrowDown)
+                            Icon: =If(VarDownIcon,Icon.ArrowDown,VarUpperIcon,Icon.ArrowUp)
                             OnSelect: |-
                                 =If(
                                     Icon6.Icon = Icon.ArrowDown,
