@@ -1801,8 +1801,7 @@ LeadScreen As screen:
                         ),
                        // Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
                       // Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
-                       Set(VarPopUpEstimateNumberSubmitted,true);
-                       Set(VarPopUpEstimateNumberSubmittedmsg,"Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
+                       
                         Set(
                             FlagEstimateNumberFound,
                             false
@@ -1813,6 +1812,14 @@ LeadScreen As screen:
                 //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
                 If(
                     FlagEstimateNumberFound = true,
+                    If(IsBlank(
+                            LookUp(
+                                SHFPEstimates,
+                                Estimate = txtinptestimatenumber_1.Text 
+                               && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus="Sold"
+                            )
+                        ),
+                        //Updating proposed price and proposed incentives
                     LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
                     UpdateIf(
                         LeadInformations,
@@ -1820,10 +1827,11 @@ LeadScreen As screen:
                         {
                             LeadEstimateNumber: txtinptestimatenumber_1.Text,
                             LeadStatus: "Quoted",
-                            'LeadPrice ': VarFPEstimateData.BidPrice,
-                            LeadIncentive: VarFPEstimateData.BidPrice * 0.02,
+                            ProposedLeadPrice: VarFPEstimateData.BidPrice,
+                            ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
                             TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                            StatusDate:Now()
+                            StatusDate:Now(),
+                            ProposedLeadDate:VarFPEstimateData.DateCreated
                         }
                     );
                     UpdateIf(
@@ -1844,14 +1852,47 @@ LeadScreen As screen:
                             ) + 1
                         }
                     );
-                    
+                    ,
+                //updating sold price and sold incentives
+                UpdateIf(
+                        LeadInformations,
+                        ID = VarSelectedLead.ID,
+                        {
+                            LeadEstimateNumber: txtinptestimatenumber_1.Text,
+                            LeadStatus: "Sold",
+                            SoldLeadPrice: VarFPEstimateData.BidPrice,
+                            SoldLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                            TechnicianID: VarFPEstimateData.'Lead Generator Id',
+                            StatusDate:Now(),
+                            SoldLeadDate:VarFPEstimateData.BookingDate
+                        }
+                    );
+                    UpdateIf(
+                        TotalIncentives,
+                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                        {
+                            TotalproposedIncentives: LookUp(
+                                TotalIncentives,
+                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                TotalSoldIncentives
+                            ) + VarFPEstimateData.BidPrice * 0.02,
+                            TotalProposedLead: Value(
+                                LookUp(
+                                    TotalIncentives,
+                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                    TotalSoldLead
+                                )
+                            ) + 1
+                        }
+                    );
                    /* Notify(
                         "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                         NotificationType.Success
                     );*/
                      Set(VarPopUpEstimateNumberSubmitted,true);
-                     Set(VarPopUpEstimateNumberSubmittedmsg,"Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
+                     Set(VarPopUpEstimateNumberSubmittedmsg,"Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
                      Set(VarNavigateDashboardScreen,true);
+                    )//sold status if close
                     //Navigate(DashboardScreen);
                     ,
                     //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
@@ -1862,6 +1903,8 @@ LeadScreen As screen:
                             LeadEstimateNumber: txtinptestimatenumber_1.Text
                         }
                     );
+                    Set(VarPopUpEstimateNumberSubmitted,true);
+                       Set(VarPopUpEstimateNumberSubmittedmsg,"Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
                 );
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
