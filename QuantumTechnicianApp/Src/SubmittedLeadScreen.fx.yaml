@@ -288,7 +288,7 @@ SubmittedLeadScreen As screen:
                         )
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
-                    TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",320,220)
+                    TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||btnheaderSLS.Text="Sold Leads",380,220)
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
@@ -314,7 +314,7 @@ SubmittedLeadScreen As screen:
 
                     lblPriceSLS As label:
                         Font: =Font.Arial
-                        Height: =25
+                        Height: =If(btnheaderSLS.Text="Sold Leads",25,0)
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -323,9 +323,9 @@ SubmittedLeadScreen As screen:
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
                             =//"Sold Incentives $ : "&  " " & 0
-                            "Price: $" & " " & ThisItem.'LeadPrice '
+                            "Sold Price: $" & " " & ThisItem.SoldLeadPrice
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
+                        Visible: =If(btnheaderSLS.Text="Sold Leads",true,false)
                         Width: =Parent.Width/2.55
                         X: =20
                         Y: =lblEstimateNumberSLS.Height+lblEstimateNumberSLS.Y
@@ -334,7 +334,7 @@ SubmittedLeadScreen As screen:
                     lblTitleTotalIncentivesSLS As label:
                         Color: =RGBA(255, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =25
+                        Height: =If(btnheaderSLS.Text="Sold Leads",25,0)
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -346,9 +346,10 @@ SubmittedLeadScreen As screen:
                             "Potential Future Incentives $ :" & " " & "0",
                                       VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
                                       VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
-                            If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
+                            //If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
+                            "Sold incentive: $" & ThisItem.SoldLeadIncentives
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
+                        Visible: =If(btnheaderSLS.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =20
@@ -360,10 +361,10 @@ SubmittedLeadScreen As screen:
                         Fill: =RGBA(202, 202, 202, 1)
                         Height: =2
                         OnSelect: =Select(Parent)
-                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
+                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||btnheaderSLS.Text="Sold Leads",true,false)
                         Width: =borderLeadsSLS.Width-40
                         X: =20
-                        Y: =lblTitleTotalIncentivesSLS.Y+lblTitleTotalIncentivesSLS.Height
+                        Y: =lblTitleTotalIncentivesSLS_1.Y+lblTitleTotalIncentivesSLS_1.Height
                         ZIndex: =4
 
                     lblEstimateNumberSLS As label:
@@ -378,7 +379,7 @@ SubmittedLeadScreen As screen:
                         Text: |-
                             ="Estimate number : " & ThisItem.LeadEstimateNumber
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
+                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||btnheaderSLS.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =lineEstimateSLS.Y+lineEstimateSLS.Height+10
@@ -411,7 +412,7 @@ SubmittedLeadScreen As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",lineEstimatenoSLS.Y+lineEstimatenoSLS.Height+10,20)
+                        Y: =If(btnheaderSLS.Text="Quoted Leads" ||btnheaderSLS.Text="Sold Leads",lineEstimatenoSLS.Y+lineEstimatenoSLS.Height+10,20)
                         ZIndex: =7
 
                     htmltxtAddressSLS As htmlViewer:
@@ -501,23 +502,25 @@ SubmittedLeadScreen As screen:
                         Fill: =RGBA(202, 202, 202, 1)
                         Height: =2
                         OnSelect: =Select(Parent)
-                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||"Sold Leads",true,false)
+                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||btnheaderSLS.Text="Sold Leads",true,false)
                         Width: =borderLeadsSLS.Width-40
                         X: =20
-                        Y: =lblPriceSLS.Height+lblPriceSLS.Y
+                        Y: =lblPriceSLS_1.Height+lblPriceSLS_1.Y
                         ZIndex: =12
 
                     htmltxtStatusDateSLS As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
-                        Height: =20
+                        Height: =If(btnheaderSLS.Text="Sold Leads",25,0)
                         HtmlText: |-
-                            =If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
+                            =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
+                            "<b>Sold date : </b>" & ThisItem.SoldLeadDate
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                        Visible: =If(btnheaderSLS.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltxtDateSLS.Y+htmltxtDateSLS.Height
@@ -590,15 +593,75 @@ SubmittedLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>QQ  : </b>" & ThisItem.'Created On'
+                            ="<b>QQ Team member  : </b>" & ThisItem.QQTeamName
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
-                        X: =50.55849500293948
-                        Y: =htmltxtZipcodeSLS.Y+htmltxtZipcodeSLS.Height
+                        X: =20
+                        Y: =htmltxtStatusDateSLS_1.Y+htmltxtStatusDateSLS_1.Height
                         ZIndex: =18
+
+                    lblTitleTotalIncentivesSLS_1 As label:
+                        Color: =If(btnheaderSLS.Text="Quoted Leads",Color.Red,Color.Black)
+                        Font: =Font.Arial
+                        Height: =25
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
+                        Text: |-
+                            =/*If(VarFutureIncetives = true,
+                            "Potential Future Incentives $ :" & " " & "0",
+                                      VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
+                                      VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
+                            //If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
+                            "Proposed incentive: $" & ThisItem.ProposedLeadIncentives
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||btnheaderSLS.Text="Sold Leads",true,false)
+                        Width: =Parent.Width/1.08
+                        X: =20
+                        Y: =lblTotalIncentivesSLS.Height+lblTotalIncentivesSLS.Y
+                        ZIndex: =19
+
+                    lblPriceSLS_1 As label:
+                        Font: =Font.Arial
+                        Height: =25
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
+                        Text: |-
+                            =//"Sold Incentives $ : "&  " " & 0
+                            "Proposed Price: $" & " " & ThisItem.ProposedLeadPrice
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =If(btnheaderSLS.Text="Quoted Leads" ||btnheaderSLS.Text="Sold Leads",true,false)
+                        Width: =Parent.Width/2.55
+                        X: =20
+                        Y: =lblPriceSLS.Height+lblPriceSLS.Y
+                        ZIndex: =20
+
+                    htmltxtStatusDateSLS_1 As htmlViewer:
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Arial
+                        Height: =20
+                        HtmlText: |-
+                            =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
+                            "<b>Proposed date : </b>" & ThisItem.ProposedLeadDate
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                        Width: =Parent.Width/1.08
+                        X: =20
+                        Y: =htmltxtStatusDateSLS.Y+htmltxtStatusDateSLS.Height
+                        ZIndex: =21
 
                 lblTitleYearSLS As label:
                     Align: =Align.Center
