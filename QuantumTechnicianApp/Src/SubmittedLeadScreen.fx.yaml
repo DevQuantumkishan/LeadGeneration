@@ -1061,6 +1061,7 @@ SubmittedLeadScreen As screen:
                 ZIndex: =2
 
             btnPopopErrorUS_1 As button:
+                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)

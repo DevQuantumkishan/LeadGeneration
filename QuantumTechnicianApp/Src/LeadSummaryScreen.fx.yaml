@@ -165,7 +165,7 @@ LeadSummaryScreen As screen:
                 SummaryForm As form:
                     DataSource: =LeadInformations
                     FillPortions: =0
-                    Height: =ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+TotalEstimatedExpenseLSS.Height+TotalEstimatedHoursofTravelLSS.Height+80
+                    Height: =ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+TotalEstimatedExpenseLSS.Height+TotalEstimatedHoursofTravelLSS.Height+50
                     Item: =VarFormMode
                     LayoutMinHeight: =250
                     LayoutMinWidth: =Parent.Width
@@ -1638,7 +1638,7 @@ LeadSummaryScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
+                        Height: =119
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
                         Required: =false
                         Update: =IntxtContactNumberES_1.Text
@@ -1698,13 +1698,13 @@ LeadSummaryScreen As screen:
                             Width: =Parent.Width - 120
                             Wrap: =false
                             X: =70
-                            Y: =40
+                            Y: =20
                             ZIndex: =4
 
                         IntxtContactNumberES_1 As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             BorderThickness: =1
-                            Default: =VarformattedNumberSummary
+                            Default: =
                             DelayOutput: =true
                             DisabledBorderColor: =RGBA(202, 202, 202, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
@@ -1716,14 +1716,16 @@ LeadSummaryScreen As screen:
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =10
                             OnChange: |
-                                =If(Len(IntxtContactNumberES_1.Text)=10, Set(VarformattedNumberSummary, Text(Value(IntxtContactNumberES_1.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true), If(!IsBlank(IntxtContactNumberES_1.Text) && Len(IntxtContactNumberES_1.Text)<>10, Set(Varerrormessage, true); Set(varContactNumber, false)));
-                            OnSelect: =If(varContactNumber=true,Set(varContactNumber,true));
+                                =If(Len(IntxtContactNumberES_1.Text)=10, Set(VarformattedNumberSummary, Text(Value(IntxtContactNumberES_1.Text), "[$-en-US](###) ###-####"));Set (VarPhonenumbererrormessage, false);Set(varContactNumber, true), If(!IsBlank(IntxtContactNumberES_1.Text) && Len(IntxtContactNumberES_1.Text)<>10,Set(VarPhonenumbererrormessage, true); Set(varContactNumber, false)
+                                ));
+                            OnSelect: |-
+                                =If(varContactNumber=true,Set(varContactNumber,true));
+                                Set(varCustomerPhonenumber,true);
                             PaddingLeft: =5
                             RadiusBottomLeft: =0
                             RadiusBottomRight: =0
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
-                            Reset: =true
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Tooltip: ="Customer Phone Number"
                             Width: =Parent.Width - 120
@@ -1830,7 +1832,7 @@ LeadSummaryScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =If(IsBlank(IntxtUnitCountLSS.Text) ||IsBlank(IntxtUnitDescriptionLSS.Text)|| IsBlank(CboxScopeLSS)  || IsBlank(IntxtEstimatedHoursLSS.Text) ||IsBlank(IntxtNotesLSS.Text) ||If(CboxCCLSS.Value=true,IsBlank(IntxtCustomerNameLSS) || IsBlank(lblContactNumber_1) ||IsBlank(lblContactES_1)) || If(cboxAELSS.Value=true,IsBlank(IntxtTotalEstimatedExpenseLSS))||If(cboxTravelRequiredLSS.Value=true,IsBlank(intxtTotalEstimatedHoursofTravelLSS)) ,
+                        =If(IsBlank(IntxtUnitCountLSS.Text) ||IsBlank(IntxtUnitDescriptionLSS.Text)|| IsBlank(CboxScopeLSS)  || IsBlank(IntxtEstimatedHoursLSS.Text) ||IsBlank(IntxtNotesLSS.Text) ||If(CboxCCLSS.Value=true,IsBlank(IntxtCustomerNameLSS) || IsBlank(lblContactNumber_1) ||IsBlank(lblContactES_1)) || If(cboxAELSS.Value=true,IsBlank(IntxtTotalEstimatedExpenseLSS))||If(cboxTravelRequiredLSS.Value=true,IsBlank(intxtTotalEstimatedHoursofTravelLSS)) || Len(IntxtContactNumberES_1)<>10,
                         Set(VarErrorPopup,true),
                         Set(VarNotificationloding,true);
                         Set(VarNotification,true);
@@ -1995,7 +1997,7 @@ LeadSummaryScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: =If(VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead submitted successfully.Lead tracking number is " & VarLeadTrackingNumber&".")
+                Text: =If( VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead submitted successfully.Lead tracking number is " & VarLeadTrackingNumber&".")
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -2004,10 +2006,11 @@ LeadSummaryScreen As screen:
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
-                OnSelect: =Navigate(DashboardScreen);
+                OnSelect: |
+                    =Navigate(DashboardScreen);Set(VarNotification,false);
                 Size: =14
                 Text: ="Ok"
-                Visible: =If(lblNotificationLSS.Text="Lead submitted successfully.Lead tracking number is " & VarLeadTrackingNumber&".",true,false)
+                Visible: =If(VarPhonenumbererrormessage ||VarNotificationSuccess,true,false)
                 Width: =Parent.Width/5
                 ZIndex: =3
 
@@ -2179,7 +2182,7 @@ LeadSummaryScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: ="All required fields are mandatory"
+                Text: =If(VarPhonenumbererrormessage,"Customer phone number should be 10 digits.","All required fields are mandatory")
                 Width: =Parent.Width
                 ZIndex: =2
 

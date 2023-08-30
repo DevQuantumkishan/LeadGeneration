@@ -398,7 +398,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height=0,800,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height+30)
+                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height=0,300,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height+50)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -1190,19 +1190,19 @@ EstimateScreen As screen:
                     IntxtContactNumberES As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =1
-                        Default: =
+                        Default: =varCustomerPhonenumber
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(202, 202, 202, 1)
                         DisabledFill: =RGBA(0, 0, 0, 0)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Format: =TextFormat.Number
-                        HintText: =If(varCustomerPhonenumber,"","Customer Phone Number")
+                        HintText: =If(varCustomerPhonenumber,"","Customer Phone Number *")
                         HoverBorderColor: =Self.BorderColor
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =10
                         OnChange: |
-                            =If(Len(IntxtContactNumberES.Text)=10, Set(VarformattedNumberSummary, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true);Set(Varerrormessage, false);, If(!IsBlank(lblContactNumber.Text) && Len(IntxtContactNumberES.Text)<>10, Set(Varerrormessage, true); Set(varContactNumber, false)));
+                            =If(Len(IntxtContactNumberES.Text)=10, Set(VarformattedNumberSummary, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true);Set(VarPhonenumbererrormessage, false);, If(!IsBlank(IntxtContactNumberES.Text) && Len(IntxtContactNumberES.Text)<>10, Set(VarPhonenumbererrormessage, true); Set(varContactNumber, false)));
                         OnSelect: |-
                             =Set(varCustomerPhonenumber,true);
                             If(varContactNumber=true,Set(varContactNumber,true));
@@ -1213,7 +1213,7 @@ EstimateScreen As screen:
                         RadiusTopRight: =0
                         Reset: =true
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Customer Phone Number"
+                        Tooltip: ="Customer Phone Number *"
                         Width: =Parent.Width - 100
                         X: =60
                         Y: =lblContactES.Y + lblContactES.Height + 5
@@ -1270,7 +1270,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =50
+                Height: =80
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutGap: =20
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -1405,7 +1405,7 @@ EstimateScreen As screen:
                     =//"Estimated hours, materials, part number and other notes" & If(CboxCommunicatedtoCustomer.Value=true,", customer name & customer phone number") & " are mandatory."
                     If(
                         //CboxCommunicatedtoCustomer.Value = true,
-                        Varerrormessage,"Customer phone number should be 10 digits.",
+                        VarPhonenumbererrormessage,"Customer phone number should be 10 digits.",
                      //   "All required fields are mandatory",
                         "All required fields are mandatory"
                     )

@@ -727,7 +727,7 @@ ScopeScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
-                    OnSelect: |
+                    OnSelect: |-
                         =If(
                             !IsBlank(CboxScope.Selected)  && !IsBlank(CboxScopeofwork.Selected)|| !IsBlank(IntxtManuallyScopeofwork),
                         Set(VarIndicator,true);
@@ -743,6 +743,7 @@ ScopeScreen As screen:
                         If(CboxTravelRequired.Value=false,
                         Set(VarTravel,false));
                         If(IsBlank(lblContactNumber),Set(VarformattedNumber,Blank()));
+                        Set(VarPhonenumbererrormessage,false)
                     Size: =If(Parent.Width<358,12,Parent.Width>358,12)
                     Text: ="Next"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
