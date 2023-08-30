@@ -649,8 +649,7 @@ LeadListScreen As screen:
             Font: =Font.Arial
             HoverFill: =RGBA(75, 125, 6, 1)
             OnSelect: |-
-                =Set(QQname,true);
-                UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,{LeadStatus:"InProgress",QQTeamName:VarLoggedInUser.FullName,StatusDate:Now()});
+                =UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,{LeadStatus:"InProgress",QQTeamName:VarLoggedInUser.FullName,StatusDate:Now()});
                 LeadInProgress.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
                 Navigate(LeadScreen);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
@@ -669,8 +668,7 @@ LeadListScreen As screen:
             HoverBorderColor: =RGBA(75, 125, 6, 1)
             HoverFill: =RGBA(75, 125, 6, 1)
             OnSelect: |-
-                =Set(QQname,false);
-                Navigate(LeadScreen);
+                =Navigate(LeadScreen);
                 //Set(VarPopUpInprogress,false);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
