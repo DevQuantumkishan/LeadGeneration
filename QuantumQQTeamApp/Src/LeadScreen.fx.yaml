@@ -117,7 +117,7 @@ LeadScreen As screen:
 
             lblestimatenumbervalueLdS As label:
                 Size: =16
-                Text: ="Not Available"
+                Text: =If(IsBlank(glryleadlistLS.Selected.LeadEstimateNumber),"Not Available",glryleadlistLS.Selected.LeadEstimateNumber)
                 Width: =Parent.Width/2
                 ZIndex: =2
 
@@ -265,7 +265,7 @@ LeadScreen As screen:
                         Set(VarLeadProposal,false);
                         Set(VarLeadMessages,true);
                         ForAll(Filter(glrychatmessageLdS.AllItems,LeadInformationLID.ID=glryleadlistLS.Selected.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No) As i,
-                        UpdateIf(LeadChats,ID=i.ID,{'Read ':true}));
+                        UpdateIf(LeadChats,ID=i.ID && LeadInformationLID.QQTeamName=User().FullName,{'Read ':true}));
                     PressedFill: =//Self.Color
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
@@ -1834,7 +1834,7 @@ LeadScreen As screen:
                             ProposedLeadDate:VarFPEstimateData.DateCreated
                         }
                     );
-                    /*UpdateIf(
+                    UpdateIf(
                         TotalIncentives,
                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
                         {
@@ -1851,7 +1851,7 @@ LeadScreen As screen:
                                 )
                             ) + 1
                         }
-                    );*/
+                    );
                     ,
                 //updating sold price and sold incentives
                 UpdateIf(
@@ -1871,12 +1871,12 @@ LeadScreen As screen:
                         TotalIncentives,
                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
                         {
-                            TotalproposedIncentives: LookUp(
+                        TotalSoldIncentives: LookUp(
                                 TotalIncentives,
                                 TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
                                 TotalSoldIncentives
                             ) + VarFPEstimateData.BidPrice * 0.02,
-                            TotalProposedLead: Value(
+                            TotalSoldLead: Value(
                                 LookUp(
                                     TotalIncentives,
                                     TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
