@@ -709,18 +709,18 @@ DashboardScreen As screen:
                                 "Incentive  " &  "$" & Char(10) &
                                 If(
                                    yearly = true,
-                                If(
+                                /*If(
                                     LookUp(
                                             GCTotalIncentives,
                                             Year = Text(Year(Now())),
                                             YearlyCapReached) = true,
-                                        "10000" ,
+                                        "10000" ,*/
                                         LookUp(
-                                            GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year = Text(Year(Now())),TotalproposedIncentives)),
+                                            GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year = Text(Year(Now())),TotalproposedIncentives),
                                        Sum(
                                        Filter( GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),
                                         TotalproposedIncentives
-                                )) 
+                                ) )
                             Width: =Parent.Width
                             X: =
                             Y: =lblQuotedDS.Height+lblQuotedDS.Y
