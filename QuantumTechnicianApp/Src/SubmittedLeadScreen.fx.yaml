@@ -549,6 +549,7 @@ SubmittedLeadScreen As screen:
                             Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
+                        Visible: =If(Header="Rejected",false,true)
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextTrackingNumberSLS.Y
@@ -564,7 +565,7 @@ SubmittedLeadScreen As screen:
                             Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
-                        Visible: =false
+                        Visible: =
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextTrackingNumberSLS.Y
@@ -582,20 +583,6 @@ SubmittedLeadScreen As screen:
                         X: =iconmsgSLS.X+iconmsgSLS.Width/1.2
                         Y: =iconmsgSLS.Y+iconmsgSLS.Height/4.2
                         ZIndex: =17
-
-                    Icon2 As icon.CancelBadge:
-                        Color: =RGBA(255, 0, 0, 1)
-                        DisplayMode: =DisplayMode.View
-                        Fill: =RGBA(255, 255, 255, 1)
-                        Height: =If(Parent.Width>1000,Parent.TemplateHeight/5,Parent.TemplateHeight/6)
-                        Icon: =Icon.CancelBadge
-                        OnSelect: =Select(Parent)
-                        Visible: |
-                            =If(Header="Rejected",true,false)
-                        Width: =If(Parent.Width>1000,Parent.Width/22,Parent.Width/18)
-                        X: =iconmsgSLS.Width/1.5+iconmsgSLS.X
-                        Y: =iconmsgSLS.Height/5+iconmsgSLS.Y
-                        ZIndex: =18
 
                 lblTitleYearSLS As label:
                     Align: =Align.Center
@@ -938,6 +925,74 @@ SubmittedLeadScreen As screen:
                     Width: =40
                     ZIndex: =3
 
+    PopopMandatorySS As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarNotification
+        Width: =Parent.Width
+        ZIndex: =4
+
+        borderPopopErrorUS_1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        ctnPopopMandatorySS As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =borderPopopErrorUS_1.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =borderPopopErrorUS_1.Width
+            X: =borderPopopErrorUS_1.X
+            Y: =borderPopopErrorUS_1.Y
+            ZIndex: =2
+
+            ctnPopopMandatoryImageUS_1 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =If(Parent.Width<500,80,60)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                imgPopopErrorUS_1 As image:
+                    Height: =Parent.Height
+                    Image: =error
+                    PaddingTop: =30
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            lblPopopErrorUS_1 As label:
+                Align: =Align.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: ="All required fields are mandatory"
+                Width: =Parent.Width
+                ZIndex: =2
+
+            btnPopopErrorUS_1 As button:
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Navigate(UnitScreen);
+                    Set(VarNotification,false);
+                Size: =14
+                Text: ="Ok"
+                Width: =Parent.Width/5
+                ZIndex: =3
+
     grpMenuSLS As group:
         Height: =5
         Width: =5
@@ -1022,72 +1077,4 @@ SubmittedLeadScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
-
-    PopopMandatorySS As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(0, 0, 0, 0.29)
-        Height: =Parent.Height
-        Visible: =VarNotification
-        Width: =Parent.Width
-        ZIndex: =4
-
-        borderPopopErrorUS_1 As rectangle:
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: |
-                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
-                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
-            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
-            X: =(Parent.Width-Self.Width)/2
-            Y: =(Parent.Height-Self.Height)/2
-            ZIndex: =1
-
-        ctnPopopMandatorySS As groupContainer.verticalAutoLayoutContainer:
-            BorderThickness: =1
-            Height: =borderPopopErrorUS_1.Height
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutMode: =LayoutMode.Auto
-            Width: =borderPopopErrorUS_1.Width
-            X: =borderPopopErrorUS_1.X
-            Y: =borderPopopErrorUS_1.Y
-            ZIndex: =2
-
-            ctnPopopMandatoryImageUS_1 As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                DropShadow: =DropShadow.None
-                FillPortions: =0
-                Height: =If(Parent.Width<500,80,60)
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width
-                ZIndex: =1
-
-                imgPopopErrorUS_1 As image:
-                    Height: =Parent.Height
-                    Image: =error
-                    PaddingTop: =30
-                    Width: =Parent.Width
-                    ZIndex: =1
-
-            lblPopopErrorUS_1 As label:
-                Align: =Align.Center
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Semibold
-                Height: =100
-                Size: =14
-                Text: ="All required fields are mandatory"
-                Width: =Parent.Width
-                ZIndex: =2
-
-            btnPopopErrorUS_1 As button:
-                Fill: =RGBA(255, 0, 0, 1)
-                Font: =Font.Arial
-                HoverFill: =ColorFade(Self.Fill, -20%)
-                OnSelect: |-
-                    =Navigate(UnitScreen);
-                    Set(VarNotification,false);
-                Size: =14
-                Text: ="Ok"
-                Width: =Parent.Width/5
-                ZIndex: =3
 
