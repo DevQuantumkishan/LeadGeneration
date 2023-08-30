@@ -312,6 +312,7 @@ ChatScreen As screen:
                             ThisItem.FromName,
                             Find(" ", ThisItem.FromName) + 1,
                             1)
+                    Tooltip: =ThisItem.FromName
                     Visible: =If(ThisItem.IsQQApp=true,true,false)
                     Width: =28
                     X: =15
