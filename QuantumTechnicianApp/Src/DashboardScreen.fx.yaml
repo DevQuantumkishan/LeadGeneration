@@ -292,7 +292,7 @@ DashboardScreen As screen:
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
                         Visible: |
-                            =If(CountRows(Filter(LeadChats,FromEmail<>User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))>0,true,false)
+                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))>0,true,false)
                         Width: =13
                         X: =Parent.Width/1.2
                         Y: =Parent.Height/8
@@ -416,7 +416,7 @@ DashboardScreen As screen:
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
                         Visible: |
-                            =If(CountRows(Filter(LeadChats,FromEmail<>User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Inprogress"))>0,true,false)
+                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Inprogress"))>0,true,false)
                         Width: =13
                         X: =Parent.Width/1.2
                         Y: =Parent.Height/8
@@ -679,7 +679,7 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
-                        Visible: =If(CountRows(Filter(LeadChats,FromEmail<>User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))>0,true,false)
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))>0,true,false)
                         Width: =13
                         X: =ctnQuatedLeadsDS.Width/1.2
                         Y: =Parent.Height/8
@@ -820,7 +820,7 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
-                        Visible: =If(CountRows(Filter(LeadChats,FromEmail<>User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))>0,true,false)
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))>0,true,false)
                         Width: =13
                         X: =ctnQuatedLeadsDS.Width/1.2
                         Y: =Parent.Height/8
@@ -931,7 +931,7 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
+                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Sold"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
