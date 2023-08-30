@@ -1834,7 +1834,7 @@ LeadScreen As screen:
                             ProposedLeadDate:VarFPEstimateData.DateCreated
                         }
                     );
-                    UpdateIf(
+                    /*UpdateIf(
                         TotalIncentives,
                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
                         {
@@ -1851,7 +1851,7 @@ LeadScreen As screen:
                                 )
                             ) + 1
                         }
-                    );
+                    );*/
                     ,
                 //updating sold price and sold incentives
                 UpdateIf(
@@ -1889,10 +1889,12 @@ LeadScreen As screen:
                         "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                         NotificationType.Success
                     );*/
+                    );//sold status if close
+                    //Set(VarPopUpEstimateNumber,false);
                      Set(VarPopUpEstimateNumberSubmitted,true);
                      Set(VarPopUpEstimateNumberSubmittedmsg,"Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
                      Set(VarNavigateDashboardScreen,true);
-                    )//sold status if close
+                    
                     //Navigate(DashboardScreen);
                     ,
                     //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
