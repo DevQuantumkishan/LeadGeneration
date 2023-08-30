@@ -1032,6 +1032,7 @@ EstimateScreen As screen:
                             Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
                             Set(VarCustomerName,false);
                             Set(varCustomerPhonenumber,false);
+                            Set(varContactNumber,false);
                         OnUncheck: |-
                             =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);Set(VarCommunication,false);Reset(IntxtContactName);Reset(IntxtContactNumberES);Set(VarCustomerNameSummary,Blank());
                             Set(VarformattedNumberSummary,Blank());
@@ -1259,7 +1260,7 @@ EstimateScreen As screen:
                         Height: =IntxtContactNumberES.Height
                         OnSelect: =Set(varContactNumber,false);
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: =VarformattedNumberSummary
+                        Text: =//VarformattedNumberSummary
                         Visible: =varContactNumber
                         Width: =IntxtContactNumberES.Width
                         X: =60
