@@ -706,7 +706,7 @@ SubmittedLeadScreen_2 As screen:
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||"Sold Leads",true,false)
                     Width: =Parent.Width/3
-                    X: =1
+                    X: =lblTotalLeadsSLS_2.Width+lblTotalLeadsSLS_2.X
                     Y: =lblTotalIncentivesSLS_2.Y+lblTotalIncentivesSLS_2.Height+10
                     ZIndex: =6
 
