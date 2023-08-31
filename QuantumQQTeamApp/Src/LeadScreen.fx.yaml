@@ -7,6 +7,10 @@ LeadScreen As screen:
         Set(VarPopUpEstimateNumber,false);
         Set(VarPopUpEstimateNumberResult,false);
         Set(VarPopUpEstimateNumberSubmitted,false);
+        Set(
+                VarNavigateDashboardScreen,
+                false
+            );
         Refresh(LeadInformations);
         Refresh(LeadImages);
         Refresh(LeadChats);
@@ -1815,7 +1819,25 @@ LeadScreen As screen:
                                     ID = VarSelectedLead.ID,
                                     'Created On'
                                 )
-                            )
+                            );
+                            ,
+                            Set(
+                                FlagEstimateNumberWithTechIdFound,
+                                false
+                            );
+                 
+                   
+                        //Notify("Estimate number not found in the FP Estimate file for this lead Technician is entered.");
+                        Notify("ssssss"&FlagEstimateNumberWithTechIdFound);
+                    Set(
+                        VarPopUpEstimateNumberSubmitted,
+                        true
+                    );
+                    Set(
+                        VarPopUpEstimateNumberSubmittedmsg,
+                        "Estimate number not found in the FP Estimate file for this lead Technician is entered."
+                    );
+                            
                       // Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
                         );
                         ,
@@ -1827,6 +1849,7 @@ LeadScreen As screen:
                     //estimate number found if close
                 );
                 //estimatenumber entered if close
+                
                 If(
                     FlagEstimateNumberFound = false,
                 //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
@@ -1835,6 +1858,7 @@ LeadScreen As screen:
                         ID = VarSelectedLead.ID,
                         {LeadEstimateNumber: txtinptestimatenumber_1.Text}
                     );
+                   
                     Set(
                         VarPopUpEstimateNumberSubmitted,
                         true
@@ -1845,9 +1869,10 @@ LeadScreen As screen:
                     );
                     
                 );
+                
                 //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
                 If(
-                    FlagEstimateNumberWithTechIdFound = true,
+                    FlagEstimateNumberWithTechIdFound = true ,
                     If(
                         IsBlank(
                             LookUp(
@@ -1923,7 +1948,7 @@ LeadScreen As screen:
                                     ) + 1
                                 }
                             );
-                        );
+                        );//total prospective incentive countrows if close
                         ,
                 //updating sold price and sold incentives
                         UpdateIf(
@@ -1986,13 +2011,12 @@ LeadScreen As screen:
                                     ) + 1
                                 }
                             );
-                        );
+                        );//total sold incentive countrows if close
                    /* Notify(
                         "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                         NotificationType.Success
                     );*/
                     );
-                    ,
                     //sold status if close
                 //Set(VarPopUpEstimateNumber,false);
                 Set(
@@ -2007,16 +2031,7 @@ LeadScreen As screen:
                         VarNavigateDashboardScreen,
                         true
                     );
-                    ,
-                        //Notify("Estimate number not found in the FP Estimate file for this lead Technician is entered.");
-                    Set(
-                        VarPopUpEstimateNumberSubmitted,
-                        true
-                    );
-                    Set(
-                        VarPopUpEstimateNumberSubmittedmsg,
-                        "Estimate number not found in the FP Estimate file for this lead Technician is entered."
-                    );
+                  
                     
                 );
             PressedBorderColor: =RGBA(1, 43, 1, 0)
