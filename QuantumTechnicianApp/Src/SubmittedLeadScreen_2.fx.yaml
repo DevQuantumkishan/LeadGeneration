@@ -677,7 +677,7 @@ SubmittedLeadScreen_2 As screen:
                         "Total Leads"
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width/3.3
-                    X: =1
+                    X: =lblLeadYearSLS_2.Width+lblLeadYearSLS_2.X
                     Y: =2*(btnLeadsSLS_2.Y)
                     ZIndex: =5
 
@@ -704,7 +704,7 @@ SubmittedLeadScreen_2 As screen:
                                 Year(Year) = Year(Now())),TotalSoldIncentives
                         )))
                     VerticalAlign: =VerticalAlign.Top
-                    Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||"Sold Leads",true,false)
+                    Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
                     Width: =Parent.Width/3
                     X: =lblTotalLeadsSLS_2.Width+lblTotalLeadsSLS_2.X
                     Y: =lblTotalIncentivesSLS_2.Y+lblTotalIncentivesSLS_2.Height+10
@@ -725,7 +725,7 @@ SubmittedLeadScreen_2 As screen:
                         =//ThisItem.Value\
                         "Total Incentive"
                     VerticalAlign: =VerticalAlign.Top
-                    Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||"Sold Leads",true,false)
+                    Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
                     Width: =Parent.Width/3
                     X: =lblTotalLeadsSLS_2.X+lblTotalLeadsSLS_2.Width
                     Y: =2*(btnLeadsSLS_2.Y)
