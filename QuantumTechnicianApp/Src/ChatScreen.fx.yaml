@@ -127,7 +127,9 @@ ChatScreen As screen:
             BorderThickness: =2
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =If(Parent.Height<Parent.Width,Parent.Height/6,Parent.Height/18,Parent.Width>1000,Parent.Height/8)
+            Height: |-
+                =//If(Parent.Height<Parent.Width,Parent.Height/6,Parent.Height/18,Parent.Width>1000,Parent.Height/8)
+                80
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =10

@@ -3,7 +3,7 @@ DashboardScreen As screen:
         =Refresh(LeadInformations);
         ClearCollect(
             GCTotalIncentives,
-            TotalIncentives
+           Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
         );
 
     ctnMainDS As groupContainer.horizontalAutoLayoutContainer:
@@ -186,7 +186,8 @@ DashboardScreen As screen:
                      //minimum year and maximum year is same = that year
                      //minimum year maximum year is different = time span
                      // if blank = current year
-                     If(Min(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year))=Max(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year)),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),Year(Now()))
+                     If(Min(GCTotalIncentives,Year)=Max(GCTotalIncentives,Year),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),
+                     Min(GCTotalIncentives,Year)<>Max(GCTotalIncentives,Year),Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year) ,Year(Now()))
                 Width: =Parent.Width/2.8
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =6
@@ -323,7 +324,8 @@ DashboardScreen As screen:
                                 =//its for count of yealy/cumulatively InProgress leads
                                 
                                 //"InProgress Leads#" & Char(10)&  
-                                If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
+                                //If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
+                                CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))
                             Width: =Parent.Width
                             X: =
                             Y: |-
@@ -789,7 +791,7 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                    Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Quoted"});
+                                    Navigate([@SubmittedLeadScreen_2],ScreenTransition.None,{Header: "Quoted"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
@@ -937,7 +939,7 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Sold"});
+                                Navigate([@SubmittedLeadScreen_2],ScreenTransition.None,{Header: "Sold"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
