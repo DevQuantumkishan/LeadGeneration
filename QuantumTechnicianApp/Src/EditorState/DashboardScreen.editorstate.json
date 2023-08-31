@@ -2210,14 +2210,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus=\"Rejected\"))=0|| CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus=\"Rejected\" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit)",
-          "InvariantPropertyName": "DisplayMode",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "DisplayMode",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -3453,7 +3446,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Circle1_1",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4173,7 +4166,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Circle1_5",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15445,7 +15438,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblQuotedLeadsDS",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16217,7 +16210,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblSoldLeadsCountDS",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
