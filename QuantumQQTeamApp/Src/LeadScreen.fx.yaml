@@ -1812,8 +1812,7 @@ LeadScreen As screen:
                                 ID = VarSelectedLead.ID,
                                 'Created On'
                             )
-                        ),
-                        Notify("Estimate number not found in the FP Estimate file for this lead Technician is entered.");
+                        )
                       // Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
                         );
                         ,
@@ -1865,6 +1864,7 @@ LeadScreen As screen:
                             ProposedLeadDate:VarFPEstimateData.DateCreated
                         }
                     );
+                    
                     UpdateIf(
                         TotalIncentives,
                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
@@ -1925,10 +1925,10 @@ LeadScreen As screen:
                      Set(VarPopUpEstimateNumberSubmitted,true);
                      Set(VarPopUpEstimateNumberSubmittedmsg,"Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
                      Set(VarNavigateDashboardScreen,true);
-                    
-                    //Navigate(DashboardScreen);
-                    
-                    
+                     ,
+                        //Notify("Estimate number not found in the FP Estimate file for this lead Technician is entered.");
+                       Set(VarPopUpEstimateNumberSubmitted,true);
+                     Set(VarPopUpEstimateNumberSubmittedmsg,"Estimate number not found in the FP Estimate file for this lead Technician is entered.");
                 );
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
