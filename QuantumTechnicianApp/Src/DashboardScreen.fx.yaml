@@ -186,8 +186,8 @@ DashboardScreen As screen:
                      //minimum year and maximum year is same = that year
                      //minimum year maximum year is different = time span
                      // if blank = current year
-                     If(Min(GCTotalIncentives,Year)=Max(GCTotalIncentives,Year),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),
-                     Min(GCTotalIncentives,Year)<>Max(GCTotalIncentives,Year),Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year) ,Year(Now()))
+                    // If(Min(GCTotalIncentives,Year)=Max(GCTotalIncentives,Year),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),Min(GCTotalIncentives,Year)<>Max(GCTotalIncentives,Year),Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year) ,Year(Now()))
+                    If(cumulatively=true,Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year),yearly=true,Min(GCTotalIncentives,Year) ,Year(Now()))
                 Width: =Parent.Width/2.8
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =6
@@ -215,11 +215,12 @@ DashboardScreen As screen:
                     Default: =true
                     DisabledColor: =Color.Black
                     DisplayMode: |-
-                        =If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Disabled,DisplayMode.Edit)
+                        =If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Edit,DisplayMode.Disabled)
                         //DisplayMode.Edit
                     FalseFill: =Color.Black
-                    FalseText: |
-                        =LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
+                    FalseText: |-
+                        =//LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
+                        LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year)
                     Font: =Font.Arial
                     Height: =Parent.Height/2.05
                     OnCheck: |-
@@ -236,7 +237,7 @@ DashboardScreen As screen:
                     Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
                     TextPosition: =TextPosition.Left
                     TrueFill: =RGBA(255, 0, 0, 1)
-                    TrueText: =Year(Now())
+                    TrueText: =Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year)
                     Width: |-
                         =//If(Parent.Width<1000,Parent.Width/1.2,Parent.Width>1000,Parent.Width/10,Parent.Width>2000,Parent.Width)
                         Parent.Width/2

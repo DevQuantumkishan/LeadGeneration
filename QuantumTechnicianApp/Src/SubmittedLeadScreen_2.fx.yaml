@@ -159,7 +159,7 @@ SubmittedLeadScreen_2 As screen:
                 Align: =Align.Right
                 Height: =Parent.Height
                 PaddingRight: =40
-                Text: =If(toggleYearDS.Value=true,toggleYearDS.TrueText,toggleYearDS.FalseText)
+                Text: =lblyearDS
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -183,25 +183,26 @@ SubmittedLeadScreen_2 As screen:
                 Items: |+
                     =If(
                         cumulatively = true,
-                    With(
+                    /*With(
                         {
-                            StartYear:LookUp(
-                                LeadInformations,
-                                MechanicName = User().FullName,
-                                Year('Created On')
-                            ) ,
-                            EndYear: Year(Today())
+                            StartYear:Min(GCTotalIncentives,Year),
+                            EndYear: Max(GCTotalIncentives,Year)
                             
                         },
-                        Filter(
+                        /*Filter(
                             YearData,
                             Value >= StartYear,
                             Value <= EndYear
                         )
-                    ),
+                    ),*/
+                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),
                     yearly = true,
-                        [Year(Today())]
-                    )
+                    With(
+                        {
+                            StartYear:Min(GCTotalIncentives,Year),
+                            EndYear: Max(GCTotalIncentives,Year) 
+                        },
+                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(StartYear))))
                     
                     
                 Layout: =Layout.Vertical
@@ -225,7 +226,7 @@ SubmittedLeadScreen_2 As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: =ThisItem.Value
+                    Text: =ThisItem.Year
                     Width: =Parent.Width/8
                     X: =1
                     Y: =lblTitleYearSLS_2.Y+lblTitleYearSLS_2.Height+10
@@ -235,7 +236,7 @@ SubmittedLeadScreen_2 As screen:
                     Height: =If(CountRows(glryLeadsSLS_2.AllItems)<2,glryLeadsSLS_2.TemplateHeight+20,Parent.Height)
                     Items: |-
                         =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        LeadStatus=Header&&Email=User().Email),'Created On',SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(ComboBox1_2.Selected.Value="Created Date","createdon",ComboBox1_2.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_2.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_2.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_2.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_2.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_2.Selected.Value="Address","shlrf_address",ComboBox1_2.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_2.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_2.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
+                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year))),ProposedLeadDate,SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(ComboBox1_2.Selected.Value="Created Date","createdon",ComboBox1_2.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_2.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_2.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_2.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_2.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_2.Selected.Value="Address","shlrf_address",ComboBox1_2.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_2.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_2.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",380,220)
@@ -650,8 +651,7 @@ SubmittedLeadScreen_2 As screen:
                     Text: |-
                         =//If(btnheaderCL_1.Text="Quoted Leads",
                           //  LookUp(GCTotalIncentives,Year=Text(Year(Now())) &&  TechnicianID=VarTechnicianID.'Personnel No',TotalProposedLead,
-                        CountRows(Filter(LeadInformations, Email=User().Email &&
-                        Text(Year('Created On'))=lblLeadYearSLS_2.Text && If(Header="Open",LeadStatus="Submitted" ,LeadStatus=Header)))
+                        If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSLS_2.Width
                     X: =lblTotalLeadsSLS_2.X
@@ -694,7 +694,7 @@ SubmittedLeadScreen_2 As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
                     Text: |-
-                        =If(btnheaderSLS_2.Text="Quoted Leads",Value(Sum(
+                        =/*If(btnheaderSLS_2.Text="Quoted Leads",Value(Sum(
                             Filter(
                                 GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                 Year(Year) = Year(Now())),TotalproposedIncentives
@@ -702,7 +702,8 @@ SubmittedLeadScreen_2 As screen:
                             Filter(
                                 GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                 Year(Year) = Year(Now())),TotalSoldIncentives
-                        )))
+                        )))*/
+                        If(Header="Quoted",ThisItem.TotalproposedIncentives,ThisItem.TotalSoldIncentives)
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
                     Width: =Parent.Width/3
@@ -786,7 +787,7 @@ SubmittedLeadScreen_2 As screen:
                     Height: =rectangleYearSLS_2.Height/1.2
                     Image: =accordianPlus
                     OnSelect: |-
-                        =Select(Parent); UpdateContext({locInfoExpanded:true});Set(Vardown,Year(ThisItem.Value));
+                        =Select(Parent); UpdateContext({locInfoExpanded:true});Set(Vardown,Year(ThisItem.Year));
                     Visible: |
                         =!(ThisItem.IsSelected && locInfoExpanded)
                     Width: =Parent.Width/14
