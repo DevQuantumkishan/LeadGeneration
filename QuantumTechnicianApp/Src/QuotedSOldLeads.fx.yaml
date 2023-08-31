@@ -604,7 +604,7 @@ QuotedSOldLeads As screen:
                         Height: =20
                         HtmlText: |-
                             =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
-                            "<b>Proposed date : </b>" & ThisItem.ProposedLeadDate
+                            "<b>Quoted date : </b>" & ThisItem.ProposedLeadDate
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
