@@ -715,7 +715,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,11,Parent.Width>358,12,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
-                                "Incentive  " &  "$" & Char(10) &
+                                "Incentive  " &  Char(10) & "$" & 
                                 If(
                                    yearly = true,
                                 /*If(
@@ -725,7 +725,7 @@ DashboardScreen As screen:
                                             YearlyCapReached) = true,
                                         "10000" ,*/
                                         LookUp(
-                                            GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year = Text(Year(Now())),TotalproposedIncentives),
+                                            GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year = lblyearDS.Text,TotalproposedIncentives),
                                        Sum(
                                        Filter( GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),
                                         TotalproposedIncentives
@@ -751,7 +751,7 @@ DashboardScreen As screen:
                                 If(
                                     yearly=true ,
                                 
-                                            LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalProposedLead),
+                                            LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text,TotalProposedLead),
                                         Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead))
                             Width: =Parent.Width
                             X: =
@@ -792,7 +792,7 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                    Navigate([@SubmittedLeadScreen_2],ScreenTransition.None,{Header: "Quoted"});
+                                    Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Quoted"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
@@ -856,18 +856,18 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,11,Parent.Width>358,12,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalsoldIncentives and if user select span for cumulatively, then need to show sum of TotalsoldIncentives .
-                                "Incentive  "  &  "$" & Char(10) &
+                                "Incentive  "   & Char(10) &  "$" &
                                 If(
                                    yearly = true,
                                 If(
                                     LookUp(
                                             GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
-                                            Year= Text(Year(Now())),
+                                            Year= lblyearDS.Text,
                                             YearlyCapReached) = true,
                                         "10000" ,
                                                  LookUp(
                                             GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
-                                            Year = Text(Year(Now())),
+                                            Year = lblyearDS.Text,
                                             TotalSoldIncentives)
                                 ),
                                       Sum(
@@ -896,13 +896,13 @@ DashboardScreen As screen:
                                 =
                                 If(
                                     yearly=true ,
-                                    /*If(
+                                    If(
                                     IsBlank(
                                         LookUp(
-                                            GCTotalIncentives,Year=Year(Now()))),0*/
-                                            LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())) ,TotalSoldLead),
-                                    /*If(
-                                        Sum(GCTotalIncentives,TotalSoldLead)=0,0,*/Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead))
+                                            GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text,TotalSoldLead)),0,
+                                            LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text,TotalSoldLead)),
+                                    If(
+                                        Sum(GCTotalIncentives,TotalSoldLead)=0,0,Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead)))
                             Width: =Parent.Width
                             X: =
                             Y: =If(Parent.Height>Parent.Width,Parent.Height/6,Parent.Height/10)
@@ -940,7 +940,7 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen_2],ScreenTransition.None,{Header: "Sold"});
+                                Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Sold"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
