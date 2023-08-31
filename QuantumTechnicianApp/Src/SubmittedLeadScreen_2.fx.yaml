@@ -651,7 +651,7 @@ SubmittedLeadScreen_2 As screen:
                     Text: |-
                         =//If(btnheaderCL_1.Text="Quoted Leads",
                           //  LookUp(GCTotalIncentives,Year=Text(Year(Now())) &&  TechnicianID=VarTechnicianID.'Personnel No',TotalProposedLead,
-                        If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
+                        If( Header="Quoted",If(!IsBlank(ThisItem.TotalProposedLead),ThisItem.TotalProposedLead,0),If(!IsBlank(ThisItem.TotalSoldLead),ThisItem.TotalSoldLead,0))
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSLS_2.Width
                     X: =lblTotalLeadsSLS_2.X
@@ -703,7 +703,7 @@ SubmittedLeadScreen_2 As screen:
                                 GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                 Year(Year) = Year(Now())),TotalSoldIncentives
                         )))*/
-                        If(Header="Quoted",ThisItem.TotalproposedIncentives,ThisItem.TotalSoldIncentives)
+                        If(Header="Quoted",If(!IsBlank(ThisItem.TotalproposedIncentives),ThisItem.TotalproposedIncentives,0),If(!IsBlank(ThisItem.TotalSoldIncentives),ThisItem.TotalSoldIncentives,0))
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
                     Width: =Parent.Width/3
