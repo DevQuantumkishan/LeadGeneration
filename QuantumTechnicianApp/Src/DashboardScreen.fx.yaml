@@ -633,7 +633,7 @@ DashboardScreen As screen:
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen_1],ScreenTransition.None,{Header: "Rejected"});
+                                Navigate([@RejectedLeads],ScreenTransition.None,{Header: "Rejected"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);

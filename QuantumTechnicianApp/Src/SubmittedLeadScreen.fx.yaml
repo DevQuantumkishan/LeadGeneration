@@ -159,7 +159,7 @@ SubmittedLeadScreen As screen:
                 Align: =Align.Right
                 Height: =Parent.Height
                 PaddingRight: =40
-                Text: =If(toggleYearDS.Value=true,toggleYearDS.TrueText,toggleYearDS.FalseText)
+                Text: =//If(toggleYearDS.Value=true,toggleYearDS.TrueText,toggleYearDS.FalseText)
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -668,7 +668,7 @@ SubmittedLeadScreen As screen:
                         Height: =20
                         HtmlText: |-
                             =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
-                            "<b>Proposed date : </b>" & ThisItem.ProposedLeadDate
+                            "<b>Status Date : </b>" & ThisItem.StatusDate
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0

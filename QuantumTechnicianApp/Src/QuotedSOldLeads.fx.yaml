@@ -573,7 +573,7 @@ QuotedSOldLeads As screen:
                             "Proposed incentive: $" & ThisItem.ProposedLeadIncentives
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
-                        Width: =Parent.Width/1.08
+                        Width: =Parent.Width/1.06
                         X: =20
                         Y: =lblTotalIncentivesSLS_2.Height+lblTotalIncentivesSLS_2.Y
                         ZIndex: =19
@@ -592,7 +592,7 @@ QuotedSOldLeads As screen:
                             "Proposed Price: $" & " " & ThisItem.ProposedLeadPrice
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
-                        Width: =Parent.Width/2.55
+                        Width: =Parent.Width/1.08
                         X: =20
                         Y: =lblPriceSLS_4.Height+lblPriceSLS_4.Y
                         ZIndex: =20
@@ -651,7 +651,7 @@ QuotedSOldLeads As screen:
                     Text: |-
                         =//If(btnheaderCL_1.Text="Quoted Leads",
                           //  LookUp(GCTotalIncentives,Year=Text(Year(Now())) &&  TechnicianID=VarTechnicianID.'Personnel No',TotalProposedLead,
-                        If( Header="Quoted",If(!IsBlank(ThisItem.TotalProposedLead),ThisItem.TotalProposedLead,0),If(!IsBlank(ThisItem.TotalSoldLead),ThisItem.TotalSoldLead,0))
+                        If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSLS_2.Width
                     X: =lblTotalLeadsSLS_2.X

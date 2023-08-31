@@ -1,4 +1,4 @@
-SubmittedLeadScreen_1 As screen:
+RejectedLeads As screen:
     OnVisible: |-
         =UpdateContext({locInfoExpanded:false});
         Set(VarDownIcon,true);
@@ -159,7 +159,7 @@ SubmittedLeadScreen_1 As screen:
                 Align: =Align.Right
                 Height: =Parent.Height
                 PaddingRight: =40
-                Text: =If(toggleYearDS.Value=true,toggleYearDS.TrueText,toggleYearDS.FalseText)
+                Text: =//If(toggleYearDS.Value=true,toggleYearDS.TrueText,toggleYearDS.FalseText)
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -458,7 +458,7 @@ SubmittedLeadScreen_1 As screen:
                         =//If(btnheaderCL_1.Text="Quoted Leads",
                           //  LookUp(GCTotalIncentives,Year=Text(Year(Now())) &&  TechnicianID=VarTechnicianID.'Personnel No',TotalProposedLead,
                         CountRows(Filter(LeadInformations, Email=User().Email &&
-                        Text(Year('Created On'))=lblLeadYearSLS_1.Text && If(Header="Open",LeadStatus="Submitted" ,LeadStatus=Header)))
+                        Text(Year('Created On'))=Text(lblLeadYearSLS_1.Text) && LeadStatus=Header))
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSLS_1.Width
                     X: =lblTotalLeadsSLS_1.X
@@ -484,7 +484,7 @@ SubmittedLeadScreen_1 As screen:
                         "Total Leads"
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width/3.3
-                    X: =1
+                    X: =lblTitleYearSLS_1.X+lblTitleYearSLS_1.Width
                     Y: =2*(btnLeadsSLS_1.Y)
                     ZIndex: =5
 
@@ -513,7 +513,8 @@ SubmittedLeadScreen_1 As screen:
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =If(btnheaderSLS_1.Text="Quoted Leads" ||"Sold Leads",true,false)
                     Width: =Parent.Width/3
-                    X: =1
+                    X: |
+                        =lblTotalLeadsSLS_1.X+lblTotalLeadsSLS_1.Width
                     Y: =lblTotalIncentivesSLS_1.Y+lblTotalIncentivesSLS_1.Height+10
                     ZIndex: =6
 

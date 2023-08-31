@@ -2223,7 +2223,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnUserNameSLS_1",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2974,7 +2974,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnBackgroundMenuSLS_1",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3562,12 +3562,12 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Height",
+          "PropertyName": "Width",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
-          "PropertyName": "Width",
+          "PropertyName": "Height",
           "RuleProviderType": "Unknown"
         },
         {
@@ -5440,6 +5440,11 @@
         },
         {
           "Category": "Design",
+          "PropertyName": "Visible",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
           "PropertyName": "DisplayMode",
           "RuleProviderType": "Unknown"
         },
@@ -5471,11 +5476,6 @@
         {
           "Category": "Design",
           "PropertyName": "TemplateSize",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         },
         {
@@ -5676,7 +5676,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "glryMenuBarSLS_1",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8425,7 +8425,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "iconBackSLS_1",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10015,11 +10015,6 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Visible",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
           "PropertyName": "BorderStyle",
           "RuleProviderType": "Unknown"
         },
@@ -10101,6 +10096,11 @@
         {
           "Category": "Design",
           "PropertyName": "X",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         },
         {
@@ -10278,11 +10278,6 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Visible",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
           "PropertyName": "BorderStyle",
           "RuleProviderType": "Unknown"
         },
@@ -10364,6 +10359,11 @@
         {
           "Category": "Design",
           "PropertyName": "X",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         },
         {
@@ -12264,17 +12264,17 @@
       "Properties": [
         {
           "Category": "Data",
-          "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
           "PropertyName": "Role",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",
           "PropertyName": "Live",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Text",
           "RuleProviderType": "Unknown"
         },
         {
@@ -12635,7 +12635,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblHeaderSLS_1",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15241,7 +15241,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "PopopMandatorySS_1",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15535,7 +15535,7 @@
       "StyleName": "defaultRectangleStyle",
       "Type": "ControlInfo"
     },
-    "SubmittedLeadScreen_1": {
+    "RejectedLeads": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Fill",
@@ -15563,13 +15563,13 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "SubmittedLeadScreen_1",
+      "Name": "RejectedLeads",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
           "Category": "Design",
-          "PropertyName": "Height",
+          "PropertyName": "Fill",
           "RuleProviderType": "Unknown"
         },
         {
@@ -15579,17 +15579,7 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Fill",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "LoadingSpinner",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "LoadingSpinnerColor",
+          "PropertyName": "Height",
           "RuleProviderType": "Unknown"
         },
         {
@@ -15599,12 +15589,22 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Orientation",
+          "PropertyName": "LoadingSpinnerColor",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
           "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Orientation",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "LoadingSpinner",
           "RuleProviderType": "Unknown"
         },
         {
@@ -15617,5 +15617,5 @@
       "Type": "ControlInfo"
     }
   },
-  "TopParentName": "SubmittedLeadScreen_1"
+  "TopParentName": "RejectedLeads"
 }
