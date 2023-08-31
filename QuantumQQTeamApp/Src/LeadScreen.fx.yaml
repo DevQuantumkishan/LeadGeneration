@@ -296,7 +296,9 @@ LeadScreen As screen:
 
                 btnnewmessageLdS As button:
                     AlignInContainer: =AlignInContainer.Center
-                    DisplayMode: =If((glryleadlistLS.Selected.LeadStatus="Quoted" || glryleadlistLS.Selected.LeadStatus="Rejected"),DisplayMode.Disabled,DisplayMode.Edit)
+                    DisplayMode: |-
+                        =//If((glryleadlistLS.Selected.LeadStatus="Quoted" || glryleadlistLS.Selected.LeadStatus="Rejected"),DisplayMode.Disabled,DisplayMode.Edit)
+                        DisplayMode.Edit
                     Fill: =Header.SHRed
                     Height: =30
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
