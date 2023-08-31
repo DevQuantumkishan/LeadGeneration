@@ -1771,14 +1771,18 @@ LeadScreen As screen:
             HoverFill: =RGBA(75, 125, 6, 1)
             OnSelect: |
                 =//By confirming set VarPopUpEstimateNumberResult variable to true
-                Set(VarPopUpEstimateNumberResult,true);
-                If(VarPopUpEstimateNumberResult=true,
+                Set(
+                    VarPopUpEstimateNumberResult,
+                    true
+                );
+                If(
+                    VarPopUpEstimateNumberResult = true,
                 //checking in fpestimate file, is entered estimate number with repective technician id is available or not 
                     If(
                         !IsBlank(
                             LookUp(
                                 SHFPEstimates,
-                                Estimate = txtinptestimatenumber_1.Text 
+                                Estimate = txtinptestimatenumber_1.Text
                                //&& 'Lead Generator Id' = VarSelectedLead.TechnicianID
                             )
                         ),
@@ -1787,32 +1791,31 @@ LeadScreen As screen:
                             true
                         );
                         If(
-                        !IsBlank(
-                            LookUp(
-                                SHFPEstimates,
-                                Estimate = txtinptestimatenumber_1.Text 
-                               && 'Lead Generator Id' = VarSelectedLead.TechnicianID
+                            !IsBlank(
+                                LookUp(
+                                    SHFPEstimates,
+                                    Estimate = txtinptestimatenumber_1.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID
+                                )
+                            ),
+                            Set(
+                                FlagEstimateNumberWithTechIdFound,
+                                true
+                            );
+                            Set(
+                                VarFPEstimateData,
+                                LookUp(
+                                    SHFPEstimates,
+                                    Estimate = txtinptestimatenumber_1.Text
+                                )
+                            );
+                            Set(
+                                VarleadYear,
+                                LookUp(
+                                    LeadInformations,
+                                    ID = VarSelectedLead.ID,
+                                    'Created On'
+                                )
                             )
-                        ),
-                        Set(
-                            FlagEstimateNumberWithTechIdFound,
-                            true
-                        );
-                        Set(
-                            VarFPEstimateData,
-                            LookUp(
-                                SHFPEstimates,
-                                Estimate = txtinptestimatenumber_1.Text
-                            )
-                        );
-                        Set(
-                            VarleadYear,
-                            LookUp(
-                                LeadInformations,
-                                ID = VarSelectedLead.ID,
-                                'Created On'
-                            )
-                        )
                       // Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
                         );
                         ,
@@ -1820,184 +1823,201 @@ LeadScreen As screen:
                             FlagEstimateNumberFound,
                             false
                         );
-                
-                ); //estimate number found if close
-                );//estimatenumber entered if close
-                
-                If(FlagEstimateNumberFound=false,
+                    );
+                    //estimate number found if close
+                );
+                //estimatenumber entered if close
+                If(
+                    FlagEstimateNumberFound = false,
                 //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
-                 UpdateIf(
+                    UpdateIf(
                         LeadInformations,
                         ID = VarSelectedLead.ID,
-                        {
-                            LeadEstimateNumber: txtinptestimatenumber_1.Text
-                        }
+                        {LeadEstimateNumber: txtinptestimatenumber_1.Text}
                     );
-                    Set(VarPopUpEstimateNumberSubmitted,true);
-                       Set(VarPopUpEstimateNumberSubmittedmsg,"Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
+                    Set(
+                        VarPopUpEstimateNumberSubmitted,
+                        true
+                    );
+                    Set(
+                        VarPopUpEstimateNumberSubmittedmsg,
+                        "Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed"
+                    );
+                    
                 );
-                
-                
-                
                 //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
                 If(
                     FlagEstimateNumberWithTechIdFound = true,
-                    If(IsBlank(
+                    If(
+                        IsBlank(
                             LookUp(
                                 SHFPEstimates,
-                                Estimate = txtinptestimatenumber_1.Text 
-                               && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus="Sold"
+                                Estimate = txtinptestimatenumber_1.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold"
                             )
                         ),
                         //Updating proposed price and proposed incentives
-                    LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
-                    UpdateIf(
-                        LeadInformations,
-                        ID = VarSelectedLead.ID,
-                        {
-                            LeadEstimateNumber: txtinptestimatenumber_1.Text,
-                            LeadStatus: "Quoted",
-                            ProposedLeadPrice: VarFPEstimateData.BidPrice,
-                            ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
-                            TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                            StatusDate:Now(),
-                            ProposedLeadDate:VarFPEstimateData.DateCreated
-                        }
-                    );
-                    
-                
-                 If(
-                        CountRows(
-                            Filter(
-                                TotalIncentives,
-                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated))
-                            )
-                        ) < 1,
-                        Patch(
-                            TotalIncentives,
-                            Defaults(TotalIncentives),
-                            {
-                                ID: GUID(),
-                                TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                                TotalproposedIncentives:  LookUp(
-                                TotalIncentives,
-                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
-                                TotalproposedIncentives
-                            ) + VarFPEstimateData.BidPrice * 0.02,
-                                TotalProposedLead:Value(
-                                LookUp(
-                                    TotalIncentives,
-                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
-                                    TotalProposedLead
-                                )
-                            ) + 1,
-                                //TotalSoldIncentives: 0.00,
-                                //TotalSoldLead: 0,
-                                Year: Year(VarFPEstimateData.DateCreated),
-                                LeadYear: Year(VarFPEstimateData.DateCreated)
-                            }
-                        ),
+                        LeadQuoted.Run(
+                            glryleadlistLS.Selected.Email,
+                            glryleadlistLS.Selected.LeadTrackingNumber,
+                            VarLoggedInUser.FullName
+                        );
                         UpdateIf(
-                        TotalIncentives,
-                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
-                        {
-                            TotalproposedIncentives: LookUp(
+                            LeadInformations,
+                            ID = VarSelectedLead.ID,
+                            {
+                                LeadEstimateNumber: txtinptestimatenumber_1.Text,
+                                LeadStatus: "Quoted",
+                                ProposedLeadPrice: VarFPEstimateData.BidPrice,
+                                ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                TechnicianID: VarFPEstimateData.'Lead Generator Id',
+                                StatusDate: Now(),
+                                ProposedLeadDate: VarFPEstimateData.DateCreated
+                            }
+                        );
+                        If(
+                            CountRows(
+                                Filter(
+                                    TotalIncentives,
+                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated))
+                                )
+                            ) < 1,
+                            Patch(
+                                TotalIncentives,
+                                Defaults(TotalIncentives),
+                                {
+                                    ID: GUID(),
+                                    TechnicianID: VarFPEstimateData.'Lead Generator Id',
+                                    TotalproposedIncentives: LookUp(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
+                                        TotalproposedIncentives
+                                    ) + VarFPEstimateData.BidPrice * 0.02,
+                                    TotalProposedLead: Value(
+                                        LookUp(
+                                            TotalIncentives,
+                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
+                                            TotalProposedLead
+                                        )
+                                    ) + 1,
+                                    //TotalSoldIncentives: 0.00,
+                                    //TotalSoldLead: 0,
+                Year: Year(VarFPEstimateData.DateCreated),
+                                    LeadYear: Year(VarFPEstimateData.DateCreated)
+                                }
+                            ),
+                            UpdateIf(
                                 TotalIncentives,
                                 TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
-                                TotalproposedIncentives
-                            ) + VarFPEstimateData.BidPrice * 0.02,
-                            TotalProposedLead: Value(
-                                LookUp(
-                                    TotalIncentives,
-                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
-                                    TotalProposedLead
-                                )
-                            ) + 1
-                        }
-                    );
-                    );
-                
-                
-                    
-                    ,
+                                {
+                                    TotalproposedIncentives: LookUp(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
+                                        TotalproposedIncentives
+                                    ) + VarFPEstimateData.BidPrice * 0.02,
+                                    TotalProposedLead: Value(
+                                        LookUp(
+                                            TotalIncentives,
+                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
+                                            TotalProposedLead
+                                        )
+                                    ) + 1
+                                }
+                            );
+                        );
+                        ,
                 //updating sold price and sold incentives
-                UpdateIf(
-                        LeadInformations,
-                        ID = VarSelectedLead.ID,
-                        {
-                            LeadEstimateNumber: txtinptestimatenumber_1.Text,
-                            LeadStatus: "Sold",
-                            SoldLeadPrice: VarFPEstimateData.BidPrice,
-                            SoldLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
-                            TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                            StatusDate:Now(),
-                            SoldLeadDate:VarFPEstimateData.BookingDate
-                        }
-                    );
-                
-                
-                    If(
-                        CountRows(
-                            Filter(
-                                TotalIncentives,
-                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate))
-                            )
-                        ) < 1,
-                        Patch(
-                            TotalIncentives,
-                            Defaults(TotalIncentives),
+                        UpdateIf(
+                            LeadInformations,
+                            ID = VarSelectedLead.ID,
                             {
-                                ID: GUID(),
+                                LeadEstimateNumber: txtinptestimatenumber_1.Text,
+                                LeadStatus: "Sold",
+                                SoldLeadPrice: VarFPEstimateData.BidPrice,
+                                SoldLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
                                 TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                                TotalSoldIncentives:LookUp(
-                                TotalIncentives,
-                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
-                                TotalSoldIncentives
-                            ) + VarFPEstimateData.BidPrice * 0.02,
-                                TotalSoldLead: Value(
-                                LookUp(
-                                    TotalIncentives,
-                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
-                                    TotalSoldLead
-                                )
-                            ) + 1,
-                                Year: Year(VarFPEstimateData.BookingDate),
-                                LeadYear: Year(VarFPEstimateData.BookingDate)
+                                StatusDate: Now(),
+                                SoldLeadDate: VarFPEstimateData.BookingDate
                             }
-                        ),
-                
-                    UpdateIf(
-                        TotalIncentives,
-                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
-                        {
-                        TotalSoldIncentives: LookUp(
+                        );
+                        If(
+                            CountRows(
+                                Filter(
+                                    TotalIncentives,
+                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate))
+                                )
+                            ) < 1,
+                            Patch(
+                                TotalIncentives,
+                                Defaults(TotalIncentives),
+                                {
+                                    ID: GUID(),
+                                    TechnicianID: VarFPEstimateData.'Lead Generator Id',
+                                    TotalSoldIncentives: LookUp(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
+                                        TotalSoldIncentives
+                                    ) + VarFPEstimateData.BidPrice * 0.02,
+                                    TotalSoldLead: Value(
+                                        LookUp(
+                                            TotalIncentives,
+                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
+                                            TotalSoldLead
+                                        )
+                                    ) + 1,
+                                    Year: Year(VarFPEstimateData.BookingDate),
+                                    LeadYear: Year(VarFPEstimateData.BookingDate)
+                                }
+                            ),
+                            UpdateIf(
                                 TotalIncentives,
                                 TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
-                                TotalSoldIncentives
-                            ) + VarFPEstimateData.BidPrice * 0.02,
-                            TotalSoldLead: Value(
-                                LookUp(
-                                    TotalIncentives,
-                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
-                                    TotalSoldLead
-                                )
-                            ) + 1
-                        }
-                    );
-                    );
+                                {
+                                    TotalSoldIncentives: LookUp(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
+                                        TotalSoldIncentives
+                                    ) + VarFPEstimateData.BidPrice * 0.02,
+                                    TotalSoldLead: Value(
+                                        LookUp(
+                                            TotalIncentives,
+                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                            TotalSoldLead
+                                        )
+                                    ) + 1
+                                }
+                            );
+                        );
                    /* Notify(
                         "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
                         NotificationType.Success
                     );*/
-                    );//sold status if close
-                    //Set(VarPopUpEstimateNumber,false);
-                     Set(VarPopUpEstimateNumberSubmitted,true);
-                     Set(VarPopUpEstimateNumberSubmittedmsg,"Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
-                     Set(VarNavigateDashboardScreen,true);
-                     ,
+                    );
+                    ,
+                    //sold status if close
+                //Set(VarPopUpEstimateNumber,false);
+                Set(
+                        VarPopUpEstimateNumberSubmitted,
+                        true
+                    );
+                    Set(
+                        VarPopUpEstimateNumberSubmittedmsg,
+                        "Incentives updated for the estimateId " & txtinptestimatenumber_1.Text
+                    );
+                    Set(
+                        VarNavigateDashboardScreen,
+                        true
+                    );
+                    ,
                         //Notify("Estimate number not found in the FP Estimate file for this lead Technician is entered.");
-                       Set(VarPopUpEstimateNumberSubmitted,true);
-                     Set(VarPopUpEstimateNumberSubmittedmsg,"Estimate number not found in the FP Estimate file for this lead Technician is entered.");
+                    Set(
+                        VarPopUpEstimateNumberSubmitted,
+                        true
+                    );
+                    Set(
+                        VarPopUpEstimateNumberSubmittedmsg,
+                        "Estimate number not found in the FP Estimate file for this lead Technician is entered."
+                    );
+                    
                 );
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
