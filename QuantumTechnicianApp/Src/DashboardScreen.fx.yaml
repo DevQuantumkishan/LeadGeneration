@@ -186,7 +186,7 @@ DashboardScreen As screen:
                      //minimum year and maximum year is same = that year
                      //minimum year maximum year is different = time span
                      // if blank = current year
-                     //If(FirstN(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No').ye<>
+                     If(Min(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year))=Max(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year)),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),Year(Now()))
                 Width: =Parent.Width/2.8
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =6
