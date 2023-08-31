@@ -11697,10 +11697,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 66,
+                  "charLength": 105,
                   "charOffset": 119,
                   "snippet": {
-                    "text": "If(LeadStatus=\"Quoted\",Year(ProposedLeadDate)=Year(ThisItem.Year))"
+                    "text": "If(LeadStatus=\"Quoted\",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))"
                   }
                 }
               },
