@@ -1951,13 +1951,13 @@ LeadScreen As screen:
                                 TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 TotalSoldIncentives:LookUp(
                                 TotalIncentives,
-                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                 TotalSoldIncentives
                             ) + VarFPEstimateData.BidPrice * 0.02,
                                 TotalSoldLead: Value(
                                 LookUp(
                                     TotalIncentives,
-                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                     TotalSoldLead
                                 )
                             ) + 1,
@@ -1968,11 +1968,11 @@ LeadScreen As screen:
                 
                     UpdateIf(
                         TotalIncentives,
-                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                         {
                         TotalSoldIncentives: LookUp(
                                 TotalIncentives,
-                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                 TotalSoldIncentives
                             ) + VarFPEstimateData.BidPrice * 0.02,
                             TotalSoldLead: Value(
