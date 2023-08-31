@@ -622,13 +622,15 @@ DashboardScreen As screen:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
-                            DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0|| CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit)
+                            DisplayMode: |-
+                                =//If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0|| CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit)
+                                DisplayMode.Edit
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
                                 =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Rejected"});
+                                Navigate([@SubmittedLeadScreen_1],ScreenTransition.None,{Header: "Rejected"});
                                 Set(VarSoldIncetives,true);
                                 Set(VarFutureIncetives,false);
                                 Set(VarTotalIncentives,false);
