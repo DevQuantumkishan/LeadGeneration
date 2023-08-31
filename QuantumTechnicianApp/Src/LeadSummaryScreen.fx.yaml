@@ -1830,19 +1830,23 @@ LeadSummaryScreen As screen:
 
                 btnSubmitLSS As button:
                     Fill: =RGBA(255, 0, 0, 1)
+                    FontWeight: =FontWeight.Bold
                     HoverFill: =Color.Red
                     OnSelect: |
                         =If(
                             IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
                                 CboxCCLSS.Value = true,
-                                IsBlank(IntxtCustomerNameLSS) || IsBlank(lblContactNumber_1) || IsBlank(lblContactES_1)
-                            ) || If(
+                                IsBlank(IntxtCustomerNameLSS)) || If(
+                                CboxCCLSS.Value = true,IsBlank(lblContactNumber_1)) ||If(
+                                CboxCCLSS.Value = true, IsBlank(lblContactES_1)) ||
+                                If(
+                                CboxCCLSS.Value = true,Len(IntxtContactNumberES_1) <> 10)|| If(
                                 cboxAELSS.Value = true,
                                 IsBlank(IntxtTotalEstimatedExpenseLSS)
                             ) || If(
                                 cboxTravelRequiredLSS.Value = true,
                                 IsBlank(intxtTotalEstimatedHoursofTravelLSS)
-                            ) || Len(IntxtContactNumberES_1) <> 10,
+                            ) ,
                             Set(
                                 VarErrorPopup,
                                 true

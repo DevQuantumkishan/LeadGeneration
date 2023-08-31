@@ -20,7 +20,7 @@ SubmittedLeadScreen_1 As screen:
         LayoutOverflowY: =LayoutOverflow.Scroll
         PaddingLeft: =10
         PaddingRight: =10
-        Width: =414
+        Width: =Parent.Width
         ZIndex: =1
 
         ctnHeaderSLS_1 As groupContainer.horizontalAutoLayoutContainer:
@@ -181,36 +181,7 @@ SubmittedLeadScreen_1 As screen:
                 DelayItemLoading: =true
                 Height: =Parent.Height-ctnSearchBarSLS_2.Height-ctnSearchBarSLS_3.Height
                 Items: |+
-                    =//If(cumulatively=true,
-                    // )],yearly=true,[Text( Year(Now()))])
-                    /*If(cumulatively=true,
-                       [Text( Year(Today())),
-                        Text( Year(Today())-1),
-                        Text( Year(Today())-2),
-                        Text( Year(Today())-3),
-                        Text( Year(Today())-4),
-                        Text(Year(Today())-5),
-                        Text( Year(Today())-6),
-                        Text(Year(Today())-7),
-                        Text(Year(Today())-8),
-                        Text(Year(Today())-9),
-                        Text(Year(Today())-10),
-                        Text(Year(Today())-11)]
-                        ,yearly=true,[Text( Year(Today()))])*/
-                     //If(cumulatively=true,Sequence(50,Year(Today())) ,yearly=true,[Text( Year(Today()))])
-                    /*If(
-                        cumulatively = true,
-                        Sequence(50,
-                            LookUp(
-                                LeadInformations,
-                                MechanicName = User().FullName,
-                                Year('Created On')
-                            ) 
-                        ),
-                        yearly = true,
-                        [Year(Today())]
-                    )*/
-                    If(
+                    =If(
                         cumulatively = true,
                     With(
                         {
@@ -263,29 +234,8 @@ SubmittedLeadScreen_1 As screen:
                 "glryLeadsSLS_1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
                     Height: =If(CountRows(glryLeadsSLS_1.AllItems)<2,glryLeadsSLS_1.TemplateHeight+20,Parent.Height)
                     Items: |-
-                        =SortByColumns(
-                            Search(
-                                Sort(
-                                    Filter(
-                                        LeadInformations,//Email=User().Email  && 
-                                        Text(Year('Created On')) = lblLeadYearSLS_1.Text && If(
-                                            Header = "Open",
-                                            LeadStatus = "Submitted",
-                                            LeadStatus = Header
-                                        ) && Email = User().Email
-                                    ),
-                                    'Created On',
-                                    SortOrder.Descending
-                                ),
-                                IntxtSearchBoxSLS_1.Text,
-                                "shlrf_contractnumber",
-                                "shlrf_address",
-                                "shlrf_buildingname",
-                                "shlrf_zipcode","shlrf_leadtrackingnumber"
-                        
-                            ),
-                          If(ComboBox1_1.Selected.Value="Created Date","createdon",ComboBox1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_1.Selected.Value="Address","shlrf_address",ComboBox1_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_1.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_1.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending)
-                        )
+                        =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
+                        LeadStatus=Header&&Email=User().Email),'Created On',SortOrder.Descending),IntxtSearchBoxSLS_1.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(ComboBox1_1.Selected.Value="Created Date","createdon",ComboBox1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_1.Selected.Value="Address","shlrf_address",ComboBox1_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_1.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_1.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSLS_1.Text="Quoted Leads" ||btnheaderSLS_1.Text="Sold Leads",380,220)

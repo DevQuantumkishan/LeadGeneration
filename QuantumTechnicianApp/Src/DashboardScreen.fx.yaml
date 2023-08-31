@@ -181,12 +181,12 @@ DashboardScreen As screen:
                 PaddingRight: =0
                 Size: =If(Parent.Width>500,16,Parent.Width<500,14,12)
                 Text: |-
-                    =If(cumulatively=true,LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
-                     ,yearly=true,Year(Now()))
+                    =//If(cumulatively=true,LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now()),yearly=true,Year(Now()))
                      //now decide to take value from total incentive of my record from stat year to maximum year if no recod show current year 
                      //minimum year and maximum year is same = that year
                      //minimum year maximum year is different = time span
                      // if blank = current year
+                     //If(FirstN(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No').ye<>
                 Width: =Parent.Width/2.8
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =6
