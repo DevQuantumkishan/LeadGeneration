@@ -1924,9 +1924,9 @@ LeadScreen As screen:
                                             TotalProposedLead
                                         )
                                     ) + 1,
-                                    //TotalSoldIncentives: 0.00,
-                                    //TotalSoldLead: 0,
-                Year: Year(VarFPEstimateData.DateCreated),
+                                    TotalSoldIncentives: 0.00,
+                                    TotalSoldLead: 0,
+                                    Year: Year(VarFPEstimateData.DateCreated),
                                     LeadYear: Year(VarFPEstimateData.DateCreated)
                                 }
                             ),
@@ -1989,6 +1989,8 @@ LeadScreen As screen:
                                             TotalSoldLead
                                         )
                                     ) + 1,
+                                    TotalproposedIncentives:0.0,
+                                    TotalProposedLead:0,
                                     Year: Year(VarFPEstimateData.BookingDate),
                                     LeadYear: Year(VarFPEstimateData.BookingDate)
                                 }
