@@ -1,6 +1,6 @@
 ChatScreen As screen:
     OnVisible: |-
-        =Refresh (LeadChats);
+        =
         Set(
             VarLeadMessages,
             true
@@ -13,6 +13,7 @@ ChatScreen As screen:
             {'Read ': true}
         )
         );
+        Refresh (LeadChats);
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
