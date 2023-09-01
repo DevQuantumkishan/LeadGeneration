@@ -1724,7 +1724,7 @@ ViewDetailsScreen As screen:
                     Required: =false
                     Update: =DataCardValue8.Text
                     Visible: =If(ThisItem.LeadStatus="Rejected",true,false)
-                    Width: =748
+                    Width: =Parent.Width
                     X: =0
                     Y: =20
                     ZIndex: =1
@@ -1739,7 +1739,6 @@ ViewDetailsScreen As screen:
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Text: =" Lead Comment"
                         Width: =Parent.Width - 60
-                        Wrap: =false
                         X: =30
                         Y: =10
                         ZIndex: =1
@@ -1793,10 +1792,12 @@ ViewDetailsScreen As screen:
                         AutoHeight: =true
                         Color: =RGBA(26, 26, 26, 1)
                         Font: =Font.Arial
-                        Height: =34
+                        Height: =80
+                        LineHeight: =1.02
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Text: =ThisItem.LeadComment
-                        Width: =Parent.Width - 60
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width - 80
                         X: =30
                         Y: =DataCardKey8.Height+DataCardKey8.Y
                         ZIndex: =5
