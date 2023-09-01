@@ -172,8 +172,10 @@ ViewDetailsScreen As screen:
                           TotalEstimatedHoursofTravel_DataCard1.Height) + If(
                         IsBlank(DataCardValue6.Text),
                         0,
-                        TotalEstimatedExpense_DataCard1.Height
-                    )+10
+                        TotalEstimatedExpense_DataCard1.Height)+If(
+                        IsBlank(DataCardKey8_1.Text),
+                        0,LeadComment_DataCard1.Height
+                    )+20
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -1733,6 +1735,7 @@ ViewDetailsScreen As screen:
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
                         Height: =34
+                        PaddingLeft: =0
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Text: =" Lead Comment"
                         Width: =Parent.Width - 60
@@ -1756,6 +1759,7 @@ ViewDetailsScreen As screen:
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Tooltip: =Parent.DisplayName
+                        Visible: =false
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey8.Y + DataCardKey8.Height + 5
@@ -1782,9 +1786,20 @@ ViewDetailsScreen As screen:
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
-                        Wrap: =false
                         Y: =DataCardKey8.Y
                         ZIndex: =4
+
+                    DataCardKey8_1 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(26, 26, 26, 1)
+                        Font: =Font.Arial
+                        Height: =34
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                        Text: =ThisItem.LeadComment
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey8.Height+DataCardKey8.Y
+                        ZIndex: =5
 
             Label4 As label:
                 FontWeight: =FontWeight.Semibold
