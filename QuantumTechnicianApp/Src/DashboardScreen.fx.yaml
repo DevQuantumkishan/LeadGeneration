@@ -6,6 +6,10 @@ DashboardScreen As screen:
            Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
         );
         Refresh(LeadChats);
+         
+         Set(VarCurrentYear,Text(Year(Today())));
+         Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
+         Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));
 
     ctnMainDS As groupContainer.horizontalAutoLayoutContainer:
         DropShadow: =DropShadow.None
@@ -188,7 +192,8 @@ DashboardScreen As screen:
                      //minimum year maximum year is different = time span
                      // if blank = current year
                     // If(Min(GCTotalIncentives,Year)=Max(GCTotalIncentives,Year),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),Min(GCTotalIncentives,Year)<>Max(GCTotalIncentives,Year),Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year) ,Year(Now()))
-                    If(cumulatively=true,Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year),yearly=true,Min(GCTotalIncentives,Year) ,Year(Now()))
+                    //If(cumulatively=true,Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year),yearly=true,Min(GCTotalIncentives,Year) ,Year(Now()))
+                    If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,VarCurrentYear,If(cumulatively=true,VarFirstYear & " - " & VarLastYear,yearly=true,VarFirstYear ))
                 Width: =Parent.Width/2.8
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =6
@@ -216,9 +221,9 @@ DashboardScreen As screen:
                     Default: =true
                     DisabledColor: =Color.Black
                     DisplayMode: |-
-                        =If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Edit,DisplayMode.Disabled)
+                        =//If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Disabled,DisplayMode.Disabled)
                         //DisplayMode.Edit
-                        //Countrows(
+                        If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                     FalseFill: =Color.Black
                     FalseText: |-
                         =//LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
