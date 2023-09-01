@@ -978,7 +978,7 @@ CreatLeadScreen As screen:
                 Size: =14
                 Text: |-
                     =If(
-                        IsBlank(VarcontractRecord) && !IsBlank(IntxtContractNumber.Text),"Contract number not found in your district ("& VarTechnicianID.District  & "). Please try again.","Contract Number is mandatory.")
+                        IsBlank(VarcontractRecord) && !IsBlank(IntxtContractNumber.Text),"Contract number not found in your district ("& VarTechnicianID.District  & "). Please try again.","All mandatory fields to be filled.")
                 Width: =Parent.Width
                 ZIndex: =2
 

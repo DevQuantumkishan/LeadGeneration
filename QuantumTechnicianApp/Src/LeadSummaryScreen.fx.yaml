@@ -2060,7 +2060,7 @@ LeadSummaryScreen As screen:
                     =Navigate(DashboardScreen);Set(VarNotification,false);
                 Size: =14
                 Text: ="Ok"
-                Visible: =If(VarNotificationSuccess,true,false)
+                Visible: =If(lblNotificationLSS.Text="Submitting",false,true)
                 Width: =Parent.Width/5
                 ZIndex: =3
 
@@ -2232,7 +2232,7 @@ LeadSummaryScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: =If(VarPhonenumbererrormessage,"Customer phone number should be 10 digits.","All required fields are mandatory")
+                Text: =If(VarPhonenumbererrormessage,"Customer phone number should be 10 digits.","All mandatory fields to be filled.")
                 Width: =Parent.Width
                 ZIndex: =2
 
