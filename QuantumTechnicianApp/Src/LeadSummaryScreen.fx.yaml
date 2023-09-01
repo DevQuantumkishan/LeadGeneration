@@ -1704,7 +1704,7 @@ LeadSummaryScreen As screen:
                         IntxtContactNumberES_1 As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             BorderThickness: =1
-                            Default: =
+                            Default: =IntxtContactNumberES.Text
                             DelayOutput: =true
                             DisabledBorderColor: =RGBA(202, 202, 202, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
@@ -1837,10 +1837,9 @@ LeadSummaryScreen As screen:
                             IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
                                 CboxCCLSS.Value = true,
                                 IsBlank(IntxtCustomerNameLSS)) || If(
-                                CboxCCLSS.Value = true,IsBlank(lblContactNumber_1)) ||If(
+                                CboxCCLSS.Value = true,IsBlank(lblContactNumber_1)&& Len(IntxtContactNumberES_1) <> 10) ||If(
                                 CboxCCLSS.Value = true, IsBlank(lblContactES_1)) ||
-                                If(
-                                CboxCCLSS.Value = true,Len(IntxtContactNumberES_1) <> 10)|| If(
+                                 If(
                                 cboxAELSS.Value = true,
                                 IsBlank(IntxtTotalEstimatedExpenseLSS)
                             ) || If(
