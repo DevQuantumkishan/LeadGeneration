@@ -1820,7 +1820,7 @@ ViewDetailsScreen As screen:
                 ImageLSS_2 As image:
                     BorderThickness: =2
                     Height: =If(Parent.Width>Parent.Height,Parent.TemplateHeight/1.2,Parent.TemplateHeight/1.4)
-                    Image: =ThisItem.Images.Full
+                    Image: =ThisItem.Images
                     OnSelect: |
                         =Set(VarImagePopup,true)
                     PaddingBottom: =10
@@ -1847,7 +1847,7 @@ ViewDetailsScreen As screen:
             Height: |-
                 =
                 If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
-            Image: =glryImageLSS_2.Selected.Images.Full
+            Image: =glryImageLSS_2.Selected.Images.Value
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
