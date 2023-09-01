@@ -430,7 +430,7 @@ DashboardScreen As screen:
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
                         Visible: |
-                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Inprogress"))=0,false,true)
+                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="InProgress"))=0,false,true)
                         Width: =13
                         X: =Parent.Width/1.2
                         Y: =Parent.Height/8
@@ -754,12 +754,12 @@ DashboardScreen As screen:
                                 =//19.22
                                 If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
-                                =
+                                =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,0,
                                 If(
                                     yearly=true ,
                                 
                                             LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text,TotalProposedLead),
-                                        Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead))
+                                        Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead)))
                             Width: =Parent.Width
                             X: =
                             Y: |-
@@ -900,7 +900,7 @@ DashboardScreen As screen:
                                 =//19.22
                                 If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
-                                =
+                                =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,0,
                                 If(
                                     yearly=true ,
                                     If(
@@ -909,7 +909,7 @@ DashboardScreen As screen:
                                             GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text,TotalSoldLead)),0,
                                             LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text,TotalSoldLead)),
                                     If(
-                                        Sum(GCTotalIncentives,TotalSoldLead)=0,0,Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead)))
+                                        Sum(GCTotalIncentives,TotalSoldLead)=0,0,Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead))))
                             Width: =Parent.Width
                             X: =
                             Y: =If(Parent.Height>Parent.Width,Parent.Height/6,Parent.Height/10)
