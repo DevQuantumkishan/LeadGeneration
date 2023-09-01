@@ -2060,7 +2060,7 @@ LeadSummaryScreen As screen:
                     =Navigate(DashboardScreen);Set(VarNotification,false);
                 Size: =14
                 Text: ="Ok"
-                Visible: =If(VarPhonenumbererrormessage ||VarNotificationSuccess,true,false)
+                Visible: =If(VarNotificationSuccess,true,false)
                 Width: =Parent.Width/5
                 ZIndex: =3
 
