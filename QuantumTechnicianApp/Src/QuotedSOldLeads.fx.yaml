@@ -531,12 +531,12 @@ QuotedSOldLeads As screen:
                         BorderThickness: =1
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(255, 191, 0, 1)
-                        Height: =13
+                        Height: =15
                         OnSelect: =Select(Parent)
                         Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
-                        Width: =13
+                        Width: =15
                         X: =iconmsgSLS_2.X+iconmsgSLS_2.Width/1.2
-                        Y: =iconmsgSLS_2.Y+iconmsgSLS_2.Height/4.2
+                        Y: =iconmsgSLS_2.Y+iconmsgSLS_2.Height/3.5
                         ZIndex: =17
 
                     htmltxtQQTeamMemberSLS_2 As htmlViewer:
