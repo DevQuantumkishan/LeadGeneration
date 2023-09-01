@@ -2007,7 +2007,7 @@ LeadScreen As screen:
                                     TotalSoldLead: Value(
                                         LookUp(
                                             TotalIncentives,
-                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
+                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                             TotalSoldLead
                                         )
                                     ) + 1
