@@ -430,6 +430,7 @@ QuotedSOldLeads As screen:
                             Navigate([@ViewDetailsScreen],ScreenTransition.None);
                             Reset(IntxtSearchBoxSLS_2);
                             Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact ',"[$-en-US](###) ###-####"));
+                            Set(VarLeadstatus,ThisItem.LeadStatus);
                             
                             /*{LtdID:ThisItem.ID,ContractNumber:ThisItem.'ContractNumber ',BuildingName:ThisItem.'BuildingName ',Address:ThisItem.Address,Zipcode:ThisItem.'ZipCode ',UnitCount:ThisItem.NumberofUnits,UnitDescription:ThisItem.UnitDescription,Scope:ThisItem.PrimaryScopeofWorkLID,ScopeOfWork:ThisItem.SecondaryScopeofWorkLID,CustomScope:ThisItem.CustomScopeofWork,unitdown:ThisItem.IsUnitDown,AdditionalExpensesRequired:ThisItem.AdditionalExpensesRequired,CommunicatedtoCustomer:ThisItem.CommunicatedToCustomer,EstimatedHours:ThisItem.'EstimatedHours ',Material:ThisItem.Notes,travelRequired:ThisItem.TravelRequired//LeadImage:ThisItem.LeadImages
                             }*/
@@ -532,7 +533,7 @@ QuotedSOldLeads As screen:
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
                         OnSelect: =Select(Parent)
-                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))>0,true,false)
+                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
                         Width: =13
                         X: =iconmsgSLS_2.X+iconmsgSLS_2.Width/1.2
                         Y: =iconmsgSLS_2.Y+iconmsgSLS_2.Height/4.2

@@ -385,7 +385,7 @@ SubmittedLeadScreen As screen:
                     Width: =Parent.Width/1.08
                     X: =10
                     Y: =htmltextContractNumberSLS.Y+htmltextContractNumberSLS.Height
-                    ZIndex: =6
+                    ZIndex: =2
 
                 htmltextTrackingNumberSLS As htmlViewer:
                     AutoHeight: =true
@@ -400,7 +400,7 @@ SubmittedLeadScreen As screen:
                     Width: =Parent.Width/1.08
                     X: =10
                     Y: =20
-                    ZIndex: =7
+                    ZIndex: =3
 
                 htmltxtAddressSLS As htmlViewer:
                     AutoHeight: =true
@@ -416,7 +416,7 @@ SubmittedLeadScreen As screen:
                     Width: =Parent.Width/1.08
                     X: =10
                     Y: =HtmlTextBuildingNameSLS.Y+HtmlTextBuildingNameSLS.Height
-                    ZIndex: =8
+                    ZIndex: =4
 
                 htmltxtZipcodeSLS As htmlViewer:
                     AutoHeight: =true
@@ -432,7 +432,7 @@ SubmittedLeadScreen As screen:
                     Width: =Parent.Width/1.08
                     X: =10
                     Y: =htmltxtAddressSLS.Y+htmltxtAddressSLS.Height
-                    ZIndex: =9
+                    ZIndex: =5
 
                 htmltxtDateSLS As htmlViewer:
                     AutoHeight: =true
@@ -448,7 +448,7 @@ SubmittedLeadScreen As screen:
                     Width: =Parent.Width/1.08
                     X: =10
                     Y: =htmltxtZipcodeSLS.Y+htmltxtZipcodeSLS.Height
-                    ZIndex: =10
+                    ZIndex: =6
 
                 btnSubmittedLeadSLS As button:
                     BorderColor: =RGBA(219, 219, 219, 1)
@@ -482,7 +482,7 @@ SubmittedLeadScreen As screen:
                         =//If(Parent.Width<378,Parent.Width/1.07,Parent.Width<500,Parent.Width/1.05,Parent.Width/1.03)
                         If(Parent.Width<378,Parent.Width/1.05,Parent.Width>500,Parent.Width/1.02)
                     Y: =4.313725490196077
-                    ZIndex: =11
+                    ZIndex: =7
 
                 htmltextContractNumberSLS As htmlViewer:
                     AutoHeight: =true
@@ -497,7 +497,7 @@ SubmittedLeadScreen As screen:
                     Width: =Parent.Width/1.08
                     X: =10
                     Y: =htmltextTrackingNumberSLS.Y+htmltextTrackingNumberSLS.Height
-                    ZIndex: =14
+                    ZIndex: =8
 
                 iconmsgSLS As icon.Message:
                     Color: =RGBA(255, 0, 0, 1)
@@ -514,20 +514,7 @@ SubmittedLeadScreen As screen:
                     Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                     X: =Parent.Width-2.5*(Self.Width)
                     Y: =htmltextTrackingNumberSLS.Y
-                    ZIndex: =15
-
-                Circle1 As circle:
-                    BorderColor: =RGBA(255, 191, 0, 1)
-                    BorderThickness: =1
-                    DisplayMode: =DisplayMode.View
-                    Fill: =RGBA(255, 191, 0, 1)
-                    Height: =13
-                    OnSelect: =Select(Parent)
-                    Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))>0,true,false)
-                    Width: =1
-                    X: =iconmsgSLS.X+iconmsgSLS.Width/1.2
-                    Y: =iconmsgSLS.Y+iconmsgSLS.Height/4.2
-                    ZIndex: =17
+                    ZIndex: =9
 
                 htmltxtQQTeamMemberSLS As htmlViewer:
                     AutoHeight: =true
@@ -543,7 +530,7 @@ SubmittedLeadScreen As screen:
                     Width: =Parent.Width/1.08
                     X: =10
                     Y: =htmltxtStatusDateSLS_1.Y+htmltxtStatusDateSLS_1.Height
-                    ZIndex: =18
+                    ZIndex: =10
 
                 htmltxtStatusDateSLS_1 As htmlViewer:
                     AutoHeight: =true
@@ -560,7 +547,20 @@ SubmittedLeadScreen As screen:
                     Width: =Parent.Width/1.08
                     X: =10
                     Y: =htmltxtDateSLS.Y+htmltxtDateSLS.Height
-                    ZIndex: =21
+                    ZIndex: =11
+
+                Circle1 As circle:
+                    BorderColor: =RGBA(255, 191, 0, 1)
+                    BorderThickness: =1
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(255, 191, 0, 1)
+                    Height: =13
+                    OnSelect: =Select(Parent)
+                    Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
+                    Width: =13
+                    X: =iconmsgSLS.X+iconmsgSLS.Width/1.2
+                    Y: =iconmsgSLS.Y+iconmsgSLS.Height/4.2
+                    ZIndex: =12
 
     PopopMandatorySS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
