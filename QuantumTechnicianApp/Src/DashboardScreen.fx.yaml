@@ -384,7 +384,7 @@ DashboardScreen As screen:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             DisabledFill: =RGBA(0, 0, 0, 0)
-                            DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0||CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit) 
+                            DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,DisplayMode.Disabled,DisplayMode.Edit) 
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -508,7 +508,7 @@ DashboardScreen As screen:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
-                            DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0|| CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit) 
+                            DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,DisplayMode.Disabled,DisplayMode.Edit) 
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -632,9 +632,8 @@ DashboardScreen As screen:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
-                            DisplayMode: |-
-                                =//If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0|| CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected" && Year('Created On')=Year(Now())))=0,DisplayMode.Disabled,DisplayMode.Edit)
-                                DisplayMode.Edit
+                            DisplayMode: |
+                                =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -791,9 +790,7 @@ DashboardScreen As screen:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
-                            DisplayMode: |-
-                                =If(IsBlank(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalProposedLead))||Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalProposedLead))=0||
-                                        Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                            DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -852,7 +849,7 @@ DashboardScreen As screen:
                         lbllIncentivesLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            DisplayMode: =DisplayMode.View
+                            DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -891,7 +888,7 @@ DashboardScreen As screen:
                         lblSoldLeadsCountDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            DisplayMode: =DisplayMode.View
+                            DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -918,7 +915,7 @@ DashboardScreen As screen:
                         lblSoldLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            DisplayMode: =DisplayMode.View
+                            DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -939,9 +936,7 @@ DashboardScreen As screen:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
-                            DisplayMode: |-
-                                =If(Value(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalSoldLead))=0 ||IsBlank(LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=Text(Year(Now())),TotalSoldLead))||
-                                        Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalSoldLead)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                            DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
