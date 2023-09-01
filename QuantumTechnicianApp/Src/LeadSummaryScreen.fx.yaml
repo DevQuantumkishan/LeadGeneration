@@ -1838,8 +1838,6 @@ LeadSummaryScreen As screen:
                                 CboxCCLSS.Value = true,
                                 IsBlank(IntxtCustomerNameLSS)) || If(
                                 CboxCCLSS.Value = true,IsBlank(lblContactNumber_1)&& Len(IntxtContactNumberES_1) <> 10) ||If(
-                                CboxCCLSS.Value = true, IsBlank(lblContactES_1)) ||
-                                 If(
                                 cboxAELSS.Value = true,
                                 IsBlank(IntxtTotalEstimatedExpenseLSS)
                             ) || If(
