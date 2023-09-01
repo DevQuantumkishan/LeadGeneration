@@ -1,10 +1,15 @@
 DashboardScreen As screen:
-    OnVisible: |
+    OnVisible: |-
         =Refresh(LeadInformations);
         ClearCollect(
             GCTotalIncentives,
            Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
         );
+        Refresh(LeadChats);
+         
+         Set(VarCurrentYear,Text(Year(Today())));
+         Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
+         Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));
 
     ctnMainDS As groupContainer.horizontalAutoLayoutContainer:
         DropShadow: =DropShadow.None
@@ -187,7 +192,8 @@ DashboardScreen As screen:
                      //minimum year maximum year is different = time span
                      // if blank = current year
                     // If(Min(GCTotalIncentives,Year)=Max(GCTotalIncentives,Year),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),Min(GCTotalIncentives,Year)<>Max(GCTotalIncentives,Year),Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year) ,Year(Now()))
-                    If(cumulatively=true,Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year),yearly=true,Min(GCTotalIncentives,Year) ,Year(Now()))
+                    //If(cumulatively=true,Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year),yearly=true,Min(GCTotalIncentives,Year) ,Year(Now()))
+                    If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,VarCurrentYear,If(cumulatively=true,VarFirstYear & " - " & VarLastYear,yearly=true,VarFirstYear ))
                 Width: =Parent.Width/2.8
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =6
@@ -215,8 +221,9 @@ DashboardScreen As screen:
                     Default: =true
                     DisabledColor: =Color.Black
                     DisplayMode: |-
-                        =If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Edit,DisplayMode.Disabled)
+                        =//If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Disabled,DisplayMode.Disabled)
                         //DisplayMode.Edit
+                        If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                     FalseFill: =Color.Black
                     FalseText: |-
                         =//LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
@@ -298,7 +305,7 @@ DashboardScreen As screen:
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
                         Visible: |
-                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))>0,true,false)
+                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))=0,false,true)
                         Width: =13
                         X: =Parent.Width/1.2
                         Y: =Parent.Height/8
@@ -423,7 +430,7 @@ DashboardScreen As screen:
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
                         Visible: |
-                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Inprogress"))>0,true,false)
+                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Inprogress"))=0,false,true)
                         Width: =13
                         X: =Parent.Width/1.2
                         Y: =Parent.Height/8
@@ -688,7 +695,7 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
-                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))>0,true,false)
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))=0,false,true)
                         Width: =13
                         X: =ctnQuatedLeadsDS.Width/1.2
                         Y: =Parent.Height/8
@@ -829,7 +836,7 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
-                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))>0,true,false)
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
                         Width: =13
                         X: =ctnQuatedLeadsDS.Width/1.2
                         Y: =Parent.Height/8
@@ -1057,11 +1064,9 @@ DashboardScreen As screen:
 
     TimermessageCS_1 As timer:
         AutoPause: =false
-        AutoStart: =true
         Duration: =3000
         FontWeight: =FontWeight.Lighter
         OnTimerEnd: =Refresh(LeadChats);
-        Repeat: =true
         Start: =VarLeadMessages
         Visible: =false
         X: =40

@@ -702,7 +702,7 @@ QuotedSOldLeads As screen:
                             Filter(
                                 GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                 Year(Year) = Year(Now())),TotalSoldIncentives
-                        )))*/
+                        )))*/ "$ " &
                         If(Header="Quoted",If(!IsBlank(ThisItem.TotalproposedIncentives),ThisItem.TotalproposedIncentives,0),If(!IsBlank(ThisItem.TotalSoldIncentives),ThisItem.TotalSoldIncentives,0))
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)

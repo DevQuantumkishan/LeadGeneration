@@ -926,6 +926,7 @@ EstimateScreen As screen:
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
+                        Format: =TextFormat.Number
                         HintText: =If(VarTotalEstimateHoursfortravel,"","Total estimated hrs of travel *")
                         HoverBorderColor: =RGBA(149, 149, 149, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
@@ -1167,7 +1168,7 @@ EstimateScreen As screen:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         BorderThickness: =1
                         Fill: =RGBA(237, 237, 237, 1)
-                        Height: =If(varCustomerPhonenumber,90,60)
+                        Height: =If(varCustomerPhonenumber,100,80)
                         Width: =Parent.Width-60
                         X: =30
                         Y: =5
@@ -1204,6 +1205,7 @@ EstimateScreen As screen:
                         MaxLength: =10
                         OnChange: |
                             =If(Len(IntxtContactNumberES.Text)=10, Set(VarformattedNumberSummary, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true);Set(VarPhonenumbererrormessage, false);, If(!IsBlank(IntxtContactNumberES.Text) && Len(IntxtContactNumberES.Text)<>10, Set(VarPhonenumbererrormessage, true); Set(varContactNumber, false)));
+                            Set(varCustomerPhonenumber,true);
                         OnSelect: |-
                             =Set(varCustomerPhonenumber,true);
                             If(varContactNumber=true,Set(varContactNumber,true));
@@ -1408,7 +1410,7 @@ EstimateScreen As screen:
                         //CboxCommunicatedtoCustomer.Value = true,
                         VarPhonenumbererrormessage,"Customer phone number should be 10 digits.",
                      //   "All required fields are mandatory",
-                        "All required fields are mandatory"
+                        "All mandatory fields to be filled."
                     )
                 Width: =Parent.Width
                 ZIndex: =2

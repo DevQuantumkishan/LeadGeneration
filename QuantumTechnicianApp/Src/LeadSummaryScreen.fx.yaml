@@ -1838,8 +1838,6 @@ LeadSummaryScreen As screen:
                                 CboxCCLSS.Value = true,
                                 IsBlank(IntxtCustomerNameLSS)) || If(
                                 CboxCCLSS.Value = true,IsBlank(lblContactNumber_1)&& Len(IntxtContactNumberES_1) <> 10) ||If(
-                                CboxCCLSS.Value = true, IsBlank(lblContactES_1)) ||
-                                 If(
                                 cboxAELSS.Value = true,
                                 IsBlank(IntxtTotalEstimatedExpenseLSS)
                             ) || If(
@@ -1889,7 +1887,7 @@ LeadSummaryScreen As screen:
                                     AdditionalExpensesRequired: cboxAELSS.Value,
                                     TravelRequired: cboxTravelRequiredLSS.Value,
                                     CommunicatedToCustomer: CboxCCLSS.Value,
-                                    'CustomerName ': lblCustomerNameLSS.Text,
+                                    'CustomerName ': VarCustomerNameSummary,
                                     'CustomerContact ': lblContactNumber_1.Text,
                                     TotalEstimatedExpense: IntxtTotalEstimatedExpenseLSS.Text,
                                     TotalEstimatedHoursofTravel: intxtTotalEstimatedHoursofTravelLSS.Text,
@@ -1944,6 +1942,10 @@ LeadSummaryScreen As screen:
                                 VarNotificationloding,
                                 false
                             );
+                              Set(
+                                VarErrorPopup,
+                                false
+                            ),
                             Set(
                                 VarNotificationSuccess,
                                 true
@@ -2060,7 +2062,7 @@ LeadSummaryScreen As screen:
                     =Navigate(DashboardScreen);Set(VarNotification,false);
                 Size: =14
                 Text: ="Ok"
-                Visible: =If(VarPhonenumbererrormessage ||VarNotificationSuccess,true,false)
+                Visible: =If(lblNotificationLSS.Text="Submitting",false,true)
                 Width: =Parent.Width/5
                 ZIndex: =3
 
@@ -2232,7 +2234,7 @@ LeadSummaryScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: =If(VarPhonenumbererrormessage,"Customer phone number should be 10 digits.","All required fields are mandatory")
+                Text: =If(VarPhonenumbererrormessage,"Customer phone number should be 10 digits.","All mandatory fields to be filled.")
                 Width: =Parent.Width
                 ZIndex: =2
 
