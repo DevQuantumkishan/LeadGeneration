@@ -239,7 +239,7 @@ QuotedSOldLeads As screen:
                         LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(ComboBox1_2.Selected.Value="Created Date","createdon",ComboBox1_2.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_2.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_2.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_2.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_2.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_2.Selected.Value="Address","shlrf_address",ComboBox1_2.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_2.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_2.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
-                    TemplateSize: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",380,220)
+                    TemplateSize: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",360,210)
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
@@ -265,7 +265,9 @@ QuotedSOldLeads As screen:
 
                     lblPriceSLS_4 As label:
                         Font: =Font.Arial
-                        Height: =If(btnheaderSLS_2.Text="Sold Leads",25,0)
+                        Height: |-
+                            =//If(btnheaderSLS_2.Text="Sold Leads",25,0)
+                            0
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -276,7 +278,7 @@ QuotedSOldLeads As screen:
                             =//"Sold Incentives $ : "&  " " & 0
                             "Sold Price: $" & " " & ThisItem.SoldLeadPrice
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: =If(btnheaderSLS_2.Text="Sold Leads",true,false)
+                        Visible: =//If(btnheaderSLS_2.Text="Sold Leads",true,false)
                         Width: =Parent.Width/2.55
                         X: =20
                         Y: =lblEstimateNumberSLS_2.Height+lblEstimateNumberSLS_2.Y
@@ -386,13 +388,14 @@ QuotedSOldLeads As screen:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
-                        Height: =20
+                        Height: =0
                         HtmlText: |-
                             ="<b>Zipcode : </b>" & ThisItem.'ZipCode '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                        Visible: =false
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltxtAddressSLS_2.Y+htmltxtAddressSLS_2.Height
@@ -429,7 +432,8 @@ QuotedSOldLeads As screen:
                             Set(VarBackColor,true);
                             Navigate([@ViewDetailsScreen],ScreenTransition.None);
                             Reset(IntxtSearchBoxSLS_2);
-                            Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact ',"[$-en-US](###) ###-####"));
+                            Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact '));/*"[$-en-US](###) ###-####")*/
+                            
                             Set(VarLeadstatus,ThisItem.LeadStatus);
                             
                             /*{LtdID:ThisItem.ID,ContractNumber:ThisItem.'ContractNumber ',BuildingName:ThisItem.'BuildingName ',Address:ThisItem.Address,Zipcode:ThisItem.'ZipCode ',UnitCount:ThisItem.NumberofUnits,UnitDescription:ThisItem.UnitDescription,Scope:ThisItem.PrimaryScopeofWorkLID,ScopeOfWork:ThisItem.SecondaryScopeofWorkLID,CustomScope:ThisItem.CustomScopeofWork,unitdown:ThisItem.IsUnitDown,AdditionalExpensesRequired:ThisItem.AdditionalExpensesRequired,CommunicatedtoCustomer:ThisItem.CommunicatedToCustomer,EstimatedHours:ThisItem.'EstimatedHours ',Material:ThisItem.Notes,travelRequired:ThisItem.TravelRequired//LeadImage:ThisItem.LeadImages
