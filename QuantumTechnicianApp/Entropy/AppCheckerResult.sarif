@@ -11130,6 +11130,30 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 10
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -20999,6 +21023,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "EstimateScreen.ctnMainES.ctnMiddleES.EstimateForm.CustomerContactES.Slider1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "EstimateScreen.ctnMainES.ctnMiddleES.EstimateForm.CustomerContactES.Slider1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "EstimateScreen",
+                "type": "EstimateScreen.ctnMainES.ctnMiddleES.EstimateForm.CustomerContactES.Slider1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "EstimateScreen.ctnMainES.ctnMiddleES.EstimateForm.CustomerContactES.txtPhoneNumberFormatES.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "EstimateScreen.ctnMainES.ctnMiddleES.EstimateForm.CustomerContactES.txtPhoneNumberFormatES.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "EstimateScreen",
+                "type": "EstimateScreen.ctnMainES.ctnMiddleES.EstimateForm.CustomerContactES.txtPhoneNumberFormatES"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.Header"
                 }
               ],
@@ -21310,6 +21394,36 @@
               },
               "properties": {
                 "member": "VarPopup",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varContactCurrent"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varContactCurrent",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varContactCurrent",
                 "module": "App",
                 "type": "App"
               }
