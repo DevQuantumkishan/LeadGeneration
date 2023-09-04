@@ -195,7 +195,7 @@ QuotedSOldLeads As screen:
                             Value <= EndYear
                         )
                     ),*/
-                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),
+                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && If(Header="Quoted",Value( TotalProposedLead)<>0,Value(TotalSoldLead)<>0),Year),
                     yearly = true,
                     With(
                         {
