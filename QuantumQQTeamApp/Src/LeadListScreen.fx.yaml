@@ -398,6 +398,7 @@ LeadListScreen As screen:
                             lblcreatedatevalueLS As label:
                                 Align: =Align.Center
                                 AlignInContainer: =AlignInContainer.Start
+                                Height: =32
                                 Text: |-
                                     =Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
                                 Width: =190
@@ -461,29 +462,20 @@ LeadListScreen As screen:
                                 Width: =120
                                 ZIndex: =8
 
-                            icnviewLS As icon.Add:
+                            Image2_4 As image:
+                                AlignInContainer: =AlignInContainer.Start
                                 Height: =40
-                                Icon: =Icon.View
-                                Visible: =false
-                                Width: =40
+                                Image: =email
+                                Visible: = If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No && LeadInformationLID.LeadStatus=ThisItem.LeadStatus))>0,true,false)
+                                Width: =25
                                 ZIndex: =9
-
-                            icneditLS As icon.Add:
-                                Height: =40
-                                Icon: =Icon.Edit
-                                OnSelect: =//Navigate(LeadScreen)
-                                PaddingLeft: =10
-                                Visible: =false
-                                Width: =40
-                                ZIndex: =10
 
                             Circle1_2 As circle:
                                 Fill: =RGBA(255, 191, 0, 1)
                                 Height: =20
-                                Visible: = If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No && LeadInformationLID.LeadStatus=ThisItem.LeadStatus))>0,true,false)
+                                Visible: =false//If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No && LeadInformationLID.LeadStatus=ThisItem.LeadStatus))>0,true,false)
                                 Width: =20
-                                X: =icnrightLS.Width+icnrightLS.X
-                                ZIndex: =11
+                                ZIndex: =12
 
                             icnrightLS As icon.ChevronRight:
                                 AlignInContainer: =AlignInContainer.Start
@@ -494,7 +486,7 @@ LeadListScreen As screen:
                                 PaddingLeft: =20
                                 Width: =40
                                 X: =lblleadstatusvalueLS.Width+lblleadstatusvalueLS.X
-                                ZIndex: =12
+                                ZIndex: =13
 
                         btnglryleadlistLS As button:
                             Fill: =RGBA(0, 0, 0, 0)
