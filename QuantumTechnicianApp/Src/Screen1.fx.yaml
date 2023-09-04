@@ -1,3 +1,134 @@
 Screen1 As screen:
-    OnVisible: =
+    OnVisible: =VarFormMode
+
+    Form1 As form:
+        DataSource: =LeadInformations
+        DefaultMode: =FormMode.New
+        Width: =Parent.Width
+        Y: =40
+        ZIndex: =1
+
+        "'CustomerContact _DataCard2' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="shlrf_customercontact"
+            Default: =varPhoneNumber
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =335
+            MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
+            Required: =false
+            Update: =txtphonenumber.Text
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            lblphonenumber As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            txtphonenumber As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Len(txtPhonenumberformat.Text)
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =lblphonenumber.Y + lblphonenumber.Height + 5
+                ZIndex: =2
+
+            tog_phonenumberlength As slider:
+                Default: =Len(txtphonenumber.Text)
+                Max: =10
+                OnChange: |
+                    =Set(
+                        varPhoneNumber,
+                        With(
+                            {
+                                // extracts all numbers from the phone number field
+                                varTextNumbersOnly: Concat(
+                                    MatchAll(
+                                        txtphonenumber.Text,
+                                        Match.Digit
+                                    ),
+                                    FullMatch
+                                ),
+                                // builds a table with phone number format at every position
+                                varPhoneNumberFormat: With(
+                                    {varTextPhoneNumberFormat: txtPhonenumberformat.Text},
+                                    With(
+                                        {
+                                            varTablePhoneNumberFormat: ForAll(
+                                                Sequence(Len(varTextPhoneNumberFormat)),
+                                                With(
+                                                    {
+                                                        varNumberCurrentLength: Left(
+                                                            varTextPhoneNumberFormat,
+                                                            Value
+                                                        )
+                                                    },
+                                                    {
+                                                        NumberFormat: varNumberCurrentLength,
+                                                        CountNumbers: CountRows(
+                                                            MatchAll(
+                                                                varNumberCurrentLength,
+                                                                "#"
+                                                            )
+                                                        )
+                                                    }
+                                                )
+                                            )
+                                        },
+                                        ForAll(
+                                            Sequence(
+                                                Max(
+                                                    varTablePhoneNumberFormat,
+                                                    CountNumbers
+                                                )
+                                            ),
+                                            LookUp(
+                                                varTablePhoneNumberFormat,
+                                                CountNumbers = Value
+                                            )
+                                        )
+                                    )
+                                )
+                            },
+                            Text(
+                                Value(varTextNumbersOnly),
+                                LookUp(
+                                    varPhoneNumberFormat,
+                                    CountNumbers = Len(varTextNumbersOnly),
+                                    NumberFormat
+                                )
+                            )
+                        )
+                    );
+                    Reset(txtphonenumber);
+                X: =63
+                Y: =114
+                ZIndex: =3
+
+            txtPhonenumberformat As text:
+                Default: |-
+                    ="(###)-###-####"
+                Height: =44
+                Width: =708
+                X: =30
+                Y: =179
+                ZIndex: =4
 
