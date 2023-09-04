@@ -239,7 +239,7 @@ QuotedSOldLeads As screen:
                         LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(ComboBox1_2.Selected.Value="Created Date","createdon",ComboBox1_2.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_2.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_2.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_2.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_2.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_2.Selected.Value="Address","shlrf_address",ComboBox1_2.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_2.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_2.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
-                    TemplateSize: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",360,210)
+                    TemplateSize: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",320,200)
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
@@ -585,7 +585,7 @@ QuotedSOldLeads As screen:
 
                     lblPriceSLS_5 As label:
                         Font: =Font.Arial
-                        Height: =25
+                        Height: =0
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
