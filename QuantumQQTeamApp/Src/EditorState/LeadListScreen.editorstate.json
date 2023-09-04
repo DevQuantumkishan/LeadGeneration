@@ -1449,14 +1449,7 @@
         },
         "ZIndex",
         "BorderThickness",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": " If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No && LeadInformationLID.LeadStatus=ThisItem.LeadStatus))>0,true,false)",
-          "InvariantPropertyName": "Visible",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        }
+        "Visible"
       ],
       "DynamicProperties": [
         {
@@ -1506,7 +1499,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Circle1_2",
-      "ParentIndex": 1,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3407,7 +3400,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container7",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3637,7 +3630,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container8",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6864,7 +6857,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icnrightLS",
-      "ParentIndex": 10,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7599,7 +7592,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imginfoLS",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9088,7 +9081,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblactionLS",
-      "ParentIndex": 0,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9415,7 +9408,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblareaLS",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9764,7 +9757,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblareavalueLS",
-      "ParentIndex": 8,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10095,7 +10088,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblcontractnoLS",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10416,7 +10409,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblcontractnovalueLS",
-      "ParentIndex": 5,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10752,7 +10745,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblcreatedateLS",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11008,14 +11001,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "Height",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "Height",
         "DisplayMode",
         "ZIndex",
         "LineHeight",
@@ -11085,7 +11071,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblcreatedatevalueLS",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11399,7 +11385,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbldistrictLS",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11728,7 +11714,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbldistrictvalueLS",
-      "ParentIndex": 7,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12372,7 +12358,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblleadstatusLS",
-      "ParentIndex": 8,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12707,7 +12693,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblleadstatusvalueLS",
-      "ParentIndex": 9,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13021,7 +13007,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblmechanicnameLS",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13350,7 +13336,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblmechanicnamevalueLS",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14045,7 +14031,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblqqteamnameLS",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14367,7 +14353,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblqqteamnamvalueLS",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14686,7 +14672,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblregionLS",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15000,7 +14986,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblregionvalueLS",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16006,7 +15992,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "rectinprogressconfirmationLS",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16376,7 +16362,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Timer1",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

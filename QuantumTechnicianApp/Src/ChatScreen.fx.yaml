@@ -70,8 +70,8 @@ ChatScreen As screen:
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
                 OnSelect: |-
-                    =Navigate(SubmittedLeadScreen);
-                    UpdateContext({locInfoExpanded:false})
+                    =If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
+                    UpdateContext({locInfoExpanded:false});
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
@@ -357,7 +357,11 @@ ChatScreen As screen:
                     Height: =If(Parent.Height<Parent.Width,50,70)
                     Icon: =Icon.Send
                     OnSelect: |-
-                        =ForAll(
+                        =
+                        If(IsBlank(TextInput1_2.Text),
+                        //Notify("Please Enter message to send.");
+                             Set (VarNotification,true),
+                        ForAll(
                             Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
                         UpdateIf(
                             LeadChats,
@@ -376,7 +380,7 @@ ChatScreen As screen:
                                         'Read ':false
                                         
                                     }
-                                );
+                                ));
                         Refresh(LeadChats);
                         Reset(TextInput1_2);
                     PaddingBottom: =10
@@ -485,4 +489,73 @@ ChatScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
+
+    PopopMandatorySS_3 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarNotification
+        Width: =Parent.Width
+        ZIndex: =5
+
+        borderPopopErrorUS_4 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        ctnPopopMandatorySS_3 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =borderPopopErrorUS_4.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =borderPopopErrorUS_4.Width
+            X: =borderPopopErrorUS_4.X
+            Y: =borderPopopErrorUS_4.Y
+            ZIndex: =2
+
+            ctnPopopMandatoryImageUS_4 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =If(Parent.Width<500,80,60)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                imgPopopErrorUS_4 As image:
+                    Height: =Parent.Height
+                    Image: =error
+                    PaddingTop: =30
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            lblPopopErrorUS_4 As label:
+                Align: =Align.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: ="Please enter message to send."
+                Width: =Parent.Width
+                ZIndex: =2
+
+            btnPopopErrorUS_4 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Navigate(ChatScreen);
+                    Set(VarNotification,false);
+                Size: =14
+                Text: ="Ok"
+                Width: =Parent.Width/5
+                ZIndex: =3
 
