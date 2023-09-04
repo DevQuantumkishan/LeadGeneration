@@ -119,23 +119,6 @@ LeadListScreen As screen:
                         Width: =200
                         ZIndex: =1
 
-                    cmbxdistrictfilterLS As combobox:
-                        BorderColor: =Header.SHRed
-                        ChevronBackground: =Header.SHRed
-                        ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        DisplayFields: =["cr02d_district"]
-                        InputTextPlaceholder: ="Select District"
-                        Items: =Filter(SHTechnicians, Territory = cmbxregionfilterLS.Selected.Territory)
-                        PressedColor: =RGBA(0, 0, 0, 1)
-                        PressedFill: =RGBA(0, 0, 0, 0)
-                        Reset: =true
-                        SearchFields: =["cr02d_district"]
-                        SearchItems: =Search(Filter(SHTechnicians, Territory = cmbxregionfilterLS.Selected.Territory),cmbxdistrictfilterLS.SearchText,"cr02d_district")
-                        SelectionFill: =Header.SHRed
-                        Visible: =false
-                        Width: =200
-                        ZIndex: =2
-
                     cmbxareafilterLS As combobox:
                         BorderColor: =Header.SHRed
                         ChevronBackground: =Header.SHRed
@@ -159,7 +142,8 @@ LeadListScreen As screen:
                         Height: =100
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
-                        Width: =400
+                        Width: =600
+                        X: =btnbackLS.Width+btnbackLS.X
                         ZIndex: =5
 
                         txtinptsearchLS As text:
@@ -169,9 +153,27 @@ LeadListScreen As screen:
                             HoverBorderColor: =Header.SHRed
                             HoverFill: =RGBA(0, 0, 0, 0)
                             Width: =340
-                            X: =40
+                            X: =cmbxdistrictfilterLS.Width+cmbxdistrictfilterLS.X+10
                             Y: =40
                             ZIndex: =1
+
+                        cmbxdistrictfilterLS As combobox:
+                            BorderColor: =Header.SHRed
+                            ChevronBackground: =Header.SHRed
+                            ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            DisplayFields: =["cr02d_district"]
+                            InputTextPlaceholder: ="Select District"
+                            Items: =SHTechnicians
+                            PressedColor: =RGBA(0, 0, 0, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Reset: =true
+                            SearchFields: =["cr02d_district"]
+                            SearchItems: =Search(SHTechnicians,cmbxdistrictfilterLS.SearchText,"cr02d_district")
+                            SelectionFill: =Header.SHRed
+                            Width: =200
+                            X: =40
+                            Y: =40
+                            ZIndex: =2
 
                     Container7 As groupContainer.manualLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
