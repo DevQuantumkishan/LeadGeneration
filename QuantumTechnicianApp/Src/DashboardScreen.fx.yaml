@@ -238,8 +238,9 @@ DashboardScreen As screen:
                         =//Set(VarStartingYear,Year(First(Filter(LeadInformations,Email=User().Email)).'Created On'));
                     OnUncheck: |-
                         =//for yearly record
+                        If(VarFirstYear<>VarLastYear,
                         Set(yearly,false);
-                        Set(cumulatively,true);
+                        Set(cumulatively,true));
                     ShowLabel: =false
                     Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
                     TextPosition: =TextPosition.Left
