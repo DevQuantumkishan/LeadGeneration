@@ -508,40 +508,13 @@ QuotedSOldLeads As screen:
                             Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
-                        Visible: =If(Header="Rejected",false,true)
+                        Visible: |-
+                            =//If(Header="Rejected",false,true)
+                            false
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextTrackingNumberSLS_2.Y
                         ZIndex: =15
-
-                    Image1_2 As image:
-                        Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
-                        Image: |
-                            =//If(Header="Rejected",'rejected message icon','message icon')
-                        OnSelect: |
-                            =Navigate(ChatScreen);
-                            Set(VarLtdName,ThisItem.'BuildingName ');
-                            Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
-                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
-                            Set(VarLtdID,ThisItem.ID);
-                        Visible: =false
-                        Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
-                        X: =Parent.Width-2.5*(Self.Width)
-                        Y: =htmltextTrackingNumberSLS_2.Y
-                        ZIndex: =16
-
-                    Circle1_7 As circle:
-                        BorderColor: =RGBA(255, 191, 0, 1)
-                        BorderThickness: =1
-                        DisplayMode: =DisplayMode.View
-                        Fill: =RGBA(255, 191, 0, 1)
-                        Height: =15
-                        OnSelect: =Select(Parent)
-                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
-                        Width: =15
-                        X: =iconmsgSLS_2.X+iconmsgSLS_2.Width/1.2
-                        Y: =iconmsgSLS_2.Y+iconmsgSLS_2.Height/3.5
-                        ZIndex: =17
 
                     htmltxtQQTeamMemberSLS_2 As htmlViewer:
                         AutoHeight: =true
@@ -557,7 +530,7 @@ QuotedSOldLeads As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltxtStatusDateSLS_5.Y+htmltxtStatusDateSLS_5.Height
-                        ZIndex: =18
+                        ZIndex: =16
 
                     lblTitleTotalIncentivesSLS_5 As label:
                         Color: =If(btnheaderSLS_2.Text="Quoted Leads",Color.Red,Color.Black)
@@ -581,7 +554,7 @@ QuotedSOldLeads As screen:
                         Width: =Parent.Width/1.06
                         X: =20
                         Y: =lblTotalIncentivesSLS_2.Height+lblTotalIncentivesSLS_2.Y
-                        ZIndex: =19
+                        ZIndex: =17
 
                     lblPriceSLS_5 As label:
                         Font: =Font.Arial
@@ -600,7 +573,7 @@ QuotedSOldLeads As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =lblPriceSLS_4.Height+lblPriceSLS_4.Y
-                        ZIndex: =20
+                        ZIndex: =18
 
                     htmltxtStatusDateSLS_5 As htmlViewer:
                         AutoHeight: =true
@@ -617,6 +590,33 @@ QuotedSOldLeads As screen:
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =htmltxtStatusDateSLS_4.Y+htmltxtStatusDateSLS_4.Height
+                        ZIndex: =19
+
+                    Image2_1 As image:
+                        Height: =If(Parent.Width>1000,Parent.TemplateHeight/1.5,Parent.TemplateHeight/8)
+                        Image: ='mailtripti (1)'
+                        OnSelect: |
+                            =Navigate(ChatScreen);
+                            Set(VarLtdName,ThisItem.'BuildingName ');
+                            Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
+                            Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
+                            Set(VarLtdID,ThisItem.ID);
+                        Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
+                        X: =Parent.Width-2.5*(Self.Width)
+                        Y: =htmltextTrackingNumberSLS_2.Y
+                        ZIndex: =20
+
+                    Circle1_7 As circle:
+                        BorderColor: =RGBA(255, 0, 0, 1)
+                        BorderThickness: =1
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(255, 0, 0, 1)
+                        Height: =15
+                        OnSelect: =Select(Parent)
+                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
+                        Width: =15
+                        X: =iconmsgSLS_2.X+iconmsgSLS_2.Width/1.2
+                        Y: =iconmsgSLS_2.Y+iconmsgSLS_2.Height/3.5
                         ZIndex: =21
 
                 lblTitleYearSLS_2 As label:

@@ -1221,26 +1221,6 @@ EstimateScreen As screen:
                         Y: =lblContactES.Y
                         ZIndex: =4
 
-                    txtphonenumber_1 As text:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
-                        DisplayMode: =Parent.DisplayMode
-                        Font: =Font.Arial
-                        MaxLength: |
-                            =Len(txtPhonenumberformat_1.Text)
-                        OnChange: =Set(varCustomerPhonenumber,true);
-                        PaddingLeft: =5
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Tooltip: =Parent.DisplayName
-                        Visible: =false
-                        Width: =Parent.Width - 100
-                        X: =60
-                        Y: =lblContactES.Y + lblContactES.Height + 5
-                        ZIndex: =5
-
                     tog_phonenumberlength_1 As slider:
                         Default: =Len(txtphonenumber_1.Text)
                         Max: =10
@@ -1276,7 +1256,7 @@ EstimateScreen As screen:
                                                                 CountNumbers: CountRows(
                                                                     MatchAll(
                                                                         varNumberCurrentLength,
-                                                                        "#"
+                                                                        "0"
                                                                     )
                                                                 )
                                                             }
@@ -1312,17 +1292,16 @@ EstimateScreen As screen:
                         Visible: =false
                         X: =44
                         Y: =104
-                        ZIndex: =6
+                        ZIndex: =5
 
                     txtPhonenumberformat_1 As text:
-                        Default: |-
-                            ="(###)-###-####"
+                        Default: ="000-000-0000"
                         Height: =44
                         Visible: =false
                         Width: =708
                         X: =11
                         Y: =169
-                        ZIndex: =7
+                        ZIndex: =6
 
                     lblContactNumber As label:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
@@ -1339,7 +1318,65 @@ EstimateScreen As screen:
                         Width: =IntxtContactNumberES.Width
                         X: =60
                         Y: =IntxtContactNumberES.Y
+                        ZIndex: =7
+
+                    lblCNumber As label:
+                        BorderColor: =Parent.BorderColor
+                        BorderThickness: =1
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =txtContactNumber.Height
+                        PaddingLeft: =12
+                        Size: =14
+                        Text: |-
+                            =If(
+                                IsBlank(txtContactNumber.Text),
+                                "",
+                                Text(
+                                    Value(txtContactNumber.Text),
+                                    "[$-en-US](###) ###-####"
+                                )
+                            )
+                        Visible: =false
+                        Width: =Parent.Width - 100
+                        X: =60
+                        Y: =lblContactES.Y + lblContactES.Height + 5
                         ZIndex: =8
+
+                    txtContactNumber As text:
+                        BorderColor: =Parent.BorderColor
+                        BorderThickness: =1
+                        Color: =RGBA(0, 0, 0, 0)
+                        Default: =formattedNumber
+                        DisabledColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =Font.Arial
+                        Format: =TextFormat.Number
+                        HintText: ="Enter Contact Number"
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =Self.Color
+                        MaxLength: =10
+                        OnChange: |-
+                            =/*Set(
+                                formattedNumber,
+                                Text(
+                                    Value(txtContactNumber.Text),
+                                    "[$-en-US](###) ###-####"
+                                )
+                            )*/
+                        RadiusBottomLeft: =1
+                        RadiusBottomRight: =1
+                        RadiusTopLeft: =1
+                        RadiusTopRight: =1
+                        Size: =14
+                        Visible: =false
+                        Width: =Parent.Width - 100
+                        X: =60
+                        Y: =lblContactES.Y + lblContactES.Height + 5
+                        ZIndex: =9
 
                     IntxtContactNumberES As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
@@ -1353,7 +1390,6 @@ EstimateScreen As screen:
                         DisabledFill: =RGBA(0, 0, 0, 0)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Format: =TextFormat.Number
                         HintText: =If(varCustomerPhonenumber,"","Customer Phone Number *")
                         HoverBorderColor: =Self.BorderColor
                         HoverFill: =RGBA(255, 255, 255, 1)
@@ -1384,59 +1420,23 @@ EstimateScreen As screen:
                         Width: =Parent.Width - 100
                         X: =60
                         Y: =lblContactES.Y + lblContactES.Height + 5
-                        ZIndex: =9
-
-                    lblCNumber As label:
-                        BorderColor: =Parent.BorderColor
-                        BorderThickness: =1
-                        DisabledColor: =RGBA(0, 0, 0, 1)
-                        Fill: =RGBA(255, 255, 255, 1)
-                        Font: =Font.Arial
-                        Height: =txtContactNumber.Height
-                        PaddingLeft: =12
-                        Size: =14
-                        Text: |-
-                            =If(
-                                IsBlank(txtContactNumber.Text),
-                                "",
-                                Text(
-                                    Value(txtContactNumber.Text),
-                                    "[$-en-US](###) ###-####"
-                                )
-                            )
-                        Width: =Parent.Width - 100
-                        X: =60
-                        Y: =lblContactES.Y + lblContactES.Height + 5
                         ZIndex: =10
 
-                    txtContactNumber As text:
-                        BorderColor: =RGBA(0, 0, 0, 1)
-                        BorderThickness: =1
-                        Color: =Parent.BorderColor
-                        Default: =formattedNumber
-                        DisabledColor: =RGBA(0, 0, 0, 0)
-                        DisabledFill: =RGBA(0, 0, 0, 0)
-                        Fill: =RGBA(0, 0, 0, 0)
+                    txtphonenumber_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        Format: =TextFormat.Number
-                        HintText: ="Enter Contact Number"
-                        HoverBorderColor: =RGBA(0, 0, 0, 1)
-                        HoverColor: =RGBA(0, 0, 0, 0)
-                        HoverFill: =RGBA(0, 0, 0, 0)
-                        MaxLength: =10
-                        OnChange: |-
-                            =/*Set(
-                                formattedNumber,
-                                Text(
-                                    Value(txtContactNumber.Text),
-                                    "[$-en-US](###) ###-####"
-                                )
-                            )*/
-                        RadiusBottomLeft: =1
-                        RadiusBottomRight: =1
-                        RadiusTopLeft: =1
-                        RadiusTopRight: =1
-                        Size: =14
+                        HintText: =If(varCustomerPhonenumber,"","Customer Phone Number *")
+                        MaxLength: |
+                            =Len(txtPhonenumberformat_1.Text)
+                        OnChange: =Set(varCustomerPhonenumber,true);
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 100
                         X: =60
                         Y: =lblContactES.Y + lblContactES.Height + 5
