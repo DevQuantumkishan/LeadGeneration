@@ -94,13 +94,13 @@ LeadScreen As screen:
             lblcontractnumberLdS As label:
                 FontWeight: =FontWeight.Semibold
                 Size: =16
-                Text: ="Contract No."
+                Text: ="Lead Tracking No."
                 Width: =200
                 ZIndex: =1
 
             lblcontractnumbervalueLdS As label:
                 Size: =16
-                Text: =glryleadlistLS.Selected.'ContractNumber '
+                Text: =glryleadlistLS.Selected.LeadTrackingNumber
                 Width: =Parent.Width/2
                 ZIndex: =2
 
