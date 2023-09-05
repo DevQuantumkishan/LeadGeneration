@@ -1049,10 +1049,7 @@ DashboardScreen As screen:
                         Set(VarAdditionExpense,false);
                         Set(VarTravel,false);
                         Navigate(CreatLeadScreen);
-                        Set(
-                                VarIndicator,
-                                true
-                            );
+                        Set(VarIndicator,true);
                         
                     PressedBorderColor: =Color.Red
                     RadiusBottomLeft: =6
