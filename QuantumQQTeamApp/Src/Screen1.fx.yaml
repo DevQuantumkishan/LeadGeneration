@@ -1,6 +1,9 @@
 Screen1 As screen:
 
     Container9 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(0, 0, 0, 0.16)
+        BorderThickness: =2
+        Fill: =RGBA(249, 249, 249, 1)
         Height: =Parent.Height
         Width: =Parent.Width
         ZIndex: =1
@@ -22,6 +25,7 @@ Screen1 As screen:
                 ZIndex: =1
 
                 Label12 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Lead Created Date : "
                     Width: =300
@@ -32,15 +36,24 @@ Screen1 As screen:
                     Text: =glryleadlistLS.Selected.'Created On'
                     ZIndex: =2
 
+            icnleadinfoleaddetailsLdS_1 As icon.Add:
+                Color: =RGBA(217, 217, 217, 1)
+                Fill: =RGBA(217, 217, 217, 1)
+                Height: =2
+                Icon: =Icon.HorizontalLine
+                Width: =Parent.Width-20
+                ZIndex: =2
+
             Container11_1 As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
                 Height: =50
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =2
+                ZIndex: =3
 
                 Label12_1 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Lead Status : "
                     Width: =300
@@ -51,15 +64,24 @@ Screen1 As screen:
                     Text: =glryleadlistLS.Selected.LeadStatus
                     ZIndex: =2
 
+            icnleadinfoleaddetailsLdS_2 As icon.Add:
+                Color: =RGBA(217, 217, 217, 1)
+                Fill: =RGBA(217, 217, 217, 1)
+                Height: =2
+                Icon: =Icon.HorizontalLine
+                Width: =Parent.Width-20
+                ZIndex: =4
+
             Container11_2 As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
                 Height: =50
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =3
+                ZIndex: =5
 
                 Label12_2 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Lead Status Date : "
                     Width: =300
@@ -70,15 +92,24 @@ Screen1 As screen:
                     Text: =glryleadlistLS.Selected.StatusDate
                     ZIndex: =2
 
+            icnleadinfoleaddetailsLdS_3 As icon.Add:
+                Color: =RGBA(217, 217, 217, 1)
+                Fill: =RGBA(217, 217, 217, 1)
+                Height: =2
+                Icon: =Icon.HorizontalLine
+                Width: =Parent.Width-20
+                ZIndex: =6
+
             Container11_3 As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
                 Height: =50
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =4
+                ZIndex: =7
 
                 Label12_3 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Contract No. : "
                     Width: =300
@@ -89,15 +120,24 @@ Screen1 As screen:
                     Text: =glryleadlistLS.Selected.'ContractNumber '
                     ZIndex: =2
 
+            icnleadinfoleaddetailsLdS_4 As icon.Add:
+                Color: =RGBA(217, 217, 217, 1)
+                Fill: =RGBA(217, 217, 217, 1)
+                Height: =2
+                Icon: =Icon.HorizontalLine
+                Width: =Parent.Width-20
+                ZIndex: =8
+
             Container11_4 As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
                 Height: =50
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =5
+                ZIndex: =9
 
                 Label12_4 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Building Name : "
                     Width: =300
@@ -108,15 +148,24 @@ Screen1 As screen:
                     Text: =glryleadlistLS.Selected.'BuildingName '
                     ZIndex: =2
 
+            icnleadinfoleaddetailsLdS_5 As icon.Add:
+                Color: =RGBA(217, 217, 217, 1)
+                Fill: =RGBA(217, 217, 217, 1)
+                Height: =2
+                Icon: =Icon.HorizontalLine
+                Width: =Parent.Width-20
+                ZIndex: =10
+
             Container11_5 As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
                 Height: =50
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =6
+                ZIndex: =11
 
                 Label12_5 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Address : "
                     Width: =300
@@ -133,9 +182,10 @@ Screen1 As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =7
+                ZIndex: =12
 
                 Label12_6 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Zip code : "
                     Width: =300
@@ -152,9 +202,10 @@ Screen1 As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =8
+                ZIndex: =13
 
                 Label12_7 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="No. of Unit : "
                     Width: =300
@@ -171,9 +222,10 @@ Screen1 As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =9
+                ZIndex: =14
 
                 Label12_8 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Unit Description : "
                     Width: =300
@@ -190,9 +242,10 @@ Screen1 As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =10
+                ZIndex: =15
 
                 Label12_9 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Primary Scope : "
                     Width: =300
@@ -209,9 +262,10 @@ Screen1 As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =11
+                ZIndex: =16
 
                 Label12_10 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Secondary Scope : "
                     Width: =300
@@ -228,9 +282,10 @@ Screen1 As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =12
+                ZIndex: =17
 
                 Label12_11 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Custom Scope : "
                     Width: =300
@@ -247,9 +302,10 @@ Screen1 As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =13
+                ZIndex: =18
 
                 Label12_12 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Estimated Hours : "
                     Width: =300
@@ -266,9 +322,10 @@ Screen1 As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =14
+                ZIndex: =19
 
                 Label12_13 As label:
+                    FontWeight: =FontWeight.Bold
                     Text: |-
                         ="Material,Part Number & Other things : "
                     Width: =300
