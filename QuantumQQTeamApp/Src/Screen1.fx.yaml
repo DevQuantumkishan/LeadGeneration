@@ -12,3 +12,21 @@ Screen1 As screen:
             Width: =Parent.Width
             ZIndex: =1
 
+            Container11 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label12 As label:
+                    Text: |-
+                        ="Lead Created Date : "
+                    Width: =300
+                    ZIndex: =1
+
+                Label13 As label:
+                    FillPortions: =1
+                    Text: ="Text"
+                    ZIndex: =2
+
