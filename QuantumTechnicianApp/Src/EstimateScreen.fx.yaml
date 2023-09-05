@@ -1421,9 +1421,11 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         HintText: =If(varCustomerPhonenumber,"","Customer Phone Number *")
+                        HoverBorderColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: |
                             =Len(txtPhonenumberformat_1.Text)
-                        OnChange: =Set(varCustomerPhonenumber,true);
+                        OnChange: =Set(varCustomerPhonenumber,true);If(Len(txtphonenumber_1.Text)=14,Set(varContactNumber,true);Set(VarPhonenumbererrormessage,false);,If(!IsBlank(txtphonenumber_1.Text) && Len(txtphonenumber_1.Text)<>14,Set(VarPhonenumbererrormessage,true);Set(varContactNumber,false);));
                         OnSelect: |-
                             =Set(varCustomerPhonenumber,true);
                             If(varContactNumber=true,Set(varContactNumber,true));
@@ -1479,7 +1481,7 @@ EstimateScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |-
-                        =If(IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactNumberES))|| If(CboxCommunicatedtoCustomer.Value=true, IsBlank(lblContactNumber) &&  Len(IntxtContactNumberES.Text)<>10 )|| If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
+                        =If(IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )|| If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
                         Set(VarNotification,true),
                         Set(VarIndicator, true );
                         Set(VarIndicatorUS, true );
