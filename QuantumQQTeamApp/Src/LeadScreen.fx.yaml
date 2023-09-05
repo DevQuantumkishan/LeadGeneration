@@ -268,7 +268,8 @@ LeadScreen As screen:
                     HoverColor: =//RGBA(255, 255, 255, 1)
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                     OnSelect: |-
-                        =Set(VarLeadDetails,false);
+                        =Refresh(LeadChats);
+                        Set(VarLeadDetails,false);
                         Set(VarLeadProposal,false);
                         Set(VarLeadMessages,true);
                         ForAll(Filter(glrychatmessageLdS.AllItems,LeadInformationLID.ID=glryleadlistLS.Selected.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No) As i,
@@ -2238,7 +2239,7 @@ LeadScreen As screen:
         Duration: =3000
         OnTimerEnd: =Refresh(LeadChats);
         Repeat: =true
-        Start: =VarLeadMessages
+        Start: =//VarLeadMessages
         Visible: =false
         X: =40
         Y: =40
