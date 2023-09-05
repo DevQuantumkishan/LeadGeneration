@@ -339,7 +339,7 @@ LeadScreen As screen:
         ctnglrymainLdS As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
-            Height: =Parent.Height+100
+            Height: =Parent.Height+500
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             Width: =Parent.Width
@@ -1489,12 +1489,13 @@ LeadScreen As screen:
                         Label12 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Lead Created Date "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13 As label:
                             FillPortions: =1
-                            Text: =glryleadlistLS.Selected.'Created On'
+                            Text: |-
+                                =Text(glryleadlistLS.Selected.'Created On',"yyyy/mm/dd hh:mm AM/PM")
                             ZIndex: =2
 
                     icnleadinfoleaddetailsLdS_1 As icon.Add:
@@ -1516,7 +1517,7 @@ LeadScreen As screen:
                         Label12_1 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Lead Status "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_1 As label:
@@ -1543,12 +1544,13 @@ LeadScreen As screen:
                         Label12_2 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Lead Status Date "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_2 As label:
                             FillPortions: =1
-                            Text: =glryleadlistLS.Selected.StatusDate
+                            Text: |-
+                                =Text(glryleadlistLS.Selected.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
                             ZIndex: =2
 
                     icnleadinfoleaddetailsLdS_3 As icon.Add:
@@ -1570,7 +1572,7 @@ LeadScreen As screen:
                         Label12_3 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Contract No. "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_3 As label:
@@ -1597,7 +1599,7 @@ LeadScreen As screen:
                         Label12_4 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Building Name "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_4 As label:
@@ -1624,7 +1626,7 @@ LeadScreen As screen:
                         Label12_5 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Address "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_5 As label:
@@ -1651,7 +1653,7 @@ LeadScreen As screen:
                         Label12_6 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Zip code "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_6 As label:
@@ -1678,7 +1680,7 @@ LeadScreen As screen:
                         Label12_7 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="No. of Unit "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_7 As label:
@@ -1705,10 +1707,11 @@ LeadScreen As screen:
                         Label12_8 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Unit Description "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_8 As label:
+                            AutoHeight: =true
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.UnitDescription
                             ZIndex: =2
@@ -1732,7 +1735,7 @@ LeadScreen As screen:
                         Label12_9 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Primary Scope "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_9 As label:
@@ -1759,7 +1762,7 @@ LeadScreen As screen:
                         Label12_10 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Secondary Scope "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_10 As label:
@@ -1786,10 +1789,11 @@ LeadScreen As screen:
                         Label12_11 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Custom Scope "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_11 As label:
+                            AutoHeight: =true
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.CustomScopeofWork
                             ZIndex: =2
@@ -1813,7 +1817,7 @@ LeadScreen As screen:
                         Label12_12 As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Estimated Hours "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_12 As label:
@@ -1831,7 +1835,7 @@ LeadScreen As screen:
 
                     Container11_13 As groupContainer.horizontalAutoLayoutContainer:
                         FillPortions: =0
-                        Height: =50
+                        Height: =70
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
@@ -1839,11 +1843,13 @@ LeadScreen As screen:
 
                         Label12_13 As label:
                             FontWeight: =FontWeight.Bold
+                            Height: =70
                             Text: ="Material,Part Number & Other things "
-                            Width: =300
+                            Width: =200
                             ZIndex: =1
 
                         Label13_13 As label:
+                            AutoHeight: =true
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.Notes
                             ZIndex: =2
@@ -1855,6 +1861,157 @@ LeadScreen As screen:
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
                         ZIndex: =28
+
+                    Container13 As groupContainer.horizontalAutoLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =31
+
+                        Container12 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.Start
+                            FillPortions: =0
+                            Height: =600
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            ZIndex: =1
+
+                            chbxunitdownLdS_1 As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Unit Down"
+                                Visible: =If(glryleadlistLS.Selected.IsUnitDown= 'IsUnitDown (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                            chbxadditionalexpensesLdS_1 As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Additional expenses required"
+                                Visible: =If(glryleadlistLS.Selected.AdditionalExpensesRequired= 'AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =2
+
+                            Label18 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Text: ="Total estimated expense"
+                                Visible: =If(glryleadlistLS.Selected.AdditionalExpensesRequired= 'AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
+                                Width: =300
+                                ZIndex: =3
+
+                            Label14 As label:
+                                Text: =glryleadlistLS.Selected.TotalEstimatedExpense
+                                Visible: =If(glryleadlistLS.Selected.AdditionalExpensesRequired= 'AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =4
+
+                            chbxtravelrequiredLdS_1 As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Travel Required"
+                                Visible: =If(glryleadlistLS.Selected.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =5
+
+                            Label19 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Text: ="Total estimated hours of travel"
+                                Visible: =If(glryleadlistLS.Selected.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
+                                Width: =300
+                                ZIndex: =6
+
+                            Label15 As label:
+                                Text: =glryleadlistLS.Selected.TotalEstimatedHoursofTravel
+                                Visible: =If(glryleadlistLS.Selected.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
+                                ZIndex: =7
+
+                            chbxcommunucationLdS_1 As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Communicated to Customer"
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =8
+
+                            Label20 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Text: ="Customer name"
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                Width: =300
+                                ZIndex: =9
+
+                            Label16 As label:
+                                Text: =glryleadlistLS.Selected.'CustomerName '
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                ZIndex: =10
+
+                            Label21 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Text: ="Customer contact"
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                Width: =300
+                                ZIndex: =11
+
+                            Label17 As label:
+                                Text: =glryleadlistLS.Selected.'CustomerContact '
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                ZIndex: =12
+
+                        ctnphotoglryLdS_1 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =2
+                            Height: =lblphotosLdS_1.Height+glryphotosLdS_1.Height+20
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =10
+                            ZIndex: =2
+
+                            lblphotosLdS_1 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: =50
+                                Text: ="Photos "
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                            "glryphotosLdS_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageOverlayVariant_ver4.0'":
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                FillPortions: =0
+                                Height: =230
+                                Items: =Filter(LeadImages,LeadInformationLID.ID=glryleadlistLS.Selected.ID)
+                                LayoutMinHeight: =287
+                                LayoutMinWidth: =320
+                                TemplatePadding: =0
+                                TemplateSize: =Min(440, Self.Height - 60)
+                                Width: =Parent.Width-40
+                                ZIndex: =2
+
+                                imgglryphotosLdS_1 As image:
+                                    BorderColor: =RGBA(26, 26, 26, 1)
+                                    BorderThickness: =2
+                                    Height: =Parent.TemplateHeight -10
+                                    Image: =ThisItem.Images
+                                    OnSelect: |-
+                                        =UpdateContext({MyBigPic: ThisItem.Images.Full});UpdateContext({MyBigPicShow:true})
+                                    Width: =Parent.TemplateWidth -10
+                                    X: =5
+                                    Y: =5
+                                    ZIndex: =1
 
         ctn As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
