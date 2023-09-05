@@ -1161,7 +1161,7 @@ EstimateScreen As screen:
                     Required: =false
                     Update: =IntxtContactNumberES.Text
                     Visible: =VarCommunication
-                    Width: =719
+                    Width: =Parent.Width
                     X: =0
                     Y: =9
                     ZIndex: =1
@@ -1295,7 +1295,7 @@ EstimateScreen As screen:
                         ZIndex: =5
 
                     txtPhonenumberformat_1 As text:
-                        Default: ="000-000-0000"
+                        Default: ="(000)-000-0000"
                         Height: =44
                         Visible: =false
                         Width: =708
@@ -1313,7 +1313,7 @@ EstimateScreen As screen:
                         Height: =IntxtContactNumberES.Height
                         OnSelect: =//Set(varContactNumber,false);
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: =formattedNumber
+                        Text: =//formattedNumber
                         Visible: =false
                         Width: =IntxtContactNumberES.Width
                         X: =60
@@ -1348,7 +1348,7 @@ EstimateScreen As screen:
                         BorderColor: =Parent.BorderColor
                         BorderThickness: =1
                         Color: =RGBA(0, 0, 0, 0)
-                        Default: =formattedNumber
+                        Default: =//formattedNumber
                         DisabledColor: =RGBA(0, 0, 0, 0)
                         DisabledFill: =RGBA(0, 0, 0, 0)
                         Fill: =RGBA(0, 0, 0, 0)
@@ -1384,7 +1384,7 @@ EstimateScreen As screen:
                         Color: =RGBA(255, 255, 255, 1)
                         ContentLanguage: |-
                             =//Text(Self.Text, "[$-en-US](###) ###-####")
-                        Default: =formattedNumber
+                        Default: =//formattedNumber
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(202, 202, 202, 1)
                         DisabledFill: =RGBA(0, 0, 0, 0)
@@ -1394,17 +1394,10 @@ EstimateScreen As screen:
                         HoverBorderColor: =Self.BorderColor
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =//Len(txtPhoneNumberFormatES.Text)
-                        OnChange: |-
+                        OnChange: |
                             =/*If(Len(IntxtContactNumberES.Text)<=10, Set(VarformattedNumberSummary, Text(Value(IntxtContactNumberES.Text), "[$-en-US](###) ###-####"));Set(varContactNumber, true);Set(VarPhonenumbererrormessage, false);, If(!IsBlank(IntxtContactNumberES.Text) && Len(IntxtContactNumberES.Text)<>10, Set(VarPhonenumbererrormessage, true); Set(varContactNumber, false)));
                             Set(varCustomerPhonenumber,true);
                             */
-                            Set(
-                                formattedNumber,
-                                Text(
-                                    Value(IntxtContactNumberES.Text),
-                                    "[$-en-US](###) ###-####"
-                                )
-                            )
                         OnSelect: |-
                             =/*Set(varCustomerPhonenumber,true);
                             If(varContactNumber=true,Set(varContactNumber,true));*/
@@ -1431,6 +1424,9 @@ EstimateScreen As screen:
                         MaxLength: |
                             =Len(txtPhonenumberformat_1.Text)
                         OnChange: =Set(varCustomerPhonenumber,true);
+                        OnSelect: |-
+                            =Set(varCustomerPhonenumber,true);
+                            If(varContactNumber=true,Set(varContactNumber,true));
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
