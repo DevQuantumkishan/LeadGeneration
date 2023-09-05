@@ -304,8 +304,9 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
-                        Visible: |
-                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))=0,false,true)
+                        Visible: |-
+                            =//If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))=0,false,true)
+                            false
                         Width: =13
                         X: =Parent.Width/1.2
                         Y: =Parent.Height/8
@@ -409,6 +410,16 @@ DashboardScreen As screen:
                             Y: =0.07304526748976059
                             ZIndex: =4
 
+                    Image1 As image:
+                        DisplayMode: =DisplayMode.View
+                        Height: =25
+                        Image: =email
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))=0,false,true)
+                        Width: =25
+                        X: =Parent.Width/1.2
+                        Y: =Parent.Height/8
+                        ZIndex: =6
+
                 ctnInprogressLeadsDS As groupContainer.manualLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
@@ -430,7 +441,8 @@ DashboardScreen As screen:
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
                         Visible: |
-                            =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="InProgress"))=0,false,true)
+                            =//If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="InProgress"))=0,false,true)
+                            false
                         Width: =13
                         X: =Parent.Width/1.2
                         Y: =Parent.Height/8
@@ -532,6 +544,16 @@ DashboardScreen As screen:
                             X: =
                             ZIndex: =4
 
+                    Image1_1 As image:
+                        DisplayMode: =DisplayMode.View
+                        Height: =25
+                        Image: =email
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="InProgress"))=0,false,true)
+                        Width: =25
+                        X: =Parent.Width/1.2
+                        Y: =Parent.Height/8
+                        ZIndex: =6
+
                 ctnRejectedLeadsDS As groupContainer.manualLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
@@ -545,20 +567,6 @@ DashboardScreen As screen:
                     LayoutMinWidth: =250
                     Width: =Parent.Width/3.35
                     ZIndex: =3
-
-                    Circle1_4 As circle:
-                        BorderColor: =RGBA(255, 191, 0, 1)
-                        BorderThickness: =1
-                        DisplayMode: =DisplayMode.View
-                        Fill: =RGBA(255, 191, 0, 1)
-                        Height: =13
-                        Visible: |-
-                            =//If(CountRows(Filter(LeadChats,FromEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,true,false)
-                            false
-                        Width: =13
-                        X: =Parent.Width/1.2
-                        Y: =Parent.Height/8
-                        ZIndex: =8
 
                     grpInRejectedLeadsDS As group:
                         Height: =5
@@ -694,7 +702,9 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
-                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))=0,false,true)
+                        Visible: |-
+                            =//If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))=0,false,true)
+                            false
                         Width: =13
                         X: =ctnQuatedLeadsDS.Width/1.2
                         Y: =Parent.Height/8
@@ -814,6 +824,16 @@ DashboardScreen As screen:
                             X: =
                             ZIndex: =4
 
+                    Image1_3 As image:
+                        DisplayMode: =DisplayMode.View
+                        Height: =25
+                        Image: =email
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))=0,false,true)
+                        Width: =25
+                        X: =Parent.Width/1.2
+                        Y: =Parent.Height/8
+                        ZIndex: =6
+
                 ctnSoldLeadsDS As groupContainer.manualLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(116, 116, 116, 1)
@@ -833,7 +853,9 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(255, 191, 0, 1)
                         Height: =13
-                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
+                        Visible: |-
+                            =//If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
+                            false
                         Width: =13
                         X: =ctnQuatedLeadsDS.Width/1.2
                         Y: =Parent.Height/8
@@ -959,6 +981,16 @@ DashboardScreen As screen:
                             Width: =Parent.Width
                             X: =
                             ZIndex: =4
+
+                    Image1_4 As image:
+                        DisplayMode: =DisplayMode.View
+                        Height: =25
+                        Image: =email
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
+                        Width: =25
+                        X: =Parent.Width/1.2
+                        Y: =Parent.Height/8
+                        ZIndex: =6
 
             ctnCreateLeadDS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
