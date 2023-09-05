@@ -1986,6 +1986,7 @@ LeadScreen As screen:
                                 FontWeight: =FontWeight.Bold
                                 Height: =50
                                 Text: ="Photos "
+                                Visible: =If(CountRows(Filter(LeadImages,LeadInformationLID.ID=glryleadlistLS.Selected.ID))>0,true,false)
                                 Width: =Parent.Width
                                 ZIndex: =1
 
