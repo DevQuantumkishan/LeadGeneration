@@ -193,7 +193,7 @@ DashboardScreen As screen:
                      // if blank = current year
                     // If(Min(GCTotalIncentives,Year)=Max(GCTotalIncentives,Year),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),Min(GCTotalIncentives,Year)<>Max(GCTotalIncentives,Year),Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year) ,Year(Now()))
                     //If(cumulatively=true,Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year),yearly=true,Min(GCTotalIncentives,Year) ,Year(Now()))
-                    If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,VarCurrentYear,If(cumulatively=true,VarFirstYear & " - " & VarLastYear,yearly=true,VarFirstYear ))
+                    If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,VarCurrentYear,If(cumulatively=true && VarFirstYear <>VarLastYear,VarFirstYear & " - " & VarLastYear,yearly=true,VarFirstYear, VarFirstYear))
                 Width: =Parent.Width/2.8
                 X: =lblUserNameDS.X+lblUserNameDS.Width
                 ZIndex: =6
