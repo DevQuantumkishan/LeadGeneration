@@ -1417,12 +1417,15 @@ EstimateScreen As screen:
 
                     txtphonenumber_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =1
                         Default: =Parent.Default
+                        DisabledBorderColor: =RGBA(202, 202, 202, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         HintText: =If(varCustomerPhonenumber,"","Customer Phone Number *")
-                        HoverBorderColor: =RGBA(0, 0, 0, 1)
-                        HoverFill: =RGBA(0, 0, 0, 0)
+                        HoverBorderColor: =RGBA(202, 202, 202, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: |
                             =Len(txtPhonenumberformat_1.Text)
                         OnChange: =Set(varCustomerPhonenumber,true);If(Len(txtphonenumber_1.Text)=14,Set(varContactNumber,true);Set(VarPhonenumbererrormessage,false);,If(!IsBlank(txtphonenumber_1.Text) && Len(txtphonenumber_1.Text)<>14,Set(VarPhonenumbererrormessage,true);Set(varContactNumber,false);));
@@ -1434,6 +1437,7 @@ EstimateScreen As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 100
                         X: =60
