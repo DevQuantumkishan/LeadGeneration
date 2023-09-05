@@ -517,7 +517,7 @@ QuotedSOldLeads As screen:
                     Image1_2 As image:
                         Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
                         Image: |
-                            =If(Header="Rejected",'rejected message icon','message icon')
+                            =//If(Header="Rejected",'rejected message icon','message icon')
                         OnSelect: |
                             =Navigate(ChatScreen);
                             Set(VarLtdName,ThisItem.'BuildingName ');
