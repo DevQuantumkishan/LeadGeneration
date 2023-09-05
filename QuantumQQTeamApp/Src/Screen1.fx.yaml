@@ -9,6 +9,7 @@ Screen1 As screen:
             Height: =Parent.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
             Width: =Parent.Width
             ZIndex: =1
 
@@ -47,7 +48,7 @@ Screen1 As screen:
 
                 Label13_1 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.LeadStatus
                     ZIndex: =2
 
             Container11_2 As groupContainer.horizontalAutoLayoutContainer:
@@ -66,7 +67,7 @@ Screen1 As screen:
 
                 Label13_2 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.StatusDate
                     ZIndex: =2
 
             Container11_3 As groupContainer.horizontalAutoLayoutContainer:
@@ -85,7 +86,7 @@ Screen1 As screen:
 
                 Label13_3 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.'ContractNumber '
                     ZIndex: =2
 
             Container11_4 As groupContainer.horizontalAutoLayoutContainer:
@@ -104,7 +105,7 @@ Screen1 As screen:
 
                 Label13_4 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.'BuildingName '
                     ZIndex: =2
 
             Container11_5 As groupContainer.horizontalAutoLayoutContainer:
@@ -123,7 +124,7 @@ Screen1 As screen:
 
                 Label13_5 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.Address
                     ZIndex: =2
 
             Container11_6 As groupContainer.horizontalAutoLayoutContainer:
@@ -142,7 +143,7 @@ Screen1 As screen:
 
                 Label13_6 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.'ZipCode '
                     ZIndex: =2
 
             Container11_7 As groupContainer.horizontalAutoLayoutContainer:
@@ -161,7 +162,7 @@ Screen1 As screen:
 
                 Label13_7 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.NumberofUnits
                     ZIndex: =2
 
             Container11_8 As groupContainer.horizontalAutoLayoutContainer:
@@ -180,7 +181,7 @@ Screen1 As screen:
 
                 Label13_8 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.UnitDescription
                     ZIndex: =2
 
             Container11_9 As groupContainer.horizontalAutoLayoutContainer:
@@ -199,7 +200,7 @@ Screen1 As screen:
 
                 Label13_9 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '
                     ZIndex: =2
 
             Container11_10 As groupContainer.horizontalAutoLayoutContainer:
@@ -218,7 +219,7 @@ Screen1 As screen:
 
                 Label13_10 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.SecondaryScopeofWorkLID.'SecondaryScopeofWorkName '
                     ZIndex: =2
 
             Container11_11 As groupContainer.horizontalAutoLayoutContainer:
@@ -237,7 +238,7 @@ Screen1 As screen:
 
                 Label13_11 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.CustomScopeofWork
                     ZIndex: =2
 
             Container11_12 As groupContainer.horizontalAutoLayoutContainer:
@@ -256,7 +257,7 @@ Screen1 As screen:
 
                 Label13_12 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.'EstimatedHours '
                     ZIndex: =2
 
             Container11_13 As groupContainer.horizontalAutoLayoutContainer:
@@ -275,6 +276,6 @@ Screen1 As screen:
 
                 Label13_13 As label:
                     FillPortions: =1
-                    Text: ="Text"
+                    Text: =glryleadlistLS.Selected.Notes
                     ZIndex: =2
 
