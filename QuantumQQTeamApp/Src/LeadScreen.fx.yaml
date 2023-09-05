@@ -94,13 +94,13 @@ LeadScreen As screen:
             lblcontractnumberLdS As label:
                 FontWeight: =FontWeight.Semibold
                 Size: =16
-                Text: ="Contract No."
+                Text: ="Lead Tracking No."
                 Width: =200
                 ZIndex: =1
 
             lblcontractnumbervalueLdS As label:
                 Size: =16
-                Text: =glryleadlistLS.Selected.'ContractNumber '
+                Text: =glryleadlistLS.Selected.LeadTrackingNumber
                 Width: =Parent.Width/2
                 ZIndex: =2
 
@@ -339,7 +339,7 @@ LeadScreen As screen:
         ctnglrymainLdS As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
-            Height: =Parent.Height+100
+            Height: =Parent.Height+500
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             Width: =Parent.Width
@@ -507,7 +507,7 @@ LeadScreen As screen:
                 BorderThickness: =2
                 Fill: =RGBA(249, 249, 249, 1)
                 Height: =Parent.Height+100
-                Visible: =VarLeadDetails
+                Visible: =//VarLeadDetails
                 Width: =Parent.Width-40
                 X: =20
                 ZIndex: =3
@@ -1459,6 +1459,559 @@ LeadScreen As screen:
                     X: =410
                     Y: =txitnptrejectLdS_1.Height+txitnptrejectLdS_1.Y+40
                     ZIndex: =8
+
+            Container9 As groupContainer.manualLayoutContainer:
+                BorderColor: =RGBA(0, 0, 0, 0.16)
+                BorderThickness: =2
+                Fill: =RGBA(249, 249, 249, 1)
+                Height: =Parent.Height
+                Visible: =VarLeadDetails
+                Width: =Parent.Width-40
+                X: =20
+                ZIndex: =5
+
+                Container10 As groupContainer.verticalAutoLayoutContainer:
+                    Height: =Parent.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowY: =LayoutOverflow.Scroll
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    Container11 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =1
+
+                        Label12 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Lead Created Date "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13 As label:
+                            FillPortions: =1
+                            Text: |-
+                                =Text(glryleadlistLS.Selected.'Created On',"yyyy/mm/dd hh:mm AM/PM")
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_1 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =2
+
+                    Container11_1 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =3
+
+                        Label12_1 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Lead Status "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_1 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.LeadStatus
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_2 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =4
+
+                    Container11_2 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =5
+
+                        Label12_2 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Lead Status Date "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_2 As label:
+                            FillPortions: =1
+                            Text: |-
+                                =Text(glryleadlistLS.Selected.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_3 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =6
+
+                    Container11_3 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =7
+
+                        Label12_3 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Contract No. "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_3 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.'ContractNumber '
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_4 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =8
+
+                    Container11_4 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =9
+
+                        Label12_4 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Building Name "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_4 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.'BuildingName '
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_5 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =10
+
+                    Container11_5 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =11
+
+                        Label12_5 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Address "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_5 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.Address
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_6 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =12
+
+                    Container11_6 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =13
+
+                        Label12_6 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Zip code "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_6 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.'ZipCode '
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_7 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =14
+
+                    Container11_7 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =15
+
+                        Label12_7 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="No. of Unit "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_7 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.NumberofUnits
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_8 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =16
+
+                    Container11_8 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =17
+
+                        Label12_8 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Unit Description "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_8 As label:
+                            AutoHeight: =true
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.UnitDescription
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_9 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =18
+
+                    Container11_9 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =19
+
+                        Label12_9 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Primary Scope "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_9 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_10 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =20
+
+                    Container11_10 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =21
+
+                        Label12_10 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Secondary Scope "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_10 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.SecondaryScopeofWorkLID.'SecondaryScopeofWorkName '
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_11 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =22
+
+                    Container11_11 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =23
+
+                        Label12_11 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Custom Scope "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_11 As label:
+                            AutoHeight: =true
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.CustomScopeofWork
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_12 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =24
+
+                    Container11_12 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =25
+
+                        Label12_12 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Estimated Hours "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_12 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.'EstimatedHours '
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_13 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =26
+
+                    Container11_13 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =70
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =27
+
+                        Label12_13 As label:
+                            FontWeight: =FontWeight.Bold
+                            Height: =70
+                            Text: ="Material,Part Number & Other things "
+                            Width: =200
+                            ZIndex: =1
+
+                        Label13_13 As label:
+                            AutoHeight: =true
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.Notes
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_14 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =28
+
+                    Container13 As groupContainer.horizontalAutoLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =31
+
+                        Container12 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.Start
+                            FillPortions: =0
+                            Height: =600
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            ZIndex: =1
+
+                            chbxunitdownLdS_1 As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Unit Down"
+                                Visible: =If(glryleadlistLS.Selected.IsUnitDown= 'IsUnitDown (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                            chbxadditionalexpensesLdS_1 As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Additional expenses required"
+                                Visible: =If(glryleadlistLS.Selected.AdditionalExpensesRequired= 'AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =2
+
+                            Label18 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Text: ="Total estimated expense"
+                                Visible: =If(glryleadlistLS.Selected.AdditionalExpensesRequired= 'AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
+                                Width: =300
+                                ZIndex: =3
+
+                            Label14 As label:
+                                Text: =glryleadlistLS.Selected.TotalEstimatedExpense
+                                Visible: =If(glryleadlistLS.Selected.AdditionalExpensesRequired= 'AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =4
+
+                            chbxtravelrequiredLdS_1 As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Travel Required"
+                                Visible: =If(glryleadlistLS.Selected.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =5
+
+                            Label19 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Text: ="Total estimated hours of travel"
+                                Visible: =If(glryleadlistLS.Selected.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
+                                Width: =300
+                                ZIndex: =6
+
+                            Label15 As label:
+                                Text: =glryleadlistLS.Selected.TotalEstimatedHoursofTravel
+                                Visible: =If(glryleadlistLS.Selected.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
+                                ZIndex: =7
+
+                            chbxcommunucationLdS_1 As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Communicated to Customer"
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =8
+
+                            Label20 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Text: ="Customer name"
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                Width: =300
+                                ZIndex: =9
+
+                            Label16 As label:
+                                Text: =glryleadlistLS.Selected.'CustomerName '
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                ZIndex: =10
+
+                            Label21 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Text: ="Customer contact"
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                Width: =300
+                                ZIndex: =11
+
+                            Label17 As label:
+                                Text: =glryleadlistLS.Selected.'CustomerContact '
+                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
+                                ZIndex: =12
+
+                        ctnphotoglryLdS_1 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =2
+                            Height: =lblphotosLdS_1.Height+glryphotosLdS_1.Height+20
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =10
+                            ZIndex: =2
+
+                            lblphotosLdS_1 As label:
+                                FontWeight: =FontWeight.Bold
+                                Height: =50
+                                Text: ="Photos "
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                            "glryphotosLdS_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageOverlayVariant_ver4.0'":
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                FillPortions: =0
+                                Height: =230
+                                Items: =Filter(LeadImages,LeadInformationLID.ID=glryleadlistLS.Selected.ID)
+                                LayoutMinHeight: =287
+                                LayoutMinWidth: =320
+                                TemplatePadding: =0
+                                TemplateSize: =Min(440, Self.Height - 60)
+                                Width: =Parent.Width-40
+                                ZIndex: =2
+
+                                imgglryphotosLdS_1 As image:
+                                    BorderColor: =RGBA(26, 26, 26, 1)
+                                    BorderThickness: =2
+                                    Height: =Parent.TemplateHeight -10
+                                    Image: =ThisItem.Images
+                                    OnSelect: |-
+                                        =UpdateContext({MyBigPic: ThisItem.Images.Full});UpdateContext({MyBigPicShow:true})
+                                    Width: =Parent.TemplateWidth -10
+                                    X: =5
+                                    Y: =5
+                                    ZIndex: =1
 
         ctn As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
