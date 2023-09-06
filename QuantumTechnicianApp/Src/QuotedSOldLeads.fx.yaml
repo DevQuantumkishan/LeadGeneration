@@ -595,12 +595,13 @@ QuotedSOldLeads As screen:
                     Image2_1 As image:
                         Height: =If(Parent.Width>1000,Parent.TemplateHeight/1.5,Parent.TemplateHeight/8)
                         Image: ='mailtripti (1)'
-                        OnSelect: |
+                        OnSelect: |-
                             =Navigate(ChatScreen);
                             Set(VarLtdName,ThisItem.'BuildingName ');
                             Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
+                            Set(VarLeadstatus,ThisItem.LeadStatus);
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextTrackingNumberSLS_2.Y

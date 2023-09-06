@@ -254,7 +254,9 @@ SubmittedLeadScreen As screen:
                     FontWeight: =FontWeight.Semibold
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Sort by column"
-                    Width: =If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
+                    Width: |-
+                        =//If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
+                        Parent.Width-ComboBox1.Width-Icon1.Width-50
                     X: =Parent.Width-Self.Width
                     Y: =10
                     ZIndex: =1
@@ -555,12 +557,14 @@ SubmittedLeadScreen As screen:
                 Image2 As image:
                     Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
                     Image: ='mailtripti (1)'
-                    OnSelect: |
+                    OnSelect: |+
                         =Navigate(ChatScreen);
                         Set(VarLtdName,ThisItem.'BuildingName ');
                         Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                         Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                         Set(VarLtdID,ThisItem.ID);
+                        Set(VarLeadstatus,ThisItem.LeadStatus);
+                        
                     Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                     X: =Parent.Width-2.5*(Self.Width)
                     Y: =htmltextTrackingNumberSLS.Y
