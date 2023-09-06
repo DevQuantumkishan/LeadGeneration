@@ -300,7 +300,7 @@ QuotedSOldLeads As screen:
                                       VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
                                       VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
                             //If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
-                            "Sold incentive: $" & ThisItem.SoldLeadIncentives
+                            "Sold incentive: $" & Text(ThisItem.SoldLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS_2.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
@@ -548,7 +548,7 @@ QuotedSOldLeads As screen:
                                       VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
                                       VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
                             //If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
-                            "Quoted incentive: $" & ThisItem.ProposedLeadIncentives
+                            "Quoted incentive: $" & Text(ThisItem.ProposedLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.06
@@ -709,7 +709,7 @@ QuotedSOldLeads As screen:
                                 GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                 Year(Year) = Year(Now())),TotalSoldIncentives
                         )))*/ "$ " &
-                        If(Header="Quoted",If(!IsBlank(ThisItem.TotalproposedIncentives),ThisItem.TotalproposedIncentives,0),If(!IsBlank(ThisItem.TotalSoldIncentives),ThisItem.TotalSoldIncentives,0))
+                        If(Header="Quoted",If(!IsBlank(ThisItem.TotalproposedIncentives),Text(ThisItem.TotalproposedIncentives,"0.00"),0.00),If(!IsBlank(ThisItem.TotalSoldIncentives),Text(ThisItem.TotalSoldIncentives,"0.00"),0.00))
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
                     Width: =Parent.Width/3
