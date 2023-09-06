@@ -1948,140 +1948,10 @@ LeadSummaryScreen As screen:
                     FontWeight: =FontWeight.Bold
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =If(
-                            IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
-                                CboxCCLSS.Value = true,
-                                IsBlank(IntxtCustomerNameLSS)) || If(
-                                CboxCCLSS.Value = true,IsBlank(txtphonenumber_2)) || If(
-                                CboxCCLSS.Value = true,Len(txtphonenumber_2) <> 14) ||If(
-                                cboxAELSS.Value = true,
-                                IsBlank(IntxtTotalEstimatedExpenseLSS)
-                            ) || If(
-                                cboxTravelRequiredLSS.Value = true,
-                                IsBlank(intxtTotalEstimatedHoursofTravelLSS)
-                            ) ,
-                            Set(
-                                VarErrorPopup,
-                                true
-                            ),
-                            Set(
-                                VarNotificationloding,
-                                true
-                            );
-                            Set(
-                                VarNotification,
-                                true
-                            );
-                            Set(
-                                VarLeadInformationID,
-                                GUID()
-                            );
-                            Patch(
-                                LeadInformations,
-                                Defaults(LeadInformations),
-                                {
-                                    ID: VarLeadInformationID,
-                                    'ContractNumber ': IntxtContractNumerLSS.Text,
-                                    'BuildingName ': IntxtBuildingNameLSS.Text,
-                                    'ZipCode ': IntxtZipcodeLSS.Text,
-                                    Address: IntxtAddressLSS.Text,
-                                    NumberofUnits: Value(IntxtUnitCountLSS.Text),
-                                    UnitDescription: IntxtUnitDescriptionLSS.Text,
-                                    PrimaryScopeofWorkLID: LookUp(
-                                        GCPrimaryScopeofWorks,
-                                        ID = CboxScopeLSS.Selected.ID
-                                    ),
-                                    SecondaryScopeofWorkLID: LookUp(
-                                        GCSecondaryScopeofWorks,
-                                        ID = CboxScopeofWorkLSS.Selected.ID
-                                    ),
-                                    CustomScopeofWork: IntxtManuallyScopeofWorkLSS.Text,
-                                    'EstimatedHours ': IntxtEstimatedHoursLSS.Text,
-                                    Notes: IntxtNotesLSS.Text,
-                                    //Lead_Image:Image2.Image,
-                                    IsUnitDown: CboxUDLSS.Value,
-                                    AdditionalExpensesRequired: cboxAELSS.Value,
-                                    TravelRequired: cboxTravelRequiredLSS.Value,
-                                    CommunicatedToCustomer: CboxCCLSS.Value,
-                                    'CustomerName ': VarCustomerNameSummary,
-                                    'CustomerContact ': lblContactNumber_1.Text,
-                                    TotalEstimatedExpense: IntxtTotalEstimatedExpenseLSS.Text,
-                                    TotalEstimatedHoursofTravel: intxtTotalEstimatedHoursofTravelLSS.Text,
-                                    LeadStatus: "Submitted",
-                                    LeadDate: Now(),
-                                    StatusDate: Now(),
-                                    Email: User().Email,
-                                    MechanicName: User().FullName,
-                                    TechnicianID: VarTechnicianID.'Personnel No',
-                                    Area: VarTechnicianID.Area,
-                                    Territory: VarTechnicianID.Territory,
-                                    District: VarTechnicianID.District
-                                }
-                            );
-                            ForAll(
-                                glryImageLSS.AllItems As i,
-                                Patch(
-                                    LeadImages,
-                                    {
-                                        ID: GUID(),
-                                        Images: i.Image,
-                                        LeadInformationLID: LookUp(
-                                            LeadInformations,
-                                            ID = Text(VarLeadInformationID)
-                                        )
-                                    }
-                                )
-                            );
-                          /*  If(
-                                CountRows(
-                                    Filter(
-                                        TotalIncentives,
-                                        TechnicianID = VarTechnicianID.'Personnel No' && Year = Text(Year(Now()))
-                                    )
-                                ) < 1,
-                                Patch(
-                                    TotalIncentives,
-                                    Defaults(TotalIncentives),
-                                    {
-                                        ID: GUID(),
-                                        TechnicianID: VarTechnicianID.'Personnel No',
-                                        TotalproposedIncentives: 0.00,
-                                        TotalProposedLead: 0,
-                                        TotalSoldIncentives: 0.00,
-                                        TotalSoldLead: 0,
-                                        Year: Year(Now()),
-                                        LeadYear: Year(Now())
-                                    }
-                                )
-                            );*/
-                            Set(
-                                VarNotificationloding,
-                                false
-                            );
-                              Set(
-                                VarErrorPopup,
-                                false
-                            ),
-                            Set(
-                                VarNotificationSuccess,
-                                true
-                            )
-                        );
-                        Set(
-                            VarLeadTrackingNumber,
-                            LookUp(
-                                LeadInformations,
-                                ID = Text(VarLeadInformationID),
-                                LeadTrackingNumber
-                            )
-                        )
-                        /*Notify(
-                            "Form has been submitted succuessfully.",
-                            NotificationType.Success
-                        );*/
+                        =Set(varSubmit,true);
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Submit"
-                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/5)
+                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/4.8)
                     X: =145
                     Y: =790
                     ZIndex: =2
@@ -2364,4 +2234,231 @@ LeadSummaryScreen As screen:
                 Text: ="Ok"
                 Width: =Parent.Width/5
                 ZIndex: =3
+
+    PopopNotificationLSS_1 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =varSubmit
+        Width: =Parent.Width
+        ZIndex: =7
+
+        borderNotificationLSS_1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        ctnNotificationLSS_1 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =borderNotificationLSS_1.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =borderNotificationLSS_1.Width
+            X: =borderNotificationLSS_1.X
+            Y: =borderNotificationLSS_1.Y
+            ZIndex: =2
+
+            ctnImageLSS_1 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =If(Parent.Width<500,80,60)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                imgNotificationLSS_2 As image:
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.Height
+                    Image: ='info 2'
+                    PaddingTop: =30
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            lblNotificationLSS_1 As label:
+                Align: =Align.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: ="Really want to submit?"
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Container2 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =80
+                LayoutGap: =20
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =5
+
+                btnBackLSS As button:
+                    AlignInContainer: =AlignInContainer.Center
+                    Fill: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
+                    HoverFill: =ColorFade(Self.Fill, -20%)
+                    OnSelect: =Set(varSubmit,false);Navigate(LeadSummaryScreen);
+                    Size: =14
+                    Text: ="Back"
+                    Visible: =If(lblNotificationLSS_1.Text="Submitting",false,true)
+                    Width: =Parent.Width/5
+                    ZIndex: =1
+
+                btnOkLSS_1 As button:
+                    AlignInContainer: =AlignInContainer.Center
+                    Fill: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
+                    HoverFill: =ColorFade(Self.Fill, -20%)
+                    OnSelect: |+
+                        =//Navigate(DashboardScreen);Set(VarNotification,false);
+                        Set(varSubmit,false);
+                        If(
+                            IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
+                                CboxCCLSS.Value = true,
+                                IsBlank(IntxtCustomerNameLSS)) || If(
+                                CboxCCLSS.Value = true,IsBlank(txtphonenumber_2)) || If(
+                                CboxCCLSS.Value = true,Len(txtphonenumber_2) <> 14) ||If(
+                                cboxAELSS.Value = true,
+                                IsBlank(IntxtTotalEstimatedExpenseLSS)
+                            ) || If(
+                                cboxTravelRequiredLSS.Value = true,
+                                IsBlank(intxtTotalEstimatedHoursofTravelLSS)
+                            ) ,
+                            Set(
+                                VarErrorPopup,
+                                true
+                            ),
+                            Set(
+                                VarNotificationloding,
+                                true
+                            );
+                            Set(
+                                VarNotification,
+                                true
+                            );
+                            Set(
+                                VarLeadInformationID,
+                                GUID()
+                            );
+                            Patch(
+                                LeadInformations,
+                                Defaults(LeadInformations),
+                                {
+                                    ID: VarLeadInformationID,
+                                    'ContractNumber ': IntxtContractNumerLSS.Text,
+                                    'BuildingName ': IntxtBuildingNameLSS.Text,
+                                    'ZipCode ': IntxtZipcodeLSS.Text,
+                                    Address: IntxtAddressLSS.Text,
+                                    NumberofUnits: Value(IntxtUnitCountLSS.Text),
+                                    UnitDescription: IntxtUnitDescriptionLSS.Text,
+                                    PrimaryScopeofWorkLID: LookUp(
+                                        GCPrimaryScopeofWorks,
+                                        ID = CboxScopeLSS.Selected.ID
+                                    ),
+                                    SecondaryScopeofWorkLID: LookUp(
+                                        GCSecondaryScopeofWorks,
+                                        ID = CboxScopeofWorkLSS.Selected.ID
+                                    ),
+                                    CustomScopeofWork: IntxtManuallyScopeofWorkLSS.Text,
+                                    'EstimatedHours ': IntxtEstimatedHoursLSS.Text,
+                                    Notes: IntxtNotesLSS.Text,
+                                    //Lead_Image:Image2.Image,
+                                    IsUnitDown: CboxUDLSS.Value,
+                                    AdditionalExpensesRequired: cboxAELSS.Value,
+                                    TravelRequired: cboxTravelRequiredLSS.Value,
+                                    CommunicatedToCustomer: CboxCCLSS.Value,
+                                    'CustomerName ': VarCustomerNameSummary,
+                                    'CustomerContact ': lblContactNumber_1.Text,
+                                    TotalEstimatedExpense: IntxtTotalEstimatedExpenseLSS.Text,
+                                    TotalEstimatedHoursofTravel: intxtTotalEstimatedHoursofTravelLSS.Text,
+                                    LeadStatus: "Submitted",
+                                    LeadDate: Now(),
+                                    StatusDate: Now(),
+                                    Email: User().Email,
+                                    MechanicName: User().FullName,
+                                    TechnicianID: VarTechnicianID.'Personnel No',
+                                    Area: VarTechnicianID.Area,
+                                    Territory: VarTechnicianID.Territory,
+                                    District: VarTechnicianID.District
+                                }
+                            );
+                            ForAll(
+                                glryImageLSS.AllItems As i,
+                                Patch(
+                                    LeadImages,
+                                    {
+                                        ID: GUID(),
+                                        Images: i.Image,
+                                        LeadInformationLID: LookUp(
+                                            LeadInformations,
+                                            ID = Text(VarLeadInformationID)
+                                        )
+                                    }
+                                )
+                            );
+                          /*  If(
+                                CountRows(
+                                    Filter(
+                                        TotalIncentives,
+                                        TechnicianID = VarTechnicianID.'Personnel No' && Year = Text(Year(Now()))
+                                    )
+                                ) < 1,
+                                Patch(
+                                    TotalIncentives,
+                                    Defaults(TotalIncentives),
+                                    {
+                                        ID: GUID(),
+                                        TechnicianID: VarTechnicianID.'Personnel No',
+                                        TotalproposedIncentives: 0.00,
+                                        TotalProposedLead: 0,
+                                        TotalSoldIncentives: 0.00,
+                                        TotalSoldLead: 0,
+                                        Year: Year(Now()),
+                                        LeadYear: Year(Now())
+                                    }
+                                )
+                            );*/
+                            Set(
+                                VarNotificationloding,
+                                false
+                            );
+                              Set(
+                                VarErrorPopup,
+                                false
+                            ),
+                            Set(
+                                VarNotificationSuccess,
+                                true
+                            )
+                        );
+                        Set(
+                            VarLeadTrackingNumber,
+                            LookUp(
+                                LeadInformations,
+                                ID = Text(VarLeadInformationID),
+                                LeadTrackingNumber
+                            )
+                        );
+                        /*Notify(
+                            "Form has been submitted succuessfully.",
+                            NotificationType.Success
+                        );*/
+                        
+                    Size: =14
+                    Text: ="Ok"
+                    Visible: =If(lblNotificationLSS_1.Text="Submitting",false,true)
+                    Width: =Parent.Width/5
+                    ZIndex: =2
 
