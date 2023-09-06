@@ -548,7 +548,7 @@ QuotedSOldLeads As screen:
                                       VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
                                       VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
                             //If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
-                            "Proposed incentive: $" & ThisItem.ProposedLeadIncentives
+                            "Quoted incentive: $" & ThisItem.ProposedLeadIncentives
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.06
