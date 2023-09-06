@@ -730,7 +730,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,11,Parent.Width>358,12,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
-                                "Incentive  " &  Char(10) & "$" & 
+                                "Incentive  " &  Char(10) & "$ " & 
                                 If(
                                    yearly = true,
                                 /*If(
@@ -739,12 +739,12 @@ DashboardScreen As screen:
                                             Year = Text(Year(Now())),
                                             YearlyCapReached) = true,
                                         "10000" ,*/
-                                        LookUp(
-                                            GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year = lblyearDS.Text,TotalproposedIncentives),
-                                       Sum(
+                                         Text(LookUp(
+                                            GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year = lblyearDS.Text,TotalproposedIncentives),"0.00"),
+                                       Text(Sum(
                                        Filter( GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),
                                         TotalproposedIncentives
-                                ) )
+                                ),"0.00" ))
                             Width: =Parent.Width
                             X: =
                             Y: =lblQuotedDS.Height+lblQuotedDS.Y
@@ -881,7 +881,7 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,11,Parent.Width>358,12,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalsoldIncentives and if user select span for cumulatively, then need to show sum of TotalsoldIncentives .
-                                "Incentive  "   & Char(10) &  "$" &
+                                "Incentive  "   & Char(10) &  "$ " &
                                 If(
                                    yearly = true,
                                 If(
@@ -889,17 +889,17 @@ DashboardScreen As screen:
                                             GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                             Year= lblyearDS.Text,
                                             YearlyCapReached) = true,
-                                        "10000" ,
-                                                 LookUp(
+                                        "10000.00" ,
+                                               Text( LookUp(
                                             GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' &&
                                             Year = lblyearDS.Text,
-                                            TotalSoldIncentives)
-                                ),
-                                      Sum(
+                                            TotalSoldIncentives),"0.00"
+                                )),
+                                      Text( Sum(
                                         Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),
                                         TotalSoldIncentives
                                 
-                                ))
+                                ),"0.00"))
                             Width: =Parent.Width
                             X: =
                             Y: |
