@@ -383,6 +383,7 @@ DashboardScreen As screen:
                         btnOpenLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(0, 0, 0, 0)
                             DisabledFill: =RGBA(0, 0, 0, 0)
                             DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,DisplayMode.Disabled,DisplayMode.Edit) 
                             Fill: =RGBA(0, 0, 0, 0)
@@ -518,6 +519,7 @@ DashboardScreen As screen:
                         btnInprogressLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
+                            DisabledColor: =RGBA(0, 0, 0, 0)
                             DisabledFill: =RGBA(0, 0, 0, 0)
                             DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,DisplayMode.Disabled,DisplayMode.Edit) 
                             Fill: =RGBA(0, 0, 0, 0)
