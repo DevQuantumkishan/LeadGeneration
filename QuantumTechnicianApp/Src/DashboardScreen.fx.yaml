@@ -888,6 +888,7 @@ DashboardScreen As screen:
                         lbllIncentivesLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             FontWeight: =FontWeight.Bold
                             Height: =30
@@ -927,6 +928,7 @@ DashboardScreen As screen:
                         lblSoldLeadsCountDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             FontWeight: =FontWeight.Bold
                             Height: =30
@@ -954,6 +956,7 @@ DashboardScreen As screen:
                         lblSoldLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             FontWeight: =FontWeight.Bold
                             Height: =30
