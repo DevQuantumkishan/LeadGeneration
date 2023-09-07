@@ -334,7 +334,8 @@ DashboardScreen As screen:
                                 
                                 //"InProgress Leads#" & Char(10)&  
                                 //If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
-                                If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))>0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")),0)
+                                If(
+                                CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")))
                             Width: =Parent.Width
                             X: =
                             Y: |-
@@ -470,7 +471,8 @@ DashboardScreen As screen:
                                 =//its for count of yealy/cumulatively InProgress leads
                                 
                                 //"InProgress Leads#" & Char(10)&  
-                                If( CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" ))>0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress")),0)
+                                If( 
+                                    CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" ))=0,0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress")))
                             Width: =Parent.Width
                             X: =
                             Y: |-
@@ -592,7 +594,8 @@ DashboardScreen As screen:
                                 =//its for count of yealy/cumulatively InProgress leads
                                 
                                 //"InProgress Leads#" & Char(10)&  
-                                If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")) >0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")) ,0)
+                                If(
+                                    CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")) =0,0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")))
                             Width: =Parent.Width
                             X: =
                             Y: |-
