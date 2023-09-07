@@ -2490,7 +2490,7 @@ LeadSummaryScreen As screen:
                             Set(
                                 VarNotification,
                                 false
-                            ); Notify("Lead didn't submit due to no network, try again later. ");Navigate(LeadSummaryScreen)));
+                            ); Notify("Lead didn't submit due to no network, try again later.",NotificationType.Error);Navigate(LeadSummaryScreen)));
                         /*Notify(
                             "Form has been submitted succuessfully.",
                             NotificationType.Success
