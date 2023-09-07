@@ -352,7 +352,7 @@ SubmittedLeadScreen As screen:
                     )
                 Layout: =Layout.Vertical
                 TemplatePadding: =0
-                TemplateSize: =If(btnheaderSLS.Text="Quoted Leads" ||btnheaderSLS.Text="Sold Leads",360,200)
+                TemplateSize: =220
                 Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
                 X: =20
                 Y: =ctnSearchBarSLS_1.Height+ctnSearchBarSLS_1.Height
