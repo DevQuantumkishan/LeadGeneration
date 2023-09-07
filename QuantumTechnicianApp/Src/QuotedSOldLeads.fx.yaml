@@ -589,7 +589,10 @@ QuotedSOldLeads As screen:
                         ZIndex: =19
 
                     Image2_1 As image:
-                        Height: =If(Parent.Width>1000,Parent.TemplateHeight/1.5,Parent.TemplateHeight/8)
+                        Height: |+
+                            =//If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
+                            If(Parent.Width>1000,Parent.TemplateHeight/3.5,Parent.TemplateHeight/4.5)
+                            
                         Image: ='mailtripti (1)'
                         OnSelect: |-
                             =Navigate(ChatScreen);
@@ -613,7 +616,9 @@ QuotedSOldLeads As screen:
                         Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
                         Width: =15
                         X: =Image2_1.X+Image2_1.Width/1.2
-                        Y: =Parent.TemplateHeight/3
+                        Y: |-
+                            =//Parent.TemplateHeight/
+                            htmltextTrackingNumberSLS_2.Y+20
                         ZIndex: =21
 
                 lblTitleYearSLS_2 As label:

@@ -576,7 +576,7 @@ SubmittedLeadScreen As screen:
                     Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
                     Width: =13
                     X: =iconmsgSLS.X+iconmsgSLS.Width/1.2
-                    Y: =iconmsgSLS.Y+iconmsgSLS.Height/4.2
+                    Y: =htmltextTrackingNumberSLS.Y+15
                     ZIndex: =13
 
     grpMenuSLS As group:
