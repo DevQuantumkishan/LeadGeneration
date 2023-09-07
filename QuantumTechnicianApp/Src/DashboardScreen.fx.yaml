@@ -1,6 +1,7 @@
 DashboardScreen As screen:
     OnVisible: |-
-        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),Refresh(LeadInformations);
+        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+        Refresh(LeadInformations);
         ClearCollect(
             GCTotalIncentives,
            Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
@@ -722,6 +723,7 @@ DashboardScreen As screen:
                         lblInprogressIncentivesDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             FontWeight: =FontWeight.Bold
                             Height: =30
@@ -756,6 +758,7 @@ DashboardScreen As screen:
                         lblQuotedLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             FontWeight: =FontWeight.Bold
                             Height: =30
@@ -781,6 +784,7 @@ DashboardScreen As screen:
                         lblQuotedDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             FontWeight: =FontWeight.Bold
                             Height: =30
@@ -861,6 +865,16 @@ DashboardScreen As screen:
                             false
                         Width: =13
                         X: =ctnQuatedLeadsDS.Width/1.2
+                        Y: =Parent.Height/8
+                        ZIndex: =4
+
+                    Image1_4 As image:
+                        DisplayMode: =DisplayMode.View
+                        Height: =20
+                        Image: =email
+                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
+                        Width: =20
+                        X: =Parent.Width/1.25
                         Y: =Parent.Height/8
                         ZIndex: =5
 
@@ -984,17 +998,7 @@ DashboardScreen As screen:
                             VerticalAlign: =VerticalAlign.Top
                             Width: =Parent.Width
                             X: =
-                            ZIndex: =4
-
-                    Image1_4 As image:
-                        DisplayMode: =DisplayMode.View
-                        Height: =20
-                        Image: =email
-                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
-                        Width: =20
-                        X: =Parent.Width/1.25
-                        Y: =Parent.Height/8
-                        ZIndex: =6
+                            ZIndex: =6
 
             ctnCreateLeadDS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
