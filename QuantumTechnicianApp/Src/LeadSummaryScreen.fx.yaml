@@ -2326,7 +2326,9 @@ LeadSummaryScreen As screen:
                     OnSelect: |+
                         =//Navigate(DashboardScreen);Set(VarNotification,false);
                         
-                        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),Set(varSubmit,false);
+                        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+                         IfError(
+                             Set(varSubmit,false);
                         If(
                             IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
                                 CboxCCLSS.Value = true,
@@ -2355,7 +2357,7 @@ LeadSummaryScreen As screen:
                                 VarLeadInformationID,
                                 Text(GUID())
                             );
-                          IfError(
+                         
                             Patch(
                                 LeadInformations,
                                 Defaults(LeadInformations),
