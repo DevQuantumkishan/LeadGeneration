@@ -1,7 +1,7 @@
 ScopeScreen As screen:
     OnVisible: |-
-        =If(IsBlank(CboxScope),Set(VarScope,false));
-        If(IsBlank(CboxScopeofwork),Set(VarScopeofwork,false));
+        =If(IsBlank(CboxScope.Selected),Set(VarScope,false));
+        If(IsBlank(CboxScopeofwork.SelectedItems),Set(VarScopeofwork,false));
         If(IsBlank(IntxtManuallyScopeofwork),Set(VarCustomScopeofwork,false));
         Set(VarNotification,false);
         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error))
@@ -446,17 +446,14 @@ ScopeScreen As screen:
                         ChevronHoverBackground: =RGBA(202, 202, 202, 1)
                         DefaultSelectedItems: =VarScopeSummary
                         DisplayFields: =["shlrf_primaryscopeofworkname"]
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: =If(Connection.Connected=true,DisplayMode.Edit,DisplayMode.Disabled)
                         FocusedBorderThickness: =2
                         Font: =Font.Arial
                         Height: =50
                         HoverBorderColor: =
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: =If(VarScope,""," Seach scope *")
-                        IsSearchable: =false
-                        Items: |-
-                            =' PrimaryScopeofWorks'
-                            //GCPrimaryScopeofWorks
+                        Items: =' PrimaryScopeofWorks'
                         OnChange: |-
                             =Set(VarScopeSummary,CboxScope.SelectedItems);
                             Set(VarScope,true);
@@ -465,7 +462,7 @@ ScopeScreen As screen:
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
-                        SearchItems: =[]
+                        SearchItems: =Search(' PrimaryScopeofWorks',CboxScope.SearchText,"shlrf_primaryscopeofworkname")
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -541,7 +538,7 @@ ScopeScreen As screen:
                         Default: =VarScopeofworkSummary
                         DefaultSelectedItems: =VarScopeofworkSummary
                         DisplayFields: =["shlrf_secondaryscopeofworkname"]
-                        DisplayMode: =If(IsBlank(CboxScope.Selected),DisplayMode.Disabled,DisplayMode.Edit)
+                        DisplayMode: =If(IsBlank(CboxScope.Selected) && Connection.Connected=false,DisplayMode.Disabled,DisplayMode.Edit)
                         FocusedBorderThickness: =2
                         Font: =Font.Arial
                         Height: =50

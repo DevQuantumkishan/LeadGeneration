@@ -1953,7 +1953,7 @@ LeadSummaryScreen As screen:
                         Set(varSubmit,true));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Submit"
-                    Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/4.8)
+                    Width: =If(Parent.Width<Parent.Height,Parent.Width/7.5,Parent.Width/4.6)
                     X: =145
                     Y: =790
                     ZIndex: =2

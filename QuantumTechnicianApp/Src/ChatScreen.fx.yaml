@@ -5,6 +5,8 @@ ChatScreen As screen:
             VarLeadMessages,
             true
         );
+        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+        If(CountRows(Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,
         ForAll(
             Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
         UpdateIf(
@@ -12,8 +14,8 @@ ChatScreen As screen:
             ID=i.ID,
             {'Read ': true}
         )
-        );
-        Refresh (LeadChats);
+        ));
+        Refresh (LeadChats));
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)

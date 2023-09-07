@@ -1,4 +1,5 @@
 ViewDetailsScreen As screen:
+    OnVisible: =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error))
 
     ctnMainVDS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)

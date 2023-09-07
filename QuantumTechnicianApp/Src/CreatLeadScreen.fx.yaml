@@ -510,8 +510,7 @@ CreatLeadScreen As screen:
                         Height: =IntxtContractNumber.Height
                         Icon: =Icon.Search
                         OnSelect: |
-                            =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
-                            
+                            =If(Connection.Connected<>false,
                             Set(
                                     VarLoader,
                                     true
@@ -537,8 +536,10 @@ CreatLeadScreen As screen:
                                 Set(
                                     VarContractError,
                                     true
-                                ));
-                            );
+                                ));,
+                                Notify("Internet is not connected,please try again later.",NotificationType.Error)
+                            
+                            )
                         PaddingBottom: =5
                         PaddingLeft: =5
                         PaddingRight: =5
