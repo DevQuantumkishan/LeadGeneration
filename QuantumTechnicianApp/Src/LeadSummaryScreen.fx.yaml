@@ -2398,7 +2398,7 @@ LeadSummaryScreen As screen:
                                     District: VarTechnicianID.District
                                 }
                             );
-                             /* If(
+                              If(
                                     (!IsEmpty(Errors(LeadInformations))),
                                     Notify(
                                         "Patch function Error " & Concat(
@@ -2406,7 +2406,7 @@ LeadSummaryScreen As screen:
                                             Column & ": " & Message
                                         ),
                                         NotificationType.Error
-                                    );*/
+                                    );
                             ForAll(
                                 glryImageLSS.AllItems As i,
                                 Patch(
@@ -2483,7 +2483,7 @@ LeadSummaryScreen As screen:
                                 ID = VarLeadInformationID,
                                 LeadTrackingNumber
                             );
-                        )));
+                        ))));
                         /*Notify(
                             "Form has been submitted succuessfully.",
                             NotificationType.Success
