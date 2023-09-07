@@ -2338,7 +2338,7 @@ LeadSummaryScreen As screen:
                             ) || If(
                                 cboxTravelRequiredLSS.Value = true,
                                 IsBlank(intxtTotalEstimatedHoursofTravelLSS)
-                            ) || If(!IsBlank(IntxtManuallyScopeofWorkLSS.Text),IsBlank(CboxScopeLSS.Selected)) ||If(!IsBlank(CboxScopeLSS.Selected),IsBlank(IntxtManuallyScopeofWorkLSS.Text)) ,
+                            ) || If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),IsBlank(CboxScopeLSS.Selected)) ||If(IsBlank(CboxScopeofWorkLSS.Selected),IsBlank(IntxtManuallyScopeofWorkLSS.Text)) ,
                             Set(
                                 VarErrorPopup,
                                 true
