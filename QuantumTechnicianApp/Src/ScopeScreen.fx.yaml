@@ -4,7 +4,7 @@ ScopeScreen As screen:
         If(IsBlank(CboxScopeofwork.SelectedItems),Set(VarScopeofwork,false));
         If(IsBlank(IntxtManuallyScopeofwork),Set(VarCustomScopeofwork,false));
         Set(VarNotification,false);
-        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error))
+        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),Notify("Internet is connected",NotificationType.Success);)
 
     ctnMainSS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)

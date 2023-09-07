@@ -1,6 +1,7 @@
 DashboardScreen As screen:
     OnVisible: |-
         =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+        Notify("Internet is connected",NotificationType.Success);
         Refresh(LeadInformations);
         ClearCollect(
             GCTotalIncentives,
