@@ -616,8 +616,8 @@ QuotedSOldLeads As screen:
                         OnSelect: =Select(Parent)
                         Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
                         Width: =15
-                        X: =iconmsgSLS_2.X+iconmsgSLS_2.Width/1.2
-                        Y: =iconmsgSLS_2.Y+iconmsgSLS_2.Height/3.5
+                        X: =Image2_1.X+Image2_1.Width/1.2
+                        Y: =Parent.TemplateHeight/3
                         ZIndex: =21
 
                 lblTitleYearSLS_2 As label:
