@@ -1844,6 +1844,7 @@ LeadSummaryScreen As screen:
                             DisabledFill: =RGBA(255, 255, 255, 1)
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
+                            Height: =50
                             HintText: =If(varCustomerPhonenumber,"","Customer Phone Number *")
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
@@ -1860,9 +1861,9 @@ LeadSummaryScreen As screen:
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Tooltip: =Parent.DisplayName
-                            Width: =Parent.Width - 100
-                            X: =68
-                            Y: =lblContactES.Y + lblContactES.Height + 5
+                            Width: =Parent.Width - 120
+                            X: =70
+                            Y: =lblContactES_1.Y + lblContactES_1.Height + 5
                             ZIndex: =9
 
                 "glryImageLSS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
@@ -1948,7 +1949,8 @@ LeadSummaryScreen As screen:
                     FontWeight: =FontWeight.Bold
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =Set(varSubmit,true);
+                        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+                        Set(varSubmit,true));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Submit"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/8,Parent.Width/4.8)
@@ -2289,7 +2291,7 @@ LeadSummaryScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: ="Really want to submit?"
+                Text: ="DO you really want to submit?"
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -2323,7 +2325,8 @@ LeadSummaryScreen As screen:
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: |+
                         =//Navigate(DashboardScreen);Set(VarNotification,false);
-                        Set(varSubmit,false);
+                        
+                        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),Set(varSubmit,false);
                         If(
                             IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
                                 CboxCCLSS.Value = true,
@@ -2335,7 +2338,7 @@ LeadSummaryScreen As screen:
                             ) || If(
                                 cboxTravelRequiredLSS.Value = true,
                                 IsBlank(intxtTotalEstimatedHoursofTravelLSS)
-                            ) ,
+                            ) || If(!IsBlank(IntxtManuallyScopeofWorkLSS.Text),IsBlank(CboxScopeLSS.Selected)) ||If(!IsBlank(CboxScopeLSS.Selected),IsBlank(IntxtManuallyScopeofWorkLSS.Text)) ,
                             Set(
                                 VarErrorPopup,
                                 true
@@ -2364,11 +2367,11 @@ LeadSummaryScreen As screen:
                                     NumberofUnits: Value(IntxtUnitCountLSS.Text),
                                     UnitDescription: IntxtUnitDescriptionLSS.Text,
                                     PrimaryScopeofWorkLID: LookUp(
-                                        GCPrimaryScopeofWorks,
+                                            ' PrimaryScopeofWorks',
                                         ID = CboxScopeLSS.Selected.ID
                                     ),
                                     SecondaryScopeofWorkLID: LookUp(
-                                        GCSecondaryScopeofWorks,
+                                        SecondaryScopeofWorks,
                                         ID = CboxScopeofWorkLSS.Selected.ID
                                     ),
                                     CustomScopeofWork: IntxtManuallyScopeofWorkLSS.Text,
@@ -2380,7 +2383,7 @@ LeadSummaryScreen As screen:
                                     TravelRequired: cboxTravelRequiredLSS.Value,
                                     CommunicatedToCustomer: CboxCCLSS.Value,
                                     'CustomerName ': VarCustomerNameSummary,
-                                    'CustomerContact ': lblContactNumber_1.Text,
+                                    'CustomerContact ': txtphonenumber_2.Text,
                                     TotalEstimatedExpense: IntxtTotalEstimatedExpenseLSS.Text,
                                     TotalEstimatedHoursofTravel: intxtTotalEstimatedHoursofTravelLSS.Text,
                                     LeadStatus: "Submitted",
@@ -2450,7 +2453,7 @@ LeadSummaryScreen As screen:
                                 ID = Text(VarLeadInformationID),
                                 LeadTrackingNumber
                             )
-                        );
+                        ));
                         /*Notify(
                             "Form has been submitted succuessfully.",
                             NotificationType.Success

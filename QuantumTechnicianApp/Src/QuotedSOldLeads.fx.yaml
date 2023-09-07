@@ -892,7 +892,9 @@ QuotedSOldLeads As screen:
                     FontWeight: =FontWeight.Semibold
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Text: ="Sort by column"
-                    Width: =If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
+                    Width: |-
+                        =//If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
+                        Parent.Width-ComboBox1_2.Width-Icon1_2.Width-20
                     X: =Parent.Width-Self.Width
                     Y: =10
                     ZIndex: =1
@@ -921,9 +923,7 @@ QuotedSOldLeads As screen:
                     SelectionFill: =RGBA(237, 237, 237, 1)
                     SelectMultiple: =false
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: |-
-                        =//Parent.Width/2
-                        200
+                    Width: =180
                     ZIndex: =2
 
                 Icon1_2 As icon.ArrowsUpDown:
