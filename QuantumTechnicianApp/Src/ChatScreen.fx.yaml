@@ -1,6 +1,6 @@
 ChatScreen As screen:
     OnVisible: |-
-        =
+        =UpdateContext({locInfoExpanded:false});
         Set(
             VarLeadMessages,
             true
@@ -70,8 +70,9 @@ ChatScreen As screen:
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
                 OnSelect: |-
-                    =If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
-                    UpdateContext({locInfoExpanded:false});
+                    =UpdateContext({locInfoExpanded:false});
+                    If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
+                    Set(VarLeadMessages,false);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
@@ -426,10 +427,11 @@ ChatScreen As screen:
                     Height: =If(Parent.Height<Parent.Width,50,70)
                     Icon: =Icon.Send
                     OnSelect: |-
-                        =
+                        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                         If(IsBlank(TextInput1_2.Text),
                         //Notify("Please Enter message to send.");
                              Set (VarNotification,true),
+                             If(CountRows(Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,
                         ForAll(
                             Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
                         UpdateIf(
@@ -437,7 +439,7 @@ ChatScreen As screen:
                             ID=i.ID,
                             {'Read ': true}
                         )
-                        );
+                        ));
                         Patch(LeadChats,Defaults(LeadChats),
                                     {
                                         ID:GUID(),
@@ -451,7 +453,7 @@ ChatScreen As screen:
                                     }
                                 ));
                         Refresh(LeadChats);
-                        Reset(TextInput1_2);
+                        Reset(TextInput1_2))
                     PaddingBottom: =10
                     PaddingLeft: =10
                     PaddingRight: =10

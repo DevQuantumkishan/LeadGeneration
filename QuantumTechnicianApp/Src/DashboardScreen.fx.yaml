@@ -1,11 +1,11 @@
 DashboardScreen As screen:
     OnVisible: |-
-        =Refresh(LeadInformations);
+        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),Refresh(LeadInformations);
         ClearCollect(
             GCTotalIncentives,
            Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
         );
-        Refresh(LeadChats);
+        Refresh(LeadChats));
          
          Set(VarCurrentYear,Text(Year(Today())));
          Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
@@ -1090,7 +1090,9 @@ DashboardScreen As screen:
         Duration: =3000
         FontWeight: =FontWeight.Lighter
         OnTimerEnd: =Refresh(LeadChats);
-        Start: =VarLeadMessages
+        Start: |-
+            =//VarLeadMessages
+            false
         Visible: =false
         X: =40
         Y: =40

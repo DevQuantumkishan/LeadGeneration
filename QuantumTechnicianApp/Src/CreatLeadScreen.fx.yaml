@@ -514,6 +514,7 @@ CreatLeadScreen As screen:
                                     VarLoader,
                                     true
                                 );
+                                If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                             Set(
                                 VarcontractRecord,
                                 LookUp(
@@ -534,7 +535,7 @@ CreatLeadScreen As screen:
                                 Set(
                                     VarContractError,
                                     true
-                                );
+                                ));
                                
                                 
                             );
