@@ -2328,7 +2328,7 @@ LeadSummaryScreen As screen:
                         
                         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                                 Set(varSubmit,false);
-                        
+                        IfError(
                         If(
                             IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
                                 CboxCCLSS.Value = true,
@@ -2398,7 +2398,7 @@ LeadSummaryScreen As screen:
                                     District: VarTechnicianID.District
                                 }
                             );
-                              If(
+                             /* If(
                                     (!IsEmpty(Errors(LeadInformations))),
                                     Notify(
                                         "Patch function Error " & Concat(
@@ -2406,7 +2406,7 @@ LeadSummaryScreen As screen:
                                             Column & ": " & Message
                                         ),
                                         NotificationType.Error
-                                    );
+                                    );*/
                             ForAll(
                                 glryImageLSS.AllItems As i,
                                 Patch(
@@ -2421,7 +2421,7 @@ LeadSummaryScreen As screen:
                                     }
                                 )
                             );
-                            If(
+                          /*  If(
                                         (!IsEmpty(Errors(LeadInformations)) || !IsEmpty(Errors(LeadImages))),
                                         Notify(
                                             Concat(
@@ -2482,8 +2482,15 @@ LeadSummaryScreen As screen:
                                 LeadInformations,
                                 ID = VarLeadInformationID,
                                 LeadTrackingNumber
+                            )
+                        )), Set(
+                                VarNotificationloding,
+                                false
                             );
-                        ))));
+                            Set(
+                                VarNotification,
+                                false
+                            ); Navigate(LeadSummaryScreen)));
                         /*Notify(
                             "Form has been submitted succuessfully.",
                             NotificationType.Success
