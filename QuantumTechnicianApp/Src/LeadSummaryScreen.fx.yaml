@@ -2327,8 +2327,8 @@ LeadSummaryScreen As screen:
                         =//Navigate(DashboardScreen);Set(VarNotification,false);
                         
                         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
-                         IfError(
-                             Set(varSubmit,false);
+                            IfError( 
+                                Set(varSubmit,false);
                         If(
                             IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
                                 CboxCCLSS.Value = true,
@@ -2355,9 +2355,8 @@ LeadSummaryScreen As screen:
                             );
                              Set(
                                 VarLeadInformationID,
-                                Text(GUID())
-                            );
-                         
+                               Text( GUID()));
+                        
                             Patch(
                                 LeadInformations,
                                 Defaults(LeadInformations),
@@ -2399,8 +2398,8 @@ LeadSummaryScreen As screen:
                                     Territory: VarTechnicianID.Territory,
                                     District: VarTechnicianID.District
                                 }
-                            );//,Notify("patch fail"));
-                           // IfError(
+                            );
+                          
                             ForAll(
                                 glryImageLSS.AllItems As i,
                                 Patch(
@@ -2413,9 +2412,10 @@ LeadSummaryScreen As screen:
                                             ID = VarLeadInformationID
                                         )
                                     }
-                                )//,Notify("patch fail")
-                            );//
-                          /*  If(
+                                )
+                            );
+                           /*
+                           If(
                                 CountRows(
                                     Filter(
                                         TotalIncentives,
@@ -2448,16 +2448,15 @@ LeadSummaryScreen As screen:
                             Set(
                                 VarNotificationSuccess,
                                 true
-                            )
-                        );
+                            );
                         Set(
                             VarLeadTrackingNumber,
                             LookUp(
                                 LeadInformations,
-                                ID = Text(VarLeadInformationID),
+                                ID = VarLeadInformationID,
                                 LeadTrackingNumber
                             )
-                        );,Notify("patch fail")))
+                        )),Notify("")));
                         /*Notify(
                             "Form has been submitted succuessfully.",
                             NotificationType.Success
