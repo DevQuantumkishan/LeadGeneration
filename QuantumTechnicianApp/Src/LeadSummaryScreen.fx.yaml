@@ -2351,15 +2351,16 @@ LeadSummaryScreen As screen:
                                 VarNotification,
                                 true
                             );
-                            Set(
+                             Set(
                                 VarLeadInformationID,
-                                GUID()
+                                Text(GUID())
                             );
+                          IfError(
                             Patch(
                                 LeadInformations,
                                 Defaults(LeadInformations),
                                 {
-                                    ID: VarLeadInformationID,
+                                    ID:VarLeadInformationID,
                                     'ContractNumber ': IntxtContractNumerLSS.Text,
                                     'BuildingName ': IntxtBuildingNameLSS.Text,
                                     'ZipCode ': IntxtZipcodeLSS.Text,
@@ -2396,7 +2397,8 @@ LeadSummaryScreen As screen:
                                     Territory: VarTechnicianID.Territory,
                                     District: VarTechnicianID.District
                                 }
-                            );
+                            );//,Notify("patch fail"));
+                           // IfError(
                             ForAll(
                                 glryImageLSS.AllItems As i,
                                 Patch(
@@ -2406,11 +2408,11 @@ LeadSummaryScreen As screen:
                                         Images: i.Image,
                                         LeadInformationLID: LookUp(
                                             LeadInformations,
-                                            ID = Text(VarLeadInformationID)
+                                            ID = VarLeadInformationID
                                         )
                                     }
-                                )
-                            );
+                                )//,Notify("patch fail")
+                            );//
                           /*  If(
                                 CountRows(
                                     Filter(
@@ -2453,7 +2455,7 @@ LeadSummaryScreen As screen:
                                 ID = Text(VarLeadInformationID),
                                 LeadTrackingNumber
                             )
-                        ));
+                        ));,Notify("patch fail"))
                         /*Notify(
                             "Form has been submitted succuessfully.",
                             NotificationType.Success

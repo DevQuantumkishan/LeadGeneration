@@ -2,7 +2,9 @@ QuotedSOldLeads As screen:
     OnVisible: |-
         =UpdateContext({locInfoExpanded:false});
         Set(VarDownIcon,true);
-        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error))
+        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error)
+        //,Notify("Internet is connected",NotificationType.Success)
+        )
 
     ctnMainSLS_2 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(219, 219, 219, 1)
