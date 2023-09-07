@@ -2047,7 +2047,7 @@ LeadSummaryScreen As screen:
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |
-                    =Navigate(DashboardScreen);Set(VarNotification,false);
+                    =Navigate(DashboardScreen);Set(VarNotification,false);Set(VarLeadTrackingNumber,Blank());
                 Size: =14
                 Text: ="Ok"
                 Visible: =If(lblNotificationLSS.Text="Submitting",false,true)
@@ -2327,7 +2327,6 @@ LeadSummaryScreen As screen:
                         =//Navigate(DashboardScreen);Set(VarNotification,false);
                         
                         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
-                            IfError( 
                                 Set(varSubmit,false);
                         If(
                             IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
@@ -2356,7 +2355,6 @@ LeadSummaryScreen As screen:
                              Set(
                                 VarLeadInformationID,
                                Text( GUID()));
-                        
                             Patch(
                                 LeadInformations,
                                 Defaults(LeadInformations),
@@ -2399,7 +2397,15 @@ LeadSummaryScreen As screen:
                                     District: VarTechnicianID.District
                                 }
                             );
-                          
+                              If(
+                                    (!IsEmpty(Errors(LeadInformations))),
+                                    Notify(
+                                        "Patch function Error " & Concat(
+                                            Errors(LeadInformations),
+                                            Column & ": " & Message
+                                        ),
+                                        NotificationType.Error
+                                    );
                             ForAll(
                                 glryImageLSS.AllItems As i,
                                 Patch(
@@ -2414,6 +2420,18 @@ LeadSummaryScreen As screen:
                                     }
                                 )
                             );
+                            If(
+                                        (!IsEmpty(Errors(LeadInformations)) || !IsEmpty(Errors(LeadImages))),
+                                        Notify(
+                                            Concat(
+                                                Errors(LeadInformations),
+                                                Column & ": " & Message
+                                            ) & Concat(
+                                                Errors(LeadImages),
+                                                Column & ": " & Message
+                                            ) ,
+                                            NotificationType.Error
+                                        )),
                            /*
                            If(
                                 CountRows(
@@ -2455,8 +2473,8 @@ LeadSummaryScreen As screen:
                                 LeadInformations,
                                 ID = VarLeadInformationID,
                                 LeadTrackingNumber
-                            )
-                        )),Notify("")));
+                            );
+                        ))));
                         /*Notify(
                             "Form has been submitted succuessfully.",
                             NotificationType.Success
