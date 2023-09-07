@@ -418,7 +418,7 @@ DashboardScreen As screen:
                         Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))=0,false,true)
                         Width: =20
                         X: =Parent.Width/1.25
-                        Y: =Parent.Height/8
+                        Y: =Parent.Height/9
                         ZIndex: =6
 
                 ctnInprogressLeadsDS As groupContainer.manualLayoutContainer:
@@ -553,7 +553,7 @@ DashboardScreen As screen:
                         Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="InProgress"))=0,false,true)
                         Width: =20
                         X: =Parent.Width/1.25
-                        Y: =Parent.Height/8
+                        Y: =Parent.Height/9
                         ZIndex: =6
 
                 ctnRejectedLeadsDS As groupContainer.manualLayoutContainer:
@@ -838,7 +838,7 @@ DashboardScreen As screen:
                         Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))=0,false,true)
                         Width: =20
                         X: =Parent.Width/1.25
-                        Y: =Parent.Height/8
+                        Y: =Parent.Height/9
                         ZIndex: =6
 
                 ctnSoldLeadsDS As groupContainer.manualLayoutContainer:
@@ -875,7 +875,7 @@ DashboardScreen As screen:
                         Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
                         Width: =20
                         X: =Parent.Width/1.25
-                        Y: =Parent.Height/8
+                        Y: =Parent.Height/9
                         ZIndex: =5
 
                     grpSoldLeadsDS As group:
