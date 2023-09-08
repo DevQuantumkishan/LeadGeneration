@@ -16,7 +16,8 @@ DashboardScreen As screen:
     ctnMainDS As groupContainer.horizontalAutoLayoutContainer:
         DropShadow: =DropShadow.None
         Fill: =RGBA(237, 237, 237, 1)
-        Height: =Parent.Height
+        Height: |
+            =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =10
@@ -264,7 +265,7 @@ DashboardScreen As screen:
             LayoutMode: =LayoutMode.Auto
             LayoutOverflowY: =LayoutOverflow.Scroll
             PaddingBottom: =5
-            PaddingTop: =10
+            PaddingTop: =5
             Width: =Parent.Width-20
             ZIndex: =4
 
@@ -293,7 +294,7 @@ DashboardScreen As screen:
                     Fill: =RGBA(219, 219, 219, 1)
                     FillPortions: =0
                     Height: |
-                        =Parent.Height/1.08
+                        =Parent.Height/1.05
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/3.35
@@ -322,10 +323,11 @@ DashboardScreen As screen:
 
                         lblOpenLeadsCountDS As label:
                             Align: =Align.Center
-                            AutoHeight: =true
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
+                            Height: =If(Parent.Width>Parent.Height,24,28)
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -351,6 +353,7 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Semibold
                             Height: =30
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             PaddingTop: =0
                             Size: |-
@@ -370,6 +373,7 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
                             Height: =30
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -431,7 +435,7 @@ DashboardScreen As screen:
                     Fill: =RGBA(219, 219, 219, 1)
                     FillPortions: =0
                     Height: |
-                        =Parent.Height/1.08
+                        =Parent.Height/1.05
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/3.35
@@ -460,10 +464,11 @@ DashboardScreen As screen:
 
                         lblInprogressLeadsCountDS As label:
                             Align: =Align.Center
-                            AutoHeight: =true
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
+                            Height: =If(Parent.Width>Parent.Height,24,28)
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -488,6 +493,7 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Semibold
                             Height: =30
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             PaddingTop: =0
                             Size: |-
@@ -507,6 +513,7 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
                             Height: =30
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -568,7 +575,7 @@ DashboardScreen As screen:
                     Fill: =RGBA(219, 219, 219, 1)
                     FillPortions: =0
                     Height: |
-                        =Parent.Height/1.08
+                        =Parent.Height/1.05
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/3.35
@@ -583,11 +590,11 @@ DashboardScreen As screen:
 
                         lblLeadsCountDS As label:
                             Align: =Align.Center
-                            AutoHeight: =true
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
-                            LineHeight: =1.02
+                            Height: =If(Parent.Width>Parent.Height,24,28)
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -613,7 +620,7 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Semibold
                             Height: =30
-                            LineHeight: =1.02
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             PaddingTop: =0
                             Size: |-
@@ -633,7 +640,7 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
                             Height: =30
-                            LineHeight: =1.02
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -702,7 +709,7 @@ DashboardScreen As screen:
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     FillPortions: =0
-                    Height: =Parent.Height/1.05
+                    Height: =Parent.Height/1.02
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/2.2
@@ -770,7 +777,8 @@ DashboardScreen As screen:
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
-                            Height: =30
+                            Height: =If(Parent.Width>Parent.Height,24,28)
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -798,6 +806,7 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
                             Height: =30
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -858,7 +867,7 @@ DashboardScreen As screen:
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(219, 219, 219, 1)
                     FillPortions: =0
-                    Height: =Parent.Height/1.05
+                    Height: =Parent.Height/1.02
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/2.2
@@ -941,7 +950,8 @@ DashboardScreen As screen:
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
-                            Height: =30
+                            Height: =If(Parent.Width>Parent.Height,24,28)
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -970,6 +980,7 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
                             Height: =30
+                            LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
@@ -1087,7 +1098,7 @@ DashboardScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-100
+                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-200
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 RadiusBottomLeft: =0
