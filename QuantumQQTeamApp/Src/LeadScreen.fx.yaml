@@ -2507,7 +2507,7 @@ LeadScreen As screen:
                                 LeadStatus: "Sold",
                                 SoldLeadPrice: VarFPEstimateData.BidPrice,
                                 SoldLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
-                                TechnicianID: VarFPEstimateData.'Lead Generator Id',
+                                //TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 StatusDate: Now(),
                                 SoldLeadDate: VarFPEstimateData.BookingDate
                             }
