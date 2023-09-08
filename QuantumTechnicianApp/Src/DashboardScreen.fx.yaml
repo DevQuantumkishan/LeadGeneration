@@ -322,10 +322,10 @@ DashboardScreen As screen:
 
                         lblOpenLeadsCountDS As label:
                             Align: =Align.Center
-                            AutoHeight: =true
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
+                            Height: =28
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
@@ -463,10 +463,10 @@ DashboardScreen As screen:
 
                         lblInprogressLeadsCountDS As label:
                             Align: =Align.Center
-                            AutoHeight: =true
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
+                            Height: =28
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
@@ -589,10 +589,10 @@ DashboardScreen As screen:
 
                         lblLeadsCountDS As label:
                             Align: =Align.Center
-                            AutoHeight: =true
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
+                            Height: =28
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
@@ -776,7 +776,7 @@ DashboardScreen As screen:
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
-                            Height: =30
+                            Height: =28
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
@@ -949,7 +949,7 @@ DashboardScreen As screen:
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
-                            Height: =30
+                            Height: =28
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
