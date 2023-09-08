@@ -119,7 +119,7 @@ App As appinfo:
             varshowMenu,
             false
         );
-        /*ClearCollect(
+        ClearCollect(
             GCTotalIncentives,
             TotalIncentives
         );
@@ -130,7 +130,7 @@ App As appinfo:
         ClearCollect(
             GCSecondaryScopeofWorks,
             SecondaryScopeofWorks
-        );*/
+        );
         Refresh(LeadChats);
     StartScreen: =
     Theme: =PowerAppsTheme

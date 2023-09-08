@@ -455,7 +455,7 @@ ScopeScreen As screen:
                         HoverBorderColor: =
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: =If(VarScope,""," Seach scope *")
-                        Items: =' PrimaryScopeofWorks'
+                        Items: =GCPrimaryScopeofWorks
                         OnChange: |-
                             =Set(VarScopeSummary,CboxScope.SelectedItems);
                             Set(VarScope,true);
@@ -464,7 +464,7 @@ ScopeScreen As screen:
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
-                        SearchItems: =Search(' PrimaryScopeofWorks',CboxScope.SearchText,"shlrf_primaryscopeofworkname")
+                        SearchItems: =Search(GCPrimaryScopeofWorks,CboxScope.SearchText,"shlrf_primaryscopeofworkname")
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -546,7 +546,7 @@ ScopeScreen As screen:
                         Height: =50
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: = If(VarScopeofwork,"",If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of work *","Scope of work"))
-                        Items: =Filter(SecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
+                        Items: =Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
                         OnChange: |-
                             =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);
                             Set(VarScopeofwork,true);
@@ -554,7 +554,7 @@ ScopeScreen As screen:
                         OnSelect: =Set(VarScopeofwork,true);If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
-                        SearchItems: =Search(Filter(SecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),CboxScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
+                        SearchItems: =Search(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),CboxScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
