@@ -2452,7 +2452,7 @@ LeadScreen As screen:
                                 LeadStatus: "Quoted",
                                 ProposedLeadPrice: VarFPEstimateData.BidPrice,
                                 ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
-                                TechnicianID: VarFPEstimateData.'Lead Generator Id',
+                                //TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 StatusDate: Now(),
                                 ProposedLeadDate: VarFPEstimateData.DateCreated
                             }
@@ -2470,18 +2470,8 @@ LeadScreen As screen:
                                 {
                                     ID: GUID(),
                                     TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                                    TotalproposedIncentives: LookUp(
-                                        TotalIncentives,
-                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
-                                        TotalproposedIncentives
-                                    ) + VarFPEstimateData.BidPrice * 0.02,
-                                    TotalProposedLead: Value(
-                                        LookUp(
-                                            TotalIncentives,
-                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
-                                            TotalProposedLead
-                                        )
-                                    ) + 1,
+                                    TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                    TotalProposedLead: 1,
                                     TotalSoldIncentives: 0.00,
                                     TotalSoldLead: 0,
                                     Year: Year(VarFPEstimateData.DateCreated),
@@ -2535,18 +2525,8 @@ LeadScreen As screen:
                                 {
                                     ID: GUID(),
                                     TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                                    TotalSoldIncentives: LookUp(
-                                        TotalIncentives,
-                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
-                                        TotalSoldIncentives
-                                    ) + VarFPEstimateData.BidPrice * 0.02,
-                                    TotalSoldLead: Value(
-                                        LookUp(
-                                            TotalIncentives,
-                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
-                                            TotalSoldLead
-                                        )
-                                    ) + 1,
+                                    TotalSoldIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                    TotalSoldLead: 1,
                                     TotalproposedIncentives:0.0,
                                     TotalProposedLead:0,
                                     Year: Year(VarFPEstimateData.BookingDate),
