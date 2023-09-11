@@ -147,7 +147,8 @@ LeadSummaryScreen As screen:
             ctnSummaryLSS As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =SummaryForm.Height+glryImageLSS.Height
+                Height: |
+                    =SummaryForm.Height+glryImageLSS.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =20
@@ -169,13 +170,13 @@ LeadSummaryScreen As screen:
                         =//ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+TotalEstimatedExpenseLSS.Height+TotalEstimatedHoursofTravelLSS.Height+50
                         ContractNumberLSS.Height + BuildingNameLSS.Height + ZipCodeLSS.Height + AddressLSS.Height + UnitCountLSS.Height + UnitDescriptionLSS.Height + ScopeLSS.Height + ScopeOfWorkLSS.Height + ManuallyScopeOfWorkLSS.Height + EstimatedHoursLSS.Height + NotesLSS.Height + UnitDownLSS.Height + AdditionalExpensesRequiredLSS.Height + 
                             TravelRequiredLSS.Height + CommunicatedtoCustomerLSS.Height +
-                             If(IsBlank(IntxtCustomerNameLSS.Text),0,
-                              CustomerNameLSS.Height) +If(IsBlank(txtphonenumber_2.Text),0, CustomerContactLSS.Height)+
+                             If(IsBlank(IntxtCustomerNameLSS.Text),50,
+                              CustomerNameLSS.Height) +If(IsBlank(txtphonenumber_2.Text),50, CustomerContactLSS.Height)+
                               If(
                             IsBlank(IntxtTotalEstimatedExpenseLSS.Text),
-                            0,
-                            TotalEstimatedExpenseLSS.Height)+If(IsBlank(intxtTotalEstimatedHoursofTravelLSS.Text),0,TotalEstimatedHoursofTravelLSS.Height)
-                        +40
+                        50,
+                            TotalEstimatedExpenseLSS.Height)+If(IsBlank(intxtTotalEstimatedHoursofTravelLSS.Text),50,TotalEstimatedHoursofTravelLSS.Height)
+                        +50
                     Item: =VarFormMode
                     LayoutMinHeight: =250
                     LayoutMinWidth: =Parent.Width
