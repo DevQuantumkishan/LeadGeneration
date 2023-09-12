@@ -478,7 +478,7 @@ ChatScreen As screen:
         AutoStart: =true
         Duration: =3000
         FontWeight: =FontWeight.Lighter
-        OnTimerEnd: =Refresh(LeadChats);
+        OnTimerEnd: =//Refresh(Filter(LeadChats,LeadInformationLID.ID=VarLtdID));
         Repeat: =true
         Start: =VarLeadMessages
         Visible: =false
@@ -733,9 +733,9 @@ ChatScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
-                    OnSelect: =Set(VarchatInactivemode,false);Set(varChatScreentimerPopup,false);
+                    OnSelect: =Set(VarchatInactivemode,false);Set(varChatScreentimerPopup,true);Navigate(ChatScreen)
                     Size: =14
-                    Text: ="Back"
+                    Text: ="No"
                     Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
                     Width: =Parent.Width/5
                     ZIndex: =1
