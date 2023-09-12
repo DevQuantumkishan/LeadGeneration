@@ -137,7 +137,7 @@ DashboardScreen As screen:
                         Find(" ", User().FullName) + 1,
                         1)
                 Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
-                ZIndex: =5
+                ZIndex: =6
 
         ctnUserNameDS As groupContainer.manualLayoutContainer:
             FillPortions: =0

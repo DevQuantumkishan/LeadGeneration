@@ -16,6 +16,7 @@ ChatScreen As screen:
         )
         ));
         Refresh (LeadChats));
+        Set(varChatScreentimerPopup,true);
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -75,6 +76,7 @@ ChatScreen As screen:
                     =UpdateContext({locInfoExpanded:false});
                     If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
                     Set(VarLeadMessages,false);
+                    Set(varChatScreentimerPopup,false);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
@@ -309,6 +311,7 @@ ChatScreen As screen:
                         //(VartoolTip,ThisItem.FromName)
                         UpdateContext({VartoolTip:true});
                         Set(VarUsernameTimer,true);
+                        Set(varChatScreentimerPopup,true);
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
@@ -355,6 +358,7 @@ ChatScreen As screen:
                         //(VartoolTip,ThisItem.FromName)
                         UpdateContext({VartoolTip:false});
                         Set(VarUsernameTimer,false);
+                        Set(varChatScreentimerPopup,true);
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
@@ -416,6 +420,7 @@ ChatScreen As screen:
                     HoverBorderColor: =RGBA(255, 0, 0, 1)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     Mode: =TextMode.MultiLine
+                    OnChange: =Set(varChatScreentimerPopup,true)
                     PaddingLeft: =10
                     Size: =If(Parent.Width<500,12,Parent.Width>500,14)
                     Width: =Parent.Width-Icon6_2.Width
@@ -457,7 +462,8 @@ ChatScreen As screen:
                                     }
                                 ));
                         Refresh(LeadChats);
-                        Reset(TextInput1_2))
+                        Reset(TextInput1_2));
+                        Set(varChatScreentimerPopup,true);
                     PaddingBottom: =10
                     PaddingLeft: =10
                     PaddingRight: =10
@@ -637,10 +643,112 @@ ChatScreen As screen:
     TimerforDispayusername As timer:
         Duration: =2000
         OnTimerEnd: |-
-            =Set(VarUsernameTimer,false);UpdateContext({VartoolTip:false});
+            =Set(VarUsernameTimer,false);UpdateContext({VartoolTip:false});Set(varChatScreentimerPopup,true);
         Start: =VarUsernameTimer
         Visible: =false
         X: =60
         Y: =60
         ZIndex: =6
+
+    Timer1 As timer:
+        Duration: =2000
+        OnTimerEnd: =Set(VarchatInactivemode,true);
+        Start: =varChatScreentimerPopup
+        Visible: =false
+        X: =357
+        Y: =100
+        ZIndex: =7
+
+    PopopNotificationLSS_2 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarchatInactivemode
+        Width: =Parent.Width
+        ZIndex: =8
+
+        borderNotificationLSS_2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        ctnNotificationLSS_2 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =borderNotificationLSS_2.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =borderNotificationLSS_2.Width
+            X: =borderNotificationLSS_2.X
+            Y: =borderNotificationLSS_2.Y
+            ZIndex: =2
+
+            ctnImageLSS_2 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =If(Parent.Width<500,80,60)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                imgNotificationLSS_3 As image:
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.Height
+                    Image: ='info 2'
+                    PaddingTop: =30
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            lblNotificationLSS_2 As label:
+                Align: =Align.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: ="Do you really want to close this chat window?"
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Container2_1 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =80
+                LayoutGap: =20
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =5
+
+                btnBackLSS_1 As button:
+                    AlignInContainer: =AlignInContainer.Center
+                    Fill: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
+                    HoverFill: =ColorFade(Self.Fill, -20%)
+                    OnSelect: =Set(VarchatInactivemode,false);Set(varChatScreentimerPopup,false);
+                    Size: =14
+                    Text: ="Back"
+                    Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
+                    Width: =Parent.Width/5
+                    ZIndex: =1
+
+                btnOkLSS_2 As button:
+                    AlignInContainer: =AlignInContainer.Center
+                    Fill: =RGBA(255, 0, 0, 1)
+                    Font: =Font.Arial
+                    HoverFill: =ColorFade(Self.Fill, -20%)
+                    OnSelect: =Set(VarchatInactivemode,false);Set(varChatScreentimerPopup,false);If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
+                    Size: =14
+                    Text: ="Yes"
+                    Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
+                    Width: =Parent.Width/5
+                    ZIndex: =2
 
