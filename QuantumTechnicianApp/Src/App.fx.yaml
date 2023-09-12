@@ -1,6 +1,6 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |
+    OnStart: |-
         =// CSS
         Set(
         //for header
@@ -131,6 +131,7 @@ App As appinfo:
             GCSecondaryScopeofWorks,
             SecondaryScopeofWorks
         );
+        //ClearCollect(GCLeadChats,Filter(LeadChats,LeadInformationLID.TechnicianID=VarTechnicianID.'Personnel No'));
         Refresh(LeadChats);
     StartScreen: =
     Theme: =PowerAppsTheme

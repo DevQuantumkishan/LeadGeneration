@@ -60,9 +60,7 @@ DashboardScreen As screen:
                 OnSelect: =Set(varshowMenu,!varshowMenu)
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
-                Width: |-
-                    =//Parent.Height
-                    60
+                Width: =50
                 X: =18
                 Y: =11
                 ZIndex: =1
@@ -80,21 +78,6 @@ DashboardScreen As screen:
                 X: =0.00
                 ZIndex: =2
 
-            imgTechnicianlogoDS As image:
-                AlignInContainer: =AlignInContainer.Center
-                DisplayMode: =DisplayMode.View
-                Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height
-                Image: ='technician logo'
-                LayoutMinHeight: =320
-                LayoutMinWidth: =320
-                PaddingBottom: =5
-                PaddingTop: =0.00
-                Visible: =false
-                Width: =If(Parent.Width>Parent.Height,Parent.Width/10,Parent.Width/14)
-                X: =0.00
-                ZIndex: =3
-
             lblHeaderDS As label:
                 AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
@@ -109,9 +92,39 @@ DashboardScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician"
-                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-30
+                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-Image3_1.Width-20
                 X: =96.12
                 ZIndex: =4
+
+            Image3_1 As image:
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =Parent.Height
+                HoverFill: =Self.Fill
+                Image: ='refresh-1x'
+                OnSelect: |-
+                    =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+                    //Notify("Internet is connected",NotificationType.Success);
+                    Refresh(LeadInformations);
+                    ClearCollect(
+                        GCTotalIncentives,
+                       Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
+                    );
+                    Refresh(LeadChats));
+                     
+                     Set(VarCurrentYear,Text(Year(Today())));
+                     Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
+                     Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));
+                PaddingBottom: =Parent.Height/3
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =Parent.Height/3
+                PressedFill: =Self.Fill
+                Visible: =If(Connection.Connected,true,false)
+                Width: =50
+                X: =ctnYearToggleDS.X+ctnYearToggleDS.Width
+                Y: =Parent.Height/4
+                ZIndex: =5
 
             btnUsernameDS As button:
                 AlignInContainer: =AlignInContainer.Center
@@ -148,7 +161,7 @@ DashboardScreen As screen:
             LayoutMinWidth: =250
             PaddingRight: =0.00
             PaddingTop: =0.00
-            Width: =Parent.Width-220
+            Width: =Parent.Width
             X: =21.36
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height+10
             ZIndex: =3
@@ -214,7 +227,7 @@ DashboardScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Width: =Parent.Width/4
+                Width: =Parent.Width/6
                 X: =lblyearDS.X+lblyearDS.Width
                 ZIndex: =7
 
@@ -231,7 +244,7 @@ DashboardScreen As screen:
                         =//LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
                         LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year)
                     Font: =Font.Arial
-                    Height: =Parent.Height/2.05
+                    Height: =Parent.Height/3
                     OnCheck: |-
                         =//for cumulatively record
                         Set(cumulatively,true);
@@ -252,6 +265,32 @@ DashboardScreen As screen:
                         Parent.Width/2
                     X: =lblUserNameDS.X+lblUserNameDS.Width
                     ZIndex: =1
+
+            Image3 As image:
+                DisabledFill: =RGBA(219, 219, 219, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =50
+                HoverFill: =Self.Fill
+                Image: ='refresh-1x'
+                OnSelect: |-
+                    =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+                    //Notify("Internet is connected",NotificationType.Success);
+                    Refresh(LeadInformations);
+                    ClearCollect(
+                        GCTotalIncentives,
+                       Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
+                    );
+                    Refresh(LeadChats));
+                     
+                     /*Set(VarCurrentYear,Text(Year(Today())));
+                     Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
+                     Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));*/
+                PressedFill: =Self.Fill
+                Visible: =false
+                Width: =50
+                X: =ctnYearToggleDS.X+ctnYearToggleDS.Width
+                Y: =Parent.Height/4
+                ZIndex: =8
 
         ctnMiddleDS As groupContainer.verticalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
@@ -1116,19 +1155,6 @@ DashboardScreen As screen:
                     Transparency: =0.9
                     Width: =Parent.Width
                     ZIndex: =1
-
-    TimermessageCS_1 As timer:
-        AutoPause: =false
-        Duration: =3000
-        FontWeight: =FontWeight.Lighter
-        OnTimerEnd: =Refresh(LeadChats);
-        Start: |-
-            =//VarLeadMessages
-            false
-        Visible: =false
-        X: =40
-        Y: =40
-        ZIndex: =4
 
     grpMenuDS As group:
         Height: =5

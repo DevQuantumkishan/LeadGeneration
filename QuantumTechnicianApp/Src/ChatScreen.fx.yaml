@@ -16,7 +16,7 @@ ChatScreen As screen:
         )
         ));
         Refresh (LeadChats));
-        Set(varChatScreentimerPopup,true);
+        Set(varChatScreentimerPopup,2000);
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -72,11 +72,10 @@ ChatScreen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
-                OnSelect: |-
+                OnSelect: |
                     =UpdateContext({locInfoExpanded:false});
                     If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
                     Set(VarLeadMessages,false);
-                    Set(varChatScreentimerPopup,false);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
@@ -449,6 +448,7 @@ ChatScreen As screen:
                             {'Read ': true}
                         )
                         ));
+                        
                         Patch(LeadChats,Defaults(LeadChats),
                                     {
                                         ID:GUID(),
@@ -463,7 +463,21 @@ ChatScreen As screen:
                                 ));
                         Refresh(LeadChats);
                         Reset(TextInput1_2));
-                        Set(varChatScreentimerPopup,true);
+                        If(
+                            DateDiff(
+                                UserLastNavigatedTime,
+                                Now(),
+                                TimeUnit.Seconds
+                            ) > varChatScreentimerPopup,
+                            Set(
+                                safetyPopup,
+                                true
+                            );
+                            ,
+                            Set(
+                                UserLastNavigatedTime,
+                                Now()
+                            );
                     PaddingBottom: =10
                     PaddingLeft: =10
                     PaddingRight: =10
@@ -641,6 +655,7 @@ ChatScreen As screen:
                 ZIndex: =3
 
     TimerforDispayusername As timer:
+        AutoStart: =true
         Duration: =2000
         OnTimerEnd: |-
             =Set(VarUsernameTimer,false);UpdateContext({VartoolTip:false});Set(varChatScreentimerPopup,true);
@@ -649,15 +664,6 @@ ChatScreen As screen:
         X: =60
         Y: =60
         ZIndex: =6
-
-    Timer1 As timer:
-        Duration: =2000
-        OnTimerEnd: =Set(VarchatInactivemode,true);
-        Start: =varChatScreentimerPopup
-        Visible: =false
-        X: =357
-        Y: =100
-        ZIndex: =7
 
     PopopNotificationLSS_2 As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
@@ -733,7 +739,7 @@ ChatScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
-                    OnSelect: =Set(VarchatInactivemode,false);Set(varChatScreentimerPopup,true);Navigate(ChatScreen)
+                    OnSelect: =Set(VarchatInactivemode,false);Navigate(ChatScreen);
                     Size: =14
                     Text: ="No"
                     Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
@@ -745,7 +751,7 @@ ChatScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
-                    OnSelect: =Set(VarchatInactivemode,false);Set(varChatScreentimerPopup,false);If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
+                    OnSelect: =Set(VarchatInactivemode,false);If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
                     Size: =14
                     Text: ="Yes"
                     Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
