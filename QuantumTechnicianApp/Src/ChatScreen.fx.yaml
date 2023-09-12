@@ -16,7 +16,7 @@ ChatScreen As screen:
         )
         ));
         Refresh (LeadChats));
-        Set(varChatScreentimerPopup,2000);
+        Set(VarChatScreentimerPopup,true);
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -310,7 +310,7 @@ ChatScreen As screen:
                         //(VartoolTip,ThisItem.FromName)
                         UpdateContext({VartoolTip:true});
                         Set(VarUsernameTimer,true);
-                        Set(varChatScreentimerPopup,true);
+                        //Set(varChatScreentimerPopup,true);
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
@@ -357,7 +357,7 @@ ChatScreen As screen:
                         //(VartoolTip,ThisItem.FromName)
                         UpdateContext({VartoolTip:false});
                         Set(VarUsernameTimer,false);
-                        Set(varChatScreentimerPopup,true);
+                        //Set(varChatScreentimerPopup,true);
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
@@ -419,7 +419,7 @@ ChatScreen As screen:
                     HoverBorderColor: =RGBA(255, 0, 0, 1)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     Mode: =TextMode.MultiLine
-                    OnChange: =Set(varChatScreentimerPopup,true)
+                    OnChange: =//Set(varChatScreentimerPopup,true)
                     PaddingLeft: =10
                     Size: =If(Parent.Width<500,12,Parent.Width>500,14)
                     Width: =Parent.Width-Icon6_2.Width
@@ -463,21 +463,9 @@ ChatScreen As screen:
                                 ));
                         Refresh(LeadChats);
                         Reset(TextInput1_2));
-                        If(
-                            DateDiff(
-                                UserLastNavigatedTime,
-                                Now(),
-                                TimeUnit.Seconds
-                            ) > varChatScreentimerPopup,
-                            Set(
-                                safetyPopup,
-                                true
-                            );
-                            ,
-                            Set(
-                                UserLastNavigatedTime,
-                                Now()
-                            );
+                         
+                        Set(varChatScreentimerPopup,true);
+                            
                     PaddingBottom: =10
                     PaddingLeft: =10
                     PaddingRight: =10
@@ -658,7 +646,7 @@ ChatScreen As screen:
         AutoStart: =true
         Duration: =2000
         OnTimerEnd: |-
-            =Set(VarUsernameTimer,false);UpdateContext({VartoolTip:false});Set(varChatScreentimerPopup,true);
+            =Set(VarUsernameTimer,false);UpdateContext({VartoolTip:false});//Set(varChatScreentimerPopup,true);
         Start: =VarUsernameTimer
         Visible: =false
         X: =60
@@ -739,7 +727,9 @@ ChatScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
-                    OnSelect: =Set(VarchatInactivemode,false);Navigate(ChatScreen);
+                    OnSelect: |-
+                        =Set(VarchatInactivemode,false);Set(varChatScreentimerPopup,true);
+                        Navigate(ChatScreen);
                     Size: =14
                     Text: ="No"
                     Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
@@ -757,4 +747,12 @@ ChatScreen As screen:
                     Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
                     Width: =Parent.Width/5
                     ZIndex: =2
+
+    Timer2 As timer:
+        Duration: =2000
+        OnTimerEnd: =Set(VarchatInactivemode,true)
+        Start: =VarChatScreentimerPopup
+        X: =100
+        Y: =100
+        ZIndex: =9
 
