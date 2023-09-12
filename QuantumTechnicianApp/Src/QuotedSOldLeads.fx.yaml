@@ -504,6 +504,7 @@ QuotedSOldLeads As screen:
                             Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
+                            Set(VarEstimateNumber,ThisItem.LeadEstimateNumber);
                         Visible: |-
                             =//If(Header="Rejected",false,true)
                             false
@@ -601,6 +602,7 @@ QuotedSOldLeads As screen:
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                             Set(VarLtdID,ThisItem.ID);
                             Set(VarLeadstatus,ThisItem.LeadStatus);
+                            Set(VarEstimateNumber,ThisItem.LeadEstimateNumber);
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextTrackingNumberSLS_2.Y
