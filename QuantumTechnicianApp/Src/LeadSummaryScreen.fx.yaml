@@ -170,13 +170,9 @@ LeadSummaryScreen As screen:
                         =//ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+TotalEstimatedExpenseLSS.Height+TotalEstimatedHoursofTravelLSS.Height+50
                         ContractNumberLSS.Height + BuildingNameLSS.Height + ZipCodeLSS.Height + AddressLSS.Height + UnitCountLSS.Height + UnitDescriptionLSS.Height + ScopeLSS.Height + ScopeOfWorkLSS.Height + ManuallyScopeOfWorkLSS.Height + EstimatedHoursLSS.Height + NotesLSS.Height + UnitDownLSS.Height + AdditionalExpensesRequiredLSS.Height + 
                             TravelRequiredLSS.Height + CommunicatedtoCustomerLSS.Height +
-                             If(IsBlank(IntxtCustomerNameLSS.Text),50,
-                              CustomerNameLSS.Height) +If(IsBlank(txtphonenumber_2.Text),50, CustomerContactLSS.Height)+
-                              If(
-                            IsBlank(IntxtTotalEstimatedExpenseLSS.Text),
-                        50,
-                            TotalEstimatedExpenseLSS.Height)+If(IsBlank(intxtTotalEstimatedHoursofTravelLSS.Text),50,TotalEstimatedHoursofTravelLSS.Height)
-                        +50
+                            If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
+                              If(cboxTravelRequiredLSS.Value=true,TotalEstimatedHoursofTravelLSS.Height,5)+
+                              If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)+50
                     Item: =VarFormMode
                     LayoutMinHeight: =250
                     LayoutMinWidth: =Parent.Width
@@ -1217,9 +1213,10 @@ LeadSummaryScreen As screen:
                             OnCheck: |-
                                 =Set(VarAdditionExpenseSummary,cboxAELSS.Value);
                                 Set(VarAdditionExpense,true);Reset(IntxtTotalEstimatedExpenseLSS);
-                            OnUncheck: |-
+                            OnUncheck: |
                                 =Set(VarAdditionExpenseSummary,cboxAELSS.Value);
-                                Set(VarAdditionExpense,false);Reset(IntxtTotalEstimatedExpenseLSS);
+                                Set(VarAdditionExpense,false);
+                                Set(VarTotalEstimateExpenseSummary,Blank());
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Additional expenses required"
@@ -1270,7 +1267,7 @@ LeadSummaryScreen As screen:
 
                         IntxtTotalEstimatedExpenseLSS As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                            Default: =VarTotalEstimateExpenseSummary
+                            Default: ="$ " & VarTotalEstimateExpenseSummary
                             DelayOutput: =true
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
@@ -1278,7 +1275,7 @@ LeadSummaryScreen As screen:
                             HoverBorderColor: =RGBA(149, 149, 149, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =Parent.MaxLength
-                            OnChange: =Set(VarTotalEstimateExpenseSummary,IntxtTotalEstimatedExpenseLSS.Text);
+                            OnChange: =Set(VarTotalEstimateExpenseSummary,Text(Value(IntxtTotalEstimatedExpenseLSS.Text),"0.00"));
                             PaddingLeft: =5
                             RadiusBottomLeft: =0
                             RadiusBottomRight: =0
@@ -1379,7 +1376,7 @@ LeadSummaryScreen As screen:
                                 Set(VarTravel,true);Reset(intxtTotalEstimatedHoursofTravelLSS);
                             OnUncheck: |-
                                 =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
-                                Set(VarTravel,false);Reset(intxtTotalEstimatedHoursofTravelLSS);
+                                Set(VarTravel,false);Set(VarTotalEstimateHoursofTravelSummary,Blank());
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Travel required"
@@ -1541,7 +1538,8 @@ LeadSummaryScreen As screen:
                                 Set(VarCommunication,true);Reset(IntxtCustomerNameLSS);Reset(IntxtContactNumberES_1);
                             OnUncheck: |-
                                 =Set(VarCommunicationSummary,CboxCCLSS.Value);
-                                Set(VarCommunication,false);Reset(IntxtCustomerNameLSS);Reset(IntxtContactNumberES_1);
+                                Set(VarCommunication,false);Set(VarCustomerNameSummary,Blank());
+                                Set(varPhoneNumber,Blank());
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Communicated to customer"
@@ -1666,7 +1664,7 @@ LeadSummaryScreen As screen:
                             BorderColor: =RGBA(116, 116, 116, 1)
                             BorderThickness: =1
                             Fill: =RGBA(237, 237, 237, 1)
-                            Height: =Parent.Height/1.04
+                            Height: =Parent.Height/1.06
                             Width: =Parent.Width-80
                             X: =50
                             Y: =5
@@ -2396,7 +2394,7 @@ LeadSummaryScreen As screen:
                                     CommunicatedToCustomer: CboxCCLSS.Value,
                                     'CustomerName ': VarCustomerNameSummary,
                                     'CustomerContact ': txtphonenumber_2.Text,
-                                    TotalEstimatedExpense: IntxtTotalEstimatedExpenseLSS.Text,
+                                    TotalEstimatedExpense:Value(IntxtTotalEstimatedExpenseLSS.Text),
                                     TotalEstimatedHoursofTravel: intxtTotalEstimatedHoursofTravelLSS.Text,
                                     LeadStatus: "Submitted",
                                     LeadDate: Now(),

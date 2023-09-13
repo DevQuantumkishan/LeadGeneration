@@ -9,6 +9,7 @@ ViewDetailsScreen As screen:
         LayoutGap: =10
         LayoutMode: =LayoutMode.Auto
         LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingLeft: =10
         Width: =Parent.Width
         ZIndex: =1
 
@@ -135,8 +136,8 @@ ViewDetailsScreen As screen:
                 Font: =Font.Arial
                 Height: =Parent.Height
                 PaddingBottom: =0
-                PaddingLeft: =20
-                PaddingRight: =20
+                PaddingLeft: =10
+                PaddingRight: =10
                 PaddingTop: =0
                 Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
                 Text: ="Lead Details"
@@ -144,10 +145,10 @@ ViewDetailsScreen As screen:
                 ZIndex: =1
 
         ctnMiddleVDS As groupContainer.verticalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(255, 255, 255, 1)
+            AlignInContainer: =AlignInContainer.Center
             FillPortions: =0
             Height: =SummaryFormVDS.Height+glryImageLSS_2.Height+Label4.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -181,7 +182,7 @@ ViewDetailsScreen As screen:
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
                 NumberOfColumns: =1
-                Width: =Parent.Width
+                Width: =Parent.Width-20
                 Y: =10
                 ZIndex: =1
 
@@ -1306,7 +1307,7 @@ ViewDetailsScreen As screen:
                     DataCardValue6 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =0
-                        Default: =Parent.Default
+                        Default: ="$ "  &  Text(Value( Parent.Default),"0.00")
                         DelayOutput: =true
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: =Parent.DisplayMode
@@ -1804,12 +1805,13 @@ ViewDetailsScreen As screen:
                         ZIndex: =5
 
             Label4 As label:
+                Fill: =RGBA(255, 255, 255, 1)
                 FontWeight: =FontWeight.Semibold
                 PaddingLeft: =30
                 Size: =14
                 Text: ="Uploaded Images"
                 Visible: =If(glryImageLSS_2.AllItemsCount>0,true,false)
-                Width: =Parent.Width
+                Width: =Parent.Width-20
                 ZIndex: =2
 
             "glryImageLSS_2 As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
@@ -1828,7 +1830,7 @@ ViewDetailsScreen As screen:
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =4
                 TemplateSize: =Min(250, Self.Height - 60)
-                Width: =Parent.Width
+                Width: =Parent.Width-20
                 WrapCount: =4
                 X: =40
                 Y: =SummaryFormVDS.Height
