@@ -932,7 +932,9 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Height: =20
                         Image: =email
-                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
+                        Visible: |-
+                            =If(yearly =true, 
+                            If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold" && Year(LeadInformationLID.SoldLeadDate)=Year(VarFirstYear)))=0,false,true),If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true))
                         Width: =20
                         X: =Parent.Width/1.25
                         Y: =Parent.Height/9
