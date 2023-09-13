@@ -2500,6 +2500,10 @@ LeadScreen As screen:
                         ,
                 
                 //updating sold price and sold incentives
+                LeadSold.Run( glryleadlistLS.Selected.Email,
+                            glryleadlistLS.Selected.LeadTrackingNumber,
+                            VarLoggedInUser.FullName);
+                            
                         UpdateIf(
                             LeadInformations,
                             ID = VarSelectedLead.ID,
