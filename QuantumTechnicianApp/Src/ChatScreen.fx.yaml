@@ -76,7 +76,7 @@ ChatScreen As screen:
                     =UpdateContext({locInfoExpanded:false});
                     If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
                     Set(VarLeadMessages,false);
-                    UpdateContext({startTimerCS:false});
+                    UpdateContext({startTimerCS:false});Refresh(LeadChats);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
