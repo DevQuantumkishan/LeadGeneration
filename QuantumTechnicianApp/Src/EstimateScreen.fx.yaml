@@ -758,7 +758,7 @@ EstimateScreen As screen:
 
                     IntxtTotalEstimatedExpense As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: = "$" & Text( VarTotalEstimateExpenseSummary ,"0.00" )
+                        Default: = "$ " & VarTotalEstimateExpenseSummary
                         DelayOutput: =true
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: =Parent.DisplayMode
@@ -768,7 +768,7 @@ EstimateScreen As screen:
                         HoverBorderColor: =RGBA(149, 149, 149, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =Parent.MaxLength
-                        OnChange: =Set(VarTotalEstimateExpenseSummary,IntxtTotalEstimatedExpense.Text);
+                        OnChange: =Set(VarTotalEstimateExpenseSummary,Text(Value(IntxtTotalEstimatedExpense.Text),"0.00"));
                         OnSelect: =Set(VarTotalEstimatesExpense,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
