@@ -748,7 +748,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarTotalEstimatesExpense,31,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Total estimated expense *"
+                        Text: ="Total estimated expense ($)*"
                         Visible: =VarTotalEstimatesExpense || !IsBlank(IntxtTotalEstimatedExpense)
                         Width: =Parent.Width - 120
                         Wrap: =false
@@ -758,13 +758,13 @@ EstimateScreen As screen:
 
                     IntxtTotalEstimatedExpense As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =VarTotalEstimateExpenseSummary
+                        Default: = "$" & Text( VarTotalEstimateExpenseSummary ,"0.00" )
                         DelayOutput: =true
                         DisabledColor: =RGBA(0, 0, 0, 1)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Format: =TextFormat.Number
-                        HintText: =If(VarTotalEstimatesExpense,"","Total estimated expense *")
+                        HintText: =If(VarTotalEstimatesExpense,"","Total estimated expense ($)* ")
                         HoverBorderColor: =RGBA(149, 149, 149, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =Parent.MaxLength
