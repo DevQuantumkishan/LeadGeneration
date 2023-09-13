@@ -380,7 +380,7 @@ SubmittedLeadScreen As screen:
                     PaddingBottom: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =Parent.Width/1.2
+                    Width: =Parent.Width/1.3
                     X: =10
                     Y: =htmltextContractNumberSLS.Y+htmltextContractNumberSLS.Height
                     ZIndex: =2
@@ -395,7 +395,7 @@ SubmittedLeadScreen As screen:
                     PaddingBottom: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =Parent.Width/1.2
+                    Width: =Parent.Width/1.3
                     X: =10
                     Y: =20
                     ZIndex: =3
@@ -438,7 +438,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>Date created : </b>" & ThisItem.'Created On'
+                        ="<b>Date created : </b>" & Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -492,7 +492,7 @@ SubmittedLeadScreen As screen:
                     PaddingBottom: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =Parent.Width/1.2
+                    Width: =Parent.Width/1.3
                     X: =10
                     Y: =htmltextTrackingNumberSLS.Y+htmltextTrackingNumberSLS.Height
                     ZIndex: =8
@@ -540,7 +540,7 @@ SubmittedLeadScreen As screen:
                     Height: =20
                     HtmlText: |-
                         =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
-                        "<b>Status Date : </b>" & ThisItem.StatusDate
+                        "<b>Status Date : </b>" & Text(ThisItem.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0

@@ -45,8 +45,6 @@ DashboardScreen As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =Parent.Width-20
             LayoutMode: =LayoutMode.Auto
-            PaddingLeft: =10
-            PaddingRight: =10
             PaddingTop: =5
             Width: =Parent.Width
             X: =0.00
@@ -92,7 +90,7 @@ DashboardScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician"
-                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-Image3_1.Width-20
+                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-Image3_1.Width-5
                 X: =96.12
                 ZIndex: =4
 
@@ -136,7 +134,7 @@ DashboardScreen As screen:
                 DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(0, 0, 0, 0)
                 Font: =Font.Arial
-                Height: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
+                Height: =If(Parent.Width<500,Parent.Height/1.9,Parent.Height/1.6)
                 RadiusBottomLeft: =50
                 RadiusBottomRight: =50
                 RadiusTopLeft: =50
@@ -149,7 +147,7 @@ DashboardScreen As screen:
                         User().FullName,
                         Find(" ", User().FullName) + 1,
                         1)
-                Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
+                Width: =If(Parent.Width<500,Parent.Height/1.9,Parent.Height/1.6)
                 ZIndex: =6
 
         ctnUserNameDS As groupContainer.manualLayoutContainer:

@@ -324,7 +324,7 @@ RejectedLeads As screen:
                     LeadStatus=Header&&Email=User().Email),'Created On',SortOrder.Descending),IntxtSearchBoxSLS_1.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(ComboBox1_1.Selected.Value="Created Date","createdon",ComboBox1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_1.Selected.Value="Address","shlrf_address",ComboBox1_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_1.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_1.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                 Layout: =Layout.Vertical
                 TemplatePadding: =0
-                TemplateSize: =If(btnheaderSLS_1.Text="Rejected Leads",340+htmltxtQQTeamMemberSLS_3.Height,200+htmltxtQQTeamMemberSLS_3.Height)
+                TemplateSize: =If(btnheaderSLS_1.Text="Rejected Leads",240+htmltxtQQTeamMemberSLS_3.Height)
                 Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
                 X: =20
                 Y: =ctnSearchBarSLS_3.Height+ctnSearchBarSLS_3.Y
@@ -354,6 +354,7 @@ RejectedLeads As screen:
                         ="<b>Building name : </b>" &  ThisItem.'BuildingName '
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
+                    PaddingLeft: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
@@ -369,6 +370,7 @@ RejectedLeads As screen:
                         ="<b>Tracking number : </b>" &  ThisItem.LeadTrackingNumber
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
+                    PaddingLeft: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
@@ -385,6 +387,7 @@ RejectedLeads As screen:
                         ="<b>Address : </b>" & ThisItem.Address
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
+                    PaddingLeft: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
@@ -400,6 +403,7 @@ RejectedLeads As screen:
                         ="<b>Zipcode : </b>" & ThisItem.'ZipCode '
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
+                    PaddingLeft: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Visible: =false
@@ -414,9 +418,10 @@ RejectedLeads As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>Date created : </b>" & ThisItem.'Created On'
+                        ="<b>Date created : </b>" & Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
+                    PaddingLeft: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
@@ -429,7 +434,7 @@ RejectedLeads As screen:
                     BorderThickness: =4
                     Color: =RGBA(0, 0, 0, 0)
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =220
+                    Height: =Parent.TemplateHeight/1.04
                     HoverColor: =RGBA(0, 0, 0, 0)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     OnSelect: |
@@ -464,6 +469,7 @@ RejectedLeads As screen:
                         ="<b>Contract number : </b>" &  ThisItem.'ContractNumber '
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
+                    PaddingLeft: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
@@ -480,11 +486,12 @@ RejectedLeads As screen:
                         ="<b>QQ Team member  : </b>" & ThisItem.QQTeamName
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
+                    PaddingLeft: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
                     X: =20
-                    Y: =htmltxtDateSLS_1.Y+htmltxtDateSLS_1.Height
+                    Y: =htmltxtDateSLS_3.Y+htmltxtDateSLS_3.Height
                     ZIndex: =18
 
                 htmltxtQQTeamMemberSLS_3 As htmlViewer:
@@ -496,12 +503,30 @@ RejectedLeads As screen:
                         ="<b>Lead Comment  : </b>" & ThisItem.LeadComment
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
+                    PaddingLeft: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =Parent.Width/1.1
+                    Width: =Parent.Width/1.2
                     X: =20
                     Y: =htmltxtQQTeamMemberSLS_1.Y+htmltxtQQTeamMemberSLS_1.Height
                     ZIndex: =22
+
+                htmltxtDateSLS_3 As htmlViewer:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.View
+                    Font: =Font.Arial
+                    Height: =20
+                    HtmlText: |-
+                        ="<b>Rejected Date : </b>" & Text(ThisItem.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingTop: =0
+                    Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                    Width: =Parent.Width/1.08
+                    X: =20
+                    Y: =htmltxtDateSLS_1.Y+htmltxtDateSLS_1.Height
+                    ZIndex: =23
 
     grpMenuSLS_1 As group:
         Height: =5

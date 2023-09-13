@@ -272,7 +272,7 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
                             =//"Sold Incentives $ : "&  " " & 0
-                            "Sold Price: $" & " " & ThisItem.SoldLeadPrice
+                            "Sold Price: $" & " " & Text(ThisItem.SoldLeadPrice,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =//If(btnheaderSLS_2.Text="Sold Leads",true,false)
                         Width: =Parent.Width/2.55
@@ -342,9 +342,10 @@ QuotedSOldLeads As screen:
                             ="<b>Building name : </b>" &  ThisItem.'BuildingName '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                        Width: =Parent.Width/1.08
+                        Width: =Parent.Width/1.3
                         X: =20
                         Y: =htmltextContractNumberSLS_2.Y+htmltextContractNumberSLS_2.Height
                         ZIndex: =6
@@ -357,9 +358,10 @@ QuotedSOldLeads As screen:
                             ="<b>Tracking number : </b>" &  ThisItem.LeadTrackingNumber
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                        Width: =Parent.Width/1.08
+                        Width: =Parent.Width/1.3
                         X: =20
                         Y: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",lineEstimatenoSLS_2.Y+lineEstimatenoSLS_2.Height+10,20)
                         ZIndex: =7
@@ -373,6 +375,7 @@ QuotedSOldLeads As screen:
                             ="<b>Address : </b>" & ThisItem.Address
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
@@ -389,6 +392,7 @@ QuotedSOldLeads As screen:
                             ="<b>Zipcode : </b>" & ThisItem.'ZipCode '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Visible: =false
@@ -403,9 +407,10 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Date created : </b>" & ThisItem.'Created On'
+                            ="<b>Date created : </b>" & Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
@@ -467,7 +472,7 @@ QuotedSOldLeads As screen:
                         Height: =If(btnheaderSLS_2.Text="Sold Leads",25,0)
                         HtmlText: |-
                             =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
-                            "<b>Sold date : </b>" & ThisItem.SoldLeadDate
+                            "<b>Sold date : </b>" & Text(ThisItem.SoldLeadDate,"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -486,9 +491,10 @@ QuotedSOldLeads As screen:
                             ="<b>Contract number : </b>" &  ThisItem.'ContractNumber '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                        Width: =Parent.Width/1.08
+                        Width: =Parent.Width/1.3
                         X: =20
                         Y: =htmltextTrackingNumberSLS_2.Y+htmltextTrackingNumberSLS_2.Height
                         ZIndex: =14
@@ -522,6 +528,7 @@ QuotedSOldLeads As screen:
                             ="<b>QQ Team member  : </b>" & ThisItem.QQTeamName
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
@@ -566,7 +573,9 @@ QuotedSOldLeads As screen:
                             =//"Sold Incentives $ : "&  " " & 0
                             "Proposed Price: $" & " " & ThisItem.ProposedLeadPrice
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
+                        Visible: |-
+                            =//If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
+                            false
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =lblPriceSLS_4.Height+lblPriceSLS_4.Y
@@ -579,9 +588,10 @@ QuotedSOldLeads As screen:
                         Height: =20
                         HtmlText: |-
                             =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
-                            "<b>Quoted date : </b>" & ThisItem.ProposedLeadDate
+                            "<b>Quoted date : </b>" & Text( ThisItem.ProposedLeadDate,"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
