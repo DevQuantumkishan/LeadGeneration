@@ -2498,6 +2498,7 @@ LeadScreen As screen:
                             );
                         );//total prospective incentive countrows if close
                         ,
+                
                 //updating sold price and sold incentives
                         UpdateIf(
                             LeadInformations,
@@ -2509,7 +2510,10 @@ LeadScreen As screen:
                                 SoldLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
                                 //TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 StatusDate: Now(),
-                                SoldLeadDate: VarFPEstimateData.BookingDate
+                                SoldLeadDate: VarFPEstimateData.BookingDate,
+                                ProposedLeadPrice:VarFPEstimateData.BidPrice,
+                                ProposedLeadIncentives:VarFPEstimateData.BidPrice * 0.02,
+                                ProposedLeadDate:VarFPEstimateData.DateCreated
                             }
                         );
                         If(
