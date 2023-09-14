@@ -237,7 +237,8 @@ QuotedSOldLeads As screen:
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",320,200)
                     Visible: |
-                        =ThisItem.IsSelected && locInfoExpanded
+                        =ThisItem.IsSelected && locInfoExpanded 
+                        //|| VarNavigateId
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
                     X: =1
                     Y: =rectangleYearSLS_2.Height
@@ -613,6 +614,7 @@ QuotedSOldLeads As screen:
                             Set(VarLtdID,ThisItem.ID);
                             Set(VarLeadstatus,ThisItem.LeadStatus);
                             Set(VarEstimateNumber,ThisItem.LeadEstimateNumber);
+                            //Set(VarNavigateId,ThisItem.IsSelected);
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextTrackingNumberSLS_2.Y
@@ -806,7 +808,7 @@ QuotedSOldLeads As screen:
                     Height: =rectangleYearSLS_2.Height/1.2
                     Image: =accordianPlus
                     OnSelect: |-
-                        =Select(Parent); UpdateContext({locInfoExpanded:true});Set(Vardown,Year(ThisItem.Year));
+                        =UpdateContext({locInfoExpanded:true});Set(Vardown,Year(ThisItem.Year));
                     Visible: |
                         =!(ThisItem.IsSelected && locInfoExpanded)
                     Width: =Parent.Width/14
@@ -818,7 +820,7 @@ QuotedSOldLeads As screen:
                     Height: =rectangleYearSLS_2.Height/1.2
                     Image: =accordianMinus
                     OnSelect: |-
-                        =Select(Parent); UpdateContext({locInfoExpanded:false})
+                        =Select(Parent); UpdateContext({locInfoExpanded:false}) ;Set(VarNavigateId,Blank());
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =Parent.Width/14
