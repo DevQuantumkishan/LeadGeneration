@@ -90,7 +90,7 @@ DashboardScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician"
-                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-Image3_1.Width-5
+                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-Image3_1.Width-10
                 X: =96.12
                 ZIndex: =4
 
@@ -269,7 +269,7 @@ DashboardScreen As screen:
             Image3 As image:
                 DisabledFill: =RGBA(255, 255, 255, 1)
                 Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height
+                Height: =Parent.Height/1.08
                 HoverFill: =Self.Fill
                 Image: ='refresh-1x'
                 OnSelect: |-
@@ -290,9 +290,7 @@ DashboardScreen As screen:
                 PressedFill: =Self.Fill
                 Width: =Parent.Width/10
                 X: =ctnYearToggleDS.X+ctnYearToggleDS.Width
-                Y: |-
-                    =//Parent.Height/4
-                    0
+                Y: =Parent.Height/8
                 ZIndex: =8
 
         ctnMiddleDS As groupContainer.verticalAutoLayoutContainer:
