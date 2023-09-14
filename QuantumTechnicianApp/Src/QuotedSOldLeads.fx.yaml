@@ -1,6 +1,6 @@
 QuotedSOldLeads As screen:
     OnVisible: |-
-        =UpdateContext({locInfoExpanded:false});
+        =
         Set(VarDownIcon,true);
         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error)
         //,Notify("Internet is connected",NotificationType.Success)
@@ -69,6 +69,7 @@ QuotedSOldLeads As screen:
                 OnSelect: |-
                     =Navigate(DashboardScreen);
                     UpdateContext({locInfoExpanded:false});
+                    Set(VarNavigateId,Blank());
                     Reset(IntxtSearchBoxSLS_2);
                 PaddingBottom: =5
                 PaddingTop: =5
@@ -237,8 +238,7 @@ QuotedSOldLeads As screen:
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",320,200)
                     Visible: |
-                        =ThisItem.IsSelected && locInfoExpanded 
-                        //|| VarNavigateId
+                        =ThisItem.IsSelected && locInfoExpanded  
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
                     X: =1
                     Y: =rectangleYearSLS_2.Height
@@ -606,7 +606,7 @@ QuotedSOldLeads As screen:
                             If(Parent.Width>1000,Parent.TemplateHeight/3.5,Parent.TemplateHeight/4.5)
                             
                         Image: ='mailtripti (1)'
-                        OnSelect: |-
+                        OnSelect: |
                             =Navigate(ChatScreen);
                             Set(VarLtdName,ThisItem.'BuildingName ');
                             Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
@@ -614,7 +614,6 @@ QuotedSOldLeads As screen:
                             Set(VarLtdID,ThisItem.ID);
                             Set(VarLeadstatus,ThisItem.LeadStatus);
                             Set(VarEstimateNumber,ThisItem.LeadEstimateNumber);
-                            //Set(VarNavigateId,ThisItem.IsSelected);
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
                         Y: =htmltextTrackingNumberSLS_2.Y
@@ -807,7 +806,7 @@ QuotedSOldLeads As screen:
                 imgExpandSLS_2 As image:
                     Height: =rectangleYearSLS_2.Height/1.2
                     Image: =accordianPlus
-                    OnSelect: |-
+                    OnSelect: |
                         =UpdateContext({locInfoExpanded:true});Set(Vardown,Year(ThisItem.Year));
                     Visible: |
                         =!(ThisItem.IsSelected && locInfoExpanded)

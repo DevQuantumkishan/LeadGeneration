@@ -62,7 +62,7 @@ ViewDetailsScreen As screen:
                 Icon: =Icon.ChevronLeft
                 OnSelect: |-
                     =If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
-                    UpdateContext({locInfoExpanded:false})
+                    UpdateContext({locInfoExpanded:true})
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Width/20
