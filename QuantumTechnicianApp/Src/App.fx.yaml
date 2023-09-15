@@ -1,7 +1,13 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |
-        =// CSS
+        =Set(VarTechnicianID,LookUp(SHTechnicians,'Email Address'=User().Email));
+        Set(
+            myMail,
+            User().Email
+        );
+        
+        // CSS
         Set(
         //for header
             Header,
@@ -88,11 +94,7 @@ App As appinfo:
                 RfontsizeInput: If(App.Width<358,12,App.Width>358,14,16)
             }
         );
-        Set(VarTechnicianID,LookUp(SHTechnicians,'Email Address'=User().Email));
-        Set(
-            myMail,
-            User().Email
-        );
+        
         Set(
             yearly,
             true
