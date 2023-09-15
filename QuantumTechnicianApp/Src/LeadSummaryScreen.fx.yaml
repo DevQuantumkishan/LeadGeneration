@@ -195,7 +195,7 @@ LeadSummaryScreen As screen:
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_contractnumber")
                         Required: =false
                         Update: =IntxtContractNumerLSS.Text
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =0
                         ZIndex: =1
