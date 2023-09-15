@@ -2235,11 +2235,11 @@ LeadScreen As screen:
 
     tmrgetmessage As timer:
         AutoPause: =false
-        AutoStart: =false//VarLeadMessages
+        AutoStart: =VarLeadMessages
         Duration: =3000
         OnTimerEnd: =Refresh(LeadChats);
         Repeat: =true
-        Start: =//VarLeadMessages
+        Start: =VarLeadMessages
         Visible: =false
         X: =40
         Y: =40
@@ -2573,7 +2573,7 @@ LeadScreen As screen:
                     );
                     Set(
                         VarPopUpEstimateNumberSubmittedmsg,
-                        "Incentives updated for the estimateId " & txtinptestimatenumber_1.Text
+                        "Incentives updated for the estimateId " &( txtinptestimatenumber_1.Text || glryleadlistLS.Selected.LeadEstimateNumber)
                     );
                     Set(
                         VarNavigateDashboardScreen,
