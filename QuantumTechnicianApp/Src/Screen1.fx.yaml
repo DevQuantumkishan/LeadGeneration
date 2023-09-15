@@ -1,134 +1,83 @@
 Screen1 As screen:
     OnVisible: =VarFormMode
 
-    Form1 As form:
-        DataSource: =LeadInformations
-        DefaultMode: =FormMode.New
+    PopopContracterrorCS_1 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =Parent.Height
+        Visible: =true 
         Width: =Parent.Width
-        Y: =40
         ZIndex: =1
 
-        "'CustomerContact _DataCard2' As typedDataCard.textualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="shlrf_customercontact"
-            Default: =varPhoneNumber
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
+        borderErrorpopupCS_1 As rectangle:
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =335
-            MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
-            Required: =false
-            Update: =txtphonenumber.Text
-            Width: =Parent.Width
-            X: =0
-            Y: =0
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height>500 ,Parent.Height/3,Parent.Height>800,Parent.Height/4.5)
+                If(Parent.Width<500 ||Parent.Height<500,260,Parent.Width>500 ,300)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-            lblphonenumber As label:
-                AutoHeight: =true
-                Height: =34
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
+        ctnErrorCS_1 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =borderErrorpopupCS_1.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Width: =borderErrorpopupCS_1.Width
+            X: =borderErrorpopupCS_1.X
+            Y: =borderErrorpopupCS_1.Y
+            ZIndex: =2
+
+            ctnErrorPopupCS_1 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =If(Parent.Width<500,80,60)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
                 ZIndex: =1
 
-            txtphonenumber As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =Parent.Default
-                DelayOutput: =true
-                DisplayMode: =Parent.DisplayMode
-                MaxLength: =Len(txtPhonenumberformat.Text)
-                PaddingLeft: =5
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =lblphonenumber.Y + lblphonenumber.Height + 5
+                imgErrorPopupCS_1 As image:
+                    AlignInContainer: =AlignInContainer.Center
+                    Height: =Parent.Height
+                    Image: =    error
+                    PaddingTop: =30
+                    Width: =Parent.Width/2
+                    ZIndex: =1
+
+            lblErrorPopuoCS_1 As label:
+                Align: =Align.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: |-
+                    =//borderErrorpopupCS.Height/2
+                    120
+                Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                Text: |-
+                    =
+                        "You don't have authorization to use this app.Kindly ask to support team."
+                Width: =Parent.Width
                 ZIndex: =2
 
-            tog_phonenumberlength As slider:
-                Default: =Len(txtphonenumber.Text)
-                Max: =10
-                OnChange: |
-                    =Set(
-                        varPhoneNumber,
-                        With(
-                            {
-                                // extracts all numbers from the phone number field
-                                varTextNumbersOnly: Concat(
-                                    MatchAll(
-                                        txtphonenumber.Text,
-                                        Match.Digit
-                                    ),
-                                    FullMatch
-                                ),
-                                // builds a table with phone number format at every position
-                                varPhoneNumberFormat: With(
-                                    {varTextPhoneNumberFormat: txtPhonenumberformat.Text},
-                                    With(
-                                        {
-                                            varTablePhoneNumberFormat: ForAll(
-                                                Sequence(Len(varTextPhoneNumberFormat)),
-                                                With(
-                                                    {
-                                                        varNumberCurrentLength: Left(
-                                                            varTextPhoneNumberFormat,
-                                                            Value
-                                                        )
-                                                    },
-                                                    {
-                                                        NumberFormat: varNumberCurrentLength,
-                                                        CountNumbers: CountRows(
-                                                            MatchAll(
-                                                                varNumberCurrentLength,
-                                                                "#"
-                                                            )
-                                                        )
-                                                    }
-                                                )
-                                            )
-                                        },
-                                        ForAll(
-                                            Sequence(
-                                                Max(
-                                                    varTablePhoneNumberFormat,
-                                                    CountNumbers
-                                                )
-                                            ),
-                                            LookUp(
-                                                varTablePhoneNumberFormat,
-                                                CountNumbers = Value
-                                            )
-                                        )
-                                    )
-                                )
-                            },
-                            Text(
-                                Value(varTextNumbersOnly),
-                                LookUp(
-                                    varPhoneNumberFormat,
-                                    CountNumbers = Len(varTextNumbersOnly),
-                                    NumberFormat
-                                )
-                            )
-                        )
-                    );
-                    Reset(txtphonenumber);
-                X: =63
-                Y: =114
+            btnOkErrorPopupCS_1 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(255, 0, 0, 1)
+                Font: =Font.Arial
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =
+                    Exit(true);
+                Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
+                Text: ="Exit"
+                Width: =Parent.Width/5
                 ZIndex: =3
-
-            txtPhonenumberformat As text:
-                Default: |-
-                    ="(###)-###-####"
-                Height: =44
-                Width: =708
-                X: =30
-                Y: =179
-                ZIndex: =4
 

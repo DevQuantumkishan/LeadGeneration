@@ -89,8 +89,8 @@ App As appinfo:
             }
         );
         Set(
-            myMail,
-            User().Email
+            myMail,Blank()
+            //User().Email
         );
         Set(VarTechnicianID,LookUp(SHTechnicians,'Email Address'=User().Email));
         Set(
