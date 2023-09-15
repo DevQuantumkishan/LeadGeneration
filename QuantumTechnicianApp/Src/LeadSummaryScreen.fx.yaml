@@ -170,14 +170,15 @@ LeadSummaryScreen As screen:
                         =//ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+TotalEstimatedExpenseLSS.Height+TotalEstimatedHoursofTravelLSS.Height+50
                         If(ContractNumberLSS.Height + BuildingNameLSS.Height + ZipCodeLSS.Height + AddressLSS.Height + UnitCountLSS.Height + UnitDescriptionLSS.Height + ScopeLSS.Height + ScopeOfWorkLSS.Height + ManuallyScopeOfWorkLSS.Height + EstimatedHoursLSS.Height + NotesLSS.Height + UnitDownLSS.Height + AdditionalExpensesRequiredLSS.Height + 
                             TravelRequiredLSS.Height + CommunicatedtoCustomerLSS.Height +
-                            If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
+                           /* If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
                               If(cboxTravelRequiredLSS.Value=true,TotalEstimatedHoursofTravelLSS.Height,5)+
-                              If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)=0,1800,
+                              If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)*/
+                              CustomerNameLSS.Height+CustomerContactLSS.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height=0,1800,
                         ContractNumberLSS.Height + BuildingNameLSS.Height + ZipCodeLSS.Height + AddressLSS.Height + UnitCountLSS.Height + UnitDescriptionLSS.Height + ScopeLSS.Height + ScopeOfWorkLSS.Height + ManuallyScopeOfWorkLSS.Height + EstimatedHoursLSS.Height + NotesLSS.Height + UnitDownLSS.Height + AdditionalExpensesRequiredLSS.Height + 
-                            TravelRequiredLSS.Height + CommunicatedtoCustomerLSS.Height +
-                            If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
-                              If(cboxTravelRequiredLSS.Value=true,TotalEstimatedHoursofTravelLSS.Height,5)+
-                              If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)+40)
+                            TravelRequiredLSS.Height + CommunicatedtoCustomerLSS.Height + CustomerNameLSS.Height+CustomerContactLSS.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height+50)
+                          //  If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
+                           //   If(cboxTravelRequiredLSS.Value=true,TotalEstimatedHoursofTravelLSS.Height,5)+
+                            //  If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)+40)
                     Item: =VarFormMode
                     LayoutMinHeight: =250
                     LayoutMinWidth: =Parent.Width
@@ -1709,7 +1710,7 @@ LeadSummaryScreen As screen:
                             AutoHeight: =true
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
-                            Height: =34
+                            Height: =32
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Customer Phone Number *"
                             Width: =Parent.Width - 120
