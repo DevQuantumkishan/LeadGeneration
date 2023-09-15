@@ -75,7 +75,7 @@ Screen1 As screen:
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-
                     =
-                    Exit(true);
+                    Exit();
                 Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                 Text: ="Exit"
                 Width: =Parent.Width/5
