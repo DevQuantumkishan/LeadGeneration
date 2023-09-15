@@ -850,7 +850,7 @@ LeadSummaryScreen As screen:
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_customscopeofwork")
                         Required: =false
                         Update: =IntxtManuallyScopeofWorkLSS.Text
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =8
                         ZIndex: =1
