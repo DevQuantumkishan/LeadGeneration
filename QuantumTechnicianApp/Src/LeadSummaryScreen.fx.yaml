@@ -1008,7 +1008,7 @@ LeadSummaryScreen As screen:
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_notes")
                         Required: =false
                         Update: =IntxtNotesLSS.Text
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =10
                         ZIndex: =1
