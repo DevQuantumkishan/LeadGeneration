@@ -168,14 +168,9 @@ LeadSummaryScreen As screen:
                     FillPortions: =0
                     Height: |-
                         =//ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+TotalEstimatedExpenseLSS.Height+TotalEstimatedHoursofTravelLSS.Height+50
-                        If(ContractNumberLSS.Height + BuildingNameLSS.Height + ZipCodeLSS.Height + AddressLSS.Height + UnitCountLSS.Height + UnitDescriptionLSS.Height + ScopeLSS.Height + ScopeOfWorkLSS.Height + ManuallyScopeOfWorkLSS.Height + EstimatedHoursLSS.Height + NotesLSS.Height + UnitDownLSS.Height + AdditionalExpensesRequiredLSS.Height + 
-                            TravelRequiredLSS.Height + CommunicatedtoCustomerLSS.Height +
-                           /* If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
-                              If(cboxTravelRequiredLSS.Value=true,TotalEstimatedHoursofTravelLSS.Height,5)+
-                              If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)*/
-                              CustomerNameLSS.Height+CustomerContactLSS.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height=0,1800,
+                        
                         ContractNumberLSS.Height + BuildingNameLSS.Height + ZipCodeLSS.Height + AddressLSS.Height + UnitCountLSS.Height + UnitDescriptionLSS.Height + ScopeLSS.Height + ScopeOfWorkLSS.Height + ManuallyScopeOfWorkLSS.Height + EstimatedHoursLSS.Height + NotesLSS.Height + UnitDownLSS.Height + AdditionalExpensesRequiredLSS.Height + 
-                            TravelRequiredLSS.Height + CommunicatedtoCustomerLSS.Height + CustomerNameLSS.Height+CustomerContactLSS.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height+50)
+                            TravelRequiredLSS.Height + CommunicatedtoCustomerLSS.Height + CustomerNameLSS.Height+CustomerContactLSS.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height+50
                           //  If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
                            //   If(cboxTravelRequiredLSS.Value=true,TotalEstimatedHoursofTravelLSS.Height,5)+
                             //  If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)+40)
