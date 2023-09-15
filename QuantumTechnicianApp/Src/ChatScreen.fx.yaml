@@ -108,7 +108,7 @@ ChatScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
                 HoverFill: =Self.Fill
-                Image: ='refresh-1x'
+                Image: ='refresh new'
                 OnSelect: |-
                     =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                     //Notify("Internet is connected",NotificationType.Success);
@@ -118,6 +118,10 @@ ChatScreen As screen:
                 PaddingRight: =5
                 PaddingTop: =Parent.Height/3
                 PressedFill: =Self.Fill
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
                 Visible: =If(Connection.Connected,true,false)
                 Width: =50
                 X: =ctnYearToggleDS.X+ctnYearToggleDS.Width

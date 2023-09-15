@@ -274,7 +274,7 @@ DashboardScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height/2
                 HoverFill: =Self.Fill
-                Image: ='refresh-2x'
+                Image: ='refresh new'
                 OnSelect: |-
                     =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                     //Notify("Internet is connected",NotificationType.Success);
