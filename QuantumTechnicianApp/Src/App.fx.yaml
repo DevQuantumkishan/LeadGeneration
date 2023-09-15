@@ -88,11 +88,11 @@ App As appinfo:
                 RfontsizeInput: If(App.Width<358,12,App.Width>358,14,16)
             }
         );
+        Set(VarTechnicianID,LookUp(SHTechnicians,'Email Address'=User().Email));
         Set(
             myMail,
             User().Email
         );
-        Set(VarTechnicianID,LookUp(SHTechnicians,'Email Address'=User().Email));
         Set(
             yearly,
             true
