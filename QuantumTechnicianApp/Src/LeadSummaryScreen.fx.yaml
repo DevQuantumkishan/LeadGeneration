@@ -356,7 +356,7 @@ LeadSummaryScreen As screen:
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_zipcode")
                         Required: =false
                         Update: =IntxtZipcodeLSS.Text
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =2
                         ZIndex: =1
