@@ -433,7 +433,7 @@ LeadSummaryScreen As screen:
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_address")
                         Required: =false
                         Update: =IntxtAddressLSS.Text
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =3
                         ZIndex: =1
