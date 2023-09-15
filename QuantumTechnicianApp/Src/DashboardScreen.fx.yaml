@@ -268,11 +268,13 @@ DashboardScreen As screen:
                     ZIndex: =1
 
             Image3 As image:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
                 DisabledFill: =RGBA(255, 255, 255, 1)
                 Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height/1.08
+                Height: =Parent.Height/2
                 HoverFill: =Self.Fill
-                Image: ='refresh-1x'
+                Image: ='refresh-2x'
                 OnSelect: |-
                     =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                     //Notify("Internet is connected",NotificationType.Success);
@@ -286,12 +288,20 @@ DashboardScreen As screen:
                      /*Set(VarCurrentYear,Text(Year(Today())));
                      Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
                      Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));*/
-                PaddingBottom: =10
-                PaddingTop: =10
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
                 PressedFill: =Self.Fill
-                Width: =Parent.Width/10
+                RadiusBottomLeft: =100
+                RadiusBottomRight: =100
+                RadiusTopLeft: =100
+                RadiusTopRight: =100
+                Width: |-
+                    =//Parent.Width/15
+                    Parent.Height/2
                 X: =ctnYearToggleDS.X+ctnYearToggleDS.Width
-                Y: =Parent.Height/8
+                Y: =Parent.Height/4
                 ZIndex: =8
 
         ctnMiddleDS As groupContainer.verticalAutoLayoutContainer:
