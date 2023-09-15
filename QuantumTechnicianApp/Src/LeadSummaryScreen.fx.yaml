@@ -928,7 +928,7 @@ LeadSummaryScreen As screen:
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_estimatedhours")
                         Required: =false
                         Update: =IntxtEstimatedHoursLSS.Text
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =9
                         ZIndex: =1
