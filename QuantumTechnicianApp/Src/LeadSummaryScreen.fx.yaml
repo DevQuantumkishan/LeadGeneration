@@ -1216,7 +1216,7 @@ LeadSummaryScreen As screen:
                         Height: =50
                         Required: =false
                         Update: =TravelRequiredLSS.Default
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =13
                         ZIndex: =1
@@ -1284,7 +1284,7 @@ LeadSummaryScreen As screen:
                         Required: =false
                         Update: =intxtTotalEstimatedHoursofTravelLSS.Text
                         Visible: =VarTravel
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =15
                         ZIndex: =1
@@ -1379,7 +1379,7 @@ LeadSummaryScreen As screen:
                         Required: =false
                         Update: =IntxtTotalEstimatedExpenseLSS.Text
                         Visible: =VarAdditionExpense
-                        Width: =729
+                        Width: =Parent.Width
                         X: =0
                         Y: =14
                         ZIndex: =1
