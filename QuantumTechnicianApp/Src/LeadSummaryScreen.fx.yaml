@@ -1205,72 +1205,6 @@ LeadSummaryScreen As screen:
                             X: =20
                             ZIndex: =5
 
-                    TravelRequiredLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
-                        BorderColor: =RGBA(0, 0, 0, 0)
-                        BorderStyle: =BorderStyle.Solid
-                        DataField: ="crd59_travelrequired"
-                        Default: =ThisItem.TravelRequired
-                        DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
-                        Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
-                        Required: =false
-                        Update: =TravelRequiredLSS.Default
-                        Width: =Parent.Width
-                        X: =0
-                        Y: =14
-                        ZIndex: =1
-
-                        ErrorMessageTravelRequiredLSS As label:
-                            AutoHeight: =true
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =
-                            ZIndex: =3
-
-                        StarVisibleTravelRequiredLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =
-                            ZIndex: =4
-
-                        cboxTravelRequiredLSS As checkbox:
-                            BorderColor: =RGBA(0, 0, 0, 0)
-                            CheckboxBorderColor: =RGBA(202, 202, 202, 1)
-                            CheckboxSize: =50
-                            Default: =VarTravelSummary
-                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                            Font: =Font.Arial
-                            HoverBorderColor: =
-                            HoverColor: =RGBA(0, 0, 0, 1)
-                            OnCheck: |-
-                                =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
-                                Set(VarTravel,true);Reset(intxtTotalEstimatedHoursofTravelLSS);
-                            OnUncheck: |-
-                                =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
-                                Set(VarTravel,false);Set(VarTotalEstimateHoursofTravelSummary,Blank());
-                            PressedBorderColor: =
-                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Travel required"
-                            Width: =Parent.Width-60
-                            X: =20
-                            ZIndex: =5
-
                     TotalEstimatedExpenseLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -1363,6 +1297,72 @@ LeadSummaryScreen As screen:
                             Y: =lblTotalEstimatedExpenseLSS.Y
                             ZIndex: =5
 
+                    TravelRequiredLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="crd59_travelrequired"
+                        Default: =ThisItem.TravelRequired
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =TravelRequiredLSS.Default
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =14
+                        ZIndex: =1
+
+                        ErrorMessageTravelRequiredLSS As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =24
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =
+                            ZIndex: =3
+
+                        StarVisibleTravelRequiredLSS As label:
+                            Align: =Align.Center
+                            Font: =Font.Arial
+                            Height: =
+                            Size: =21
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =
+                            ZIndex: =4
+
+                        cboxTravelRequiredLSS As checkbox:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            CheckboxBorderColor: =RGBA(202, 202, 202, 1)
+                            CheckboxSize: =50
+                            Default: =VarTravelSummary
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            Font: =Font.Arial
+                            HoverBorderColor: =
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            OnCheck: |-
+                                =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
+                                Set(VarTravel,true);Reset(intxtTotalEstimatedHoursofTravelLSS);
+                            OnUncheck: |-
+                                =Set(VarTravelSummary,cboxTravelRequiredLSS.Value);
+                                Set(VarTravel,false);Set(VarTotalEstimateHoursofTravelSummary,Blank());
+                            PressedBorderColor: =
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Text: ="Travel required"
+                            Width: =Parent.Width-60
+                            X: =20
+                            ZIndex: =5
+
                     TotalEstimatedHoursofTravelLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -1391,10 +1391,9 @@ LeadSummaryScreen As screen:
                             ZIndex: =1
 
                         lblTotalEstimatedHoursofTravelLSS As label:
-                            AutoHeight: =true
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
-                            Height: =34
+                            Height: =50
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Total estimated hours of travel *"
                             Width: =Parent.Width - 120
