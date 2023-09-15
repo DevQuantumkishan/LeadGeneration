@@ -597,7 +597,7 @@ LeadSummaryScreen As screen:
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_unitdescription")
                         Required: =false
                         Update: =IntxtUnitDescriptionLSS.Text
-                        Width: =731
+                        Width: =Parent.Width
                         X: =0
                         Y: =5
                         ZIndex: =1
