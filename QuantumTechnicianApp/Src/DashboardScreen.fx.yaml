@@ -277,6 +277,8 @@ DashboardScreen As screen:
                 Image: ='refresh new'
                 OnSelect: |-
                     =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+                    Set(VarSyncPopup,true);
+                    Set(VarSyncStart,true);
                     //Notify("Internet is connected",NotificationType.Success);
                     Refresh(LeadInformations);
                     ClearCollect(
@@ -284,7 +286,8 @@ DashboardScreen As screen:
                        Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
                     );
                     Refresh(LeadChats));
-                     
+                     Set(VarSyncEnd,true);
+                    
                      /*Set(VarCurrentYear,Text(Year(Today())));
                      Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
                      Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));*/
