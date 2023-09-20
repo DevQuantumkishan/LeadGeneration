@@ -287,7 +287,7 @@ DashboardScreen As screen:
                     );
                     Refresh(LeadChats));
                      Set(VarSyncEnd,true);
-                    
+                    Set(VarSyncPopup,false);
                      /*Set(VarCurrentYear,Text(Year(Today())));
                      Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
                      Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));*/
@@ -1178,7 +1178,7 @@ DashboardScreen As screen:
     PopoploaderCS_1 As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
-        Visible: =VarLoader 
+        Visible: =VarSyncPopup
         Width: =Parent.Width
         ZIndex: =4
 
@@ -1229,8 +1229,7 @@ DashboardScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: |
-                    =    "Getting contract record. Please wait."
+                Text: =If(VarSyncStart,"Refreshing,please wait.")
                 Width: =Parent.Width
                 ZIndex: =2
 
