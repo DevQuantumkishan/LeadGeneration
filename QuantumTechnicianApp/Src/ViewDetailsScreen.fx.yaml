@@ -699,6 +699,7 @@ ViewDetailsScreen As screen:
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
+                        Mode: =TextMode.MultiLine
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -930,9 +931,11 @@ ViewDetailsScreen As screen:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
+                        Height: =80
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
+                        Mode: =TextMode.MultiLine
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -1098,9 +1101,11 @@ ViewDetailsScreen As screen:
                             ThisItem.Notes
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
+                        Height: =60
                         HoverBorderColor: =RGBA(0, 0, 0, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
+                        Mode: =TextMode.MultiLine
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
