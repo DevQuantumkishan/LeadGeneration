@@ -612,12 +612,12 @@ DashboardScreen As screen:
         Button2 As button:
             AlignInContainer: =AlignInContainer.Center
             OnSelect: |-
-                =Clear(LCLeadInformations);
+                =//Clear(LCLeadInformations);
                 ForAll(Filter(SHFPEstimates,'Lead Generator Id'="10221920") As i,
-                If(IsBlank(LookUp(LCLeadInformations,LeadEstimateNumber=i.Estimate)),
-                Collect(
-                        LCLeadInformations,
-                       // Defaults(LeadInformations),
+                If(IsBlank(LookUp(LeadInformations,LeadEstimateNumber=i.Estimate)),
+                Patch(
+                        LeadInformations,
+                        Defaults(LeadInformations),
                         {
                             ID:GUID(),
                             'ContractNumber ': i.MaintContractNumber,
@@ -640,7 +640,7 @@ DashboardScreen As screen:
                            // 'CustomerContact ': ,
                             //TotalEstimatedExpense:,
                             //TotalEstimatedHoursofTravel: ,
-                            LeadStatus:If(LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Dead","Rejected",LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Open","Quoted",LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Sold","Sold"),
+                            LeadStatus:If(LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Dead","Rejected",LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Open","InProgress",LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Sold","InProgress"),
                             LeadDate: Now(),
                             StatusDate: Now(),
                             Email: LookUp(SHTechnicians,'Personnel No'=i.'Lead Generator Id','Email Address'),
@@ -648,7 +648,9 @@ DashboardScreen As screen:
                             TechnicianID: i.'Lead Generator Id',
                             Area: i.Area,
                             Territory: i.Territory,
-                            District: i.District
+                            District: i.District,
+                            QQTeamEmail:"wallabh.sardesai@schindler.com.",
+                            QQTeamName:"Wallabh Sardesai"
                         }
                     );))
             Text: ="Patch old leads"
