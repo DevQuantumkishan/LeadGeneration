@@ -612,14 +612,16 @@ DashboardScreen As screen:
         Button2 As button:
             AlignInContainer: =AlignInContainer.Center
             OnSelect: |-
-                =ForAll(Filter(SHFPEstimates,'Lead Generator Id'="10221920") As i,
-                If(IsBlank(LookUp(LeadInformations,LeadEstimateNumber=i.Estimate)),
-                Patch(
-                        LeadInformations,
-                        Defaults(LeadInformations),
+                =//Clear(LCLeadInformations);
+                ForAll(Filter(SHFPEstimates,'Lead Generator Id'="10221920") As i,
+                If(IsBlank(LookUp(LCLeadInformations,LeadEstimateNumber=i.Estimate)),
+                Collect(
+                        LCLeadInformations,
+                       // Defaults(LeadInformations),
                         {
                             ID:GUID(),
                             'ContractNumber ': i.MaintContractNumber,
+                            LeadEstimateNumber:i.Estimate,
                             'BuildingName ': i.BuildingName,
                             'ZipCode ': i.BuildingZip,
                             Address: i.BuildingAddress,
@@ -641,8 +643,8 @@ DashboardScreen As screen:
                             LeadStatus:If(LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Dead","Rejected",LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Open","Quoted",LookUp(SHFPEstimates,Estimate=i.Estimate,JobStatus)="Sold","Sold"),
                             LeadDate: Now(),
                             StatusDate: Now(),
-                           // Email: ,
-                           // MechanicName: ,
+                            Email: LookUp(SHTechnicians,'Personnel No'=i.'Lead Generator Id','Email Address'),
+                            MechanicName:i.'Lead Generator' ,
                             TechnicianID: i.'Lead Generator Id',
                             Area: i.Area,
                             Territory: i.Territory,

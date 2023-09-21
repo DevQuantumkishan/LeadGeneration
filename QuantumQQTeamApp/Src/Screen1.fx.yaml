@@ -1,0 +1,279 @@
+Screen1 As screen:
+
+    DataTable1 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =540
+        Items: =LCLeadInformations
+        Width: =1366
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+        Area_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Area"
+            FieldName: ="Area"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.Area
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        Address_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Address"
+            FieldName: ="Address"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.Address
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        "'BuildingName _Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="BuildingName "
+            FieldName: ="BuildingName "
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.'BuildingName '
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        CommunicatedToCustomer_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CommunicatedToCustomer"
+            FieldName: ="CommunicatedToCustomer"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.CommunicatedToCustomer
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        "'ContractNumber _Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ContractNumber "
+            FieldName: ="ContractNumber "
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.'ContractNumber '
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        "'CustomerName _Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CustomerName "
+            FieldName: ="CustomerName "
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.'CustomerName '
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        CustomScopeofWork_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CustomScopeofWork"
+            FieldName: ="CustomScopeofWork"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.CustomScopeofWork
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+        District_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="District"
+            FieldName: ="District"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.District
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+        Email_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Email"
+            FieldName: ="Email"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.Email
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+        "'EstimatedHours _Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="EstimatedHours "
+            FieldName: ="EstimatedHours "
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.'EstimatedHours '
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =10
+
+        ID_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.ID
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+        LeadDate_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="LeadDate"
+            FieldName: ="LeadDate"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.LeadDate
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =12
+
+        LeadEstimateNumber_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="LeadEstimateNumber"
+            FieldName: ="LeadEstimateNumber"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =13
+            Text: =ThisItem.LeadEstimateNumber
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =13
+
+        LeadStatus_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="LeadStatus"
+            FieldName: ="LeadStatus"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =14
+            Text: =ThisItem.LeadStatus
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =14
+
+        MechanicName_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="MechanicName"
+            FieldName: ="MechanicName"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =15
+            Text: =ThisItem.MechanicName
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =15
+
+        StatusDate_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="StatusDate"
+            FieldName: ="StatusDate"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =16
+            Text: =ThisItem.StatusDate
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =16
+
+        TechnicianID_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="TechnicianID"
+            FieldName: ="TechnicianID"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =17
+            Text: =ThisItem.TechnicianID
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =17
+
+        Territory_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Territory"
+            FieldName: ="Territory"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =18
+            Text: =ThisItem.Territory
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =18
+
+        "'ZipCode _Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ZipCode "
+            FieldName: ="ZipCode "
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =19
+            Text: =ThisItem.'ZipCode '
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =19
+
