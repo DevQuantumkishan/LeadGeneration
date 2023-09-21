@@ -14,7 +14,7 @@ LoadingScreen As screen:
     TimerLS As timer:
         AutoStart: =true
         Duration: =5000
-        OnTimerEnd: =If(VarTechnicianID.'Email Address'=myMail,Navigate(DashboardScreen),Navigate(Screen1))
+        OnTimerEnd: =If(VarTechnicianID.'Email Address'=myMail,Navigate(DashboardScreen),Navigate(UserValidateScreen))
         PaddingRight: =5.34
         PaddingTop: =5.34
         Size: =13.88
