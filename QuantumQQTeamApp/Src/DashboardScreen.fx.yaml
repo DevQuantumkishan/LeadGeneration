@@ -612,7 +612,7 @@ DashboardScreen As screen:
         Button2 As button:
             AlignInContainer: =AlignInContainer.Center
             OnSelect: |-
-                =//Clear(LCLeadInformations);
+                =Clear(LCLeadInformations);
                 ForAll(Filter(SHFPEstimates,'Lead Generator Id'="10221920") As i,
                 If(IsBlank(LookUp(LCLeadInformations,LeadEstimateNumber=i.Estimate)),
                 Collect(
@@ -635,8 +635,8 @@ DashboardScreen As screen:
                             //IsUnitDown: ,
                            // AdditionalExpensesRequired: ,
                          // TravelRequired: ,
-                            CommunicatedToCustomer: true,
-                            'CustomerName ': i.CustomerName,
+                            CommunicatedToCustomer: If(!IsBlank(i.ContactFirstName),true),
+                            'CustomerName ': i.ContactFirstName,
                            // 'CustomerContact ': ,
                             //TotalEstimatedExpense:,
                             //TotalEstimatedHoursofTravel: ,

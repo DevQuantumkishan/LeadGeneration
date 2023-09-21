@@ -3,6 +3,7 @@ LeadListScreen As screen:
         =Refresh(LeadInformations);
         Set(VarPopUpInprogress,false);
         Set(VarDownIcon,true);
+        Reset(txtinptestimatenumber_1);
 
     ctnmainLS As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height

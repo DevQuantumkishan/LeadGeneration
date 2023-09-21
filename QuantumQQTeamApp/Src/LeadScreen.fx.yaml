@@ -1259,7 +1259,7 @@ LeadScreen As screen:
                 txtinptestimatenumber_1 As text:
                     BorderColor: =RGBA(149, 149, 149, 1)
                     Color: =RGBA(116, 116, 116, 1)
-                    Default: =LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadEstimateNumber)
+                    Default: =If(IsBlank(LookUp(LeadInformations,ID=VarSelectedLead.ID,LeadEstimateNumber)),"",LookUp(LeadInformations,ID=VarSelectedLead.ID,LeadEstimateNumber))
                     Height: =60
                     HintText: ="Enter Estimate Number"
                     HoverBorderColor: =//RGBA(0, 18, 107, 1)
@@ -1267,7 +1267,7 @@ LeadScreen As screen:
                     MaxLength: =20
                     OnChange: =If(Len(txtinptestimatenumber_1)=20, Notify("Estimate number should not be greater than 11 digit."))
                     PaddingLeft: =20
-                    X: =20
+                    X: =10
                     Y: =lblestimatenumberleaddetailsLdS_1.Height+lblestimatenumberleaddetailsLdS_1.Y //Label14_10.Height+Label14_10.Y
                     ZIndex: =3
 
@@ -2573,7 +2573,7 @@ LeadScreen As screen:
                     );
                     Set(
                         VarPopUpEstimateNumberSubmittedmsg,
-                        "Incentives updated for the estimateId " &( txtinptestimatenumber_1.Text || glryleadlistLS.Selected.LeadEstimateNumber)
+                        "Incentives updated for the estimateId " & LookUp(LeadInformations,ID=VarSelectedLead.ID,LeadEstimateNumber)
                     );
                     Set(
                         VarNavigateDashboardScreen,
