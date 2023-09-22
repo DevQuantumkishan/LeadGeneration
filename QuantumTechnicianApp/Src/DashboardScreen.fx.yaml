@@ -345,7 +345,7 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
-                    Fill: =RGBA(219, 219, 219, 1)
+                    Fill: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
                     FillPortions: =0
                     Height: |
                         =Parent.Height/1.05
@@ -486,7 +486,7 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
-                    Fill: =RGBA(219, 219, 219, 1)
+                    Fill: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
                     FillPortions: =0
                     Height: |
                         =Parent.Height/1.05
@@ -626,7 +626,7 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
-                    Fill: =RGBA(219, 219, 219, 1)
+                    Fill: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
                     FillPortions: =0
                     Height: |
                         =Parent.Height/1.05
@@ -761,7 +761,7 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
-                    Fill: =RGBA(219, 219, 219, 1)
+                    Fill: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalProposedLead)<>0))=0,RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
                     FillPortions: =0
                     Height: =Parent.Height/1.02
                     LayoutMinHeight: =80
@@ -921,7 +921,7 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
-                    Fill: =RGBA(219, 219, 219, 1)
+                    Fill: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'&& Value(TotalSoldLead)<>0))=0,RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
                     FillPortions: =0
                     Height: =Parent.Height/1.02
                     LayoutMinHeight: =80
