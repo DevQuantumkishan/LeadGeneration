@@ -443,7 +443,7 @@ DashboardScreen As screen:
 
                         btnOpenLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
-                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledColor: =RGBA(0, 0, 0, 0)
                             DisabledFill: =RGBA(0, 0, 0, 0)
                             DisplayMode: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,DisplayMode.Disabled,DisplayMode.Edit) 
@@ -709,7 +709,7 @@ DashboardScreen As screen:
 
                         btnRejectedLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
-                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledColor: =RGBA(0, 0, 0, 0)
                             DisabledFill: =RGBA(0, 0, 0, 0)
                             DisplayMode: |
@@ -876,7 +876,7 @@ DashboardScreen As screen:
 
                         btnQuotedLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
-                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledColor: =RGBA(0, 0, 0, 0)
                             DisabledFill: =RGBA(0, 0, 0, 0)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalProposedLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit)
@@ -1054,7 +1054,7 @@ DashboardScreen As screen:
 
                         btnSoldLeadsDS As button:
                             Color: =RGBA(0, 0, 0, 0)
-                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledColor: =RGBA(0, 0, 0, 0)
                             DisabledFill: =RGBA(0, 0, 0, 0)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'&& Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit)
