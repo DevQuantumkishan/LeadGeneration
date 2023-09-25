@@ -650,6 +650,7 @@ DashboardScreen As screen:
 
                         lblLeadsCountDS As label:
                             Align: =Align.Center
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -676,6 +677,7 @@ DashboardScreen As screen:
                         lblLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Semibold
@@ -696,6 +698,7 @@ DashboardScreen As screen:
                         lblRejectedDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
