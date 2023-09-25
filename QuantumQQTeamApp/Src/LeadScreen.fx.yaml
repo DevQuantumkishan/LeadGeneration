@@ -214,7 +214,7 @@ LeadScreen As screen:
                 LayoutMinHeight: =50
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                Visible: =If((glryleadlistLS.Selected.LeadStatus="InProgress" || glryleadlistLS.Selected.LeadStatus="Rejected" /*||glryleadlistLS.Selected.LeadStatus="Quoted"*/) && glryleadlistLS.Selected.QQTeamName=User().FullName,true,false)
+                Visible: =If((glryleadlistLS.Selected.LeadStatus="InProgress" /* || glryleadlistLS.Selected.LeadStatus="Rejected" ||glryleadlistLS.Selected.LeadStatus="Quoted"*/) && glryleadlistLS.Selected.QQTeamName=User().FullName,true,false)
                 Width: =180
                 ZIndex: =2
 
