@@ -377,6 +377,7 @@ DashboardScreen As screen:
 
                         lblOpenLeadsCountDS As label:
                             Align: =Align.Center
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -403,6 +404,7 @@ DashboardScreen As screen:
                         lblOpenLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Semibold
@@ -423,6 +425,7 @@ DashboardScreen As screen:
                         lblOpenDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -518,6 +521,7 @@ DashboardScreen As screen:
 
                         lblInprogressLeadsCountDS As label:
                             Align: =Align.Center
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -543,6 +547,7 @@ DashboardScreen As screen:
                         lblInprogressLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Semibold
@@ -563,6 +568,7 @@ DashboardScreen As screen:
                         lblInprogressDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
