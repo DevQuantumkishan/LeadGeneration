@@ -802,6 +802,7 @@ DashboardScreen As screen:
                         lblInprogressIncentivesDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
@@ -836,6 +837,7 @@ DashboardScreen As screen:
 
                         lblQuotedLeadsDS As label:
                             Align: =Align.Center
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
@@ -864,6 +866,7 @@ DashboardScreen As screen:
                         lblQuotedDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Quoted"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
