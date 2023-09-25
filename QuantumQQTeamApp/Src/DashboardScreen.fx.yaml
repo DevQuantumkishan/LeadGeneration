@@ -609,11 +609,19 @@ DashboardScreen As screen:
                 Y: =recttechnicianDS.Height+recttechnicianDS.Y+30
                 ZIndex: =9
 
+        Button3 As button:
+            AlignInContainer: =AlignInContainer.Center
+            Fill: =Header.SHRed
+            HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+            Text: ="Calculate Incentives"
+            Width: =300
+            ZIndex: =5
+
         Button2 As button:
             AlignInContainer: =AlignInContainer.Center
             OnSelect: |-
                 =//Clear(LCLeadInformations);
-                ForAll(Filter(SHFPEstimates,'Lead Generator Id'="10221920") As i,
+                ForAll(Filter(SHFPEstimates,'Lead Generator Id'="33333333") As i,
                 If(IsBlank(LookUp(LeadInformations,LeadEstimateNumber=i.Estimate)),
                 Patch(
                         LeadInformations,
@@ -654,8 +662,7 @@ DashboardScreen As screen:
                         }
                     );))
             Text: ="Patch old leads"
-            Visible: =false
-            ZIndex: =5
+            ZIndex: =6
 
         ctnschindlerimg As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.End
@@ -667,7 +674,7 @@ DashboardScreen As screen:
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             PaddingRight: =20
-            ZIndex: =6
+            ZIndex: =7
 
             imgGraphicDS As image:
                 Height: =Parent.Height

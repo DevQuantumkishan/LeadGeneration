@@ -126,12 +126,12 @@ LeadListScreen As screen:
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                         DisplayFields: =["cr02d_area"]
                         InputTextPlaceholder: ="Select Area"
-                        Items: =Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.District)
+                        Items: =Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.Value)
                         PressedColor: =RGBA(0, 0, 0, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         Reset: =true
                         SearchFields: =["cr02d_area"]
-                        SearchItems: =Search(Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.District),cmbxareafilterLS.SearchText,"cr02d_area")
+                        SearchItems: =Search(Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.Value),cmbxareafilterLS.SearchText,"cr02d_area")
                         SelectionFill: =Header.SHRed
                         Visible: =false
                         Width: =200
@@ -164,12 +164,13 @@ LeadListScreen As screen:
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             DisplayFields: =["cr02d_district"]
                             InputTextPlaceholder: ="Select District"
-                            Items: =SHTechnicians
+                            IsSearchable: =false
+                            Items: =Distinct(SHTechnicians,District)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["cr02d_district"]
-                            SearchItems: =Search(SHTechnicians,cmbxdistrictfilterLS.SearchText,"cr02d_district")
+                            SearchItems: =[]
                             SelectionFill: =Header.SHRed
                             Width: =200
                             X: =40
@@ -331,27 +332,27 @@ LeadListScreen As screen:
                                     VarMyLeads = true,
                                     Search(Filter(
                                         LeadInformations,
-                                        QQTeamName = User().FullName ,Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                        QQTeamName = User().FullName ,Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                     ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname"),
                                     If(
                                         VarOpenLeads = true,
                                         Search(Filter(
                                             LeadInformations,
                                             (LeadStatus = "Submitted"|| LeadStatus = "Rejected" ||LeadStatus = "InProgress")
-                                            , Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                            , Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                         ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname")
                                         ,
                                         If(
                                             VarQuotedLeads = true,
                                            Search( Filter(
                                                 LeadInformations,
-                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                             ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname"),
                                             If(
                                                 VarSoldLeads = true,
                                                Search( Filter(
                                                     LeadInformations,
-                                                    LeadStatus = "Sold",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.District ||IsBlank(cmbxdistrictfilterLS.Selected.District) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                                    LeadStatus = "Sold",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
                                                 ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname")
                                             )
                                         )
