@@ -621,7 +621,7 @@ DashboardScreen As screen:
             AlignInContainer: =AlignInContainer.Center
             OnSelect: |-
                 =//Clear(LCLeadInformations);
-                ForAll(Filter(SHFPEstimates,'Lead Generator Id'="33333333") As i,
+                ForAll(Filter(SHFPEstimates,'Lead Generator Id'="ss") As i,
                 If(IsBlank(LookUp(LeadInformations,LeadEstimateNumber=i.Estimate)),
                 Patch(
                         LeadInformations,
@@ -652,7 +652,7 @@ DashboardScreen As screen:
                             LeadDate: Now(),
                             StatusDate: Now(),
                             Email: LookUp(SHTechnicians,'Personnel No'=i.'Lead Generator Id','Email Address'),
-                            MechanicName:i.'Lead Generator' ,
+                            MechanicName:LookUp(SHTechnicians,'Personnel No'=i.'Lead Generator Id','First name')&" "&LookUp(SHTechnicians,'Personnel No'=i.'Lead Generator Id','Last Name'), //Lead Generator' ,
                             TechnicianID: i.'Lead Generator Id',
                             Area: i.Area,
                             Territory: i.Territory,
