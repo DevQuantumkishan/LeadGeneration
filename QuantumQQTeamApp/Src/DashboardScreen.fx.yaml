@@ -613,7 +613,9 @@ DashboardScreen As screen:
             AlignInContainer: =AlignInContainer.Center
             Fill: =Header.SHRed
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-            OnSelect: =Quoted_Sold_Flow.Run();
+            OnSelect: |-
+                =Set(VarFlowResult,Quoted_Sold_Flow.Run());
+                If(VarFlowResult,Notify("The incentive calculation is running in the background,it may take some time.Please check the email.",NotificationType.Information));
             Text: ="Calculate Incentives"
             Width: =300
             ZIndex: =5
