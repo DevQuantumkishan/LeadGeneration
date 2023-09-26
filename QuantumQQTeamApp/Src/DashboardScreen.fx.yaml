@@ -621,7 +621,7 @@ DashboardScreen As screen:
             AlignInContainer: =AlignInContainer.Center
             OnSelect: |-
                 =//Clear(LCLeadInformations);
-                ForAll(Filter(SHFPEstimates,'Lead Generator Id'="ss") As i,
+                ForAll(Filter(SHFPEstimates,'Lead Generator Id'<>"NA") As i,
                 If(IsBlank(LookUp(LeadInformations,LeadEstimateNumber=i.Estimate)),
                 Patch(
                         LeadInformations,
