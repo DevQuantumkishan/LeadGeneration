@@ -1171,7 +1171,7 @@ DashboardScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
                 FillPortions: =0
-                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-200
+                Height: =Parent.Height-ctnCreateLeadDS.Height-ctnLeadsButtonDS.Height-ctnLeadsButtonDS.Height-20
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 RadiusBottomLeft: =0
@@ -1186,6 +1186,8 @@ DashboardScreen As screen:
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
                     Image: ='3x'
+                    PaddingBottom: =50
+                    PaddingTop: =50
                     Transparency: =0.9
                     Width: =Parent.Width
                     ZIndex: =1
