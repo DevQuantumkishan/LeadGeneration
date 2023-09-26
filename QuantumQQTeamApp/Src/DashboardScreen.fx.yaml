@@ -613,6 +613,7 @@ DashboardScreen As screen:
             AlignInContainer: =AlignInContainer.Center
             Fill: =Header.SHRed
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: =Quoted_Sold_Flow.Run();
             Text: ="Calculate Incentives"
             Width: =300
             ZIndex: =5
