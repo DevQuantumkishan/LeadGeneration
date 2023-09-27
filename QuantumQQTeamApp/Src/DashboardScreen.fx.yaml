@@ -2,6 +2,7 @@ DashboardScreen As screen:
     OnVisible: |-
         =Refresh(LeadInformations);
         Set(VarAllLeads,false);
+        Set(VarPopUpIncentivesCalculation,false);
 
     ctnmainDS As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -614,8 +615,8 @@ DashboardScreen As screen:
             Fill: =Header.SHRed
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |-
-                =Set(VarFlowResult,Quoted_Sold_Flow.Run());
-                If(VarFlowResult,Notify("The incentive calculation is running in the background,it may take some time.Please check the email.",NotificationType.Information));
+                =Set(VarFlowResult,true);
+                If(VarFlowResult,Set(VarPopUpIncentivesCalculation,true));
             Text: ="Calculate Incentives"
             Width: =300
             ZIndex: =5
@@ -742,4 +743,64 @@ DashboardScreen As screen:
             PaddingTop: =5
             Width: =ctnHeaderDashboardScreen.Width/10
             ZIndex: =4
+
+    grpinprogressconfirmationLS_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =9
+
+        rectfullinprogressconfirmtionLS_2 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.29)
+            Height: =Parent.Height
+            Visible: =VarPopUpIncentivesCalculation
+            Width: =Parent.Width
+            ZIndex: =3
+
+        rectinprogressconfirmationLS_2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =280
+            Visible: =VarPopUpIncentivesCalculation
+            Width: =400
+            X: =(Parent.Width-Self.Width)/2
+            Y: =Parent.Height/3
+            ZIndex: =4
+
+        imginfoLS_2 As image:
+            Height: =52
+            Image: =images
+            Visible: =VarPopUpIncentivesCalculation
+            Width: =52
+            X: =(Parent.Width-Self.Width)/2
+            Y: =rectinprogressconfirmationLS_2.Y+20
+            ZIndex: =5
+
+        lblmsgLS_2 As label:
+            Align: =Align.Center
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =150
+            Text: ="This feature is given temporarily for testing. Actually, a background process will periodically run that will calculate the incentives. An incentive calculation report is sent to the corresponding QQ Team member's email."
+            Visible: =VarPopUpIncentivesCalculation
+            Width: =350
+            X: =(Parent.Width-Self.Width)/2
+            Y: =imginfoLS_2.Y+ imginfoLS_2.Height+2
+            ZIndex: =6
+
+        btnnoLS_2 As button:
+            BorderColor: =RGBA(75, 125, 6, 1)
+            Fill: =RGBA(54, 176, 75, 1)
+            Font: =Font.Arial
+            HoverBorderColor: =RGBA(75, 125, 6, 1)
+            HoverFill: =RGBA(75, 125, 6, 1)
+            OnSelect: =Set(VarPopUpIncentivesCalculation,false);
+            PressedBorderColor: =RGBA(1, 43, 1, 0)
+            PressedFill: =Self.Fill
+            Text: ="OK"
+            Visible: =VarPopUpIncentivesCalculation
+            Width: =120
+            X: =623
+            Y: =480
+            ZIndex: =8
 
