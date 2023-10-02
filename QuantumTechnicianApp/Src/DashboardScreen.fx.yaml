@@ -301,8 +301,8 @@ DashboardScreen As screen:
                 Width: |-
                     =//Parent.Width/15
                     Parent.Height/2
-                X: =695
-                Y: =38
+                X: =ctnYearToggleDS.Width+ctnYearToggleDS.X
+                Y: =Parent.Height/4
                 ZIndex: =8
 
         ctnMiddleDS As groupContainer.verticalAutoLayoutContainer:
