@@ -36,7 +36,7 @@ UnitScreen As screen:
             X: =0.00
             ZIndex: =1
 
-            iconBackUS As icon.BackArrow:
+            iconMenubarUS As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -75,7 +75,7 @@ UnitScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,18)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoUS.Width-iconBackUS.Width-btnuserUS.Width-20
+                Width: =Parent.Width-imgSchindlerLogoUS.Width-iconMenubarUS.Width-btnuserUS.Width-20
                 X: =96.12
                 ZIndex: =6
 
