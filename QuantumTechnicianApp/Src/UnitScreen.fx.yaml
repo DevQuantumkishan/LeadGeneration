@@ -439,9 +439,8 @@ UnitScreen As screen:
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
-                        OnChange: |-
+                        OnChange: |
                             =Set(VarUnitcountSummary,IntxtUnitCount.Text);
-                            //Set(VarUnitCount,true)
                         OnSelect: =Set(VarUnitCount,true)
                         PaddingBottom: =0
                         PaddingLeft: =5

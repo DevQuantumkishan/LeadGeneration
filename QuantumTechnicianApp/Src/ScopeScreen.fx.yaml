@@ -40,7 +40,7 @@ ScopeScreen As screen:
             X: =0.00
             ZIndex: =1
 
-            iconBackSS As icon.BackArrow:
+            iconMenubarSS As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -79,7 +79,7 @@ ScopeScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,18)
                 Text: ="Technician lead generation"
-                Width: =Parent.Width-imgSchindlerLogoSS.Width-iconBackSS.Width-btnuserSS.Width-20
+                Width: =Parent.Width-imgSchindlerLogoSS.Width-iconMenubarSS.Width-btnuserSS.Width-20
                 X: =96.12
                 ZIndex: =6
 
