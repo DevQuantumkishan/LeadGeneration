@@ -274,10 +274,11 @@ DashboardScreen As screen:
                 HoverFill: =Self.Fill
                 Image: ='refresh new'
                 OnSelect: |-
-                    =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+                    =//Check internet connection is connected or not, If not then notify error otherwise Set Variable VarSyncPopup true for showing syncing . when VarSyncStart is true then show waitning cursor and refresh dataverse table  LeadLeadInformations then clearcollect dataverse table TotalIncentives with filter of techinician Id into collection.
+                    
+                    If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                     Set(VarSyncPopup,true);
                     Set(VarSyncStart,true);
-                    //Notify("Internet is connected",NotificationType.Success);
                     Refresh(LeadInformations);
                     ClearCollect(
                         GCTotalIncentives,
@@ -286,9 +287,10 @@ DashboardScreen As screen:
                     Refresh(LeadChats));
                      Set(VarSyncEnd,true);
                     Set(VarSyncPopup,false);
-                     /*Set(VarCurrentYear,Text(Year(Today())));
+                    // this is for yearwise toggle . store today's year into variable VarcurrentYear. Store Minumum year from GCTotalIncentives into variable VarFirstYear.
+                     Set(VarCurrentYear,Text(Year(Today())));
                      Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
-                     Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));*/
+                     Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));
                 PaddingBottom: =5
                 PaddingLeft: =5
                 PaddingRight: =5
