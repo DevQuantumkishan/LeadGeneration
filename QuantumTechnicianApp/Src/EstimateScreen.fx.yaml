@@ -449,9 +449,8 @@ EstimateScreen As screen:
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
-                        OnChange: |-
+                        OnChange: |
                             =Set(VarEstimateHoursSummary,IntxtEstimatedHours.Text);
-                            //Set(VarEstimateHours,true)
                         OnSelect: =Set(VarEstimateHours,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
@@ -536,9 +535,8 @@ EstimateScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: |-
+                        OnChange: |
                             =Set(VarNotesSummary,IntxtMaterial.Text);
-                            //Set(VarNotes,true)
                         OnSelect: =Set(VarNotes,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
@@ -1029,7 +1027,8 @@ EstimateScreen As screen:
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
                         OnCheck: |-
-                            =Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);
+                            =//Store value of CboxCommunicatedtoCustomer into  VarCommunicationSummary variable);
+                            Set(VarCommunicationSummary,CboxCommunicatedtoCustomer.Value);
                             Set(VarCommunication,true);Reset(IntxtContactName);Reset(IntxtContactNumberES);
                             Set(VarCustomerName,false);
                             Set(varCustomerPhonenumber,false);
@@ -1485,7 +1484,9 @@ EstimateScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |-
-                        =If(IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )|| If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
+                        =
+                        
+                        If(IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )|| If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
                         Set(VarNotification,true),
                         Set(VarIndicator, true );
                         Set(VarIndicatorUS, true );
