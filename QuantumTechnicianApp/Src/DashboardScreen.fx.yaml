@@ -1,6 +1,7 @@
 DashboardScreen As screen:
     OnVisible: |-
-        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+        =// checking internet connection is there or not , if no ,then notify error ,is yes then refresh dataverse table LeadInformations, collect dataverse table named as TotalIncentives into GCTotalIncentives of respective technicianID. also refersh dataverse table LeadChats .
+        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
         //Notify("Internet is connected",NotificationType.Success);
         Refresh(LeadInformations);
         ClearCollect(
@@ -9,6 +10,7 @@ DashboardScreen As screen:
         );
         Refresh(LeadChats));
          
+         // this is for yearwise toggle . store today's year into variable VarcurrentYear. Store Minumum year from GCTotalIncentives into variable VarFirstYear.
          Set(VarCurrentYear,Text(Year(Today())));
          Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
          Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));
