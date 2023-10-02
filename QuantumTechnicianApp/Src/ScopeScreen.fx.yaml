@@ -386,18 +386,6 @@ ScopeScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
-            htmltxtRequiredSS As htmlViewer:
-                AlignInContainer: =AlignInContainer.Stretch
-                Font: =Font.Arial
-                Height: =60
-                HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
-                PaddingLeft: =40
-                PaddingTop: =20
-                Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                Visible: =false
-                Width: =Parent.Width
-                ZIndex: =2
-
             ScopeInfoForm As form:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
@@ -727,20 +715,26 @@ ScopeScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |-
-                        =If(
-                            !IsBlank(CboxScope.Selected)  && !IsBlank(CboxScopeofwork.Selected)|| !IsBlank(IntxtManuallyScopeofwork),
+                        =//If CboxScope and CboxScopeofwork are not blank or CboxScope and IntxtManuallyScopeofwork are not blank then 
+                        //Set VarIndicator is true,Set VarIndicatorUS is true,Set VarIndicatorSS is true,Set VarIndicatorES is true and Navigate to EstimateScreen , Set Varnotification is true.
+                        If(
+                            !IsBlank(CboxScope.Selected)  && !IsBlank(CboxScopeofwork.Selected)|| !IsBlank(CboxScope.Selected) && !IsBlank(IntxtManuallyScopeofwork),
                         Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);
                         Set(VarIndicatorSS,true);
                         Set(VarIndicatorES,true);
                         Navigate(EstimateScreen),
                         Set(VarNotification,true););
+                        // If value of CboxCommunicatedtoCustomer is false then set varCommunication is false
                         If(CboxCommunicatedtoCustomer.Value=false,
                         Set(VarCommunication,false));
+                        // If value of CboxAdditionalExpensesRequired is false then set VarAdditionExpense is false
                         If(CboxAdditionalExpensesRequired.Value=false,
                         Set(VarAdditionExpense,false));
+                        //If value of CboxTravelRequired is false set VarTravel is false .
                         If(CboxTravelRequired.Value=false,
                         Set(VarTravel,false));
+                        //If lblContact number is blank then set VarformattedNumber is blank and Set VarPhonenumbererrormessage as false.
                         If(IsBlank(lblContactNumber),Set(VarformattedNumber,Blank()));
                         Set(VarPhonenumbererrormessage,false)
                     Size: =If(Parent.Width<358,12,Parent.Width>358,12)
