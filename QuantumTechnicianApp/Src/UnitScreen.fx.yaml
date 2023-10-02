@@ -635,7 +635,7 @@ UnitScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |+
-                        =
+                        =// If IntxtUnitCount and /or IntxtUnitDescription are/is blank then set VarNotification is true otherwise Set VarIndicator, VarIndicatorUS and VarIndicatorSS are true and navigate to ScopeScreen.
                         If(
                             IsBlank(IntxtUnitCount) || IsBlank(IntxtUnitDescription),
                               Set(VarNotification,true);,
