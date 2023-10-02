@@ -667,10 +667,7 @@ CreatLeadScreen As screen:
 
                     IntxtBuildingName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
-                        Default: |-
-                            =//Parent.Default
-                            //LookUp(SHContractDetails,CONTR_NUM=IntxtContractNumber.Text,CUST_CITY)
-                            VarcontractRecord.CUST_CITY
+                        Default: =VarcontractRecord.CUST_CITY
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(149, 149, 149, 1)
                         DisabledColor: =RGBA(0, 0, 0, 1)
@@ -867,7 +864,8 @@ CreatLeadScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =Navigate(DashboardScreen);
+                        =
+                        Navigate(DashboardScreen);
                         Set(VarIndicator,false);
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14)
                     Text: ="Back"
@@ -882,7 +880,8 @@ CreatLeadScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |-
-                        =If(
+                        =// If IntxtContractNumber is blank or IntxtContractNumber is not match with contract number from SHContranctDetails dataverse table then then Set Varnotification true otherwise set Varindicator is true and VarIndicatorUS is true and Navigate Unit Screen. 
+                        If(
                             LookUp(
                                 SHContractDetails,
                                 CONTR_NUM = IntxtContractNumber.Text
