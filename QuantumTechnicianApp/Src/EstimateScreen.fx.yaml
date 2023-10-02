@@ -1484,9 +1484,9 @@ EstimateScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |-
-                        =
-                        
-                        If(IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )|| If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
+                        =//IntxtEstimatedHours or  IntxtMaterial or  IntxtContactName or  txtphonenumber_1.Text or  Length of txtphonenumber_1.Text is not equal to 14 or IntxtTotalEstimatedExpense are blank then set varNotification as true otherwise set below variables true and naviate to ImageUploadScreen.
+                        If(
+                        IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )|| If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
                         Set(VarNotification,true),
                         Set(VarIndicator, true );
                         Set(VarIndicatorUS, true );
