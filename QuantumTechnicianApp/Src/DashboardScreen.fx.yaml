@@ -389,9 +389,6 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
-                                
-                                //"InProgress Leads#" & Char(10)&  
-                                //If(cumulatively=true, CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")), CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted" && Year('Created On')=Year(Now())))) 
                                 If(
                                 CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted")))
                             Width: =Parent.Width
@@ -454,11 +451,7 @@ DashboardScreen As screen:
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
-                                =//Set(VarPopup,true)
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Open"});
-                                Set(VarSoldIncetives,true);
-                                Set(VarFutureIncetives,false);
-                                Set(VarTotalIncentives,false);
+                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Open"});
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
