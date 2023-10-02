@@ -97,10 +97,12 @@ App As appinfo:
             }
         );
         
+        // Set yearly true for yearwise toggle)
         Set(
             yearly,
             true
         );
+        // collect menu items into collection Menu for menubar. 
         ClearCollect(
             Menu,
             {
@@ -119,6 +121,7 @@ App As appinfo:
         //Navigate: SubmittedLeadsScreen
             }
         );
+        
         Set(
             varshowMenu,
             false
