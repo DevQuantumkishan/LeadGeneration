@@ -1,7 +1,9 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |
-        =Set(VarTechnicianID,LookUp(SHTechnicians,'Email Address'=User().Email));
+        =// Set technician Id into variable VarTechnicianID.)
+        Set(VarTechnicianID,LookUp(SHTechnicians,'Email Address'=User().Email));
+        // Set user Email into variable myMail.)
         Set(
             myMail,
             User().Email
