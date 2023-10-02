@@ -839,7 +839,6 @@ DashboardScreen As screen:
                                 =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,0,
                                 If(
                                     yearly=true ,
-                                
                                             LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text,TotalProposedLead),
                                         Sum(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'),TotalProposedLead)))
                             Width: =Parent.Width
@@ -883,12 +882,8 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            OnSelect: |-
-                                =//Set(VarPopup,true)
-                                    Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Quoted"});
-                                Set(VarSoldIncetives,true);
-                                Set(VarFutureIncetives,false);
-                                Set(VarTotalIncentives,false);
+                            OnSelect: |
+                                =    Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Quoted"});
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -1063,12 +1058,8 @@ DashboardScreen As screen:
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            OnSelect: |-
-                                =//Set(VarPopup,true)
-                                Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Sold"});
-                                Set(VarSoldIncetives,true);
-                                Set(VarFutureIncetives,false);
-                                Set(VarTotalIncentives,false);
+                            OnSelect: |
+                                =Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Sold"});
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6

@@ -548,11 +548,7 @@ QuotedSOldLeads As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            =/*If(VarFutureIncetives = true,
-                            "Potential Future Incentives $ :" & " " & "0",
-                                      VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
-                                      VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
-                            //If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
+                            =
                             "Quoted incentive: $" & Text(ThisItem.ProposedLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
