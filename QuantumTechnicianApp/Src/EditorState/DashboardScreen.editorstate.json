@@ -748,7 +748,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnInprogressLeadsDS",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2114,7 +2114,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnOpenLeadsDS",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2510,7 +2510,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnQuotedLeadsDS",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2906,7 +2906,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnRejectedLeadsDS",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3302,7 +3302,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnSoldLeadsDS",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4006,7 +4006,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Circle1_1",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4186,7 +4186,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Circle1_2",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4546,7 +4546,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Circle1_5",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10430,7 +10430,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10680,7 +10680,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image1_1",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10930,7 +10930,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Image1_3",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14213,7 +14213,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblInprogressLeadsCountDS",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14985,7 +14985,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblLeadsCountDS",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17186,7 +17186,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblOpenLeadsCountDS",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18358,7 +18358,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblQuotedLeadsDS",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19137,7 +19137,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblSoldLeadsCountDS",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -20987,7 +20987,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "OnSelect"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "//Set(VarStartingYear,Year(First(Filter(LeadInformations,Email=User().Email)).'Created On'));\n",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {

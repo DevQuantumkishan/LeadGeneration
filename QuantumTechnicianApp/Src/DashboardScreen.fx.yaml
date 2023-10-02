@@ -205,13 +205,10 @@ DashboardScreen As screen:
                 PaddingRight: =0
                 Size: =If(Parent.Width>500,16,Parent.Width<500,14,12)
                 Text: |-
-                    =//If(cumulatively=true,LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now()),yearly=true,Year(Now()))
-                     //now decide to take value from total incentive of my record from stat year to maximum year if no recod show current year 
-                     //minimum year and maximum year is same = that year
-                     //minimum year maximum year is different = time span
-                     // if blank = current year
-                    // If(Min(GCTotalIncentives,Year)=Max(GCTotalIncentives,Year),LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No',Year),Min(GCTotalIncentives,Year)<>Max(GCTotalIncentives,Year),Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year) ,Year(Now()))
-                    //If(cumulatively=true,Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year),yearly=true,Min(GCTotalIncentives,Year) ,Year(Now()))
+                    =//now decide to take value from total incentive of my record from start year to maximum year if no recod show current year 
+                     //minimum year and maximum year is same then show value of  VarFirstYear
+                     //minimum year maximum year is different then show time span as a minimum value taking from VarFirstYear and maximum value taking from  VarLastYear
+                     // if there is no rows in GCTotalIncentives then show value from  VarCurrentYear.
                     If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,VarCurrentYear,If(cumulatively=true && VarFirstYear <>VarLastYear,VarFirstYear & " - " & VarLastYear,yearly=true,VarFirstYear, VarFirstYear))
                 Width: =Parent.Width/2.8
                 X: =lblUserNameDS.X+lblUserNameDS.Width
@@ -253,8 +250,7 @@ DashboardScreen As screen:
                         =//for cumulatively record
                         Set(cumulatively,true);
                         Set(yearly,false);
-                    OnSelect: |
-                        =//Set(VarStartingYear,Year(First(Filter(LeadInformations,Email=User().Email)).'Created On'));
+                    OnSelect: =
                     OnUncheck: |-
                         =//for yearly record
                         Set(yearly,true);
