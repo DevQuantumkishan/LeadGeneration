@@ -717,12 +717,9 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            OnSelect: |-
+                            OnSelect: |
                                 =//Set(VarPopup,true)
                                 Navigate([@RejectedLeads],ScreenTransition.None,{Header: "Rejected"});
-                                Set(VarSoldIncetives,true);
-                                Set(VarFutureIncetives,false);
-                                Set(VarTotalIncentives,false);
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
