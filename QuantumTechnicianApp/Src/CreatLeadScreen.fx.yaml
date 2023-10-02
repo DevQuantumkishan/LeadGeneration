@@ -511,7 +511,10 @@ CreatLeadScreen As screen:
                         Height: =IntxtContractNumber.Height
                         Icon: =Icon.Search
                         OnSelect: |
-                            =If(Connection.Connected<>false,
+                            =//check internet connection is connected or not ,if connected,
+                             // Set Varloader true then Set contract number from SHcontranctDetails into variable VarcontractRecord .
+                             
+                            If(Connection.Connected<>false,
                             Set(
                                     VarLoader,
                                     true
@@ -524,6 +527,7 @@ CreatLeadScreen As screen:
                                     CONTR_NUM = IntxtContractNumber.Text 
                                 )
                             );
+                            //If Variable VarcontractRecord is blank then set VarLoader is false otherwise set VarLoader is false and set VarContractError is true. 
                             If(
                                 !IsBlank(VarcontractRecord),
                                 Set(
@@ -538,6 +542,8 @@ CreatLeadScreen As screen:
                                     VarContractError,
                                     true
                                 ));,
+                                
+                            //If internet connection is not connected notify error.
                                 Notify("Internet is not connected,please try again later.",NotificationType.Error)
                             
                             )
