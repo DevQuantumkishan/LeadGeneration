@@ -590,12 +590,9 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            OnSelect: |-
-                                =//Set(VarPopup,true)
+                            OnSelect: |
+                                =
                                 Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "InProgress"});
-                                Set(VarSoldIncetives,true);
-                                Set(VarFutureIncetives,false);
-                                Set(VarTotalIncentives,false);
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
