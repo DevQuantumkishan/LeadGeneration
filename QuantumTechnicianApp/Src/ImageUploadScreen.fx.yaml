@@ -523,9 +523,7 @@ ImageUploadScreen As screen:
                         PressedBorderColor: =//ColorFade(Self.BorderColor, -20%)
                         Reset: =true
                         Size: =If(Parent.Width<500,14,Parent.Width>500,18)
-                        Text: |-
-                            =" Upload Picture"
-                            //If(CountRows(glryImageIS.AllItems)=4,"Tap or click to add a picture","You Can add only 4 Images.")
+                        Text: =" Upload Picture"
                         Visible: =If(CountRows(glryImageIS.AllItems)=4,false,true)
                         Width: =Parent.Width
                         X: =40
@@ -538,7 +536,9 @@ ImageUploadScreen As screen:
                     Color: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     Height: =50
-                    Text: ="* You can add only 4 Images."
+                    Text: |-
+                        =//there is limit for uploading 4 images. if limit cross then show below text.
+                        "* You can add only 4 Images."
                     Visible: =If(CountRows(glryImageIS.AllItems)=4,true,false)
                     Width: =Parent.Width
                     ZIndex: =4
