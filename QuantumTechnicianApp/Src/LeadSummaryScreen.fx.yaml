@@ -2185,7 +2185,7 @@ LeadSummaryScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: |+
-                        =//Navigate(DashboardScreen);Set(VarNotification,false);
+                        =//check internet is connected or not , If not then notify error otherwise check all mandatory fields are not empty , If any field/fields is/are empty then show error popup otherwise set  VarNotificationloding true for waiting cursor while patching data to LeadInformations table and patch images from glryImageLSS to LeadImages.
                         
                         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                                 Set(varSubmit,false);
@@ -2259,15 +2259,6 @@ LeadSummaryScreen As screen:
                                     District: VarTechnicianID.District
                                 }
                             );
-                             /* If(
-                                    (!IsEmpty(Errors(LeadInformations))),
-                                    Notify(
-                                        "Patch function Error " & Concat(
-                                            Errors(LeadInformations),
-                                            Column & ": " & Message
-                                        ),
-                                        NotificationType.Error
-                                    );*/
                             ForAll(
                                 glryImageLSS.AllItems As i,
                                 Patch(
@@ -2282,49 +2273,6 @@ LeadSummaryScreen As screen:
                                     }
                                 )
                             );
-                          /*  If(
-                                        (!IsEmpty(Errors(LeadInformations)) || !IsEmpty(Errors(LeadImages))),
-                                        Notify(
-                                            Concat(
-                                                Errors(LeadInformations),
-                                                Column & ": " & Message
-                                            ) & Concat(
-                                                Errors(LeadImages),
-                                                Column & ": " & Message
-                                            ) ,
-                                            NotificationType.Error
-                                        ));
-                                        Set(
-                                VarNotificationloding,
-                                false
-                            );
-                            Set(
-                                VarNotification,
-                                false
-                            ); Navigate(LeadSummaryScreen),
-                           /*
-                           If(
-                                CountRows(
-                                    Filter(
-                                        TotalIncentives,
-                                        TechnicianID = VarTechnicianID.'Personnel No' && Year = Text(Year(Now()))
-                                    )
-                                ) < 1,
-                                Patch(
-                                    TotalIncentives,
-                                    Defaults(TotalIncentives),
-                                    {
-                                        ID: GUID(),
-                                        TechnicianID: VarTechnicianID.'Personnel No',
-                                        TotalproposedIncentives: 0.00,
-                                        TotalProposedLead: 0,
-                                        TotalSoldIncentives: 0.00,
-                                        TotalSoldLead: 0,
-                                        Year: Year(Now()),
-                                        LeadYear: Year(Now())
-                                    }
-                                )
-                            );*/
                             Set(
                                 VarNotificationloding,
                                 false
@@ -2337,6 +2285,7 @@ LeadSummaryScreen As screen:
                                 VarNotificationSuccess,
                                 true
                             );
+                        //Set LeadTrackingNumber in variable VarLeadTrackingNumber for showing lead tracking number in  success popup.
                         Set(
                             VarLeadTrackingNumber,
                             LookUp(
@@ -2351,11 +2300,9 @@ LeadSummaryScreen As screen:
                             Set(
                                 VarNotification,
                                 false
-                            ); Notify("Lead didn't submit due to no network, try again later.",NotificationType.Error);Navigate(LeadSummaryScreen)));
-                        /*Notify(
-                            "Form has been submitted succuessfully.",
-                            NotificationType.Success
-                        );*/
+                            ); 
+                            //If Patch function get error then notify below error and navigate LeadSummaryScreen
+                            Notify("Lead didn't submit due to no network, try again later.",NotificationType.Error);Navigate(LeadSummaryScreen)));
                         
                     Size: =14
                     Text: ="Ok"

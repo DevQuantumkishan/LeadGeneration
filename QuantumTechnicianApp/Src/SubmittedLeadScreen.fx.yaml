@@ -220,7 +220,8 @@ SubmittedLeadScreen As screen:
                     Height: =If(Parent.Width>800,40,60)
                     Icon: =Icon.Search
                     OnSelect: |-
-                        =UpdateContext({locInfoExpanded:true})
+                        =// for lead list expand 
+                        UpdateContext({locInfoExpanded:true})
                     PaddingBottom: =5
                     PaddingLeft: =5
                     PaddingRight: =5
@@ -270,9 +271,7 @@ SubmittedLeadScreen As screen:
                     HoverFill: =RGBA(0, 0, 0, 0)
                     InputTextPlaceholder: =//"Created Date"
                     IsSearchable: =false
-                    Items: |-
-                        =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address","Status Date"]
+                    Items: =["Created Date","Contract number","Lead Tracking No.","Building Name","Address","Status Date"]
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true})
                     PressedColor: =RGBA(0, 0, 0, 1)
@@ -292,13 +291,9 @@ SubmittedLeadScreen As screen:
                     Height: =40
                     Icon: =If(VarDownIcon,Icon.ArrowDown,VarUpperIcon,Icon.ArrowUp)
                     OnSelect: |-
-                        =If(
-                           /* Icon1.Icon = Icon.Sort,
-                            Set(
-                                VarUpperIcon,
-                                true
-                            );
-                                Set(VarDownIcon,false);,*/
+                        =// this icon is use for sorting .sorting is set on variable VarUpperIcon and VarDownIcon.
+                        
+                        If(
                             Icon1.Icon = Icon.ArrowDown,
                             Set(
                                 VarUpperIcon,
@@ -315,6 +310,7 @@ SubmittedLeadScreen As screen:
                                 false
                             );
                         );
+                        // for Lead list expand
                         UpdateContext({locInfoExpanded:true});
                     Width: =40
                     ZIndex: =3
@@ -323,11 +319,12 @@ SubmittedLeadScreen As screen:
                 BorderColor: =RGBA(202, 202, 202, 1)
                 Height: =Parent.Height-ctnSearchBarSLS.Height-ctnSearchBarSLS_1.Height-20
                 Items: |-
-                    =SortByColumns(
+                    =//lead list shown by status  and user mail also sort on created on. also SortBycolumns and search functions are added beacause we give user to search lead by column and also give dropdown of columns for sorting .
+                    SortByColumns(
                         Search(
                             Sort(
                                 Filter(
-                                    LeadInformations,//Email=User().Email  && 
+                                    LeadInformations,
                                       If(
                                         Header = "Open",
                                         LeadStatus = "Submitted",
@@ -497,25 +494,6 @@ SubmittedLeadScreen As screen:
                     Y: =htmltextTrackingNumberSLS.Y+htmltextTrackingNumberSLS.Height
                     ZIndex: =8
 
-                iconmsgSLS As icon.Message:
-                    Color: =RGBA(255, 0, 0, 1)
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
-                    Icon: =Icon.Message
-                    OnSelect: |
-                        =Navigate(ChatScreen);
-                        Set(VarLtdName,ThisItem.'BuildingName ');
-                        Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
-                        Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
-                        Set(VarLtdID,ThisItem.ID);
-                    Visible: |-
-                        =//If(Header="Rejected",false,true)
-                        false
-                    Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
-                    X: =Parent.Width-2.5*(Self.Width)
-                    Y: =htmltextTrackingNumberSLS.Y
-                    ZIndex: =9
-
                 htmltxtQQTeamMemberSLS As htmlViewer:
                     AutoHeight: =true
                     DisplayMode: =DisplayMode.View
@@ -539,8 +517,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
-                        "<b>Status Date : </b>" & Text(ThisItem.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
+                        ="<b>Status Date : </b>" & Text(ThisItem.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -554,7 +531,8 @@ SubmittedLeadScreen As screen:
                     Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
                     Image: ='mailtripti (1)'
                     OnSelect: |+
-                        =Navigate(ChatScreen);
+                        =// passing value by using below variable and navigate ChatScreen. 
+                        Navigate(ChatScreen);
                         Set(VarLtdName,ThisItem.'BuildingName ');
                         Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                         Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
@@ -573,15 +551,18 @@ SubmittedLeadScreen As screen:
                     Fill: =RGBA(255, 0, 0, 1)
                     Height: =13
                     OnSelect: |
-                        =Navigate(ChatScreen);
+                        =// passing value by using below variable and navigate ChatScreen. 
+                        Navigate(ChatScreen);
                         Set(VarLtdName,ThisItem.'BuildingName ');
                         Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                         Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
                         Set(VarLtdID,ThisItem.ID);
                         Set(VarLeadstatus,ThisItem.LeadStatus);
-                    Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
+                    Visible: |-
+                        =//It indicate is there new message come from QQ which is unread.
+                        If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
                     Width: =13
-                    X: =iconmsgSLS.X+iconmsgSLS.Width/1.2
+                    X: =Image2.X+Image2.Width/1.2
                     Y: =htmltextTrackingNumberSLS.Y+15
                     ZIndex: =13
 

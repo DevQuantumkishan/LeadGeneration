@@ -464,7 +464,7 @@ ChatScreen As screen:
                     HoverFill: =RGBA(0, 0, 0, 0)
                     Mode: =TextMode.MultiLine
                     OnChange: |-
-                        =//Set(varChatScreentimerPopup,true)
+                        =// for start timer. Timer is use for refreshing Leadschats dataverse Table
                         UpdateContext({startTimerCS:false}); Reset(Timer2); UpdateContext({startTimerCS: true}) 
                     PaddingLeft: =10
                     Size: =If(Parent.Width<500,12,Parent.Width>500,14)
@@ -481,9 +481,12 @@ ChatScreen As screen:
                     Height: =If(Parent.Height<Parent.Width,50,70)
                     Icon: =Icon.Send
                     OnSelect: |-
-                        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+                        =//check connection is connected or not , If connection is not connected then notify error and  TextInput1_2.Text is blank then set VarNotification for showing error popup otherwise check is there any rows for unread message for respective LeadInformationId ,If yes then update read status.
+                        // patch message to dataverse table LeadChats and refresh LeadChats and reset timer.
+                        
+                        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                         If(IsBlank(TextInput1_2.Text),
-                        //Notify("Please Enter message to send.");
+                        
                              Set (VarNotification,true),
                              If(CountRows(Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,
                         ForAll(
