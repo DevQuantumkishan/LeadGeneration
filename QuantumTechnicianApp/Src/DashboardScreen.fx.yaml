@@ -205,7 +205,7 @@ DashboardScreen As screen:
                 PaddingRight: =0
                 Size: =If(Parent.Width>500,16,Parent.Width<500,14,12)
                 Text: |-
-                    =//take value from GCtotalIncentive of respective technician from start year to maximum year if no recod show current year 
+                    =//take value from GCtotalIncentives of respective technician from start year to maximum year if there is no recod found then show current year 
                      //minimum year and maximum year is same then show value of  VarFirstYear
                      //minimum year maximum year is different then show time span as a minimum value taking from VarFirstYear and maximum value taking from  VarLastYear
                      // if there is no rows in GCTotalIncentives then show value from  VarCurrentYear.
@@ -526,8 +526,6 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
-                                
-                                //"InProgress Leads#" & Char(10)&  
                                 If( 
                                     CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress" ))=0,0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress")))
                             Width: =Parent.Width
@@ -653,8 +651,6 @@ DashboardScreen As screen:
                                 If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
-                                
-                                //"InProgress Leads#" & Char(10)&  
                                 If(
                                     CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")) =0,0,CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected")))
                             Width: =Parent.Width
@@ -805,12 +801,6 @@ DashboardScreen As screen:
                                 "Incentive  " &  Char(10) & "$ " & 
                                 If(
                                    yearly = true,
-                                /*If(
-                                    LookUp(
-                                            GCTotalIncentives,
-                                            Year = Text(Year(Now())),
-                                            YearlyCapReached) = true,
-                                        "10000" ,*/
                                          Text(LookUp(
                                             GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year = lblyearDS.Text,TotalproposedIncentives),"0.00"),
                                        Text(Sum(
