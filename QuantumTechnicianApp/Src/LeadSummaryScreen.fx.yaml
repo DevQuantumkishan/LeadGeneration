@@ -1809,7 +1809,8 @@ LeadSummaryScreen As screen:
                     FontWeight: =FontWeight.Bold
                     HoverFill: =Color.Red
                     OnSelect: |
-                        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
+                        =// check is there connection is connected or not ,if not then notify error otherwise set varsubmit is true for showing popup od submittion.
+                        If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                         Set(varSubmit,true));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                     Text: ="Submit"
