@@ -110,8 +110,9 @@ ChatScreen As screen:
                 HoverFill: =Self.Fill
                 Image: ='refresh new'
                 OnSelect: |-
-                    =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
-                    //Notify("Internet is connected",NotificationType.Success);
+                    =// If connection connected, refresh LeadChats otherwise notify error.
+                    
+                    If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
                     Refresh(LeadChats));
                 PaddingBottom: =Parent.Height/3
                 PaddingLeft: =5
