@@ -73,11 +73,13 @@ ChatScreen As screen:
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
                 OnSelect: |
-                    =UpdateContext({locInfoExpanded:true});
-                    /*If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));*/
+                    =// for lead list expand 
+                    UpdateContext({locInfoExpanded:true});
                     Back();
                     Set(VarLeadMessages,false);
-                    UpdateContext({startTimerCS:false});Refresh(LeadChats);
+                    //for timer 
+                    UpdateContext({startTimerCS:false});
+                    Refresh(LeadChats);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
