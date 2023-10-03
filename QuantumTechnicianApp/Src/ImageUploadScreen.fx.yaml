@@ -507,7 +507,9 @@ ImageUploadScreen As screen:
                         Height: =60
                         HoverBorderColor: =//ColorFade(Self.BorderColor, 20%)
                         OnChange: |
-                            =If(
+                            =// There is  limit of 4 Images for uploading. If limit cross then notify error also if UploadedImageIS is not blank or not same as sample Image then collect it into collection LeadImagesCollection.
+                            
+                            If(
                                 CountRows(glryImageIS.AllItems) >3 ,
                                 Notify("You Can add only 4 Images."),
                                If( !IsBlank(UploadedImageIS) || UploadedImageIS.Image<>SampleImage,
@@ -518,8 +520,7 @@ ImageUploadScreen As screen:
                                     }
                                 ));
                             );
-                        OnSelect: |
-                            =//If(CountRows(Gallery1.AllItems)<4,Collect(LeadImagesCollection,{Image:UploadedImage1.Image}),Notify("You Can add only 4 Images."))
+                        OnSelect: =
                         PressedBorderColor: =//ColorFade(Self.BorderColor, -20%)
                         Reset: =true
                         Size: =If(Parent.Width<500,14,Parent.Width>500,18)
