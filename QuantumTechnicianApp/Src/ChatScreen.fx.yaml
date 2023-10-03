@@ -701,7 +701,8 @@ ChatScreen As screen:
         AutoStart: =true
         Duration: =2000
         OnTimerEnd: |-
-            =Set(VarUsernameTimer,false);UpdateContext({VartoolTip:false});//Set(varChatScreentimerPopup,true);
+            =// timer use for showing name of QQ team member 
+            Set(VarUsernameTimer,false);UpdateContext({VartoolTip:false});//Set(varChatScreentimerPopup,true);
         Start: =VarUsernameTimer
         Visible: =false
         X: =60

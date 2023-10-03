@@ -205,7 +205,7 @@ DashboardScreen As screen:
                 PaddingRight: =0
                 Size: =If(Parent.Width>500,16,Parent.Width<500,14,12)
                 Text: |-
-                    =//now decide to take value from total incentive of my record from start year to maximum year if no recod show current year 
+                    =//take value from GCtotalIncentive of respective technician from start year to maximum year if no recod show current year 
                      //minimum year and maximum year is same then show value of  VarFirstYear
                      //minimum year maximum year is different then show time span as a minimum value taking from VarFirstYear and maximum value taking from  VarLastYear
                      // if there is no rows in GCTotalIncentives then show value from  VarCurrentYear.
