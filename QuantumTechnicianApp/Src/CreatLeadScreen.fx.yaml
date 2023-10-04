@@ -45,7 +45,9 @@ CreatLeadScreen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
-                OnSelect: =Set(varshowMenu,!varshowMenu)
+                OnSelect: |-
+                    =// to expand collapse menubar
+                    Set(varshowMenu,!varshowMenu)
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -57,7 +59,9 @@ CreatLeadScreen As screen:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Image: ='1x'
+                Image: |-
+                    =//Schindler logo
+                    '1x'
                 PaddingBottom: =5
                 PaddingTop: =0.00
                 Width: =If(Parent.Width>Parent.Height,Parent.Width/8,Parent.Width/12)
@@ -96,7 +100,8 @@ CreatLeadScreen As screen:
                 RadiusTopRight: =50
                 Size: =If(Parent.Width<500,11,Parent.Width>500,12,12)
                 Text: |-
-                    =Left(User().FullName, 1) &
+                    =// Username
+                    Left(User().FullName, 1) &
                     Mid(
                         User().FullName,
                         Find(" ", User().FullName) + 1,
@@ -380,18 +385,6 @@ CreatLeadScreen As screen:
                     X: =IconLine4CL.X+IconLine4CL.Width
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
-
-            htmltxtRequiredCL As htmlViewer:
-                AlignInContainer: =AlignInContainer.Stretch
-                Font: =Font.Arial
-                Height: =60
-                HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
-                PaddingLeft: =40
-                PaddingTop: =20
-                Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                Visible: =false
-                Width: =Parent.Width
-                ZIndex: =2
 
             BuildingInfoForm As form:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -679,7 +672,9 @@ CreatLeadScreen As screen:
                         HoverBorderColor: =RGBA(166, 166, 166, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
-                        OnChange: =Set(VarBuildingName,true)
+                        OnChange: |-
+                            =// for showing label
+                            Set(VarBuildingName,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
@@ -997,7 +992,8 @@ CreatLeadScreen As screen:
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-
-                    =Navigate(CreatLeadScreen);
+                    =//To close popup
+                    Navigate(CreatLeadScreen);
                     Set(VarNotification,false);
                 Size: =14
                 Text: ="Ok"
