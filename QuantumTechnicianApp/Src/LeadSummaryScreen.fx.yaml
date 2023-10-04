@@ -2115,7 +2115,7 @@ LeadSummaryScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        ctnNotificationLSS_1 As groupContainer.verticalAutoLayoutContainer:
+        ctnSubmitLSS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
             Height: =borderNotificationLSS_1.Height
             LayoutDirection: =LayoutDirection.Vertical
@@ -2157,6 +2157,7 @@ LeadSummaryScreen As screen:
                 ZIndex: =2
 
             Container2 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =80
