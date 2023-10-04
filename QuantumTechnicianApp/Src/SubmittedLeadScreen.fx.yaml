@@ -524,7 +524,7 @@ SubmittedLeadScreen As screen:
                     Y: =htmltxtDateSLS.Y+htmltxtDateSLS.Height
                     ZIndex: =11
 
-                Image2 As image:
+                imgMessageSLS As image:
                     Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
                     Image: ='mailtripti (1)'
                     OnSelect: |+
@@ -541,7 +541,7 @@ SubmittedLeadScreen As screen:
                     Y: =htmltextTrackingNumberSLS.Y
                     ZIndex: =12
 
-                Circle1 As circle:
+                iconunreadIndicatorSLS As circle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =1
                     DisplayMode: =DisplayMode.View
@@ -559,7 +559,7 @@ SubmittedLeadScreen As screen:
                         =//It indicate is there new message come from QQ which is unread.
                         If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
                     Width: =13
-                    X: =Image2.X+Image2.Width/1.2
+                    X: =imgMessageSLS.X+imgMessageSLS.Width/1.2
                     Y: =htmltextTrackingNumberSLS.Y+15
                     ZIndex: =13
 
