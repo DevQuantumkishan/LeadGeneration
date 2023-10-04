@@ -220,7 +220,7 @@ RejectedLeads As screen:
                     Y: =000
                     ZIndex: =2
 
-            ctnSearchBarRS As groupContainer.horizontalAutoLayoutContainer:
+            ctnSortBarRS As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
@@ -309,7 +309,7 @@ RejectedLeads As screen:
                     ZIndex: =3
 
             "glryLeadsRS As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-                Height: =Parent.Height-ctnSearchBarSLS_2.Height-ctnSearchBarRS.Height-20
+                Height: =Parent.Height-ctnSearchBarSLS_2.Height-ctnSortBarRS.Height-20
                 Items: |-
                     =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
                     LeadStatus=Header&&Email=User().Email),'Created On',SortOrder.Descending),IntxtSearchBoxSLS_1.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSortRS.Selected.Value="Created Date","createdon",cboxSortRS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortRS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortRS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortRS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortRS.Selected.Value="Building Name","shlrf_buildingname",cboxSortRS.Selected.Value="Address","shlrf_address",cboxSortRS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortRS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortRS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
@@ -318,7 +318,7 @@ RejectedLeads As screen:
                 TemplateSize: =If(btnheaderRS.Text="Rejected Leads",240+htmltxtLeadCommentRS.Height)
                 Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
                 X: =20
-                Y: =ctnSearchBarRS.Height+ctnSearchBarRS.Y
+                Y: =ctnSortBarRS.Height+ctnSortBarRS.Y
                 ZIndex: =7
 
                 borderLeadsRS As rectangle:
