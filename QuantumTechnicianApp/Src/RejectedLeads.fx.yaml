@@ -315,7 +315,7 @@ RejectedLeads As screen:
                     LeadStatus=Header&&Email=User().Email),'Created On',SortOrder.Descending),IntxtSearchBoxSLS_1.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(ComboBox1_1.Selected.Value="Created Date","createdon",ComboBox1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_1.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_1.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_1.Selected.Value="Address","shlrf_address",ComboBox1_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_1.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_1.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                 Layout: =Layout.Vertical
                 TemplatePadding: =0
-                TemplateSize: =If(btnheaderRS.Text="Rejected Leads",240+htmltxtQQTeamMemberSLS_3.Height)
+                TemplateSize: =If(btnheaderRS.Text="Rejected Leads",240+htmltxtLeadCommentRS.Height)
                 Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
                 X: =20
                 Y: =ctnSearchBarSLS_3.Height+ctnSearchBarSLS_3.Y
@@ -350,7 +350,7 @@ RejectedLeads As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
                     X: =20
-                    Y: =htmltextContractNumberSLS_1.Y+htmltextContractNumberSLS_1.Height
+                    Y: =htmltextContractNumberRS.Y+htmltextContractNumberRS.Height
                     ZIndex: =6
 
                 htmltextTrackingNumberSLS_1 As htmlViewer:
@@ -420,7 +420,7 @@ RejectedLeads As screen:
                     Y: =htmltxtZipcodeSLS_1.Y+htmltxtZipcodeSLS_1.Height
                     ZIndex: =10
 
-                btnSubmittedLeadSLS_1 As button:
+                btnRejectedLeadsRS As button:
                     BorderColor: =RGBA(219, 219, 219, 1)
                     BorderThickness: =4
                     Color: =RGBA(0, 0, 0, 0)
@@ -452,7 +452,7 @@ RejectedLeads As screen:
                         If(Parent.Width<378,Parent.Width/1.05,Parent.Width>500,Parent.Width/1.02)
                     ZIndex: =11
 
-                htmltextContractNumberSLS_1 As htmlViewer:
+                htmltextContractNumberRS As htmlViewer:
                     AutoHeight: =true
                     Font: =Font.Arial
                     Height: =20
@@ -468,7 +468,7 @@ RejectedLeads As screen:
                     Y: =htmltextTrackingNumberSLS_1.Y+htmltextTrackingNumberSLS_1.Height
                     ZIndex: =14
 
-                htmltxtQQTeamMemberSLS_1 As htmlViewer:
+                htmltxtQQTeamMemberRS As htmlViewer:
                     AutoHeight: =true
                     DisplayMode: =DisplayMode.View
                     Font: =Font.Arial
@@ -482,10 +482,10 @@ RejectedLeads As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
                     X: =20
-                    Y: =htmltxtDateSLS_3.Y+htmltxtDateSLS_3.Height
+                    Y: =htmltxtDateRS.Y+htmltxtDateRS.Height
                     ZIndex: =18
 
-                htmltxtQQTeamMemberSLS_3 As htmlViewer:
+                htmltxtLeadCommentRS As htmlViewer:
                     AutoHeight: =true
                     DisplayMode: =DisplayMode.View
                     Font: =Font.Arial
@@ -499,10 +499,10 @@ RejectedLeads As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.2
                     X: =20
-                    Y: =htmltxtQQTeamMemberSLS_1.Y+htmltxtQQTeamMemberSLS_1.Height
+                    Y: =htmltxtQQTeamMemberRS.Y+htmltxtQQTeamMemberRS.Height
                     ZIndex: =22
 
-                htmltxtDateSLS_3 As htmlViewer:
+                htmltxtDateRS As htmlViewer:
                     AutoHeight: =true
                     DisplayMode: =DisplayMode.View
                     Font: =Font.Arial
