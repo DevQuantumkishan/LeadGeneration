@@ -1194,7 +1194,7 @@ DashboardScreen As screen:
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-
-                    =
+                    =// to close popup and navigate CreatLeadScreen.
                     Set(VarLoader,false);
                     Navigate(CreatLeadScreen);
                 Size: =14
