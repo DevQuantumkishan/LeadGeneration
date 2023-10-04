@@ -580,7 +580,9 @@ ScopeScreen As screen:
                         OnChange: |
                             =// store manually scope of work in variable
                             Set(VarCustomWorkSummary,IntxtManuallyScopeofwork.Text);
-                        OnSelect: =Set(VarCustomScopeofwork,true);
+                        OnSelect: |-
+                            =// to show label
+                            Set(VarCustomScopeofwork,true);
                         PaddingLeft: =5
                         PaddingTop: =15
                         RadiusBottomLeft: =0
