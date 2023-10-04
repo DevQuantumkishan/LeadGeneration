@@ -565,7 +565,7 @@ RejectedLeads As screen:
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuSLS_1 As label:
+                lblMenuRS As label:
                     AutoHeight: =true
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =24
@@ -575,12 +575,12 @@ RejectedLeads As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuSLS_1.Width-lineIndicatorSLS_1.Width
-                    X: =iconMenuSLS_1.Width+iconMenuSLS_1.X
+                    Width: =Parent.Width-iconMenuRS.Width-lineIndicatorRS.Width
+                    X: =iconMenuRS.Width+iconMenuRS.X
                     Y: =30
                     ZIndex: =1
 
-                iconMenuSLS_1 As icon.Add:
+                iconMenuRS As icon.Add:
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -589,7 +589,7 @@ RejectedLeads As screen:
                     Y: =30
                     ZIndex: =3
 
-                btnMenuSLS_1 As button:
+                btnMenuRS As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -602,7 +602,7 @@ RejectedLeads As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorSLS_1 As rectangle:
+                lineIndicatorRS As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
