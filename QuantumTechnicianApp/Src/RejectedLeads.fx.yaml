@@ -321,7 +321,7 @@ RejectedLeads As screen:
                 Y: =ctnSearchBarSLS_3.Height+ctnSearchBarSLS_3.Y
                 ZIndex: =7
 
-                borderLeadsSLS_1 As rectangle:
+                borderLeadsRS As rectangle:
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderThickness: =2
                     Fill: =RGBA(0, 0, 0, 0)
@@ -337,7 +337,7 @@ RejectedLeads As screen:
                     Y: =4.313725490196077
                     ZIndex: =1
 
-                HtmlTextBuildingNameSLS_1 As htmlViewer:
+                HtmlTextBuildingNameRS As htmlViewer:
                     AutoHeight: =true
                     Font: =Font.Arial
                     Height: =20
@@ -353,7 +353,7 @@ RejectedLeads As screen:
                     Y: =htmltextContractNumberRS.Y+htmltextContractNumberRS.Height
                     ZIndex: =6
 
-                htmltextTrackingNumberSLS_1 As htmlViewer:
+                htmltextTrackingNumberRS As htmlViewer:
                     AutoHeight: =true
                     Font: =Font.Arial
                     Height: =20
@@ -369,7 +369,7 @@ RejectedLeads As screen:
                     Y: =20
                     ZIndex: =7
 
-                htmltxtAddressSLS_1 As htmlViewer:
+                htmltxtAddressRS As htmlViewer:
                     AutoHeight: =true
                     DisplayMode: =DisplayMode.View
                     Font: =Font.Arial
@@ -383,10 +383,10 @@ RejectedLeads As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
                     X: =20
-                    Y: =HtmlTextBuildingNameSLS_1.Y+HtmlTextBuildingNameSLS_1.Height
+                    Y: =HtmlTextBuildingNameRS.Y+HtmlTextBuildingNameRS.Height
                     ZIndex: =8
 
-                htmltxtZipcodeSLS_1 As htmlViewer:
+                htmltxtZipcodeRS As htmlViewer:
                     DisplayMode: =DisplayMode.View
                     Font: =Font.Arial
                     Height: =0
@@ -400,10 +400,10 @@ RejectedLeads As screen:
                     Visible: =false
                     Width: =Parent.Width/1.08
                     X: =20
-                    Y: =htmltxtAddressSLS_1.Y+htmltxtAddressSLS_1.Height
+                    Y: =htmltxtAddressRS.Y+htmltxtAddressRS.Height
                     ZIndex: =9
 
-                htmltxtDateSLS_1 As htmlViewer:
+                htmltxtCreatedDateRS As htmlViewer:
                     AutoHeight: =true
                     DisplayMode: =DisplayMode.View
                     Font: =Font.Arial
@@ -417,7 +417,7 @@ RejectedLeads As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
                     X: =20
-                    Y: =htmltxtZipcodeSLS_1.Y+htmltxtZipcodeSLS_1.Height
+                    Y: =htmltxtZipcodeRS.Y+htmltxtZipcodeRS.Height
                     ZIndex: =10
 
                 btnRejectedLeadsRS As button:
@@ -465,7 +465,7 @@ RejectedLeads As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
                     X: =20
-                    Y: =htmltextTrackingNumberSLS_1.Y+htmltextTrackingNumberSLS_1.Height
+                    Y: =htmltextTrackingNumberRS.Y+htmltextTrackingNumberRS.Height
                     ZIndex: =14
 
                 htmltxtQQTeamMemberRS As htmlViewer:
@@ -516,7 +516,7 @@ RejectedLeads As screen:
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                     Width: =Parent.Width/1.08
                     X: =20
-                    Y: =htmltxtDateSLS_1.Y+htmltxtDateSLS_1.Height
+                    Y: =htmltxtCreatedDateRS.Y+htmltxtCreatedDateRS.Height
                     ZIndex: =23
 
     grpMenuRS As group:
