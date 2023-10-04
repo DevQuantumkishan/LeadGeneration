@@ -1122,7 +1122,8 @@ CreatLeadScreen As screen:
                 imgLoaderPopupCS As image:
                     Height: =Parent.Height
                     Image: |
-                        =    'waiting-icon-gif-4'
+                        = //spinner  
+                            'waiting-icon-gif-4'
                     PaddingTop: =30
                     Width: =Parent.Width
                     ZIndex: =1
@@ -1144,7 +1145,7 @@ CreatLeadScreen As screen:
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-
-                    =
+                    =//to close popup
                     Set(VarLoader,false);
                     Navigate(CreatLeadScreen);
                 Size: =14

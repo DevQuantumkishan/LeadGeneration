@@ -1165,7 +1165,7 @@ DashboardScreen As screen:
                 OnSelect: |-
                     =// to close popup and navigate CreatLeadScreen.
                     Set(VarLoader,false);
-                    Navigate(CreatLeadScreen);
+                    Navigate(DashboardScreen);
                 Size: =14
                 Text: ="Ok"
                 Visible: =false
