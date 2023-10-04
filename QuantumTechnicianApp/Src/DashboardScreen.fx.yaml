@@ -1091,7 +1091,9 @@ DashboardScreen As screen:
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
-                    Image: ='3x'
+                    Image: |-
+                        =//Shindler logo
+                        '3x'
                     PaddingBottom: =20
                     PaddingTop: =40
                     Transparency: =0.9
