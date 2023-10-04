@@ -577,9 +577,9 @@ ScopeScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: |-
-                            =Set(VarCustomWorkSummary,IntxtManuallyScopeofwork.Text);
-                            //Set(VarCustomScopeofwork,true);
+                        OnChange: |
+                            =// store manually scope of work in variable
+                            Set(VarCustomWorkSummary,IntxtManuallyScopeofwork.Text);
                         OnSelect: =Set(VarCustomScopeofwork,true);
                         PaddingLeft: =5
                         PaddingTop: =15
@@ -593,36 +593,6 @@ ScopeScreen As screen:
                         X: =30
                         Y: =lblManuallyScopeofwork.Y + lblManuallyScopeofwork.Height+2
                         ZIndex: =1
-
-                    ErrorMessageManuallyScopeofwork As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =IntxtManuallyScopeofwork.Y + IntxtManuallyScopeofwork.Height
-                        ZIndex: =2
-
-                    StarVisibleManuallyScopeofwork As label:
-                        Align: =Align.Center
-                        Color: =RGBA(255, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =IntxtManuallyScopeofwork.Height
-                        Size: =21
-                        Text: ="*"
-                        VerticalAlign: =VerticalAlign.Top
-                        Visible: =false
-                        Width: =30
-                        Wrap: =false
-                        Y: =lblManuallyScopeofwork.Y
-                        ZIndex: =3
 
                     lblManuallyScopeofwork As label:
                         AutoHeight: =true
