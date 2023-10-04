@@ -512,7 +512,11 @@ ScopeScreen As screen:
                             =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);
                             Set(VarScopeofwork,true);
                             Set(VarNotificationScope,false);
-                        OnSelect: =Set(VarScopeofwork,true);If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
+                        OnSelect: |-
+                            =// to show label
+                            Set(VarScopeofwork,true);
+                            // to show notification
+                            If(IsBlank(CboxScope.Selected),Set(VarNotificationScope,true));
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
                         SearchItems: =Search(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),CboxScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
