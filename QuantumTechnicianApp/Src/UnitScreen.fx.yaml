@@ -40,7 +40,9 @@ UnitScreen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
-                OnSelect: =Set(varshowMenu,!varshowMenu);
+                OnSelect: |-
+                    =// to expand collapse menubar
+                    Set(varshowMenu,!varshowMenu);
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -52,7 +54,9 @@ UnitScreen As screen:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Image: ='1x'
+                Image: |-
+                    =//Schindler logo
+                    '1x'
                 LayoutMinHeight: =320
                 LayoutMinWidth: =320
                 PaddingBottom: =5
@@ -96,7 +100,8 @@ UnitScreen As screen:
                 RadiusTopRight: =50
                 Size: =If(Parent.Width<500,11,Parent.Width>500,12,12)
                 Text: |-
-                    =Left(User().FullName, 1) &
+                    =//username
+                    Left(User().FullName, 1) &
                     Mid(
                         User().FullName,
                         Find(" ", User().FullName) + 1,
@@ -131,18 +136,6 @@ UnitScreen As screen:
                 Text: ="Create New Lead"
                 Width: =Parent.Width
                 ZIndex: =1
-
-            lblUserUS As label:
-                Color: =RGBA(255, 255, 255, 1)
-                Font: =Font.Arial
-                Height: =Parent.Height
-                PaddingLeft: =10
-                PaddingRight: =10
-                Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
-                Text: =User().FullName
-                Visible: =false
-                Width: =Parent.Width/2
-                ZIndex: =2
 
         ctnMiddleUS As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -737,7 +730,8 @@ UnitScreen As screen:
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-
-                    =Navigate(UnitScreen);
+                    =// to close popup
+                    Navigate(UnitScreen);
                     Set(VarNotification,false);
                 Size: =14
                 Text: ="Ok"
