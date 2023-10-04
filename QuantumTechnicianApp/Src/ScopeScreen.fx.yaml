@@ -505,7 +505,9 @@ ScopeScreen As screen:
                         Height: =50
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: = If(VarScopeofwork,"",If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of work *","Scope of work"))
-                        Items: =Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
+                        Items: |-
+                            =//to show scope of work of selected scope
+                            Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
                         OnChange: |-
                             =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);
                             Set(VarScopeofwork,true);
