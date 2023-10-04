@@ -1168,7 +1168,7 @@ DashboardScreen As screen:
         Width: =Parent.Width
         ZIndex: =4
 
-        borderLoaderPopuoCS_1 As rectangle:
+        borderLoaderPopuoDS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: |
                 =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
@@ -1181,15 +1181,15 @@ DashboardScreen As screen:
 
         ctnLoaderDS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =borderLoaderPopuoCS_1.Height
+            Height: =borderLoaderPopuoDS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =borderLoaderPopuoCS_1.Width
-            X: =borderLoaderPopuoCS_1.X
-            Y: =borderLoaderPopuoCS_1.Y
+            Width: =borderLoaderPopuoDS.Width
+            X: =borderLoaderPopuoDS.X
+            Y: =borderLoaderPopuoDS.Y
             ZIndex: =2
 
-            ctnLoaderPopupCS_1 As groupContainer.verticalAutoLayoutContainer:
+            ctnLoaderPopupDS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -1201,7 +1201,7 @@ DashboardScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                imgLoaderPopupCS_1 As image:
+                imgLoaderPopupDS As image:
                     Height: =Parent.Height
                     Image: |
                         =    'waiting-icon-gif-4'
@@ -1209,7 +1209,7 @@ DashboardScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-            lblLoaderPopupCS_1 As label:
+            lblLoaderPopupDS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -1219,7 +1219,7 @@ DashboardScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            btnOkPopupCS_1 As button:
+            btnOkPopupDS As button:
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
