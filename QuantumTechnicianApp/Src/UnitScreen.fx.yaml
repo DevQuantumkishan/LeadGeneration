@@ -378,18 +378,6 @@ UnitScreen As screen:
                     Y: =(Parent.Height-Self.Height)/3.5
                     ZIndex: =24
 
-            htmltxtRequiredUS As htmlViewer:
-                AlignInContainer: =AlignInContainer.Stretch
-                Font: =Font.Arial
-                Height: =60
-                HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
-                PaddingLeft: =40
-                PaddingTop: =20
-                Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                Visible: =false
-                Width: =Parent.Width
-                ZIndex: =2
-
             UnitInfoForm As form:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
@@ -422,7 +410,9 @@ UnitScreen As screen:
 
                     IntxtUnitCount As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =VarUnitcountSummary
+                        Default: |-
+                            =// this variable store unitcount
+                            VarUnitcountSummary
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -433,8 +423,11 @@ UnitScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
                         OnChange: |
-                            =Set(VarUnitcountSummary,IntxtUnitCount.Text);
-                        OnSelect: =Set(VarUnitCount,true)
+                            =// this variable store unit count
+                            Set(VarUnitcountSummary,IntxtUnitCount.Text);
+                        OnSelect: |-
+                            =// to show label
+                            Set(VarUnitCount,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =0
@@ -448,35 +441,6 @@ UnitScreen As screen:
                         X: =30
                         Y: =lblUnitCount.Y + lblUnitCount.Height +2
                         ZIndex: =1
-
-                    ErrorMessageUnitCount As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =IntxtUnitCount.Y + IntxtUnitCount.Height
-                        ZIndex: =2
-
-                    StarVisibleUnitCount As label:
-                        Align: =Align.Center
-                        Color: =RGBA(255, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =IntxtUnitCount.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =false
-                        Width: =30
-                        Wrap: =false
-                        Y: =lblUnitCount.Y
-                        ZIndex: =3
 
                     lblUnitCount As label:
                         AutoHeight: =true
@@ -523,10 +487,12 @@ UnitScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
                         Mode: =TextMode.MultiLine
-                        OnChange: |-
-                            =Set(VarUnitDescriptionSummary,IntxtUnitDescription.Text);
-                            //Set(VarUnitDescription,true)
-                        OnSelect: =Set(VarUnitDescription,true)
+                        OnChange: |
+                            =//this variable store Unit description
+                            Set(VarUnitDescriptionSummary,IntxtUnitDescription.Text);
+                        OnSelect: |-
+                            =//to show label
+                            Set(VarUnitDescription,true)
                         PaddingBottom: =0
                         PaddingLeft: =5
                         PaddingTop: =15
@@ -540,36 +506,6 @@ UnitScreen As screen:
                         X: =30
                         Y: =lblUnitDescription.Y + lblUnitDescription.Height +2
                         ZIndex: =1
-
-                    ErrorMessageUnitDescription As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =IntxtUnitDescription.Y + IntxtUnitDescription.Height
-                        ZIndex: =2
-
-                    StarVisibleUnitDescription As label:
-                        Align: =Align.Center
-                        Color: =RGBA(255, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =IntxtUnitDescription.Height
-                        Size: =21
-                        Text: ="*"
-                        VerticalAlign: =VerticalAlign.Top
-                        Visible: =false
-                        Width: =30
-                        Wrap: =false
-                        Y: =lblUnitDescription.Y
-                        ZIndex: =3
 
                     lblUnitDescription As label:
                         AutoHeight: =true
