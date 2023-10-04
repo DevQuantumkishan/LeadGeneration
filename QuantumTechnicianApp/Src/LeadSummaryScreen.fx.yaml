@@ -2105,7 +2105,7 @@ LeadSummaryScreen As screen:
         Width: =Parent.Width
         ZIndex: =7
 
-        borderNotificationLSS_1 As rectangle:
+        borderSubmitLSS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: |
                 =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
@@ -2117,12 +2117,12 @@ LeadSummaryScreen As screen:
 
         ctnSubmitLSS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =borderNotificationLSS_1.Height
+            Height: =borderSubmitLSS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =borderNotificationLSS_1.Width
-            X: =borderNotificationLSS_1.X
-            Y: =borderNotificationLSS_1.Y
+            Width: =borderSubmitLSS.Width
+            X: =borderSubmitLSS.X
+            Y: =borderSubmitLSS.Y
             ZIndex: =2
 
             ctnImageSubmitLSS As groupContainer.verticalAutoLayoutContainer:
@@ -2179,7 +2179,7 @@ LeadSummaryScreen As screen:
                     Width: =Parent.Width/5
                     ZIndex: =1
 
-                btnOkLSS_1 As button:
+                btnOkSubmitLSS As button:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
