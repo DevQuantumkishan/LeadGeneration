@@ -2137,7 +2137,7 @@ LeadSummaryScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                imgNotificationLSS_2 As image:
+                imgSubmitLSS As image:
                     DisabledFill: =RGBA(255, 255, 255, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
@@ -2146,7 +2146,7 @@ LeadSummaryScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-            lblNotificationLSS_1 As label:
+            lblSubmitLSS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -2156,7 +2156,7 @@ LeadSummaryScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            Container2 As groupContainer.horizontalAutoLayoutContainer:
+            ctnSubmitButtonsLSS As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -2169,19 +2169,17 @@ LeadSummaryScreen As screen:
                 ZIndex: =5
 
                 btnBackLSS As button:
-                    AlignInContainer: =AlignInContainer.Center
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: =Set(varSubmit,false);Navigate(LeadSummaryScreen);
                     Size: =14
                     Text: ="Back"
-                    Visible: =If(lblNotificationLSS_1.Text="Submitting",false,true)
+                    Visible: =If(lblSubmitLSS.Text="Submitting",false,true)
                     Width: =Parent.Width/5
                     ZIndex: =1
 
                 btnOkLSS_1 As button:
-                    AlignInContainer: =AlignInContainer.Center
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
@@ -2307,7 +2305,7 @@ LeadSummaryScreen As screen:
                         
                     Size: =14
                     Text: ="Ok"
-                    Visible: =If(lblNotificationLSS_1.Text="Submitting",false,true)
+                    Visible: =If(lblSubmitLSS.Text="Submitting",false,true)
                     Width: =Parent.Width/5
                     ZIndex: =2
 
