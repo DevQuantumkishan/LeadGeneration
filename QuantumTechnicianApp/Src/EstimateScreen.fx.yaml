@@ -100,7 +100,8 @@ EstimateScreen As screen:
                 RadiusTopRight: =50
                 Size: =If(Parent.Width<500,11,Parent.Width>500,12,12)
                 Text: |-
-                    =Left(User().FullName, 1) &
+                    =// username
+                    Left(User().FullName, 1) &
                     Mid(
                         User().FullName,
                         Find(" ", User().FullName) + 1,
