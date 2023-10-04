@@ -57,7 +57,9 @@ DashboardScreen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
-                OnSelect: =Set(varshowMenu,!varshowMenu)
+                OnSelect: |-
+                    =// to expand and collapse menubar
+                    Set(varshowMenu,!varshowMenu)
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =50
@@ -69,7 +71,9 @@ DashboardScreen As screen:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Image: ='1x'
+                Image: |-
+                    =//Schindler logo
+                    '1x'
                 PaddingBottom: =5
                 PaddingTop: =0.00
                 Width: |-
