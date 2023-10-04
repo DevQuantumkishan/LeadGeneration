@@ -985,7 +985,8 @@ CreatLeadScreen As screen:
                 Height: =100
                 Size: =14
                 Text: |-
-                    =If(
+                    =// if there is IntxtContractNumber.Text or variable which store Contract number is blank then show text
+                    If(
                         IsBlank(VarcontractRecord) && !IsBlank(IntxtContractNumber.Text),"Contract number not found in your district ("& VarTechnicianID.District  & "). Please try again.","All mandatory fields need to be filled.")
                 Width: =Parent.Width
                 ZIndex: =2
@@ -1059,9 +1060,7 @@ CreatLeadScreen As screen:
                     =//borderErrorpopupCS.Height/2
                     120
                 Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                Text: |-
-                    =
-                        "Contract number not found in your district ("& VarTechnicianID.District  & "). Please try again."
+                Text: = "Contract number not found in your district ("& VarTechnicianID.District  & "). Please try again."
                 Width: =Parent.Width
                 ZIndex: =2
 
@@ -1071,7 +1070,7 @@ CreatLeadScreen As screen:
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-
-                    =
+                    =// to close popup 
                     Set(VarContractError,false);
                     Navigate(CreatLeadScreen);
                 Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
@@ -1138,21 +1137,6 @@ CreatLeadScreen As screen:
                     =    "Getting contract record. Please wait."
                 Width: =Parent.Width
                 ZIndex: =2
-
-            btnOkPopupCS As button:
-                AlignInContainer: =AlignInContainer.Center
-                Fill: =RGBA(255, 0, 0, 1)
-                Font: =Font.Arial
-                HoverFill: =ColorFade(Self.Fill, -20%)
-                OnSelect: |-
-                    =//to close popup
-                    Set(VarLoader,false);
-                    Navigate(CreatLeadScreen);
-                Size: =14
-                Text: ="Ok"
-                Visible: =false
-                Width: =Parent.Width/5
-                ZIndex: =3
 
     grpMenuCLS As group:
         Height: =5

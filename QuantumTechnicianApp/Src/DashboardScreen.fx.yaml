@@ -1158,20 +1158,6 @@ DashboardScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            btnOkPopupDS As button:
-                Fill: =RGBA(255, 0, 0, 1)
-                Font: =Font.Arial
-                HoverFill: =ColorFade(Self.Fill, -20%)
-                OnSelect: |-
-                    =// to close popup and navigate CreatLeadScreen.
-                    Set(VarLoader,false);
-                    Navigate(DashboardScreen);
-                Size: =14
-                Text: ="Ok"
-                Visible: =false
-                Width: =Parent.Width/5
-                ZIndex: =3
-
     grpMenuDS As group:
         Height: =5
         Width: =5
