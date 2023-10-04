@@ -19,7 +19,7 @@ RejectedLeads As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderSLS_1 As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeaderRS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -37,7 +37,7 @@ RejectedLeads As screen:
             X: =0.00
             ZIndex: =1
 
-            IconMenuSLS_1 As icon.Hamburger:
+            IconMenuRS As icon.Hamburger:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -49,8 +49,7 @@ RejectedLeads As screen:
                 Y: =11
                 ZIndex: =1
 
-            imgSchindlerLogoSLS_1 As image:
-                AlignInContainer: =AlignInContainer.Center
+            imgSchindlerLogoRS As image:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -63,7 +62,7 @@ RejectedLeads As screen:
                 X: =0.00
                 ZIndex: =2
 
-            iconBackSLS_1 As icon.BackArrow:
+            iconBackRS As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -78,8 +77,7 @@ RejectedLeads As screen:
                 Y: =11
                 ZIndex: =3
 
-            lblHeaderSLS_1 As label:
-                AlignInContainer: =AlignInContainer.Center
+            lblHeaderRS As label:
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
@@ -92,12 +90,11 @@ RejectedLeads As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoSLS_1.Width-IconMenuSLS_1.Width-btnUserNameSLS_1.Width-70
+                Width: =Parent.Width-imgSchindlerLogoRS.Width-IconMenuRS.Width-btnUserNameRS.Width-70
                 X: =96.12
                 ZIndex: =4
 
-            btnUserNameSLS_1 As button:
-                AlignInContainer: =AlignInContainer.Center
+            btnUserNameRS As button:
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -133,7 +130,7 @@ RejectedLeads As screen:
             PaddingTop: =0.00
             Width: =Parent.Width-40
             X: =21.36
-            Y: =ctnHeaderSLS_1.Y+ctnHeaderSLS_1.Height+10
+            Y: =ctnHeaderRS.Y+ctnHeaderRS.Height+10
             ZIndex: =2
 
             btnheaderSLS_1 As button:
@@ -164,7 +161,7 @@ RejectedLeads As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnUserNameSLS_1.Height-ctnHeaderSLS_1.Height
+            Height: =Parent.Height-ctnUserNameSLS_1.Height-ctnHeaderRS.Height
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =10
