@@ -968,6 +968,109 @@ EstimateScreen As screen:
                         Y: =10
                         ZIndex: =2
 
+                    ErrorMessageContactNumber As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =IntxtContactNumberES.Y + IntxtContactNumberES.Height
+                        ZIndex: =3
+
+                    StarVisibleContactNumber As label:
+                        Align: =Align.Center
+                        Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Arial
+                        Height: =IntxtContactNumberES.Height
+                        Size: =21
+                        Text: ="*"
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =false
+                        Width: =30
+                        Wrap: =false
+                        X: =30
+                        Y: =lblContactES.Y
+                        ZIndex: =4
+
+                    tog_phonenumberlength_1 As slider:
+                        Default: =Len(txtphonenumber_1.Text)
+                        Max: =10
+                        OnChange: |
+                            =Set(
+                                varPhoneNumber,
+                                With(
+                                    {
+                                        // extracts all numbers from the phone number field
+                                        varTextNumbersOnly: Concat(
+                                            MatchAll(
+                                                txtphonenumber_1.Text,
+                                                Match.Digit
+                                            ),
+                                            FullMatch
+                                        ),
+                                        // builds a table with phone number format at every position
+                                        varPhoneNumberFormat: With(
+                                            {varTextPhoneNumberFormat: txtPhonenumberformat_1.Text},
+                                            With(
+                                                {
+                                                    varTablePhoneNumberFormat: ForAll(
+                                                        Sequence(Len(varTextPhoneNumberFormat)),
+                                                        With(
+                                                            {
+                                                                varNumberCurrentLength: Left(
+                                                                    varTextPhoneNumberFormat,
+                                                                    Value
+                                                                )
+                                                            },
+                                                            {
+                                                                NumberFormat: varNumberCurrentLength,
+                                                                CountNumbers: CountRows(
+                                                                    MatchAll(
+                                                                        varNumberCurrentLength,
+                                                                        "0"
+                                                                    )
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                },
+                                                ForAll(
+                                                    Sequence(
+                                                        Max(
+                                                            varTablePhoneNumberFormat,
+                                                            CountNumbers
+                                                        )
+                                                    ),
+                                                    LookUp(
+                                                        varTablePhoneNumberFormat,
+                                                        CountNumbers = Value
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    },
+                                    Text(
+                                        Value(varTextNumbersOnly),
+                                        LookUp(
+                                            varPhoneNumberFormat,
+                                            CountNumbers = Len(varTextNumbersOnly),
+                                            NumberFormat
+                                        )
+                                    )
+                                )
+                            );
+                            Reset(txtphonenumber_1);
+                        Visible: =false
+                        X: =44
+                        Y: =104
+                        ZIndex: =5
+
                     txtPhonenumberformat_1 As text:
                         Default: ="(000)-000-0000"
                         Height: =44
