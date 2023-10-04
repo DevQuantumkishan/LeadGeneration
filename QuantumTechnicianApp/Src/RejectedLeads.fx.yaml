@@ -6,7 +6,7 @@ RejectedLeads As screen:
         //,Notify("Internet is connected",NotificationType.Success);
         )
 
-    ctnMainSLS_1 As groupContainer.verticalAutoLayoutContainer:
+    ctnMainRS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(219, 219, 219, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Center
@@ -20,6 +20,7 @@ RejectedLeads As screen:
         ZIndex: =1
 
         ctnHeaderSLS_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: |-
@@ -160,6 +161,7 @@ RejectedLeads As screen:
                 ZIndex: =2
 
         ctnMiddleSLS_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =Parent.Height-ctnUserNameSLS_1.Height-ctnHeaderSLS_1.Height
