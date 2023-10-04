@@ -92,39 +92,9 @@ DashboardScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician"
-                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-Image3_1.Width-10
+                Width: =Parent.Width-imgSchindlerLogoDS.Width-IconMenuDS.Width-btnUsernameDS.Width-10
                 X: =96.12
                 ZIndex: =4
-
-            Image3_1 As image:
-                DisabledFill: =RGBA(255, 255, 255, 1)
-                Fill: =RGBA(255, 255, 255, 1)
-                Height: =Parent.Height
-                HoverFill: =Self.Fill
-                Image: ='refresh-1x'
-                OnSelect: |-
-                    =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
-                    //Notify("Internet is connected",NotificationType.Success);
-                    Refresh(LeadInformations);
-                    ClearCollect(
-                        GCTotalIncentives,
-                       Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
-                    );
-                    Refresh(LeadChats));
-                     
-                     Set(VarCurrentYear,Text(Year(Today())));
-                     Set(VarFirstYear, Text(Min(GCTotalIncentives,Year)));
-                     Set(VarLastYear,Text( Max (GCTotalIncentives,Year)));
-                PaddingBottom: =Parent.Height/3
-                PaddingLeft: =5
-                PaddingRight: =5
-                PaddingTop: =Parent.Height/3
-                PressedFill: =Self.Fill
-                Visible: =If(Connection.Connected,true,false)
-                Width: =0
-                X: =ctnYearToggleDS.X+ctnYearToggleDS.Width
-                Y: =Parent.Height/4
-                ZIndex: =5
 
             btnUsernameDS As button:
                 AlignInContainer: =AlignInContainer.Center
