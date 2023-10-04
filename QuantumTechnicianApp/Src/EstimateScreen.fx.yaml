@@ -563,7 +563,9 @@ EstimateScreen As screen:
                         OnCheck: |-
                             =// store unit down in variable
                             Set(VarUnitDownSummary,CboxUnitDown.Value)
-                        OnUncheck: =Set(VarUnitDownSummary,CboxUnitDown.Value)
+                        OnUncheck: |-
+                            =// store unit down value in variable
+                            Set(VarUnitDownSummary,CboxUnitDown.Value)
                         PressedBorderColor: =
                         PressedColor: =RGBA(0, 0, 0, 1)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
