@@ -1161,79 +1161,6 @@ DashboardScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-    PopoploaderDS As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(0, 0, 0, 0.29)
-        Height: =Parent.Height
-        Visible: =VarSyncPopup
-        Width: =Parent.Width
-        ZIndex: =4
-
-        borderLoaderPopuoCS_1 As rectangle:
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: |
-                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
-                //If(Parent.Height<500,270,Parent.Height>500 ,300)
-                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
-            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
-            X: =(Parent.Width-Self.Width)/2
-            Y: =(Parent.Height-Self.Height)/2
-            ZIndex: =1
-
-        ctnLoaderCS_1 As groupContainer.verticalAutoLayoutContainer:
-            BorderThickness: =1
-            Height: =borderLoaderPopuoCS_1.Height
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutMode: =LayoutMode.Auto
-            Width: =borderLoaderPopuoCS_1.Width
-            X: =borderLoaderPopuoCS_1.X
-            Y: =borderLoaderPopuoCS_1.Y
-            ZIndex: =2
-
-            ctnLoaderPopupCS_1 As groupContainer.verticalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                DropShadow: =DropShadow.None
-                FillPortions: =0
-                Height: =If(Parent.Width<500,80,60)
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width
-                ZIndex: =1
-
-                imgLoaderPopupCS_1 As image:
-                    Height: =Parent.Height
-                    Image: |
-                        =    'waiting-icon-gif-4'
-                    PaddingTop: =30
-                    Width: =Parent.Width
-                    ZIndex: =1
-
-            lblLoaderPopupCS_1 As label:
-                Align: =Align.Center
-                Font: =Font.Arial
-                FontWeight: =FontWeight.Semibold
-                Height: =100
-                Size: =14
-                Text: =If(VarSyncStart,"Refreshing,please wait.")
-                Width: =Parent.Width
-                ZIndex: =2
-
-            btnOkPopupCS_1 As button:
-                AlignInContainer: =AlignInContainer.Center
-                Fill: =RGBA(255, 0, 0, 1)
-                Font: =Font.Arial
-                HoverFill: =ColorFade(Self.Fill, -20%)
-                OnSelect: |-
-                    =
-                    Set(VarLoader,false);
-                    Navigate(CreatLeadScreen);
-                Size: =14
-                Text: ="Ok"
-                Visible: =false
-                Width: =Parent.Width/5
-                ZIndex: =3
-
     grpMenuDS As group:
         Height: =5
         Width: =5
@@ -1318,4 +1245,11 @@ DashboardScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
+
+    PopoploaderDS As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarSyncPopup
+        Width: =Parent.Width
+        ZIndex: =4
 
