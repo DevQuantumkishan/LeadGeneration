@@ -267,6 +267,10 @@ LeadListScreen As screen:
                         =Reset(cmbxregionfilterLS);
                         Reset(cmbxdistrictfilterLS);
                         Reset(cmbxareafilterLS);
+                        Set(VarMyLeads,false);
+                        Set(VarOpenLeads,false);
+                        Set(VarQuotedLeads,false);
+                        Set(VarSoldLeads,false);
                         Navigate(DashboardScreen)
                     PressedFill: =//Self.Color
                     RadiusBottomLeft: =0
@@ -323,6 +327,7 @@ LeadListScreen As screen:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(204, 204, 204, 1)
                         BorderThickness: =3
+                        DelayItemLoading: =true
                         FillPortions: =0
                         Height: =Parent.Height
                         Items: |-
@@ -362,6 +367,8 @@ LeadListScreen As screen:
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
+                        LoadingSpinner: =LoadingSpinner.Data
+                        LoadingSpinnerColor: =RGBA(0,0,0,1)
                         OnSelect: =//Navigate(CommingSoonUnused)
                         TemplatePadding: =0
                         TemplateSize: =ctnlistheadingvalueLS.Height+20
@@ -686,4 +693,13 @@ LeadListScreen As screen:
             X: =btnyesLS.X+btnyesLS.Width+20
             Y: =lblmsgLS.Y+ lblmsgLS.Height+10
             ZIndex: =7
+
+    Image4 As image:
+        Fill: =
+        Height: =Parent.Height
+        Image: =loader
+        ImagePosition: =ImagePosition.Center
+        Visible: =false
+        Width: =Parent.Width
+        ZIndex: =9
 
