@@ -464,35 +464,6 @@ EstimateScreen As screen:
                         Y: =lblEstimatedHours.Y + lblEstimatedHours.Height + 5
                         ZIndex: =2
 
-                    ErrorMessageEstimatedHours As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =IntxtEstimatedHours.Y + IntxtEstimatedHours.Height
-                        ZIndex: =3
-
-                    StarVisibleEstimatedHours As label:
-                        Align: =Align.Center
-                        Color: =RGBA(255, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =IntxtEstimatedHours.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =false
-                        Width: =30
-                        Wrap: =false
-                        Y: =lblEstimatedHours.Y
-                        ZIndex: =4
-
                 Material As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid

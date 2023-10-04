@@ -542,19 +542,6 @@ ScopeScreen As screen:
                         Y: =CboxScopeofwork.Y + CboxScopeofwork.Height
                         ZIndex: =3
 
-                    StarVisibleScopeofwork As label:
-                        Align: =Align.Center
-                        Color: =RGBA(255, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =CboxScopeofwork.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =false
-                        Width: =30
-                        Wrap: =false
-                        Y: =lblScopeofwork.Y
-                        ZIndex: =4
-
                 ManuallyScopeOfWork As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
