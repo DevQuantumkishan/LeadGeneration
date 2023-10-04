@@ -157,7 +157,7 @@ DashboardScreen As screen:
                 X: =0.00
                 ZIndex: =1
 
-            lblUserNameDS As label:
+            lblTimeSpanDS As label:
                 Align: =Align.Right
                 Font: =Font.Arial
                 Height: =Parent.Height
@@ -185,7 +185,7 @@ DashboardScreen As screen:
                      // if there is no rows in GCTotalIncentives then show value from  VarCurrentYear.
                     If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,VarCurrentYear,If(cumulatively=true && VarFirstYear <>VarLastYear,VarFirstYear & " - " & VarLastYear,yearly=true,VarFirstYear, VarFirstYear))
                 Width: =Parent.Width/2.8
-                X: =lblUserNameDS.X+lblUserNameDS.Width
+                X: =lblTimeSpanDS.X+lblTimeSpanDS.Width
                 ZIndex: =6
 
             ctnYearToggleDS As groupContainer.horizontalAutoLayoutContainer:
@@ -236,7 +236,7 @@ DashboardScreen As screen:
                     Width: |-
                         =//If(Parent.Width<1000,Parent.Width/1.2,Parent.Width>1000,Parent.Width/10,Parent.Width>2000,Parent.Width)
                         Parent.Width/2
-                    X: =lblUserNameDS.X+lblUserNameDS.Width
+                    X: =lblTimeSpanDS.X+lblTimeSpanDS.Width
                     ZIndex: =1
 
             Image3 As image:
