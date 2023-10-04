@@ -762,7 +762,8 @@ DashboardScreen As screen:
                                 =//19.22
                                 If(Parent.Width<358,14,Parent.Width>358,16,18)
                             Text: |-
-                                =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,0,
+                                =// to show total leads yearly or cumulatively
+                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,0,
                                 If(
                                     yearly=true ,
                                             LookUp(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text,TotalProposedLead),
