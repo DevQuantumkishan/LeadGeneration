@@ -328,20 +328,6 @@ DashboardScreen As screen:
                     Width: =Parent.Width/3.35
                     ZIndex: =1
 
-                    Circle1_2 As circle:
-                        BorderColor: =RGBA(255, 191, 0, 1)
-                        BorderThickness: =1
-                        DisplayMode: =DisplayMode.View
-                        Fill: =RGBA(255, 191, 0, 1)
-                        Height: =13
-                        Visible: |-
-                            =//If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))=0,false,true)
-                            false
-                        Width: =13
-                        X: =Parent.Width/1.2
-                        Y: =Parent.Height/8
-                        ZIndex: =5
-
                     grpOpenLeadsDS As group:
                         Height: =5
                         Width: =5
@@ -425,7 +411,8 @@ DashboardScreen As screen:
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |-
-                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Open"});
+                                =
+                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "Open"});
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -445,7 +432,9 @@ DashboardScreen As screen:
                         DisplayMode: =DisplayMode.View
                         Height: =20
                         Image: =email
-                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))=0,false,true)
+                        Visible: |-
+                            =// to display is there new unread message for leadstatus Submitted 
+                            If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Submitted"))=0,false,true)
                         Width: =20
                         X: =Parent.Width/1.25
                         Y: =Parent.Height/9
@@ -464,20 +453,6 @@ DashboardScreen As screen:
                     LayoutMinWidth: =250
                     Width: =Parent.Width/3.35
                     ZIndex: =2
-
-                    Circle1_3 As circle:
-                        BorderColor: =RGBA(255, 191, 0, 1)
-                        BorderThickness: =1
-                        DisplayMode: =DisplayMode.View
-                        Fill: =RGBA(255, 191, 0, 1)
-                        Height: =13
-                        Visible: |
-                            =//If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="InProgress"))=0,false,true)
-                            false
-                        Width: =13
-                        X: =Parent.Width/1.2
-                        Y: =Parent.Height/8
-                        ZIndex: =5
 
                     grpInprogressLeadsDS As group:
                         Height: =5
@@ -579,11 +554,13 @@ DashboardScreen As screen:
                             X: =
                             ZIndex: =4
 
-                    Image1_1 As image:
+                    imgUnreadInprogressDS As image:
                         DisplayMode: =DisplayMode.View
                         Height: =20
                         Image: =email
-                        Visible: =If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="InProgress"))=0,false,true)
+                        Visible: |-
+                            =//to indicate is there new unread message  recieved from QQ member for leadstatus Inprogress
+                            If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="InProgress"))=0,false,true)
                         Width: =20
                         X: =Parent.Width/1.25
                         Y: =Parent.Height/9
