@@ -455,8 +455,11 @@ EstimateScreen As screen:
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
                         OnChange: |
-                            =Set(VarEstimateHoursSummary,IntxtEstimatedHours.Text);
-                        OnSelect: =Set(VarEstimateHours,true)
+                            =// store estimated hours in variable 
+                            Set(VarEstimateHoursSummary,IntxtEstimatedHours.Text);
+                        OnSelect: |-
+                            =// to show label
+                            Set(VarEstimateHours,true)
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
