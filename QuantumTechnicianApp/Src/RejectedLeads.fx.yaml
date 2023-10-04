@@ -69,7 +69,7 @@ RejectedLeads As screen:
                 OnSelect: |-
                     =Navigate(DashboardScreen);
                     UpdateContext({locInfoExpanded:false});
-                    Reset(IntxtSearchBoxSLS_1);
+                    Reset(IntxtSearchBoxRS);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
@@ -162,7 +162,7 @@ RejectedLeads As screen:
             X: =15
             ZIndex: =3
 
-            ctnSearchBarSLS_2 As groupContainer.horizontalAutoLayoutContainer:
+            ctnSearchBarRS As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =If(Parent.Width>800,60,80)
@@ -173,8 +173,7 @@ RejectedLeads As screen:
                 X: =10
                 ZIndex: =5
 
-                IntxtSearchBoxSLS_1 As text:
-                    AlignInContainer: =AlignInContainer.Center
+                IntxtSearchBoxRS As text:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     Clear: =true
                     Default: =""
@@ -199,10 +198,10 @@ RejectedLeads As screen:
                     RadiusTopRight: =1
                     Reset: =true
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =(ctnSearchBarSLS_2.Width)/1.17
+                    Width: =(ctnSearchBarRS.Width)/1.17
                     ZIndex: =1
 
-                IconSearchSLS_1 As icon.Search:
+                IconSearchRS As icon.Search:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =2
                     Color: =RGBA(116, 116, 116, 1)
@@ -215,7 +214,7 @@ RejectedLeads As screen:
                     PaddingLeft: =5
                     PaddingRight: =5
                     PaddingTop: =5
-                    Width: =(ctnSearchBarSLS_2.Width-IntxtSearchBoxSLS_1.Width)/1.5
+                    Width: =(ctnSearchBarRS.Width-IntxtSearchBoxRS.Width)/1.5
                     X: =468
                     Y: =000
                     ZIndex: =2
@@ -231,7 +230,7 @@ RejectedLeads As screen:
                 PaddingLeft: =2
                 Width: =Parent.Width/1.04
                 X: =10
-                Y: =ctnSearchBarSLS_2.Height
+                Y: =ctnSearchBarRS.Height
                 ZIndex: =6
 
                 lblSortRS As label:
@@ -309,10 +308,10 @@ RejectedLeads As screen:
                     ZIndex: =3
 
             "glryLeadsRS As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-                Height: =Parent.Height-ctnSearchBarSLS_2.Height-ctnSortBarRS.Height-20
+                Height: =Parent.Height-ctnSearchBarRS.Height-ctnSortBarRS.Height-20
                 Items: |-
                     =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                    LeadStatus=Header&&Email=User().Email),'Created On',SortOrder.Descending),IntxtSearchBoxSLS_1.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSortRS.Selected.Value="Created Date","createdon",cboxSortRS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortRS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortRS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortRS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortRS.Selected.Value="Building Name","shlrf_buildingname",cboxSortRS.Selected.Value="Address","shlrf_address",cboxSortRS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortRS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortRS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
+                    LeadStatus=Header&&Email=User().Email),'Created On',SortOrder.Descending),IntxtSearchBoxRS.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSortRS.Selected.Value="Created Date","createdon",cboxSortRS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortRS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortRS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortRS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortRS.Selected.Value="Building Name","shlrf_buildingname",cboxSortRS.Selected.Value="Address","shlrf_address",cboxSortRS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortRS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortRS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                 Layout: =Layout.Vertical
                 TemplatePadding: =0
                 TemplateSize: =If(btnheaderRS.Text="Rejected Leads",240+htmltxtLeadCommentRS.Height)
@@ -434,7 +433,7 @@ RejectedLeads As screen:
                         Set(VarLtdID,ThisItem.ID);
                         Set(VarBackColor,true);
                         Navigate([@ViewDetailsScreen],ScreenTransition.None);
-                        Reset(IntxtSearchBoxSLS_1);
+                        Reset(IntxtSearchBoxRS);
                         Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact ',"[$-en-US](###) ###-####"));
                         
                         /*{LtdID:ThisItem.ID,ContractNumber:ThisItem.'ContractNumber ',BuildingName:ThisItem.'BuildingName ',Address:ThisItem.Address,Zipcode:ThisItem.'ZipCode ',UnitCount:ThisItem.NumberofUnits,UnitDescription:ThisItem.UnitDescription,Scope:ThisItem.PrimaryScopeofWorkLID,ScopeOfWork:ThisItem.SecondaryScopeofWorkLID,CustomScope:ThisItem.CustomScopeofWork,unitdown:ThisItem.IsUnitDown,AdditionalExpensesRequired:ThisItem.AdditionalExpensesRequired,CommunicatedtoCustomer:ThisItem.CommunicatedToCustomer,EstimatedHours:ThisItem.'EstimatedHours ',Material:ThisItem.Notes,travelRequired:ThisItem.TravelRequired//LeadImage:ThisItem.LeadImages
