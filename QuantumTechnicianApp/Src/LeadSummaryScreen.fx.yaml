@@ -2098,7 +2098,7 @@ LeadSummaryScreen As screen:
                 Width: =Parent.Width/5
                 ZIndex: =3
 
-    PopopNotificationLSS_1 As groupContainer.manualLayoutContainer:
+    PopopSubmitLSS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =varSubmit
@@ -2125,7 +2125,7 @@ LeadSummaryScreen As screen:
             Y: =borderNotificationLSS_1.Y
             ZIndex: =2
 
-            ctnImageLSS_1 As groupContainer.verticalAutoLayoutContainer:
+            ctnImageSubmitLSS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
