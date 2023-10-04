@@ -549,34 +549,6 @@ EstimateScreen As screen:
                     Y: =2
                     ZIndex: =1
 
-                    ErrorMessageUnitDown As label:
-                        AutoHeight: =true
-                        Height: =0
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =CboxUnitDown.Y + CboxUnitDown.Height
-                        ZIndex: =3
-
-                    StarVisibleUnitDown As label:
-                        Align: =Align.Center
-                        Font: =Font.Arial
-                        Height: =0
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =CboxUnitDown.Y
-                        ZIndex: =4
-
                     CboxUnitDown As checkbox:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         CheckboxBackgroundFill: =RGBA(0, 0, 0, 0)
@@ -588,7 +560,9 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         HoverBorderColor: =
                         HoverColor: =RGBA(0, 0, 0, 1)
-                        OnCheck: =Set(VarUnitDownSummary,CboxUnitDown.Value)
+                        OnCheck: |-
+                            =// store unit down in variable
+                            Set(VarUnitDownSummary,CboxUnitDown.Value)
                         OnUncheck: =Set(VarUnitDownSummary,CboxUnitDown.Value)
                         PressedBorderColor: =
                         PressedColor: =RGBA(0, 0, 0, 1)
