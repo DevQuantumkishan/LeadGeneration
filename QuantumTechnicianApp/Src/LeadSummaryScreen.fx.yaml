@@ -237,33 +237,6 @@ LeadSummaryScreen As screen:
                             Y: =lblContractNumberLSS.Y + lblContractNumberLSS.Height + 5
                             ZIndex: =2
 
-                        ErrorMessageCNLSS As label:
-                            Height: =0
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width-60
-                            X: =30
-                            Y: =IntxtContractNumerLSS.Y + IntxtContractNumerLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleCNLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =lblContractNumberLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =lblContractNumberLSS.Y
-                            ZIndex: =4
-
                     BuildingNameLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -317,33 +290,6 @@ LeadSummaryScreen As screen:
                             Y: =lblBuildingNameLSS.Y + lblBuildingNameLSS.Height + 5
                             ZIndex: =2
 
-                        ErrorMessageBNLSS As label:
-                            Height: =0
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtBuildingNameLSS.Y + IntxtBuildingNameLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleBNLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =lblBuildingNameLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =lblBuildingNameLSS.Y
-                            ZIndex: =4
-
                     ZipCodeLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -393,33 +339,6 @@ LeadSummaryScreen As screen:
                             X: =30
                             Y: =lblZipcodeLSS.Y + lblZipcodeLSS.Height + 5
                             ZIndex: =2
-
-                        ErrorMessageZipcodeLSS As label:
-                            Height: =0
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtZipcodeLSS.Y + IntxtZipcodeLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleZipcodeLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =lblZipcodeLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =lblZipcodeLSS.Y
-                            ZIndex: =4
 
                     AddressLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
@@ -473,33 +392,6 @@ LeadSummaryScreen As screen:
                             X: =30
                             Y: =lblAddressLSS.Y + lblAddressLSS.Height + 5
                             ZIndex: =2
-
-                        ErrorMessageAddressLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtAddressLSS.Y + IntxtAddressLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleAddressLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =lblAddressLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =lblAddressLSS.Y
-                            ZIndex: =4
 
                     UnitCountLSS As typedDataCard.numberEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
@@ -555,36 +447,6 @@ LeadSummaryScreen As screen:
                             Y: =lblUnitCountLSS.Y + lblUnitCountLSS.Height + 5
                             ZIndex: =2
 
-                        ErrorMessageUnitCountLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtUnitCountLSS.Y + IntxtUnitCountLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleUnitCountLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Font: =Font.Arial
-                            Height: =lblUnitCountLSS.Height
-                            PaddingTop: =15
-                            Size: =21
-                            Text: ="*"
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =5
-                            Y: =lblUnitCountLSS.Y
-                            ZIndex: =4
-
                     UnitDescriptionLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -637,36 +499,6 @@ LeadSummaryScreen As screen:
                             X: =30
                             Y: =lblUnitDescriptionLSS.Y + lblUnitDescriptionLSS.Height + 5
                             ZIndex: =2
-
-                        ErrorMessageUnitDescriptionLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtUnitDescriptionLSS.Y + IntxtUnitDescriptionLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleUnitDescriptionLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Font: =Font.Arial
-                            Height: =lblUnitDescriptionLSS.Height
-                            PaddingTop: =15
-                            Size: =21
-                            Text: ="*"
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =5
-                            Y: =lblUnitDescriptionLSS.Y
-                            ZIndex: =4
 
                     ScopeLSS As typedDataCard.comboBoxEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
@@ -724,35 +556,6 @@ LeadSummaryScreen As screen:
                             Y: =lblScopeLSS.Y + lblScopeLSS.Height + 5
                             ZIndex: =2
 
-                        ErrorMessageScpeLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =CboxScopeLSS.Y + CboxScopeLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleScopeLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Height: =lblScopeLSS.Height
-                            PaddingTop: =15
-                            Size: =21
-                            Text: ="*"
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =5
-                            Y: =lblScopeLSS.Y
-                            ZIndex: =4
-
                     ScopeOfWorkLSS As typedDataCard.comboBoxEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -809,35 +612,6 @@ LeadSummaryScreen As screen:
                             Y: =lblScopeofWorkLSS.Y + lblScopeofWorkLSS.Height + 5
                             ZIndex: =2
 
-                        ErrorMessageScopeofWorkLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =CboxScopeofWorkLSS.Y + CboxScopeofWorkLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleScopeofWorkLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Height: =lblScopeofWorkLSS.Height
-                            PaddingTop: =15
-                            Size: =21
-                            Text: ="*"
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =5
-                            Y: =lblScopeofWorkLSS.Y
-                            ZIndex: =4
-
                     ManuallyScopeOfWorkLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -890,32 +664,6 @@ LeadSummaryScreen As screen:
                             Y: =lblManuallyScopeofWorkLSS.Y + lblManuallyScopeofWorkLSS.Height + 5
                             ZIndex: =2
 
-                        ErrorMessageManuallyScopeofWorkLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtManuallyScopeofWorkLSS.Y + IntxtManuallyScopeofWorkLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleManuallyScopeofWorkLSS As label:
-                            Align: =Align.Center
-                            Height: =lblManuallyScopeofWorkLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =lblManuallyScopeofWorkLSS.Y
-                            ZIndex: =4
-
                     EstimatedHoursLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -966,35 +714,6 @@ LeadSummaryScreen As screen:
                             X: =30
                             Y: =lblEstimatedHoursLSS.Y + lblEstimatedHoursLSS.Height + 5
                             ZIndex: =2
-
-                        ErrorMessageEstimatedHoursLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtEstimatedHoursLSS.Y + IntxtEstimatedHoursLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleEstimatedHoursLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Height: =lblEstimatedHoursLSS.Height
-                            PaddingTop: =15
-                            Size: =21
-                            Text: ="*"
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =5
-                            Y: =lblEstimatedHoursLSS.Y
-                            ZIndex: =4
 
                     NotesLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
@@ -1048,35 +767,6 @@ LeadSummaryScreen As screen:
                             Y: =lblNotesLSS.Y + lblNotesLSS.Height + 5
                             ZIndex: =2
 
-                        ErrorMessageNotesLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =false
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtNotesLSS.Y + IntxtNotesLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleNotesLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Height: =lblNotesLSS.Height
-                            PaddingTop: =15
-                            Size: =21
-                            Text: ="*"
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =5
-                            Y: =lblNotesLSS.Y
-                            ZIndex: =4
-
                     UnitDownLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
@@ -1092,33 +782,6 @@ LeadSummaryScreen As screen:
                         X: =0
                         Y: =11
                         ZIndex: =1
-
-                        ErrorMessageUDLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =CboxUDLSS.Y + CboxUDLSS.Height
-                            ZIndex: =3
-
-                        StarVisibleUDLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =CboxUDLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =CboxUDLSS.Y
-                            ZIndex: =4
 
                         CboxUDLSS As checkbox:
                             BorderColor: =RGBA(0, 0, 0, 0)
@@ -1153,34 +816,6 @@ LeadSummaryScreen As screen:
                         X: =0
                         Y: =12
                         ZIndex: =1
-
-                        ErrorMessageAELSS As label:
-                            AutoHeight: =true
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =
-                            ZIndex: =3
-
-                        StarVisibleAELSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =
-                            ZIndex: =4
 
                         cboxAELSS As checkbox:
                             BorderColor: =RGBA(0, 0, 0, 0)
@@ -1268,35 +903,6 @@ LeadSummaryScreen As screen:
                             Y: =lblTotalEstimatedExpenseLSS.Y + lblTotalEstimatedExpenseLSS.Height + 5
                             ZIndex: =3
 
-                        ErrorMessageTotalEstimatedExpenseLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtTotalEstimatedExpenseLSS.Y + IntxtTotalEstimatedExpenseLSS.Height
-                            ZIndex: =4
-
-                        StarVisibleTotalEstimatedExpenseLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Font: =Font.Arial
-                            Height: =lblTotalEstimatedExpenseLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            VerticalAlign: =VerticalAlign.Top
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =50
-                            Y: =lblTotalEstimatedExpenseLSS.Y
-                            ZIndex: =5
-
                     TravelRequiredLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
@@ -1312,34 +918,6 @@ LeadSummaryScreen As screen:
                         X: =0
                         Y: =14
                         ZIndex: =1
-
-                        ErrorMessageTravelRequiredLSS As label:
-                            AutoHeight: =true
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =
-                            ZIndex: =3
-
-                        StarVisibleTravelRequiredLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =
-                            ZIndex: =4
 
                         cboxTravelRequiredLSS As checkbox:
                             BorderColor: =RGBA(0, 0, 0, 0)
@@ -1426,36 +1004,6 @@ LeadSummaryScreen As screen:
                             Y: =lblTotalEstimatedHoursofTravelLSS.Y + lblTotalEstimatedHoursofTravelLSS.Height + 5
                             ZIndex: =3
 
-                        ErrorMessageTotalEstimatedHoursofTravelLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: =Parent.Error
-                            VerticalAlign: =VerticalAlign.Top
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =intxtTotalEstimatedHoursofTravelLSS.Y + intxtTotalEstimatedHoursofTravelLSS.Height
-                            ZIndex: =4
-
-                        StarVisibleTotalEstimatedHoursofTravelLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Font: =Font.Arial
-                            Height: =lblTotalEstimatedHoursofTravelLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            VerticalAlign: =VerticalAlign.Top
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =50
-                            Y: =lblTotalEstimatedHoursofTravelLSS.Y
-                            ZIndex: =5
-
                     CommunicatedtoCustomerLSS As typedDataCard.comboBoxOptionSetSingleEditCard:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderStyle: =BorderStyle.Solid
@@ -1471,33 +1019,6 @@ LeadSummaryScreen As screen:
                         X: =0
                         Y: =16
                         ZIndex: =1
-
-                        ErrorMessageCCLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Size: =24
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =
-                            ZIndex: =3
-
-                        StarVisibleCCLSS As label:
-                            Align: =Align.Center
-                            Font: =Font.Arial
-                            Height: =
-                            Size: =21
-                            Text: ="*"
-                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                            Width: =30
-                            Wrap: =false
-                            Y: =
-                            ZIndex: =4
 
                         CboxCCLSS As checkbox:
                             BorderColor: =RGBA(0, 0, 0, 0)
@@ -1586,35 +1107,6 @@ LeadSummaryScreen As screen:
                             Y: =lblCustomerNameLSS.Y + lblCustomerNameLSS.Height + 5
                             ZIndex: =3
 
-                        ErrorMessageLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =IntxtCustomerNameLSS.Y + IntxtCustomerNameLSS.Height
-                            ZIndex: =4
-
-                        StarVisibleLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Font: =Font.Arial
-                            Height: =lblCustomerNameLSS.Height
-                            Size: =21
-                            Text: ="*"
-                            VerticalAlign: =VerticalAlign.Top
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =50
-                            Y: =lblCustomerNameLSS.Y
-                            ZIndex: =5
-
                     CustomerContactLSS As typedDataCard.textualEditCard:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
@@ -1642,35 +1134,6 @@ LeadSummaryScreen As screen:
                             X: =50
                             Y: =5
                             ZIndex: =1
-
-                        ErrorMessageContactNumberLSS As label:
-                            Height: =10
-                            Live: =Live.Assertive
-                            PaddingBottom: =0
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: =Parent.Error
-                            Visible: =Parent.DisplayMode=DisplayMode.Edit
-                            Width: =Parent.Width - 60
-                            X: =30
-                            Y: =txtphonenumber_2.Y + txtphonenumber_2.Height
-                            ZIndex: =2
-
-                        StarVisibleContactNumberLSS As label:
-                            Align: =Align.Center
-                            Color: =RGBA(255, 0, 0, 1)
-                            Font: =Font.Arial
-                            Height: =lblContactES_1.Height
-                            Size: =21
-                            Text: ="*"
-                            VerticalAlign: =VerticalAlign.Top
-                            Visible: =false
-                            Width: =30
-                            Wrap: =false
-                            X: =50
-                            Y: =lblContactES_1.Y
-                            ZIndex: =3
 
                         lblContactES_1 As label:
                             Color: =RGBA(0, 0, 0, 1)
