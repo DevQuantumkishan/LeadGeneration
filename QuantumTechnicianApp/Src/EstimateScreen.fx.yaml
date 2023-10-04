@@ -40,7 +40,9 @@ EstimateScreen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
-                OnSelect: =Set(varshowMenu,!varshowMenu);
+                OnSelect: |-
+                    =// to expand collapse menubar
+                    Set(varshowMenu,!varshowMenu);
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -52,7 +54,9 @@ EstimateScreen As screen:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Image: ='1x'
+                Image: |-
+                    =// schindler logo
+                    '1x'
                 LayoutMinHeight: =320
                 LayoutMinWidth: =320
                 PaddingBottom: =5
