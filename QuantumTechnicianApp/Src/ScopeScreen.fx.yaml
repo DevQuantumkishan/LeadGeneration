@@ -44,7 +44,9 @@ ScopeScreen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
-                OnSelect: =Set(varshowMenu,!varshowMenu);
+                OnSelect: |-
+                    =// to expand collapse menubar
+                    Set(varshowMenu,!varshowMenu);
                 PaddingBottom: =Parent.Height/3
                 PaddingTop: =Parent.Height/3
                 Width: =Parent.Height
@@ -56,7 +58,9 @@ ScopeScreen As screen:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
-                Image: ='1x'
+                Image: |-
+                    =//Schindler logo 
+                    '1x'
                 LayoutMinHeight: =320
                 LayoutMinWidth: =320
                 PaddingBottom: =5
@@ -100,7 +104,8 @@ ScopeScreen As screen:
                 RadiusTopRight: =50
                 Size: =If(Parent.Width<500,11,Parent.Width>500,12,12)
                 Text: |-
-                    =Left(User().FullName, 1) &
+                    =//username
+                    Left(User().FullName, 1) &
                     Mid(
                         User().FullName,
                         Find(" ", User().FullName) + 1,
@@ -137,20 +142,6 @@ ScopeScreen As screen:
                 Text: ="Create new lead"
                 Width: =Parent.Width
                 ZIndex: =1
-
-            lblUsernameSS As label:
-                Color: =RGBA(255, 255, 255, 1)
-                Font: =Font.Arial
-                Height: =Parent.Height
-                PaddingBottom: =0
-                PaddingLeft: =10
-                PaddingRight: =10
-                PaddingTop: =0
-                Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
-                Text: =User().FullName
-                Visible: =false
-                Width: =Parent.Width/2
-                ZIndex: =2
 
         ctnMiddleSS As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -445,10 +436,19 @@ ScopeScreen As screen:
                         InputTextPlaceholder: =If(VarScope,""," Seach scope *")
                         Items: =GCPrimaryScopeofWorks
                         OnChange: |-
-                            =Set(VarScopeSummary,CboxScope.SelectedItems);
+                            =// to store selected scope in variable
+                            Set(VarScopeSummary,CboxScope.SelectedItems);
+                            // to show label
                             Set(VarScope,true);
-                            Set(VarNotificationScope,true);Set(VarScopeofworkSummary,Blank());
-                        OnSelect: =Set(VarScope,true);Set(VarNotificationScope,true);
+                            // to show scope of work notification
+                            Set(VarNotificationScope,true);
+                            // set blank  scope of work 
+                            Set(VarScopeofworkSummary,Blank());
+                        OnSelect: |-
+                            =// to show label
+                            Set(VarScope,true);
+                            // to show notification
+                            Set(VarNotificationScope,true);
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
@@ -461,35 +461,6 @@ ScopeScreen As screen:
                         X: =30
                         Y: =lblScope.Y + lblScope.Height +2
                         ZIndex: =2
-
-                    ErrorMessageScope As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =CboxScope.Y + CboxScope.Height
-                        ZIndex: =3
-
-                    StarVisibleScope As label:
-                        Align: =Align.Center
-                        Color: =RGBA(255, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =CboxScope.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =false
-                        Width: =30
-                        Wrap: =false
-                        Y: =lblScope.Y
-                        ZIndex: =4
 
                 ScopeOfWork As typedDataCard.comboBoxEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
