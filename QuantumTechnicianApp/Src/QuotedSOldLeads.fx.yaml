@@ -70,7 +70,7 @@ QuotedSOldLeads As screen:
                     =Navigate(DashboardScreen);
                     UpdateContext({locInfoExpanded:false});
                     Set(VarNavigateId,Blank());
-                    Reset(IntxtSearchBoxSLS_2);
+                    Reset(IntxtSearchBoxSoldLeads);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
@@ -163,26 +163,14 @@ QuotedSOldLeads As screen:
             X: =15
             ZIndex: =3
 
-            "glrySubmittedLeadsSLS_2 As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
+            "'glrySold/QuotedLeads' As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 BorderColor: =RGBA(219, 219, 219, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
-                Height: =Parent.Height-ctnSearchBarSLS_4.Height-ctnSortBarSoldLeads.Height
+                Height: =Parent.Height-ctnSearchBarSoldLeads.Height-ctnSortBarSoldLeads.Height
                 Items: |+
                     =If(
                         cumulatively = true,
-                    /*With(
-                        {
-                            StartYear:Min(GCTotalIncentives,Year),
-                            EndYear: Max(GCTotalIncentives,Year)
-                            
-                        },
-                        /*Filter(
-                            YearData,
-                            Value >= StartYear,
-                            Value <= EndYear
-                        )
-                    ),*/
                     Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && If(Header="Quoted",Value( TotalProposedLead)<>0,Value(TotalSoldLead)<>0),Year),
                     yearly = true,
                     With(
@@ -224,7 +212,7 @@ QuotedSOldLeads As screen:
                     Height: =If(CountRows(glryLeadsSLS_2.AllItems)<2,glryLeadsSLS_2.TemplateHeight+20,Parent.Height)
                     Items: |-
                         =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSortSoldLeads.Selected.Value="Created Date","createdon",cboxSortSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads.Selected.Value="Address","shlrf_address",cboxSortSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
+                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSoldLeads.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSortSoldLeads.Selected.Value="Created Date","createdon",cboxSortSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads.Selected.Value="Address","shlrf_address",cboxSortSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",320,200)
@@ -424,7 +412,7 @@ QuotedSOldLeads As screen:
                             Set(VarLtdID,ThisItem.ID);
                             Set(VarBackColor,true);
                             Navigate([@ViewDetailsScreen],ScreenTransition.None);
-                            Reset(IntxtSearchBoxSLS_2);
+                            Reset(IntxtSearchBoxSoldLeads);
                             Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact '));/*"[$-en-US](###) ###-####")*/
                             
                             Set(VarLeadstatus,ThisItem.LeadStatus);
@@ -814,7 +802,7 @@ QuotedSOldLeads As screen:
                     Y: =(Parent.Y-Self.Height)/8
                     ZIndex: =14
 
-            ctnSearchBarSLS_4 As groupContainer.horizontalAutoLayoutContainer:
+            ctnSearchBarSoldLeads As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =If(Parent.Width>800,60,80)
@@ -825,8 +813,7 @@ QuotedSOldLeads As screen:
                 X: =10
                 ZIndex: =5
 
-                IntxtSearchBoxSLS_2 As text:
-                    AlignInContainer: =AlignInContainer.Center
+                IntxtSearchBoxSoldLeads As text:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     Clear: =true
                     Default: =""
@@ -851,10 +838,10 @@ QuotedSOldLeads As screen:
                     RadiusTopRight: =1
                     Reset: =true
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =(ctnSearchBarSLS_4.Width)/1.17
+                    Width: =(ctnSearchBarSoldLeads.Width)/1.17
                     ZIndex: =1
 
-                IconSearchSLS_2 As icon.Search:
+                IconSearchSoldLeads As icon.Search:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =2
                     Color: =RGBA(116, 116, 116, 1)
@@ -867,7 +854,7 @@ QuotedSOldLeads As screen:
                     PaddingLeft: =5
                     PaddingRight: =5
                     PaddingTop: =5
-                    Width: =(ctnSearchBarSLS_4.Width-IntxtSearchBoxSLS_2.Width)/1.5
+                    Width: =(ctnSearchBarSoldLeads.Width-IntxtSearchBoxSoldLeads.Width)/1.5
                     X: =468
                     Y: =000
                     ZIndex: =2
@@ -883,7 +870,7 @@ QuotedSOldLeads As screen:
                 PaddingLeft: =2
                 Width: =Parent.Width/1.04
                 X: =10
-                Y: =ctnSearchBarSLS_4.Height
+                Y: =ctnSearchBarSoldLeads.Height
                 ZIndex: =6
 
                 lblsortSoldLeads As label:
