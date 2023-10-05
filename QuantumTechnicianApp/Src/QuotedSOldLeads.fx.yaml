@@ -293,7 +293,7 @@ QuotedSOldLeads As screen:
                         Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =borderLeadsSLS_2.Width-40
                         X: =20
-                        Y: =lblTitleTotalIncentivesSLS_5.Y+lblTitleTotalIncentivesSLS_5.Height
+                        Y: =lblTitleTotalIncentivesSL.Y+lblTitleTotalIncentivesSL.Height
                         ZIndex: =4
 
                     lblEstimateNumberSLS_2 As label:
@@ -499,7 +499,7 @@ QuotedSOldLeads As screen:
                         Y: =htmltextTrackingNumberSLS_2.Y
                         ZIndex: =15
 
-                    htmltxtQQTeamMemberSLS_2 As htmlViewer:
+                    htmltxtQQTeamMemberSL As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -516,7 +516,7 @@ QuotedSOldLeads As screen:
                         Y: =htmltxtStatusDateSL.Y+htmltxtStatusDateSL.Height
                         ZIndex: =16
 
-                    lblTitleTotalIncentivesSLS_5 As label:
+                    lblTitleTotalIncentivesSL As label:
                         Color: =If(btnheaderSoldLeads.Text="Quoted Leads",Color.Red,Color.Black)
                         Font: =Font.Arial
                         Height: =25
@@ -527,8 +527,7 @@ QuotedSOldLeads As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            =
-                            "Quoted incentive: $" & Text(ThisItem.ProposedLeadIncentives,"0.00")
+                            ="Quoted incentive: $" & Text(ThisItem.ProposedLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.06
@@ -546,8 +545,7 @@ QuotedSOldLeads As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            =//"Sold Incentives $ : "&  " " & 0
-                            "Proposed Price: $" & " " & ThisItem.ProposedLeadPrice
+                            ="Proposed Price: $" & " " & ThisItem.ProposedLeadPrice
                         VerticalAlign: =VerticalAlign.Top
                         Visible: |-
                             =//If(btnheaderSLS_2.Text="Quoted Leads" ||btnheaderSLS_2.Text="Sold Leads",true,false)
