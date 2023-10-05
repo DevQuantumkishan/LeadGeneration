@@ -168,11 +168,11 @@ ViewDetailsScreen As screen:
                 FillPortions: =0
                 Height: |-
                     =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + MaterialVDS.Height + UnitDownVDS.Height + AdditionalExpensesRequiredVDS.Height + 
-                         'Travel Required_DataCard2_3'.Height + 'Communicated to Customer_DataCard2_3'.Height +
+                         TravelRequiredVDS.Height + 'Communicated to Customer_DataCard2_3'.Height +
                          If(IsBlank(DataCardValue3.Text),0,
                           'CustomerName _DataCard2'.Height) +If(IsBlank(DataCardValue4.Text),0, 'CustomerContact _DataCard1'.Height)+
-                         If(IsBlank(DataCardValue5.Text),0,
-                          TotalEstimatedHoursofTravel_DataCard1.Height) + If(
+                         If(IsBlank(intxtTotalEstimatedHoursofTravelVDS.Text),0,
+                          TotalEstimatedHoursofTravelVDS.Height) + If(
                         IsBlank(intxtTotalEstimatedExpenseVDS.Text),
                         0,
                         TotalEstimatedExpenseVDS.Height)+If(
@@ -978,7 +978,7 @@ ViewDetailsScreen As screen:
                         Y: =lblTotalEstimatedExpenseVDS.Y + lblTotalEstimatedExpenseVDS.Height + 5
                         ZIndex: =2
 
-                "'Travel Required_DataCard2_3' As typedDataCard.comboBoxOptionSetSingleEditCard":
+                TravelRequiredVDS As typedDataCard.comboBoxOptionSetSingleEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_travelrequired"
                     Default: |-
@@ -998,34 +998,7 @@ ViewDetailsScreen As screen:
                     Y: =15
                     ZIndex: =1
 
-                    ErrorMessage16_3 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =
-                        ZIndex: =3
-
-                    StarVisible16_3 As label:
-                        Align: =Align.Center
-                        Height: =
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =
-                        ZIndex: =4
-
-                    Checkbox4_18 As checkbox:
+                    cboxTravelRequiredVDS As checkbox:
                         CheckboxBorderColor: =RGBA(0, 0, 0, 1)
                         Default: =true
                         Font: =Font.Arial
@@ -1043,7 +1016,7 @@ ViewDetailsScreen As screen:
                         X: =30
                         ZIndex: =5
 
-                TotalEstimatedHoursofTravel_DataCard1 As typedDataCard.textualEditCard:
+                TotalEstimatedHoursofTravelVDS As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="shlrf_totalestimatedhoursoftravel"
@@ -1051,17 +1024,17 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue5),90,0)
+                    Height: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(intxtTotalEstimatedHoursofTravelVDS),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
                     Required: =false
-                    Update: =DataCardValue5.Text
-                    Visible: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue5),true,false)
+                    Update: =intxtTotalEstimatedHoursofTravelVDS.Text
+                    Visible: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(intxtTotalEstimatedHoursofTravelVDS),true,false)
                     Width: =Parent.Width
                     X: =0
                     Y: =16
                     ZIndex: =1
 
-                    DataCardKey5 As label:
+                    lblTotalEstimatedHoursofTravelVDS As label:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(0, 0, 0, 1)
@@ -1076,7 +1049,7 @@ ViewDetailsScreen As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue5 As text:
+                    intxtTotalEstimatedHoursofTravelVDS As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =0
                         Default: =Parent.Default
@@ -1095,33 +1068,8 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                        Y: =lblTotalEstimatedHoursofTravelVDS.Y + lblTotalEstimatedHoursofTravelVDS.Height + 5
                         ZIndex: =2
-
-                    ErrorMessage3 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue5.Y + DataCardValue5.Height
-                        ZIndex: =3
-
-                    StarVisible3 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey5.Height
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey5.Y
-                        ZIndex: =4
 
                 "'Communicated to Customer_DataCard2_3' As typedDataCard.comboBoxOptionSetSingleEditCard":
                     BorderStyle: =BorderStyle.Solid
