@@ -716,7 +716,7 @@ ChatScreen As screen:
         Width: =Parent.Width
         ZIndex: =8
 
-        borderNotificationLSS_2 As rectangle:
+        borderNotificationCS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: |
                 =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
@@ -726,17 +726,17 @@ ChatScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        ctnNotificationLSS_2 As groupContainer.verticalAutoLayoutContainer:
+        ctnNotificationCS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =borderNotificationLSS_2.Height
+            Height: =borderNotificationCS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =borderNotificationLSS_2.Width
-            X: =borderNotificationLSS_2.X
-            Y: =borderNotificationLSS_2.Y
+            Width: =borderNotificationCS.Width
+            X: =borderNotificationCS.X
+            Y: =borderNotificationCS.Y
             ZIndex: =2
 
-            ctnImageLSS_2 As groupContainer.verticalAutoLayoutContainer:
+            ctnImageCS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -748,7 +748,7 @@ ChatScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                imgNotificationLSS_3 As image:
+                imgNotificationCS As image:
                     DisabledFill: =RGBA(255, 255, 255, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =Parent.Height
@@ -757,7 +757,7 @@ ChatScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-            lblNotificationLSS_2 As label:
+            lblNotificationCS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -767,7 +767,8 @@ ChatScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            Container2_1 As groupContainer.horizontalAutoLayoutContainer:
+            ctnbuttonsNotificationCS As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
                 Height: =80
@@ -778,8 +779,7 @@ ChatScreen As screen:
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =5
 
-                btnBackLSS_1 As button:
-                    AlignInContainer: =AlignInContainer.Center
+                btnBackCS As button:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
@@ -788,12 +788,11 @@ ChatScreen As screen:
                         //Navigate(ChatScreen);
                     Size: =14
                     Text: ="No"
-                    Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
+                    Visible: =If(lblNotificationCS.Text="Submitting",false,true)
                     Width: =Parent.Width/5
                     ZIndex: =1
 
-                btnOkLSS_2 As button:
-                    AlignInContainer: =AlignInContainer.Center
+                btnOkCS As button:
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
@@ -801,7 +800,7 @@ ChatScreen As screen:
                         =Set(VarchatInactivemode,false);If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));UpdateContext({startTimerCS:true}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: false}) 
                     Size: =14
                     Text: ="Yes"
-                    Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
+                    Visible: =If(lblNotificationCS.Text="Submitting",false,true)
                     Width: =Parent.Width/5
                     ZIndex: =2
 
