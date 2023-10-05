@@ -46,7 +46,7 @@ LeadScreen As screen:
                 HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                 OnSelect: |-
                     =Set(VarPopUpInprogress,false);
-                    Reset(txtinptestimatenumber);
+                    //Reset(txtinptestimatenumber);
                     Navigate(LeadListScreen)
                 PressedFill: =//Self.Color
                 RadiusBottomLeft: =0
@@ -503,727 +503,6 @@ LeadScreen As screen:
                     Y: =glrychatmessageLdS.Height+glrychatmessageLdS.Y
                     ZIndex: =4
 
-            ctnleaddetailsLdS As groupContainer.manualLayoutContainer:
-                BorderColor: =RGBA(0, 0, 0, 0.16)
-                BorderThickness: =2
-                Fill: =RGBA(249, 249, 249, 1)
-                Height: =Parent.Height+100
-                Visible: =//VarLeadDetails
-                Width: =Parent.Width-40
-                X: =20
-                ZIndex: =3
-
-                ctnverleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.Height
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMode: =LayoutMode.Auto
-                    LayoutOverflowY: =LayoutOverflow.Scroll
-                    PaddingRight: =20
-                    Width: =Parent.Width-20
-                    X: =Parent.X
-                    Y: =Parent.Y
-                    ZIndex: =5
-
-                    ctnaddressdetailsLdS As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        FillPortions: =0
-                        Height: |-
-                            =If(
-                                ctnbuildingnameleaddetailsLdS.Height > ctnaddressleaddetailsLdS.Height,
-                                ctnbuildingnameleaddetailsLdS.Height+30,
-                                ctnaddressleaddetailsLdS.Height+30
-                            )
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =Parent.Width
-                        X: =60
-                        Y: =60
-                        ZIndex: =1
-
-                        ctncontractnumberleaddetailLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblbuildingnamevalueleaddetailsLdS.Height+lblbuildingnameleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =1
-
-                            lblcontractnumberleaddetailLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Contract Number"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblcontractnumbervalueleaddetailsLdS As label:
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.'ContractNumber '
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctnzipcodeleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblbuildingnamevalueleaddetailsLdS.Height+lblbuildingnameleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =2
-
-                            lblzipcodeleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Zip Code"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblzipcodevalueleaddetailsLdS As label:
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.'ZipCode '
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctnbuildingnameleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblbuildingnamevalueleaddetailsLdS.Height+lblbuildingnameleaddetailsLdS.Height
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =3
-
-                            lblbuildingnameleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Building Name"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblbuildingnamevalueleaddetailsLdS As label:
-                                AutoHeight: =true
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.'BuildingName '
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctnaddressleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lbladdresslvalueeaddetailsLdS.Height+lbladdressleaddetailsLdS.Height
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =4
-
-                            lbladdressleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Address"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lbladdresslvalueeaddetailsLdS As label:
-                                AutoHeight: =true
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.Address
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                    icnaddressleaddetailsLdS As icon.Add:
-                        Color: =RGBA(217, 217, 217, 1)
-                        Fill: =RGBA(217, 217, 217, 1)
-                        Height: =2
-                        Icon: =Icon.HorizontalLine
-                        Width: =Parent.Width-20
-                        ZIndex: =2
-
-                    ctnleadinfoleaddetailsLdS As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        FillPortions: =0
-                        Height: |
-                            =If(
-                                ctnemailleaddetailsLdS.Height > ctnestimatedhoursleaddetailsLdS.Height,
-                                ctnemailleaddetailsLdS.Height+30,
-                                ctnestimatedhoursleaddetailsLdS.Height+30
-                            )
-                            //ctnnotesleaddetailsLdS.Height+30
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =Parent.Width
-                        X: =60
-                        Y: =60
-                        ZIndex: =3
-
-                        ctnstatusdateleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblemailvalueleaddetailsLdS.Height+lblemailleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =1
-
-                            lblstatusdateleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Status Date"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblstatusdatevalueleaddetailsLdS As label:
-                                Color: =Header.SHRed
-                                Text: |-
-                                    =Text(glryleadlistLS.Selected.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctnnotesleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblemailvalueleaddetailsLdS.Height+lblemailleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =2
-
-                            lblnotesleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Notes"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblnotesvaluedetailsLdS As label:
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.Notes
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctnemailleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblemailvalueleaddetailsLdS.Height+lblemailleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =3
-
-                            lblemailleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Email"
-                                VerticalAlign: =VerticalAlign.Top
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblemailvalueleaddetailsLdS As label:
-                                AutoHeight: =true
-                                Color: =Header.SHRed
-                                Size: =12
-                                Text: =glryleadlistLS.Selected.Email
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctnestimatedhoursleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblestimatedhoursvalueleaddetailsLdS.Height+lblestimatedhoursleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =4
-
-                            lblestimatedhoursleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Estimated Hours"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblestimatedhoursvalueleaddetailsLdS As label:
-                                AutoHeight: =true
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.'EstimatedHours '
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                    icnleadinfoleaddetailsLdS As icon.Add:
-                        Color: =RGBA(217, 217, 217, 1)
-                        Fill: =RGBA(217, 217, 217, 1)
-                        Height: =2
-                        Icon: =Icon.HorizontalLine
-                        Width: =Parent.Width-20
-                        ZIndex: =4
-
-                    ctnunitinfoleaddetailsLdS As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        FillPortions: =0
-                        Height: |-
-                            =If(
-                                ctnunitdescriptionleaddetailsLdS.Height > ctncustomscopeofworkleaddetailsLdS.Height,
-                                ctnunitdescriptionleaddetailsLdS.Height + 30,
-                                ctncustomscopeofworkleaddetailsLdS.Height + 30
-                            )
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =Parent.Width
-                        X: =20
-                        Y: =20
-                        ZIndex: =5
-
-                        ctnnoofunitsleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblbuildingnamevalueleaddetailsLdS.Height+lblbuildingnameleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =1
-
-                            lblnoofunitsladdetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="No of units"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblnoofunitsvalueleaddetailsLdS As label:
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.NumberofUnits
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctnunitdescriptionleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblunitdescriptionleaddescriptionLdS.Height+lblunitdescriptionleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =2
-
-                            lblunitdescriptionleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Unit Description"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblunitdescriptionleaddescriptionLdS As label:
-                                AutoHeight: =true
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.UnitDescription
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctnscopeofworkleaddetailsldS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblscopeofworkvalueleaddetailsLdS.Height+lblscopeofwokleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =3
-
-                            lblscopeofwokleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Scope of work"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblscopeofworkvalueleaddetailsLdS As label:
-                                AutoHeight: =true
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                        ctncustomscopeofworkleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblcustomscopeofworkvalueleaddetailsLdS.Height+lblcustomscopeofworkleaddetailsLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =4
-
-                            lblcustomscopeofworkleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Custom Scope of work"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblcustomscopeofworkvalueleaddetailsLdS As label:
-                                AutoHeight: =true
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.CustomScopeofWork
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                    icnunitinfoleaddetailsLdS As icon.Add:
-                        Color: =RGBA(217, 217, 217, 1)
-                        Fill: =RGBA(217, 217, 217, 1)
-                        Height: =2
-                        Icon: =Icon.HorizontalLine
-                        Width: =Parent.Width-20
-                        ZIndex: =6
-
-                    ctnphotosmaterialinfoleaddetailsLdS As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        FillPortions: =0
-                        Height: |-
-                            =If(
-                                ctnmaterialinfoleaddetailsLdS.Height > ctnphotoglryLdS.Height,
-                                ctnmaterialinfoleaddetailsLdS.Height,
-                                ctnmaterialinfoleaddetailsLdS.Height
-                            )
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        Width: =Parent.Width
-                        X: =40
-                        Y: =40
-                        ZIndex: =7
-
-                        ctnmaterialinfoleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            Height: =lblmaterialleaddetailsLdS.Height+lblmaterialvalueleaddetailsLdS.Height+chbxunitdownLdS.Height+chbxadditionalexpensesLdS.Height+chbxtravelrequiredLdS.Height+chbxcommunucationLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =2
-
-                            lblmaterialleaddetailsLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Material Parts required and other things"
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            lblmaterialvalueleaddetailsLdS As label:
-                                Color: =Header.SHRed
-                                Text: =glryleadlistLS.Selected.Notes
-                                Width: =Parent.Width
-                                ZIndex: =2
-
-                            chbxunitdownLdS As checkbox:
-                                Default: =true
-                                DisplayMode: =DisplayMode.View
-                                FocusedBorderThickness: =//2
-                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
-                                Text: ="Unit Down"
-                                Visible: =If(glryleadlistLS.Selected.IsUnitDown= 'IsUnitDown (LeadInformations)'.Yes,true,false)
-                                Width: =Parent.Width
-                                ZIndex: =3
-
-                            chbxadditionalexpensesLdS As checkbox:
-                                Default: =true
-                                DisplayMode: =DisplayMode.View
-                                FocusedBorderThickness: =//2
-                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
-                                Text: ="Additional expenses required"
-                                Visible: =If(glryleadlistLS.Selected.AdditionalExpensesRequired= 'AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
-                                Width: =Parent.Width
-                                ZIndex: =4
-
-                            chbxtravelrequiredLdS As checkbox:
-                                Default: =true
-                                DisplayMode: =DisplayMode.View
-                                FocusedBorderThickness: =//2
-                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
-                                Text: ="Travel Required"
-                                Visible: =If(glryleadlistLS.Selected.TravelRequired='TravelRequired (LeadInformations)'.Yes,true,false)
-                                Width: =Parent.Width
-                                ZIndex: =5
-
-                            chbxcommunucationLdS As checkbox:
-                                Default: =true
-                                DisplayMode: =DisplayMode.View
-                                FocusedBorderThickness: =//2
-                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
-                                Text: ="Communicated to Customer"
-                                Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
-                                Width: =Parent.Width
-                                ZIndex: =6
-
-                        ctnphotoglryLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            FillPortions: =2
-                            Height: =lblphotosLdS.Height+glryphotosLdS.Height+20
-                            LayoutDirection: =LayoutDirection.Vertical
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            PaddingLeft: =10
-                            ZIndex: =3
-
-                            lblphotosLdS As label:
-                                FontWeight: =FontWeight.Bold
-                                Height: =50
-                                Text: ="Photos "
-                                Width: =Parent.Width
-                                ZIndex: =1
-
-                            "glryphotosLdS As gallery.'BrowseLayout_Horizontal_TwoTextOneImageOverlayVariant_ver4.0'":
-                                AlignInContainer: =AlignInContainer.SetByContainer
-                                FillPortions: =0
-                                Height: =230
-                                Items: =Filter(LeadImages,LeadInformationLID.ID=glryleadlistLS.Selected.ID)
-                                LayoutMinHeight: =287
-                                LayoutMinWidth: =320
-                                TemplatePadding: =0
-                                TemplateSize: =Min(440, Self.Height - 60)
-                                Width: =Parent.Width-40
-                                ZIndex: =2
-
-                                imgglryphotosLdS As image:
-                                    BorderColor: =RGBA(26, 26, 26, 1)
-                                    BorderThickness: =2
-                                    Height: =Parent.TemplateHeight -10
-                                    Image: =ThisItem.Images
-                                    OnSelect: |-
-                                        =UpdateContext({MyBigPic: ThisItem.Images.Full});UpdateContext({MyBigPicShow:true})
-                                    Width: =Parent.TemplateWidth -10
-                                    X: =5
-                                    Y: =5
-                                    ZIndex: =1
-
-                    ctnapproverejectLdS As groupContainer.manualLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(0, 0, 0, 0.16)
-                        Fill: =RGBA(249, 249, 249, 1)
-                        FillPortions: =0
-                        Height: =Parent.Height
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        Visible: =false
-                        Width: =Parent.Width-40
-                        X: =20
-                        Y: =ctnphotosmaterialinfoleaddetailsLdS.Height+ctnphotosmaterialinfoleaddetailsLdS.Y
-                        ZIndex: =8
-
-                        lbl As label:
-                            Height: =100
-                            Size: =16
-                            Text: ="Update lead status to send sales rep. requires Estimate Number to be entered. "
-                            VerticalAlign: =VerticalAlign.Top
-                            Visible: =false
-                            Width: =800
-                            X: =20
-                            Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y
-                            ZIndex: =1
-
-                        lblestimatenumberleaddetailsLdS As label:
-                            Color: =RGBA(54, 176, 75, 1)
-                            FontWeight: =FontWeight.Semibold
-                            Height: =80
-                            Size: =16
-                            Text: ="Estimate Number"
-                            Width: =200
-                            X: =20
-                            Y: =30
-                            ZIndex: =2
-
-                        txtinptestimatenumber As text:
-                            BorderColor: =RGBA(149, 149, 149, 1)
-                            Color: =RGBA(116, 116, 116, 1)
-                            Default: =LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadEstimateNumber)
-                            Height: =60
-                            HintText: ="Enter Estimate Number"
-                            HoverBorderColor: =//RGBA(0, 18, 107, 1)
-                            HoverFill: =//RGBA(186, 202, 226, 1)
-                            MaxLength: =11
-                            OnChange: =Notify("Estimate number should not be greater than 11 digit.")
-                            PaddingLeft: =20
-                            X: =20
-                            Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y //Label14_10.Height+Label14_10.Y
-                            ZIndex: =3
-
-                        btnestimatenumberLdS As button:
-                            DisplayMode: =If((glryleadlistLS.Selected.LeadStatus="InProgress" /*||glryleadlistLS.Selected.LeadStatus="Quoted"*/) && glryleadlistLS.Selected.QQTeamName=User().FullName,DisplayMode.Edit,DisplayMode.Disabled)
-                            Fill: =RGBA(54, 176, 75, 1)
-                            Height: =60
-                            HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            OnSelect: |
-                                =//here checking estimate number is entered or not
-                                If(
-                                    IsBlank(txtinptestimatenumber.Text),
-                                    Notify(
-                                        "Please enter estimate number.",
-                                        NotificationType.Information
-                                    );
-                                    Set(
-                                        FlagEstimateNumberEntered,
-                                        false
-                                    ),
-                                    Set(
-                                        FlagEstimateNumberEntered,
-                                        true
-                                    )
-                                );
-                                //here checking entered estimate number is present in FP file or not
-                                If(
-                                    FlagEstimateNumberEntered = true,
-                                    If(
-                                        !IsBlank(
-                                            LookUp(
-                                                SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID
-                                            )
-                                        ),
-                                        Set(
-                                            FlagEstimateNumberFound,
-                                            true
-                                        );
-                                        Set(
-                                            VarFPEstimateData,
-                                            LookUp(
-                                                SHFPEstimates,
-                                                Estimate = txtinptestimatenumber.Text
-                                            )
-                                        );
-                                        Set(
-                                            VarleadYear,
-                                            LookUp(
-                                                LeadInformations,
-                                                ID = VarSelectedLead.ID,
-                                                'Created On'
-                                            )
-                                        ),
-                                        Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
-                                        Set(
-                                            FlagEstimateNumberFound,
-                                            false
-                                        );
-                                    );
-                                    
-                                );
-                                //here checking FlagEstimateNumberEntered & FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
-                                If(
-                                    FlagEstimateNumberFound = true,
-                                    UpdateIf(
-                                        LeadInformations,
-                                        ID = VarSelectedLead.ID,
-                                        {
-                                            LeadEstimateNumber: txtinptestimatenumber.Text,
-                                            LeadStatus: "Quoted",
-                                            'LeadPrice ': VarFPEstimateData.BidPrice,
-                                            LeadIncentive: VarFPEstimateData.BidPrice * 0.02,
-                                            TechnicianID: VarFPEstimateData.'Lead Generator Id'
-                                        }
-                                    );
-                                    UpdateIf(
-                                        TotalIncentives,
-                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
-                                        {
-                                            TotalproposedIncentives: LookUp(
-                                                TotalIncentives,
-                                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
-                                                TotalproposedIncentives
-                                            ) + VarFPEstimateData.BidPrice * 0.02,
-                                            TotalProposedLead: Value(
-                                                LookUp(
-                                                    TotalIncentives,
-                                                    TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
-                                                    TotalProposedLead
-                                                )
-                                            ) + 1
-                                        }
-                                    );
-                                    Notify(
-                                        "Proposed Incentives updated for the estimateId " & txtinptestimatenumber.Text,
-                                        NotificationType.Success
-                                    );
-                                    Navigate(DashboardScreen);
-                                    
-                                );
-                            Text: ="Submit Estimate Number"
-                            Width: =300
-                            X: =410
-                            Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y //Label14_10.Height+Label14_10.Y
-                            ZIndex: =4
-
-                        lblrejectionLdS As label:
-                            Color: =Header.SHRed
-                            FontWeight: =FontWeight.Semibold
-                            Height: =50
-                            Size: =16
-                            Text: ="Reject Lead"
-                            Width: =200
-                            X: =20
-                            Y: =btnestimatenumberLdS.Height+btnestimatenumberLdS.Y+50
-                            ZIndex: =5
-
-                        lblcommentLdS As label:
-                            Height: =100
-                            Size: =16
-                            Text: ="Send lead back to the technician along with comments."
-                            Width: =800
-                            X: =20
-                            Y: =lblrejectionLdS.Height+lblrejectionLdS.Y
-                            ZIndex: =6
-
-                        txitnptrejectLdS As text:
-                            BorderColor: =RGBA(149, 149, 149, 1)
-                            Color: =RGBA(116, 116, 116, 1)
-                            Default: =LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadComment)
-                            Height: =300
-                            HintText: ="Add Rejection Comment"
-                            HoverBorderColor: =//RGBA(0, 18, 107, 1)
-                            HoverFill: =//RGBA(186, 202, 226, 1)
-                            Mode: =TextMode.MultiLine
-                            PaddingLeft: =20
-                            PaddingTop: =20
-                            Reset: =true
-                            Width: =Parent.Width-100
-                            X: =20
-                            Y: =lblcommentLdS.Height+lblcommentLdS.Y
-                            ZIndex: =7
-
-                        btnbacktotechnicianLdS As button:
-                            DisplayMode: =If(glryleadlistLS.Selected.LeadStatus="InProgress" && glryleadlistLS.Selected.QQTeamName=User().FullName,DisplayMode.Edit,DisplayMode.Disabled)
-                            Fill: =Header.SHRed
-                            Height: =60
-                            HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            OnSelect: |-
-                                =If(
-                                    IsBlank(txitnptrejectLdS.Text),
-                                    Notify("Please enter rejection comment."),
-                                    UpdateIf(
-                                        LeadInformations,
-                                        ID = glryleadlistLS.Selected.ID,
-                                        {
-                                            LeadComment: txitnptrejectLdS.Text,
-                                            LeadStatus: "Rejected"
-                                        }
-                                    );
-                                    Notify("Lead rejected with comment successfully.");
-                                )
-                            Text: ="Submit back to technician"
-                            Width: =300
-                            X: =410
-                            Y: =txitnptrejectLdS.Height+txitnptrejectLdS.Y+40
-                            ZIndex: =8
-
             ctnapproverejectLdS_1 As groupContainer.manualLayoutContainer:
                 BorderColor: =RGBA(0, 0, 0, 0.16)
                 BorderThickness: =2
@@ -1461,7 +740,7 @@ LeadScreen As screen:
                     Y: =txitnptrejectLdS_1.Height+txitnptrejectLdS_1.Y+40
                     ZIndex: =8
 
-            Container9 As groupContainer.manualLayoutContainer:
+            ctnleaddetailsLdS As groupContainer.manualLayoutContainer:
                 BorderColor: =RGBA(0, 0, 0, 0.16)
                 BorderThickness: =2
                 Fill: =RGBA(249, 249, 249, 1)
@@ -1471,7 +750,7 @@ LeadScreen As screen:
                 X: =20
                 ZIndex: =5
 
-                Container10 As groupContainer.verticalAutoLayoutContainer:
+                ctnvertleaddetailsLdS As groupContainer.verticalAutoLayoutContainer:
                     Height: =Parent.Height
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
@@ -1480,6 +759,7 @@ LeadScreen As screen:
                     ZIndex: =1
 
                     Container11 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1508,6 +788,7 @@ LeadScreen As screen:
                         ZIndex: =2
 
                     Container11_1 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1535,6 +816,7 @@ LeadScreen As screen:
                         ZIndex: =4
 
                     Container11_2 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1563,6 +845,7 @@ LeadScreen As screen:
                         ZIndex: =6
 
                     Container11_3 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1590,6 +873,7 @@ LeadScreen As screen:
                         ZIndex: =8
 
                     Container11_4 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1617,6 +901,7 @@ LeadScreen As screen:
                         ZIndex: =10
 
                     Container11_5 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1644,6 +929,7 @@ LeadScreen As screen:
                         ZIndex: =12
 
                     Container11_6 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1671,6 +957,7 @@ LeadScreen As screen:
                         ZIndex: =14
 
                     Container11_7 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1698,6 +985,7 @@ LeadScreen As screen:
                         ZIndex: =16
 
                     Container11_8 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1726,6 +1014,7 @@ LeadScreen As screen:
                         ZIndex: =18
 
                     Container11_9 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1753,6 +1042,7 @@ LeadScreen As screen:
                         ZIndex: =20
 
                     Container11_10 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1780,6 +1070,7 @@ LeadScreen As screen:
                         ZIndex: =22
 
                     Container11_11 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1808,6 +1099,7 @@ LeadScreen As screen:
                         ZIndex: =24
 
                     Container11_12 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
                         LayoutMinHeight: =100
@@ -1835,6 +1127,7 @@ LeadScreen As screen:
                         ZIndex: =26
 
                     Container11_13 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =70
                         LayoutMinHeight: =100
@@ -1864,6 +1157,7 @@ LeadScreen As screen:
                         ZIndex: =28
 
                     Container13 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
