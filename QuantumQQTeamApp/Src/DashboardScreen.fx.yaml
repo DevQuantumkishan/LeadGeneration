@@ -83,16 +83,7 @@ DashboardScreen As screen:
                     Y: =//Parent.Y
                     ZIndex: =3
 
-                Circle1 As circle:
-                    Fill: =RGBA(255, 191, 0, 1)
-                    Height: =30
-                    Visible: =false //If(CountRows(Filter(LeadChats,LeadInformationLID.QQTeamName=User().FullName && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No /*&& (LeadInformationLID.LeadStatus="Submitted" || LeadInformationLID.LeadStatus="InProgress")*/))>0,true,false)
-                    Width: =30
-                    X: =Parent.Width-Self.Width-20
-                    Y: =20
-                    ZIndex: =4
-
-                Image2 As image:
+                imgmsgmyleadDS As image:
                     Height: =30
                     Image: =email
                     Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.QQTeamName=User().FullName && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No /*&& (LeadInformationLID.LeadStatus="Submitted" || LeadInformationLID.LeadStatus="InProgress")*/))>0,true,false)
