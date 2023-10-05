@@ -704,7 +704,7 @@ LeadListScreen As screen:
         Y: =60
         ZIndex: =11
 
-        Image4 As image:
+        imgwaitcursurLS As image:
             Fill: =RGBA(255, 255, 255, 1)
             Image: ='waiting-icon-gif-4'
             Visible: =VarLoder
@@ -712,7 +712,7 @@ LeadListScreen As screen:
             Y: =410
             ZIndex: =9
 
-        Rectangle2 As rectangle:
+        rectbigwaitcursorLS As rectangle:
             Fill: =RGBA(0,0,0,0.17)
             Height: =Parent.Height
             Visible: =VarLoder
