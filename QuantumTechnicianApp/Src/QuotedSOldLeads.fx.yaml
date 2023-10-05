@@ -513,7 +513,7 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtStatusDateSLS_5.Y+htmltxtStatusDateSLS_5.Height
+                        Y: =htmltxtStatusDateSL.Y+htmltxtStatusDateSL.Height
                         ZIndex: =16
 
                     lblTitleTotalIncentivesSLS_5 As label:
@@ -557,7 +557,7 @@ QuotedSOldLeads As screen:
                         Y: =lblPriceSLS_4.Height+lblPriceSLS_4.Y
                         ZIndex: =18
 
-                    htmltxtStatusDateSLS_5 As htmlViewer:
+                    htmltxtStatusDateSL As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
