@@ -150,7 +150,7 @@ QuotedSOldLeads As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-        ctnMiddleSLS_2 As groupContainer.manualLayoutContainer:
+        ctnMiddleSoldLeads As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -167,7 +167,7 @@ QuotedSOldLeads As screen:
                 BorderColor: =RGBA(219, 219, 219, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
-                Height: =Parent.Height-ctnSearchBarSLS_4.Height-ctnSearchBarSLS_5.Height
+                Height: =Parent.Height-ctnSearchBarSLS_4.Height-ctnSearchBarSoldLeads.Height
                 Items: |+
                     =If(
                         cumulatively = true,
@@ -199,7 +199,7 @@ QuotedSOldLeads As screen:
                 TemplateSize: =Min(1000, Self.Height - 20)
                 Width: =Parent.Width/1.02
                 X: =10
-                Y: =ctnSearchBarSLS_5.Y+ctnSearchBarSLS_5.Height+10
+                Y: =ctnSearchBarSoldLeads.Y+ctnSearchBarSoldLeads.Height+10
                 ZIndex: =1
 
                 lblLeadYearSLS_2 As label:
@@ -224,7 +224,7 @@ QuotedSOldLeads As screen:
                     Height: =If(CountRows(glryLeadsSLS_2.AllItems)<2,glryLeadsSLS_2.TemplateHeight+20,Parent.Height)
                     Items: |-
                         =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(ComboBox1_2.Selected.Value="Created Date","createdon",ComboBox1_2.Selected.Value="QQ Team Name","shlrf_qqteamname",ComboBox1_2.Selected.Value="Mechanic Name","shlrf_mechanicname",ComboBox1_2.Selected.Value="Contract No.","shlrf_contractnumber",ComboBox1_2.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",ComboBox1_2.Selected.Value="Building Name","shlrf_buildingname",ComboBox1_2.Selected.Value="Address","shlrf_address",ComboBox1_2.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_2.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_2.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
+                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSoldLeads.Selected.Value="Created Date","createdon",cboxSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSoldLeads.Selected.Value="Address","shlrf_address",cboxSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_2.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_2.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",320,200)
@@ -872,7 +872,7 @@ QuotedSOldLeads As screen:
                     Y: =000
                     ZIndex: =2
 
-            ctnSearchBarSLS_5 As groupContainer.horizontalAutoLayoutContainer:
+            ctnSearchBarSoldLeads As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
@@ -886,7 +886,7 @@ QuotedSOldLeads As screen:
                 Y: =ctnSearchBarSLS_4.Height
                 ZIndex: =6
 
-                Label4_3 As label:
+                lblsortSoldLeads As label:
                     Align: =Align.Right
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
@@ -895,12 +895,12 @@ QuotedSOldLeads As screen:
                     Text: ="Sort by column"
                     Width: |-
                         =//If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
-                        Parent.Width-ComboBox1_2.Width-Icon1_2.Width-20
+                        Parent.Width-cboxSoldLeads.Width-Icon1_2.Width-20
                     X: =Parent.Width-Self.Width
                     Y: =10
                     ZIndex: =1
 
-                ComboBox1_2 As combobox:
+                cboxSoldLeads As combobox:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     ChevronBackground: =RGBA(255, 0, 0, 1)
                     ChevronHoverBackground: =Self.ChevronBackground
@@ -912,7 +912,7 @@ QuotedSOldLeads As screen:
                     InputTextPlaceholder: =//"Created Date"
                     IsSearchable: =false
                     Items: |-
-                        =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
+                        =
                         ["Created Date","Contract number","Lead Tracking No.","Building Name","Address","Status Date"]
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true})
