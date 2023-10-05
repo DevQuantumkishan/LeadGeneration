@@ -459,20 +459,13 @@ LeadListScreen As screen:
                                 Width: =120
                                 ZIndex: =8
 
-                            Image2_4 As image:
+                            imgmsgleadLS As image:
                                 AlignInContainer: =AlignInContainer.Start
                                 Height: =40
                                 Image: =email
                                 Visible: = If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No && LeadInformationLID.LeadStatus=ThisItem.LeadStatus))>0,true,false)
                                 Width: =25
                                 ZIndex: =9
-
-                            Circle1_2 As circle:
-                                Fill: =RGBA(255, 191, 0, 1)
-                                Height: =20
-                                Visible: =false//If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No && LeadInformationLID.LeadStatus=ThisItem.LeadStatus))>0,true,false)
-                                Width: =20
-                                ZIndex: =12
 
                             icnrightLS As icon.ChevronRight:
                                 AlignInContainer: =AlignInContainer.Start
@@ -509,7 +502,7 @@ LeadListScreen As screen:
                             X: =10
                             ZIndex: =6
 
-                    Container5 As groupContainer.verticalAutoLayoutContainer:
+                    ctnLS As groupContainer.verticalAutoLayoutContainer:
                         FillPortions: =0
                         Height: =250
                         LayoutDirection: =LayoutDirection.Vertical
