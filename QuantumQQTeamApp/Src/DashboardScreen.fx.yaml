@@ -745,7 +745,7 @@ DashboardScreen As screen:
             Width: =ctnHeaderDashboardScreen.Width/10
             ZIndex: =4
 
-        Image3 As image:
+        imgsyncDS As image:
             BorderColor: =RGBA(0, 0, 0, 1)
             BorderThickness: =1
             DisabledFill: =RGBA(255, 255, 255, 1)
@@ -770,7 +770,7 @@ DashboardScreen As screen:
             Y: =20
             ZIndex: =5
 
-        Button4 As button:
+        btnsyncDS As button:
             Fill: =RGBA(0, 0, 0, 0)
             HoverFill: =
             OnSelect: |-
