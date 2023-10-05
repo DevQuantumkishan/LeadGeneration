@@ -594,7 +594,7 @@ LeadListScreen As screen:
                         Width: =180
                         ZIndex: =9
 
-    Timer1 As timer:
+    tmrwaitcursorLS As timer:
         AutoStart: =true
         Duration: =2000
         OnTimerEnd: =Set(VarLoder,false)
