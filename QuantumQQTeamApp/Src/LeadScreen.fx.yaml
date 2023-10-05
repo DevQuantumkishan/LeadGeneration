@@ -2252,21 +2252,21 @@ LeadScreen As screen:
         Y: =40
         ZIndex: =13
 
-        Rectangle1 As rectangle:
+        rectimgzoomLdS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height
             Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow) 
             Width: =Parent.Width
             ZIndex: =10
 
-        Image1 As image:
+        imgZoomLdS As image:
             Height: =Parent.Height
             Image: =MyBigPic 
             Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow) 
             Width: =Parent.Width
             ZIndex: =11
 
-        Button1 As button:
+        btncancleLdS As button:
             Color: =RGBA(102, 102, 102, 1)
             Fill: =RGBA(0, 0, 0, 0)
             FontWeight: =FontWeight.Normal
