@@ -167,7 +167,7 @@ ViewDetailsScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: |-
-                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + MaterialVDS.Height + 'Unit Down_DataCard2_4'.Height + 'Additional expenses required_DataCard2_3'.Height + 
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + MaterialVDS.Height + UnitDownVDS.Height + 'Additional expenses required_DataCard2_3'.Height + 
                          'Travel Required_DataCard2_3'.Height + 'Communicated to Customer_DataCard2_3'.Height +
                          If(IsBlank(DataCardValue3.Text),0,
                           'CustomerName _DataCard2'.Height) +If(IsBlank(DataCardValue4.Text),0, 'CustomerContact _DataCard1'.Height)+
@@ -849,7 +849,7 @@ ViewDetailsScreen As screen:
                         Y: =lblMaterialVDS.Y + lblMaterialVDS.Height 
                         ZIndex: =2
 
-                "'Unit Down_DataCard2_4' As typedDataCard.comboBoxOptionSetSingleEditCard":
+                UnitDownVDS As typedDataCard.comboBoxOptionSetSingleEditCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_checklist"
@@ -870,34 +870,7 @@ ViewDetailsScreen As screen:
                     Y: =12
                     ZIndex: =1
 
-                    ErrorMessage25_4 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =Checkbox4_16.Y + Checkbox4_16.Height
-                        ZIndex: =3
-
-                    StarVisible25_4 As label:
-                        Align: =Align.Center
-                        Height: =Checkbox4_16.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =Checkbox4_16.Y
-                        ZIndex: =4
-
-                    Checkbox4_16 As checkbox:
+                    CboxUnitDownVDS As checkbox:
                         CheckboxBorderColor: =RGBA(0, 0, 0, 1)
                         Default: =true
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
