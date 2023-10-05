@@ -18,7 +18,7 @@ ChatScreen As screen:
         Refresh (LeadChats));
         UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
 
-    Container7 As groupContainer.verticalAutoLayoutContainer:
+    ctnMainCS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -31,7 +31,8 @@ ChatScreen As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderDS_9 As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeader As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =If(Parent.Height<Parent.Width,60,80)
@@ -54,7 +55,6 @@ ChatScreen As screen:
                 ZIndex: =1
 
             imgSchindlerLogoDS_3 As image:
-                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -88,7 +88,6 @@ ChatScreen As screen:
                 ZIndex: =3
 
             lblHeaderDS_4 As label:
-                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
@@ -106,6 +105,7 @@ ChatScreen As screen:
                 ZIndex: =4
 
             Image3_2 As image:
+                AlignInContainer: =AlignInContainer.Center
                 DisabledFill: =RGBA(255, 255, 255, 1)
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -157,7 +157,7 @@ ChatScreen As screen:
                 ZIndex: =6
 
         Container1_9 As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
+            AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(219, 219, 219, 1)
             BorderThickness: =2
             Fill: =RGBA(255, 255, 255, 1)
@@ -243,10 +243,10 @@ ChatScreen As screen:
                 ZIndex: =4
 
         Container8 As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderDS_9.Height-Container1_9.Height-40
+            Height: =Parent.Height-ctnHeader.Height-Container1_9.Height-40
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =5
