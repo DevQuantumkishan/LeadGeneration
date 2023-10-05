@@ -263,7 +263,7 @@ DashboardScreen As screen:
                     Y: =//Parent.Y
                     ZIndex: =3
 
-                Image2_3 As image:
+                imgmsgsoldleadDS As image:
                     Height: =30
                     Image: =email
                     Visible: =If(CountRows(Filter(LeadChats,'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No  && (LeadInformationLID.LeadStatus="Sold")))>0,true,false)
