@@ -264,19 +264,19 @@ ChatScreen As screen:
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 OnSelect: =
-                TemplateSize: =Label6_2.Height+Label8_2.Height
+                TemplateSize: =lblMessageCS.Height+lblDateCS.Height
                 Width: =Parent.Width
                 ZIndex: =3
 
-                Rectangle6 As rectangle:
+                RectangleBorderCS As rectangle:
                     Fill: =If(ThisItem.IsQQApp=true,RGBA(237, 237, 237, 1),RGBA(255,255,255,1))
-                    Height: =Label6_2.Height+Label8_2.Height
+                    Height: =lblMessageCS.Height+lblDateCS.Height
                     OnSelect: =Select(Parent)
                     Width: =Parent.Width-30
                     X: =10
                     ZIndex: =1
 
-                Label6_2 As label:
+                lblMessageCS As label:
                     Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
                     AutoHeight: =true
                     Font: =Font.Arial
@@ -289,7 +289,7 @@ ChatScreen As screen:
                     X: =btnshowFromNameCS.X+btnshowFromNameCS.Width
                     ZIndex: =2
 
-                Label8_2 As label:
+                lblDateCS As label:
                     Align: =If(ThisItem.IsQQApp=true,Align.Left,Align.Right)
                     AutoHeight: =true
                     Color: =RGBA(149, 149, 149, 1)
@@ -299,20 +299,18 @@ ChatScreen As screen:
                     PaddingLeft: =20
                     PaddingRight: =40
                     Size: =If(Parent.Width<500,9,Parent.Width>500,11)
-                    Text: |-
-                        =//ThisItem.From & "  "& ThisItem.Datetime
-                        DateValue(ThisItem.'Created On')  & " "& TimeValue(ThisItem.'Created On')
+                    Text: =DateValue(ThisItem.'Created On')  & " "& TimeValue(ThisItem.'Created On')
                     Width: =Parent.Width-btnshowFromNameCS.Width-btnshowFromNameCS.X
                     X: =btnshowFromNameCS.X+btnshowFromNameCS.Width
-                    Y: =Label6_2.Y+Label6_2.Height
+                    Y: =lblMessageCS.Y+lblMessageCS.Height
                     ZIndex: =3
 
-                Rectangle5 As rectangle:
+                iconLineCS As rectangle:
                     Fill: =RGBA(102, 102, 102, 1)
                     Height: =3
                     Width: =Parent.Width-30
                     X: =10
-                    Y: =Label8_2.Height+Label8_2.Y+5
+                    Y: =lblDateCS.Height+lblDateCS.Y+5
                     ZIndex: =4
 
                 btnshowFromNameCS As button:
@@ -422,7 +420,7 @@ ChatScreen As screen:
                     Visible: =ThisItem.IsSelected && VartoolTip
                     Width: =If(Parent.Width>500,Parent.Width/5,Parent.Width/2.2)
                     X: =45
-                    Y: =Label8_2.Y
+                    Y: =lblDateCS.Y
                     ZIndex: =7
 
             Group1 As group:
