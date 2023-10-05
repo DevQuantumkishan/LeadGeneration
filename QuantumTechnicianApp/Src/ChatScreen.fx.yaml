@@ -634,7 +634,7 @@ ChatScreen As screen:
         Width: =Parent.Width
         ZIndex: =5
 
-        borderPopopErrorUS_4 As rectangle:
+        borderPopopErrorCS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: |
                 =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
@@ -644,17 +644,17 @@ ChatScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        ctnPopopMandatorySS_3 As groupContainer.verticalAutoLayoutContainer:
+        ctnPopopMandatoryCS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
-            Height: =borderPopopErrorUS_4.Height
+            Height: =borderPopopErrorCS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
-            Width: =borderPopopErrorUS_4.Width
-            X: =borderPopopErrorUS_4.X
-            Y: =borderPopopErrorUS_4.Y
+            Width: =borderPopopErrorCS.Width
+            X: =borderPopopErrorCS.X
+            Y: =borderPopopErrorCS.Y
             ZIndex: =2
 
-            ctnPopopMandatoryImageUS_4 As groupContainer.verticalAutoLayoutContainer:
+            ctnPopopMandatoryImageCS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -666,14 +666,14 @@ ChatScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                imgPopopErrorUS_4 As image:
+                imgPopopErrorCS As image:
                     Height: =Parent.Height
                     Image: =error
                     PaddingTop: =30
                     Width: =Parent.Width
                     ZIndex: =1
 
-            lblPopopErrorUS_4 As label:
+            lblPopopErrorCS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -683,8 +683,7 @@ ChatScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            btnPopopErrorUS_4 As button:
-                AlignInContainer: =AlignInContainer.Center
+            btnPopopErrorCS As button:
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
@@ -784,7 +783,8 @@ ChatScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: |-
-                        =Set(VarchatInactivemode,false);UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
+                        =//to close popup
+                        Set(VarchatInactivemode,false);UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                         //Navigate(ChatScreen);
                     Size: =14
                     Text: ="No"
@@ -797,7 +797,8 @@ ChatScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: |-
-                        =Set(VarchatInactivemode,false);If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));UpdateContext({startTimerCS:true}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: false}) 
+                        =//to close popup if time is out
+                        Set(VarchatInactivemode,false);If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));UpdateContext({startTimerCS:true}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: false}) 
                     Size: =14
                     Text: ="Yes"
                     Visible: =If(lblNotificationCS.Text="Submitting",false,true)
