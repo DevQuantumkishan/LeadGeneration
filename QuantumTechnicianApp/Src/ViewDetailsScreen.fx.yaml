@@ -167,7 +167,7 @@ ViewDetailsScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: |-
-                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + PinCode_DataCard2_3.Height + Address_DataCard2_3.Height + UnitCount_DataCard3_3.Height + UnitDescription_DataCard3_3.Height + PrimaryScopeofWorkLID_DataCard1.Height + SecondaryScopeofWorkLID_DataCard1.Height + ManuallyScopeOfWork_DataCard3_3.Height + EstimatedHours_DataCard1_4.Height + Material_DataCard1_4.Height + 'Unit Down_DataCard2_4'.Height + 'Additional expenses required_DataCard2_3'.Height + 
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + UnitCount_DataCard3_3.Height + UnitDescription_DataCard3_3.Height + PrimaryScopeofWorkLID_DataCard1.Height + SecondaryScopeofWorkLID_DataCard1.Height + ManuallyScopeOfWork_DataCard3_3.Height + EstimatedHours_DataCard1_4.Height + Material_DataCard1_4.Height + 'Unit Down_DataCard2_4'.Height + 'Additional expenses required_DataCard2_3'.Height + 
                          'Travel Required_DataCard2_3'.Height + 'Communicated to Customer_DataCard2_3'.Height +
                          If(IsBlank(DataCardValue3.Text),0,
                           'CustomerName _DataCard2'.Height) +If(IsBlank(DataCardValue4.Text),0, 'CustomerContact _DataCard1'.Height)+
@@ -289,33 +289,6 @@ ViewDetailsScreen As screen:
                         Y: =lblContractNumberVDS.Y + lblContractNumberVDS.Height 
                         ZIndex: =2
 
-                    ErrorMessageContractNumberVDS As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =IntxtContractNumberVDS.Y + IntxtContractNumberVDS.Height
-                        ZIndex: =3
-
-                    StarVisibleContractNumberVDS As label:
-                        Align: =Align.Center
-                        Height: =lblContractNumberVDS.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =lblContractNumberVDS.Y
-                        ZIndex: =4
-
                 "'Building NameVDS' As typedDataCard.textualEditCard":
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
@@ -327,13 +300,13 @@ ViewDetailsScreen As screen:
                     Height: =50
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_buildingname")
                     Required: =false
-                    Update: =DataCardValue33_3.Text
+                    Update: =intxtBuildingNameVS.Text
                     Width: =Parent.Width
                     X: =0
                     Y: =2
                     ZIndex: =1
 
-                    DataCardKey34_3 As label:
+                    lblBuildingNameVDS As label:
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
@@ -350,7 +323,7 @@ ViewDetailsScreen As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue33_3 As text:
+                    intxtBuildingNameVS As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: |-
                             =//Parent.Default
@@ -373,37 +346,10 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey34_3.Y + DataCardKey34_3.Height 
+                        Y: =lblBuildingNameVDS.Y + lblBuildingNameVDS.Height 
                         ZIndex: =2
 
-                    ErrorMessage34_3 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue33_3.Y + DataCardValue33_3.Height
-                        ZIndex: =3
-
-                    StarVisible34_3 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey34_3.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey34_3.Y
-                        ZIndex: =4
-
-                PinCode_DataCard2_3 As typedDataCard.textualEditCard:
+                "'PinCode VDS' As typedDataCard.textualEditCard":
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_pincode"
@@ -414,13 +360,13 @@ ViewDetailsScreen As screen:
                     Height: =100
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_zipcode")
                     Required: =false
-                    Update: =DataCardValue1_3.Text
+                    Update: =intxtpincodeVDS.Text
                     Width: =Parent.Width
                     X: =0
                     Y: =3
                     ZIndex: =1
 
-                    DataCardKey1_3 As label:
+                    lblPincodeVDS As label:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         FontWeight: =FontWeight.Bold
@@ -435,7 +381,7 @@ ViewDetailsScreen As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue1_3 As text:
+                    intxtpincodeVDS As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: |-
                             =//Gallery1.Selected.'ZipCode (crd59_pincode)'
@@ -456,37 +402,10 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey1_3.Y + DataCardKey1_3.Height 
+                        Y: =lblPincodeVDS.Y + lblPincodeVDS.Height 
                         ZIndex: =2
 
-                    ErrorMessage1_3 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue1_3.Y + DataCardValue1_3.Height
-                        ZIndex: =3
-
-                    StarVisible1_3 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey1_3.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey1_3.Y
-                        ZIndex: =4
-
-                Address_DataCard2_3 As typedDataCard.textualEditCard:
+                "'Address VDS' As typedDataCard.textualEditCard":
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_address"
@@ -497,13 +416,13 @@ ViewDetailsScreen As screen:
                     Height: =50
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_address")
                     Required: =false
-                    Update: =DataCardValue32_3.Text
+                    Update: ='intxtAdrdess VDS'.Text
                     Width: =Parent.Width
                     X: =0
                     Y: =4
                     ZIndex: =1
 
-                    DataCardKey33_3 As label:
+                    "'lblAddress VDS' As label":
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
@@ -519,11 +438,9 @@ ViewDetailsScreen As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue32_3 As text:
+                    "'intxtAdrdess VDS' As text":
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: |-
-                            =//Gallery1.Selected.Address
-                            ThisItem.Address
+                        Default: =ThisItem.Address
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -541,35 +458,8 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey33_3.Y + DataCardKey33_3.Height
+                        Y: ='lblAddress VDS'.Y + 'lblAddress VDS'.Height
                         ZIndex: =2
-
-                    ErrorMessage33_3 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue32_3.Y + DataCardValue32_3.Height
-                        ZIndex: =3
-
-                    StarVisible33_3 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey33_3.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey33_3.Y
-                        ZIndex: =4
 
                 UnitCount_DataCard3_3 As typedDataCard.numberEditCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
