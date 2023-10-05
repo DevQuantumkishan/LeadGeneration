@@ -1022,13 +1022,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =19
 
-                        Label12_9 As label:
+                        lblprimaryscopeLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Primary Scope "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_9 As label:
+                        lblprimaryscopevalueLdS As label:
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '
                             ZIndex: =2
@@ -1050,13 +1050,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =21
 
-                        Label12_10 As label:
+                        lblsecondaryscopeLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Secondary Scope "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_10 As label:
+                        lblsecondaryscopevalueLdS As label:
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.SecondaryScopeofWorkLID.'SecondaryScopeofWorkName '
                             ZIndex: =2
@@ -1078,13 +1078,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =23
 
-                        Label12_11 As label:
+                        lblcustomscopeLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Custom Scope "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_11 As label:
+                        lblcustomscopevalueLdS As label:
                             AutoHeight: =true
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.CustomScopeofWork
@@ -1107,13 +1107,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =25
 
-                        Label12_12 As label:
+                        lblestimatedhoursLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Estimated Hours "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_12 As label:
+                        lblestimatedhoursvalueLdS As label:
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.'EstimatedHours '
                             ZIndex: =2
@@ -1135,14 +1135,14 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =27
 
-                        Label12_13 As label:
+                        lblnotesLdS As label:
                             FontWeight: =FontWeight.Bold
                             Height: =70
                             Text: ="Material,Part Number & Other things "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_13 As label:
+                        lblnotesvalueLdS As label:
                             AutoHeight: =true
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.Notes
@@ -1156,7 +1156,7 @@ LeadScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =28
 
-                    Container13 As groupContainer.horizontalAutoLayoutContainer:
+                    ctncheckboxesLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
@@ -1164,7 +1164,7 @@ LeadScreen As screen:
                         ZIndex: =31
 
                         Container12 As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.Start
+                            AlignInContainer: =AlignInContainer.SetByContainer
                             FillPortions: =0
                             Height: =600
                             LayoutDirection: =LayoutDirection.Vertical
