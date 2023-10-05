@@ -224,7 +224,7 @@ QuotedSOldLeads As screen:
                     Height: =If(CountRows(glryLeadsSLS_2.AllItems)<2,glryLeadsSLS_2.TemplateHeight+20,Parent.Height)
                     Items: |-
                         =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
-                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSoldLeads.Selected.Value="Created Date","createdon",cboxSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSoldLeads.Selected.Value="Address","shlrf_address",cboxSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon1_2.Icon=Icon.ArrowDown,SortOrder.Descending,Icon1_2.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
+                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSLS_2.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSortSoldLeads.Selected.Value="Created Date","createdon",cboxSortSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads.Selected.Value="Address","shlrf_address",cboxSortSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",320,200)
@@ -895,12 +895,12 @@ QuotedSOldLeads As screen:
                     Text: ="Sort by column"
                     Width: |-
                         =//If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
-                        Parent.Width-cboxSoldLeads.Width-Icon1_2.Width-20
+                        Parent.Width-cboxSortSoldLeads.Width-iconSortSoldLeads.Width-20
                     X: =Parent.Width-Self.Width
                     Y: =10
                     ZIndex: =1
 
-                cboxSoldLeads As combobox:
+                cboxSortSoldLeads As combobox:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     ChevronBackground: =RGBA(255, 0, 0, 1)
                     ChevronHoverBackground: =Self.ChevronBackground
@@ -927,7 +927,7 @@ QuotedSOldLeads As screen:
                     Width: =180
                     ZIndex: =2
 
-                Icon1_2 As icon.ArrowsUpDown:
+                iconSortSoldLeads As icon.ArrowsUpDown:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =40
@@ -940,13 +940,13 @@ QuotedSOldLeads As screen:
                                 true
                             );
                                 Set(VarDownIcon,false);,*/
-                            Icon1_2.Icon = Icon.ArrowDown,
+                            iconSortSoldLeads.Icon = Icon.ArrowDown,
                             Set(
                                 VarUpperIcon,
                                 true
                             );
                             Set(VarDownIcon,false);,
-                            Icon1_2.Icon = Icon.ArrowUp,
+                            iconSortSoldLeads.Icon = Icon.ArrowUp,
                             Set(
                                 VarDownIcon,
                                 true
