@@ -440,7 +440,7 @@ QuotedSOldLeads As screen:
                         Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =borderLeadsSLS_2.Width-40
                         X: =20
-                        Y: =lblPriceSLS_5.Height+lblPriceSLS_5.Y
+                        Y: =lblPriceSL.Height+lblPriceSL.Y
                         ZIndex: =12
 
                     htmltxtSoldDateSL As htmlViewer:
@@ -533,7 +533,7 @@ QuotedSOldLeads As screen:
                         Y: =lblTotalIncentivesSL.Height+lblTotalIncentivesSL.Y
                         ZIndex: =17
 
-                    lblPriceSLS_5 As label:
+                    lblPriceSL As label:
                         Font: =Font.Arial
                         Height: =0
                         OnSelect: =Select(Parent)
