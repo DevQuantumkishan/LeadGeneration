@@ -61,7 +61,8 @@ ViewDetailsScreen As screen:
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
                 OnSelect: |-
-                    =If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
+                    =// to Navigate Back
+                    If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
                     UpdateContext({locInfoExpanded:true})
                 PaddingBottom: =5
                 PaddingTop: =5
