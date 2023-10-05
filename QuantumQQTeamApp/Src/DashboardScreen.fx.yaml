@@ -272,192 +272,6 @@ DashboardScreen As screen:
                     Y: =20
                     ZIndex: =4
 
-        Container2 As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
-            Height: =Parent.Height
-            LayoutMinHeight: =100
-            LayoutMinWidth: =250
-            Visible: =//VarAllLeads
-            Width: =Parent.Width
-            ZIndex: =2
-
-            Container3 As groupContainer.verticalAutoLayoutContainer:
-                Height: =Parent.Height-420
-                LayoutDirection: =LayoutDirection.Vertical
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width-20
-                X: =Parent.X+10
-                Y: =Container6.X+Container6.Height
-                ZIndex: =1
-
-                "Gallery1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    BorderColor: =RGBA(204, 204, 204, 1)
-                    BorderThickness: =3
-                    Height: =Parent.Height
-                    Items: =Sort(LeadInformations,'Created On',SortOrder.Descending)
-                    Layout: =Layout.Vertical
-                    LayoutMinHeight: =287
-                    LayoutMinWidth: =320
-                    OnSelect: =//Navigate(CommingSoonUnused)
-                    TemplatePadding: =0
-                    TemplateSize: =Container6_1.Height
-                    Width: =Parent.Width
-                    ZIndex: =1
-
-                    Separator4 As rectangle:
-                        Fill: =RGBA(204, 204, 204, 1)
-                        Height: =1
-                        OnSelect: =Select(Parent)
-                        Width: =Parent.TemplateWidth -30
-                        X: =10
-                        Y: |-
-                            =//Parent.TemplateHeight - 1
-                            If(Label8_1.Height>60 ,Label8_1.Height+Label8_1.Y, Label9_1.Height>60,Label9_1.Height+Label9_1.Y,50)
-                        ZIndex: =3
-
-                    Container6_1 As groupContainer.horizontalAutoLayoutContainer:
-                        Height: =If(Label8_1.Height>60 ,Label8_1.Height+Label8_1.Y, Label9_1.Height>60,Label9_1.Height+Label9_1.Y,60)
-                        LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutGap: =5
-                        LayoutMode: =LayoutMode.Auto
-                        LayoutWrap: =true
-                        Width: =Parent.Width
-                        ZIndex: =4
-
-                        Label1_1 As label:
-                            Align: =Align.Center
-                            Text: =Text(ThisItem.'Created On',"dd mmm yyyy")
-                            ZIndex: =1
-
-                        Label2_1 As label:
-                            Align: =Align.Center
-                            Text: |-
-                                =//ThisItem.AssignedTo
-                                "Assigned To"
-                            ZIndex: =2
-
-                        Label5_1 As label:
-                            Align: =Align.Center
-                            Text: =ThisItem.EmployeeNumber
-                            ZIndex: =3
-
-                        Label6_1 As label:
-                            Align: =Align.Center
-                            Text: |-
-                                =ThisItem.MechanicName
-                                //"Mechanic Name"
-                            ZIndex: =4
-
-                        Label7_1 As label:
-                            Align: =Align.Center
-                            Text: =ThisItem.'ContractNumber '
-                            Width: =120
-                            ZIndex: =5
-
-                        Label8_1 As label:
-                            Align: =Align.Center
-                            AutoHeight: =true
-                            Height: =60
-                            Text: =ThisItem.'BuildingName '
-                            ZIndex: =6
-
-                        Label9_1 As label:
-                            Align: =Align.Center
-                            AutoHeight: =true
-                            Height: =60
-                            Text: =ThisItem.Address
-                            ZIndex: =7
-
-                        Label10_1 As label:
-                            Align: =Align.Center
-                            Text: |-
-                                =//"Active"
-                                ThisItem.LeadStatus
-                            ZIndex: =8
-
-                        Icon1 As icon.Add:
-                            Height: =40
-                            Icon: =Icon.View
-                            Width: =40
-                            ZIndex: =9
-
-                        Icon2 As icon.Add:
-                            Height: =40
-                            Icon: =Icon.Edit
-                            OnSelect: =//Navigate(LeadScreen)
-                            PaddingLeft: =10
-                            Width: =40
-                            ZIndex: =10
-
-                    Button5 As button:
-                        Fill: =RGBA(0, 0, 0, 0)
-                        Height: =Container6_1.Height
-                        HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        OnSelect: =Navigate(LeadScreen)
-                        Text: =""
-                        Width: =Container6_1.Width
-                        X: =Container6_1.X
-                        Y: =Container6_1.Y
-                        ZIndex: =5
-
-            Container6 As groupContainer.horizontalAutoLayoutContainer:
-                Fill: =RGBA(230, 230, 230, 1)
-                Height: =60
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutGap: =5
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width-20
-                X: =10
-                ZIndex: =2
-
-                Label1 As label:
-                    Align: =Align.Center
-                    Text: ="Created Date"
-                    ZIndex: =1
-
-                Label2 As label:
-                    Align: =Align.Center
-                    Text: ="Assigned To"
-                    ZIndex: =2
-
-                Label5 As label:
-                    Align: =Align.Center
-                    Text: ="TrackingNo."
-                    ZIndex: =3
-
-                Label6 As label:
-                    Align: =Align.Center
-                    Text: ="Mechanic Name"
-                    ZIndex: =4
-
-                Label7 As label:
-                    Align: =Align.Center
-                    Text: ="Contract No "
-                    Width: =120
-                    ZIndex: =5
-
-                Label8 As label:
-                    Align: =Align.Center
-                    Text: ="Building "
-                    ZIndex: =6
-
-                Label9 As label:
-                    Align: =Align.Center
-                    Text: ="Address"
-                    ZIndex: =7
-
-                Label10 As label:
-                    Align: =Align.Center
-                    Text: ="Lead Status"
-                    Width: =120
-                    ZIndex: =8
-
-                Label11 As label:
-                    Align: =Align.Center
-                    Text: ="Action"
-                    ZIndex: =9
-
         ctnsyncstatusDS As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
@@ -593,7 +407,7 @@ DashboardScreen As screen:
                 Y: =recttechnicianDS.Height+recttechnicianDS.Y+30
                 ZIndex: =9
 
-        Button3 As button:
+        btncalculateincentiveDS As button:
             AlignInContainer: =AlignInContainer.Center
             Fill: =Header.SHRed
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
@@ -604,7 +418,7 @@ DashboardScreen As screen:
             Width: =300
             ZIndex: =5
 
-        Button2 As button:
+        btnpatchleadDS As button:
             AlignInContainer: =AlignInContainer.Center
             OnSelect: |-
                 =//Clear(LCLeadInformations);
