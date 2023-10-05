@@ -239,7 +239,7 @@ QuotedSOldLeads As screen:
                         Y: =10
                         ZIndex: =1
 
-                    lblPriceSLS_4 As label:
+                    lblSoldPriceSL As label:
                         Font: =Font.Arial
                         Height: |-
                             =//If(btnheaderSLS_2.Text="Sold Leads",25,0)
@@ -544,7 +544,7 @@ QuotedSOldLeads As screen:
                             false
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =lblPriceSLS_4.Height+lblPriceSLS_4.Y
+                        Y: =lblSoldPriceSL.Height+lblSoldPriceSL.Y
                         ZIndex: =18
 
                     htmltxtStatusDateSL As htmlViewer:
