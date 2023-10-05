@@ -259,7 +259,7 @@ ChatScreen As screen:
                 Fill: |-
                     =//RGBA(237,237,237,1) 
                     RGBA(0, 0, 0, 0)
-                Height: =Parent.Height-TextInput1_2.Height
+                Height: =Parent.Height-intxtSendCS.Height
                 Items: =Sort(Filter(LeadChats,LeadInformationLID.ID=VarLtdID),'Created On',SortOrder.Ascending)
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
@@ -423,14 +423,14 @@ ChatScreen As screen:
                     Y: =lblDateCS.Y
                     ZIndex: =7
 
-            Group1 As group:
+            grpSendCS As group:
                 Height: =5
                 Width: =5
                 X: =40
                 Y: =40
                 ZIndex: =4
 
-                TextInput1_2 As text:
+                intxtSendCS As text:
                     BorderColor: =Color.Red
                     Default: =""
                     DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -448,11 +448,11 @@ ChatScreen As screen:
                         UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                     PaddingLeft: =10
                     Size: =If(Parent.Width<500,12,Parent.Width>500,14)
-                    Width: =Parent.Width-Icon6_2.Width
+                    Width: =Parent.Width-iconSendCS.Width
                     Y: =glryChatCS.Height
                     ZIndex: =1
 
-                Icon6_2 As icon.Send:
+                iconSendCS As icon.Send:
                     BorderColor: =Self.Color
                     BorderThickness: =2
                     Color: =RGBA(255, 0, 0, 1)
@@ -465,7 +465,7 @@ ChatScreen As screen:
                         // patch message to dataverse table LeadChats and refresh LeadChats and reset timer.
                         
                         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
-                        If(IsBlank(TextInput1_2.Text),
+                        If(IsBlank(intxtSendCS.Text),
                         
                              Set (VarNotification,true),
                              If(CountRows(Filter( glryChatCS.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,
@@ -483,7 +483,7 @@ ChatScreen As screen:
                                         ID:GUID(),
                                         FromEmail:myMail,
                                      // To:personEmail,
-                                        Message:TextInput1_2.Text,
+                                        Message:intxtSendCS.Text,
                                         FromName:User().FullName,
                                         LeadInformationLID:LookUp(LeadInformations,ID=VarLtdID),
                                         'Read ':false
@@ -491,7 +491,7 @@ ChatScreen As screen:
                                     }
                                 ));
                         Refresh(LeadChats);
-                        Reset(TextInput1_2));
+                        Reset(intxtSendCS));
                          
                         UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                             
@@ -500,7 +500,7 @@ ChatScreen As screen:
                     PaddingRight: =10
                     PaddingTop: =10
                     Width: =If(Parent.Width<500,60,80)
-                    X: =TextInput1_2.Width
+                    X: =intxtSendCS.Width
                     Y: =glryChatCS.Height
                     ZIndex: =2
 
