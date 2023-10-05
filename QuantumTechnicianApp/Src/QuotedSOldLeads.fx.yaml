@@ -330,7 +330,7 @@ QuotedSOldLeads As screen:
                         Y: =htmltextContractNumberSL.Y+htmltextContractNumberSL.Height
                         ZIndex: =6
 
-                    htmltextTrackingNumberSLS_2 As htmlViewer:
+                    htmltextTrackingNumberSL As htmlViewer:
                         AutoHeight: =true
                         Font: =Font.Arial
                         Height: =20
@@ -346,7 +346,7 @@ QuotedSOldLeads As screen:
                         Y: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",lineEstimatenoSL.Y+lineEstimatenoSL.Height+10,20)
                         ZIndex: =7
 
-                    htmltxtAddressSLS_2 As htmlViewer:
+                    htmltxtAddressSL As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -363,7 +363,7 @@ QuotedSOldLeads As screen:
                         Y: =HtmlTextBuildingNameSLS_2.Y+HtmlTextBuildingNameSLS_2.Height
                         ZIndex: =8
 
-                    htmltxtZipcodeSLS_2 As htmlViewer:
+                    htmltxtZipcodeSL As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -378,10 +378,10 @@ QuotedSOldLeads As screen:
                         Visible: =false
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtAddressSLS_2.Y+htmltxtAddressSLS_2.Height
+                        Y: =htmltxtAddressSL.Y+htmltxtAddressSL.Height
                         ZIndex: =9
 
-                    htmltxtDateSLS_2 As htmlViewer:
+                    htmltxtDateSL As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -395,7 +395,7 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtZipcodeSLS_2.Y+htmltxtZipcodeSLS_2.Height
+                        Y: =htmltxtZipcodeSL.Y+htmltxtZipcodeSL.Height
                         ZIndex: =10
 
                     btnSubmittedLeadSL As button:
@@ -457,7 +457,7 @@ QuotedSOldLeads As screen:
                         Visible: =If(btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtDateSLS_2.Y+htmltxtDateSLS_2.Height
+                        Y: =htmltxtDateSL.Y+htmltxtDateSL.Height
                         ZIndex: =13
 
                     htmltextContractNumberSL As htmlViewer:
@@ -473,7 +473,7 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.3
                         X: =20
-                        Y: =htmltextTrackingNumberSLS_2.Y+htmltextTrackingNumberSLS_2.Height
+                        Y: =htmltextTrackingNumberSL.Y+htmltextTrackingNumberSL.Height
                         ZIndex: =14
 
                     iconmsgSL As icon.Message:
@@ -494,7 +494,7 @@ QuotedSOldLeads As screen:
                             false
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
-                        Y: =htmltextTrackingNumberSLS_2.Y
+                        Y: =htmltextTrackingNumberSL.Y
                         ZIndex: =15
 
                     htmltxtQQTeamMemberSL As htmlViewer:
@@ -586,7 +586,7 @@ QuotedSOldLeads As screen:
                             Set(VarEstimateNumber,ThisItem.LeadEstimateNumber);
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
-                        Y: =htmltextTrackingNumberSLS_2.Y
+                        Y: =htmltextTrackingNumberSL.Y
                         ZIndex: =20
 
                     iconUnreadIndicatorSL As circle:
@@ -601,7 +601,7 @@ QuotedSOldLeads As screen:
                         X: =imgMessageSL.X+imgMessageSL.Width/1.2
                         Y: |-
                             =//Parent.TemplateHeight/
-                            htmltextTrackingNumberSLS_2.Y+20
+                            htmltextTrackingNumberSL.Y+20
                         ZIndex: =21
 
                 lblTitleYearSL As label:
