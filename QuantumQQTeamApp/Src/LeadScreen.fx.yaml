@@ -853,13 +853,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =7
 
-                        Label12_3 As label:
+                        lblcontractnoLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Contract No. "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_3 As label:
+                        lblcontractnovalueLdS As label:
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.'ContractNumber '
                             ZIndex: =2
@@ -881,13 +881,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =9
 
-                        Label12_4 As label:
+                        lblbuildingnameLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Building Name "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_4 As label:
+                        lblbiuldingnamevalueLdS As label:
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.'BuildingName '
                             ZIndex: =2
