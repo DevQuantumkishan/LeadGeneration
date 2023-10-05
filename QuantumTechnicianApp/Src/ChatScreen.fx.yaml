@@ -54,7 +54,7 @@ ChatScreen As screen:
                 Y: =11
                 ZIndex: =1
 
-            imgSchindlerLogoDS_3 As image:
+            imgSchindlerLogoCS As image:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -67,7 +67,7 @@ ChatScreen As screen:
                 X: =0.00
                 ZIndex: =2
 
-            iconBackCL_2 As icon.BackArrow:
+            iconBackCS As icon.BackArrow:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height/2
@@ -87,7 +87,7 @@ ChatScreen As screen:
                 Y: =11
                 ZIndex: =3
 
-            lblHeaderDS_4 As label:
+            lblHeaderCS As label:
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
@@ -100,11 +100,11 @@ ChatScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoDS_3.Width-IconMenuCS.Width-Button2_4.Width-Image3_2.Width-50
+                Width: =Parent.Width-imgSchindlerLogoCS.Width-IconMenuCS.Width-btnUsernameCS.Width-imgRefreshCS.Width-50
                 X: =96.12
                 ZIndex: =4
 
-            Image3_2 As image:
+            imgRefreshCS As image:
                 AlignInContainer: =AlignInContainer.Center
                 DisabledFill: =RGBA(255, 255, 255, 1)
                 Fill: =RGBA(255, 255, 255, 1)
@@ -131,7 +131,7 @@ ChatScreen As screen:
                 Y: =Parent.Height/4
                 ZIndex: =5
 
-            Button2_4 As button:
+            btnUsernameCS As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
