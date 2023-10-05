@@ -167,7 +167,7 @@ ViewDetailsScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: |-
-                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + PrimaryScopeofWorkLID_DataCard1.Height + SecondaryScopeofWorkLID_DataCard1.Height + ManuallyScopeOfWork_DataCard3_3.Height + EstimatedHours_DataCard1_4.Height + Material_DataCard1_4.Height + 'Unit Down_DataCard2_4'.Height + 'Additional expenses required_DataCard2_3'.Height + 
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLID_DataCard1.Height + ManuallyScopeOfWork_DataCard3_3.Height + EstimatedHours_DataCard1_4.Height + Material_DataCard1_4.Height + 'Unit Down_DataCard2_4'.Height + 'Additional expenses required_DataCard2_3'.Height + 
                          'Travel Required_DataCard2_3'.Height + 'Communicated to Customer_DataCard2_3'.Height +
                          If(IsBlank(DataCardValue3.Text),0,
                           'CustomerName _DataCard2'.Height) +If(IsBlank(DataCardValue4.Text),0, 'CustomerContact _DataCard1'.Height)+
@@ -574,7 +574,7 @@ ViewDetailsScreen As screen:
                         Y: ='lblUnitDescription VDS'.Y + 'lblUnitDescription VDS'.Height 
                         ZIndex: =2
 
-                PrimaryScopeofWorkLID_DataCard1 As typedDataCard.comboBoxEditCard:
+                "'PrimaryScopeofWorkLID VDS' As typedDataCard.comboBoxEditCard":
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="shlrf_PrimaryScopeofWorkLID"
@@ -584,13 +584,13 @@ ViewDetailsScreen As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Update: =DataCardValue1.Selected
+                    Update: =intxtPrimaryScopeofWorkLIDVDS.Selected
                     Width: =Parent.Width
                     X: =0
                     Y: =7
                     ZIndex: =1
 
-                    DataCardKey1 As label:
+                    lblPrimaryScopeofWorkLIDVDS As label:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
@@ -604,7 +604,7 @@ ViewDetailsScreen As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue1 As combobox:
+                    intxtPrimaryScopeofWorkLIDVDS As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         ChevronBackground: =RGBA(0, 0, 0, 1)
                         Default: =ThisItem.PrimaryScopeofWorkLID
@@ -615,39 +615,14 @@ ViewDetailsScreen As screen:
                         Items: =Choices([@LeadInformations].PrimaryScopeofWorkLID)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 5)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
-                        SearchItems: =Search(Choices([@LeadInformations].PrimaryScopeofWorkLID),DataCardValue1.SearchText,"shlrf_primaryscopeofworkname")
+                        SearchItems: =Search(Choices([@LeadInformations].PrimaryScopeofWorkLID),intxtPrimaryScopeofWorkLIDVDS.SearchText,"shlrf_primaryscopeofworkname")
                         SelectMultiple: =false
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey1.Y + DataCardKey1.Height 
+                        Y: =lblPrimaryScopeofWorkLIDVDS.Y + lblPrimaryScopeofWorkLIDVDS.Height 
                         ZIndex: =2
-
-                    ErrorMessage1 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue1.Y + DataCardValue1.Height
-                        ZIndex: =3
-
-                    StarVisible1 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey1.Height
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey1.Y
-                        ZIndex: =4
 
                 SecondaryScopeofWorkLID_DataCard1 As typedDataCard.comboBoxEditCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
