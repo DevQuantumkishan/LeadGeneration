@@ -863,14 +863,14 @@ DashboardScreen As screen:
         Y: =40
         ZIndex: =14
 
-        rectfullinprogressconfirmtionLS_4 As rectangle:
+        rectbigrefreshpopupDS As rectangle:
             Fill: =RGBA(0, 0, 0, 0.29)
             Height: =Parent.Height
             Visible: =VarPopUpSyncData
             Width: =Parent.Width
             ZIndex: =9
 
-        rectinprogressconfirmationLS_4 As rectangle:
+        rectrefreshpopupDS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =280
             Visible: =VarPopUpSyncData
@@ -879,16 +879,16 @@ DashboardScreen As screen:
             Y: =Parent.Height/3
             ZIndex: =10
 
-        imginfoLS_4 As image:
+        imginfoDS As image:
             Height: =52
             Image: =images
             Visible: =VarPopUpSyncData
             Width: =52
             X: =(Parent.Width-Self.Width)/2
-            Y: =rectinprogressconfirmationLS_4.Y+20
+            Y: =rectrefreshpopupDS.Y+20
             ZIndex: =11
 
-        lblmsgLS_4 As label:
+        lblmsgDS As label:
             Align: =Align.Center
             Font: =Font.Arial
             FontWeight: =FontWeight.Semibold
@@ -898,6 +898,6 @@ DashboardScreen As screen:
             Visible: =VarPopUpSyncData
             Width: =350
             X: =(Parent.Width-Self.Width)/2
-            Y: =imginfoLS_4.Y+ imginfoLS_4.Height+2
+            Y: =imginfoDS.Y+ imginfoDS.Height+2
             ZIndex: =12
 
