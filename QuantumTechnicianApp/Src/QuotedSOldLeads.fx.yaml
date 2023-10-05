@@ -251,16 +251,15 @@ QuotedSOldLeads As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            =//"Sold Incentives $ : "&  " " & 0
-                            "Sold Price: $" & " " & Text(ThisItem.SoldLeadPrice,"0.00")
+                            ="Sold Price: $" & " " & Text(ThisItem.SoldLeadPrice,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =//If(btnheaderSLS_2.Text="Sold Leads",true,false)
                         Width: =Parent.Width/2.55
                         X: =20
-                        Y: =lblEstimateNumberSLS_2.Height+lblEstimateNumberSLS_2.Y
+                        Y: =lblEstimateNumberSL.Height+lblEstimateNumberSL.Y
                         ZIndex: =2
 
-                    lblTitleTotalIncentivesSLS_4 As label:
+                    lblSoldIncentivesSL As label:
                         Color: =RGBA(255, 0, 0, 1)
                         Font: =Font.Arial
                         Height: =If(btnheaderSoldLeads.Text="Sold Leads",25,0)
@@ -271,12 +270,7 @@ QuotedSOldLeads As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            =/*If(VarFutureIncetives = true,
-                            "Potential Future Incentives $ :" & " " & "0",
-                                      VarSoldIncetives=true,"Sold Incentives $:" & " " & "0",
-                                      VarTotalIncentives=true,"Total Incentives $:" & " "& "0")*/
-                            //If(btnheaderSLS.Text="Quoted Leads","Proposed incentive: $ " &   ThisItem.LeadIncentive,"Sold incentive: $" &   ThisItem.LeadIncentive )
-                            "Sold incentive: $" & Text(ThisItem.SoldLeadIncentives,"0.00")
+                            ="Sold incentive: $" & Text(ThisItem.SoldLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
@@ -284,7 +278,7 @@ QuotedSOldLeads As screen:
                         Y: =20
                         ZIndex: =3
 
-                    lineEstimateSLS_2 As rectangle:
+                    lineEstimateSL As rectangle:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(202, 202, 202, 1)
@@ -296,7 +290,7 @@ QuotedSOldLeads As screen:
                         Y: =lblTitleTotalIncentivesSL.Y+lblTitleTotalIncentivesSL.Height
                         ZIndex: =4
 
-                    lblEstimateNumberSLS_2 As label:
+                    lblEstimateNumberSL As label:
                         Font: =Font.Arial
                         Height: =25
                         OnSelect: =Select(Parent)
@@ -311,10 +305,10 @@ QuotedSOldLeads As screen:
                         Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =lineEstimateSLS_2.Y+lineEstimateSLS_2.Height+10
+                        Y: =lineEstimateSL.Y+lineEstimateSL.Height+10
                         ZIndex: =5
 
-                    HtmlTextBuildingNameSLS_2 As htmlViewer:
+                    HtmlTextBuildingNameSL As htmlViewer:
                         AutoHeight: =true
                         Font: =Font.Arial
                         Height: =20
@@ -360,7 +354,7 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =HtmlTextBuildingNameSLS_2.Y+HtmlTextBuildingNameSLS_2.Height
+                        Y: =HtmlTextBuildingNameSL.Y+HtmlTextBuildingNameSL.Height
                         ZIndex: =8
 
                     htmltxtZipcodeSL As htmlViewer:
