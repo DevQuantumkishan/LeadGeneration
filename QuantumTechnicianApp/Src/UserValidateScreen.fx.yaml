@@ -8,7 +8,7 @@ UserValidateScreen As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        borderErrorpopupCS_1 As rectangle:
+        borderErrorpopupUVS As rectangle:
             Fill: =RGBA(0, 0, 0, 0)
             Height: |
                 =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height>500 ,Parent.Height/3,Parent.Height>800,Parent.Height/4.5)
@@ -18,10 +18,10 @@ UserValidateScreen As screen:
             Y: =(Parent.Height-Self.Height)/2
             ZIndex: =1
 
-        ctnErrorCS_1 As groupContainer.verticalAutoLayoutContainer:
+        ctnErrorUVS As groupContainer.verticalAutoLayoutContainer:
             BorderThickness: =1
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =borderErrorpopupCS_1.Height
+            Height: =borderErrorpopupUVS.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
             LayoutWrap: =true
@@ -29,12 +29,12 @@ UserValidateScreen As screen:
             RadiusBottomRight: =15
             RadiusTopLeft: =15
             RadiusTopRight: =15
-            Width: =borderErrorpopupCS_1.Width
-            X: =borderErrorpopupCS_1.X
-            Y: =borderErrorpopupCS_1.Y
+            Width: =borderErrorpopupUVS.Width
+            X: =borderErrorpopupUVS.X
+            Y: =borderErrorpopupUVS.Y
             ZIndex: =2
 
-            ctnErrorPopupCS_1 As groupContainer.verticalAutoLayoutContainer:
+            ctnErrorPopupUVS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 FillPortions: =0
@@ -46,15 +46,15 @@ UserValidateScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-                imgErrorPopupCS_1 As image:
+                imgErrorPopupUVS As image:
                     AlignInContainer: =AlignInContainer.Center
                     Height: =Parent.Height
-                    Image: =    error
+                    Image: =error
                     PaddingTop: =30
                     Width: =Parent.Width/2
                     ZIndex: =1
 
-            lblErrorPopuoCS_1 As label:
+            lblErrorPopuoUVS As label:
                 Align: =Align.Center
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
@@ -68,7 +68,7 @@ UserValidateScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
-            btnOkErrorPopupCS_1 As button:
+            btnOkErrorPopupUVS As button:
                 AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
