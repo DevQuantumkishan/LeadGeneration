@@ -148,7 +148,7 @@ ViewDetailsScreen As screen:
         ctnMiddleVDS As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
             FillPortions: =0
-            Height: =SummaryFormVDS.Height+glryImageLSS_2.Height+Label4.Height
+            Height: =SummaryFormVDS.Height+glryImageLSS_2.Height+lblUploadedImages.Height
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
@@ -1258,7 +1258,7 @@ ViewDetailsScreen As screen:
                         Y: =lblLeadCommentHeadingVDS.Height+lblLeadCommentHeadingVDS.Y
                         ZIndex: =5
 
-            Label4 As label:
+            lblUploadedImages As label:
                 Fill: =RGBA(255, 255, 255, 1)
                 FontWeight: =FontWeight.Semibold
                 PaddingLeft: =30
