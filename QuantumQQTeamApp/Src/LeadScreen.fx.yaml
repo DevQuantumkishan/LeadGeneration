@@ -2624,7 +2624,7 @@ LeadScreen As screen:
             Width: =Parent.Width
             ZIndex: =20
 
-        rectinprogressconfirmationLS_3 As rectangle:
+        rectsuccessLdS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =280
             Visible: =VarPopUpEstimateNumberSubmitted
@@ -2633,17 +2633,17 @@ LeadScreen As screen:
             Y: =Parent.Height/3
             ZIndex: =21
 
-        imginfoLS_3 As image:
+        imgsuccessLdS As image:
             Height: =60
             Image: =Success
             ImagePosition: =ImagePosition.Fill
             Visible: =VarPopUpEstimateNumberSubmitted
             Width: =70
             X: =(Parent.Width-Self.Width)/2
-            Y: =rectinprogressconfirmationLS_3.Y+20
+            Y: =rectsuccessLdS.Y+20
             ZIndex: =22
 
-        lblmsgLS_3 As label:
+        lblmsgsuccessLdS As label:
             Align: =Align.Center
             FontWeight: =FontWeight.Semibold
             Height: =140
@@ -2652,10 +2652,10 @@ LeadScreen As screen:
             Visible: =VarPopUpEstimateNumberSubmitted
             Width: =350
             X: =(Parent.Width-Self.Width)/2
-            Y: =imginfoLS_3.Y+ imginfoLS_3.Height+2
+            Y: =imgsuccessLdS.Y+ imgsuccessLdS.Height+2
             ZIndex: =23
 
-        btnyesLS_3 As button:
+        btnyessuccessLdS As button:
             Fill: =RGBA(54, 176, 75, 1)
             Font: =Font.Arial
             HoverFill: =RGBA(75, 125, 6, 1)
@@ -2669,10 +2669,10 @@ LeadScreen As screen:
             Visible: =VarPopUpEstimateNumberSubmitted
             Width: =120
             X: =621
-            Y: =lblmsgLS_3.Height+lblmsgLS_3.Y
+            Y: =lblmsgsuccessLdS.Height+lblmsgsuccessLdS.Y
             ZIndex: =24
 
-        btnnoLS_3 As button:
+        btnnosuccessLdS As button:
             BorderColor: =RGBA(75, 125, 6, 1)
             Fill: =RGBA(54, 176, 75, 1)
             Font: =Font.Arial
@@ -2684,7 +2684,7 @@ LeadScreen As screen:
             Text: ="No"
             Visible: =false
             Width: =120
-            X: =btnyesLS_3.X+btnyesLS_3.Width+20
-            Y: =lblmsgLS_3.Y+ lblmsgLS_3.Height+10
+            X: =btnyessuccessLdS.X+btnyessuccessLdS.Width+20
+            Y: =lblmsgsuccessLdS.Y+ lblmsgsuccessLdS.Height+10
             ZIndex: =25
 
