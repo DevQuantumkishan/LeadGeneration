@@ -205,7 +205,7 @@ QuotedSOldLeads As screen:
                     Text: =ThisItem.Year
                     Width: =Parent.Width/8
                     X: =1
-                    Y: =lblTitleYearSLS_2.Y+lblTitleYearSLS_2.Height+10
+                    Y: =lblTitleYearSL.Y+lblTitleYearSL.Height+10
                     ZIndex: =1
 
                 "glryLeadsSLS_2 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
@@ -609,7 +609,7 @@ QuotedSOldLeads As screen:
                             htmltextTrackingNumberSLS_2.Y+20
                         ZIndex: =21
 
-                lblTitleYearSLS_2 As label:
+                lblTitleYearSL As label:
                     Align: =Align.Center
                     AutoHeight: =true
                     Font: =Font.Arial
@@ -621,15 +621,13 @@ QuotedSOldLeads As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: |-
-                        =//ThisItem.Value\
-                        "Year"
+                    Text: ="Year"
                     Width: =Parent.Width/8
                     X: =1
                     Y: =2*(btnLeadsSL.Y)
                     ZIndex: =3
 
-                lblCountTotalLeadsSLS_2 As label:
+                lblCountTotalLeadsSL As label:
                     Align: =Align.Center
                     Color: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
@@ -643,10 +641,7 @@ QuotedSOldLeads As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: |-
-                        =//If(btnheaderCL_1.Text="Quoted Leads",
-                          //  LookUp(GCTotalIncentives,Year=Text(Year(Now())) &&  TechnicianID=VarTechnicianID.'Personnel No',TotalProposedLead,
-                        If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
+                    Text: =If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSL.Width
                     X: =lblTotalLeadsSL.X
