@@ -803,14 +803,14 @@ DashboardScreen As screen:
         Y: =40
         ZIndex: =9
 
-        rectfullinprogressconfirmtionLS_2 As rectangle:
+        recbigincentiveDS As rectangle:
             Fill: =RGBA(0, 0, 0, 0.29)
             Height: =Parent.Height
             Visible: =VarPopUpIncentivesCalculation
             Width: =Parent.Width
             ZIndex: =3
 
-        rectinprogressconfirmationLS_2 As rectangle:
+        rectincentiveDS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =280
             Visible: =VarPopUpIncentivesCalculation
@@ -825,7 +825,7 @@ DashboardScreen As screen:
             Visible: =VarPopUpIncentivesCalculation
             Width: =52
             X: =(Parent.Width-Self.Width)/2
-            Y: =rectinprogressconfirmationLS_2.Y+20
+            Y: =rectincentiveDS.Y+20
             ZIndex: =5
 
         lblmsgIncentiveDS As label:
