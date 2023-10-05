@@ -909,13 +909,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =11
 
-                        Label12_5 As label:
+                        lbladdressLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Address "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_5 As label:
+                        lbladdressvalueLdS As label:
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.Address
                             ZIndex: =2
@@ -937,13 +937,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =13
 
-                        Label12_6 As label:
+                        lblzipcodeLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Zip code "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_6 As label:
+                        lblzipcodevalueLdS As label:
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.'ZipCode '
                             ZIndex: =2
@@ -965,13 +965,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =15
 
-                        Label12_7 As label:
+                        lblnoofunitLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="No. of Unit "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_7 As label:
+                        lblnoofunitvalueLdS As label:
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.NumberofUnits
                             ZIndex: =2
@@ -993,13 +993,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =17
 
-                        Label12_8 As label:
+                        lblunitdescriptionLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Unit Description "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_8 As label:
+                        lblunitdescriptionvalueLdS As label:
                             AutoHeight: =true
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.UnitDescription
