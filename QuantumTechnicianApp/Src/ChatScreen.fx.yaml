@@ -16,7 +16,7 @@ ChatScreen As screen:
         )
         ));
         Refresh (LeadChats));
-        UpdateContext({startTimerCS:false}); Reset(Timer2); UpdateContext({startTimerCS: true}) 
+        UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
 
     Container7 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -356,7 +356,7 @@ ChatScreen As screen:
                         UpdateContext({VartoolTip:true});
                         Set(VarUsernameTimer,true);
                         //Set(varChatScreentimerPopup,true);
-                        UpdateContext({startTimerCS:false}); Reset(Timer2); UpdateContext({startTimerCS: true}) 
+                        UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
@@ -404,7 +404,7 @@ ChatScreen As screen:
                         UpdateContext({VartoolTip:false});
                         Set(VarUsernameTimer,false);
                         //Set(varChatScreentimerPopup,true);
-                        UpdateContext({startTimerCS:false}); Reset(Timer2); UpdateContext({startTimerCS: true}) 
+                        UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
@@ -468,7 +468,7 @@ ChatScreen As screen:
                     Mode: =TextMode.MultiLine
                     OnChange: |-
                         =// for start timer. Timer is use for refreshing Leadschats dataverse Table
-                        UpdateContext({startTimerCS:false}); Reset(Timer2); UpdateContext({startTimerCS: true}) 
+                        UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                     PaddingLeft: =10
                     Size: =If(Parent.Width<500,12,Parent.Width>500,14)
                     Width: =Parent.Width-Icon6_2.Width
@@ -516,7 +516,7 @@ ChatScreen As screen:
                         Refresh(LeadChats);
                         Reset(TextInput1_2));
                          
-                        UpdateContext({startTimerCS:false}); Reset(Timer2); UpdateContext({startTimerCS: true}) 
+                        UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                             
                     PaddingBottom: =10
                     PaddingLeft: =10
@@ -691,7 +691,7 @@ ChatScreen As screen:
                 OnSelect: |-
                     =Navigate(ChatScreen);
                     Set(VarNotification,false);
-                    UpdateContext({startTimerCS:false}); Reset(Timer2); UpdateContext({startTimerCS: true}) ;
+                    UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) ;
                 Size: =14
                 Text: ="Ok"
                 Width: =Parent.Width/5
@@ -709,7 +709,7 @@ ChatScreen As screen:
         Y: =60
         ZIndex: =6
 
-    PopopNotificationLSS_2 As groupContainer.manualLayoutContainer:
+    PopopNotificationCS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarchatInactivemode
@@ -784,7 +784,7 @@ ChatScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: |-
-                        =Set(VarchatInactivemode,false);UpdateContext({startTimerCS:false}); Reset(Timer2); UpdateContext({startTimerCS: true}) 
+                        =Set(VarchatInactivemode,false);UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                         //Navigate(ChatScreen);
                     Size: =14
                     Text: ="No"
@@ -798,14 +798,14 @@ ChatScreen As screen:
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: |-
-                        =Set(VarchatInactivemode,false);If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));UpdateContext({startTimerCS:true}); Reset(Timer2); UpdateContext({startTimerCS: false}) 
+                        =Set(VarchatInactivemode,false);If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));UpdateContext({startTimerCS:true}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: false}) 
                     Size: =14
                     Text: ="Yes"
                     Visible: =If(lblNotificationLSS_2.Text="Submitting",false,true)
                     Width: =Parent.Width/5
                     ZIndex: =2
 
-    Timer2 As timer:
+    TimerInactiveModeCS As timer:
         Duration: =120000
         OnTimerEnd: |-
             =Set(VarchatInactivemode,true);UpdateContext({startTimerCS:true});
