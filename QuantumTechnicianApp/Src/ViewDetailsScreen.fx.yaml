@@ -167,15 +167,15 @@ ViewDetailsScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: |-
-                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + MaterialVDS.Height + UnitDownVDS.Height + 'Additional expenses required_DataCard2_3'.Height + 
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + MaterialVDS.Height + UnitDownVDS.Height + AdditionalExpensesRequiredVDS.Height + 
                          'Travel Required_DataCard2_3'.Height + 'Communicated to Customer_DataCard2_3'.Height +
                          If(IsBlank(DataCardValue3.Text),0,
                           'CustomerName _DataCard2'.Height) +If(IsBlank(DataCardValue4.Text),0, 'CustomerContact _DataCard1'.Height)+
                          If(IsBlank(DataCardValue5.Text),0,
                           TotalEstimatedHoursofTravel_DataCard1.Height) + If(
-                        IsBlank(DataCardValue6.Text),
+                        IsBlank(intxtTotalEstimatedExpenseVDS.Text),
                         0,
-                        TotalEstimatedExpense_DataCard1.Height)+If(
+                        TotalEstimatedExpenseVDS.Height)+If(
                         IsBlank(DataCardKey8_1.Text),
                         0,LeadComment_DataCard1.Height
                     )+50
@@ -889,7 +889,7 @@ ViewDetailsScreen As screen:
                         Y: =18
                         ZIndex: =5
 
-                "'Additional expenses required_DataCard2_3' As typedDataCard.comboBoxOptionSetSingleEditCard":
+                AdditionalExpensesRequiredVDS As typedDataCard.comboBoxOptionSetSingleEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_additionalexpensesrequired"
                     Default: |
@@ -906,34 +906,7 @@ ViewDetailsScreen As screen:
                     Y: =13
                     ZIndex: =1
 
-                    ErrorMessage10_3 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =
-                        ZIndex: =3
-
-                    StarVisible10_3 As label:
-                        Align: =Align.Center
-                        Height: =
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =
-                        ZIndex: =4
-
-                    Checkbox4_17 As checkbox:
+                    cboxAdditionalExpensesRequiredVDS As checkbox:
                         CheckboxBorderColor: =RGBA(0, 0, 0, 1)
                         Default: =true
                         Font: =Font.Arial
@@ -951,7 +924,7 @@ ViewDetailsScreen As screen:
                         X: =30
                         ZIndex: =5
 
-                TotalEstimatedExpense_DataCard1 As typedDataCard.textualEditCard:
+                TotalEstimatedExpenseVDS As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="shlrf_totalestimatedexpense"
@@ -959,17 +932,17 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedexpense")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue6.Text),90,0)
+                    Height: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes && !IsBlank(intxtTotalEstimatedExpenseVDS.Text),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedexpense")
                     Required: =false
-                    Update: =DataCardValue6.Text
-                    Visible: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes && !IsBlank(DataCardValue6.Text),true,false)
+                    Update: =intxtTotalEstimatedExpenseVDS.Text
+                    Visible: =If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes && !IsBlank(intxtTotalEstimatedExpenseVDS.Text),true,false)
                     Width: =Parent.Width
                     X: =0
                     Y: =14
                     ZIndex: =1
 
-                    DataCardKey6 As label:
+                    lblTotalEstimatedExpenseVDS As label:
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(0, 0, 0, 1)
@@ -984,7 +957,7 @@ ViewDetailsScreen As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue6 As text:
+                    intxtTotalEstimatedExpenseVDS As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =0
                         Default: ="$ "  &  Text(Value( Parent.Default),"0.00")
@@ -1002,33 +975,8 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                        Y: =lblTotalEstimatedExpenseVDS.Y + lblTotalEstimatedExpenseVDS.Height + 5
                         ZIndex: =2
-
-                    ErrorMessage4 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue6.Y + DataCardValue6.Height
-                        ZIndex: =3
-
-                    StarVisible4 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey6.Height
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey6.Y
-                        ZIndex: =4
 
                 "'Travel Required_DataCard2_3' As typedDataCard.comboBoxOptionSetSingleEditCard":
                     BorderStyle: =BorderStyle.Solid
