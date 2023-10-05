@@ -824,13 +824,13 @@ LeadScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =5
 
-                        Label12_2 As label:
+                        lblleadstatusdateLdS As label:
                             FontWeight: =FontWeight.Bold
                             Text: ="Lead Status Date "
                             Width: =200
                             ZIndex: =1
 
-                        Label13_2 As label:
+                        lblleadstatusdatevalueLdS As label:
                             FillPortions: =1
                             Text: |-
                                 =Text(glryleadlistLS.Selected.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
@@ -984,7 +984,7 @@ LeadScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =16
 
-                    Container11_8 As groupContainer.horizontalAutoLayoutContainer:
+                    ctnunitdescriptionLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
@@ -1013,7 +1013,7 @@ LeadScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =18
 
-                    Container11_9 As groupContainer.horizontalAutoLayoutContainer:
+                    ctnprimaryscopeLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
@@ -1041,7 +1041,7 @@ LeadScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =20
 
-                    Container11_10 As groupContainer.horizontalAutoLayoutContainer:
+                    ctnsecondaryscopeLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
@@ -1069,7 +1069,7 @@ LeadScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =22
 
-                    Container11_11 As groupContainer.horizontalAutoLayoutContainer:
+                    ctncustomscopeLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
@@ -1098,7 +1098,7 @@ LeadScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =24
 
-                    Container11_12 As groupContainer.horizontalAutoLayoutContainer:
+                    ctnestimatedhoursLds As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =50
@@ -1126,7 +1126,7 @@ LeadScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =26
 
-                    Container11_13 As groupContainer.horizontalAutoLayoutContainer:
+                    ctnnotesLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
                         Height: =70
