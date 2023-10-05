@@ -177,7 +177,7 @@ LeadListScreen As screen:
                             Y: =40
                             ZIndex: =2
 
-                    Container7 As groupContainer.manualLayoutContainer:
+                    ctnsortcolumnLS As groupContainer.manualLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderThickness: =3
@@ -231,19 +231,19 @@ LeadListScreen As screen:
                             Y: =50
                             ZIndex: =3
 
-                        Icon6 As icon.ArrowUp:
+                        icnsortLS As icon.ArrowUp:
                             Color: =Header.SHRed
                             Height: =40
                             Icon: =If(VarDownIcon,Icon.ArrowDown,VarUpperIcon,Icon.ArrowUp)
                             OnSelect: |-
                                 =If(
-                                    Icon6.Icon = Icon.ArrowDown,
+                                    icnsortLS.Icon = Icon.ArrowDown,
                                     Set(
                                         VarUpperIcon,
                                         true
                                     );
                                     Set(VarDownIcon,false);,
-                                    Icon6.Icon = Icon.ArrowUp,
+                                    icnsortLS.Icon = Icon.ArrowUp,
                                     Set(
                                         VarDownIcon,
                                         true
@@ -363,7 +363,7 @@ LeadListScreen As screen:
                                         )
                                     )
                                 ),
-                              If(Dropdown1_1.Selected.Value="Created Date","createdon",Dropdown1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",Dropdown1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",Dropdown1_1.Selected.Value="Contract No.","shlrf_contractnumber",Dropdown1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",Dropdown1_1.Selected.Value="Building Name","shlrf_buildingname",Dropdown1_1.Selected.Value="Address","shlrf_address",Dropdown1_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(Icon6.Icon=Icon.ArrowDown,SortOrder.Descending,Icon6.Icon=Icon.ArrowUp,SortOrder.Ascending)
+                              If(Dropdown1_1.Selected.Value="Created Date","createdon",Dropdown1_1.Selected.Value="QQ Team Name","shlrf_qqteamname",Dropdown1_1.Selected.Value="Mechanic Name","shlrf_mechanicname",Dropdown1_1.Selected.Value="Contract No.","shlrf_contractnumber",Dropdown1_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",Dropdown1_1.Selected.Value="Building Name","shlrf_buildingname",Dropdown1_1.Selected.Value="Address","shlrf_address",Dropdown1_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(icnsortLS.Icon=Icon.ArrowDown,SortOrder.Descending,icnsortLS.Icon=Icon.ArrowUp,SortOrder.Ascending)
                             )
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
