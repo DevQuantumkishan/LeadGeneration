@@ -563,8 +563,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            =//If(btnheaderSLS.Text="Quoted leads","<b>BID Date : </b>" & ThisItem.StatusDate,btnheaderSLS.Text="Sold Leads","<b>Sold date : </b>" & ThisItem.StatusDate,"<b>Lead status date : </b>" & ThisItem.StatusDate)
-                            "<b>Quoted date : </b>" & Text( ThisItem.ProposedLeadDate,"yyyy/mm/dd hh:mm AM/PM")
+                            ="<b>Quoted date : </b>" & Text( ThisItem.ProposedLeadDate,"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -575,7 +574,7 @@ QuotedSOldLeads As screen:
                         Y: =htmltxtStatusDateSLS_4.Y+htmltxtStatusDateSLS_4.Height
                         ZIndex: =19
 
-                    Image2_1 As image:
+                    imgMessageSL As image:
                         Height: |+
                             =//If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
                             If(Parent.Width>1000,Parent.TemplateHeight/3.5,Parent.TemplateHeight/4.5)
@@ -594,7 +593,7 @@ QuotedSOldLeads As screen:
                         Y: =htmltextTrackingNumberSLS_2.Y
                         ZIndex: =20
 
-                    Circle1_7 As circle:
+                    iconUnreadIndicatorSL As circle:
                         BorderColor: =RGBA(255, 0, 0, 1)
                         BorderThickness: =1
                         DisplayMode: =DisplayMode.View
@@ -603,7 +602,7 @@ QuotedSOldLeads As screen:
                         OnSelect: =Select(Parent)
                         Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
                         Width: =15
-                        X: =Image2_1.X+Image2_1.Width/1.2
+                        X: =imgMessageSL.X+imgMessageSL.Width/1.2
                         Y: |-
                             =//Parent.TemplateHeight/
                             htmltextTrackingNumberSLS_2.Y+20
