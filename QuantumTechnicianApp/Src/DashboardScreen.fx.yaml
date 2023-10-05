@@ -832,7 +832,8 @@ DashboardScreen As screen:
                         Height: =20
                         Image: =email
                         Visible: |-
-                            =  If(yearly =true,  
+                            =  // for indicate unread message 
+                              If(yearly =true,  
                                If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted" && Year(LeadInformationLID.ProposedLeadDate)=Year(VarFirstYear)))=0, false, true),  If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Quoted"))=0, false, true))
                         Width: =20
                         X: =Parent.Width/1.25
@@ -860,7 +861,8 @@ DashboardScreen As screen:
                         Height: =20
                         Image: =email
                         Visible: |-
-                            =If(yearly =true, 
+                            =// for unread indicator
+                            If(yearly =true, 
                             If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold" && Year(LeadInformationLID.SoldLeadDate)=Year(VarFirstYear)))=0,false,true),If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true))
                         Width: =20
                         X: =Parent.Width/1.25
