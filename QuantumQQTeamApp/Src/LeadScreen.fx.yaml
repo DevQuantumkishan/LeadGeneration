@@ -521,10 +521,10 @@ LeadScreen As screen:
                     Visible: =false
                     Width: =800
                     X: =20
-                    Y: =lblestimatenumberleaddetailsLdS_1.Height+lblestimatenumberleaddetailsLdS_1.Y
+                    Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y
                     ZIndex: =1
 
-                lblestimatenumberleaddetailsLdS_1 As label:
+                lblestimatenumberleaddetailsLdS As label:
                     Color: =RGBA(54, 176, 75, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =80
@@ -535,7 +535,7 @@ LeadScreen As screen:
                     Y: =30
                     ZIndex: =2
 
-                txtinptestimatenumber_1 As text:
+                txtinptestimatenumber As text:
                     BorderColor: =RGBA(149, 149, 149, 1)
                     Color: =RGBA(116, 116, 116, 1)
                     Default: =If(IsBlank(LookUp(LeadInformations,ID=VarSelectedLead.ID,LeadEstimateNumber)),"",LookUp(LeadInformations,ID=VarSelectedLead.ID,LeadEstimateNumber))
@@ -544,13 +544,13 @@ LeadScreen As screen:
                     HoverBorderColor: =//RGBA(0, 18, 107, 1)
                     HoverFill: =//RGBA(186, 202, 226, 1)
                     MaxLength: =20
-                    OnChange: =If(Len(txtinptestimatenumber_1)=20, Notify("Estimate number should not be greater than 11 digit."))
+                    OnChange: =If(Len(txtinptestimatenumber)=20, Notify("Estimate number should not be greater than 11 digit."))
                     PaddingLeft: =20
                     X: =10
-                    Y: =lblestimatenumberleaddetailsLdS_1.Height+lblestimatenumberleaddetailsLdS_1.Y //Label14_10.Height+Label14_10.Y
+                    Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y //Label14_10.Height+Label14_10.Y
                     ZIndex: =3
 
-                btnestimatenumberLdS_1 As button:
+                btnestimatenumberLdS As button:
                     DisplayMode: =If((glryleadlistLS.Selected.LeadStatus="InProgress" /*||glryleadlistLS.Selected.LeadStatus="Quoted"*/) && glryleadlistLS.Selected.QQTeamName=User().FullName,DisplayMode.Edit,DisplayMode.Disabled)
                     Fill: =RGBA(54, 176, 75, 1)
                     Height: =60
@@ -558,7 +558,7 @@ LeadScreen As screen:
                     OnSelect: |
                         =//here checking estimate number is entered or not
                         If(
-                            IsBlank(txtinptestimatenumber_1.Text),
+                            IsBlank(txtinptestimatenumber.Text),
                             Notify(
                                 "Please enter estimate number.",
                                 NotificationType.Information
@@ -673,10 +673,10 @@ LeadScreen As screen:
                     Text: ="Submit Estimate Number"
                     Width: =300
                     X: =410
-                    Y: =lblestimatenumberleaddetailsLdS_1.Height+lblestimatenumberleaddetailsLdS_1.Y //Label14_10.Height+Label14_10.Y
+                    Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y //Label14_10.Height+Label14_10.Y
                     ZIndex: =4
 
-                lblrejectionLdS_1 As label:
+                lblrejectionLdS As label:
                     Color: =Header.SHRed
                     FontWeight: =FontWeight.Semibold
                     Height: =50
@@ -684,19 +684,19 @@ LeadScreen As screen:
                     Text: ="Reject Lead"
                     Width: =200
                     X: =20
-                    Y: =btnestimatenumberLdS_1.Height+btnestimatenumberLdS_1.Y+50
+                    Y: =btnestimatenumberLdS.Height+btnestimatenumberLdS.Y+50
                     ZIndex: =5
 
-                lblcommentLdS_1 As label:
+                lblcommentLdS As label:
                     Height: =100
                     Size: =16
                     Text: ="Send lead back to the technician along with comments."
                     Width: =800
                     X: =20
-                    Y: =lblrejectionLdS_1.Height+lblrejectionLdS_1.Y
+                    Y: =lblrejectionLdS.Height+lblrejectionLdS.Y
                     ZIndex: =6
 
-                txitnptrejectLdS_1 As text:
+                txitnptrejectLdS As text:
                     BorderColor: =RGBA(149, 149, 149, 1)
                     Color: =RGBA(116, 116, 116, 1)
                     Default: =LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadComment)
@@ -710,23 +710,23 @@ LeadScreen As screen:
                     Reset: =true
                     Width: =Parent.Width-100
                     X: =20
-                    Y: =lblcommentLdS_1.Height+lblcommentLdS_1.Y
+                    Y: =lblcommentLdS.Height+lblcommentLdS.Y
                     ZIndex: =7
 
-                btnbacktotechnicianLdS_1 As button:
+                btnbacktotechnicianLdS As button:
                     DisplayMode: =If(glryleadlistLS.Selected.LeadStatus="InProgress" && glryleadlistLS.Selected.QQTeamName=User().FullName,DisplayMode.Edit,DisplayMode.Disabled)
                     Fill: =Header.SHRed
                     Height: =60
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                     OnSelect: |-
                         =If(
-                            IsBlank(txitnptrejectLdS_1.Text),
+                            IsBlank(txitnptrejectLdS.Text),
                             Notify("Please enter rejection comment."),
                             UpdateIf(
                                 LeadInformations,
                                 ID = glryleadlistLS.Selected.ID,
                                 {
-                                    LeadComment: txitnptrejectLdS_1.Text,
+                                    LeadComment: txitnptrejectLdS.Text,
                                     LeadStatus: "Rejected",
                                     StatusDate:Now()
                                 }
@@ -737,7 +737,7 @@ LeadScreen As screen:
                     Text: ="Submit back to technician"
                     Width: =300
                     X: =410
-                    Y: =txitnptrejectLdS_1.Height+txitnptrejectLdS_1.Y+40
+                    Y: =txitnptrejectLdS.Height+txitnptrejectLdS.Y+40
                     ZIndex: =8
 
             ctnleaddetailsLdS As groupContainer.manualLayoutContainer:
@@ -1614,7 +1614,7 @@ LeadScreen As screen:
             FontWeight: =FontWeight.Bold
             Height: =110
             Size: =15
-            Text: ="Do you want to enter estimate number "& txtinptestimatenumber_1.Text & ", Please confirm it."
+            Text: ="Do you want to enter estimate number "& txtinptestimatenumber.Text & ", Please confirm it."
             Visible: =VarPopUpEstimateNumber
             Width: =350
             X: =(Parent.Width-Self.Width)/2
@@ -1638,7 +1638,7 @@ LeadScreen As screen:
                         !IsBlank(
                             LookUp(
                                 SHFPEstimates,
-                                Estimate = txtinptestimatenumber_1.Text
+                                Estimate = txtinptestimatenumber.Text
                                //&& 'Lead Generator Id' = VarSelectedLead.TechnicianID
                             )
                         ),
@@ -1650,7 +1650,7 @@ LeadScreen As screen:
                             !IsBlank(
                                 LookUp(
                                     SHFPEstimates,
-                                    Estimate = txtinptestimatenumber_1.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID
+                                    Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID
                                 )
                             ),
                             Set(
@@ -1661,7 +1661,7 @@ LeadScreen As screen:
                                 VarFPEstimateData,
                                 LookUp(
                                     SHFPEstimates,
-                                    Estimate = txtinptestimatenumber_1.Text
+                                    Estimate = txtinptestimatenumber.Text
                                 )
                             );
                             Set(
@@ -1708,7 +1708,7 @@ LeadScreen As screen:
                     UpdateIf(
                         LeadInformations,
                         ID = VarSelectedLead.ID,
-                        {LeadEstimateNumber: txtinptestimatenumber_1.Text}
+                        {LeadEstimateNumber: txtinptestimatenumber.Text}
                     );
                    
                     Set(
@@ -1729,7 +1729,7 @@ LeadScreen As screen:
                         IsBlank(
                             LookUp(
                                 SHFPEstimates,
-                                Estimate = txtinptestimatenumber_1.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold"
+                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold"
                             )
                         ),
                         //Updating proposed price and proposed incentives
@@ -1742,7 +1742,7 @@ LeadScreen As screen:
                             LeadInformations,
                             ID = VarSelectedLead.ID,
                             {
-                                LeadEstimateNumber: txtinptestimatenumber_1.Text,
+                                LeadEstimateNumber: txtinptestimatenumber.Text,
                                 LeadStatus: "Quoted",
                                 ProposedLeadPrice: VarFPEstimateData.BidPrice,
                                 ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
@@ -1802,7 +1802,7 @@ LeadScreen As screen:
                             LeadInformations,
                             ID = VarSelectedLead.ID,
                             {
-                                LeadEstimateNumber: txtinptestimatenumber_1.Text,
+                                LeadEstimateNumber: txtinptestimatenumber.Text,
                                 LeadStatus: "Sold",
                                 SoldLeadPrice: VarFPEstimateData.BidPrice,
                                 SoldLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
@@ -1892,7 +1892,7 @@ LeadScreen As screen:
             HoverBorderColor: =RGBA(75, 125, 6, 1)
             HoverFill: =RGBA(75, 125, 6, 1)
             OnSelect: |-
-                =Reset(txtinptestimatenumber_1);
+                =Reset(txtinptestimatenumber);
                 Set(VarPopUpEstimateNumberResult,false);
                 Set(VarPopUpEstimateNumber,false);
             PressedBorderColor: =RGBA(1, 43, 1, 0)
