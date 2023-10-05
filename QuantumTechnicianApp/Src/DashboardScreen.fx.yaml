@@ -538,8 +538,7 @@ DashboardScreen As screen:
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |
-                                =
-                                Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "InProgress"});
+                                =Navigate([@SubmittedLeadScreen],ScreenTransition.None,{Header: "InProgress"});
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -703,7 +702,7 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
-                    Fill: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalProposedLead)<>0))=0,RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
+                    Fill: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
                     FillPortions: =0
                     Height: =Parent.Height/1.02
                     LayoutMinHeight: =80
@@ -845,27 +844,16 @@ DashboardScreen As screen:
                     BorderColor: =RGBA(116, 116, 116, 1)
                     BorderThickness: =1
                     DropShadow: =DropShadow.Semilight
-                    Fill: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'&& Value(TotalSoldLead)<>0))=0,RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
+                    Fill: |-
+                        =//If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'&& Value(TotalSoldLead)<>0))=0,
+                        If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,
+                        RGBA(229,228,226,1),RGBA(219, 219, 219, 1))
                     FillPortions: =0
                     Height: =Parent.Height/1.02
                     LayoutMinHeight: =80
                     LayoutMinWidth: =250
                     Width: =Parent.Width/2.2
                     ZIndex: =2
-
-                    Circle1_5 As circle:
-                        BorderColor: =RGBA(255, 191, 0, 1)
-                        BorderThickness: =1
-                        DisplayMode: =DisplayMode.View
-                        Fill: =RGBA(255, 191, 0, 1)
-                        Height: =13
-                        Visible: |-
-                            =//If(CountRows(Filter(LeadChats,ToEmail=User().Email && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus="Sold"))=0,false,true)
-                            false
-                        Width: =13
-                        X: =ctnQuatedLeadsDS.Width/1.2
-                        Y: =Parent.Height/8
-                        ZIndex: =4
 
                     Image1_4 As image:
                         DisplayMode: =DisplayMode.View
