@@ -19,7 +19,7 @@ QuotedSOldLeads As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderSLS_2 As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeaderSoldLeads As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -37,7 +37,7 @@ QuotedSOldLeads As screen:
             X: =0.00
             ZIndex: =1
 
-            IconMenuSLS_2 As icon.Hamburger:
+            IconMenuSoldLeads As icon.Hamburger:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -49,8 +49,7 @@ QuotedSOldLeads As screen:
                 Y: =11
                 ZIndex: =1
 
-            imgSchindlerLogoSLS_2 As image:
-                AlignInContainer: =AlignInContainer.Center
+            imgSchindlerLogoSoldLeads As image:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -63,7 +62,7 @@ QuotedSOldLeads As screen:
                 X: =0.00
                 ZIndex: =2
 
-            iconBackSLS_2 As icon.BackArrow:
+            iconBackSoldLeads As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -79,8 +78,7 @@ QuotedSOldLeads As screen:
                 Y: =11
                 ZIndex: =3
 
-            lblHeaderSLS_2 As label:
-                AlignInContainer: =AlignInContainer.Center
+            lblHeaderSoldLeads As label:
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
@@ -93,12 +91,11 @@ QuotedSOldLeads As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoSLS_2.Width-IconMenuSLS_2.Width-btnUserNameSLS_2.Width-70
+                Width: =Parent.Width-imgSchindlerLogoSoldLeads.Width-IconMenuSoldLeads.Width-btnUserNameSoldLeads.Width-70
                 X: =96.12
                 ZIndex: =4
 
-            btnUserNameSLS_2 As button:
-                AlignInContainer: =AlignInContainer.Center
+            btnUserNameSoldLeads As button:
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -134,7 +131,7 @@ QuotedSOldLeads As screen:
             PaddingTop: =0.00
             Width: =Parent.Width-40
             X: =21.36
-            Y: =ctnHeaderSLS_2.Y+ctnHeaderSLS_2.Height+10
+            Y: =ctnHeaderSoldLeads.Y+ctnHeaderSoldLeads.Height+10
             ZIndex: =2
 
             btnheaderSLS_2 As button:
@@ -165,7 +162,7 @@ QuotedSOldLeads As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnUserNameSLS_2.Height-ctnHeaderSLS_2.Height
+            Height: =Parent.Height-ctnUserNameSLS_2.Height-ctnHeaderSoldLeads.Height
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =10
