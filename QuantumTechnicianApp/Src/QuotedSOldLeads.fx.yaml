@@ -1006,7 +1006,7 @@ QuotedSOldLeads As screen:
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuSLS_2 As label:
+                lblMenuSoldLeads As label:
                     AutoHeight: =true
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =24
@@ -1016,12 +1016,12 @@ QuotedSOldLeads As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuSLS_2.Width-lineIndicatorSLS_2.Width
-                    X: =iconMenuSLS_2.Width+iconMenuSLS_2.X
+                    Width: =Parent.Width-iconMenuSoldLeads.Width-lineIndicatorSoldLeads.Width
+                    X: =iconMenuSoldLeads.Width+iconMenuSoldLeads.X
                     Y: =30
                     ZIndex: =1
 
-                iconMenuSLS_2 As icon.Add:
+                iconMenuSoldLeads As icon.Add:
                     Color: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -1030,7 +1030,7 @@ QuotedSOldLeads As screen:
                     Y: =30
                     ZIndex: =3
 
-                btnMenuSLS_2 As button:
+                btnMenuSoldLeads As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -1043,7 +1043,7 @@ QuotedSOldLeads As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorSLS_2 As rectangle:
+                lineIndicatorSoldLeads As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
