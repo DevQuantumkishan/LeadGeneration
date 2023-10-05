@@ -2289,14 +2289,14 @@ LeadScreen As screen:
         Y: =40
         ZIndex: =20
 
-        rectfullinprogressconfirmtionLS_1 As rectangle:
+        rectfullestimatenumberenteringLdS As rectangle:
             Fill: =RGBA(0, 0, 0, 0.29)
             Height: =Parent.Height
             Visible: =VarPopUpEstimateNumber
             Width: =Parent.Width
             ZIndex: =14
 
-        rectinprogressconfirmationLS_1 As rectangle:
+        rectestimatenumberenteringLdS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =280
             Visible: =VarPopUpEstimateNumber
@@ -2305,16 +2305,16 @@ LeadScreen As screen:
             Y: =Parent.Height/3
             ZIndex: =15
 
-        imginfoLS_1 As image:
+        imginfoLdS As image:
             Height: =52
             Image: =images
             Visible: =VarPopUpEstimateNumber
             Width: =52
             X: =(Parent.Width-Self.Width)/2
-            Y: =rectinprogressconfirmationLS_1.Y+20
+            Y: =rectestimatenumberenteringLdS.Y+20
             ZIndex: =16
 
-        lblmsgLS_1 As label:
+        lblmsgLdS As label:
             Align: =Align.Center
             Font: =Font.Arial
             FontWeight: =FontWeight.Bold
@@ -2324,10 +2324,10 @@ LeadScreen As screen:
             Visible: =VarPopUpEstimateNumber
             Width: =350
             X: =(Parent.Width-Self.Width)/2
-            Y: =imginfoLS_1.Y+ imginfoLS_1.Height+2
+            Y: =imginfoLdS.Y+ imginfoLdS.Height+2
             ZIndex: =17
 
-        btnyesLS_1 As button:
+        btnyesLdS As button:
             Fill: =RGBA(54, 176, 75, 1)
             Font: =Font.Arial
             HoverFill: =RGBA(75, 125, 6, 1)
@@ -2588,10 +2588,10 @@ LeadScreen As screen:
             Visible: =VarPopUpEstimateNumber
             Width: =120
             X: =(Parent.Width-Self.Width)/2.3
-            Y: =lblmsgLS_1.Y+ lblmsgLS_1.Height+10
+            Y: =lblmsgLdS.Y+ lblmsgLdS.Height+10
             ZIndex: =18
 
-        btnnoLS_1 As button:
+        btnnoLdS As button:
             BorderColor: =RGBA(75, 125, 6, 1)
             Fill: =RGBA(54, 176, 75, 1)
             Font: =Font.Arial
@@ -2606,8 +2606,8 @@ LeadScreen As screen:
             Text: ="No"
             Visible: =VarPopUpEstimateNumber
             Width: =120
-            X: =btnyesLS_1.X+btnyesLS_1.Width+20
-            Y: =lblmsgLS_1.Y+ lblmsgLS_1.Height+10
+            X: =btnyesLdS.X+btnyesLdS.Width+20
+            Y: =lblmsgLdS.Y+ lblmsgLdS.Height+10
             ZIndex: =19
 
     grpEstimateNumberSuccessLdS As group:
@@ -2617,7 +2617,7 @@ LeadScreen As screen:
         Y: =40
         ZIndex: =26
 
-        rectfullinprogressconfirmtionLS_3 As rectangle:
+        rectbigsuccessLdS As rectangle:
             Fill: =RGBA(0, 0, 0, 0.29)
             Height: =Parent.Height
             Visible: =VarPopUpEstimateNumberSubmitted
