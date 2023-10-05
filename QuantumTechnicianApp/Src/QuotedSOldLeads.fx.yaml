@@ -479,13 +479,14 @@ QuotedSOldLeads As screen:
                         Y: =htmltextTrackingNumberSLS_2.Y+htmltextTrackingNumberSLS_2.Height
                         ZIndex: =14
 
-                    iconmsgSLS_2 As icon.Message:
+                    iconmsgSL As icon.Message:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
                         Icon: =Icon.Message
                         OnSelect: |
-                            =Navigate(ChatScreen);
+                            =//Passing value of selected LeadTrackingNumber
+                            Navigate(ChatScreen);
                             Set(VarLtdName,ThisItem.'BuildingName ');
                             Set(VarLtdTrackingnumber,ThisItem.LeadTrackingNumber);
                             Set(VarLtdCntNumber,ThisItem.'ContractNumber ');
