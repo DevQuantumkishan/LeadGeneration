@@ -819,7 +819,7 @@ DashboardScreen As screen:
             Y: =Parent.Height/3
             ZIndex: =4
 
-        imginfoLS_2 As image:
+        imginfoincentiveDS As image:
             Height: =52
             Image: =images
             Visible: =VarPopUpIncentivesCalculation
@@ -828,7 +828,7 @@ DashboardScreen As screen:
             Y: =rectinprogressconfirmationLS_2.Y+20
             ZIndex: =5
 
-        lblmsgLS_2 As label:
+        lblmsgIncentiveDS As label:
             Align: =Align.Center
             Font: =Font.Arial
             FontWeight: =FontWeight.Semibold
@@ -837,7 +837,7 @@ DashboardScreen As screen:
             Visible: =VarPopUpIncentivesCalculation
             Width: =350
             X: =(Parent.Width-Self.Width)/2
-            Y: =imginfoLS_2.Y+ imginfoLS_2.Height+2
+            Y: =imginfoincentiveDS.Y+ imginfoincentiveDS.Height+2
             ZIndex: =6
 
         btnnoDS As button:
