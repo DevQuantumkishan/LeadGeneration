@@ -175,7 +175,7 @@ ChatScreen As screen:
             Y: =85
             ZIndex: =2
 
-            Button3_9 As button:
+            btnLeadsDetailsCS As button:
                 Align: =Align.Right
                 BorderColor: =RGBA(219, 219, 219, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -190,7 +190,7 @@ ChatScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-            lblHeaderDS_5 As label:
+            lblTrackingNumberCS As label:
                 AutoHeight: =true
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
@@ -206,7 +206,7 @@ ChatScreen As screen:
                 Y: =4
                 ZIndex: =2
 
-            lblHeaderDS_6 As label:
+            lblBuildingNameCS As label:
                 Align: =Align.Right
                 AutoHeight: =true
                 DisplayMode: =DisplayMode.View
@@ -224,7 +224,7 @@ ChatScreen As screen:
                 Y: =4
                 ZIndex: =3
 
-            lblHeaderDS_7 As label:
+            lblEstimateNumberCS As label:
                 AutoHeight: =true
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
@@ -238,7 +238,7 @@ ChatScreen As screen:
                 Text: ="Estimate number" & Char(10) & VarEstimateNumber
                 Visible: =If(VarLeadstatus="Quoted" || VarLeadstatus="Sold",true,false)
                 Width: =Parent.Width/2
-                Y: =lblHeaderDS_5.Y+lblHeaderDS_5.Height
+                Y: =lblTrackingNumberCS.Y+lblTrackingNumberCS.Height
                 ZIndex: =4
 
         Container8 As groupContainer.manualLayoutContainer:
