@@ -31,7 +31,7 @@ ChatScreen As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeader As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeaderCS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -105,7 +105,6 @@ ChatScreen As screen:
                 ZIndex: =4
 
             imgRefreshCS As image:
-                AlignInContainer: =AlignInContainer.Center
                 DisabledFill: =RGBA(255, 255, 255, 1)
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -156,7 +155,7 @@ ChatScreen As screen:
                 Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
                 ZIndex: =6
 
-        Container1_9 As groupContainer.manualLayoutContainer:
+        ctnLeadsDetailsCS As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(219, 219, 219, 1)
             BorderThickness: =2
@@ -246,7 +245,7 @@ ChatScreen As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeader.Height-Container1_9.Height-40
+            Height: =Parent.Height-ctnHeaderCS.Height-ctnLeadsDetailsCS.Height-40
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =5
