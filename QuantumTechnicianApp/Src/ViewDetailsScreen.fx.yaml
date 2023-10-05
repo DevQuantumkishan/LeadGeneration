@@ -167,7 +167,7 @@ ViewDetailsScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: |-
-                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescription_DataCard3_3.Height + PrimaryScopeofWorkLID_DataCard1.Height + SecondaryScopeofWorkLID_DataCard1.Height + ManuallyScopeOfWork_DataCard3_3.Height + EstimatedHours_DataCard1_4.Height + Material_DataCard1_4.Height + 'Unit Down_DataCard2_4'.Height + 'Additional expenses required_DataCard2_3'.Height + 
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + PrimaryScopeofWorkLID_DataCard1.Height + SecondaryScopeofWorkLID_DataCard1.Height + ManuallyScopeOfWork_DataCard3_3.Height + EstimatedHours_DataCard1_4.Height + Material_DataCard1_4.Height + 'Unit Down_DataCard2_4'.Height + 'Additional expenses required_DataCard2_3'.Height + 
                          'Travel Required_DataCard2_3'.Height + 'Communicated to Customer_DataCard2_3'.Height +
                          If(IsBlank(DataCardValue3.Text),0,
                           'CustomerName _DataCard2'.Height) +If(IsBlank(DataCardValue4.Text),0, 'CustomerContact _DataCard1'.Height)+
@@ -516,7 +516,7 @@ ViewDetailsScreen As screen:
                         Y: =lblUnitCountVDS.Y + lblUnitCountVDS.Height
                         ZIndex: =2
 
-                UnitDescription_DataCard3_3 As typedDataCard.textualEditCard:
+                UnitDescriptionVDS As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_unitdescription"
@@ -527,13 +527,13 @@ ViewDetailsScreen As screen:
                     Height: =50
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_unitdescription")
                     Required: =false
-                    Update: =DataCardValue30_3.Text
+                    Update: =intxtUnitDescriptionVDS.Text
                     Width: =Parent.Width
                     X: =0
                     Y: =6
                     ZIndex: =1
 
-                    DataCardKey31_3 As label:
+                    "'lblUnitDescription VDS' As label":
                         AutoHeight: =true
                         Color: =RGBA(0, 0, 0, 1)
                         Font: =Font.Arial
@@ -549,11 +549,9 @@ ViewDetailsScreen As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue30_3 As text:
+                    intxtUnitDescriptionVDS As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: |-
-                            =//Gallery1.Selected.UnitDescription
-                            ThisItem.UnitDescription
+                        Default: =ThisItem.UnitDescription
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
@@ -573,35 +571,8 @@ ViewDetailsScreen As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =DataCardKey31_3.Y + DataCardKey31_3.Height 
+                        Y: ='lblUnitDescription VDS'.Y + 'lblUnitDescription VDS'.Height 
                         ZIndex: =2
-
-                    ErrorMessage31_3 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =24
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue30_3.Y + DataCardValue30_3.Height
-                        ZIndex: =3
-
-                    StarVisible31_3 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey31_3.Height
-                        Size: =21
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey31_3.Y
-                        ZIndex: =4
 
                 PrimaryScopeofWorkLID_DataCard1 As typedDataCard.comboBoxEditCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
