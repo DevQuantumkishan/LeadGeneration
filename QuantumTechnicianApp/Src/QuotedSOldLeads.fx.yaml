@@ -208,8 +208,8 @@ QuotedSOldLeads As screen:
                     Y: =lblTitleYearSL.Y+lblTitleYearSL.Height+10
                     ZIndex: =1
 
-                "glryLeadsSLS_2 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-                    Height: =If(CountRows(glryLeadsSLS_2.AllItems)<2,glryLeadsSLS_2.TemplateHeight+20,Parent.Height)
+                "glryLeadsSL As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+                    Height: =If(CountRows(glryLeadsSL.AllItems)<2,glryLeadsSL.TemplateHeight+20,Parent.Height)
                     Items: |-
                         =SortByColumns(Search(Sort(Filter(LeadInformations,//Email=User().Email  && 
                         LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSoldLeads.Text,"shlrf_contractnumber","shlrf_address","shlrf_buildingname","shlrf_zipcode","shlrf_leadtrackingnumber"),If(cboxSortSoldLeads.Selected.Value="Created Date","createdon",cboxSortSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads.Selected.Value="Address","shlrf_address",cboxSortSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
