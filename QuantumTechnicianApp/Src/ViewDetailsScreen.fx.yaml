@@ -148,7 +148,7 @@ ViewDetailsScreen As screen:
         ctnMiddleVDS As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
             FillPortions: =0
-            Height: =SummaryFormVDS.Height+glryImageLSS_2.Height+lblUploadedImages.Height
+            Height: =SummaryFormVDS.Height+glryImageVDS.Height+lblUploadedImages.Height
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
@@ -1264,11 +1264,11 @@ ViewDetailsScreen As screen:
                 PaddingLeft: =30
                 Size: =14
                 Text: ="Uploaded Images"
-                Visible: =If(glryImageLSS_2.AllItemsCount>0,true,false)
+                Visible: =If(glryImageVDS.AllItemsCount>0,true,false)
                 Width: =Parent.Width-20
                 ZIndex: =2
 
-            "glryImageLSS_2 As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
+            "glryImageVDS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
                 AlignInContainer: =AlignInContainer.SetByContainer
                 BorderColor: =RGBA(39, 113, 194, 1)
                 DelayItemLoading: =true
@@ -1276,7 +1276,7 @@ ViewDetailsScreen As screen:
                 FillPortions: =0
                 Height: |-
                     =//If(glryImageLSS_2.AllItemsCount=0,0,glryImageLSS_2.AllItemsCount=1||glryImageLSS_2.AllItemsCount=2,250,glryImageLSS_2.AllItemsCount=4,550)
-                    If(glryImageLSS_2.AllItemsCount=0,0,200)
+                    If(glryImageVDS.AllItemsCount=0,0,200)
                 Items: =Filter(LeadImages,LeadInformationLID.ID=VarLtdID)
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
@@ -1290,7 +1290,7 @@ ViewDetailsScreen As screen:
                 Y: =SummaryFormVDS.Height
                 ZIndex: =3
 
-                ImageLSS_2 As image:
+                ImageVDS As image:
                     BorderThickness: =2
                     Height: =If(Parent.Width>Parent.Height,Parent.TemplateHeight/1.2,Parent.TemplateHeight/1.4)
                     Image: =ThisItem.Images
@@ -1320,7 +1320,7 @@ ViewDetailsScreen As screen:
             Height: |-
                 =
                 If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
-            Image: =glryImageLSS_2.Selected.Images.Value
+            Image: =glryImageVDS.Selected.Images.Value
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
