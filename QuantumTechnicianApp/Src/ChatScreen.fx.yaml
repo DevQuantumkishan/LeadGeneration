@@ -6,9 +6,9 @@ ChatScreen As screen:
             true
         );
         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
-        If(CountRows(Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,
+        If(CountRows(Filter( glryChatCS.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,
         ForAll(
-            Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
+            Filter( glryChatCS.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
         UpdateIf(
             LeadChats,
             ID=i.ID,
@@ -241,7 +241,7 @@ ChatScreen As screen:
                 Y: =lblTrackingNumberCS.Y+lblTrackingNumberCS.Height
                 ZIndex: =4
 
-        Container8 As groupContainer.manualLayoutContainer:
+        ctnMiddleCS As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -254,33 +254,13 @@ ChatScreen As screen:
             Y: =180
             ZIndex: =3
 
-            Gallery4_2 As gallery.variableTemplateHeightGallery:
+            glryChatCS As gallery.variableTemplateHeightGallery:
                 DelayItemLoading: =true
                 Fill: |-
                     =//RGBA(237,237,237,1) 
                     RGBA(0, 0, 0, 0)
                 Height: =Parent.Height-TextInput1_2.Height
-                Items: |-
-                    =Sort(Filter(LeadChats,LeadInformationLID.ID=VarLtdID),'Created On',SortOrder.Ascending)
-                    /*[{
-                        message:"Check doors again",
-                        time:"12.59 AM",
-                        name:"QQ Team",
-                        from:"you"
-                    },
-                    {
-                        message:"Gap problem",
-                        time:"1.15 AM",
-                        name:"Schindler guest",
-                        from:"me"
-                    },
-                    {
-                        message:"Okay",
-                        time:"2.05 AM",
-                        name:"QQ Team",
-                        from:"you"
-                    }
-                    ]*/
+                Items: =Sort(Filter(LeadChats,LeadInformationLID.ID=VarLtdID),'Created On',SortOrder.Ascending)
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 OnSelect: =
@@ -305,8 +285,8 @@ ChatScreen As screen:
                     PaddingRight: =40
                     Size: =If(Parent.Width<500,14,Parent.Width>500,16)
                     Text: =ThisItem.Message
-                    Width: =Parent.Width-Button1.Width-Button1.X
-                    X: =Button1.X+Button1.Width
+                    Width: =Parent.Width-btnshowFromNameCS.Width-btnshowFromNameCS.X
+                    X: =btnshowFromNameCS.X+btnshowFromNameCS.Width
                     ZIndex: =2
 
                 Label8_2 As label:
@@ -322,8 +302,8 @@ ChatScreen As screen:
                     Text: |-
                         =//ThisItem.From & "  "& ThisItem.Datetime
                         DateValue(ThisItem.'Created On')  & " "& TimeValue(ThisItem.'Created On')
-                    Width: =Parent.Width-Button1.Width-Button1.X
-                    X: =Button1.X+Button1.Width
+                    Width: =Parent.Width-btnshowFromNameCS.Width-btnshowFromNameCS.X
+                    X: =btnshowFromNameCS.X+btnshowFromNameCS.Width
                     Y: =Label6_2.Y+Label6_2.Height
                     ZIndex: =3
 
@@ -335,7 +315,7 @@ ChatScreen As screen:
                     Y: =Label8_2.Height+Label8_2.Y+5
                     ZIndex: =4
 
-                Button1 As button:
+                btnshowFromNameCS As button:
                     BorderColor: =Color.Red
                     BorderThickness: =1
                     Color: =RGBA(0, 0, 0, 1)
@@ -383,7 +363,7 @@ ChatScreen As screen:
                     Y: =15
                     ZIndex: =5
 
-                Button1_1 As button:
+                btnhideFromNameCS As button:
                     BorderColor: =Color.Red
                     BorderThickness: =1
                     Color: =RGBA(0, 0, 0, 1)
@@ -429,7 +409,7 @@ ChatScreen As screen:
                     Y: =15
                     ZIndex: =6
 
-                Label1 As label:
+                lblfromnameCS As label:
                     AutoHeight: =true
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =1
@@ -471,7 +451,7 @@ ChatScreen As screen:
                     PaddingLeft: =10
                     Size: =If(Parent.Width<500,12,Parent.Width>500,14)
                     Width: =Parent.Width-Icon6_2.Width
-                    Y: =Gallery4_2.Height
+                    Y: =glryChatCS.Height
                     ZIndex: =1
 
                 Icon6_2 As icon.Send:
@@ -490,9 +470,9 @@ ChatScreen As screen:
                         If(IsBlank(TextInput1_2.Text),
                         
                              Set (VarNotification,true),
-                             If(CountRows(Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,
+                             If(CountRows(Filter( glryChatCS.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes))>0,
                         ForAll(
-                            Filter( Gallery4_2.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
+                            Filter( glryChatCS.AllItems, LeadInformationLID.ID= VarLtdID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes)As i,
                         UpdateIf(
                             LeadChats,
                             ID=i.ID,
@@ -523,7 +503,7 @@ ChatScreen As screen:
                     PaddingTop: =10
                     Width: =If(Parent.Width<500,60,80)
                     X: =TextInput1_2.Width
-                    Y: =Gallery4_2.Height
+                    Y: =glryChatCS.Height
                     ZIndex: =2
 
     TimermessageCS As timer:
