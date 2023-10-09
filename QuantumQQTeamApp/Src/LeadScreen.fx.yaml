@@ -1832,7 +1832,8 @@ LeadScreen As screen:
                                     TotalproposedIncentives:0.0,
                                     TotalProposedLead:0,
                                     Year: Year(VarFPEstimateData.BookingDate),
-                                    LeadYear: Year(VarFPEstimateData.BookingDate)
+                                    LeadYear: Year(VarFPEstimateData.BookingDate),
+                                    YearlyCapReached:If((VarFPEstimateData.BidPrice * 0.02) > 10000,true) 
                                 }
                             ),
                             UpdateIf(
@@ -1850,7 +1851,12 @@ LeadScreen As screen:
                                             TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                             TotalSoldLead
                                         )
-                                    ) + 1
+                                    ) + 1,
+                                    YearlyCapReached:If(LookUp(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
+                                        TotalSoldIncentives
+                                    )>10000,true)
                                 }
                             );
                         );//total sold incentive countrows if close
