@@ -435,6 +435,7 @@ RejectedLeads As screen:
                         Navigate([@ViewDetailsScreen],ScreenTransition.None);
                         Reset(IntxtSearchBoxRS);
                         Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact ',"[$-en-US](###) ###-####"));
+                        Set(VarLeadstatus,ThisItem.LeadStatus);
                         
                         /*{LtdID:ThisItem.ID,ContractNumber:ThisItem.'ContractNumber ',BuildingName:ThisItem.'BuildingName ',Address:ThisItem.Address,Zipcode:ThisItem.'ZipCode ',UnitCount:ThisItem.NumberofUnits,UnitDescription:ThisItem.UnitDescription,Scope:ThisItem.PrimaryScopeofWorkLID,ScopeOfWork:ThisItem.SecondaryScopeofWorkLID,CustomScope:ThisItem.CustomScopeofWork,unitdown:ThisItem.IsUnitDown,AdditionalExpensesRequired:ThisItem.AdditionalExpensesRequired,CommunicatedtoCustomer:ThisItem.CommunicatedToCustomer,EstimatedHours:ThisItem.'EstimatedHours ',Material:ThisItem.Notes,travelRequired:ThisItem.TravelRequired//LeadImage:ThisItem.LeadImages
                         }*/
