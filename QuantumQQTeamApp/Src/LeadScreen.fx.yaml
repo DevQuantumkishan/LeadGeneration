@@ -575,101 +575,17 @@ LeadScreen As screen:
                         //here checking entered estimate number is present in FP file or not
                         If(
                             FlagEstimateNumberEntered = true,
-                            Set(VarPopUpEstimateNumber,true);,
-                            Set(VarPopUpEstimateNumber,false);
-                        );
-                        /*
-                        If(VarPopUpEstimateNumberResult=true,
-                            If(
-                                !IsBlank(
-                                    LookUp(
-                                        SHFPEstimates,
-                                        Estimate = txtinptestimatenumber_1.Text 
-                                        && 'Lead Generator Id' = VarSelectedLead.TechnicianID
-                                    )
-                                ),
-                                Set(
-                                    FlagEstimateNumberFound,
-                                    true
-                                );
-                                Set(
-                                    VarFPEstimateData,
-                                    LookUp(
-                                        SHFPEstimates,
-                                        Estimate = txtinptestimatenumber_1.Text
-                                    )
-                                );
-                                Set(
-                                    VarleadYear,
-                                    LookUp(
-                                        LeadInformations,
-                                        ID = VarSelectedLead.ID,
-                                        'Created On'
-                                    )
-                                ),
-                               // Notify("Estimate number not found in the FP Estimate file or Wrong Estimate number for this lead Technician is entered.");
-                              // Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
-                               Set(VarPopUpEstimateNumberSubmitted,true);
-                               Set(VarPopUpEstimateNumberSubmittedmsg,"Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
-                                Set(
-                                    FlagEstimateNumberFound,
-                                    false
-                                );
+                            Set(
+                                VarPopUpEstimateNumber,
+                                true
                             );
-                        );  
-                        
-                        //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
-                        If(
-                            //FlagEstimateNumberFound = true,
-                            VarPopUpEstimateNumberResult=true,
-                            LeadQuoted.Run(glryleadlistLS.Selected.Email,glryleadlistLS.Selected.LeadTrackingNumber,VarLoggedInUser.FullName);
-                            UpdateIf(
-                                LeadInformations,
-                                ID = VarSelectedLead.ID,
-                                {
-                                    LeadEstimateNumber: txtinptestimatenumber_1.Text,
-                                    LeadStatus: "Quoted",
-                                    'LeadPrice ': VarFPEstimateData.BidPrice,
-                                    LeadIncentive: VarFPEstimateData.BidPrice * 0.02,
-                                    TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                                    StatusDate:Now()
-                                }
-                            );
-                            UpdateIf(
-                                TotalIncentives,
-                                TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
-                                {
-                                    TotalproposedIncentives: LookUp(
-                                        TotalIncentives,
-                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
-                                        TotalproposedIncentives
-                                    ) + VarFPEstimateData.BidPrice * 0.02,
-                                    TotalProposedLead: Value(
-                                        LookUp(
-                                            TotalIncentives,
-                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarleadYear)),
-                                            TotalProposedLead
-                                        )
-                                    ) + 1
-                                }
+                            ,
+                            Set(
+                                VarPopUpEstimateNumber,
+                                false
                             );
                             
-                           /* Notify(
-                                "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
-                                NotificationType.Success
-                            );
-                             Set(VarPopUpEstimateNumberSubmitted,true);
-                             Set(VarPopUpEstimateNumberSubmittedmsg,"Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text);
-                            Navigate(DashboardScreen);,
-                            //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
-                         UpdateIf(
-                                LeadInformations,
-                                ID = VarSelectedLead.ID,
-                                {
-                                    LeadEstimateNumber: txtinptestimatenumber_1.Text
-                                }
-                            );
-                        );*/
+                        );
                     Text: ="Submit Estimate Number"
                     Width: =300
                     X: =410
