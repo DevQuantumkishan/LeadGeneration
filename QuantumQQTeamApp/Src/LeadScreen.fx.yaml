@@ -1378,7 +1378,8 @@ LeadScreen As screen:
             FocusedBorderThickness: =
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |+
-                =If(IsBlank(txtinptchatmessageLdS.Text),
+                =//here checking message is entered or not, if entered then insert row in leadchat table
+                If(IsBlank(txtinptchatmessageLdS.Text),
                 Notify("Please enter message to send",NotificationType.Warning); ,
                 Patch(LeadChats,Defaults(LeadChats),
                 {
