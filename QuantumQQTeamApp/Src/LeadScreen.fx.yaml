@@ -1873,19 +1873,3 @@ LeadScreen As screen:
             Y: =lblmsgsuccessLdS.Height+lblmsgsuccessLdS.Y
             ZIndex: =24
 
-        btnnosuccessLdS As button:
-            BorderColor: =RGBA(75, 125, 6, 1)
-            Fill: =RGBA(54, 176, 75, 1)
-            Font: =Font.Arial
-            HoverBorderColor: =RGBA(75, 125, 6, 1)
-            HoverFill: =RGBA(75, 125, 6, 1)
-            OnSelect: =
-            PressedBorderColor: =RGBA(1, 43, 1, 0)
-            PressedFill: =Self.Fill
-            Text: ="No"
-            Visible: =false
-            Width: =120
-            X: =btnyessuccessLdS.X+btnyessuccessLdS.Width+20
-            Y: =lblmsgsuccessLdS.Y+ lblmsgsuccessLdS.Height+10
-            ZIndex: =25
-
