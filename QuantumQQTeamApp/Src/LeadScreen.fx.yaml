@@ -572,7 +572,7 @@ LeadScreen As screen:
                                 true
                             )
                         );
-                        //here checking entered estimate number is present in FP file or not
+                        //here checking if estimate number is entered then open confirmation popup
                         If(
                             FlagEstimateNumberEntered = true,
                             Set(
