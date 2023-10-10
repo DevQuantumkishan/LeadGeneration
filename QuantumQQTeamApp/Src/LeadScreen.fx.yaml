@@ -1549,13 +1549,12 @@ LeadScreen As screen:
                 );
                 If(
                     VarPopUpEstimateNumberResult = true,
-                //checking in fpestimate file, is entered estimate number with repective technician id is available or not 
+                //checking in fpestimate file, is entered estimate number is available or not 
                     If(
                         !IsBlank(
                             LookUp(
                                 SHFPEstimates,
                                 Estimate = txtinptestimatenumber.Text
-                               //&& 'Lead Generator Id' = VarSelectedLead.TechnicianID
                             )
                         ),
                         Set(
@@ -1580,14 +1579,6 @@ LeadScreen As screen:
                                     Estimate = txtinptestimatenumber.Text
                                 )
                             );
-                            Set(
-                                VarleadYear,
-                                LookUp(
-                                    LeadInformations,
-                                    ID = VarSelectedLead.ID,
-                                    'Created On'
-                                )
-                            );
                             ,
                             Set(
                                 FlagEstimateNumberWithTechIdFound,
@@ -1596,17 +1587,15 @@ LeadScreen As screen:
                  
                    
                         //Notify("Estimate number not found in the FP Estimate file for this lead Technician is entered.");
-                       
+                       Set(
+                        VarPopUpEstimateNumberSubmittedmsg,
+                        "Estimate number not found in the FP Estimate file for this lead Technician is entered."
+                    );
                     Set(
                         VarPopUpEstimateNumberSubmitted,
                         true
                     );
-                    Set(
-                        VarPopUpEstimateNumberSubmittedmsg,
-                        "Estimate number not found in the FP Estimate file for this lead Technician is entered."
-                    );
-                            
-                      // Notify("Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed");
+                    
                         );
                         ,
                         Set(
@@ -1626,15 +1615,15 @@ LeadScreen As screen:
                         ID = VarSelectedLead.ID,
                         {LeadEstimateNumber: txtinptestimatenumber.Text}
                     );
-                   
+                   Set(
+                        VarPopUpEstimateNumberSubmittedmsg,
+                        "Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed"
+                    );
                     Set(
                         VarPopUpEstimateNumberSubmitted,
                         true
                     );
-                    Set(
-                        VarPopUpEstimateNumberSubmittedmsg,
-                        "Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed"
-                    );
+                    
                     
                 );
                 
@@ -1776,28 +1765,24 @@ LeadScreen As screen:
                                 }
                             );
                         );//total sold incentive countrows if close
-                   /* Notify(
-                        "Proposed Incentives updated for the estimateId " & txtinptestimatenumber_1.Text,
-                        NotificationType.Success
-                    );*/
-                    );
-                    //sold status if close
+                    ); //sold status if close
                 //Set(VarPopUpEstimateNumber,false);
+                 Set(
+                        VarPopUpEstimateNumberSubmittedmsg,
+                        "Incentives updated for the estimateId " & LookUp(LeadInformations,ID=VarSelectedLead.ID,LeadEstimateNumber)
+                    );
                 Set(
                         VarPopUpEstimateNumberSubmitted,
                         true
                     );
-                    Set(
-                        VarPopUpEstimateNumberSubmittedmsg,
-                        "Incentives updated for the estimateId " & LookUp(LeadInformations,ID=VarSelectedLead.ID,LeadEstimateNumber)
-                    );
+                   
                     Set(
                         VarNavigateDashboardScreen,
                         true
                     );
                   
                     
-                );
+                );//estimatenumber with techid if close
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
             Text: ="Yes"
