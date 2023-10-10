@@ -635,7 +635,8 @@ LeadScreen As screen:
                     Height: =60
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                     OnSelect: |-
-                        =If(
+                        =//here checking if rejection comment is entered or not, if entered then update leadinfo table with comment,status and status date
+                        If(
                             IsBlank(txitnptrejectLdS.Text),
                             Notify("Please enter rejection comment."),
                             UpdateIf(
@@ -1561,6 +1562,7 @@ LeadScreen As screen:
                             FlagEstimateNumberFound,
                             true
                         );
+                        //here checking estimate number with tech id in fpestimate file
                         If(
                             !IsBlank(
                                 LookUp(
@@ -1584,18 +1586,15 @@ LeadScreen As screen:
                                 FlagEstimateNumberWithTechIdFound,
                                 false
                             );
-                 
-                   
                         //Notify("Estimate number not found in the FP Estimate file for this lead Technician is entered.");
-                       Set(
-                        VarPopUpEstimateNumberSubmittedmsg,
-                        "Estimate number not found in the FP Estimate file for this lead Technician is entered."
-                    );
-                    Set(
-                        VarPopUpEstimateNumberSubmitted,
-                        true
-                    );
-                    
+                Set(
+                                VarPopUpEstimateNumberSubmittedmsg,
+                                "Estimate number not found in the FP Estimate file for this lead Technician is entered."
+                            );
+                            Set(
+                                VarPopUpEstimateNumberSubmitted,
+                                true
+                            );
                         );
                         ,
                         Set(
@@ -1606,7 +1605,6 @@ LeadScreen As screen:
                     //estimate number found if close
                 );
                 //estimatenumber entered if close
-                
                 If(
                     FlagEstimateNumberFound = false,
                 //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
@@ -1615,7 +1613,7 @@ LeadScreen As screen:
                         ID = VarSelectedLead.ID,
                         {LeadEstimateNumber: txtinptestimatenumber.Text}
                     );
-                   Set(
+                    Set(
                         VarPopUpEstimateNumberSubmittedmsg,
                         "Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully.We will update Incentives Details when FPEstimate file is processed"
                     );
@@ -1624,12 +1622,10 @@ LeadScreen As screen:
                         true
                     );
                     
-                    
                 );
-                
-                //here checking FlagEstimateNumberFound is true then update estimate number,leadprice,leadincentive
+                //here checking FlagEstimateNumberWithTechIdFound is true then update estimate number,leadprice,leadincentive
                 If(
-                    FlagEstimateNumberWithTechIdFound = true ,
+                    FlagEstimateNumberWithTechIdFound = true,
                     If(
                         IsBlank(
                             LookUp(
@@ -1695,14 +1691,15 @@ LeadScreen As screen:
                                     ) + 1
                                 }
                             );
-                        );//total prospective incentive countrows if close
-                        ,
-                
+                        );
+                        //total prospective incentive countrows if close
+                ,
                 //updating sold price and sold incentives
-                LeadSold.Run( glryleadlistLS.Selected.Email,
+                        LeadSold.Run(
+                            glryleadlistLS.Selected.Email,
                             glryleadlistLS.Selected.LeadTrackingNumber,
-                            VarLoggedInUser.FullName);
-                            
+                            VarLoggedInUser.FullName
+                        );
                         UpdateIf(
                             LeadInformations,
                             ID = VarSelectedLead.ID,
@@ -1714,9 +1711,9 @@ LeadScreen As screen:
                                 //TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 StatusDate: Now(),
                                 SoldLeadDate: VarFPEstimateData.BookingDate,
-                                ProposedLeadPrice:VarFPEstimateData.BidPrice,
-                                ProposedLeadIncentives:VarFPEstimateData.BidPrice * 0.02,
-                                ProposedLeadDate:VarFPEstimateData.DateCreated
+                                ProposedLeadPrice: VarFPEstimateData.BidPrice,
+                                ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                ProposedLeadDate: VarFPEstimateData.DateCreated
                             }
                         );
                         If(
@@ -1734,11 +1731,14 @@ LeadScreen As screen:
                                     TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                     TotalSoldIncentives: VarFPEstimateData.BidPrice * 0.02,
                                     TotalSoldLead: 1,
-                                    TotalproposedIncentives:0.0,
-                                    TotalProposedLead:0,
+                                    TotalproposedIncentives: 0.0,
+                                    TotalProposedLead: 0,
                                     Year: Year(VarFPEstimateData.BookingDate),
                                     LeadYear: Year(VarFPEstimateData.BookingDate),
-                                    YearlyCapReached:If((VarFPEstimateData.BidPrice * 0.02) > 10000,true) 
+                                    YearlyCapReached: If(
+                                        (VarFPEstimateData.BidPrice * 0.02) > 10000,
+                                        true
+                                    )
                                 }
                             ),
                             UpdateIf(
@@ -1757,32 +1757,40 @@ LeadScreen As screen:
                                             TotalSoldLead
                                         )
                                     ) + 1,
-                                    YearlyCapReached:If(LookUp(
-                                        TotalIncentives,
-                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
-                                        TotalSoldIncentives
-                                    )>10000,true)
+                                    YearlyCapReached: If(
+                                        LookUp(
+                                            TotalIncentives,
+                                            TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
+                                            TotalSoldIncentives
+                                        ) > 10000,
+                                        true
+                                    )
                                 }
                             );
-                        );//total sold incentive countrows if close
-                    ); //sold status if close
-                //Set(VarPopUpEstimateNumber,false);
-                 Set(
-                        VarPopUpEstimateNumberSubmittedmsg,
-                        "Incentives updated for the estimateId " & LookUp(LeadInformations,ID=VarSelectedLead.ID,LeadEstimateNumber)
+                        );
+                        //total sold incentive countrows if close
                     );
+                    //sold status if close
+                //Set(VarPopUpEstimateNumber,false);
                 Set(
+                        VarPopUpEstimateNumberSubmittedmsg,
+                        "Incentives updated for the estimateId " & LookUp(
+                            LeadInformations,
+                            ID = VarSelectedLead.ID,
+                            LeadEstimateNumber
+                        )
+                    );
+                    Set(
                         VarPopUpEstimateNumberSubmitted,
                         true
                     );
-                   
                     Set(
                         VarNavigateDashboardScreen,
                         true
                     );
-                  
                     
-                );//estimatenumber with techid if close
+                );
+                //estimatenumber with techid if close
             PressedBorderColor: =RGBA(1, 43, 1, 0)
             PressedFill: =Self.Fill
             Text: ="Yes"
