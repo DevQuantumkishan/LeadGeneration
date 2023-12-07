@@ -369,7 +369,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>Building name : </b>" &  ThisItem.'BuildingName '
+                        ="<b>Building Name: </b>" &  ThisItem.'BuildingName '
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -384,7 +384,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>Tracking number : </b>" &  ThisItem.LeadTrackingNumber
+                        ="<b>Tracking Number: </b>" &  ThisItem.LeadTrackingNumber
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -400,7 +400,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>Address : </b>" & ThisItem.Address
+                        ="<b>Address: </b>" & ThisItem.Address
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -415,7 +415,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =0
                     HtmlText: |-
-                        ="<b>Zipcode : </b>" & ThisItem.'ZipCode '
+                        ="<b>Zipcode: </b>" & ThisItem.'ZipCode '
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -432,7 +432,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>Date created : </b>" & Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
+                        ="<b>Date Created: </b>" & Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -481,7 +481,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>Contract number : </b>" &  ThisItem.'ContractNumber '
+                        ="<b>Contract Number: </b>" &  ThisItem.'ContractNumber '
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -497,7 +497,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>QQ Team member  : </b>" & ThisItem.QQTeamName
+                        ="<b>QQ Team Member: </b>" & ThisItem.QQTeamName
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
@@ -514,7 +514,7 @@ SubmittedLeadScreen As screen:
                     Font: =Font.Arial
                     Height: =20
                     HtmlText: |-
-                        ="<b>Status Date : </b>" & Text(ThisItem.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
+                        ="<b>Status Date: </b>" & Text(ThisItem.StatusDate,"yyyy/mm/dd hh:mm AM/PM")
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingTop: =0
