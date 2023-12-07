@@ -1262,9 +1262,9 @@ ViewDetailsScreen As screen:
 
             lblUploadedImages As label:
                 Fill: =RGBA(255, 255, 255, 1)
-                FontWeight: =FontWeight.Semibold
+                FontWeight: =FontWeight.Bold
                 PaddingLeft: =30
-                Size: =14
+                Size: =16
                 Text: ="Uploaded Images"
                 Visible: =If(glryImageVDS.AllItemsCount>0,true,false)
                 Width: =Parent.Width-20
