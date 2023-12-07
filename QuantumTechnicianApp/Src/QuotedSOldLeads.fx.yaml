@@ -151,7 +151,6 @@ QuotedSOldLeads As screen:
                 ZIndex: =1
 
         ctnMiddleSoldLeads As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =Parent.Height-ctnUserNameSoldLeads.Height-ctnHeaderSoldLeads.Height
@@ -169,7 +168,7 @@ QuotedSOldLeads As screen:
                 DelayItemLoading: =true
                 Height: =Parent.Height-ctnSearchBarSoldLeads.Height-ctnSortBarSoldLeads.Height
                 Items: |+
-                    =If(
+                    =Sort(If(
                         cumulatively = true,
                     Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && If(Header="Quoted",Value( TotalProposedLead)<>0,Value(TotalSoldLead)<>0),Year),
                     yearly = true,
@@ -178,7 +177,7 @@ QuotedSOldLeads As screen:
                             StartYear:Min(GCTotalIncentives,Year),
                             EndYear: Max(GCTotalIncentives,Year) 
                         },
-                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(StartYear))))
+                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(StartYear)))),Year,SortOrder.Ascending)
                     
                     
                 Layout: =Layout.Vertical
@@ -186,7 +185,7 @@ QuotedSOldLeads As screen:
                 TemplatePadding: =4
                 TemplateSize: =Min(1000, Self.Height - 20)
                 Width: =Parent.Width/1.02
-                X: =10
+                X: =5
                 Y: =ctnSortBarSoldLeads.Y+ctnSortBarSoldLeads.Height+10
                 ZIndex: =1
 
@@ -194,7 +193,9 @@ QuotedSOldLeads As screen:
                     Align: =Align.Center
                     AutoHeight: =true
                     Color: =RGBA(255, 0, 0, 1)
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    FontWeight: |-
+                        =//If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        FontWeight.Normal
                     Height: =30
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
@@ -270,7 +271,7 @@ QuotedSOldLeads As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            ="Sold incentive: $" & Text(ThisItem.SoldLeadIncentives,"0.00")
+                            ="Sold Incentive: $" & Text(ThisItem.SoldLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
@@ -300,7 +301,7 @@ QuotedSOldLeads As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            ="Estimate number : " & ThisItem.LeadEstimateNumber
+                            ="Estimate Number: " & ThisItem.LeadEstimateNumber
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
@@ -313,7 +314,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Building name : </b>" &  ThisItem.'BuildingName '
+                            ="<b>Building Name: </b>" &  ThisItem.'BuildingName '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -329,7 +330,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Tracking number : </b>" &  ThisItem.LeadTrackingNumber
+                            ="<b>Tracking Number: </b>" &  ThisItem.LeadTrackingNumber
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -346,7 +347,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Address : </b>" & ThisItem.Address
+                            ="<b>Address: </b>" & ThisItem.Address
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -363,7 +364,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =0
                         HtmlText: |-
-                            ="<b>Zipcode : </b>" & ThisItem.'ZipCode '
+                            ="<b>Zipcode: </b>" & ThisItem.'ZipCode '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -381,7 +382,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Date created : </b>" & Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
+                            ="<b>Date Created: </b>" & Text(ThisItem.'Created On',"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -443,7 +444,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =If(btnheaderSoldLeads.Text="Sold Leads",25,0)
                         HtmlText: |-
-                            ="<b>Sold date : </b>" & Text(ThisItem.SoldLeadDate,"yyyy/mm/dd hh:mm AM/PM")
+                            ="<b>Sold Date: </b>" & Text(ThisItem.SoldLeadDate,"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -459,7 +460,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Contract number : </b>" &  ThisItem.'ContractNumber '
+                            ="<b>Contract Number: </b>" &  ThisItem.'ContractNumber '
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -497,7 +498,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>QQ Team member  : </b>" & ThisItem.QQTeamName
+                            ="<b>QQ Team Member: </b>" & ThisItem.QQTeamName
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -519,7 +520,7 @@ QuotedSOldLeads As screen:
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,9,Parent.Width<500,12,14)
                         Text: |-
-                            ="Quoted incentive: $" & Text(ThisItem.ProposedLeadIncentives,"0.00")
+                            ="Quoted Incentive: $" & Text(ThisItem.ProposedLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
                         Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.06
@@ -553,7 +554,7 @@ QuotedSOldLeads As screen:
                         Font: =Font.Arial
                         Height: =20
                         HtmlText: |-
-                            ="<b>Quoted date : </b>" & Text( ThisItem.ProposedLeadDate,"yyyy/mm/dd hh:mm AM/PM")
+                            ="<b>Quoted Date: </b>" & Text( ThisItem.ProposedLeadDate,"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -602,7 +603,9 @@ QuotedSOldLeads As screen:
                     Align: =Align.Center
                     AutoHeight: =true
                     Font: =Font.Arial
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    FontWeight: |-
+                        =//If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        FontWeight.Normal
                     Height: =30
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
@@ -620,7 +623,9 @@ QuotedSOldLeads As screen:
                     Align: =Align.Center
                     Color: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    FontWeight: |-
+                        =//If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        FontWeight.Normal
                     Height: |-
                         =//30
                         30
@@ -641,7 +646,9 @@ QuotedSOldLeads As screen:
                     Align: =Align.Center
                     AutoHeight: =true
                     Font: =Font.Arial
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    FontWeight: |-
+                        =//If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        FontWeight.Normal
                     Height: |-
                         =//Self.Size * 1.8
                         30
@@ -662,7 +669,9 @@ QuotedSOldLeads As screen:
                     Align: =Align.Center
                     Color: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    FontWeight: |-
+                        =//If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        FontWeight.Normal
                     Height: =30
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
@@ -701,7 +710,9 @@ QuotedSOldLeads As screen:
                     Align: =Align.Center
                     AutoHeight: =true
                     Font: =Font.Arial
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    FontWeight: |-
+                        =//If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        FontWeight.Normal
                     Height: =30
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
@@ -810,7 +821,7 @@ QuotedSOldLeads As screen:
                     FocusedBorderThickness: =2
                     Font: =Font.Arial
                     Height: =If(Parent.Width>800,40,60)
-                    HintText: ="Search leads by  tracking number or contract number or building name or address or zipcode "
+                    HintText: ="Search leads by tracking number, contract number, building name, address or zip code "
                     HoverBorderColor: =RGBA(255, 0, 0, 1)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     LayoutMinHeight: =70
@@ -868,7 +879,7 @@ QuotedSOldLeads As screen:
                     Font: =Font.Arial
                     FontWeight: =FontWeight.Semibold
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Sort by column"
+                    Text: ="Sort by"
                     Width: |-
                         =//If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
                         Parent.Width-cboxSortSoldLeads.Width-iconSortSoldLeads.Width-20
@@ -889,7 +900,7 @@ QuotedSOldLeads As screen:
                     IsSearchable: =false
                     Items: |-
                         =
-                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address","Status Date"]
+                        ["Created Date","Contract Number","Lead Tracking No.","Building Name","Address","Status Date"]
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true})
                     PressedColor: =RGBA(0, 0, 0, 1)
