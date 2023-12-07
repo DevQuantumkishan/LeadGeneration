@@ -1553,7 +1553,7 @@
       "MetaDataIDKey": "",
       "Name": "cmbxareafilterLS",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2373,7 +2373,7 @@
       "MetaDataIDKey": "",
       "Name": "cmbxregionfilterLS",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2656,7 +2656,12 @@
         "LayoutOverflowY",
         "LayoutWrap",
         "DropShadow",
-        "ZIndex"
+        "ZIndex",
+        "BorderThickness",
+        "RadiusTopLeft",
+        "RadiusTopRight",
+        "RadiusBottomLeft",
+        "RadiusBottomRight"
       ],
       "DynamicProperties": [
         {
@@ -2721,9 +2726,34 @@
       "MetaDataIDKey": "",
       "Name": "ctndistrictandsearchfilterLS",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
+        {
+          "Category": "Design",
+          "PropertyName": "BorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "RadiusBottomLeft",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "RadiusBottomRight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "RadiusTopLeft",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "RadiusTopRight",
+          "RuleProviderType": "Unknown"
+        },
         {
           "Category": "Design",
           "PropertyName": "LayoutWrap",
@@ -5346,7 +5376,7 @@
       "MetaDataIDKey": "",
       "Name": "ctnsortcolumnLS",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16661,7 +16691,7 @@
       "MetaDataIDKey": "",
       "Name": "txtinptsearchLS",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
