@@ -189,7 +189,7 @@ SubmittedLeadScreen As screen:
                     FocusedBorderThickness: =2
                     Font: =Font.Arial
                     Height: =If(Parent.Width>800,40,60)
-                    HintText: ="Search leads by  tracking number or contract number or building name or address or zipcode "
+                    HintText: ="Search leads by tracking number, contract number, building name, address or zip code"
                     HoverBorderColor: =RGBA(255, 0, 0, 1)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     LayoutMinHeight: =70
@@ -249,7 +249,7 @@ SubmittedLeadScreen As screen:
                     FontWeight: =FontWeight.Semibold
                     Height: =50
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Sort by column"
+                    Text: ="Sort by"
                     Width: |-
                         =//If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
                         Parent.Width-cboxSortolumnsSLS.Width-iconSortSLS.Width-20
@@ -268,7 +268,7 @@ SubmittedLeadScreen As screen:
                     HoverFill: =RGBA(0, 0, 0, 0)
                     InputTextPlaceholder: =//"Created Date"
                     IsSearchable: =false
-                    Items: =["Created Date","Contract number","Lead Tracking No.","Building Name","Address","Status Date"]
+                    Items: =["Created Date","Contract Number","Lead Tracking No.","Building Name","Address","Status Date"]
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true})
                     PressedColor: =RGBA(0, 0, 0, 1)
