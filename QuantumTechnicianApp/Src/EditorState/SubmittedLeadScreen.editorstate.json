@@ -107,6 +107,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGallerySeparator1.ID%",
       "Name": "borderLeadsSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -345,6 +346,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnheaderSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -653,6 +655,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnMenuSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1016,6 +1019,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnSubmittedLeadSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1425,6 +1429,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnUserNameSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1857,6 +1862,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cboxSortolumnsSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2176,6 +2182,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnBackgroundMenuSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2445,6 +2452,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnHeaderSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2679,6 +2687,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnMainSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2871,6 +2880,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnMenuSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3107,6 +3117,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnMiddleSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3357,6 +3368,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnSearchBarSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3612,6 +3624,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnSearchBarSubmittedLeadsScreen",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3855,6 +3868,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ctnUserNameSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3997,6 +4011,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate1_10",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4024,6 +4039,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate2_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4119,7 +4135,8 @@
           "NameMapSourceSchema": "?"
         },
         "ZIndex",
-        "Visible"
+        "Visible",
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate2_1",
       "HasDynamicProperties": false,
@@ -4132,6 +4149,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "glryLeadsSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4259,6 +4277,11 @@
           "Category": "Design",
           "PropertyName": "FocusedBorderColor",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -4370,7 +4393,8 @@
           "InvariantPropertyName": "BorderThickness",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate1_10",
       "HasDynamicProperties": false,
@@ -4383,6 +4407,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "glryMenuBarSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4520,6 +4545,11 @@
           "Category": "Design",
           "PropertyName": "BorderThickness",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -4544,6 +4574,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "grpMenuSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4681,6 +4712,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "HtmlTextBuildingNameSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4898,6 +4930,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltextContractNumberSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5115,6 +5148,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltextTrackingNumberSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5355,6 +5389,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltxtAddressSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5605,6 +5640,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltxtDateSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5863,6 +5899,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltxtQQTeamMemberSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6119,6 +6156,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltxtStatusDateSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6382,6 +6420,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "htmltxtZipcodeSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6666,6 +6705,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "iconBackSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6907,6 +6947,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "iconMenuSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7177,6 +7218,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconMenuSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7495,6 +7537,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconSearchSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7768,6 +7811,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "iconSortSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8000,6 +8044,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "iconunreadIndicatorSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8173,6 +8218,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgMessageSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8481,6 +8527,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgSchindlerLogoSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8927,6 +8974,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IntxtSearchBoxSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -9353,6 +9401,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblHeaderSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -9660,6 +9709,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblMenuSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -10011,6 +10061,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblSortSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -10312,6 +10363,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lineIndicatorSLS",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -10433,6 +10485,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SubmittedLeadScreen",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
