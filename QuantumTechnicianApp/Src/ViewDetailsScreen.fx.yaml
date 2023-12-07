@@ -208,7 +208,7 @@ ViewDetailsScreen As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: =30
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Tracking number"
+                        Text: ="Tracking Number"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -255,7 +255,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Contract number"
+                        Text: ="Contract Number"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -316,7 +316,7 @@ ViewDetailsScreen As screen:
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Text: |-
                             =//Parent.DisplayName
-                            "Building name"
+                            "Building Name"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -374,7 +374,9 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//21
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: =Parent.DisplayName
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Zip Code"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -486,7 +488,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="No of units"
+                        Text: ="No of Units"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -542,7 +544,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Unit description"
+                        Text: ="Unit Description"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -647,7 +649,7 @@ ViewDetailsScreen As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: =34
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Scope of work"
+                        Text: ="Scope of Work"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -700,7 +702,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Scope of work (manually entered)"
+                        Text: ="Scope of Work (Manually Entered)"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =10
@@ -759,7 +761,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Estimated hours (total man hours)"
+                        Text: ="Estimated Hours (Total Man Hours)"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =10
@@ -817,7 +819,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//21
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Material, part number and other things"
+                        Text: ="Material, Part Number And Other Things"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =10
@@ -882,7 +884,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Unit down"
+                        Text: ="Unit Down"
                         Visible: =If(ThisItem.IsUnitDown='IsUnitDown (LeadInformations)'.Yes,true,false)
                         Width: =Parent.Width - 60
                         X: =30
@@ -916,7 +918,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Additional expenses required"
+                        Text: ="Additional Expenses Required"
                         Visible: |-
                             =//If(Gallery1.Selected.'Additional expenses required'='Additional expenses required (LeadInformations)'.Yes,true,false)
                             If(ThisItem.AdditionalExpensesRequired='AdditionalExpensesRequired (LeadInformations)'.Yes,true,false)
@@ -950,7 +952,7 @@ ViewDetailsScreen As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: =34
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Total estimated expense"
+                        Text: ="Total Estimated Expense"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -1042,7 +1044,7 @@ ViewDetailsScreen As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: =34
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Total estimated hours of travel"
+                        Text: ="Total Estimated Hours Of Travel"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -1100,7 +1102,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Communicated to customer"
+                        Text: ="Communicated To Customer"
                         Visible: |-
                             =//If(Gallery1.Selected.'Communicated to Customer'='Communicated to Customer (LeadInformations)'.Yes,true,false)
                             If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
@@ -1133,7 +1135,7 @@ ViewDetailsScreen As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: =34
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Customer name"
+                        Text: ="Customer Name"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -1186,7 +1188,7 @@ ViewDetailsScreen As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: =34
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Customer contact"
+                        Text: ="Customer Contact"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -1260,9 +1262,9 @@ ViewDetailsScreen As screen:
 
             lblUploadedImages As label:
                 Fill: =RGBA(255, 255, 255, 1)
-                FontWeight: =FontWeight.Semibold
+                FontWeight: =FontWeight.Bold
                 PaddingLeft: =30
-                Size: =14
+                Size: =16
                 Text: ="Uploaded Images"
                 Visible: =If(glryImageVDS.AllItemsCount>0,true,false)
                 Width: =Parent.Width-20
