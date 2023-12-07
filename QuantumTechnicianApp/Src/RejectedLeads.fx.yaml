@@ -181,7 +181,7 @@ RejectedLeads As screen:
                     FocusedBorderThickness: =2
                     Font: =Font.Arial
                     Height: =If(Parent.Width>800,40,60)
-                    HintText: ="Search leads by  tracking number or contract number or building name or address or zipcode "
+                    HintText: ="Search leads by tracking number, contract number, building name, address or zip code"
                     HoverBorderColor: =RGBA(255, 0, 0, 1)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     LayoutMinHeight: =70
@@ -260,7 +260,7 @@ RejectedLeads As screen:
                     IsSearchable: =false
                     Items: |-
                         =//["Tracking number" As , "Created On", "Building Name","Contract Number"]
-                        ["Created Date","Contract number","Lead Tracking No.","Building Name","Address","Status Date"]
+                        ["Created Date","Contract Number","Lead Tracking No.","Building Name","Address","Status Date"]
                     OnChange: |-
                         =UpdateContext({locInfoExpanded:true})
                     PressedColor: =RGBA(0, 0, 0, 1)
