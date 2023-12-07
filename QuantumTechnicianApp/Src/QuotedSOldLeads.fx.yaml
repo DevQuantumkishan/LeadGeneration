@@ -151,7 +151,6 @@ QuotedSOldLeads As screen:
                 ZIndex: =1
 
         ctnMiddleSoldLeads As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =Parent.Height-ctnUserNameSoldLeads.Height-ctnHeaderSoldLeads.Height
@@ -169,7 +168,7 @@ QuotedSOldLeads As screen:
                 DelayItemLoading: =true
                 Height: =Parent.Height-ctnSearchBarSoldLeads.Height-ctnSortBarSoldLeads.Height
                 Items: |+
-                    =If(
+                    =Sort(If(
                         cumulatively = true,
                     Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && If(Header="Quoted",Value( TotalProposedLead)<>0,Value(TotalSoldLead)<>0),Year),
                     yearly = true,
@@ -178,7 +177,7 @@ QuotedSOldLeads As screen:
                             StartYear:Min(GCTotalIncentives,Year),
                             EndYear: Max(GCTotalIncentives,Year) 
                         },
-                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(StartYear))))
+                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(StartYear)))),Year,SortOrder.Ascending)
                     
                     
                 Layout: =Layout.Vertical
@@ -186,7 +185,7 @@ QuotedSOldLeads As screen:
                 TemplatePadding: =4
                 TemplateSize: =Min(1000, Self.Height - 20)
                 Width: =Parent.Width/1.02
-                X: =10
+                X: =5
                 Y: =ctnSortBarSoldLeads.Y+ctnSortBarSoldLeads.Height+10
                 ZIndex: =1
 
