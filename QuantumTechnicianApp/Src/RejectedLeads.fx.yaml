@@ -239,7 +239,7 @@ RejectedLeads As screen:
                     Font: =Font.Arial
                     FontWeight: =FontWeight.Semibold
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Text: ="Sort by column"
+                    Text: ="Sort by"
                     Width: |-
                         =//If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
                         Parent.Width-cboxSortRS.Width-iconSortRS.Width-20
