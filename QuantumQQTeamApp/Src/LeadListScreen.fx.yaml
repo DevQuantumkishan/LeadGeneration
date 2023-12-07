@@ -135,14 +135,15 @@ LeadListScreen As screen:
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select District"
-                            IsSearchable: =false
                             Items: |
                                 =Distinct(Filter(SHTechnicians,Territory=cmbxregionfilterLS.Selected.Value),District)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
-                            SearchItems: =[]
+                            SearchItems: |-
+                                =Search(Distinct(Filter(SHTechnicians,Territory=cmbxregionfilterLS.Selected.Value),District)
+                                ,cmbxdistrictfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             Width: =200
                             X: =cmbxregionfilterLS.X+cmbxregionfilterLS.Width+5
@@ -156,14 +157,15 @@ LeadListScreen As screen:
                             DisplayFields: =["Value"]
                             HoverFill: =RGBA(0, 0, 0, 0)
                             InputTextPlaceholder: ="Select Territory"
-                            IsSearchable: =false
                             Items: |
                                 =Distinct(Filter(SHTechnicians,Area=cmbxareafilterLS.Selected.Value),Territory)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
-                            SearchItems: =[]
+                            SearchItems: |-
+                                =Search(Distinct(Filter(SHTechnicians,Area=cmbxareafilterLS.Selected.Value),Territory)
+                                ,cmbxregionfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             SelectMultiple: =false
                             Width: =200
@@ -175,15 +177,14 @@ LeadListScreen As screen:
                             BorderColor: =Header.SHRed
                             ChevronBackground: =Header.SHRed
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            DisplayFields: =["cr02d_area"]
+                            DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select Area"
-                            IsSearchable: =false
                             Items: =Distinct(SHTechnicians,Area)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
-                            SearchFields: =["cr02d_area"]
-                            SearchItems: =[]
+                            SearchFields: =["Value"]
+                            SearchItems: =Search(Distinct(SHTechnicians,Area),cmbxareafilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             Width: =200
                             X: =15
