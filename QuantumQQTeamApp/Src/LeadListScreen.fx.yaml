@@ -102,49 +102,19 @@ LeadListScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-                    cmbxregionfilterLS As combobox:
-                        BorderColor: =Header.SHRed
-                        ChevronBackground: =Header.SHRed
-                        ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        DisplayFields: =["cr02d_territory"]
-                        HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: ="Select Territory"
-                        Items: =SHTechnicians
-                        PressedColor: =RGBA(0, 0, 0, 1)
-                        PressedFill: =RGBA(0, 0, 0, 0)
-                        Reset: =true
-                        SearchFields: =["cr02d_territory"]
-                        SearchItems: =Search(SHTechnicians,cmbxregionfilterLS.SearchText,"cr02d_territory")
-                        SelectionFill: =Header.SHRed
-                        SelectMultiple: =false
-                        Visible: =false
-                        Width: =200
-                        ZIndex: =1
-
-                    cmbxareafilterLS As combobox:
-                        BorderColor: =Header.SHRed
-                        ChevronBackground: =Header.SHRed
-                        ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        DisplayFields: =["cr02d_area"]
-                        InputTextPlaceholder: ="Select Area"
-                        Items: =Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.Value)
-                        PressedColor: =RGBA(0, 0, 0, 1)
-                        PressedFill: =RGBA(0, 0, 0, 0)
-                        Reset: =true
-                        SearchFields: =["cr02d_area"]
-                        SearchItems: =Search(Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.Value),cmbxareafilterLS.SearchText,"cr02d_area")
-                        SelectionFill: =Header.SHRed
-                        Visible: =false
-                        Width: =200
-                        ZIndex: =3
-
                     ctndistrictandsearchfilterLS As groupContainer.manualLayoutContainer:
-                        AlignInContainer: =AlignInContainer.End
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderThickness: =3
                         FillPortions: =0
                         Height: =100
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
-                        Width: =600
+                        RadiusBottomLeft: =20
+                        RadiusBottomRight: =20
+                        RadiusTopLeft: =20
+                        RadiusTopRight: =20
+                        Width: =650
                         X: =btnbackLS.Width+btnbackLS.X
                         ZIndex: =5
 
@@ -154,9 +124,9 @@ LeadListScreen As screen:
                             HintText: ="Search on Contract No./Mechanic Name/Lead Tracking No./QQ Team Name"
                             HoverBorderColor: =Header.SHRed
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            Width: =340
-                            X: =cmbxdistrictfilterLS.Width+cmbxdistrictfilterLS.X+10
-                            Y: =40
+                            Width: =610
+                            X: =15
+                            Y: =54
                             ZIndex: =1
 
                         cmbxdistrictfilterLS As combobox:
@@ -165,17 +135,58 @@ LeadListScreen As screen:
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select District"
-                            Items: =Distinct(SHTechnicians,District)
+                            IsSearchable: =false
+                            Items: =Distinct(Filter(SHTechnicians,Territory=cmbxregionfilterLS.Selected.Value),District)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
-                            SearchItems: =Search(Distinct(SHTechnicians,District),cmbxdistrictfilterLS.SearchText,"Value")
+                            SearchItems: =[]
                             SelectionFill: =Header.SHRed
                             Width: =200
-                            X: =40
-                            Y: =40
+                            X: =cmbxregionfilterLS.X+cmbxregionfilterLS.Width+5
+                            Y: =5
                             ZIndex: =2
+
+                        cmbxregionfilterLS As combobox:
+                            BorderColor: =Header.SHRed
+                            ChevronBackground: =Header.SHRed
+                            ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            DisplayFields: =["cr02d_territory"]
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            InputTextPlaceholder: ="Select Territory"
+                            IsSearchable: =false
+                            Items: =Distinct(Filter(SHTechnicians,Area=cmbxareafilterLS.Selected.Value),Territory)
+                            PressedColor: =RGBA(0, 0, 0, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Reset: =true
+                            SearchFields: =["cr02d_territory"]
+                            SearchItems: =[]
+                            SelectionFill: =Header.SHRed
+                            SelectMultiple: =false
+                            Width: =200
+                            X: =cmbxareafilterLS.X+cmbxareafilterLS.Width+5
+                            Y: =5
+                            ZIndex: =3
+
+                        cmbxareafilterLS As combobox:
+                            BorderColor: =Header.SHRed
+                            ChevronBackground: =Header.SHRed
+                            ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            DisplayFields: =["cr02d_area"]
+                            InputTextPlaceholder: ="Select Area"
+                            IsSearchable: =false
+                            Items: =Distinct(SHTechnicians,Area) //Filter(SHTechnicians, District = cmbxdistrictfilterLS.Selected.Value)
+                            PressedColor: =RGBA(0, 0, 0, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Reset: =true
+                            SearchFields: =["cr02d_area"]
+                            SearchItems: =[]
+                            SelectionFill: =Header.SHRed
+                            Width: =200
+                            X: =15
+                            Y: =5
+                            ZIndex: =4
 
                     ctnsortcolumnLS As groupContainer.manualLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -191,6 +202,7 @@ LeadListScreen As screen:
                         RadiusBottomRight: =20
                         RadiusTopLeft: =20
                         RadiusTopRight: =20
+                        Width: =400
                         ZIndex: =6
 
                         lblsortcolumnLS As label:
@@ -323,27 +335,27 @@ LeadListScreen As screen:
                                     VarMyLeads = true,
                                     Search(Filter(
                                         LeadInformations,
-                                        QQTeamName = User().FullName ,Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                        QQTeamName = User().FullName ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                     ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname"),
                                     If(
                                         VarOpenLeads = true,
                                         Search(Filter(
                                             LeadInformations,
                                             (LeadStatus = "Submitted"|| LeadStatus = "Rejected" ||LeadStatus = "InProgress")
-                                            , Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                            , Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                         ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname")
                                         ,
                                         If(
                                             VarQuotedLeads = true,
                                            Search( Filter(
                                                 LeadInformations,
-                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                             ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname"),
                                             If(
                                                 VarSoldLeads = true,
                                                Search( Filter(
                                                     LeadInformations,
-                                                    LeadStatus = "Sold",Territory=cmbxregionfilterLS.Selected.Territory ||IsBlank(cmbxregionfilterLS.Selected.Territory) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Area ||IsBlank(cmbxareafilterLS.Selected.Area)
+                                                    LeadStatus = "Sold",Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                                 ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname")
                                             )
                                         )
@@ -455,7 +467,7 @@ LeadListScreen As screen:
                                 FontWeight: =FontWeight.Semibold
                                 Text: |-
                                     =//"Active"
-                                    ThisItem.LeadStatus
+                                    If(ThisItem.LeadStatus="InProgress","In Progress",ThisItem.LeadStatus)
                                 Width: =120
                                 ZIndex: =8
 
@@ -529,7 +541,7 @@ LeadListScreen As screen:
 
                     lblqqteamnameLS As label:
                         Align: =Align.Center
-                        Text: ="QQ Team name"
+                        Text: ="QQ Team Name"
                         ZIndex: =2
 
                     lblmechanicnameLS As label:
