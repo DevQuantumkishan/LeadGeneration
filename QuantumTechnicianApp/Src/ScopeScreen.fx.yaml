@@ -433,7 +433,7 @@ ScopeScreen As screen:
                         Height: =50
                         HoverBorderColor: =
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: =If(VarScope,""," Seach scope *")
+                        InputTextPlaceholder: =If(VarScope,""," Seach Scope *")
                         Items: =GCPrimaryScopeofWorks
                         OnChange: |-
                             =// to store selected scope in variable
@@ -574,7 +574,7 @@ ScopeScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =100
-                        HintText: =If(VarCustomScopeofwork,"",If(IsBlank(CboxScopeofwork.SelectedItems),"Custom scope of work(manually entered) *","Custom scope of work(manually entered)"))
+                        HintText: =If(VarCustomScopeofwork,"",If(IsBlank(CboxScopeofwork.SelectedItems),"Custom scope of work(manually entered) *","Custom scope of work (manually entered)"))
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -592,7 +592,7 @@ ScopeScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom scope of work(manually entered) *","Custom scope of work(manually entered)")
+                        Tooltip: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom scope of work(manually entered) *","Custom scope of work (manually entered)")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblManuallyScopeofwork.Y + lblManuallyScopeofwork.Height+2
