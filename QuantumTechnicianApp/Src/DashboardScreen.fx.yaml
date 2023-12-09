@@ -346,7 +346,8 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
                                 If(
@@ -364,14 +365,15 @@ DashboardScreen As screen:
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
-                            FontWeight: =FontWeight.Semibold
+                            FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             PaddingTop: =0
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 ="Leads#"
                             Width: =Parent.Width
@@ -472,7 +474,8 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
                                 If( 
@@ -490,14 +493,15 @@ DashboardScreen As screen:
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
-                            FontWeight: =FontWeight.Semibold
+                            FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
                             PaddingTop: =0
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 ="Leads#"
                             Width: =Parent.Width
@@ -598,7 +602,8 @@ DashboardScreen As screen:
                             Size: |-
                                 =//19.22
                                 //If(Parent.Width<358,14,Parent.Width>358,16,18)
-                                If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 =//its for count of yealy/cumulatively InProgress leads
                                 If(
@@ -623,7 +628,8 @@ DashboardScreen As screen:
                             PaddingTop: =0
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,12,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 ="Leads#"
                             Width: =Parent.Width
