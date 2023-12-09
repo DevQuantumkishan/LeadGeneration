@@ -621,7 +621,7 @@ DashboardScreen As screen:
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
-                            FontWeight: =FontWeight.Semibold
+                            FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
                             OnSelect: =Set(VarPopup,true)
@@ -736,7 +736,8 @@ DashboardScreen As screen:
                             PaddingTop: =0
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,11,Parent.Width>358,12,14)
+                                //If(Parent.Width<358,11,Parent.Width>358,12,14)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalproposedIncentives and if user select span for cumulatively, then need to show sum of TotalproposedIncentives .
                                 "Incentive  " &  Char(10) & "$ " & 
@@ -765,7 +766,8 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 =// to show total leads yearly or cumulatively
                                 If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,0,
@@ -794,7 +796,8 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width>800,20,Parent.Width<358,11,Parent.Width>358,12)
+                                //If(Parent.Width>800,20,Parent.Width<358,11,Parent.Width>358,12)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 ="Quoted Leads #"
                             Width: =Parent.Width
@@ -895,7 +898,8 @@ DashboardScreen As screen:
                             PaddingTop: =0
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,11,Parent.Width>358,12,14)
+                                //If(Parent.Width<358,11,Parent.Width>358,12,14)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 =//If user select span for yearly and yearlycapreatched is true then show $ 10000 otherwise show TotalsoldIncentives and if user select span for cumulatively, then need to show sum of TotalsoldIncentives .
                                 "Incentive  "   & Char(10) &  "$ " &
@@ -935,7 +939,8 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                //If(Parent.Width<358,14,Parent.Width>358,16,18)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,0,
                                 If(
@@ -965,7 +970,8 @@ DashboardScreen As screen:
                             OnSelect: =Set(VarPopup,true)
                             Size: |-
                                 =//19.22
-                                If(Parent.Width>800,20,Parent.Width<358,11,Parent.Width>358,12)
+                                //If(Parent.Width>800,20,Parent.Width<358,11,Parent.Width>358,12)
+                                If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                             Text: |-
                                 ="Sold Leads #"
                             Width: =Parent.Width
