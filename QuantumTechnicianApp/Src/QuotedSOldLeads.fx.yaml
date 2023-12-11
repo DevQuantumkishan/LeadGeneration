@@ -446,6 +446,7 @@ QuotedSOldLeads As screen:
                             ="<b>Sold Date: </b>" & Text(ThisItem.SoldLeadDate,"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
+                        PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Visible: =If(btnheaderSoldLeads.Text="Sold Leads",true,false)

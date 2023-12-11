@@ -819,7 +819,9 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//21
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Material, Part Number And Other Things"
+                        Text: |-
+                            =//"Material, Part Number And Other Things"
+                            "Material / Parts Required / Comments"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =10
