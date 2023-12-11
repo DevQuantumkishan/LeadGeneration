@@ -569,7 +569,7 @@ EstimateScreen As screen:
                         PressedBorderColor: =
                         PressedColor: =RGBA(0, 0, 0, 1)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Unit down"
+                        Text: ="Unit Down"
                         Width: =Parent.Width-50
                         X: =30
                         ZIndex: =5
@@ -609,7 +609,7 @@ EstimateScreen As screen:
                             Set(VarAdditionExpense,false);Set(VarTotalEstimateExpenseSummary,Blank());
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Additional expenses required"
+                        Text: ="Additional Expenses Required"
                         Width: =Parent.Width-50
                         X: =30
                         ZIndex: =5
@@ -722,7 +722,7 @@ EstimateScreen As screen:
                             Set(VarTravel,false);Set(VarTotalEstimateHoursofTravelSummary,Blank())
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Travel required"
+                        Text: ="Travel Required"
                         Width: =Parent.Width-50
                         X: =30
                         ZIndex: =5
@@ -762,7 +762,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarTotalEstimateHoursfortravel,50,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Total estimated hours of travel *"
+                        Text: ="Total Estimated Hours of Travel *"
                         Visible: =VarTotalEstimateHoursfortravel || !IsBlank(IntxtTotalEstimatedHoursofTravel)
                         Width: =Parent.Width - 120
                         X: =60
@@ -777,7 +777,7 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Format: =TextFormat.Number
-                        HintText: =If(VarTotalEstimateHoursfortravel,"","Total estimated hrs of travel *")
+                        HintText: =If(VarTotalEstimateHoursfortravel,"","Total Estimated hrs of Travel *")
                         HoverBorderColor: =RGBA(149, 149, 149, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =3
@@ -793,7 +793,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Total estimated hours of travel"
+                        Tooltip: ="Total Estimated Hours of Travel"
                         Width: =Parent.Width - 100
                         X: =60
                         Y: =lblTotalEstimatedHoursofTravel.Y + lblTotalEstimatedHoursofTravel.Height + 5
@@ -844,7 +844,7 @@ EstimateScreen As screen:
                             Set(VarformattedNumberSummary,Blank());
                         PressedBorderColor: =
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Communicated to customer"
+                        Text: ="Communicated to Customer"
                         Width: =Parent.Width-50
                         X: =30
                         ZIndex: =5
@@ -1264,7 +1264,10 @@ EstimateScreen As screen:
                     OnSelect: |-
                         =//IntxtEstimatedHours or  IntxtMaterial or  IntxtContactName or  txtphonenumber_1.Text or  Length of txtphonenumber_1.Text is not equal to 14 or IntxtTotalEstimatedExpense are blank then set varNotification as true otherwise set below variables true and naviate to ImageUploadScreen.
                         If(
-                        IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )|| If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
+                        IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))
+                        //|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))
+                        //|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )
+                        || If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
                         Set(VarNotification,true),
                         Set(VarIndicator, true );
                         Set(VarIndicatorUS, true );

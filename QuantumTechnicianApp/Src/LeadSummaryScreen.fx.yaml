@@ -205,7 +205,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =48
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Contract number *"
+                            Text: ="Contract Number *"
                             Width: =Parent.Width-60
                             Wrap: =false
                             X: =30
@@ -259,7 +259,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =30
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Building name"
+                            Text: ="Building Name"
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -311,7 +311,7 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Height: =32
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Zipcode"
+                            Text: ="Zip Code"
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -414,7 +414,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =48
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Quantity of units *"
+                            Text: ="Quantity of Units *"
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -431,7 +431,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Format: =TextFormat.Number
                             Height: =50
-                            HintText: ="Quantity of units"
+                            HintText: ="Quantity of Units"
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnChange: =Set(VarUnitcountSummary,IntxtUnitCountLSS.Text)
@@ -469,7 +469,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =35
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Unit description *"
+                            Text: ="Unit Description *"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =10
@@ -482,7 +482,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =70
-                            HintText: ="Unit description"
+                            HintText: ="Unit Description"
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
@@ -494,7 +494,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: ="Unit description"
+                            Tooltip: ="Unit Description"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblUnitDescriptionLSS.Y + lblUnitDescriptionLSS.Height + 5
@@ -576,7 +576,7 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: =If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),"Scope of work *","Scope of work")
+                            Text: =If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),"Scope of Work *","Scope of Work")
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -634,7 +634,7 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom scope of work(manually entered) *","Custom scope of work(manually entered)")
+                            Text: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom Scope of Wwork (Manually Entered) *","Custom Scope of Work(Manually Entered)")
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =10
@@ -647,7 +647,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
-                            HintText: =If(IsBlank(CboxScopeofWorkLSS.SelectedItems),"Custom scope of work(manually entered) *","Custom scope of work(manually entered)")
+                            HintText: =If(IsBlank(CboxScopeofWorkLSS.SelectedItems),"Custom Scope of Work (Manually Entered) *","Custom Scope of Work(Manually Entered)")
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
@@ -686,7 +686,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =48
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Estimated hours (total man hours) *"
+                            Text: ="Estimated Hours (Total Man Hours) *"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =10
@@ -738,7 +738,9 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =31
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Material, part number and other things *"
+                            Text: |-
+                                =//"Material, part number and other things *"
+                                "Material / Parts Required / Comments"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =10
@@ -796,7 +798,7 @@ LeadSummaryScreen As screen:
                             OnUncheck: =Set(VarUnitDownSummary,CboxUDLSS.Value)
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Unit down"
+                            Text: ="Unit Down"
                             Width: =Parent.Width-60
                             X: =20
                             ZIndex: =5
@@ -835,7 +837,7 @@ LeadSummaryScreen As screen:
                                 Set(VarTotalEstimateExpenseSummary,Blank());
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Additional expenses required"
+                            Text: ="Additional Expenses Required"
                             Width: =Parent.Width-60
                             X: =20
                             ZIndex: =5
@@ -873,7 +875,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =34
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Total estimated expense *"
+                            Text: ="Total Estimated Expense *"
                             Tooltip: ="Total estimated expense"
                             Width: =Parent.Width - 120
                             X: =70
@@ -936,7 +938,7 @@ LeadSummaryScreen As screen:
                                 Set(VarTravel,false);Set(VarTotalEstimateHoursofTravelSummary,Blank());
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Travel required"
+                            Text: ="Travel Required"
                             Width: =Parent.Width-60
                             X: =20
                             ZIndex: =5
@@ -973,7 +975,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =50
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Total estimated hours of travel *"
+                            Text: ="Total Estimated Hours of Travel *"
                             Width: =Parent.Width - 120
                             X: =70
                             Y: =10
@@ -986,7 +988,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Format: =TextFormat.Number
-                            HintText: ="Total estimated hours of travel"
+                            HintText: ="Total Estimated Hours of Travel"
                             HoverBorderColor: =RGBA(149, 149, 149, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =3
@@ -998,7 +1000,7 @@ LeadSummaryScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: ="Total estimated hours of travel"
+                            Tooltip: ="Total Estimated Hours of Travel"
                             Width: =Parent.Width - 120
                             X: =70
                             Y: =lblTotalEstimatedHoursofTravelLSS.Y + lblTotalEstimatedHoursofTravelLSS.Height + 5
@@ -1038,7 +1040,7 @@ LeadSummaryScreen As screen:
                                 Set(varPhoneNumber,Blank());
                             PressedBorderColor: =
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Communicated to customer"
+                            Text: ="Communicated to Customer"
                             Width: =Parent.Width-60
                             X: =20
                             ZIndex: =5
@@ -1090,7 +1092,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
-                            HintText: ="""Customer Name"""
+                            HintText: ="Customer Name"
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =Parent.MaxLength
@@ -1140,7 +1142,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =32
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Customer Phone Number *"
+                            Text: ="Customer Phone Number"
                             Width: =Parent.Width - 120
                             Wrap: =false
                             X: =70
@@ -1165,7 +1167,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
-                            HintText: =If(varCustomerPhonenumber,"","Customer Phone Number *")
+                            HintText: =If(varCustomerPhonenumber,"","Customer Phone Number ")
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: |
@@ -1655,9 +1657,11 @@ LeadSummaryScreen As screen:
                         If(
                             IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
                                 CboxCCLSS.Value = true,
-                                IsBlank(IntxtCustomerNameLSS)) || If(
+                                IsBlank(IntxtCustomerNameLSS)) 
+                                /*|| If(
                                 CboxCCLSS.Value = true,IsBlank(txtphonenumber_2)) || If(
-                                CboxCCLSS.Value = true,Len(txtphonenumber_2) <> 14) ||If(
+                               // CboxCCLSS.Value = true,Len(txtphonenumber_2) <> 14) */
+                               ||If(
                                 cboxAELSS.Value = true,
                                 IsBlank(IntxtTotalEstimatedExpenseLSS)
                             ) || If(
