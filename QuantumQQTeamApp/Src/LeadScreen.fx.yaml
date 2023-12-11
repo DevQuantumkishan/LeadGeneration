@@ -1161,7 +1161,7 @@ LeadScreen As screen:
 
                             lblcustnameLdS As label:
                                 FontWeight: =FontWeight.Semibold
-                                Text: ="Customer name"
+                                Text: ="Customer Name"
                                 Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
                                 Width: =300
                                 ZIndex: =9
@@ -1173,7 +1173,7 @@ LeadScreen As screen:
 
                             lblcustcontactLdS As label:
                                 FontWeight: =FontWeight.Semibold
-                                Text: ="Customer contact"
+                                Text: ="Customer Contact"
                                 Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
                                 Width: =300
                                 ZIndex: =11
