@@ -125,8 +125,11 @@ UnitScreen As screen:
             ZIndex: =2
 
             btnUserUS As button:
+                AutoDisableOnSelect: =false
                 Color: =RGBA(0, 0, 0, 1)
-                DisplayMode: =DisplayMode.View
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
                 Fill: =RGBA(255, 255, 255, 1)
                 Font: =Font.Arial
                 Height: =Parent.Height
