@@ -1046,7 +1046,7 @@ ViewDetailsScreen As screen:
                         FontWeight: =FontWeight.Semibold
                         Height: =34
                         Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Total Estimated Hours Of Travel"
+                        Text: ="Total Estimated Hours of Travel"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -1104,7 +1104,7 @@ ViewDetailsScreen As screen:
                         Size: |-
                             =//18
                             If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Communicated To Customer"
+                        Text: ="Communicated to Customer"
                         Visible: |-
                             =//If(Gallery1.Selected.'Communicated to Customer'='Communicated to Customer (LeadInformations)'.Yes,true,false)
                             If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes,true,false)

@@ -544,7 +544,7 @@ CreatLeadScreen As screen:
                             DisplayMode.Disabled
                         FocusedBorderThickness: =2
                         Height: =50
-                        HintText: ="Zip code"
+                        HintText: ="Zip Code"
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -557,7 +557,7 @@ CreatLeadScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =Parent.DisplayName
+                        Tooltip: ="Zip Code"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblZipcode.Y + lblZipcode.Height +2
