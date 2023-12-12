@@ -1270,7 +1270,7 @@ EstimateScreen As screen:
                         //|| IsBlank(IntxtMaterial) 
                         || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))
                         //|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))
-                        //|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )
+                        || If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )
                         || If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
                         Set(VarNotification,true),
                         Set(VarIndicator, true );
