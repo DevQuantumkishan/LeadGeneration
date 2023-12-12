@@ -1363,7 +1363,7 @@ LeadSummaryScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: =If( VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead submitted successfully.Lead tracking number is " & VarLeadTrackingNumber&".")
+                Text: =If( VarNotificationloding,"Submitting",VarNotificationSuccess,"Lead submitted successfully. Lead tracking number is " & VarLeadTrackingNumber&".")
                 Width: =Parent.Width
                 ZIndex: =2
 
