@@ -1655,7 +1655,8 @@ LeadSummaryScreen As screen:
                                 Set(varSubmit,false);
                         IfError(
                         If(
-                            IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text) || IsBlank(IntxtNotesLSS.Text) || If(
+                            IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text)  //IsBlank(IntxtNotesLSS.Text) 
+                            || If(
                                 CboxCCLSS.Value = true,
                                 IsBlank(IntxtCustomerNameLSS)) 
                                 /*|| If(
