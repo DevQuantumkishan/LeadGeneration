@@ -23202,7 +23202,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "HintText",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(varCustomerPhonenumber,\"\",\"Customer Phone Number *\")",
+          "InvariantPropertyName": "HintText",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "OnSelect"
       ],
       "HasDynamicProperties": false,

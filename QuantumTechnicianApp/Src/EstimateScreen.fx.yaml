@@ -435,7 +435,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarEstimateHours,48,0)
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
-                        Text: ="Estimated hours(total man hours) *"
+                        Text: ="Estimated Hours(Total Man Hours) *"
                         Tooltip: ="Estimated hours(total man hours)"
                         Visible: =VarEstimateHours
                         Width: =Parent.Width - 60
@@ -450,7 +450,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: =If(VarEstimateHours,"","Estimated Hours(Total Man hrs) *")
+                        HintText: =If(VarEstimateHours,"","Estimated Hours(Total Man Hrs) *")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
@@ -466,7 +466,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
-                        Tooltip: ="Estimated hours(total man hours)"
+                        Tooltip: ="Estimated Hours(Total Man Hours)"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblEstimatedHours.Y + lblEstimatedHours.Height + 5
@@ -495,8 +495,10 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarNotes,48,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Material, part numbers, and other notes *"
-                        Tooltip: ="Material, part numbers, and other notes"
+                        Text: |-
+                            =//"Material, part numbers, and other notes *"
+                            "Material / Parts Required / Comments *"
+                        Tooltip: ="Material / Parts Required / Comments *"
                         Visible: =VarNotes
                         Width: =Parent.Width - 60
                         X: =30
@@ -509,7 +511,7 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =80
-                        HintText: =If(VarNotes,"","Material / Parts Required / Comments")
+                        HintText: =If(VarNotes,"","Material / Parts Required / Comments *")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -526,7 +528,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
-                        Tooltip: ="Material, part numbers, and other notes"
+                        Tooltip: ="Material / Parts Required / Comments *"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblMaterial.Y + lblMaterial.Height + 5
@@ -649,7 +651,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarTotalEstimatesExpense,31,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Total estimated expense ($)*"
+                        Text: ="Total Estimated Expense ($)*"
                         Visible: =VarTotalEstimatesExpense || !IsBlank(IntxtTotalEstimatedExpense)
                         Width: =Parent.Width - 120
                         Wrap: =false
@@ -665,7 +667,7 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Format: =TextFormat.Number
-                        HintText: =If(VarTotalEstimatesExpense,"","Total estimated expense ($)* ")
+                        HintText: =If(VarTotalEstimatesExpense,"","Total Estimated Expense ($)* ")
                         HoverBorderColor: =RGBA(149, 149, 149, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =Parent.MaxLength
@@ -681,7 +683,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Total estimated expense"
+                        Tooltip: ="Total EStimated Expense"
                         Width: =Parent.Width - 100
                         X: =60
                         Y: =lblTotalEstimatedExpense.Y + lblTotalEstimatedExpense.Height + 5
@@ -960,7 +962,7 @@ EstimateScreen As screen:
                         Height: =If(varCustomerPhonenumber,31,0)
                         PaddingLeft: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Customer Phone Number *"
+                        Text: ="Customer Phone Number "
                         Visible: =varCustomerPhonenumber || !IsBlank(lblContactNumber)
                         Width: =Parent.Width - 120
                         Wrap: =false
@@ -1200,7 +1202,7 @@ EstimateScreen As screen:
                         DisabledFill: =RGBA(255, 255, 255, 1)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        HintText: =If(varCustomerPhonenumber,"","Customer Phone Number *")
+                        HintText: =If(varCustomerPhonenumber,"","Customer Phone Number ")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: |
