@@ -497,7 +497,7 @@ EstimateScreen As screen:
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: |-
                             =//"Material, part numbers, and other notes *"
-                            "Material / Parts Required / Comments *"
+                            "Material / Parts Required / Comments "
                         Tooltip: ="Material / Parts Required / Comments *"
                         Visible: =VarNotes
                         Width: =Parent.Width - 60
@@ -511,7 +511,7 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =80
-                        HintText: =If(VarNotes,"","Material / Parts Required / Comments *")
+                        HintText: =If(VarNotes,"","Material / Parts Required / Comments ")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
@@ -528,7 +528,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
-                        Tooltip: ="Material / Parts Required / Comments *"
+                        Tooltip: ="Material / Parts Required / Comments "
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblMaterial.Y + lblMaterial.Height + 5
@@ -1266,7 +1266,9 @@ EstimateScreen As screen:
                     OnSelect: |-
                         =//IntxtEstimatedHours or  IntxtMaterial or  IntxtContactName or  txtphonenumber_1.Text or  Length of txtphonenumber_1.Text is not equal to 14 or IntxtTotalEstimatedExpense are blank then set varNotification as true otherwise set below variables true and naviate to ImageUploadScreen.
                         If(
-                        IsBlank(IntxtEstimatedHours) || IsBlank(IntxtMaterial) || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))
+                        IsBlank(IntxtEstimatedHours) 
+                        //|| IsBlank(IntxtMaterial) 
+                        || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))
                         //|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))
                         //|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )
                         || If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
