@@ -851,7 +851,7 @@ LeadSummaryScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedexpense")
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
+                        Height: =100
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedexpense")
                         Required: =false
                         Update: =IntxtTotalEstimatedExpenseLSS.Text
@@ -951,7 +951,7 @@ LeadSummaryScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
+                        Height: =120
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
                         Required: =false
                         Update: =intxtTotalEstimatedHoursofTravelLSS.Text
@@ -1053,7 +1053,7 @@ LeadSummaryScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customername")
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
+                        Height: =110
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
                         Required: =false
                         Update: =IntxtCustomerNameLSS.Text
