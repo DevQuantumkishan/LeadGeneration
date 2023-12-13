@@ -1183,6 +1183,17 @@ LeadScreen As screen:
                                 Visible: =If(glryleadlistLS.Selected.CommunicatedToCustomer = 'CommunicatedToCustomer (LeadInformations)'.Yes,true,false)
                                 ZIndex: =12
 
+                            chbxsafetyLdS As checkbox:
+                                Default: =true
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =//2
+                                FontWeight: =FontWeight.Bold
+                                PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
+                                Text: ="Unit Down"
+                                Visible: =If(glryleadlistLS.Selected.Safety='Safety (LeadInformations)'.Yes,true,false)
+                                Width: =Parent.Width
+                                ZIndex: =13
+
                         ctnphotoglryLdS As groupContainer.verticalAutoLayoutContainer:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             FillPortions: =2
