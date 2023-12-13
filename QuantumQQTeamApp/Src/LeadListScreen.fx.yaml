@@ -209,10 +209,11 @@ LeadListScreen As screen:
                         ZIndex: =6
 
                         lblsortcolumnLS As label:
+                            Align: =Align.Center
                             Color: =RGBA(116, 116, 116, 1)
                             FontWeight: =FontWeight.Semibold
-                            Text: ="Sort column by order"
-                            Width: =300
+                            Text: ="Sort by"
+                            Width: =400
                             X: =Parent.Width-Self.Width
                             Y: =10
                             ZIndex: =1
