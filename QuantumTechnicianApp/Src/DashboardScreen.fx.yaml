@@ -231,7 +231,7 @@ DashboardScreen As screen:
                         Set(cumulatively,false);
                     ShowLabel: =false
                     Size: =If(Parent.Width>500,18,Parent.Width<500,12,12)
-                    TrueFill: =RGBA(255, 0, 0, 1)
+                    TrueFill: =RGBA(220, 0, 0, 1)
                     TrueText: =Min(GCTotalIncentives,Year)  & "-" & Max(GCTotalIncentives,Year)
                     Width: |-
                         =//If(Parent.Width<1000,Parent.Width/1.2,Parent.Width>1000,Parent.Width/10,Parent.Width>2000,Parent.Width)

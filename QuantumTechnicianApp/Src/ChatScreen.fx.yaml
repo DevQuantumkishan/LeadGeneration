@@ -431,7 +431,7 @@ ChatScreen As screen:
                 ZIndex: =4
 
                 intxtSendCS As text:
-                    BorderColor: =Color.Red
+                    BorderColor: =RGBA(220,0,0,1)
                     Default: =""
                     DisabledBorderColor: =RGBA(255, 0, 0, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
@@ -448,14 +448,15 @@ ChatScreen As screen:
                         UpdateContext({startTimerCS:false}); Reset(TimerInactiveModeCS); UpdateContext({startTimerCS: true}) 
                     PaddingLeft: =10
                     Size: =If(Parent.Width<500,12,Parent.Width>500,14)
-                    Width: =Parent.Width-iconSendCS.Width
+                    Width: =Parent.Width-iconSendCS.Width-4
+                    X: =2
                     Y: =glryChatCS.Height
                     ZIndex: =1
 
                 iconSendCS As icon.Send:
                     BorderColor: =Self.Color
                     BorderThickness: =2
-                    Color: =RGBA(255, 0, 0, 1)
+                    Color: =RGBA(220, 0, 0, 1)
                     DisabledBorderColor: =RGBA(255, 0, 0, 1)
                     DisabledColor: =RGBA(255, 0, 0, 1)
                     Height: =If(Parent.Height<Parent.Width,50,70)
