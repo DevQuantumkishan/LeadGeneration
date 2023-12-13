@@ -726,7 +726,7 @@ CreatLeadScreen As screen:
 
                 ctnPreviousCLS As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
-                    Color: =RGBA(255, 0, 0, 1)
+                    Color: =RGBA(220, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
@@ -743,7 +743,7 @@ CreatLeadScreen As screen:
 
                 ctnNextCLS As button:
                     DisplayMode: =If(IsBlank(IntxtBuildingName)||IsBlank(IntxtAddress)||IsBlank(IntxtZipCode),DisplayMode.Disabled,DisplayMode.Edit)
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |-
