@@ -171,7 +171,7 @@ LeadSummaryScreen As screen:
                     Height: |-
                         =//ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+TotalEstimatedExpenseLSS.Height+TotalEstimatedHoursofTravelLSS.Height+50
                         /*ContractNumberLSS.Height + BuildingNameLSS.Height + ZipCodeLSS.Height + AddressLSS.Height + UnitCountLSS.Height + UnitDescriptionLSS.Height + ScopeLSS.Height + ScopeOfWorkLSS.Height + ManuallyScopeOfWorkLSS.Height + EstimatedHoursLSS.Height + NotesLSS.Height + UnitDownLSS.Height + AdditionalExpensesRequiredLSS.Height + */
-                        1550 + CustomerNameLSS.Height+CustomerContactLSS.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height
+                        1550 + CustomerNameLSS.Height+'CustomerContact _DataCard1'.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height
                           //  If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
                            //   If(cboxTravelRequiredLSS.Value=true,TotalEstimatedHoursofTravelLSS.Height,5)+
                             //  If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)+40)
@@ -1109,7 +1109,7 @@ LeadSummaryScreen As screen:
                             Y: =lblCustomerNameLSS.Y + lblCustomerNameLSS.Height + 5
                             ZIndex: =3
 
-                    CustomerContactLSS As typedDataCard.textualEditCard:
+                    "'CustomerContact _DataCard1' As typedDataCard.textualEditCard":
                         BorderColor: =RGBA(202, 202, 202, 1)
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="shlrf_customercontact"
@@ -1117,11 +1117,11 @@ LeadSummaryScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =119
+                        Height: =50
                         MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
                         Required: =false
-                        Update: =txtphonenumber_2.Text
-                        Visible: =VarCommunication
+                        Update: =IntxtContactNumberES_1.Text
+                        Visible: =VarCommunicationSummary
                         Width: =Parent.Width
                         X: =0
                         Y: =18
@@ -1133,7 +1133,7 @@ LeadSummaryScreen As screen:
                             Fill: =RGBA(237, 237, 237, 1)
                             Height: =If(varCustomerPhonenumber,100,80)
                             Width: =Parent.Width-80
-                            X: =48
+                            X: =50
                             Y: =5
                             ZIndex: =1
 
@@ -1148,7 +1148,7 @@ LeadSummaryScreen As screen:
                             Visible: =varCustomerPhonenumber || !IsBlank(lblContactNumber_1)
                             Width: =Parent.Width - 120
                             Wrap: =false
-                            X: =78
+                            X: =70
                             Y: =5
                             ZIndex: =2
 
@@ -1163,7 +1163,7 @@ LeadSummaryScreen As screen:
                             Text: =Parent.Error
                             Visible: =Parent.DisplayMode=DisplayMode.Edit
                             Width: =Parent.Width - 60
-                            X: =48
+                            X: =19
                             Y: =IntxtContactNumberES_1.Y + IntxtContactNumberES_1.Height
                             ZIndex: =3
 
@@ -1178,18 +1178,91 @@ LeadSummaryScreen As screen:
                             Visible: =false
                             Width: =30
                             Wrap: =false
-                            X: =48
+                            X: =19
                             Y: =lblContactES_1.Y
                             ZIndex: =4
+
+                        tog_phonenumberlength_2 As slider:
+                            Default: =Len(txtphonenumber_2.Text)
+                            Max: =10
+                            OnChange: |
+                                =Set(
+                                    varPhoneNumber,
+                                    With(
+                                        {
+                                            // extracts all numbers from the phone number field
+                                            varTextNumbersOnly: Concat(
+                                                MatchAll(
+                                                    txtphonenumber_2.Text,
+                                                    Match.Digit
+                                                ),
+                                                FullMatch
+                                            ),
+                                            // builds a table with phone number format at every position
+                                            varPhoneNumberFormat: With(
+                                                {varTextPhoneNumberFormat: txtPhonenumberformat_2.Text},
+                                                With(
+                                                    {
+                                                        varTablePhoneNumberFormat: ForAll(
+                                                            Sequence(Len(varTextPhoneNumberFormat)),
+                                                            With(
+                                                                {
+                                                                    varNumberCurrentLength: Left(
+                                                                        varTextPhoneNumberFormat,
+                                                                        Value
+                                                                    )
+                                                                },
+                                                                {
+                                                                    NumberFormat: varNumberCurrentLength,
+                                                                    CountNumbers: CountRows(
+                                                                        MatchAll(
+                                                                            varNumberCurrentLength,
+                                                                            "0"
+                                                                        )
+                                                                    )
+                                                                }
+                                                            )
+                                                        )
+                                                    },
+                                                    ForAll(
+                                                        Sequence(
+                                                            Max(
+                                                                varTablePhoneNumberFormat,
+                                                                CountNumbers
+                                                            )
+                                                        ),
+                                                        LookUp(
+                                                            varTablePhoneNumberFormat,
+                                                            CountNumbers = Value
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        },
+                                        Text(
+                                            Value(varTextNumbersOnly),
+                                            LookUp(
+                                                varPhoneNumberFormat,
+                                                CountNumbers = Len(varTextNumbersOnly),
+                                                NumberFormat
+                                            )
+                                        )
+                                    )
+                                );
+                                Reset(txtphonenumber_2);
+                            Visible: =false
+                            X: =33
+                            Y: =99
+                            ZIndex: =5
 
                         txtPhonenumberformat_2 As text:
                             Default: ="(000)-000-0000"
                             Height: =44
                             Visible: =false
                             Width: =708
-                            X: =29
+                            X: =11
                             Y: =164
-                            ZIndex: =5
+                            ZIndex: =6
 
                         lblContactNumber_1 As label:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
@@ -1204,9 +1277,9 @@ LeadSummaryScreen As screen:
                             Text: =//formattedNumber
                             Visible: =false
                             Width: =IntxtContactNumberES_1.Width
-                            X: =78
+                            X: =49
                             Y: =IntxtContactNumberES_1.Y
-                            ZIndex: =6
+                            ZIndex: =7
 
                         lblCNumber_1 As label:
                             BorderColor: =Parent.BorderColor
@@ -1228,9 +1301,9 @@ LeadSummaryScreen As screen:
                                 )
                             Visible: =false
                             Width: =Parent.Width - 100
-                            X: =78
+                            X: =49
                             Y: =lblContactES_1.Y + lblContactES_1.Height + 5
-                            ZIndex: =7
+                            ZIndex: =8
 
                         txtContactNumber_1 As text:
                             BorderColor: =Parent.BorderColor
@@ -1262,9 +1335,9 @@ LeadSummaryScreen As screen:
                             Size: =14
                             Visible: =false
                             Width: =Parent.Width - 100
-                            X: =78
+                            X: =49
                             Y: =lblContactES_1.Y + lblContactES_1.Height + 5
-                            ZIndex: =8
+                            ZIndex: =9
 
                         IntxtContactNumberES_1 As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
@@ -1299,9 +1372,9 @@ LeadSummaryScreen As screen:
                             Tooltip: ="Customer Phone Number *"
                             Visible: =false
                             Width: =Parent.Width - 100
-                            X: =78
+                            X: =49
                             Y: =lblContactES_1.Y + lblContactES_1.Height + 5
-                            ZIndex: =9
+                            ZIndex: =10
 
                         txtphonenumber_2 As text:
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
@@ -1311,6 +1384,7 @@ LeadSummaryScreen As screen:
                             DisabledFill: =RGBA(255, 255, 255, 1)
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
+                            Height: =50
                             HintText: =If(varCustomerPhonenumber,"","Customer Phone Number ")
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
@@ -1328,9 +1402,9 @@ LeadSummaryScreen As screen:
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Tooltip: =Parent.DisplayName
                             Width: =Parent.Width - 120
-                            X: =78
+                            X: =70
                             Y: =lblContactES_1.Y + lblContactES_1.Height + 5
-                            ZIndex: =10
+                            ZIndex: =11
 
                 "glryImageLSS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
