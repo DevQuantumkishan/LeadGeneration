@@ -723,6 +723,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customscopeofwork")
                     Required: =false
                     Update: =intxtManuallyScopeOfWorkVDS.Text
+                    Visible: =If(IsBlank(ThisItem.CustomScopeofWork),false,true)
                     Width: =Parent.Width
                     X: =0
                     Y: =9
