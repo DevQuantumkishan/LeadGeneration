@@ -178,7 +178,7 @@ ViewDetailsScreen As screen:
                         TotalEstimatedExpenseVDS.Height)+If(
                         IsBlank(lblLeadCommentvalueVDS.Text),
                         0,LeadCommentVDS.Height
-                    )+50
+                    )+Safety_DataCard1.Height+50
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
