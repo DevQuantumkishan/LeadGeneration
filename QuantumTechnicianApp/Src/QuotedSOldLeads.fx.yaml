@@ -177,7 +177,7 @@ QuotedSOldLeads As screen:
                             StartYear:Min(GCTotalIncentives,Year),
                             EndYear: Max(GCTotalIncentives,Year) 
                         },
-                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(StartYear)))),Year,SortOrder.Ascending)
+                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(StartYear)))),Year,SortOrder.Descending)
                     
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
