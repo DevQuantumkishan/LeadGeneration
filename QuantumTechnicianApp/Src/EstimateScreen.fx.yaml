@@ -542,7 +542,7 @@ EstimateScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_isunitdown")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =30
+                    Height: =60
                     Required: =false
                     Update: =
                     Visible: =true
@@ -1279,7 +1279,7 @@ EstimateScreen As screen:
 
                 btnPreviousES As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
-                    Color: =RGBA(255, 0, 0, 1)
+                    Color: =RGBA(220, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     HoverFill: =Color.Red
                     OnSelect: |+
@@ -1297,7 +1297,7 @@ EstimateScreen As screen:
                     ZIndex: =1
 
                 btnNextES As button:
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(220, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |-
                         =//IntxtEstimatedHours or  IntxtMaterial or  IntxtContactName or  txtphonenumber_1.Text or  Length of txtphonenumber_1.Text is not equal to 14 or IntxtTotalEstimatedExpense are blank then set varNotification as true otherwise set below variables true and naviate to ImageUploadScreen.

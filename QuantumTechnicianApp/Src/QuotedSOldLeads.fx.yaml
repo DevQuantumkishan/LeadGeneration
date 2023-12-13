@@ -511,7 +511,7 @@ QuotedSOldLeads As screen:
                         ZIndex: =16
 
                     lblTitleTotalIncentivesSL As label:
-                        Color: =If(btnheaderSoldLeads.Text="Quoted Leads",Color.Red,Color.Black)
+                        Color: =If(btnheaderSoldLeads.Text="Quoted Leads",RGBA(220,0,0,1),Color.Black)
                         Font: =Font.Arial
                         Height: =25
                         OnSelect: =Select(Parent)

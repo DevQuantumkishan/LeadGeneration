@@ -491,7 +491,7 @@ ImageUploadScreen As screen:
                             "Upload Picture"
                         Color: |-
                             =
-                            If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 0, 0, 1),Color.White)
+                            If(CountRows(glryImageIS.AllItems)=4,RGBA(220, 0, 0, 1),Color.White)
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         DisabledColor: =RGBA(77, 77, 77, 1)
                         DisabledFill: =RGBA(0, 0, 0, 1)
@@ -564,7 +564,7 @@ ImageUploadScreen As screen:
 
                     btnPreviousIS As button:
                         BorderColor: =ColorFade(Self.Color, -15%)
-                        Color: =RGBA(255, 0, 0, 1)
+                        Color: =RGBA(220, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         HoverFill: =Color.Red
                         OnSelect: |+
@@ -582,7 +582,7 @@ ImageUploadScreen As screen:
                         ZIndex: =1
 
                     btnNextIS As button:
-                        Fill: =RGBA(255, 0, 0, 1)
+                        Fill: =RGBA(220, 0, 0, 1)
                         HoverFill: =Color.Red
                         OnSelect: |-
                             =Set(VarIndicator, true );

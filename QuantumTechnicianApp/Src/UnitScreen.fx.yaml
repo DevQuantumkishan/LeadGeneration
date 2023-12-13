@@ -547,7 +547,7 @@ UnitScreen As screen:
 
                 ctnPreviousUS As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
-                    Color: =RGBA(255, 0, 0, 1)
+                    Color: =RGBA(220, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
@@ -562,7 +562,7 @@ UnitScreen As screen:
                     ZIndex: =1
 
                 ctnNextUS As button:
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =Color.Red
                     OnSelect: |+
