@@ -1189,7 +1189,7 @@ LeadScreen As screen:
                                 FocusedBorderThickness: =//2
                                 FontWeight: =FontWeight.Bold
                                 PressedBorderColor: =//ColorFade(Self.BorderColor, -30%)
-                                Text: ="Unit Down"
+                                Text: ="Safety"
                                 Visible: =If(glryleadlistLS.Selected.Safety='Safety (LeadInformations)'.Yes,true,false)
                                 Width: =Parent.Width
                                 ZIndex: =13
