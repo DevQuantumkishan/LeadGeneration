@@ -1509,7 +1509,7 @@ LeadSummaryScreen As screen:
                 ZIndex: =3
 
                 btnPreviousLSS As button:
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(220, 0, 0, 1)
                     HoverFill: =Color.Red
                     OnSelect: |+
                         =Navigate(ImageUploadScreen);
@@ -1526,7 +1526,7 @@ LeadSummaryScreen As screen:
                     ZIndex: =1
 
                 btnSubmitLSS As button:
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(220, 0, 0, 1)
                     FontWeight: =FontWeight.Bold
                     HoverFill: =Color.Red
                     OnSelect: |
@@ -1625,7 +1625,7 @@ LeadSummaryScreen As screen:
 
             btnOkLSS As button:
                 AlignInContainer: =AlignInContainer.Center
-                Fill: =RGBA(255, 0, 0, 1)
+                Fill: =RGBA(220, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |
@@ -1890,7 +1890,7 @@ LeadSummaryScreen As screen:
                 ZIndex: =5
 
                 btnBackLSS As button:
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: =Set(varSubmit,false);Navigate(LeadSummaryScreen);
@@ -1901,7 +1901,7 @@ LeadSummaryScreen As screen:
                     ZIndex: =1
 
                 btnOkSubmitLSS As button:
-                    Fill: =RGBA(255, 0, 0, 1)
+                    Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
                     OnSelect: |+
