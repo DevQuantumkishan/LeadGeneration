@@ -403,7 +403,7 @@ EstimateScreen As screen:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height=0,300,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+If(CboxCommunicatedtoCustomer.Value=true,CustomerName.Height,0)+If(CboxCommunicatedtoCustomer.Value=true,CustomerContactES.Height,0)+If(CboxAdditionalExpensesRequired.Value=true,TotalEstimatedExpenseES.Height,0)+If(CboxTravelRequired.Value=true,TotalEstimatedHoursofTravelES.Height,0)+50)
+                Height: =If(EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+CustomerName.Height+CustomerContactES.Height+TotalEstimatedExpenseES.Height+TotalEstimatedHoursofTravelES.Height+SafetyES.Height=0,300,EstimatedHours.Height+Material.Height+UnitDown.Height+AdditionalExpensesRequired.Height+TravelRequired.Height+CommunicatedtoCustomer.Height+SafetyES.Height+If(CboxCommunicatedtoCustomer.Value=true,CustomerName.Height,0)+If(CboxCommunicatedtoCustomer.Value=true,CustomerContactES.Height,0)+If(CboxAdditionalExpensesRequired.Value=true,TotalEstimatedExpenseES.Height,0)+If(CboxTravelRequired.Value=true,TotalEstimatedHoursofTravelES.Height,0)+50)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
@@ -1222,6 +1222,42 @@ EstimateScreen As screen:
                         X: =60
                         Y: =lblContactES.Y + lblContactES.Height + 5
                         ZIndex: =11
+
+                SafetyES As typedDataCard.comboBoxOptionSetSingleEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_safety"
+                    Default: =ThisItem.Safety
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_safety")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =
+                    Width: =719
+                    X: =0
+                    Y: =10
+                    ZIndex: =1
+
+                    CboxSafetyES As checkbox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                        Color: =If(CboxSafetyES.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                        Default: =VarTravelSummary
+                        Font: =Font.Arial
+                        HoverBorderColor: =
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        OnCheck: |-
+                            =// store safety in variable
+                            Set(VarSafetySummary,CboxSafetyES.Value)
+                        OnUncheck: |-
+                            =// store safety in variable
+                            Set(VarSafetySummary,CboxSafetyES.Value)
+                        PressedBorderColor: =
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Safety"
+                        Width: =Parent.Width-50
+                        X: =30
+                        ZIndex: =1
 
             ctnButtonES As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer

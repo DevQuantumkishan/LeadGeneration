@@ -171,7 +171,7 @@ LeadSummaryScreen As screen:
                     Height: |-
                         =//ContractNumberLSS.Height+BuildingNameLSS.Height+ZipCodeLSS.Height+AddressLSS.Height+UnitCountLSS.Height+UnitDescriptionLSS.Height+ScopeLSS.Height+ScopeOfWorkLSS.Height+ManuallyScopeOfWorkLSS.Height+EstimatedHoursLSS.Height+NotesLSS.Height+UnitDownLSS.Height+AdditionalExpensesRequiredLSS.Height+TravelRequiredLSS.Height+CommunicatedtoCustomerLSS.Height+CustomerContactLSS.Height+CustomerNameLSS.Height+TotalEstimatedExpenseLSS.Height+TotalEstimatedHoursofTravelLSS.Height+50
                         /*ContractNumberLSS.Height + BuildingNameLSS.Height + ZipCodeLSS.Height + AddressLSS.Height + UnitCountLSS.Height + UnitDescriptionLSS.Height + ScopeLSS.Height + ScopeOfWorkLSS.Height + ManuallyScopeOfWorkLSS.Height + EstimatedHoursLSS.Height + NotesLSS.Height + UnitDownLSS.Height + AdditionalExpensesRequiredLSS.Height + */
-                        1550 + CustomerNameLSS.Height+'CustomerContact _DataCard1'.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height
+                        1600 + CustomerNameLSS.Height+'CustomerContact _DataCard1'.Height+TotalEstimatedHoursofTravelLSS.Height+TotalEstimatedExpenseLSS.Height
                           //  If(CboxCCLSS.Value=true, CustomerNameLSS.Height+CustomerContactLSS.Height,5)+
                            //   If(cboxTravelRequiredLSS.Value=true,TotalEstimatedHoursofTravelLSS.Height,5)+
                             //  If(cboxAELSS.Value=true,TotalEstimatedExpenseLSS.Height,5)+40)
@@ -1406,6 +1406,44 @@ LeadSummaryScreen As screen:
                             Y: =lblContactES_1.Y + lblContactES_1.Height + 5
                             ZIndex: =11
 
+                    Safety_DataCard2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="shlrf_safety"
+                        Default: =ThisItem.Safety
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_safety")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =60
+                        Required: =false
+                        Update: =Safety_DataCard2.Default
+                        Width: =737
+                        X: =0
+                        Y: =19
+                        ZIndex: =1
+
+                        CboxSafety_1 As checkbox:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            CheckboxBorderColor: =RGBA(202, 202, 202, 1)
+                            CheckboxSize: =50
+                            Color: =If(CboxSafety_1.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                            Default: =VarSafetySummary
+                            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                            Font: =Font.Arial
+                            HoverBorderColor: =
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            OnCheck: |-
+                                =// store safety in variable
+                                Set(VarSafetySummary,CboxSafety_1.Value)
+                            OnUncheck: |-
+                                =// store safety in variable
+                                Set(VarSafetySummary,CboxSafety_1.Value)
+                            PressedBorderColor: =
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Text: ="Safety"
+                            Width: =Parent.Width-60
+                            X: =20
+                            ZIndex: =1
+
                 "glryImageLSS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(39, 113, 194, 1)
@@ -1926,6 +1964,7 @@ LeadSummaryScreen As screen:
                                     Notes: IntxtNotesLSS.Text,
                                     //Lead_Image:Image2.Image,
                                     IsUnitDown: CboxUDLSS.Value,
+                                    Safety:CboxSafety_1.Value,
                                     AdditionalExpensesRequired: cboxAELSS.Value,
                                     TravelRequired: cboxTravelRequiredLSS.Value,
                                     CommunicatedToCustomer: CboxCCLSS.Value,
