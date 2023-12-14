@@ -167,8 +167,8 @@ ViewDetailsScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: |-
-                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + If(IsBlank(intxtMaterialVDS.Text),0,MaterialVDS.Height) +If(CboxUnitDownVDS.Value=true, UnitDownVDS.Height,0) + If(cboxAdditionalExpensesRequiredVDS.Value, AdditionalExpensesRequiredVDS.Height,0) + 
-                         If(cboxTravelRequiredVDS.Value=true,TravelRequiredVDS.Height,0) +If(CboxCommunicatedtoCustomer.Value=true, CommunicatedtoCustomerVDS.Height,0) +
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height +  EstimatedHoursVDS.Height + If(IsBlank(intxtMaterialVDS.Text),0,MaterialVDS.Height) +If(CboxUnitDownVDS.Value=true, UnitDownVDS.Height,0) + If(cboxAdditionalExpensesRequiredVDS.Value, AdditionalExpensesRequiredVDS.Height,0) + 
+                         If(cboxTravelRequiredVDS.Value=true,TravelRequiredVDS.Height,0) +If(CboxCommunicatedtoCustomer.Value=true, CommunicatedtoCustomerVDS.Height,0) + If(IsBlank(intxtManuallyScopeOfWorkVDS.Text),0,ManuallyScopeOfWorkVDS.Height) +
                          If(IsBlank(intxtCustomerNameVDS.Text),0,
                           CustomerNameVDS.Height) +If(IsBlank(intxtCustomerContactVDS.Text),0, CustomerContactVDS.Height)+
                          If(IsBlank(intxtTotalEstimatedHoursofTravelVDS.Text),0,
@@ -178,7 +178,7 @@ ViewDetailsScreen As screen:
                         TotalEstimatedExpenseVDS.Height)+If(
                         IsBlank(lblLeadCommentvalueVDS.Text),
                         0,LeadCommentVDS.Height
-                    )+If(CboxSafetyVDS.Value=true,SafetyVDS.Height,0)+50
+                    )+If(CboxSafetyVDS.Value=true,SafetyVDS.Height,0)+20
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
