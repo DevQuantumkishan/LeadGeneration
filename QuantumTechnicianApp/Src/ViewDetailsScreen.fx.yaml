@@ -807,6 +807,7 @@ ViewDetailsScreen As screen:
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_notes")
                     Required: =false
                     Update: =intxtMaterialVDS.Text
+                    Visible: =If(IsBlank(ThisItem.Notes),false,true)
                     Width: =Parent.Width
                     X: =0
                     Y: =11
