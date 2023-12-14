@@ -167,8 +167,8 @@ ViewDetailsScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: |-
-                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + If(IsBlank(intxtMaterialVDS.Text),0,MaterialVDS.Height) + UnitDownVDS.Height + AdditionalExpensesRequiredVDS.Height + 
-                         TravelRequiredVDS.Height + CommunicatedtoCustomerVDS.Height +
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + If(IsBlank(intxtMaterialVDS.Text),0,MaterialVDS.Height) +If(CboxUnitDownVDS.Value=true, UnitDownVDS.Height,0) + If(cboxAdditionalExpensesRequiredVDS.Value, AdditionalExpensesRequiredVDS.Height,0) + 
+                         If(cboxTravelRequiredVDS.Value=true,TravelRequiredVDS.Height,0) +If(CboxCommunicatedtoCustomer.Value=true, CommunicatedtoCustomerVDS.Height,0) +
                          If(IsBlank(intxtCustomerNameVDS.Text),0,
                           CustomerNameVDS.Height) +If(IsBlank(intxtCustomerContactVDS.Text),0, CustomerContactVDS.Height)+
                          If(IsBlank(intxtTotalEstimatedHoursofTravelVDS.Text),0,
