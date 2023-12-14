@@ -1524,12 +1524,12 @@ ViewDetailsScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =100
                 Size: =14
-                Text: ="Loading,Please wait."
+                Text: ="Loading, Please wait."
                 Width: =Parent.Width
                 ZIndex: =2
 
             Timer1 As timer:
-                Duration: =3000
+                Duration: =6000
                 OnTimerEnd: =Set(VarTimerImage,false);Set(VarImagePopup,true);
                 Start: =VarTimerImage
                 Visible: =false
