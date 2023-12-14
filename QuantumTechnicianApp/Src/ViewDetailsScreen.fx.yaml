@@ -167,7 +167,7 @@ ViewDetailsScreen As screen:
                 Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 Height: |-
-                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + MaterialVDS.Height + UnitDownVDS.Height + AdditionalExpensesRequiredVDS.Height + 
+                    =LeadTrackingNumber_DataCard1.Height+ContractNumberVDS.Height + 'Building NameVDS'.Height + 'PinCode VDS'.Height + 'Address VDS'.Height + 'UnitCount VDS'.Height + UnitDescriptionVDS.Height + 'PrimaryScopeofWorkLID VDS'.Height + SecondaryScopeofWorkLIDVDS.Height + ManuallyScopeOfWorkVDS.Height + EstimatedHoursVDS.Height + If(IsBlank(intxtMaterialVDS.Text),0,MaterialVDS.Height) + UnitDownVDS.Height + AdditionalExpensesRequiredVDS.Height + 
                          TravelRequiredVDS.Height + CommunicatedtoCustomerVDS.Height +
                          If(IsBlank(intxtCustomerNameVDS.Text),0,
                           CustomerNameVDS.Height) +If(IsBlank(intxtCustomerContactVDS.Text),0, CustomerContactVDS.Height)+
@@ -178,7 +178,7 @@ ViewDetailsScreen As screen:
                         TotalEstimatedExpenseVDS.Height)+If(
                         IsBlank(lblLeadCommentvalueVDS.Text),
                         0,LeadCommentVDS.Height
-                    )+Safety_DataCard1.Height+50
+                    )+If(CboxSafetyVDS.Value=true,SafetyVDS.Height,0)+50
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =400
@@ -1264,7 +1264,7 @@ ViewDetailsScreen As screen:
                         Y: =lblLeadCommentHeadingVDS.Height+lblLeadCommentHeadingVDS.Y
                         ZIndex: =5
 
-                Safety_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                SafetyVDS As typedDataCard.comboBoxOptionSetSingleEditCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="shlrf_safety"
                     Default: =ThisItem.Safety
@@ -1279,7 +1279,7 @@ ViewDetailsScreen As screen:
                     Y: =21
                     ZIndex: =1
 
-                    CboxUnitDownVDS_1 As checkbox:
+                    CboxSafetyVDS As checkbox:
                         CheckboxBorderColor: =RGBA(0, 0, 0, 1)
                         Default: =true
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)

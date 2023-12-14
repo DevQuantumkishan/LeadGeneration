@@ -1029,12 +1029,12 @@ DashboardScreen As screen:
                 btnCreateLeadDS As button:
                     BorderThickness: =4
                     Color: =Color.White
-                    DisabledBorderColor: =RGBA(255, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(220, 0, 0, 1)
                     Fill: =RGBA(220, 0, 0, 1)
                     FontWeight: =FontWeight.Bold
                     Height: =Parent.Height
-                    HoverBorderColor: =Color.Red
-                    HoverFill: =RGBA(255, 0, 0, 1)
+                    HoverBorderColor: =RGBA(220,0,0,1)
+                    HoverFill: =RGBA(220, 0, 0, 1)
                     OnSelect: |+
                         =//for new form
                         Set(VarFormMode,Defaults(LeadInformations));
