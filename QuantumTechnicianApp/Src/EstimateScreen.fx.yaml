@@ -465,7 +465,7 @@ EstimateScreen As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: ="Estimated Hours(Total Man Hours)"
                         Width: =Parent.Width - 60
                         X: =30
@@ -527,7 +527,7 @@ EstimateScreen As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: ="Material / Parts Required / Comments "
                         Width: =Parent.Width - 60
                         X: =30
@@ -1281,7 +1281,7 @@ EstimateScreen As screen:
                     BorderColor: =ColorFade(Self.Color, -15%)
                     Color: =RGBA(220, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |+
                         =Navigate(ScopeScreen);
                         Set(VarIndicatorES,false);
@@ -1298,7 +1298,7 @@ EstimateScreen As screen:
 
                 btnNextES As button:
                     Fill: =RGBA(220, 0, 0, 1)
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |-
                         =//IntxtEstimatedHours or  IntxtMaterial or  IntxtContactName or  txtphonenumber_1.Text or  Length of txtphonenumber_1.Text is not equal to 14 or IntxtTotalEstimatedExpense are blank then set varNotification as true otherwise set below variables true and naviate to ImageUploadScreen.
                         If(
@@ -1414,7 +1414,7 @@ EstimateScreen As screen:
 
             btnErrorES As button:
                 AlignInContainer: =AlignInContainer.Center
-                Fill: =RGBA(255, 0, 0, 1)
+                Fill: =RGBA(220, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-

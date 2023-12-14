@@ -500,7 +500,7 @@ ImageUploadScreen As screen:
                             //DisplayMode.Edit
                         Fill: |-
                             =
-                            If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 255, 255, 1),RGBA(255, 0, 0, 1))
+                            If(CountRows(glryImageIS.AllItems)=4,RGBA(255, 255, 255, 1),RGBA(220, 0, 0, 1))
                         FocusedBorderThickness: =0
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Normal

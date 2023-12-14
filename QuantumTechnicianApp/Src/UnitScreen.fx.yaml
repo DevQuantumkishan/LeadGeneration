@@ -550,7 +550,7 @@ UnitScreen As screen:
                     Color: =RGBA(220, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Font: =Font.Arial
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |
                         =Navigate(CreatLeadScreen);
                         Set(VarIndicatorUS,false);
@@ -564,7 +564,7 @@ UnitScreen As screen:
                 ctnNextUS As button:
                     Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |+
                         =// If IntxtUnitCount and /or IntxtUnitDescription are/is blank then set VarNotification is true otherwise Set VarIndicator, VarIndicatorUS and VarIndicatorSS are true and navigate to ScopeScreen.
                         If(
@@ -665,7 +665,7 @@ UnitScreen As screen:
 
             btnPopopErrorUS As button:
                 AlignInContainer: =AlignInContainer.Center
-                Fill: =RGBA(255, 0, 0, 1)
+                Fill: =RGBA(220, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-

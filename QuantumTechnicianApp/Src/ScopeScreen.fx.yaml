@@ -632,10 +632,10 @@ ScopeScreen As screen:
 
                 btnPreviousSS As button:
                     BorderColor: =ColorFade(Self.Color, -15%)
-                    Color: =RGBA(255, 0, 0, 1)
+                    Color: =RGBA(220, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Font: =Font.Arial
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |+
                         =Navigate(UnitScreen);
                         Set(VarIndicatorSS,false);
@@ -651,7 +651,7 @@ ScopeScreen As screen:
                 btnNextSS As button:
                     Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |-
                         =//If CboxScope and CboxScopeofwork are not blank or CboxScope and IntxtManuallyScopeofwork are not blank then 
                         //Set VarIndicator is true,Set VarIndicatorUS is true,Set VarIndicatorSS is true,Set VarIndicatorES is true and Navigate to EstimateScreen , Set Varnotification is true.
@@ -769,7 +769,7 @@ ScopeScreen As screen:
 
             btnErrorImageSS As button:
                 AlignInContainer: =AlignInContainer.Center
-                Fill: =RGBA(255, 0, 0, 1)
+                Fill: =RGBA(220, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |-

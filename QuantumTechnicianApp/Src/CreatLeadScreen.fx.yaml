@@ -729,7 +729,7 @@ CreatLeadScreen As screen:
                     Color: =RGBA(220, 0, 0, 1)
                     Fill: =RGBA(255, 255, 255, 1)
                     Font: =Font.Arial
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |
                         =
                         Navigate(DashboardScreen);
@@ -745,7 +745,7 @@ CreatLeadScreen As screen:
                     DisplayMode: =If(IsBlank(IntxtBuildingName)||IsBlank(IntxtAddress)||IsBlank(IntxtZipCode),DisplayMode.Disabled,DisplayMode.Edit)
                     Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |-
                         =// If IntxtContractNumber is blank or IntxtContractNumber is not match with contract number from SHContranctDetails dataverse table then then Set Varnotification true otherwise set Varindicator is true and VarIndicatorUS is true and Navigate Unit Screen. 
                         If(
