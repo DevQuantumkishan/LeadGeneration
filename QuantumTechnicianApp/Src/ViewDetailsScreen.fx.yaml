@@ -1,5 +1,7 @@
 ViewDetailsScreen As screen:
-    OnVisible: =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error))
+    OnVisible: |-
+        =If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error));
+        Set(VarTimerImage,false);
 
     ctnMainVDS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -1333,9 +1335,10 @@ ViewDetailsScreen As screen:
                 ImageVDS As image:
                     BorderThickness: =2
                     Height: =If(Parent.Width>Parent.Height,Parent.TemplateHeight/1.2,Parent.TemplateHeight/1.4)
-                    Image: =ThisItem.Images.Full
-                    OnSelect: |
-                        =Set(VarImagePopup,true)
+                    Image: =ThisItem.Images
+                    OnSelect: |-
+                        =//Set(VarImagePopup,true)
+                        Set(VarTimerImage,true);Set(VarfullImage,ThisItem.Images.Full);
                     PaddingBottom: =10
                     PaddingLeft: =2
                     PaddingRight: =2
@@ -1361,7 +1364,9 @@ ViewDetailsScreen As screen:
             Height: |-
                 =
                 If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
-            Image: =glryImageVDS.Selected.Images.Full
+            Image: |-
+                =//glryImageVDS.Selected.Images.Full
+                VarfullImage
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
@@ -1466,4 +1471,67 @@ ViewDetailsScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
+
+    PopopWaitCursorVDS As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarTimerImage
+        Width: =Parent.Width
+        ZIndex: =5
+
+        borderErrorLSS_1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
+        ctnErrorLSS_1 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: =1
+            Height: =borderErrorLSS_1.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =borderErrorLSS_1.Width
+            X: =borderErrorLSS_1.X
+            Y: =borderErrorLSS_1.Y
+            ZIndex: =2
+
+            ctnErrorImageLSS_1 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =If(Parent.Width<500,80,60)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =1
+
+                imgNotificationerrorLSS_1 As image:
+                    Height: =Parent.Height
+                    Image: ='waiting-icon-gif-4'
+                    PaddingTop: =30
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            lblErrorLSS_1 As label:
+                Align: =Align.Center
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Semibold
+                Height: =100
+                Size: =14
+                Text: ="Loading,Please wait."
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Timer1 As timer:
+                Duration: =3000
+                OnTimerEnd: =Set(VarTimerImage,false);Set(VarImagePopup,true);
+                Start: =VarTimerImage
+                Visible: =false
+                ZIndex: =3
 

@@ -3414,36 +3414,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ViewDetailsScreen.ctnMainVDS.ctnMiddleVDS.glryImageVDS.ImageVDS.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ViewDetailsScreen.ctnMainVDS.ctnMiddleVDS.glryImageVDS.ImageVDS.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ViewDetailsScreen",
-                "type": "ViewDetailsScreen.ctnMainVDS.ctnMiddleVDS.glryImageVDS.ImageVDS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ViewDetailsScreen.ctnMainVDS.ctnMiddleVDS.glryImageVDS.ImageVDS.TabIndex"
                 }
               ],
@@ -3468,6 +3438,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ViewDetailsScreen.ctnMainVDS.ctnMiddleVDS.glryImageVDS.ImageVDS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ViewDetailsScreen.ctnMainVDS.ctnMiddleVDS.glryImageVDS.ImageVDS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ViewDetailsScreen",
+                "type": "ViewDetailsScreen.ctnMainVDS.ctnMiddleVDS.glryImageVDS.ImageVDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
         },
         {
           "locations": [
