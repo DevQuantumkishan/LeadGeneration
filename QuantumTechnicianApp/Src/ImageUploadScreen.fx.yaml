@@ -447,7 +447,7 @@ ImageUploadScreen As screen:
                         ZIndex: =1
 
                     IconImageIS As icon.Cancel:
-                        Color: =RGBA(255, 0, 0, 1)
+                        Color: =RGBA(220, 0, 0, 1)
                         Height: =Parent.Height/6
                         Icon: =Icon.Cancel
                         OnSelect: =Remove(LeadImagesCollection,ThisItem);
@@ -566,7 +566,7 @@ ImageUploadScreen As screen:
                         BorderColor: =ColorFade(Self.Color, -15%)
                         Color: =RGBA(220, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
-                        HoverFill: =Color.Red
+                        HoverFill: =RGBA(220,0,0,1)
                         OnSelect: |+
                             =Navigate(EstimateScreen);
                             Set(VarIndicatorIS,false);
@@ -583,7 +583,7 @@ ImageUploadScreen As screen:
 
                     btnNextIS As button:
                         Fill: =RGBA(220, 0, 0, 1)
-                        HoverFill: =Color.Red
+                        HoverFill: =RGBA(220,0,0,1)
                         OnSelect: |-
                             =Set(VarIndicator, true );
                             Set(VarIndicatorUS, true );

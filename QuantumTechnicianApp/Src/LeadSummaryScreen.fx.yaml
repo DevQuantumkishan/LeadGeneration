@@ -1510,7 +1510,7 @@ LeadSummaryScreen As screen:
 
                 btnPreviousLSS As button:
                     Fill: =RGBA(220, 0, 0, 1)
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |+
                         =Navigate(ImageUploadScreen);
                         //Set(VarIndicatorIS,false);
@@ -1528,7 +1528,7 @@ LeadSummaryScreen As screen:
                 btnSubmitLSS As button:
                     Fill: =RGBA(220, 0, 0, 1)
                     FontWeight: =FontWeight.Bold
-                    HoverFill: =Color.Red
+                    HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |
                         =// check is there connection is connected or not ,if not then notify error otherwise set varsubmit is true for showing popup od submittion.
                         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error),
