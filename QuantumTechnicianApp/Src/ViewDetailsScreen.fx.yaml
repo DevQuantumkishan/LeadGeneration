@@ -1374,7 +1374,9 @@ ViewDetailsScreen As screen:
             Width: |
                 =If(Parent.Width>500,Parent.Width/2,Parent.Width>1000,Parent.Width/4,Parent.Width/1.2)
             X: =(Parent.Width-Self.Width)/2
-            Y: =If(Parent.Width>500,Parent.Height/4,Parent.Width>1000,Parent.Height/2,(Parent.Height-Parent.Width)/2)
+            Y: |-
+                =//If(Parent.Width>500,Parent.Height/4,Parent.Width>1000,Parent.Height/2,(Parent.Height-Parent.Width)/2)
+                (Parent.Height-Self.Height)/2
             ZIndex: =1
 
         IconClosePopupVDS As icon.Cancel:
