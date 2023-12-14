@@ -1360,7 +1360,7 @@ ViewDetailsScreen As screen:
             Height: |-
                 =
                 If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
-            Image: =glryImageVDS.Selected.Images
+            Image: =glryImageVDS.Selected.Images.Full
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
