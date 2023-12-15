@@ -1079,6 +1079,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =31
 
                         ctnvertcheckboxesLdS As groupContainer.verticalAutoLayoutContainer:
@@ -1202,8 +1203,7 @@ LeadScreen As screen:
                                 ZIndex: =13
 
                         ctnphotoglryLdS As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
-                            FillPortions: =2
+                            AlignInContainer: =AlignInContainer.Start
                             Height: =lblphotosLdS.Height+glryphotosLdS.Height+20
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMinHeight: =100
@@ -1221,10 +1221,12 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             "glryphotosLdS As gallery.'BrowseLayout_Horizontal_TwoTextOneImageOverlayVariant_ver4.0'":
-                                AlignInContainer: =AlignInContainer.SetByContainer
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =RGBA(255, 0, 0, 1)
                                 FillPortions: =0
                                 Height: =230
-                                Items: =Filter(LeadImages,LeadInformationLID.ID=glryleadlistLS.Selected.ID)
+                                Items: |
+                                    =Filter(LeadImages,LeadInformationLID.ID=glryleadlistLS.Selected.ID)
                                 LayoutMinHeight: =287
                                 LayoutMinWidth: =320
                                 TemplatePadding: =0
@@ -1236,7 +1238,8 @@ LeadScreen As screen:
                                     BorderColor: =RGBA(26, 26, 26, 1)
                                     BorderThickness: =2
                                     Height: =Parent.TemplateHeight -10
-                                    Image: =ThisItem.Images
+                                    Image: |
+                                        =ThisItem.Images
                                     OnSelect: |-
                                         =UpdateContext({MyBigPic: ThisItem.Images.Full});UpdateContext({MyBigPicShow:true})
                                     Width: =Parent.TemplateWidth -10

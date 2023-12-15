@@ -2,6 +2,7 @@ App As appinfo:
     BackEnabled: =false
     OnStart: |
         =Refresh(LeadInformations);
+        //Trace(LeadChats,TraceSeverity.Information);
         Set(VarLoggedInUser,User());
         // Global CSS
         Set(
