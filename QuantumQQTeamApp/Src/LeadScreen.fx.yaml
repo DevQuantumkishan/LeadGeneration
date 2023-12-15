@@ -993,6 +993,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Visible: =If(IsBlank(glryleadlistLS.Selected.CustomScopeofWork),false,true)
                         ZIndex: =23
 
                         lblcustomscopeLdS As label:
