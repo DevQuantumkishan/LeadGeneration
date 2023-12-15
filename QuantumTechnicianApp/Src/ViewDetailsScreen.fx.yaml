@@ -1319,7 +1319,9 @@ ViewDetailsScreen As screen:
                 Height: |-
                     =//If(glryImageLSS_2.AllItemsCount=0,0,glryImageLSS_2.AllItemsCount=1||glryImageLSS_2.AllItemsCount=2,250,glryImageLSS_2.AllItemsCount=4,550)
                     If(glryImageVDS.AllItemsCount=0,0,200)
-                Items: =Filter(LeadImages,LeadInformationLID.ID=VarLtdID)
+                Items: |-
+                    =//Filter(LeadImages,LeadInformationLID.ID=VarLtdID)
+                    GCImage
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
@@ -1335,10 +1337,14 @@ ViewDetailsScreen As screen:
                 ImageVDS As image:
                     BorderThickness: =2
                     Height: =If(Parent.Width>Parent.Height,Parent.TemplateHeight/1.2,Parent.TemplateHeight/1.4)
-                    Image: =ThisItem.Images
-                    OnSelect: |-
-                        =//Set(VarImagePopup,true)
-                        Set(VarTimerImage,true);Set(VarfullImage,ThisItem.Images.Full);
+                    Image: =ThisItem.FullImage
+                    OnSelect: |
+                        =/*Set(VarfullImage,ThisItem.Images.Full);
+                        If(!IsBlank(VarfullImage),
+                        Set(VarImagePopup,true);
+                        Set(VarTimerImage,true));*/
+                        Set(VarImagePopup,true);
+                        Set(VarTimerImage,true);
                     PaddingBottom: =10
                     PaddingLeft: =2
                     PaddingRight: =2
@@ -1359,14 +1365,15 @@ ViewDetailsScreen As screen:
         ZIndex: =4
 
         imgImagePopupVDS As image:
-            DisplayMode: =DisplayMode.View
             Fill: =RGBA(255, 255, 255, 1)
             Height: |-
                 =
                 If(Parent.Width>500,Parent.Height/2,Parent.Width>1000,Parent.Height/3,Parent.Height/3)
-            Image: |-
-                =//glryImageVDS.Selected.Images.Full
-                VarfullImage
+            Image: |
+                =//If(IsBlank(VarfullImage),'waiting-icon-gif-4',)
+                //VarfullImage
+                //'waiting-icon-gif-4'
+                glryImageVDS.Selected.FullImage
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
@@ -1383,11 +1390,22 @@ ViewDetailsScreen As screen:
             Color: =RGBA(0, 0, 0, 1)
             Height: =Parent.Height/20
             Icon: =Icon.Cancel
-            OnSelect: =Set(VarImagePopup,false)
+            OnSelect: =Set(VarImagePopup,false);Set(VarfullImage,Blank());
             Width: =Parent.Height/20
             X: =imgImagePopupVDS.X+(imgImagePopupVDS.Width-Self.Width)
             Y: =imgImagePopupVDS.Y
             ZIndex: =2
+
+        Timer1_1 As timer:
+            AutoPause: =If(!IsBlank(VarfullImage),true,false)
+            Duration: =6000
+            OnTimerEnd: =Set(VarTimerImage,false);Set(VarImagePopup,true);
+            OnTimerStart: =//Set(VarfullImage,glryImageVDS.Selected.Images.)
+            Start: =VarTimerImage
+            Visible: =false
+            X: =40
+            Y: =40
+            ZIndex: =3
 
     grpMenuVDS As group:
         Height: =5
@@ -1477,7 +1495,7 @@ ViewDetailsScreen As screen:
     PopopWaitCursorVDS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
-        Visible: =VarTimerImage
+        Visible: =//VarTimerImage
         Width: =Parent.Width
         ZIndex: =5
 

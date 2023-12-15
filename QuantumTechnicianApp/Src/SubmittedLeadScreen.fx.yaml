@@ -459,6 +459,29 @@ SubmittedLeadScreen As screen:
                         Reset(IntxtSearchBoxSLS);
                         Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact ',"[$-en-US](###) ###-####"));
                         Set(VarLeadstatus,ThisItem.LeadStatus);
+                        //ClearCollect(GCImage,Last(Filter(LeadImages,LeadInformationLID.ID=ThisItem.ID)).Images.Full);
+                        //ClearCollect(GCImage,{img:Filter(LeadImages,LeadInformationLID.ID=ThisItem.ID),Images.Full});
+                        ClearCollect(
+                            GCImage,
+                            ForAll(
+                                Filter(
+                                    LeadImages,
+                                    LeadInformationLID.ID = ThisItem.ID
+                                ),
+                                { FullImage: Images.Full }
+                            )
+                        );
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         /*{LtdID:ThisItem.ID,ContractNumber:ThisItem.'ContractNumber ',BuildingName:ThisItem.'BuildingName ',Address:ThisItem.Address,Zipcode:ThisItem.'ZipCode ',UnitCount:ThisItem.NumberofUnits,UnitDescription:ThisItem.UnitDescription,Scope:ThisItem.PrimaryScopeofWorkLID,ScopeOfWork:ThisItem.SecondaryScopeofWorkLID,CustomScope:ThisItem.CustomScopeofWork,unitdown:ThisItem.IsUnitDown,AdditionalExpensesRequired:ThisItem.AdditionalExpensesRequired,CommunicatedtoCustomer:ThisItem.CommunicatedToCustomer,EstimatedHours:ThisItem.'EstimatedHours ',Material:ThisItem.Notes,travelRequired:ThisItem.TravelRequired//LeadImage:ThisItem.LeadImages
                         }*/
