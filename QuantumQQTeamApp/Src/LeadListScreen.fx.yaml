@@ -155,7 +155,6 @@ LeadListScreen As screen:
                             ChevronBackground: =Header.SHRed
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             DisplayFields: =["Value"]
-                            HoverFill: =RGBA(0, 0, 0, 0)
                             InputTextPlaceholder: ="Select Territory"
                             Items: |
                                 =Distinct(Filter(SHTechnicians,Area=cmbxareafilterLS.Selected.Value),Territory)
