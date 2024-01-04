@@ -25,7 +25,7 @@ AboutScreen As screen:
             ZIndex: =1
 
             IconMenuCS_1 As icon.Hamburger:
-                Color: =RGBA(0, 0, 0, 1)
+                Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
                 OnSelect: =Set(varshowMenu,!varshowMenu)
@@ -51,7 +51,7 @@ AboutScreen As screen:
 
             iconBackCS_1 As icon.BackArrow:
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(0, 0, 0, 1)
+                Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
                 OnSelect: |
@@ -71,7 +71,7 @@ AboutScreen As screen:
 
             lblHeaderCS_1 As label:
                 DisplayMode: =DisplayMode.View
-                Font: =Font.Arial
+                Font: =AllScreensCSS.RFont
                 FontWeight: =FontWeight.Bold
                 Height: =Parent.Height
                 LayoutMinHeight: =70
@@ -88,13 +88,13 @@ AboutScreen As screen:
 
             btnUsernameCS_1 As button:
                 AlignInContainer: =AlignInContainer.Center
-                BorderColor: =Color.Red
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =AllScreensCSS.RActiveColor
+                Color: =AllScreensCSS.RColorBlack
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
                 DisabledColor: =RGBA(0, 0, 0, 1)
                 DisabledFill: =RGBA(0, 0, 0, 0)
                 DisplayMode: =DisplayMode.Disabled
-                Fill: =RGBA(0, 0, 0, 0)
+                Fill: =AllScreensCSS.RColorWhite
                 Font: =Font.Arial
                 Height: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
                 RadiusBottomLeft: =50
@@ -131,6 +131,8 @@ AboutScreen As screen:
             Label1 As label:
                 Color: =AllScreensCSS.RColorWhite
                 Fill: =AllScreensCSS.RActiveColor
+                Font: =AllScreensCSS.RFont
+                FontWeight: =FontWeight.Bold
                 Height: =Parent.Height
                 PaddingLeft: =20
                 Size: =AllScreensCSS.RFontSize
