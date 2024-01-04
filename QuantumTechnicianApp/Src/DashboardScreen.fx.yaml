@@ -468,7 +468,7 @@ DashboardScreen As screen:
 
                         lblInprogressLeadsCountDS As label:
                             Align: =Align.Center
-                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -493,7 +493,7 @@ DashboardScreen As screen:
                         lblInprogressLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -515,7 +515,7 @@ DashboardScreen As screen:
                         lblInprogressDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -595,7 +595,7 @@ DashboardScreen As screen:
 
                         lblLeadsCountDS As label:
                             Align: =Align.Center
-                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -621,7 +621,7 @@ DashboardScreen As screen:
                         lblLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -643,7 +643,7 @@ DashboardScreen As screen:
                         lblRejectedDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
                             FontWeight: =FontWeight.Bold
@@ -729,7 +729,7 @@ DashboardScreen As screen:
                         lblInprogressIncentivesDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
@@ -759,7 +759,7 @@ DashboardScreen As screen:
 
                         lblQuotedLeadsDS As label:
                             Align: =Align.Center
-                            Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
@@ -789,7 +789,7 @@ DashboardScreen As screen:
                         lblQuotedDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
                             Font: =Font.Arial
@@ -891,7 +891,7 @@ DashboardScreen As screen:
                         lbllIncentivesLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Font: =Font.Arial
@@ -932,7 +932,7 @@ DashboardScreen As screen:
 
                         lblSoldLeadsCountDS As label:
                             Align: =Align.Center
-                            Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Font: =Font.Arial
@@ -963,7 +963,7 @@ DashboardScreen As screen:
                         lblSoldLeadsDS As label:
                             Align: =Align.Center
                             AutoHeight: =true
-                            Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,RGBA(169,169,169,1),RGBA(0, 0, 0, 1))
+                            Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
                             Font: =Font.Arial
