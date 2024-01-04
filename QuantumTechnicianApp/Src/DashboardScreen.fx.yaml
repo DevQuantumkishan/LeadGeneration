@@ -84,8 +84,9 @@ DashboardScreen As screen:
 
             lblHeaderDS As label:
                 AlignInContainer: =AlignInContainer.Center
+                Color: =Header.HeaderColor
                 DisplayMode: =DisplayMode.View
-                Font: =Font.Arial
+                Font: =Header.HeaderFont
                 FontWeight: =FontWeight.Bold
                 Height: =Parent.Height
                 LayoutMinHeight: =70
