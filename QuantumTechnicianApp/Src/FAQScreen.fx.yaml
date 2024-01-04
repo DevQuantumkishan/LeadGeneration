@@ -1,0 +1,259 @@
+FAQScreen As screen:
+
+    ctnMainCS_2 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =10
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingLeft: =10
+        PaddingRight: =10
+        Width: =375
+        ZIndex: =1
+
+        ctnHeaderCS_2 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =If(Parent.Height<Parent.Width,60,80)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =1
+
+            IconMenuCS_2 As icon.Hamburger:
+                Color: =AllScreensCSS.RColorBlack
+                Height: =Parent.Height
+                Icon: =Icon.Hamburger
+                OnSelect: =Set(varshowMenu,!varshowMenu)
+                PaddingBottom: =Parent.Height/3
+                PaddingTop: =Parent.Height/3
+                Width: =Parent.Height/2
+                X: =18
+                Y: =11
+                ZIndex: =1
+
+            imgSchindlerLogoCS_2 As image:
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =Parent.Height
+                Image: ='1x'
+                LayoutMinHeight: =320
+                LayoutMinWidth: =320
+                PaddingBottom: =5
+                PaddingTop: =0.00
+                Width: =If(Parent.Width>Parent.Height,Parent.Width/10,Parent.Width/12)
+                X: =0.00
+                ZIndex: =2
+
+            iconBackCS_2 As icon.BackArrow:
+                AlignInContainer: =AlignInContainer.Center
+                Color: =AllScreensCSS.RColorBlack
+                Height: =Parent.Height/2
+                Icon: =Icon.ChevronLeft
+                OnSelect: |
+                    =// for lead list expand 
+                    UpdateContext({locInfoExpanded:true});
+                    Back();
+                    Set(VarLeadMessages,false);
+                    //for timer 
+                    UpdateContext({startTimerCS:false});
+                    Refresh(LeadChats);
+                PaddingBottom: =5
+                PaddingTop: =5
+                Width: =Parent.Height/2
+                X: =18
+                Y: =11
+                ZIndex: =3
+
+            lblHeaderCS_2 As label:
+                DisplayMode: =DisplayMode.View
+                Font: =AllScreensCSS.RFont
+                FontWeight: =FontWeight.Bold
+                Height: =Parent.Height
+                LayoutMinHeight: =70
+                PaddingLeft: =20
+                PaddingRight: =5.34
+                PaddingTop: =5.34
+                Size: |
+                    =//21.36
+                    If(Parent.Width<500,14,Parent.Width>500,20)
+                Text: ="Technician Lead Generation"
+                Width: =Parent.Width-imgSchindlerLogoCS_2.Width-IconMenuCS_2.Width-btnUsernameCS_2.Width-50
+                X: =96.12
+                ZIndex: =4
+
+            btnUsernameCS_2 As button:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =AllScreensCSS.RActiveColor
+                Color: =AllScreensCSS.RColorBlack
+                DisabledBorderColor: =RGBA(255, 0, 0, 1)
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =AllScreensCSS.RColorWhite
+                Font: =Font.Arial
+                Height: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Size: =If(Parent.Width<500,11,Parent.Width>500,12,12)
+                Text: |-
+                    =Left(User().FullName, 1) &
+                    Mid(
+                        User().FullName,
+                        Find(" ", User().FullName) + 1,
+                        1)
+                Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
+                ZIndex: =6
+
+        ctnLeadsDetailsCS_2 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(219, 219, 219, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: |
+                =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingLeft: =10
+            PaddingRight: =10
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Width: =Parent.Width-20
+            X: =10
+            Y: =85
+            ZIndex: =2
+
+            Label1_1 As label:
+                Color: =AllScreensCSS.RColorWhite
+                Fill: =AllScreensCSS.RActiveColor
+                Font: =AllScreensCSS.RFont
+                FontWeight: =FontWeight.Bold
+                Height: =Parent.Height
+                PaddingLeft: =20
+                Size: =AllScreensCSS.RFontSize
+                Text: ="FAQ"
+                Width: =Parent.Width
+                ZIndex: =1
+
+        ctnMiddleCS_2 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =Parent.Height-ctnHeaderCS_2.Height-ctnLeadsDetailsCS_2.Height-40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingLeft: =5
+            PaddingRight: =5
+            Width: =Parent.Width-20
+            Y: =180
+            ZIndex: =3
+
+    grpMenuCS_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =80
+        ZIndex: =5
+
+        ctnBackgroundMenuCS_2 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(0, 0.19, 0.19, 0.19)
+            Height: =Parent.Height-ctnHeaderDS.Height
+            Visible: =varshowMenu
+            Width: =375
+            Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
+            ZIndex: =2
+
+        "glryMenuCS_2 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =1.08*(CountRows(glryMenuCS_2.AllItems)*(glryMenuCS_2.TemplateHeight))
+            Items: =Menu
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =90
+            Visible: =varshowMenu
+            Width: =375
+            Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
+            ZIndex: =3
+
+            ctnMenuCS_2 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.ExtraBold
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =80
+                Width: =Parent.Width/1.02
+                ZIndex: =8
+
+                lblMenuCS_2 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 0, 0, 1)
+                    Height: =24
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =If(Parent.Width<500,10,12)
+                    Text: =ThisItem.Title
+                    Width: =Parent.Width-iconMenuCS_2.Width-lineIndicatorCS_2.Width
+                    X: =iconMenuCS_2.Width+iconMenuCS_2.X
+                    Y: =30
+                    ZIndex: =1
+
+                iconMenuCS_2 As icon.Add:
+                    Color: =RGBA(255, 0, 0, 1)
+                    Height: =Parent.Height/4.5
+                    Icon: =ThisItem.icon
+                    Width: =Parent.Width/4.5
+                    X: =12
+                    Y: =30
+                    ZIndex: =3
+
+                btnMenuCS_2 As button:
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =80
+                    HoverFill: =
+                    OnSelect: |+
+                        =Set(varshowMenu,!varshowMenu);Navigate(ThisItem.Navigate);
+                        
+                    PressedFill: =
+                    Size: =24
+                    Text: =""
+                    Width: =Parent.Width
+                    ZIndex: =4
+
+                lineIndicatorCS_2 As rectangle:
+                    BorderColor: =RGBA(255, 0, 0, 1)
+                    BorderThickness: =5
+                    Fill: =RGBA(255, 0, 0, 1)
+                    Height: =Parent.Height
+                    Visible: =If(ThisItem.Navigate=DashboardScreen,true,false)
+                    Width: =4
+                    X: =1
+                    ZIndex: =5
+
+    PopopMandatoryCS_2 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.29)
+        Height: =Parent.Height
+        Visible: =VarNotification
+        Width: =375
+        ZIndex: =6
+
+        borderPopopErrorCS_2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: |
+                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
+                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
+            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =1
+
