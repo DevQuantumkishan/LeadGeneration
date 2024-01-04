@@ -342,7 +342,7 @@ DashboardScreen As screen:
                             Align: =Align.Center
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =If(Parent.Width>Parent.Height,24,28)
                             LineHeight: =1.05
@@ -367,7 +367,7 @@ DashboardScreen As screen:
                             AutoHeight: =true
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -389,7 +389,7 @@ DashboardScreen As screen:
                             AutoHeight: =true
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Submitted"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -470,7 +470,7 @@ DashboardScreen As screen:
                             Align: =Align.Center
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =If(Parent.Width>Parent.Height,24,28)
                             LineHeight: =1.05
@@ -495,7 +495,7 @@ DashboardScreen As screen:
                             AutoHeight: =true
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -517,7 +517,7 @@ DashboardScreen As screen:
                             AutoHeight: =true
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="InProgress"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -597,7 +597,7 @@ DashboardScreen As screen:
                             Align: =Align.Center
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =If(Parent.Width>Parent.Height,24,28)
                             LineHeight: =1.05
@@ -623,7 +623,7 @@ DashboardScreen As screen:
                             AutoHeight: =true
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -645,7 +645,7 @@ DashboardScreen As screen:
                             AutoHeight: =true
                             Color: =If(CountRows(Filter(LeadInformations,Email=User().Email && LeadStatus="Rejected"))=0,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -732,7 +732,7 @@ DashboardScreen As screen:
                             Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             OnSelect: =Set(VarPopup,true)
@@ -762,7 +762,7 @@ DashboardScreen As screen:
                             Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =If(Parent.Width>Parent.Height,24,28)
                             LineHeight: =1.05
@@ -792,7 +792,7 @@ DashboardScreen As screen:
                             Color: =If(btnQuotedLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =DisplayMode.View
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05
@@ -894,7 +894,7 @@ DashboardScreen As screen:
                             Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             OnSelect: =Set(VarPopup,true)
@@ -935,7 +935,7 @@ DashboardScreen As screen:
                             Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =If(Parent.Width>Parent.Height,24,28)
                             LineHeight: =1.05
@@ -966,7 +966,7 @@ DashboardScreen As screen:
                             Color: =If(btnSoldLeadsDS.DisplayMode=DisplayMode.Disabled,Dashboard.DButtonColor,AllScreensCSS.RColorBlack)
                             DisabledColor: =RGBA(0, 0, 0, 1)
                             DisplayMode: =If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
-                            Font: =Font.Arial
+                            Font: =AllScreensCSS.RFont
                             FontWeight: =FontWeight.Bold
                             Height: =30
                             LineHeight: =1.05

@@ -38,7 +38,7 @@ SubmittedLeadScreen As screen:
             ZIndex: =1
 
             IconMenuSLS As icon.Hamburger:
-                Color: =RGBA(0, 0, 0, 1)
+                Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
                 OnSelect: |-
@@ -68,7 +68,7 @@ SubmittedLeadScreen As screen:
                 ZIndex: =2
 
             iconBackSLS As icon.BackArrow:
-                Color: =RGBA(0, 0, 0, 1)
+                Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
                 OnSelect: |-
@@ -84,8 +84,9 @@ SubmittedLeadScreen As screen:
 
             lblHeaderSLS As label:
                 AlignInContainer: =AlignInContainer.Center
+                Color: =AllScreensCSS.RColorBlack
                 DisplayMode: =DisplayMode.View
-                Font: =Font.Arial
+                Font: =AllScreensCSS.RFont
                 FontWeight: =FontWeight.Bold
                 Height: =Parent.Height
                 LayoutMinHeight: =70
@@ -102,13 +103,13 @@ SubmittedLeadScreen As screen:
 
             btnUserNameSLS As button:
                 AlignInContainer: =AlignInContainer.Center
-                BorderColor: =Color.Red
-                Color: =RGBA(0, 0, 0, 1)
+                BorderColor: =AllScreensCSS.RActiveColor
+                Color: =AllScreensCSS.RColorBlack
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
                 DisabledColor: =RGBA(0, 0, 0, 1)
                 DisabledFill: =RGBA(0, 0, 0, 0)
                 DisplayMode: =DisplayMode.Disabled
-                Fill: =RGBA(0, 0, 0, 0)
+                Fill: =AllScreensCSS.RColorWhite
                 Font: =Font.Arial
                 Height: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
                 RadiusBottomLeft: =50
@@ -143,10 +144,10 @@ SubmittedLeadScreen As screen:
 
             btnheaderSLS As button:
                 Align: =Align.Left
-                Color: =RGBA(0, 0, 0, 1)
+                Color: =AllScreensCSS.RColorBlack
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
-                Font: =Font.Arial
+                Font: =AllScreensCSS.RFont
                 Height: =Parent.Height
                 PaddingBottom: =0
                 PaddingLeft: =40
@@ -182,12 +183,12 @@ SubmittedLeadScreen As screen:
 
                 IntxtSearchBoxSLS As text:
                     AlignInContainer: =AlignInContainer.Center
-                    BorderColor: =RGBA(220, 0, 0, 1)
+                    BorderColor: =AllScreensCSS.RActiveColor
                     Clear: =true
                     Default: =""
                     DisabledBorderColor: =RGBA(220, 0, 0, 1)
                     FocusedBorderThickness: =2
-                    Font: =Font.Arial
+                    Font: =AllScreensCSS.RFont
                     Height: =If(Parent.Width>800,40,60)
                     HintText: ="Search leads by tracking number, contract number, building name, address or zip code"
                     HoverBorderColor: =RGBA(220, 0, 0, 1)
@@ -210,7 +211,7 @@ SubmittedLeadScreen As screen:
                     ZIndex: =1
 
                 IconSearchSLS As icon.Search:
-                    BorderColor: =RGBA(220, 0, 0, 1)
+                    BorderColor: =AllScreensCSS.RActiveColor
                     BorderThickness: =2
                     Color: =RGBA(116, 116, 116, 1)
                     FocusedBorderThickness: =1
@@ -245,7 +246,7 @@ SubmittedLeadScreen As screen:
                 lblSortSLS As label:
                     Align: =Align.Right
                     Color: =RGBA(116, 116, 116, 1)
-                    Font: =Font.Arial
+                    Font: =AllScreensCSS.RFont
                     FontWeight: =FontWeight.Semibold
                     Height: =50
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
@@ -260,11 +261,13 @@ SubmittedLeadScreen As screen:
                 cboxSortolumnsSLS As combobox:
                     BorderColor: =RGBA(220, 0, 0, 1)
                     ChevronBackground: =RGBA(220, 0, 0, 1)
+                    ChevronFill: =AllScreensCSS.RColorWhite
                     ChevronHoverBackground: =Self.ChevronBackground
+                    Color: =AllScreensCSS.RColorBlack
                     DefaultSelectedItems: =["Created Date"]
                     DisplayFields: =["Value"]
                     FocusedBorderThickness: =2
-                    Font: =Font.Arial
+                    Font: =AllScreensCSS.RFont
                     HoverFill: =RGBA(0, 0, 0, 0)
                     InputTextPlaceholder: =//"Created Date"
                     IsSearchable: =false
@@ -284,7 +287,8 @@ SubmittedLeadScreen As screen:
 
                 iconSortSLS As icon.ArrowsUpDown:
                     BorderColor: =RGBA(255, 0, 0, 1)
-                    Color: =RGBA(220, 0, 0, 1)
+                    Color: =AllScreensCSS.RActiveColor
+                    FocusedBorderThickness: =0
                     Height: =40
                     Icon: =If(VarDownIcon,Icon.ArrowDown,VarUpperIcon,Icon.ArrowUp)
                     OnSelect: |-
