@@ -112,11 +112,15 @@ AboutScreen As screen:
                 ZIndex: =6
 
         ctnLeadsDetailsCS_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(219, 219, 219, 1)
             BorderThickness: =2
             Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
             Height: |
                 =If(Parent.Height<Parent.Width,Parent.Height/10,Parent.Height/16)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
             PaddingLeft: =10
             PaddingRight: =10
             RadiusBottomLeft: =10
