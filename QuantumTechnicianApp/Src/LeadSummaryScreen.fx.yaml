@@ -1425,7 +1425,9 @@ LeadSummaryScreen As screen:
                             BorderColor: =RGBA(0, 0, 0, 0)
                             CheckboxBorderColor: =RGBA(202, 202, 202, 1)
                             CheckboxSize: =50
-                            Color: =If(CboxSafety_1.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                            Color: |-
+                                =//If(CboxSafety_1.Value=true,Color.Black,RGBA(149, 149, 149, 1))
+                                RGBA(0, 0, 0, 1)
                             Default: =VarSafetySummary
                             DisabledBorderColor: =RGBA(255, 255, 255, 1)
                             Font: =Font.Arial

@@ -5462,7 +5462,14 @@
           "NameMapSourceSchema": "?"
         },
         "HoverBorderColor",
-        "Color",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(CboxSafety_1.Value=true,Color.Black,RGBA(149, 149, 149, 1))",
+          "InvariantPropertyName": "Color",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisabledColor",
         "Fill",
         "DisabledFill",
