@@ -171,6 +171,8 @@ FAQScreen As screen:
                 ZIndex: =1
 
                 Title1 As label:
+                    AutoHeight: =true
+                    Font: =Font.Arial
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =Self.Size * 1.8
                     OnSelect: =Select(Parent)
@@ -181,15 +183,21 @@ FAQScreen As screen:
                     Text: =ThisItem.Answer
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.TemplateWidth - 112
-                    X: =96
-                    Y: =ProfileImage1.Y + (ProfileImage1.Height / 2) - (Self.Height / 2)
+                    X: =5
+                    Y: =Button3.Height+Button3.Y+10
                     ZIndex: =2
 
                 Button3 As button:
+                    Align: =Align.Left
+                    Color: =RGBA(0, 0, 0, 1)
+                    Fill: =RGBA(202, 202, 202, 1)
+                    Font: =Font.Arial
+                    Height: =47
                     OnSelect: =Select(Parent)
-                    Text: ="Button"
-                    X: =40
-                    Y: =40
+                    Text: =ThisItem.Question
+                    Width: =Parent.Width-20
+                    X: =5
+                    Y: =5
                     ZIndex: =3
 
     grpMenuCS_2 As group:
