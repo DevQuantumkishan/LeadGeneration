@@ -1,6 +1,7 @@
 FAQScreen As screen:
     OnVisible: |-
-        =ClearCollect(FAQ,{Question :"what is lead generation ?" ,Answer:" Lead generation is the process of identifying a B2B company that is interested in the product or service a company offers and engaging with them. "},{Question :"what if  i already have a target list?" ,Answer:" Lead generation is the process of identifying a B2B company that is interested in the product or service a company offers and engaging with them. " })
+        =ClearCollect(FAQ,{Question :"what is lead generation ?" ,Answer:" Lead generation is the process of identifying a B2B company that is interested in the product or service a company offers and engaging with them. "},{Question :"what if  i already have a target list?" ,Answer:" Lead generation is the process of identifying a B2B company that is interested in the product or service a company offers and engaging with them. " });
+        UpdateContext({VarAnswerFAQ:false})
 
     ctnMainCS_2 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -182,6 +183,7 @@ FAQScreen As screen:
                     PaddingTop: =0
                     Text: =ThisItem.Answer
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =ThisItem.IsSelected && VarAnswerFAQ 
                     Width: =Parent.TemplateWidth - 112
                     X: =5
                     Y: =Button3.Height+Button3.Y+10
@@ -190,6 +192,7 @@ FAQScreen As screen:
                 Button3 As button:
                     Align: =Align.Left
                     Color: =RGBA(0, 0, 0, 1)
+                    DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
                     Font: =Font.Arial
                     Height: =47
@@ -199,6 +202,34 @@ FAQScreen As screen:
                     X: =5
                     Y: =5
                     ZIndex: =3
+
+                Button5 As button:
+                    BorderThickness: =0
+                    Fill: =RGBA(255, 0, 0, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =31
+                    OnSelect: |-
+                        =UpdateContext({VarAnswerFAQ:true});
+                    Text: ="+"
+                    Visible: =!(ThisItem.IsSelected && VarAnswerFAQ )
+                    Width: =29
+                    X: =Parent.Width-Self.Width-20
+                    Y: =13
+                    ZIndex: =4
+
+                Button5_1 As button:
+                    BorderThickness: =0
+                    Fill: =RGBA(255, 0, 0, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =31
+                    OnSelect: |-
+                        =UpdateContext({VarAnswerFAQ:false});
+                    Text: ="-"
+                    Visible: =(ThisItem.IsSelected && VarAnswerFAQ)
+                    Width: =29
+                    X: =Parent.Width-Self.Width-20
+                    Y: =13
+                    ZIndex: =5
 
     grpMenuCS_2 As group:
         Height: =5
