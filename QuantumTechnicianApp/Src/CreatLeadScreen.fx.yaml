@@ -427,7 +427,7 @@ CreatLeadScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: =If(VarContractNumber,"","Contract Number *")
+                        HintText: =If(VarContractNumber,"","Contract Number*")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
