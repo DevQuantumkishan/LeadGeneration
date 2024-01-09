@@ -205,7 +205,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =48
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Contract Number *"
+                            Text: ="Contract Number*"
                             Width: =Parent.Width-60
                             Wrap: =false
                             X: =30
@@ -414,7 +414,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =48
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Quantity of Units *"
+                            Text: ="Quantity of Units*"
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -469,7 +469,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =35
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Unit Description *"
+                            Text: ="Unit Description*"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =10
@@ -521,7 +521,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =48
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Scope *"
+                            Text: ="Scope*"
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -576,7 +576,7 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: =If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),"Scope of Work *","Scope of Work")
+                            Text: =If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),"Scope of Work*","Scope of Work")
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -686,7 +686,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =48
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Estimated Hours (Total Man Hours) *"
+                            Text: ="Estimated Hours (Total Man Hours)*"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =10
@@ -875,7 +875,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =34
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Total Estimated Expense *"
+                            Text: ="Total Estimated Expense*"
                             Tooltip: ="Total estimated expense"
                             Width: =Parent.Width - 120
                             X: =70
@@ -975,7 +975,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =50
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Total Estimated Hours of Travel *"
+                            Text: ="Total Estimated Hours of Travel*"
                             Width: =Parent.Width - 120
                             X: =70
                             Y: =10
@@ -1077,7 +1077,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =34
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Customer Name *"
+                            Text: ="Customer Name*"
                             Width: =Parent.Width - 120
                             Wrap: =false
                             X: =70

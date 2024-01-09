@@ -413,7 +413,7 @@ ScopeScreen As screen:
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: |-
                             =//Parent.DisplayName
-                            "Scope *"
+                            "Scope*"
                         Visible: =VarScope
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -484,7 +484,7 @@ ScopeScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarScopeofwork,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: =If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of Work *","Scope of Work")
+                        Text: =If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of Work*","Scope of Work")
                         Visible: =VarScopeofwork
                         Width: =Parent.Width - 60
                         Wrap: =false

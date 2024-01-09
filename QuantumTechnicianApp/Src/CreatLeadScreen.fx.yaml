@@ -455,7 +455,7 @@ CreatLeadScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarContractNumber,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Contract Number *"
+                        Text: ="Contract Number*"
                         Visible: =VarContractNumber || !IsBlank(IntxtContractNumber)
                         Width: =Parent.Width - 50
                         Wrap: =false
