@@ -435,8 +435,8 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarEstimateHours,48,0)
                         Size: =If(Parent.Width<358,14,Parent.Width>358,14,16)
-                        Text: ="Estimated Hours(Total Man Hours) *"
-                        Tooltip: ="Estimated hours(total man hours)"
+                        Text: ="Estimated Hours (Total Man Hours) *"
+                        Tooltip: ="Estimated hours (total man hours)"
                         Visible: =VarEstimateHours
                         Width: =Parent.Width - 60
                         X: =30
@@ -450,7 +450,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: =If(VarEstimateHours,"","Estimated Hours(Total Man Hrs) *")
+                        HintText: =If(VarEstimateHours,"","Estimated Hours (Total Man Hrs) *")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
