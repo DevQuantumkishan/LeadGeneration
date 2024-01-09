@@ -634,7 +634,7 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom Scope of Work (Manually Entered) *","Custom Scope of Work(Manually Entered)")
+                            Text: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom Scope of Work (Manually Entered) *","Custom Scope of Work  (Manually Entered)")
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =10
@@ -647,7 +647,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
-                            HintText: =If(IsBlank(CboxScopeofWorkLSS.SelectedItems),"Custom Scope of Work (Manually Entered) *","Custom Scope of Work(Manually Entered)")
+                            HintText: =If(IsBlank(CboxScopeofWorkLSS.SelectedItems),"Custom Scope of Work (Manually Entered) *","Custom Scope of Work (Manually Entered)")
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
