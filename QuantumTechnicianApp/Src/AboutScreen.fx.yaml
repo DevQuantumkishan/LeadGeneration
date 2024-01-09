@@ -183,7 +183,7 @@ AboutScreen As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =Parent.Width/4
+            Width: =Parent.Width/3.2
             X: =10
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
@@ -206,7 +206,7 @@ AboutScreen As screen:
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuCS_1.Width-lineIndicatorCS_1.Width
-                    X: =iconMenuCS_1.Width+iconMenuCS_1.X
+                    X: =iconMenuCS_1.Width+iconMenuCS_1.X+10
                     Y: =30
                     ZIndex: =1
 
@@ -215,7 +215,7 @@ AboutScreen As screen:
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
-                    X: =12
+                    X: =15
                     Y: =30
                     ZIndex: =3
 

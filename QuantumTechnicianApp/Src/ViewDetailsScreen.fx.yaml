@@ -1423,7 +1423,7 @@ ViewDetailsScreen As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =Parent.Width/4
+            Width: =Parent.Width/3.2
             X: =10
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
@@ -1446,7 +1446,7 @@ ViewDetailsScreen As screen:
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuVDS.Width-lineIndicatorVDS.Width
-                    X: =iconMenuVDS.Width+iconMenuVDS.X
+                    X: =iconMenuVDS.Width+iconMenuVDS.X+10
                     Y: =30
                     ZIndex: =1
 
@@ -1455,7 +1455,7 @@ ViewDetailsScreen As screen:
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
-                    X: =12
+                    X: =15
                     Y: =30
                     ZIndex: =3
 

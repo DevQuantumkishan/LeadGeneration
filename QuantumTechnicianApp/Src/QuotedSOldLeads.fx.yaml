@@ -959,7 +959,7 @@ QuotedSOldLeads As screen:
             Fill: =RGBA(0, 0.19, 0.19, 0.19)
             Height: =Parent.Height-ctnHeaderDS.Height
             Visible: =varshowMenu
-            Width: =414
+            Width: =Parent.Width
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =2
 
@@ -974,7 +974,7 @@ QuotedSOldLeads As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =414
+            Width: =Parent.Width/3.2
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
@@ -996,7 +996,7 @@ QuotedSOldLeads As screen:
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuSoldLeads.Width-lineIndicatorSoldLeads.Width
-                    X: =iconMenuSoldLeads.Width+iconMenuSoldLeads.X
+                    X: =iconMenuSoldLeads.Width+iconMenuSoldLeads.X+10
                     Y: =30
                     ZIndex: =1
 
@@ -1005,7 +1005,7 @@ QuotedSOldLeads As screen:
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
-                    X: =12
+                    X: =15
                     Y: =30
                     ZIndex: =3
 

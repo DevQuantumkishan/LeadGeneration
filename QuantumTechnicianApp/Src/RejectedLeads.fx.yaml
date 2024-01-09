@@ -529,7 +529,7 @@ RejectedLeads As screen:
             Fill: =RGBA(0, 0.19, 0.19, 0.19)
             Height: =Parent.Height-ctnHeaderDS.Height
             Visible: =varshowMenu
-            Width: =414
+            Width: =Parent.Width
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =2
 
@@ -544,7 +544,7 @@ RejectedLeads As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =414
+            Width: =Parent.Width/3.2
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
@@ -566,7 +566,7 @@ RejectedLeads As screen:
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuRS.Width-lineIndicatorRS.Width
-                    X: =iconMenuRS.Width+iconMenuRS.X
+                    X: =iconMenuRS.Width+iconMenuRS.X+10
                     Y: =30
                     ZIndex: =1
 
@@ -575,7 +575,7 @@ RejectedLeads As screen:
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
-                    X: =12
+                    X: =15
                     Y: =30
                     ZIndex: =3
 
