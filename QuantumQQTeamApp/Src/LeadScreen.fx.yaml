@@ -724,13 +724,42 @@ LeadScreen As screen:
                             Text: =If(glryleadlistLS.Selected.LeadStatus="InProgress","In Progress",glryleadlistLS.Selected.LeadStatus)
                             ZIndex: =2
 
-                    icnleadinfoleaddetailsLdS_2 As icon.Add:
+                    icnleadinfoleaddetailsLdS_1 As icon.Add:
                         Color: =RGBA(217, 217, 217, 1)
                         Fill: =RGBA(217, 217, 217, 1)
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
                         ZIndex: =4
+
+                    ctnleadstatusLdS_1 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Visible: =If(glryleadlistLS.Selected.LeadStatus="Rejected",true,false)
+                        ZIndex: =5
+
+                        lblleadstatusldS_1 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Lead Comment "
+                            Width: =200
+                            ZIndex: =1
+
+                        lblleadstatusLdS_1 As label:
+                            FillPortions: =1
+                            Text: =glryleadlistLS.Selected.LeadComment
+                            ZIndex: =2
+
+                    icnleadinfoleaddetailsLdS_2 As icon.Add:
+                        Color: =RGBA(217, 217, 217, 1)
+                        Fill: =RGBA(217, 217, 217, 1)
+                        Height: =2
+                        Icon: =Icon.HorizontalLine
+                        Width: =Parent.Width-20
+                        ZIndex: =6
 
                     ctnleadstatusdateLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -739,7 +768,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =5
+                        ZIndex: =7
 
                         lblleadstatusdateLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -759,7 +788,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =6
+                        ZIndex: =8
 
                     ctncontractnoLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -768,7 +797,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =7
+                        ZIndex: =9
 
                         lblcontractnoLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -787,7 +816,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =8
+                        ZIndex: =10
 
                     ctnbuildingnameLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -796,7 +825,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =9
+                        ZIndex: =11
 
                         lblbuildingnameLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -815,7 +844,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =10
+                        ZIndex: =12
 
                     ctnaddressLds As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -824,7 +853,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =11
+                        ZIndex: =13
 
                         lbladdressLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -843,7 +872,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =12
+                        ZIndex: =14
 
                     ctnzipcodeLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -852,7 +881,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =13
+                        ZIndex: =15
 
                         lblzipcodeLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -871,7 +900,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =14
+                        ZIndex: =16
 
                     ctnnoofunitLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -880,7 +909,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =15
+                        ZIndex: =17
 
                         lblnoofunitLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -899,7 +928,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =16
+                        ZIndex: =18
 
                     ctnunitdescriptionLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -908,7 +937,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =17
+                        ZIndex: =19
 
                         lblunitdescriptionLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -928,7 +957,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =18
+                        ZIndex: =20
 
                     ctnprimaryscopeLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -937,7 +966,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =19
+                        ZIndex: =21
 
                         lblprimaryscopeLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -956,7 +985,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =20
+                        ZIndex: =22
 
                     ctnsecondaryscopeLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -965,7 +994,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =21
+                        ZIndex: =23
 
                         lblsecondaryscopeLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -984,7 +1013,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =22
+                        ZIndex: =24
 
                     ctncustomscopeLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -994,7 +1023,7 @@ LeadScreen As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         Visible: =If(IsBlank(glryleadlistLS.Selected.CustomScopeofWork),false,true)
-                        ZIndex: =23
+                        ZIndex: =25
 
                         lblcustomscopeLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -1014,7 +1043,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =24
+                        ZIndex: =26
 
                     ctnestimatedhoursLds As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1023,7 +1052,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =25
+                        ZIndex: =27
 
                         lblestimatedhoursLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -1042,7 +1071,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =26
+                        ZIndex: =28
 
                     ctnnotesLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
@@ -1051,7 +1080,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        ZIndex: =27
+                        ZIndex: =29
 
                         lblnotesLdS As label:
                             FontWeight: =FontWeight.Bold
@@ -1072,7 +1101,7 @@ LeadScreen As screen:
                         Height: =2
                         Icon: =Icon.HorizontalLine
                         Width: =Parent.Width-20
-                        ZIndex: =28
+                        ZIndex: =30
 
                     ctncheckboxesLdS As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignInContainer.SetByContainer
