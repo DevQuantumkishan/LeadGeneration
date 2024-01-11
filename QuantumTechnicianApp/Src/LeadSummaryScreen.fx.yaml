@@ -593,7 +593,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =50
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            InputTextPlaceholder: =If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),"Scope of work *","Scope of work ")
+                            InputTextPlaceholder: =If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),"Scope of work*","Scope of work ")
                             Items: |-
                                 =//Choices([@LeadInformations].ScopeOfWorkLID)
                                 Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
@@ -606,7 +606,7 @@ LeadSummaryScreen As screen:
                             SelectionFill: =RGBA(202, 202, 202, 1)
                             SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: =If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),"Scope of Work*","Scope of Work")
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblScopeofWorkLSS.Y + lblScopeofWorkLSS.Height + 5
@@ -634,7 +634,7 @@ LeadSummaryScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Font: =Font.Arial
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom Scope of Work (Manually Entered) *","Custom Scope of Work  (Manually Entered)")
+                            Text: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom Scope of Work (Manually Entered)*","Custom Scope of Work  (Manually Entered)")
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =10
@@ -647,7 +647,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
-                            HintText: =If(IsBlank(CboxScopeofWorkLSS.SelectedItems),"Custom Scope of Work (Manually Entered) *","Custom Scope of Work (Manually Entered)")
+                            HintText: =If(IsBlank(CboxScopeofWorkLSS.SelectedItems),"Custom Scope of Work (Manually Entered)*","Custom Scope of Work (Manually Entered)")
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
@@ -658,7 +658,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: =If(IsBlank(CboxScopeofWorkLSS.SelectedItems),"Custom Scope of Work (Manually Entered)*","Custom Scope of Work (Manually Entered)")
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblManuallyScopeofWorkLSS.Y + lblManuallyScopeofWorkLSS.Height + 5
@@ -699,6 +699,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
+                            HintText: ="Estimated Hours (Total Man Hours)*"
                             HoverBorderColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
@@ -709,7 +710,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: ="Estimated Hours (Total Man Hours)*"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblEstimatedHoursLSS.Y + lblEstimatedHoursLSS.Height + 5
@@ -753,6 +754,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
+                            HintText: ="Material / Parts Required / Comments"
                             HoverBorderColor: =RGBA(0, 0, 0, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
@@ -763,7 +765,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: ="Material / Parts Required / Comments"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblNotesLSS.Y + lblNotesLSS.Height + 5
@@ -875,7 +877,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =34
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Text: ="Total Estimated Expense*"
+                            Text: ="Total Estimated Expense ($)*"
                             Tooltip: ="Total estimated expense"
                             Width: =Parent.Width - 120
                             X: =70
@@ -889,6 +891,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Format: =TextFormat.Number
+                            HintText: ="Total Estimated Expenses ($)*"
                             HoverBorderColor: =RGBA(149, 149, 149, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =Parent.MaxLength
@@ -899,7 +902,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: ="Total Estimated Expenses ($)*"
                             Width: =Parent.Width - 120
                             X: =70
                             Y: =lblTotalEstimatedExpenseLSS.Y + lblTotalEstimatedExpenseLSS.Height + 5
@@ -988,7 +991,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Format: =TextFormat.Number
-                            HintText: ="Total Estimated Hours of Travel"
+                            HintText: ="Total Estimated Hours of Travel*"
                             HoverBorderColor: =RGBA(149, 149, 149, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =3
@@ -1000,7 +1003,7 @@ LeadSummaryScreen As screen:
                             RadiusTopRight: =0
                             Reset: =true
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: ="Total Estimated Hours of Travel"
+                            Tooltip: ="Total Estimated Hours of Travel*"
                             Width: =Parent.Width - 120
                             X: =70
                             Y: =lblTotalEstimatedHoursofTravelLSS.Y + lblTotalEstimatedHoursofTravelLSS.Height + 5
@@ -1092,7 +1095,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =50
-                            HintText: ="Customer Name"
+                            HintText: ="Customer Name*"
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(255, 255, 255, 1)
                             MaxLength: =Parent.MaxLength
@@ -1103,7 +1106,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: ="Customer Name"
+                            Tooltip: ="Customer Name*"
                             Width: =Parent.Width - 120
                             X: =70
                             Y: =lblCustomerNameLSS.Y + lblCustomerNameLSS.Height + 5
@@ -1315,7 +1318,7 @@ LeadSummaryScreen As screen:
                             Fill: =RGBA(0, 0, 0, 0)
                             Font: =Font.Arial
                             Format: =TextFormat.Number
-                            HintText: ="Enter Contact Number"
+                            HintText: ="Customer Contact Number"
                             HoverBorderColor: =RGBA(0, 0, 0, 0)
                             HoverColor: =RGBA(0, 0, 0, 0)
                             HoverFill: =Self.Color
