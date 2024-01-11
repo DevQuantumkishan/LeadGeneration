@@ -431,7 +431,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Format: =TextFormat.Number
                             Height: =50
-                            HintText: ="Quantity of Units"
+                            HintText: ="Quantity of Units*"
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnChange: =Set(VarUnitcountSummary,IntxtUnitCountLSS.Text)
@@ -441,7 +441,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: ="Quantity of units"
+                            Tooltip: ="Quantity of units*"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblUnitCountLSS.Y + lblUnitCountLSS.Height + 5
@@ -482,7 +482,7 @@ LeadSummaryScreen As screen:
                             DisplayMode: =Parent.DisplayMode
                             Font: =Font.Arial
                             Height: =70
-                            HintText: ="Unit Description"
+                            HintText: ="Unit Description*"
                             HoverBorderColor: =RGBA(202, 202, 202, 1)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             MaxLength: =Parent.MaxLength
@@ -494,7 +494,7 @@ LeadSummaryScreen As screen:
                             RadiusTopLeft: =0
                             RadiusTopRight: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: ="Unit Description"
+                            Tooltip: ="Unit Description*"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblUnitDescriptionLSS.Y + lblUnitDescriptionLSS.Height + 5
@@ -539,7 +539,7 @@ LeadSummaryScreen As screen:
                             Font: =Font.Arial
                             Height: =50
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            InputTextPlaceholder: ="Find Scope"
+                            InputTextPlaceholder: ="Scope*"
                             Items: =GCPrimaryScopeofWorks
                             OnChange: =Set(VarScopeSummary,CboxScopeLSS.SelectedItems)
                             OnSelect: =
@@ -550,7 +550,7 @@ LeadSummaryScreen As screen:
                             SelectionFill: =RGBA(0, 0, 0, 1)
                             SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                            Tooltip: =Parent.DisplayName
+                            Tooltip: ="Scope*"
                             Width: =Parent.Width - 60
                             X: =30
                             Y: =lblScopeLSS.Y + lblScopeLSS.Height + 5

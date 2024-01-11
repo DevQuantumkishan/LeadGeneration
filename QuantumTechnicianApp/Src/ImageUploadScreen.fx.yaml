@@ -438,7 +438,7 @@ ImageUploadScreen As screen:
                         PaddingBottom: =10
                         PaddingLeft: =2
                         PaddingRight: =2
-                        PaddingTop: =15
+                        PaddingTop: =20
                         RadiusBottomLeft: =1
                         RadiusBottomRight: =1
                         RadiusTopLeft: =1
@@ -449,13 +449,11 @@ ImageUploadScreen As screen:
 
                     IconImageIS As icon.Cancel:
                         Color: =RGBA(220, 0, 0, 1)
-                        Height: =Parent.Height/6
+                        Height: =Parent.Height/8
                         Icon: =Icon.Cancel
                         OnSelect: =Remove(LeadImagesCollection,ThisItem);
-                        PaddingBottom: =5
-                        PaddingTop: =5
-                        Width: =Parent.Height/6
-                        X: =ImageIS.Width-Self.Width
+                        Width: =Parent.Height/8.2
+                        X: =ImageIS.Width-Self.Width+2
                         Y: =ImageIS.Y
                         ZIndex: =2
 
@@ -540,7 +538,7 @@ ImageUploadScreen As screen:
                     Height: =50
                     Text: |-
                         =//there is limit for uploading 4 images. if limit cross then show below text.
-                        "* You can add only 4 Images."
+                        "You can add only 4 Images."
                     Visible: =If(CountRows(glryImageIS.AllItems)=4,true,false)
                     Width: =Parent.Width
                     ZIndex: =4

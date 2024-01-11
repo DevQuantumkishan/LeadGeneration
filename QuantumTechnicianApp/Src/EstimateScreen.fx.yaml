@@ -450,7 +450,7 @@ EstimateScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: =If(VarEstimateHours,"","Estimated Hours (Total Man Hrs) *")
+                        HintText: =If(VarEstimateHours,"","Estimated Hours (Total Man Hrs)*")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
@@ -466,7 +466,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Estimated Hours(Total Man Hours)"
+                        Tooltip: ="Estimated Hours(Total Man Hours)*"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblEstimatedHours.Y + lblEstimatedHours.Height + 5
@@ -682,7 +682,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Total EStimated Expense"
+                        Tooltip: ="Total EStimated Expense ($)*"
                         Width: =Parent.Width - 100
                         X: =60
                         Y: =lblTotalEstimatedExpense.Y + lblTotalEstimatedExpense.Height + 5
@@ -778,7 +778,7 @@ EstimateScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Format: =TextFormat.Number
-                        HintText: =If(VarTotalEstimateHoursfortravel,"","Total Estimated hrs of Travel *")
+                        HintText: =If(VarTotalEstimateHoursfortravel,"","Total Estimated hrs of Travel*")
                         HoverBorderColor: =RGBA(149, 149, 149, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =3
