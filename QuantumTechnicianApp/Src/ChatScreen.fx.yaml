@@ -235,7 +235,7 @@ ChatScreen As screen:
                 Size: |
                     =//21.36
                     If(Parent.Width<500,12,Parent.Width>500,16)
-                Text: ="Estimate number" & Char(10) & VarEstimateNumber
+                Text: ="Estimate Number" & Char(10) & VarEstimateNumber
                 Visible: =If(VarLeadstatus="Quoted" || VarLeadstatus="Sold",true,false)
                 Width: =Parent.Width/2
                 Y: =lblTrackingNumberCS.Y+lblTrackingNumberCS.Height
