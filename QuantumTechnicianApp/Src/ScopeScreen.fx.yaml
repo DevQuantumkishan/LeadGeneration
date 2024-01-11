@@ -82,7 +82,7 @@ ScopeScreen As screen:
                 Size: |
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,18)
-                Text: ="Technician lead generation"
+                Text: ="Technician Lead Generation"
                 Width: =Parent.Width-imgSchindlerLogoSS.Width-iconMenubarSS.Width-btnuserSS.Width-20
                 X: =96.12
                 ZIndex: =6
@@ -433,7 +433,7 @@ ScopeScreen As screen:
                         Height: =50
                         HoverBorderColor: =
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: =If(VarScope,""," Seach Scope *")
+                        InputTextPlaceholder: =If(VarScope,""," Seach Scope*")
                         Items: =GCPrimaryScopeofWorks
                         OnChange: |-
                             =// to store selected scope in variable
@@ -456,7 +456,7 @@ ScopeScreen As screen:
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Search Scope *"
+                        Tooltip: ="Search Scope*"
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblScope.Y + lblScope.Height +2
@@ -504,7 +504,7 @@ ScopeScreen As screen:
                         Font: =Font.Arial
                         Height: =50
                         HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: = If(VarScopeofwork,"",If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of Work *","Scope of Work"))
+                        InputTextPlaceholder: = If(VarScopeofwork,"",If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of Work*","Scope of Work"))
                         Items: |-
                             =//to show scope of work of selected scope
                             Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
@@ -525,7 +525,7 @@ ScopeScreen As screen:
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: =If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of Work *","Scope of Work")
+                        Tooltip: =If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of Work*","Scope of Work")
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblScopeofwork.Y + lblScopeofwork.Height+2
@@ -605,7 +605,7 @@ ScopeScreen As screen:
                         Font: =Font.Arial
                         Height: =If(VarCustomScopeofwork,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom Scope of Work(Manually Entered) *","Custom Scope of Work(Manually Entered)")
+                        Text: =If(IsBlank(CboxScopeofwork.SelectedItems),"Custom Scope of Work (Manually Entered) *","Custom Scope of Work (Manually Entered)")
                         Visible: =VarCustomScopeofwork
                         Width: =Parent.Width - 50
                         X: =28

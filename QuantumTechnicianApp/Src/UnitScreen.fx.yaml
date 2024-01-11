@@ -421,7 +421,7 @@ UnitScreen As screen:
                         Font: =Font.Arial
                         Format: =TextFormat.Number
                         Height: =50
-                        HintText: =If(VarUnitCount,"","Quantity of Units *")
+                        HintText: =If(VarUnitCount,"","Quantity of Units*")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =3
@@ -485,7 +485,7 @@ UnitScreen As screen:
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
                         Height: =137
-                        HintText: =If(VarUnitDescription,"","Unit Description *")
+                        HintText: =If(VarUnitDescription,"","Unit Description*")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength

@@ -654,7 +654,6 @@ EstimateScreen As screen:
                         Text: ="Total Estimated Expense ($)*"
                         Visible: =VarTotalEstimatesExpense || !IsBlank(IntxtTotalEstimatedExpense)
                         Width: =Parent.Width - 120
-                        Wrap: =false
                         X: =60
                         Y: =10
                         ZIndex: =2
@@ -795,7 +794,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Total Estimated Hours of Travel"
+                        Tooltip: ="Total Estimated Hours of Travel*"
                         Width: =Parent.Width - 100
                         X: =60
                         Y: =lblTotalEstimatedHoursofTravel.Y + lblTotalEstimatedHoursofTravel.Height + 5
@@ -903,7 +902,7 @@ EstimateScreen As screen:
                         DisabledFill: =RGBA(255, 255, 255, 1)
                         DisplayMode: =Parent.DisplayMode
                         Font: =Font.Arial
-                        HintText: =If(VarCustomerName,"","Customer Name *")
+                        HintText: =If(VarCustomerName,"","Customer Name*")
                         HoverBorderColor: =RGBA(202, 202, 202, 1)
                         HoverFill: =RGBA(255, 255, 255, 1)
                         MaxLength: =Parent.MaxLength
@@ -920,7 +919,7 @@ EstimateScreen As screen:
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Customer Name"
+                        Tooltip: ="Customer Name*"
                         Width: =Parent.Width - 100
                         X: =60
                         Y: =If(VarCustomerName,lblContactName.Y + lblContactName.Height + 5,15)
