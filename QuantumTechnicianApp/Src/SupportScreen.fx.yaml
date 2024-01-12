@@ -140,7 +140,7 @@ SupportScreen As screen:
                 Height: =Parent.Height
                 PaddingLeft: =20
                 Size: =AllScreensCSS.RfontsizeInput
-                Text: ="Support"
+                Text: ="Contact Support"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -156,6 +156,35 @@ SupportScreen As screen:
             Width: =Parent.Width-20
             Y: =180
             ZIndex: =3
+
+            Label2 As label:
+                Color: =RGBA(255, 0, 0, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =60
+                Size: =12
+                Text: ="We welcome your questions and comments."
+                Width: =Parent.Width
+                Y: =316
+                ZIndex: =1
+
+            Label2_1 As label:
+                Color: =RGBA(255, 0, 0, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =60
+                Size: =12
+                Text: ="Mailing and Phone"
+                Width: =Parent.Width
+                ZIndex: =2
+
+            Label2_2 As label:
+                Color: =RGBA(255, 0, 0, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =60
+                Size: =12
+                Text: ="Schindler Group global headquarters"
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =3
 
     grpMenuCS_3 As group:
         Height: =5
