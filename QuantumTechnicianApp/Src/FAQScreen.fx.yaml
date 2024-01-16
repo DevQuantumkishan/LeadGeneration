@@ -240,9 +240,10 @@ FAQScreen As screen:
                     Font: =Font.Arial
                     Height: =50
                     OnSelect: =Select(Parent)
+                    PaddingRight: =Button5_1.Width+5
                     Size: =12
                     Text: =ThisItem.Question
-                    Width: =Parent.Width-Button5.Width-20
+                    Width: =Parent.Width-20
                     X: =5
                     Y: =5
                     ZIndex: =3
