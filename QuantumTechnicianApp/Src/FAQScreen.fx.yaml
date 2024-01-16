@@ -4,43 +4,43 @@ FAQScreen As screen:
             FAQ,
             {
                 Question: "Why my old incentives are not shown in the App ?",
-                Answer: "The incentives for the leads entered in the App after 01 Jan 2024 are shown in the App "
+                Answer: "The incentives for the leads entered in the App after 01 Jan 2024 are shown in the App. "
             },
             {
-                Question: "Can I communicate the leads using old  process ?",
+                Question: "Can I communicate the leads using old process ?",
                 Answer: "NO. The incentives of the leads entered using the App will ONLY be shown in the App."
             },
              {
-                Question: "Whom should I contact in case I have query regarding incentive calculation",
+                Question: "Whom should I contact in case I have query regarding incentive calculation ?",
                 Answer: "See support page" 
             },
              {
                 Question: "When incentives will be reflected in the App ?",
-                Answer: "The process of updating incentives is executed every night . You will see Incentives of the lead after 24 hours. "
+                Answer: "The process of updating incentives is executed every night. You will see incentives of the lead after 24 hours. "
             },
              {
-                Question: "Can I entter the leads in case I do not have contract number of the client ?",
+                Question: "Can I enter the leads in case I do not have contract number of the client ?",
                 Answer: "NO. You must have contract number of the client for entering the lead. "
             },
              {
                 Question: "Are photos are mandatory while entering the lead ?",
-                Answer: "No they are not mandatiory . You can attach upto four photos per lead."
+                Answer: "No they are not mandatory. You can attach upto four photos per lead."
             },
              {
                 Question: "Can I edit lead information after submitting the lead ?",
-                Answer: "NO . You can not change the lead information once lead is submitted . "
+                Answer: "NO. You can not change the lead information once lead is submitted. "
             },
              {
                 Question: "How will I get updates regarding my incetives ?",
-                Answer: "You will get Notification in the App in case status of your  lead is changed from Open to Quoted or from Quoted to Sold."
+                Answer: "You will get notification in the App in case status of your lead is changed from Open to Quoted or from Quoted to Sold."
             },
              {
                 Question: "Will the App work on Apple and Android phones ?",
-                Answer: "Yes. It will work on both iPhone and Android phones . You need to first install Microsoft PowerApp from Apples iStore and Googles PlayStore. "
+                Answer: "Yes. It will work on both iPhone and Android phones. You need to first install Microsoft PowerApp from Apples iStore and Googles PlayStore. "
             },
              {
                 Question: "Do I need internet connection every time to use the App ?",
-                Answer: "Yes . Internet connectivity is required for the App."
+                Answer: "Yes. Internet connectivity is required for the App."
             }
         );
         UpdateContext({VarAnswerFAQ: false});
@@ -203,7 +203,7 @@ FAQScreen As screen:
 
             "Gallery1 As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 DelayItemLoading: =true
-                Height: =Parent.Height+20
+                Height: =Parent.Height-20
                 Items: =FAQ
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data

@@ -175,12 +175,14 @@ SupportScreen As screen:
                 ZIndex: =4
 
             lblContactySS As label:
+                Align: =Align.Justify
                 Fill: =RGBA(237, 237, 237, 1)
                 FocusedBorderThickness: =5
                 FontWeight: =FontWeight.Semibold
-                Height: =50
+                Height: =100
                 Text: |-
                     =" Leads and incetives related contact :  "
+                VerticalAlign: =VerticalAlign.Top
                 Width: =Parent.Width-20
                 X: =10
                 Y: =btnContactSS.Height+btnContactSS.Y+10
@@ -204,6 +206,7 @@ SupportScreen As screen:
                 ZIndex: =6
 
             lblSupportSS As label:
+                Align: =Align.Justify
                 Fill: =RGBA(237, 237, 237, 1)
                 FocusedBorderThickness: =5
                 FontWeight: =FontWeight.Semibold
