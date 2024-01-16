@@ -157,6 +157,18 @@ AboutScreen As screen:
             Y: =180
             ZIndex: =3
 
+            Label4 As label:
+                Align: =Align.Justify
+                Fill: =RGBA(237, 237, 237, 1)
+                Font: =Font.Arial
+                Height: =Parent.Height-20
+                Text: ="The App is intended to  be used by field  technicians for communicating leads to Schindler quotes and sales team. Once lead is submitted then the Quotes team reviews the lead . In case they have any query then they use chat fascility in the App. The incentives for  Quoted leads is calculted withing 24 hours . Technician gets notification once incentives are calculted and upodated in the App."
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.Width-20
+                X: =10
+                Y: =10
+                ZIndex: =1
+
     grpMenuCS_1 As group:
         Height: =5
         Width: =5
