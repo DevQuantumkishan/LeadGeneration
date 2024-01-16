@@ -203,7 +203,7 @@ FAQScreen As screen:
 
             "Gallery1 As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 DelayItemLoading: =true
-                Height: =Parent.Height
+                Height: =Parent.Height+20
                 Items: =FAQ
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
@@ -227,7 +227,7 @@ FAQScreen As screen:
                     Text: =ThisItem.Answer
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =ThisItem.IsSelected && VarAnswerFAQ 
-                    Width: =Parent.TemplateWidth - 20
+                    Width: =Parent.TemplateWidth -20
                     X: =5
                     Y: =Button3.Height+Button3.Y+10
                     ZIndex: =2
@@ -242,7 +242,7 @@ FAQScreen As screen:
                     OnSelect: =Select(Parent)
                     Size: =12
                     Text: =ThisItem.Question
-                    Width: =Parent.Width-20
+                    Width: =Parent.Width-Button5.Width-20
                     X: =5
                     Y: =5
                     ZIndex: =3
