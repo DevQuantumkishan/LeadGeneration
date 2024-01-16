@@ -168,6 +168,7 @@ SupportScreen As screen:
                 HoverFill: =Self.Fill
                 PressedColor: =Self.Color
                 PressedFill: =Self.Fill
+                Size: =If(Parent.Width>800,20,Parent.Width<358,14,Parent.Width>358,16)
                 Text: ="Contact "
                 Width: =Parent.Width-20
                 X: =10
@@ -175,11 +176,12 @@ SupportScreen As screen:
                 ZIndex: =4
 
             lblContactySS As label:
-                Align: =Align.Justify
                 Fill: =RGBA(237, 237, 237, 1)
                 FocusedBorderThickness: =5
+                Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =100
+                Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                 Text: |-
                     =" Leads and incentives related contact :  "
                 VerticalAlign: =VerticalAlign.Top
@@ -199,18 +201,21 @@ SupportScreen As screen:
                 HoverFill: =Self.Fill
                 PressedColor: =Self.Color
                 PressedFill: =Self.Fill
+                Size: =If(Parent.Width>800,20,Parent.Width<358,14,Parent.Width>358,16)
                 Text: ="Technical Support "
                 Width: =Parent.Width-20
                 X: =10
-                Y: =lblContactySS.Y+lblContactySS.Height
+                Y: =lblContactySS.Y+lblContactySS.Height+10
                 ZIndex: =6
 
             lblSupportSS As label:
                 Align: =Align.Justify
                 Fill: =RGBA(237, 237, 237, 1)
                 FocusedBorderThickness: =5
+                Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height-btnContactSS.Height-lblContactySS.Height-btnSupportSS.Height-50
+                Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                 Text: |-
                     ="Email support : "& Char(10) & "between 9 AM to 1 PM" & Char(10) &"on Monday to Friday  "
                 VerticalAlign: =VerticalAlign.Top
