@@ -216,10 +216,10 @@ FAQScreen As screen:
                 Title1 As label:
                     Align: =Align.Justify
                     AutoHeight: =true
-                    Color: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(169, 169, 169, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     Font: =Font.Arial
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =Self.Size * 1.8
                     PaddingBottom: =0
                     PaddingLeft: =0
@@ -240,6 +240,7 @@ FAQScreen As screen:
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
                     Font: =Font.Arial
+                    FontWeight: =FontWeight.Normal
                     Height: =55
                     OnSelect: =Select(Parent)
                     PaddingRight: =Button5_1.Width+5
@@ -330,7 +331,7 @@ FAQScreen As screen:
 
                 lblMenuCS_2 As label:
                     AutoHeight: =true
-                    Color: =RGBA(255, 0, 0, 1)
+                    Color: =RGBA(169, 169, 169, 1)
                     Height: =24
                     PaddingBottom: =0
                     PaddingLeft: =0
@@ -344,7 +345,7 @@ FAQScreen As screen:
                     ZIndex: =1
 
                 iconMenuCS_2 As icon.Add:
-                    Color: =RGBA(255, 0, 0, 1)
+                    Color: =RGBA(169, 169, 169, 1)
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
