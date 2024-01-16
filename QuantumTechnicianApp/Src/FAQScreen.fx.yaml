@@ -1,7 +1,17 @@
 FAQScreen As screen:
-    OnVisible: |-
-        =ClearCollect(FAQ,{Question :"what is lead generation ?",Answer:"Lead generation is the process of identifying a B2B company that is interested in the product or service a company offers and engaging with them."},{Question :"what if  i already have a target list?",Answer:"Lead generation is the process of identifying a B2B company that is interested in the product or service a company offers and engaging with them."});
-        UpdateContext({VarAnswerFAQ:false});
+    OnVisible: |
+        =ClearCollect(
+            FAQ,
+            {
+                Question: "Why my old incentives are not shown in the App ?",
+                Answer: "The incentives for the leads entered in the App after 01 Jan 2024 are shown in the App "
+            },
+            {
+                Question: "what if  i already have a target list?",
+                Answer: "Lead generation is the process of identifying a B2B company that is interested in the product or service a company offers and engaging with them."
+            }
+        );
+        UpdateContext({VarAnswerFAQ: false});
 
     ctnMainCS_2 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
