@@ -140,7 +140,7 @@ SupportScreen As screen:
                 Height: =Parent.Height
                 PaddingLeft: =20
                 Size: =AllScreensCSS.RfontsizeInput
-                Text: ="Contact Support"
+                Text: ="Support"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -157,37 +157,62 @@ SupportScreen As screen:
             Y: =180
             ZIndex: =3
 
-            Label2 As label:
-                Color: =RGBA(255, 0, 0, 1)
-                FontWeight: =FontWeight.Semibold
-                Height: =60
-                Size: =12
-                Text: ="We welcome your questions and comments."
-                Visible: =false
-                Width: =Parent.Width
-                Y: =316
-                ZIndex: =1
+            btnContactSS As button:
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(219, 219, 219, 1)
+                Font: =Font.Arial
+                Height: =50
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Text: ="Contact "
+                Width: =Parent.Width-20
+                X: =10
+                Y: =10
+                ZIndex: =4
 
-            Label2_1 As label:
-                Color: =RGBA(255, 0, 0, 1)
+            lblContactySS As label:
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =5
                 FontWeight: =FontWeight.Semibold
-                Height: =60
-                Size: =12
-                Text: ="Mailing and Phone"
-                Visible: =false
-                Width: =Parent.Width
-                ZIndex: =2
+                Height: =50
+                Text: |-
+                    =" Leads and incetives related contact :  "
+                Width: =Parent.Width-20
+                X: =10
+                Y: =btnContactSS.Height+btnContactSS.Y+10
+                ZIndex: =5
 
-            Label2_2 As label:
-                Color: =RGBA(255, 0, 0, 1)
+            btnSupportSS As button:
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(219, 219, 219, 1)
+                Font: =Font.Arial
+                Height: =50
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =Self.Fill
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                Text: ="Technical Support "
+                Width: =Parent.Width-20
+                X: =10
+                Y: =lblContactySS.Y+lblContactySS.Height
+                ZIndex: =6
+
+            lblSupportSS As label:
+                Fill: =RGBA(237, 237, 237, 1)
+                FocusedBorderThickness: =5
                 FontWeight: =FontWeight.Semibold
-                Height: =60
-                Size: =12
-                Text: ="Schindler Group global headquarters"
-                Visible: =false
-                Width: =Parent.Width
-                Y: =40
-                ZIndex: =3
+                Height: =Parent.Height-btnContactSS.Height-lblContactySS.Height-btnSupportSS.Height-50
+                Text: |-
+                    ="Email support : "& Char(10) & "Between 9 AM to 1 PM" & Char(10) &"on Monday to Friday  "
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.Width-20
+                X: =10
+                Y: =btnSupportSS.Height+btnSupportSS.Y+10
+                ZIndex: =7
 
     grpMenuCS_3 As group:
         Height: =5
