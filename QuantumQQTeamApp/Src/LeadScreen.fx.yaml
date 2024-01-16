@@ -1582,7 +1582,7 @@ LeadScreen As screen:
             FontWeight: =FontWeight.Bold
             Height: =110
             Size: =15
-            Text: ="Do you want to enter estimate number "& txtinptestimatenumber.Text & ", Please confirm it."
+            Text: ="Do you want to enter estimate number "& txtinptestimatenumber.Text & ", please confirm it."
             Visible: =VarPopUpEstimateNumber
             Width: =350
             X: =(Parent.Width-Self.Width)/2
@@ -1700,7 +1700,9 @@ LeadScreen As screen:
                                 ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
                                 //TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 StatusDate: Now(),
-                                ProposedLeadDate: VarFPEstimateData.DateCreated
+                                ProposedLeadDate: VarFPEstimateData.DateCreated,
+                                Area:VarFPEstimateData.Area,
+                                Territory:VarFPEstimateData.Territory
                             }
                         );
                         If(
@@ -1764,7 +1766,9 @@ LeadScreen As screen:
                                 SoldLeadDate: VarFPEstimateData.BookingDate,
                                 ProposedLeadPrice: VarFPEstimateData.BidPrice,
                                 ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
-                                ProposedLeadDate: VarFPEstimateData.DateCreated
+                                ProposedLeadDate: VarFPEstimateData.DateCreated,
+                                Area:VarFPEstimateData.Area,
+                                Territory:VarFPEstimateData.Territory
                             }
                         );
                         If(
