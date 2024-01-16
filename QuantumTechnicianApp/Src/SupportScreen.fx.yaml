@@ -176,11 +176,12 @@ SupportScreen As screen:
                 ZIndex: =4
 
             lblContactySS As label:
+                AutoHeight: =true
                 Fill: =RGBA(237, 237, 237, 1)
                 FocusedBorderThickness: =5
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Semibold
-                Height: =100
+                Height: =50
                 Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                 Text: |-
                     =" Leads and incentives related contact :  "
