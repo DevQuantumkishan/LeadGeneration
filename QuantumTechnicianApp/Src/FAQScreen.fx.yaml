@@ -8,7 +8,7 @@ FAQScreen As screen:
             },
             {
                 Question: "Can I communicate the leads using old process ?",
-                Answer: "NO. The incentives of the leads entered using the App will ONLY be shown in the App."
+                Answer: "NO.The incentives of the leads entered using the App will ONLY be shown in the App."
             },
              {
                 Question: "Whom should I contact in case I have query regarding incentive calculation ?",
@@ -20,7 +20,7 @@ FAQScreen As screen:
             },
              {
                 Question: "Can I enter the leads in case I do not have contract number of the client ?",
-                Answer: "NO. You must have contract number of the client for entering the lead. "
+                Answer: "NO.You must have contract number of the client for entering the lead. "
             },
              {
                 Question: "Are photos are mandatory while entering the lead ?",
@@ -28,7 +28,7 @@ FAQScreen As screen:
             },
              {
                 Question: "Can I edit lead information after submitting the lead ?",
-                Answer: "NO. You can not change the lead information once lead is submitted. "
+                Answer: "NO.You can not change the lead information once lead is submitted. "
             },
              {
                 Question: "How will I get updates regarding my incetives ?",
@@ -36,11 +36,11 @@ FAQScreen As screen:
             },
              {
                 Question: "Will the App work on Apple and Android phones ?",
-                Answer: "Yes. It will work on both iPhone and Android phones. You need to first install Microsoft PowerApp from Apples iStore and Googles PlayStore. "
+                Answer: "Yes.It will work on both iPhone and Android phones. You need to first install Microsoft PowerApp from Apples iStore and Googles PlayStore. "
             },
              {
                 Question: "Do I need internet connection every time to use the App ?",
-                Answer: "Yes. Internet connectivity is required for the App."
+                Answer: "Yes.Internet connectivity is required for the App."
             }
         );
         UpdateContext({VarAnswerFAQ: false});
@@ -216,6 +216,8 @@ FAQScreen As screen:
                 Title1 As label:
                     Align: =Align.Justify
                     AutoHeight: =true
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
                     Font: =Font.Arial
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =Self.Size * 1.8
@@ -223,6 +225,7 @@ FAQScreen As screen:
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
+                    Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                     Text: =ThisItem.Answer
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =ThisItem.IsSelected && VarAnswerFAQ 
@@ -240,7 +243,7 @@ FAQScreen As screen:
                     Height: =55
                     OnSelect: =Select(Parent)
                     PaddingRight: =Button5_1.Width+5
-                    Size: =12
+                    Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                     Text: =ThisItem.Question
                     Width: =Parent.Width-20
                     X: =5
@@ -281,7 +284,7 @@ FAQScreen As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     HoverFill: =
                     OnSelect: =If(ThisItem.Answer ="See support page",Navigate(SupportScreen))
-                    Text: ="Button"
+                    Text: =""
                     Visible: =ThisItem.IsSelected && VarAnswerFAQ && ThisItem.Answer="See support page"
                     Width: =Parent.Width
                     X: =Title1.X
