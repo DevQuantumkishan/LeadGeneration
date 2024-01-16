@@ -203,7 +203,7 @@ FAQScreen As screen:
 
             "Gallery1 As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 DelayItemLoading: =true
-                Height: =Parent.Height-20
+                Height: =Parent.Height-25
                 Items: =FAQ
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
@@ -237,9 +237,9 @@ FAQScreen As screen:
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(202, 202, 202, 1)
                     Font: =Font.Arial
-                    Height: =50
+                    Height: =55
                     OnSelect: =Select(Parent)
-                    PaddingRight: =Button5_1.Width+8
+                    PaddingRight: =Button5_1.Width+5
                     Size: =12
                     Text: =ThisItem.Question
                     Width: =Parent.Width-20
