@@ -560,7 +560,7 @@ ChatScreen As screen:
 
                 lblMenuCS As label:
                     AutoHeight: =true
-                    Color: =RGBA(169, 169, 169, 1)
+                    Color: =AllScreensCSS.RColorBlack
                     Height: =24
                     PaddingBottom: =0
                     PaddingLeft: =0
@@ -574,7 +574,7 @@ ChatScreen As screen:
                     ZIndex: =1
 
                 iconMenuCS As icon.Add:
-                    Color: =RGBA(169, 169, 169, 1)
+                    Color: =AllScreensCSS.RColorBlack
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
