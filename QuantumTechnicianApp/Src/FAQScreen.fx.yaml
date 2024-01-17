@@ -255,32 +255,32 @@ FAQScreen As screen:
                     BorderThickness: =0
                     Fill: =RGBA(255, 0, 0, 1)
                     FontWeight: =FontWeight.Normal
-                    Height: =31
+                    Height: =25
                     HoverFill: =Self.Fill
                     OnSelect: |-
                         =UpdateContext({VarAnswerFAQ:true});
                     PressedFill: =Self.Fill
                     Text: ="+"
                     Visible: =!(ThisItem.IsSelected && VarAnswerFAQ )
-                    Width: =29
+                    Width: =25
                     X: =Parent.Width-Self.Width-20
-                    Y: =13
+                    Y: =18
                     ZIndex: =4
 
                 Button5_1 As button:
                     BorderThickness: =0
                     Fill: =RGBA(255, 0, 0, 1)
                     FontWeight: =FontWeight.Normal
-                    Height: =31
+                    Height: =25
                     HoverFill: =Self.Fill
                     OnSelect: |-
                         =UpdateContext({VarAnswerFAQ:false});
                     PressedFill: =Self.Fill
                     Text: ="-"
                     Visible: =(ThisItem.IsSelected && VarAnswerFAQ)
-                    Width: =29
+                    Width: =25
                     X: =Parent.Width-Self.Width-20
-                    Y: =13
+                    Y: =18
                     ZIndex: =5
 
                 Button1 As button:
