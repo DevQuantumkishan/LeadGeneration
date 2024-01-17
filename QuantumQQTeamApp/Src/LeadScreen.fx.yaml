@@ -881,6 +881,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =15
 
                         lblzipcodeLdS As label:
@@ -890,9 +891,38 @@ LeadScreen As screen:
                             ZIndex: =1
 
                         lblzipcodevalueLdS As label:
-                            FillPortions: =1
                             Text: =glryleadlistLS.Selected.'ZipCode '
                             ZIndex: =2
+
+                        Label1 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Area"
+                            Width: =100
+                            ZIndex: =3
+
+                        Label2 As label:
+                            Text: =glryleadlistLS.Selected.Area
+                            ZIndex: =4
+
+                        Label3 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="Territory"
+                            Width: =100
+                            ZIndex: =5
+
+                        Label4 As label:
+                            Text: =glryleadlistLS.Selected.Territory
+                            ZIndex: =6
+
+                        Label5 As label:
+                            FontWeight: =FontWeight.Bold
+                            Text: ="District"
+                            Width: =100
+                            ZIndex: =7
+
+                        Label6 As label:
+                            Text: =glryleadlistLS.Selected.District
+                            ZIndex: =8
 
                     icnleadinfoleaddetailsLdS_7 As icon.Add:
                         Color: =RGBA(217, 217, 217, 1)
