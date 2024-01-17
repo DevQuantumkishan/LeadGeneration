@@ -252,7 +252,7 @@ AboutScreen As screen:
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height
-                    Visible: =If(ThisItem.Navigate=DashboardScreen,true,false)
+                    Visible: =If(ThisItem.Navigate=AboutScreen,true,false)
                     Width: =4
                     X: =1
                     ZIndex: =5
