@@ -212,7 +212,7 @@ AboutScreen As screen:
 
                 lblMenuCS_1 As label:
                     AutoHeight: =true
-                    Color: =RGBA(169, 169, 169, 1)
+                    Color: =AllScreensCSS.RColorBlack
                     Height: =24
                     PaddingBottom: =0
                     PaddingLeft: =0
@@ -226,7 +226,7 @@ AboutScreen As screen:
                     ZIndex: =1
 
                 iconMenuCS_1 As icon.Add:
-                    Color: =RGBA(169, 169, 169, 1)
+                    Color: =AllScreensCSS.RColorBlack
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
@@ -252,7 +252,7 @@ AboutScreen As screen:
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height
-                    Visible: =If(ThisItem.Navigate=DashboardScreen,true,false)
+                    Visible: =If(ThisItem.Navigate=AboutScreen,true,false)
                     Width: =4
                     X: =1
                     ZIndex: =5

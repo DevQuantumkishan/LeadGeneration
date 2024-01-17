@@ -254,31 +254,33 @@ FAQScreen As screen:
                 Button5 As button:
                     BorderThickness: =0
                     Fill: =RGBA(255, 0, 0, 1)
-                    FontWeight: =FontWeight.Bold
-                    Height: =31
+                    FontWeight: =FontWeight.Normal
+                    Height: =25
                     HoverFill: =Self.Fill
                     OnSelect: |-
                         =UpdateContext({VarAnswerFAQ:true});
+                    PressedFill: =Self.Fill
                     Text: ="+"
                     Visible: =!(ThisItem.IsSelected && VarAnswerFAQ )
-                    Width: =29
+                    Width: =25
                     X: =Parent.Width-Self.Width-20
-                    Y: =13
+                    Y: =18
                     ZIndex: =4
 
                 Button5_1 As button:
                     BorderThickness: =0
                     Fill: =RGBA(255, 0, 0, 1)
-                    FontWeight: =FontWeight.Bold
-                    Height: =31
+                    FontWeight: =FontWeight.Normal
+                    Height: =25
                     HoverFill: =Self.Fill
                     OnSelect: |-
                         =UpdateContext({VarAnswerFAQ:false});
+                    PressedFill: =Self.Fill
                     Text: ="-"
                     Visible: =(ThisItem.IsSelected && VarAnswerFAQ)
-                    Width: =29
+                    Width: =25
                     X: =Parent.Width-Self.Width-20
-                    Y: =13
+                    Y: =18
                     ZIndex: =5
 
                 Button1 As button:
@@ -331,7 +333,7 @@ FAQScreen As screen:
 
                 lblMenuCS_2 As label:
                     AutoHeight: =true
-                    Color: =RGBA(169, 169, 169, 1)
+                    Color: =AllScreensCSS.RColorBlack
                     Height: =24
                     PaddingBottom: =0
                     PaddingLeft: =0
@@ -345,7 +347,7 @@ FAQScreen As screen:
                     ZIndex: =1
 
                 iconMenuCS_2 As icon.Add:
-                    Color: =RGBA(169, 169, 169, 1)
+                    Color: =AllScreensCSS.RColorBlack
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
@@ -371,7 +373,7 @@ FAQScreen As screen:
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height
-                    Visible: =If(ThisItem.Navigate=DashboardScreen,true,false)
+                    Visible: =If(ThisItem.Navigate=FAQScreen,true,false)
                     Width: =4
                     X: =1
                     ZIndex: =5
