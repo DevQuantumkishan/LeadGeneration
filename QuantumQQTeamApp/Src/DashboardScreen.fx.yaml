@@ -412,9 +412,10 @@ DashboardScreen As screen:
             Fill: =Header.SHRed
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |-
-                =Set(VarFlowResult,Quoted_Sold_Flow.Run());
-                If(VarFlowResult,Set(VarPopUpIncentivesCalculation,true));
+                =/*Set(VarFlowResult,Quoted_Sold_Flow.Run());
+                If(VarFlowResult,Set(VarPopUpIncentivesCalculation,true));*/
             Text: ="Calculate Incentives"
+            Visible: =false
             Width: =300
             ZIndex: =5
 

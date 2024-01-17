@@ -1700,9 +1700,9 @@ LeadScreen As screen:
                                 ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
                                 //TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 StatusDate: Now(),
-                                ProposedLeadDate: VarFPEstimateData.DateCreated,
-                                Area:VarFPEstimateData.Area,
-                                Territory:VarFPEstimateData.Territory
+                                ProposedLeadDate: VarFPEstimateData.DateCreated
+                                //Area:VarFPEstimateData.Area,
+                                //Territory:VarFPEstimateData.Territory
                             }
                         );
                         If(
@@ -1766,9 +1766,9 @@ LeadScreen As screen:
                                 SoldLeadDate: VarFPEstimateData.BookingDate,
                                 ProposedLeadPrice: VarFPEstimateData.BidPrice,
                                 ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
-                                ProposedLeadDate: VarFPEstimateData.DateCreated,
-                                Area:VarFPEstimateData.Area,
-                                Territory:VarFPEstimateData.Territory
+                                ProposedLeadDate: VarFPEstimateData.DateCreated
+                               // Area:VarFPEstimateData.Area,
+                               // Territory:VarFPEstimateData.Territory
                             }
                         );
                         If(

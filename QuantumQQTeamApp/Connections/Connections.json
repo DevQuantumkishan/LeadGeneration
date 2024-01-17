@@ -151,58 +151,6 @@
     "dependents": [],
     "id": "b522c372-03d9-48a7-a5a9-3ce580515073"
   },
-  "c0c0b2bc-fd69-4178-bc9e-6552a857aa42": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "e93d4ee5-ed0c-41da-853a-05e82bf3c642": {
-          "value": "shared_powerappsnotification"
-        },
-        "ec1e7ee7-1466-4cb9-a224-8f0ad85ec811": {
-          "value": "shared_commondataserviceforapps"
-        },
-        "fe6866d3-8508-499a-9114-8df50df72b69": {
-          "value": "shared_office365"
-        },
-        "workflowEntityId": {
-          "value": "c22dbc17-995b-ee11-be6e-000d3abcf12e"
-        },
-        "workflowName": {
-          "value": "af6e9395-45d4-4720-9b1e-d31c843b0ec3"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_commondataserviceforapps": {
-          "value": "ec1e7ee7-1466-4cb9-a224-8f0ad85ec811"
-        },
-        "shared_office365": {
-          "value": "fe6866d3-8508-499a-9114-8df50df72b69"
-        },
-        "shared_powerappsnotification": {
-          "value": "e93d4ee5-ed0c-41da-853a-05e82bf3c642"
-        },
-        "workflowEntityId": {
-          "value": "c22dbc17-995b-ee11-be6e-000d3abcf12e"
-        },
-        "workflowName": {
-          "value": "af6e9395-45d4-4720-9b1e-d31c843b0ec3"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "Quoted_Sold_Flow"
-    ],
-    "dependencies": {
-      "shared_commondataserviceforapps": "ec1e7ee7-1466-4cb9-a224-8f0ad85ec811",
-      "shared_office365": "fe6866d3-8508-499a-9114-8df50df72b69",
-      "shared_powerappsnotification": "e93d4ee5-ed0c-41da-853a-05e82bf3c642"
-    },
-    "dependents": [],
-    "id": "c0c0b2bc-fd69-4178-bc9e-6552a857aa42"
-  },
   "e1e32128-b7d8-4e21-a067-a49aa93167df": {
     "connectionRef": {
       "displayName": "Logic flows",
@@ -247,7 +195,7 @@
       "executionRestrictions": {
         "apiId": "unknown",
         "appVer": "3.23123.15",
-        "modifiedOn": "2024-01-16 08:07:38",
+        "modifiedOn": "2024-01-17 07:19:24",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -264,37 +212,8 @@
       "e1e32128-b7d8-4e21-a067-a49aa93167df",
       "b522c372-03d9-48a7-a5a9-3ce580515073",
       "4fed8484-2d04-40a7-bdb0-9f5a1c8b935f",
-      "5d74b196-f83f-4367-a880-6c9086ff3507",
-      "c0c0b2bc-fd69-4178-bc9e-6552a857aa42"
+      "5d74b196-f83f-4367-a880-6c9086ff3507"
     ],
     "id": "e93d4ee5-ed0c-41da-853a-05e82bf3c642"
-  },
-  "ec1e7ee7-1466-4cb9-a224-8f0ad85ec811": {
-    "connectionRef": {
-      "displayName": "Microsoft Dataverse",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/commondataserviceforapps/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "c0c0b2bc-fd69-4178-bc9e-6552a857aa42"
-    ],
-    "id": "ec1e7ee7-1466-4cb9-a224-8f0ad85ec811"
-  },
-  "fe6866d3-8508-499a-9114-8df50df72b69": {
-    "connectionRef": {
-      "displayName": "Office 365 Outlook",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3414/office365/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "c0c0b2bc-fd69-4178-bc9e-6552a857aa42"
-    ],
-    "id": "fe6866d3-8508-499a-9114-8df50df72b69"
   }
 }
