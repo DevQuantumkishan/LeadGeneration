@@ -282,9 +282,9 @@ FAQScreen As screen:
                 Button1 As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     HoverFill: =
-                    OnSelect: =If(ThisItem.Answer ="See support page",Navigate(SupportScreen))
+                    OnSelect: =If(ThisItem.Answer = "Please see Support page." ,Navigate(SupportScreen))
                     Text: =""
-                    Visible: =ThisItem.IsSelected && VarAnswerFAQ && ThisItem.Answer="See support page"
+                    Visible: =ThisItem.IsSelected && VarAnswerFAQ && ThisItem.Answer="Please see Support page."
                     Width: =Parent.Width
                     X: =Title1.X
                     Y: =Title1.Y
