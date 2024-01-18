@@ -974,11 +974,12 @@ DashboardScreen As screen:
                             DisabledBorderColor: =RGBA(116, 116, 116, 1)
                             DisabledColor: =RGBA(0, 0, 0, 0)
                             DisabledFill: =RGBA(0, 0, 0, 0)
-                            DisplayMode: |
+                            DisplayMode: |+
                                 =//If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'&& Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit)
-                                If(yearly=true,
+                                /*If(yearly=true,
                                 If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit),
-                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit))
+                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit))*/
+                                
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
