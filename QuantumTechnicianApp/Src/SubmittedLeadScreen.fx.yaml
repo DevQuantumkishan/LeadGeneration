@@ -616,7 +616,7 @@ SubmittedLeadScreen As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =Parent.Width/2.8
+            Width: =Parent.Width/2.5
             X: =10
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
@@ -640,7 +640,7 @@ SubmittedLeadScreen As screen:
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuSLS.Width-lineIndicatorSLS.Width
                     X: =iconMenuSLS.Width+iconMenuSLS.X+10
-                    Y: =30
+                    Y: =25
                     ZIndex: =1
 
                 iconMenuSLS As icon.Add:
@@ -649,7 +649,7 @@ SubmittedLeadScreen As screen:
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
                     X: =15
-                    Y: =30
+                    Y: =25
                     ZIndex: =3
 
                 btnMenuSLS As button:
