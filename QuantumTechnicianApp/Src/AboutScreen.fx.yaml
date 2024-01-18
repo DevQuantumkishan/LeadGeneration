@@ -173,14 +173,14 @@ AboutScreen As screen:
                 Y: =10
                 ZIndex: =1
 
-    grpMenuCS_1 As group:
+    grpMenuAS As group:
         Height: =5
         Width: =5
         X: =40
         Y: =80
         ZIndex: =5
 
-        ctnBackgroundMenuCS_1 As groupContainer.manualLayoutContainer:
+        ctnBackgroundMenuAS As groupContainer.manualLayoutContainer:
             Fill: =RGBA(0, 0.19, 0.19, 0.19)
             Height: =Parent.Height-ctnHeaderDS.Height
             Visible: =varshowMenu
@@ -188,11 +188,11 @@ AboutScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =2
 
-        "glryMenuCS_1 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+        "glryMenuAS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)
-            Height: =1.08*(CountRows(glryMenuCS_1.AllItems)*(glryMenuCS_1.TemplateHeight))
+            Height: =1.08*(CountRows(glryMenuAS.AllItems)*(glryMenuAS.TemplateHeight))
             Items: =Menu
             Layout: =Layout.Vertical
             ShowScrollbar: =false
@@ -204,14 +204,14 @@ AboutScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
-            ctnMenuCS_1 As groupContainer.manualLayoutContainer:
+            ctnMenuAS As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuCS_1 As label:
+                lblMenuAS As label:
                     AutoHeight: =true
                     Color: =AllScreensCSS.RColorBlack
                     Height: =24
@@ -221,12 +221,12 @@ AboutScreen As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuCS_1.Width-lineIndicatorCS_1.Width
-                    X: =iconMenuCS_1.Width+iconMenuCS_1.X+10
+                    Width: =Parent.Width-iconMenuAS.Width-lineIndicatorAS.Width
+                    X: =iconMenuAS.Width+iconMenuAS.X+10
                     Y: =25
                     ZIndex: =1
 
-                iconMenuCS_1 As icon.Add:
+                iconMenuAS As icon.Add:
                     Color: =AllScreensCSS.RColorBlack
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -235,7 +235,7 @@ AboutScreen As screen:
                     Y: =25
                     ZIndex: =3
 
-                btnMenuCS_1 As button:
+                btnMenuAS As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -248,7 +248,7 @@ AboutScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorCS_1 As rectangle:
+                lineIndicatorAS As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
@@ -258,14 +258,14 @@ AboutScreen As screen:
                     X: =1
                     ZIndex: =5
 
-    PopopMandatoryCS_1 As groupContainer.manualLayoutContainer:
+    PopopMandatoryAS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
         Visible: =VarNotification
         Width: =Parent.Width
         ZIndex: =6
 
-        borderPopopErrorCS_1 As rectangle:
+        borderPopopErrorAS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: |
                 =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
