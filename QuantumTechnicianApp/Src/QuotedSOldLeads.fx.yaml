@@ -974,7 +974,7 @@ QuotedSOldLeads As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =Parent.Width/2.8
+            Width: =Parent.Width/2.5
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
@@ -997,7 +997,7 @@ QuotedSOldLeads As screen:
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuSoldLeads.Width-lineIndicatorSoldLeads.Width
                     X: =iconMenuSoldLeads.Width+iconMenuSoldLeads.X+10
-                    Y: =30
+                    Y: =25
                     ZIndex: =1
 
                 iconMenuSoldLeads As icon.Add:
@@ -1006,7 +1006,7 @@ QuotedSOldLeads As screen:
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
                     X: =15
-                    Y: =30
+                    Y: =25
                     ZIndex: =3
 
                 btnMenuSoldLeads As button:
