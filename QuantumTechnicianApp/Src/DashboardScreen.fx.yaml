@@ -979,6 +979,9 @@ DashboardScreen As screen:
                                 /*If(yearly=true,
                                 If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit),
                                 If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit))*/
+                                If(yearly=true,
+                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit),
+                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit))
                                 
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
