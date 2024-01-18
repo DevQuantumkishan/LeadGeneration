@@ -1182,7 +1182,7 @@ DashboardScreen As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =Parent.Width/3.2
+            Width: =Parent.Width/2.8
             X: =10
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
@@ -1204,7 +1204,7 @@ DashboardScreen As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuDS.Width-lineIndicatorDS.Width
+                    Width: =Parent.Width-iconMenuDS.Width-lineIndicatorDS.Width-20
                     X: =iconMenuDS.Width+iconMenuDS.X+10
                     Y: =30
                     ZIndex: =1
