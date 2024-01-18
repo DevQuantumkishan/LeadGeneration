@@ -121,6 +121,11 @@ App As appinfo:
                 icon: Icon.Support,
                 Navigate: SupportScreen
             },
+             {
+                Title: "Step-by-Step" &  Char(10) & "Instructions",
+                icon: Icon.DetailList,
+                Navigate: FAQScreen_1
+            },
             {
                 Title: "FAQ",
                 icon: Icon.QuestionMark,

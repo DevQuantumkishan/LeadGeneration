@@ -1182,7 +1182,7 @@ DashboardScreen As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =Parent.Width/2.8
+            Width: =Parent.Width/2.5
             X: =10
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
@@ -1206,7 +1206,7 @@ DashboardScreen As screen:
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuDS.Width-lineIndicatorDS.Width-20
                     X: =iconMenuDS.Width+iconMenuDS.X+10
-                    Y: =30
+                    Y: =25
                     ZIndex: =1
 
                 iconMenuDS As icon.Add:
@@ -1215,7 +1215,7 @@ DashboardScreen As screen:
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
                     X: =15
-                    Y: =30
+                    Y: =25
                     ZIndex: =3
 
                 btnMensuDS As button:
