@@ -320,7 +320,7 @@ FAQScreen As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =Parent.Width/2.8
+            Width: =Parent.Width/2.5
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
@@ -343,7 +343,7 @@ FAQScreen As screen:
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuCS_2.Width-lineIndicatorCS_2.Width
                     X: =iconMenuCS_2.Width+iconMenuCS_2.X+10
-                    Y: =30
+                    Y: =25
                     ZIndex: =1
 
                 iconMenuCS_2 As icon.Add:
@@ -352,7 +352,7 @@ FAQScreen As screen:
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
                     X: =15
-                    Y: =30
+                    Y: =25
                     ZIndex: =3
 
                 btnMenuCS_2 As button:

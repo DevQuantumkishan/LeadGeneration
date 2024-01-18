@@ -157,7 +157,7 @@ FAQScreen_1 As screen:
                 Height: =Parent.Height
                 PaddingLeft: =20
                 Size: =AllScreensCSS.RfontsizeInput
-                Text: ="FAQ"
+                Text: ="Step-by-Step Instructions"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -165,7 +165,7 @@ FAQScreen_1 As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderCS_4.Height-ctnLeadsDetailsCS_4.Height-40
+            Height: =Parent.Height-ctnHeaderCS_4.Height-ctnLeadsDetailsCS_4.Height-30
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =5
@@ -176,14 +176,15 @@ FAQScreen_1 As screen:
 
             "Gallery1_1 As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 DelayItemLoading: =true
-                Height: =Parent.Height-25
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =Parent.Height-5
                 Items: =GCInstructions
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =4
                 TemplateSize: =Min(870, Self.Height - 60)
                 Width: =Parent.Width
-                Y: =10
+                Y: =5
                 ZIndex: =1
 
                 Title1_1 As label:
@@ -191,18 +192,16 @@ FAQScreen_1 As screen:
                     AutoHeight: =true
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
-                    Fill: =RGBA(219, 219, 219, 1)
                     Font: =Font.Arial
                     FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                     Height: =Self.Size * 1.8
-                    PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                     Text: =ThisItem.Step
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =Parent.TemplateWidth -20
+                    Width: =Parent.TemplateWidth -30
                     X: =10
                     Y: =10
                     ZIndex: =2
@@ -233,7 +232,7 @@ FAQScreen_1 As screen:
             TemplatePadding: =0
             TemplateSize: =90
             Visible: =varshowMenu
-            Width: =Parent.Width/2.8
+            Width: =Parent.Width/2.5
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
@@ -255,8 +254,8 @@ FAQScreen_1 As screen:
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
                     Width: =Parent.Width-iconMenuCS_4.Width-lineIndicatorCS_4.Width
-                    X: =145.61220043572985
-                    Y: =30
+                    X: =iconMenuCS_4.Width+iconMenuCS_4.X+10
+                    Y: =25
                     ZIndex: =1
 
                 iconMenuCS_4 As icon.Add:
@@ -265,7 +264,7 @@ FAQScreen_1 As screen:
                     Icon: =ThisItem.icon
                     Width: =Parent.Width/4.5
                     X: =15
-                    Y: =30
+                    Y: =25
                     ZIndex: =3
 
                 btnMenuCS_4 As button:
