@@ -1,4 +1,11 @@
 AboutScreen As screen:
+    OnVisible: |
+        =ClearCollect(
+            CGInstructions,
+            {Step: "1. Install PowerApps via Schindler App Catalog and/or Apple App Store."},
+            {Step: "2. Open Technician App from App list (check name of the App in Email communication). ??"},
+            {Step: "3. While Technician App is opening, we are authenticating, logged In user's email is present in Technician's master table or not. If not, we give popup to user's ""You are not authorized to use this app. Kindly contact support team."" "}
+        );
 
     ctnMainCS_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -161,16 +168,44 @@ AboutScreen As screen:
                 Align: =Align.Justify
                 Fill: =RGBA(237, 237, 237, 1)
                 Font: =Font.Arial
-                Height: =Parent.Height-20
+                Height: =200
                 PaddingLeft: =10
                 PaddingRight: =10
                 PaddingTop: =10
-                Text: ="The App is intended to be used by field technicians for communicating leads to Schindler quotes and sales team.Once lead is submitted then the Quotes team reviews the lead.In case they have any query then they use chat fascility in the App.The incentives for Quoted leads is calculted withing 24 hours. Technician gets notification once incentives are calculted and upodated in the App."
+                Text: ="The App is intended for use by Schindler Field Technicians for submitting FP leads directly to the Quick Quote Inside Sales Team. Once a lead is submitted, the Quick Quote Team will review and estimate the lead. The interactive chat feature allows you to message your QQ Rep from within the app. Once a lead has been created, Technicians will receive a notification when prospective incentives are calculated and updated in the App (usually within 24 hours)."
                 VerticalAlign: =VerticalAlign.Top
                 Width: =Parent.Width-20
                 X: =10
                 Y: =10
                 ZIndex: =1
+
+            "Gallery3 As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
+                DelayItemLoading: =true
+                Height: =Parent.Height-Label4.Height
+                Items: =CustomGallerySample
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =4
+                TemplateSize: =Min(870, Self.Height - 60)
+                Width: =Parent.Width-20
+                X: =10
+                Y: =Label4.Height+Label4.Y
+                ZIndex: =2
+
+                Title2 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.SampleHeading
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth 
+                    X: =10
+                    Y: =10
+                    ZIndex: =2
 
     grpMenuCS_1 As group:
         Height: =5
