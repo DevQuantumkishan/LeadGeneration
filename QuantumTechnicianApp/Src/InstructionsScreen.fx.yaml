@@ -1,9 +1,9 @@
-FAQScreen_1 As screen:
+InstructionsScreen As screen:
     OnVisible: |
         =ClearCollect(
             GCInstructions,
             {Step: "1. Install PowerApps via Schindler App Catalog and/or Apple App Store."},
-            {Step: "2. Open Technician App from App list (check name of the App in Email communication). ??"},
+            {Step: "2. Open Technician App from App list (check name of the App in Email communication). "},
             {Step: "3. While Technician App is opening, we are authenticating, logged In user's email is present in Technician's master table or not. If not, we give popup to user's ""You are not authorized to use this app. Kindly contact support team."" "},
             {Step: "4. User can see Dashboard with Tabs Open Leads, In Progress Leads, Rejected Leads, Quoted Leads, Sold Leads and Create New Lead button."},
             {Step: "5. Once user clicks on ""Create New Lead"" button user will see 5 steps form."},
@@ -285,7 +285,7 @@ FAQScreen_1 As screen:
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
                     Height: =Parent.Height
-                    Visible: =If(ThisItem.Navigate=FAQScreen_1,true,false)
+                    Visible: =If(ThisItem.Navigate=InstructionsScreen,true,false)
                     Width: =4
                     X: =1
                     ZIndex: =5
