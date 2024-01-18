@@ -190,7 +190,7 @@ InstructionsScreen As screen:
                 Title1_1 As label:
                     Align: =Align.Justify
                     AutoHeight: =true
-                    Color: =RGBA(0, 0, 0, 1)
+                    Color: =RGBA(169,169,169, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     Font: =Font.Arial
                     FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
@@ -198,7 +198,7 @@ InstructionsScreen As screen:
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
-                    Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
+                    Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                     Text: =ThisItem.Step
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.TemplateWidth -30
