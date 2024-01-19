@@ -216,7 +216,7 @@ InstructionsScreen As screen:
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)
-            Height: =1.08*(CountRows(glryMenuCS_4.AllItems)*(glryMenuCS_4.TemplateHeight))
+            Height: =1.01*(CountRows(glryMenuCS_4.AllItems)*(glryMenuCS_4.TemplateHeight))
             Items: =Menu
             Layout: =Layout.Vertical
             ShowScrollbar: =false
@@ -280,21 +280,4 @@ InstructionsScreen As screen:
                     Width: =4
                     X: =1
                     ZIndex: =5
-
-    PopopMandatoryCS_4 As groupContainer.manualLayoutContainer:
-        Fill: =RGBA(0, 0, 0, 0.29)
-        Height: =Parent.Height
-        Visible: =VarNotification
-        Width: =375
-        ZIndex: =6
-
-        borderPopopErrorCS_4 As rectangle:
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: |
-                =//If(Parent.Height<500,Parent.Height/1.5,Parent.Height/3)
-                If(Parent.Width<500 || Parent.Height<500,260,Parent.Width>500 ,300)
-            Width: =If(Parent.Width<1000,Parent.Width/1.2,Parent.Width/2)
-            X: =(Parent.Width-Self.Width)/2
-            Y: =(Parent.Height-Self.Height)/2
-            ZIndex: =1
 
