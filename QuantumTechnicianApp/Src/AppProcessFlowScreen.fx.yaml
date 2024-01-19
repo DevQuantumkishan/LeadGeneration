@@ -13,7 +13,10 @@ AppProcessFlowScreen As screen:
             {Step: "4. Begin creating a lead by entering the SEC contract number. If the contract number is found, the remaining contract information required should auto-populate. If an error message displays, there is likely mismatched contract/district information that will need to be updated."},
             {Step: "5. After submitting the following steps (Lead Details), a unique tracking number will be assigned to the Lead and displayed within the App."},
             {Step: "6. Please Note: lead details cannot be updated once the lead has been submitted."},
-            {Step: "7. The QQ team can view all Open Leads in their Dashboard, with the apply to filter based on SEC district. A notification will be sent to the Technician’s device indicating a change in lead status has taken place."}
+            {Step: "7. The QQ team can view all Open Leads in their Dashboard, with the apply to filter based on SEC district. A notification will be sent to the Technician’s device indicating a change in lead status has taken place."},
+            {Step:"8. After a Lead has changed status from Open to In Progress, Technician can chat with their QQ Rep by clicking on the Chat icon displayed beside the corresponding Lead. Please message the Quick Quote team via the chat feature of the Lead Details to modify any incorrect information for the estimate"},
+            {Step: "9. QQ Team assigns the CADRE estimate number to each Open Lead once generated."},
+            {Step10: "10.Lead incentive is calculated daily based on the FP Estimate file automatically imported from CADRE. A notification is sent to corresponding Technician when status of the lead is changed to Quoted or Sold Lead."}
         );
 
     ctnMainCS_5 As groupContainer.verticalAutoLayoutContainer:
@@ -199,6 +202,7 @@ AppProcessFlowScreen As screen:
                     Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                     Text: =ThisItem.SubStep1
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =If(IsBlank(ThisItem.SubStep1),false,true)
                     Width: =Parent.TemplateWidth-70
                     X: =40
                     Y: =lblStep.Y+lblStep.Height
@@ -236,6 +240,7 @@ AppProcessFlowScreen As screen:
                     Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                     Text: =ThisItem.SubStep2
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =If(IsBlank(ThisItem.SubStep2),false,true)
                     Width: =Parent.TemplateWidth-70
                     X: =40
                     Y: =lblsubstep1.Y+lblsubstep1.Height
@@ -255,6 +260,7 @@ AppProcessFlowScreen As screen:
                     Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                     Text: =ThisItem.SubStep3
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =If(IsBlank(ThisItem.SubStep3),false,true)
                     Width: =Parent.TemplateWidth-70
                     X: =40
                     Y: =lblsubstep2.Y+lblsubstep2.Height
@@ -274,6 +280,7 @@ AppProcessFlowScreen As screen:
                     Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                     Text: =ThisItem.SubStep4
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =If(IsBlank(ThisItem.SubStep4),false,true)
                     Width: =Parent.TemplateWidth-70
                     X: =40
                     Y: =lblsubstep3.Y+lblsubstep3.Height
@@ -293,6 +300,7 @@ AppProcessFlowScreen As screen:
                     Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                     Text: =ThisItem.SubStep5
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =If(IsBlank(ThisItem.SubStep5),false,true)
                     Width: =Parent.TemplateWidth-70
                     X: =40
                     Y: =lblsubstep4.Y+lblsubstep4.Height
