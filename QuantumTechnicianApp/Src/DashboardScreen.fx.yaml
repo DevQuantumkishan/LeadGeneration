@@ -215,7 +215,7 @@ DashboardScreen As screen:
                     DisplayMode: |-
                         =//If(toggleYearDS.TrueText<>toggleYearDS.FalseText,DisplayMode.Disabled,DisplayMode.Disabled)
                         //DisplayMode.Edit
-                        If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,DisplayMode.Disabled,DisplayMode.Edit)
+                        If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))<>0,DisplayMode.Edit,DisplayMode.Disabled)
                     FalseFill: =AllScreensCSS.RColorBlack
                     FalseText: |-
                         =//LookUp(LeadInformations,MechanicName=User().FullName,Year('Created On')) &"-"& Year(Now())
@@ -980,8 +980,8 @@ DashboardScreen As screen:
                                 If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit),
                                 If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit))*/
                                 If(yearly=true,
-                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit),
-                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalSoldLead)<>0))=0,DisplayMode.Disabled,DisplayMode.Edit))
+                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year=lblyearDS.Text && Value(TotalSoldLead)<>0))<>0,DisplayMode.Edit,DisplayMode.Disabled),
+                                If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Value(TotalSoldLead)<>0))<>0,DisplayMode.Edit,DisplayMode.Disabled))
                                 
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
