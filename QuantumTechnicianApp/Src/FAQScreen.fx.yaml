@@ -41,7 +41,7 @@ FAQScreen As screen:
         );
         UpdateContext({VarAnswerFAQ: false});
 
-    ctnMainCS_2 As groupContainer.verticalAutoLayoutContainer:
+    ctnMainFAQS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -54,7 +54,7 @@ FAQScreen As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderCS_2 As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeaderFAQS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -65,7 +65,7 @@ FAQScreen As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            IconMenuCS_2 As icon.Hamburger:
+            IconMenuFAQS As icon.Hamburger:
                 Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -77,7 +77,8 @@ FAQScreen As screen:
                 Y: =11
                 ZIndex: =1
 
-            imgSchindlerLogoCS_2 As image:
+            imgSchindlerLogoFAQS As image:
+                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -90,7 +91,7 @@ FAQScreen As screen:
                 X: =0.00
                 ZIndex: =2
 
-            iconBackCS_2 As icon.BackArrow:
+            iconBackFAQS As icon.BackArrow:
                 AlignInContainer: =AlignInContainer.Center
                 Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height/2
@@ -110,7 +111,7 @@ FAQScreen As screen:
                 Y: =11
                 ZIndex: =3
 
-            lblHeaderCS_2 As label:
+            lblHeaderFAQS As label:
                 DisplayMode: =DisplayMode.View
                 Font: =AllScreensCSS.RFont
                 FontWeight: =FontWeight.Bold
@@ -123,11 +124,11 @@ FAQScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoCS_2.Width-IconMenuCS_2.Width-btnUsernameCS_2.Width-50
+                Width: =Parent.Width-imgSchindlerLogoFAQS.Width-IconMenuFAQS.Width-btnUsernameFAQS.Width-50
                 X: =96.12
                 ZIndex: =4
 
-            btnUsernameCS_2 As button:
+            btnUsernameFAQS As button:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =AllScreensCSS.RActiveColor
                 Color: =AllScreensCSS.RColorBlack
@@ -152,7 +153,8 @@ FAQScreen As screen:
                 Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
                 ZIndex: =6
 
-        ctnLeadsDetailsCS_2 As groupContainer.manualLayoutContainer:
+        ctnLeadsDetailsFAQS As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(219, 219, 219, 1)
             BorderThickness: =2
             Fill: =RGBA(255, 255, 255, 1)
@@ -172,7 +174,7 @@ FAQScreen As screen:
             Y: =85
             ZIndex: =2
 
-            Label1_1 As label:
+            lblFAQS As label:
                 Color: =AllScreensCSS.RColorWhite
                 Fill: =AllScreensCSS.RActiveColor
                 Font: =AllScreensCSS.RFont
@@ -184,11 +186,11 @@ FAQScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-        ctnMiddleCS_2 As groupContainer.manualLayoutContainer:
+        ctnMiddleFAQS As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderCS_2.Height-ctnLeadsDetailsCS_2.Height-40
+            Height: =Parent.Height-ctnHeaderFAQS.Height-ctnLeadsDetailsFAQS.Height-40
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =5
@@ -197,7 +199,7 @@ FAQScreen As screen:
             Y: =180
             ZIndex: =3
 
-            "Gallery1 As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
+            "glryFAQS As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 DelayItemLoading: =true
                 Height: =Parent.Height-25
                 Items: =FAQ
@@ -209,7 +211,7 @@ FAQScreen As screen:
                 Y: =10
                 ZIndex: =1
 
-                Title1 As label:
+                lblAnswerFAQS As label:
                     Align: =Align.Justify
                     AutoHeight: =true
                     Color: =RGBA(169, 169, 169, 1)
@@ -227,10 +229,10 @@ FAQScreen As screen:
                     Visible: =ThisItem.IsSelected && VarAnswerFAQ 
                     Width: =Parent.TemplateWidth -20
                     X: =5
-                    Y: =Button3.Height+Button3.Y+10
+                    Y: =btnquestionFAQS.Height+btnquestionFAQS.Y+10
                     ZIndex: =2
 
-                Button3 As button:
+                btnquestionFAQS As button:
                     Align: =Align.Left
                     Color: =RGBA(0, 0, 0, 1)
                     DisplayMode: =DisplayMode.View
@@ -239,7 +241,7 @@ FAQScreen As screen:
                     FontWeight: =FontWeight.Normal
                     Height: =55
                     OnSelect: =Select(Parent)
-                    PaddingRight: =Button5_1.Width+5
+                    PaddingRight: =btnExpandFAQS.Width+5
                     Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                     Text: =ThisItem.Question
                     Width: =Parent.Width-20
@@ -247,7 +249,7 @@ FAQScreen As screen:
                     Y: =5
                     ZIndex: =3
 
-                Button5 As button:
+                btnCollapseFAQS As button:
                     BorderThickness: =0
                     Fill: =RGBA(149, 149, 149, 1)
                     FontWeight: =FontWeight.Normal
@@ -263,7 +265,7 @@ FAQScreen As screen:
                     Y: =18
                     ZIndex: =4
 
-                Button5_1 As button:
+                btnExpandFAQS As button:
                     BorderThickness: =0
                     Fill: =RGBA(149, 149, 149, 1)
                     FontWeight: =FontWeight.Normal
@@ -279,25 +281,25 @@ FAQScreen As screen:
                     Y: =18
                     ZIndex: =5
 
-                Button1 As button:
+                btnSupportclickFAQS As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     HoverFill: =
                     OnSelect: =If(ThisItem.Answer = "Please see Support page." ,Navigate(SupportScreen))
                     Text: =""
                     Visible: =ThisItem.IsSelected && VarAnswerFAQ && ThisItem.Answer="Please see Support page."
                     Width: =Parent.Width
-                    X: =Title1.X
-                    Y: =Title1.Y
+                    X: =lblAnswerFAQS.X
+                    Y: =lblAnswerFAQS.Y
                     ZIndex: =7
 
-    grpMenuCS_2 As group:
+    grpMenuFAQS As group:
         Height: =5
         Width: =5
         X: =40
         Y: =80
         ZIndex: =5
 
-        ctnBackgroundMenuCS_2 As groupContainer.manualLayoutContainer:
+        ctnBackgroundMenuFAQS As groupContainer.manualLayoutContainer:
             Fill: =RGBA(0, 0.19, 0.19, 0.19)
             Height: =Parent.Height-ctnHeaderDS.Height
             Visible: =varshowMenu
@@ -305,11 +307,11 @@ FAQScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =2
 
-        "glryMenuCS_2 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+        "glryMenuFAQS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)
-            Height: =1.08*(CountRows(glryMenuCS_2.AllItems)*(glryMenuCS_2.TemplateHeight))
+            Height: =1.08*(CountRows(glryMenuFAQS.AllItems)*(glryMenuFAQS.TemplateHeight))
             Items: =Menu
             Layout: =Layout.Vertical
             ShowScrollbar: =false
@@ -320,14 +322,14 @@ FAQScreen As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
-            ctnMenuCS_2 As groupContainer.manualLayoutContainer:
+            ctnMenuFAQS As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuCS_2 As label:
+                lblMenuFAQS As label:
                     AutoHeight: =true
                     Color: =AllScreensCSS.RColorBlack
                     Height: =24
@@ -337,12 +339,12 @@ FAQScreen As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuCS_2.Width-lineIndicatorCS_2.Width
-                    X: =iconMenuCS_2.Width+iconMenuCS_2.X+10
+                    Width: =Parent.Width-iconMenuFAQS.Width-lineIndicatorFAQS.Width
+                    X: =iconMenuFAQS.Width+iconMenuFAQS.X+10
                     Y: =25
                     ZIndex: =1
 
-                iconMenuCS_2 As icon.Add:
+                iconMenuFAQS As icon.Add:
                     Color: =AllScreensCSS.RColorBlack
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -351,7 +353,7 @@ FAQScreen As screen:
                     Y: =25
                     ZIndex: =3
 
-                btnMenuCS_2 As button:
+                btnMenuFAQS As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -364,7 +366,7 @@ FAQScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorCS_2 As rectangle:
+                lineIndicatorFAQS As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)

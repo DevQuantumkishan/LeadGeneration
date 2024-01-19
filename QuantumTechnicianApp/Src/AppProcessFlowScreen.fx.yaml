@@ -69,6 +69,7 @@ AppProcessFlowScreen As screen:
                 ZIndex: =2
 
             iconBackAPFS As icon.BackArrow:
+                AlignInContainer: =AlignInContainer.Center
                 Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -105,6 +106,7 @@ AppProcessFlowScreen As screen:
                 ZIndex: =4
 
             btnUsernameAPFS As button:
+                AlignInContainer: =AlignInContainer.Center
                 BorderColor: =AllScreensCSS.RActiveColor
                 Color: =AllScreensCSS.RColorBlack
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)

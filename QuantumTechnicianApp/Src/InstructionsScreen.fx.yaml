@@ -46,6 +46,7 @@ InstructionsScreen As screen:
                 ZIndex: =1
 
             imgSchindlerLogoLIS As image:
+                AlignInContainer: =AlignInContainer.Center
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -59,6 +60,7 @@ InstructionsScreen As screen:
                 ZIndex: =2
 
             iconBackLIS As icon.BackArrow:
+                AlignInContainer: =AlignInContainer.Center
                 Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -95,6 +97,7 @@ InstructionsScreen As screen:
                 ZIndex: =4
 
             btnUsernameLIS As button:
+                AlignInContainer: =AlignInContainer.Center
                 BorderColor: =AllScreensCSS.RActiveColor
                 Color: =AllScreensCSS.RColorBlack
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
