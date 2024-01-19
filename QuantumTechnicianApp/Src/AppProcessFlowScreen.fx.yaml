@@ -19,7 +19,7 @@ AppProcessFlowScreen As screen:
             {Step: "10. Lead incentive is calculated daily based on the FP Estimate file automatically imported from CADRE. A notification is sent to corresponding Technician when status of the lead is changed to Quoted or to Sold Lead."}
         );
 
-    ctnMainCS_5 As groupContainer.verticalAutoLayoutContainer:
+    ctnMainAPFS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -32,7 +32,7 @@ AppProcessFlowScreen As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderCS_5 As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeaderAPFS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
@@ -43,7 +43,7 @@ AppProcessFlowScreen As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            IconMenuCS_5 As icon.Hamburger:
+            IconMenuAPFS As icon.Hamburger:
                 Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -55,7 +55,7 @@ AppProcessFlowScreen As screen:
                 Y: =11
                 ZIndex: =1
 
-            imgSchindlerLogoCS_5 As image:
+            imgSchindlerLogoAPFS As image:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -68,8 +68,7 @@ AppProcessFlowScreen As screen:
                 X: =0.00
                 ZIndex: =2
 
-            iconBackCS_5 As icon.BackArrow:
-                AlignInContainer: =AlignInContainer.Center
+            iconBackAPFS As icon.BackArrow:
                 Color: =AllScreensCSS.RColorBlack
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -88,7 +87,7 @@ AppProcessFlowScreen As screen:
                 Y: =11
                 ZIndex: =3
 
-            lblHeaderCS_5 As label:
+            lblHeaderAPFS As label:
                 DisplayMode: =DisplayMode.View
                 Font: =AllScreensCSS.RFont
                 FontWeight: =FontWeight.Bold
@@ -101,12 +100,11 @@ AppProcessFlowScreen As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoCS_5.Width-IconMenuCS_5.Width-btnUsernameCS_5.Width-50
+                Width: =Parent.Width-imgSchindlerLogoAPFS.Width-IconMenuAPFS.Width-btnUsernameAPFS.Width-50
                 X: =96.12
                 ZIndex: =4
 
-            btnUsernameCS_5 As button:
-                AlignInContainer: =AlignInContainer.Center
+            btnUsernameAPFS As button:
                 BorderColor: =AllScreensCSS.RActiveColor
                 Color: =AllScreensCSS.RColorBlack
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -130,7 +128,8 @@ AppProcessFlowScreen As screen:
                 Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
                 ZIndex: =6
 
-        ctnLeadsDetailsCS_5 As groupContainer.manualLayoutContainer:
+        ctnLeadsDetailsAPFS As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(219, 219, 219, 1)
             BorderThickness: =2
             Fill: =RGBA(255, 255, 255, 1)
@@ -150,7 +149,7 @@ AppProcessFlowScreen As screen:
             Y: =85
             ZIndex: =2
 
-            Label1_4 As label:
+            lblAPFS As label:
                 Color: =AllScreensCSS.RColorWhite
                 Fill: =AllScreensCSS.RActiveColor
                 Font: =AllScreensCSS.RFont
@@ -162,11 +161,11 @@ AppProcessFlowScreen As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-        ctnMiddleCS_5 As groupContainer.manualLayoutContainer:
+        ctnMiddleAPFS As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnHeaderCS_5.Height-ctnLeadsDetailsCS_5.Height-30
+            Height: =Parent.Height-ctnHeaderAPFS.Height-ctnLeadsDetailsAPFS.Height-30
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =5
@@ -175,7 +174,7 @@ AppProcessFlowScreen As screen:
             Y: =180
             ZIndex: =3
 
-            "Gallery1_2 As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
+            "glryAPFS As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 DelayItemLoading: =true
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height-5
