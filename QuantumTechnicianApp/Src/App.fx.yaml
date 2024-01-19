@@ -117,14 +117,19 @@ App As appinfo:
                 Navigate: AboutScreen
             },
             {
-                Title: "Support" &  Char(10) & "Contact",
+                Title: "Support",
                 icon: Icon.Support,
                 Navigate: SupportScreen
             },
              {
-                Title: "Step-by-Step" &  Char(10) & "Instructions",
+                Title: "Log-in" &  Char(10) & "Instructions",
                 icon: Icon.DetailList,
                 Navigate: InstructionsScreen
+            },
+            {
+                Title: "App Process Flow",
+                icon: Icon.DetailList,
+                Navigate: AppProcessFlowScreen
             },
             {
                 Title: "FAQ",
