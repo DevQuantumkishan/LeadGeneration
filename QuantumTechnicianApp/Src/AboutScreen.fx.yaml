@@ -166,7 +166,11 @@ AboutScreen As screen:
                 PaddingLeft: =10
                 PaddingRight: =10
                 PaddingTop: =10
-                Text: ="The App is intended for use by Schindler Field Technicians for submitting FP leads directly to the Quick Quote Inside Sales Team. Once a lead is submitted, the Quick Quote Team will review and estimate the lead. The interactive chat feature allows you to message your QQ Rep from within the app. Once a lead has been created, Technicians will receive a notification when prospective incentives are calculated and updated in the App (usually within 24 hours)."
+                Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
+                Text: |-
+                    ="Recommend equipment upgrades and earn up to $10,000 annually! Technicians are eligible to earn 2% of FP sell price, capped at $500 per lead, and $10,000 per year."
+                    & Char(10) & Char(10) &
+                    "The App is intended for use by Schindler Field Technicians for submitting FP leads directly to the Quick Quote Inside Sales Team. Once a lead is submitted, the Quick Quote Team will review and estimate the lead. The interactive chat feature allows you to message your QQ Rep from within the app. Once a lead has been created, Technicians will receive a notification when prospective incentives are calculated and updated in the App (usually within 24 hours)"
                 VerticalAlign: =VerticalAlign.Top
                 Width: =Parent.Width-20
                 X: =10
