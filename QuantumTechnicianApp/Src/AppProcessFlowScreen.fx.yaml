@@ -179,30 +179,124 @@ AppProcessFlowScreen As screen:
                 Items: =GCAppProcessFlow
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
-                TemplatePadding: =4
-                TemplateSize: =Min(870, Self.Height - 60)
+                TemplatePadding: =2
+                TemplateSize: =lblStep.Height+lblsubstep1.Height+lblsubstep2.Height+lblsubstep3.Height+lblsubstep4.Height+lblsubstep5.Height
                 Width: =Parent.Width
                 Y: =5
                 ZIndex: =1
 
-                Title1_2 As label:
+                lblsubstep1 As label:
                     Align: =Align.Justify
                     AutoHeight: =true
                     Color: =RGBA(169,169,169, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     Font: =Font.Arial
                     FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                    Height: =Self.Size * 1.8
+                    Height: =If(IsBlank(ThisItem.SubStep1),0,60)
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                    Text: =ThisItem.SubStep1
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth-70
+                    X: =40
+                    Y: =lblStep.Y+lblStep.Height
+                    ZIndex: =2
+
+                lblStep As label:
+                    Align: =Align.Justify
+                    AutoHeight: =true
+                    Color: =RGBA(169,169,169, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    Font: =Font.Arial
+                    FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =100
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                     Text: =ThisItem.Step
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =Parent.TemplateWidth -30
-                    X: =1
-                    Y: =10
-                    ZIndex: =2
+                    Width: =Parent.TemplateWidth-50
+                    X: =30
+                    ZIndex: =3
+
+                lblsubstep2 As label:
+                    Align: =Align.Justify
+                    AutoHeight: =true
+                    Color: =RGBA(169,169,169, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    Font: =Font.Arial
+                    FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =If(IsBlank(ThisItem.SubStep2),0,60)
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                    Text: =ThisItem.SubStep2
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth-70
+                    X: =40
+                    Y: =lblsubstep1.Y+lblsubstep1.Height
+                    ZIndex: =4
+
+                lblsubstep3 As label:
+                    Align: =Align.Justify
+                    AutoHeight: =true
+                    Color: =RGBA(169,169,169, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    Font: =Font.Arial
+                    FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =If(IsBlank(ThisItem.SubStep3),0,60)
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                    Text: =ThisItem.SubStep3
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth-70
+                    X: =40
+                    Y: =lblsubstep2.Y+lblsubstep2.Height
+                    ZIndex: =5
+
+                lblsubstep4 As label:
+                    Align: =Align.Justify
+                    AutoHeight: =true
+                    Color: =RGBA(169,169,169, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    Font: =Font.Arial
+                    FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =If(IsBlank(ThisItem.SubStep4),0,60)
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                    Text: =ThisItem.SubStep4
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth-70
+                    X: =40
+                    Y: =lblsubstep3.Y+lblsubstep3.Height
+                    ZIndex: =6
+
+                lblsubstep5 As label:
+                    Align: =Align.Justify
+                    AutoHeight: =true
+                    Color: =RGBA(169,169,169, 1)
+                    DisabledColor: =RGBA(0, 0, 0, 1)
+                    Font: =Font.Arial
+                    FontWeight: =FontWeight.Normal //If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =If(IsBlank(ThisItem.SubStep5),0,60)
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                    Text: =ThisItem.SubStep5
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth-70
+                    X: =40
+                    Y: =lblsubstep4.Y+lblsubstep4.Height
+                    ZIndex: =7
 
     grpMenuCS_5 As group:
         Height: =5
