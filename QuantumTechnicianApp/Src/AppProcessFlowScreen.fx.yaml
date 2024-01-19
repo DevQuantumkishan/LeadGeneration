@@ -3,7 +3,7 @@ AppProcessFlowScreen As screen:
         =ClearCollect(
             GCAppProcessFlow,
             {Step: "1. While the App is opening, Schindler credentials are being authenticated. If a pop-up error ""You are not authorized to use this app. Kindly contact support team."" appears, the Technician’s license will need to be added."},
-            {Step: "2. Once logged in, Technician Dashboard will display: Open Leads, In Progress Leads, Rejected Leads, Quoted Leads, Sold Leads and Create New Lead buttons. ",
+            {Step: "2. Once logged in,Technician Dashboard will display: Open Leads, In Progress Leads, Rejected Leads, Quoted Leads, Sold Leads and Create New Lead buttons. ",
             SubStep1:"1. Open Leads have been submitted, but not yet been picked up by a Quick Quote rep for lead creation.",
             SubStep2:"2. In Progress Leads are currently being estimated by the Quick Quote team.",
             SubStep3:"3. Rejected Leads were not accepted for lead creation. This is likely due to duplicate submissions.",
@@ -16,7 +16,7 @@ AppProcessFlowScreen As screen:
             {Step: "7. The QQ team can view all Open Leads in their Dashboard, with the apply to filter based on SEC district. A notification will be sent to the Technician’s device indicating a change in lead status has taken place."},
             {Step:"8. After a Lead has changed status from Open to In Progress, Technician can chat with their QQ Rep by clicking on the Chat icon displayed beside the corresponding Lead. Please message the Quick Quote team via the chat feature of the Lead Details to modify any incorrect information for the estimate"},
             {Step: "9. QQ Team assigns the CADRE estimate number to each Open Lead once generated."},
-            {Step: "10. Lead incentive is calculated daily based on the FP Estimate file automatically imported from CADRE. A notification is sent to corresponding Technician when status of the lead is changed to Quoted or Sold Lead."}
+            {Step: "10. Lead incentive is calculated daily based on the FP Estimate file automatically imported from CADRE. A notification is sent to corresponding Technician when status of the lead is changed to Quoted or to Sold Lead."}
         );
 
     ctnMainCS_5 As groupContainer.verticalAutoLayoutContainer:
