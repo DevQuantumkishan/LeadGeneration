@@ -1645,7 +1645,7 @@ LeadScreen As screen:
                             true
                         );
                         //here checking estimate number with tech id in fpestimate file
-                        If(
+                If(
                             !IsBlank(
                                 LookUp(
                                     SHFPEstimates,
@@ -1671,7 +1671,7 @@ LeadScreen As screen:
                         //Notify("Estimate number not found in the FP Estimate file for this lead Technician is entered.");
                 Set(
                                 VarPopUpEstimateNumberSubmittedmsg,
-                                "Estimate number not found in the FP Estimate file for this Lead Technician is entered."
+                                "Technician Id of this lead is not matching with that of FPEstimate file"
                             );
                             Set(
                                 VarPopUpEstimateNumberSubmitted,
@@ -1697,7 +1697,7 @@ LeadScreen As screen:
                     );
                     Set(
                         VarPopUpEstimateNumberSubmittedmsg,
-                        "Estimate number of this lead technician is not found in FP Estimate file, Estimate number saved successfully. We will update Incentives Details when FPEstimate file is processed."
+                        "Estimate number of this lead is not found in FP Estimate file, Estimate number is saved successfully. Incentives will be calculated in the next processing cycle of FPEstimate file."
                     );
                     Set(
                         VarPopUpEstimateNumberSubmitted,
@@ -1709,10 +1709,10 @@ LeadScreen As screen:
                 If(
                     FlagEstimateNumberWithTechIdFound = true,
                     If(
-                        IsBlank(
+                        !IsBlank(
                             LookUp(
                                 SHFPEstimates,
-                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold"
+                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Open"
                             )
                         ),
                         //Updating proposed price and proposed incentives
@@ -1733,7 +1733,7 @@ LeadScreen As screen:
                                 StatusDate: Now(),
                                 ProposedLeadDate: VarFPEstimateData.DateCreated
                                 //Area:VarFPEstimateData.Area,
-                                //Territory:VarFPEstimateData.Territory
+                //Territory:VarFPEstimateData.Territory
                             }
                         );
                         If(
@@ -1799,7 +1799,7 @@ LeadScreen As screen:
                                 ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
                                 ProposedLeadDate: VarFPEstimateData.DateCreated
                                // Area:VarFPEstimateData.Area,
-                               // Territory:VarFPEstimateData.Territory
+                // Territory:VarFPEstimateData.Territory
                             }
                         );
                         If(
