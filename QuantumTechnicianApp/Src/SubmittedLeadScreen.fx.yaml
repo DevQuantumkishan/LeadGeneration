@@ -321,16 +321,18 @@ SubmittedLeadScreen As screen:
                 Height: =Parent.Height-ctnSearchBarSLS.Height-ctnSearchBarSubmittedLeadsScreen.Height-20
                 Items: |-
                     =//lead list shown by status  and user mail also sort on created on. also SortBycolumns and search functions are added beacause we give user to search lead by column and also give dropdown of columns for sorting .
+                    If(Header="Open",
                     SortByColumns(
                         Search(
                             Sort(
                                 Filter(
                                     LeadInformations,
-                                      If(
+                                     /* If(
                                         Header = "Open",
                                         LeadStatus = "Submitted",
                                         LeadStatus = Header
-                                    ) && Email = User().Email
+                                    )*/ 
+                                    LeadStatus="Submitted" && Email = User().Email
                                 ),
                                 'Created On',
                                 SortOrder.Descending
@@ -343,7 +345,32 @@ SubmittedLeadScreen As screen:
                     
                         ),
                       If(cboxSortolumnsSLS.Selected.Value="Created Date","createdon",cboxSortolumnsSLS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortolumnsSLS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortolumnsSLS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortolumnsSLS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortolumnsSLS.Selected.Value="Building Name","shlrf_buildingname",cboxSortolumnsSLS.Selected.Value="Address","shlrf_address",cboxSortolumnsSLS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSLS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSLS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending)
-                    )
+                    ),
+                    Header="InProgress",
+                    SortByColumns(
+                        Search(
+                            Sort(
+                                Filter(
+                                    LeadInformations,
+                                     /* If(
+                                        Header = "Open",
+                                        LeadStatus = "Submitted",
+                                        LeadStatus = Header
+                                    )*/ 
+                                    LeadStatus="InProgress" && Email = User().Email
+                                ),
+                                'Created On',
+                                SortOrder.Descending
+                            ),
+                            IntxtSearchBoxSLS.Text,
+                            "shlrf_contractnumber",
+                            "shlrf_address",
+                            "shlrf_buildingname",
+                            "shlrf_zipcode","shlrf_leadtrackingnumber"
+                    
+                        ),
+                      If(cboxSortolumnsSLS.Selected.Value="Created Date","createdon",cboxSortolumnsSLS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortolumnsSLS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortolumnsSLS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortolumnsSLS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortolumnsSLS.Selected.Value="Building Name","shlrf_buildingname",cboxSortolumnsSLS.Selected.Value="Address","shlrf_address",cboxSortolumnsSLS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSLS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSLS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending)
+                    ))
                 Layout: =Layout.Vertical
                 TemplatePadding: =0
                 TemplateSize: =220
