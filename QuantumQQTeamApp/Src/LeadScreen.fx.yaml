@@ -1642,14 +1642,14 @@ LeadScreen As screen:
                         ) && !IsBlank(
                             LookUp(
                                 SHFPEstimates,
-                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold" && !IsBlank(BookingDate))) &&
+                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold" && !IsBlank(BookingDate))) 
+                                /*&&
                                 !IsBlank(
                             LookUp(
                                 SHFPEstimates,
                                 Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Open" && !IsBlank(DateCreated)
                             )
-                            
-                        ),
+                             )*/,
                         Set(
                             FlagEstimateNumberFound,
                             true
