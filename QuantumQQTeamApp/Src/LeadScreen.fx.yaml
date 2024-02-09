@@ -76,7 +76,9 @@ LeadScreen As screen:
 
             lblmechanicnamevalueLdS As label:
                 Size: =16
-                Text: =glryleadlistLS.Selected.MechanicName
+                Text: |-
+                    =//glryleadlistLS.Selected.MechanicName && " "  && 
+                    IsBlank(LookUp(SHFPEstimates,Estimate="AMAO-CZELCM",BookingDate))
                 Width: =Parent.Width/2
                 ZIndex: =2
 
@@ -1639,17 +1641,15 @@ LeadScreen As screen:
                                 SHFPEstimates,
                                 Estimate = txtinptestimatenumber.Text
                             )
-                        ) || !IsBlank(
-                            LookUp(
-                                SHFPEstimates,
-                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold" && !IsBlank(BookingDate))) 
-                                /*&&
-                                !IsBlank(
-                            LookUp(
-                                SHFPEstimates,
-                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Open" && !IsBlank(DateCreated)
-                            )
-                             )*/,
+                        ) && (LookUp(
+                            SHFPEstimates,
+                            Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold",
+                            !IsBlank(BookingDate)
+                        ) || LookUp(
+                            SHFPEstimates,
+                            Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Open",
+                            !IsBlank(DateCreated)
+                        )),
                         Set(
                             FlagEstimateNumberFound,
                             true
