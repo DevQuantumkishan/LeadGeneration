@@ -1639,7 +1639,7 @@ LeadScreen As screen:
                                 SHFPEstimates,
                                 Estimate = txtinptestimatenumber.Text
                             )
-                        ) && !IsBlank(
+                        ) || !IsBlank(
                             LookUp(
                                 SHFPEstimates,
                                 Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold" && !IsBlank(BookingDate))) 
