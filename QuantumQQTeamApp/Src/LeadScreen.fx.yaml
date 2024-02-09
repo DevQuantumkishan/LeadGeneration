@@ -1718,7 +1718,7 @@ LeadScreen As screen:
                 );
                 //here checking FlagEstimateNumberWithTechIdFound is true then update estimate number,leadprice,leadincentive
                 If(
-                    FlagEstimateNumberWithTechIdFound = true,
+                    FlagEstimateNumberWithTechIdFound = true && FlagEstimateNumberFound = true,
                     If(
                         !IsBlank(
                             LookUp(
