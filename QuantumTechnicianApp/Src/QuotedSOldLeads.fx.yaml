@@ -154,7 +154,7 @@ QuotedSOldLeads As screen:
         ctnMiddleSoldLeads As groupContainer.manualLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height-ctnUserNameSoldLeads.Height-ctnHeaderSoldLeads.Height
+            Height: =Parent.Height+ctnUserNameSoldLeads.Height+ctnHeaderSoldLeads.Height+400
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =10
