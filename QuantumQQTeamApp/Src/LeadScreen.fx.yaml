@@ -1639,7 +1639,17 @@ LeadScreen As screen:
                                 SHFPEstimates,
                                 Estimate = txtinptestimatenumber.Text
                             )
-                        ),
+                        ) || !IsBlank(
+                            LookUp(
+                                SHFPEstimates,
+                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold" && !IsBlank(BookingDate))) 
+                                /*&&
+                                !IsBlank(
+                            LookUp(
+                                SHFPEstimates,
+                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Open" && !IsBlank(DateCreated)
+                            )
+                             )*/,
                         Set(
                             FlagEstimateNumberFound,
                             true
@@ -1697,7 +1707,7 @@ LeadScreen As screen:
                     );
                     Set(
                         VarPopUpEstimateNumberSubmittedmsg,
-                        "Estimate number of this lead is not found in FP Estimate file, Estimate number is saved successfully. Incentives will be calculated in the next processing cycle of FPEstimate file."
+                        "Estimate Number is saved. Incentives will be calculated in the next iteration."
                     );
                     Set(
                         VarPopUpEstimateNumberSubmitted,
@@ -1707,7 +1717,7 @@ LeadScreen As screen:
                 );
                 //here checking FlagEstimateNumberWithTechIdFound is true then update estimate number,leadprice,leadincentive
                 If(
-                    FlagEstimateNumberWithTechIdFound = true,
+                    FlagEstimateNumberWithTechIdFound = true && FlagEstimateNumberFound = true,
                     If(
                         !IsBlank(
                             LookUp(
@@ -1860,7 +1870,7 @@ LeadScreen As screen:
                 //Set(VarPopUpEstimateNumber,false);
                 Set(
                         VarPopUpEstimateNumberSubmittedmsg,
-                        "Incentives updated for the estimateId " & LookUp(
+                        "Incentives updated for the Estimate # " & LookUp(
                             LeadInformations,
                             ID = VarSelectedLead.ID,
                             LeadEstimateNumber
