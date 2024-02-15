@@ -662,6 +662,7 @@ ChatScreen As screen:
                 ZIndex: =2
 
             btnPopopErrorCS As button:
+                AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(255, 0, 0, 1)
                 Font: =Font.Arial
                 HoverFill: =ColorFade(Self.Fill, -20%)
@@ -689,7 +690,7 @@ ChatScreen As screen:
     PopopNotificationCS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
-        Visible: =VarchatInactivemode
+        Visible: =true//VarchatInactivemode
         Width: =Parent.Width
         ZIndex: =8
 
@@ -754,9 +755,11 @@ ChatScreen As screen:
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
                 ZIndex: =5
 
                 btnBackCS As button:
+                    AlignInContainer: =AlignInContainer.Start
                     Fill: =RGBA(255, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =ColorFade(Self.Fill, -20%)
