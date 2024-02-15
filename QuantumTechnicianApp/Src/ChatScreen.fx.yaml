@@ -690,7 +690,7 @@ ChatScreen As screen:
     PopopNotificationCS As groupContainer.manualLayoutContainer:
         Fill: =RGBA(0, 0, 0, 0.29)
         Height: =Parent.Height
-        Visible: =true//VarchatInactivemode
+        Visible: =VarchatInactivemode
         Width: =Parent.Width
         ZIndex: =8
 
