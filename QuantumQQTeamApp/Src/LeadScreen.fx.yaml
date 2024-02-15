@@ -546,7 +546,7 @@ LeadScreen As screen:
                     HoverBorderColor: =//RGBA(0, 18, 107, 1)
                     HoverFill: =//RGBA(186, 202, 226, 1)
                     MaxLength: =20
-                    OnChange: =If(Len(txtinptestimatenumber)=20, Notify("Estimate number should not be greater than 11 digit."))
+                    OnChange: =If(Len(txtinptestimatenumber.Text)=20, Notify("Estimate number should not be greater than 11 digit."))
                     PaddingLeft: =20
                     X: =10
                     Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y //Label14_10.Height+Label14_10.Y
