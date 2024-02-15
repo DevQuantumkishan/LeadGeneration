@@ -1032,11 +1032,11 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(intxtTotalEstimatedHoursofTravelVDS),90,0)
+                    Height: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(intxtTotalEstimatedHoursofTravelVDS.Text),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
                     Required: =false
                     Update: =intxtTotalEstimatedHoursofTravelVDS.Text
-                    Visible: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(intxtTotalEstimatedHoursofTravelVDS),true,false)
+                    Visible: =If(ThisItem.TravelRequired='TravelRequired (LeadInformations)'.Yes && !IsBlank(intxtTotalEstimatedHoursofTravelVDS.Text),true,false)
                     Width: =Parent.Width
                     X: =0
                     Y: =16
@@ -1124,11 +1124,11 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customername")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(intxtCustomerNameVDS),90,0)
+                    Height: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(intxtCustomerNameVDS.Text),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
                     Required: =false
                     Update: =intxtCustomerNameVDS.Text
-                    Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(intxtCustomerNameVDS),true,false)
+                    Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(intxtCustomerNameVDS.Text),true,false)
                     Width: =Parent.Width
                     X: =0
                     Y: =18
@@ -1177,11 +1177,11 @@ ViewDetailsScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(intxtCustomerContactVDS),90,0)
+                    Height: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(intxtCustomerContactVDS.Text),90,0)
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
                     Required: =false
                     Update: =intxtCustomerContactVDS.Text
-                    Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(intxtCustomerContactVDS),true,false)
+                    Visible: =If(ThisItem.CommunicatedToCustomer='CommunicatedToCustomer (LeadInformations)'.Yes && !IsBlank(intxtCustomerContactVDS.Text),true,false)
                     Width: =Parent.Width
                     X: =0
                     Y: =19

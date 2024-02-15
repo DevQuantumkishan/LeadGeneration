@@ -1,10 +1,10 @@
 CreatLeadScreen As screen:
     OnVisible: |
         =//Set(varshowMenu,!varshowMenu);
-        If(IsBlank(IntxtContractNumber),Set(VarContractNumber,false));
-        If(IsBlank(IntxtAddress),Set(VarAddress,false));
-        If(IsBlank(IntxtBuildingName),Set(VarBuildingName,false));
-        If(IsBlank(IntxtZipCode),Set(VarZipcode,false));
+        If(IsBlank(IntxtContractNumber.Text),Set(VarContractNumber,false));
+        If(IsBlank(IntxtAddress.Text),Set(VarAddress,false));
+        If(IsBlank(IntxtBuildingName.Text),Set(VarBuildingName,false));
+        If(IsBlank(IntxtZipCode.Text),Set(VarZipcode,false));
         Set(VarLoader,false);
         Set(VarNotification,false);
         Set(VarContractError,false);
@@ -456,7 +456,7 @@ CreatLeadScreen As screen:
                         Height: =If(VarContractNumber,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Contract Number*"
-                        Visible: =VarContractNumber || !IsBlank(IntxtContractNumber)
+                        Visible: =VarContractNumber || !IsBlank(IntxtContractNumber.Text)
                         Width: =Parent.Width - 50
                         Wrap: =false
                         X: =28
@@ -571,7 +571,7 @@ CreatLeadScreen As screen:
                         Height: =If(VarZipcode,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Zip Code"
-                        Visible: =VarZipcode || !IsBlank(IntxtZipCode)
+                        Visible: =VarZipcode || !IsBlank(IntxtZipCode.Text)
                         Width: =Parent.Width - 50
                         Wrap: =false
                         X: =28
@@ -598,7 +598,7 @@ CreatLeadScreen As screen:
 
                     IntxtBuildingName As text:
                         BorderColor: =If(IsBlank(Parent.Error), Color.LightGray, Color.Red)
-                        Default: =VarcontractRecord.CUST_CITY
+                        Default: =VarcontractRecord.CUST_NAME
                         DelayOutput: =true
                         DisabledBorderColor: =RGBA(149, 149, 149, 1)
                         DisabledColor: =RGBA(0, 0, 0, 1)
@@ -635,7 +635,7 @@ CreatLeadScreen As screen:
                         Height: =If(VarBuildingName,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Building Name "
-                        Visible: =VarBuildingName || !IsBlank(IntxtBuildingName)
+                        Visible: =VarBuildingName || !IsBlank(IntxtBuildingName.Text)
                         Width: =Parent.Width - 50
                         Wrap: =false
                         X: =28
@@ -698,7 +698,7 @@ CreatLeadScreen As screen:
                         Height: =If(VarAddress,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: =Parent.DisplayName
-                        Visible: =VarAddress || !IsBlank(IntxtAddress)
+                        Visible: =VarAddress || !IsBlank(IntxtAddress.Text)
                         Width: =Parent.Width - 50
                         Wrap: =false
                         X: =28
@@ -742,7 +742,7 @@ CreatLeadScreen As screen:
                     ZIndex: =1
 
                 ctnNextCLS As button:
-                    DisplayMode: =If(IsBlank(IntxtBuildingName)||IsBlank(IntxtAddress)||IsBlank(IntxtZipCode),DisplayMode.Disabled,DisplayMode.Edit)
+                    DisplayMode: =If(IsBlank(IntxtBuildingName.Text)||IsBlank(IntxtAddress.Text)||IsBlank(IntxtZipCode.Text),DisplayMode.Disabled,DisplayMode.Edit)
                     Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =RGBA(220,0,0,1)

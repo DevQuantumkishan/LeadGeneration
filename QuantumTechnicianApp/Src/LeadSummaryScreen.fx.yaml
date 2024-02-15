@@ -1148,7 +1148,7 @@ LeadSummaryScreen As screen:
                             PaddingLeft: =0
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Text: ="Customer Phone Number "
-                            Visible: =varCustomerPhonenumber || !IsBlank(lblContactNumber_1)
+                            Visible: =varCustomerPhonenumber || !IsBlank(lblContactNumber_1.Text)
                             Width: =Parent.Width - 120
                             Wrap: =false
                             X: =70
@@ -1916,19 +1916,19 @@ LeadSummaryScreen As screen:
                                 Set(varSubmit,false);
                         IfError(
                         If(
-                            IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS) || IsBlank(IntxtEstimatedHoursLSS.Text)  //IsBlank(IntxtNotesLSS.Text) 
+                            IsBlank(IntxtUnitCountLSS.Text) || IsBlank(IntxtUnitDescriptionLSS.Text) || IsBlank(CboxScopeLSS.SelectedItems) || IsBlank(IntxtEstimatedHoursLSS.Text)  //IsBlank(IntxtNotesLSS.Text) 
                             || If(
                                 CboxCCLSS.Value = true,
-                                IsBlank(IntxtCustomerNameLSS)) 
+                                IsBlank(IntxtCustomerNameLSS.Text)) 
                                 /*|| If(
                                 CboxCCLSS.Value = true,IsBlank(txtphonenumber_2)) || If(
                                // CboxCCLSS.Value = true,Len(txtphonenumber_2) <> 14) */
                                ||If(
                                 cboxAELSS.Value = true,
-                                IsBlank(IntxtTotalEstimatedExpenseLSS)
+                                IsBlank(IntxtTotalEstimatedExpenseLSS.Text)
                             ) || If(
                                 cboxTravelRequiredLSS.Value = true,
-                                IsBlank(intxtTotalEstimatedHoursofTravelLSS)
+                                IsBlank(intxtTotalEstimatedHoursofTravelLSS.Text)
                             ) || If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),IsBlank(CboxScopeLSS.Selected)) ||If(IsBlank(CboxScopeofWorkLSS.Selected),IsBlank(IntxtManuallyScopeofWorkLSS.Text)) ,
                             Set(
                                 VarErrorPopup,

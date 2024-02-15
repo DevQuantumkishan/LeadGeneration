@@ -1,7 +1,7 @@
 UnitScreen As screen:
     OnVisible: |+
-        =If(IsBlank(IntxtUnitCount),Set(VarUnitDescription,false));
-        If(IsBlank(IntxtUnitDescription),Set(VarUnitCount,false));
+        =If(IsBlank(IntxtUnitCount.Text),Set(VarUnitDescription,false));
+        If(IsBlank(IntxtUnitDescription.Text),Set(VarUnitCount,false));
         
 
     ctnMainUS As groupContainer.verticalAutoLayoutContainer:
@@ -454,7 +454,7 @@ UnitScreen As screen:
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Quantity of Units*"
                         Tooltip: ="Quantity of Units"
-                        Visible: =VarUnitCount || !IsBlank(IntxtUnitCount)
+                        Visible: =VarUnitCount || !IsBlank(IntxtUnitCount.Text)
                         Width: =Parent.Width - 50
                         Wrap: =false
                         X: =28
@@ -519,7 +519,7 @@ UnitScreen As screen:
                         Height: =If(VarUnitDescription,30,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Unit Description*"
-                        Visible: =VarUnitDescription || !IsBlank(IntxtUnitDescription)
+                        Visible: =VarUnitDescription || !IsBlank(IntxtUnitDescription.Text)
                         Width: =Parent.Width - 50
                         Wrap: =false
                         X: =28
@@ -568,7 +568,7 @@ UnitScreen As screen:
                     OnSelect: |+
                         =// If IntxtUnitCount and /or IntxtUnitDescription are/is blank then set VarNotification is true otherwise Set VarIndicator, VarIndicatorUS and VarIndicatorSS are true and navigate to ScopeScreen.
                         If(
-                            IsBlank(IntxtUnitCount) || IsBlank(IntxtUnitDescription),
+                            IsBlank(IntxtUnitCount.Text) || IsBlank(IntxtUnitDescription.Text),
                               Set(VarNotification,true);,
                             Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);

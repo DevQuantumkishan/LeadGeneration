@@ -2,7 +2,7 @@ ScopeScreen As screen:
     OnVisible: |-
         =If(IsBlank(CboxScope.Selected),Set(VarScope,false));
         If(IsBlank(CboxScopeofwork.SelectedItems),Set(VarScopeofwork,false));
-        If(IsBlank(IntxtManuallyScopeofwork),Set(VarCustomScopeofwork,false));
+        If(IsBlank(IntxtManuallyScopeofwork.Text),Set(VarCustomScopeofwork,false));
         Set(VarNotification,false);
         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error)
         //,Notify("Internet is connected",NotificationType.Success);
@@ -656,7 +656,7 @@ ScopeScreen As screen:
                         =//If CboxScope and CboxScopeofwork are not blank or CboxScope and IntxtManuallyScopeofwork are not blank then 
                         //Set VarIndicator is true,Set VarIndicatorUS is true,Set VarIndicatorSS is true,Set VarIndicatorES is true and Navigate to EstimateScreen , Set Varnotification is true.
                         If(
-                            !IsBlank(CboxScope.Selected)  && !IsBlank(CboxScopeofwork.Selected)|| !IsBlank(CboxScope.Selected) && !IsBlank(IntxtManuallyScopeofwork),
+                            !IsBlank(CboxScope.Selected)  && !IsBlank(CboxScopeofwork.Selected)|| !IsBlank(CboxScope.Selected) && !IsBlank(IntxtManuallyScopeofwork.Text),
                         Set(VarIndicator,true);
                         Set(VarIndicatorUS,true);
                         Set(VarIndicatorSS,true);
@@ -673,7 +673,7 @@ ScopeScreen As screen:
                         If(CboxTravelRequired.Value=false,
                         Set(VarTravel,false));
                         //If lblContact number is blank then set VarformattedNumber is blank and Set VarPhonenumbererrormessage as false.
-                        If(IsBlank(lblContactNumber),Set(VarformattedNumber,Blank()));
+                        If(IsBlank(lblContactNumber.Text),Set(VarformattedNumber,Blank()));
                         Set(VarPhonenumbererrormessage,false)
                     Size: =If(Parent.Width<358,12,Parent.Width>358,12)
                     Text: ="Next"

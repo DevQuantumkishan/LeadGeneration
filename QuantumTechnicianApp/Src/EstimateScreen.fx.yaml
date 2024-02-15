@@ -1,8 +1,8 @@
 EstimateScreen As screen:
     OnVisible: |
-        =If(IsBlank(IntxtEstimatedHours),Set(VarEstimateHours,false));
+        =If(IsBlank(IntxtEstimatedHours.Text),Set(VarEstimateHours,false));
         
-        If(IsBlank(IntxtMaterial),Set(VarNotes,false));
+        If(IsBlank(IntxtMaterial.Text),Set(VarNotes,false));
 
     ctnMainES As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -652,7 +652,7 @@ EstimateScreen As screen:
                         Height: =If(VarTotalEstimatesExpense,31,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Total Estimated Expense ($)*"
-                        Visible: =VarTotalEstimatesExpense || !IsBlank(IntxtTotalEstimatedExpense)
+                        Visible: =VarTotalEstimatesExpense || !IsBlank(IntxtTotalEstimatedExpense.Text)
                         Width: =Parent.Width - 120
                         X: =60
                         Y: =10
@@ -764,7 +764,7 @@ EstimateScreen As screen:
                         Height: =If(VarTotalEstimateHoursfortravel,50,0)
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Total Estimated Hours of Travel*"
-                        Visible: =VarTotalEstimateHoursfortravel || !IsBlank(IntxtTotalEstimatedHoursofTravel)
+                        Visible: =VarTotalEstimateHoursfortravel || !IsBlank(IntxtTotalEstimatedHoursofTravel.Text)
                         Width: =Parent.Width - 120
                         X: =60
                         Y: =10
@@ -887,7 +887,7 @@ EstimateScreen As screen:
                         PaddingLeft: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Customer Name*"
-                        Visible: =VarCustomerName || !IsBlank(IntxtContactName)
+                        Visible: =VarCustomerName || !IsBlank(IntxtContactName.Text)
                         Width: =Parent.Width - 120
                         Wrap: =false
                         X: =60
@@ -962,7 +962,7 @@ EstimateScreen As screen:
                         PaddingLeft: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Text: ="Customer Phone Number "
-                        Visible: =varCustomerPhonenumber || !IsBlank(lblContactNumber)
+                        Visible: =varCustomerPhonenumber || !IsBlank(lblContactNumber.Text)
                         Width: =Parent.Width - 120
                         Wrap: =false
                         X: =60
@@ -1301,12 +1301,12 @@ EstimateScreen As screen:
                     OnSelect: |-
                         =//IntxtEstimatedHours or  IntxtMaterial or  IntxtContactName or  txtphonenumber_1.Text or  Length of txtphonenumber_1.Text is not equal to 14 or IntxtTotalEstimatedExpense are blank then set varNotification as true otherwise set below variables true and naviate to ImageUploadScreen.
                         If(
-                        IsBlank(IntxtEstimatedHours) 
+                        IsBlank(IntxtEstimatedHours.Text) 
                         //|| IsBlank(IntxtMaterial) 
-                        || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName))
+                        || If(CboxCommunicatedtoCustomer.Value=true,IsBlank(IntxtContactName.Text))
                         //|| If(CboxCommunicatedtoCustomer.Value=true,IsBlank(txtphonenumber_1.Text))
                         //|| If(CboxCommunicatedtoCustomer.Value=true,Len(txtphonenumber_1.Text)<>14 )
-                        || If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel)),
+                        || If(CboxAdditionalExpensesRequired.Value=true,IsBlank(IntxtTotalEstimatedExpense.Text))||If(CboxTravelRequired.Value=true,IsBlank(IntxtTotalEstimatedHoursofTravel.Text)),
                         Set(VarNotification,true),
                         Set(VarIndicator, true );
                         Set(VarIndicatorUS, true );

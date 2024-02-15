@@ -511,7 +511,7 @@ ImageUploadScreen As screen:
                             If(
                                 CountRows(glryImageIS.AllItems) >3 ,
                                 Notify("You Can add only 4 Images."),
-                               If( !IsBlank(UploadedImageIS) || UploadedImageIS.Image<>SampleImage,
+                               If( !IsBlank(UploadedImageIS.Image) || UploadedImageIS.Image<>SampleImage,
                                 Collect(
                                     LeadImagesCollection,
                                     {
