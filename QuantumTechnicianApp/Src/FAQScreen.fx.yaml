@@ -3,12 +3,12 @@ FAQScreen As screen:
         =ClearCollect(
             FAQ,
             {
-                Question: "Why my old incentives are not shown in the App?",
+                Question: "Why are my old incentives not shown in the App?",
                 Answer: "The incentives for the leads submitted as of 01/01/24 are shown in the App. "
             },
             {
                 Question: "Can I communicate the leads using old process ?",
-                Answer: "NO. The incentives of the leads entered using the App will ONLY be shown in the App."
+                Answer: "Yes, however, only incentives that are entered using the App will display on your Dashboard. We highly encourage you to utilize the App to maintain a comprehensive outlook of your Quoted and Sold leads."
             },
              {
                 Question: "Whom should I contact in case I have query regarding incentive calculation?",
@@ -19,7 +19,7 @@ FAQScreen As screen:
                 Answer: "The process of updating incentives is executed daily. You will see prospective Incentive calculated the following day. "
             },
              {
-                Question: "Can I enter the leads in case I do not have contract number of the client?",
+                Question: "Can I enter leads without a contract number?",
                 Answer: "No. You MUST input the SEC contract number in order to create a lead. "
             },
              {
@@ -32,11 +32,15 @@ FAQScreen As screen:
             },
              {
                 Question: "How will I get updates regarding my incentives?",
-                Answer: "You will receive a notification in the App when lead status changes (e.g., from Open to Quoted, or from Quoted to Sold)."
+                Answer: "You will receive a notification on your iPhone when lead status changes."
             },
              {
                 Question: "Do I need internet connection every time to use the App?",
                 Answer: "Yes, internet connectivity is required for the App."
+            },
+            {
+                Question: "Are incentive calculations displayed in the App exact?",
+                Answer: "Incentive calculations displayed are estimated and will be finalized quarterly by the HQ Repair team. Incentives are paid out upon booking, approximately 6-8 weeks following quarter close."
             }
         );
         UpdateContext({VarAnswerFAQ: false});
