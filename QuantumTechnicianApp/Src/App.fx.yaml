@@ -146,7 +146,7 @@ App As appinfo:
         // store dataverse table named as TotalIncentives store into collection GCTotalIncentives.  
         ClearCollect(
             GCTotalIncentives,
-            TotalIncentives
+            Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
         );
         // Store dataverse table named as ' PrimaryScopeofWorks' store into GCPrimaryScopeofWorks.
         ClearCollect(
