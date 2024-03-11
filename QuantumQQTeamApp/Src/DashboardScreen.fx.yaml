@@ -59,7 +59,7 @@ DashboardScreen As screen:
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
-                    Text: =CountRows(Filter(LeadInformations,QQTeamName=User().FullName))
+                    Text: =CountRows(Filter(LeadInformations,QQTeamName=User().FullName && Email <> Blank()))
                     Width: =Parent.Width
                     X: =Parent.X
                     Y: =lblmyleadDS.Y+lblmyleadDS.Height+10
@@ -121,7 +121,7 @@ DashboardScreen As screen:
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
-                    Text: =CountRows(Filter(LeadInformations,LeadStatus="Submitted" || LeadStatus="Rejected" || LeadStatus="InProgress"))
+                    Text: =CountRows(Filter(LeadInformations,(LeadStatus="Submitted" || LeadStatus="Rejected" || LeadStatus="InProgress") && Email <> Blank()))
                     Width: =Parent.Width
                     Y: =lblopenleadDS.Y+lblopenleadDS.Height+10
                     ZIndex: =2
