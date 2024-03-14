@@ -36,7 +36,7 @@ LeadScreen As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             Width: =Parent.Width
-            ZIndex: =2
+            ZIndex: =1
 
             btnbackLdS As button:
                 BorderColor: =//ColorFade(Self.Fill, -15%)
@@ -65,7 +65,7 @@ LeadScreen As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             Width: =Parent.Width
-            ZIndex: =3
+            ZIndex: =2
 
             lblmechanicnameLdS As label:
                 FontWeight: =FontWeight.Semibold
@@ -82,6 +82,32 @@ LeadScreen As screen:
                 Width: =Parent.Width/2
                 ZIndex: =2
 
+        ctnmechanicemailLdS As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
+            Width: =Parent.Width
+            ZIndex: =3
+
+            lblmechanicemailLdS As label:
+                FontWeight: =FontWeight.Semibold
+                Size: =16
+                Text: ="Mechanic Email"
+                Width: =200
+                ZIndex: =1
+
+            lblmechanicemailvalueLdS As label:
+                Size: =16
+                Text: |-
+                    =glryleadlistLS.Selected.Email //&& " "  && 
+                    //IsBlank(LookUp(SHFPEstimates,Estimate="AMAO-CZELCM",BookingDate))
+                Width: =Parent.Width/2
+                ZIndex: =2
+
         ctncontractnumberLdS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
@@ -91,7 +117,7 @@ LeadScreen As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             Width: =Parent.Width
-            ZIndex: =5
+            ZIndex: =4
 
             lblcontractnumberLdS As label:
                 FontWeight: =FontWeight.Semibold
@@ -115,7 +141,7 @@ LeadScreen As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             Width: =Parent.Width
-            ZIndex: =6
+            ZIndex: =5
 
             lblestimatenumberLdS As label:
                 FontWeight: =FontWeight.Semibold
@@ -139,7 +165,7 @@ LeadScreen As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             Width: =Parent.Width
-            ZIndex: =7
+            ZIndex: =6
 
             lblqqteamnameLdS As label:
                 FontWeight: =FontWeight.Semibold
@@ -162,7 +188,7 @@ LeadScreen As screen:
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             Width: =Parent.Width //500
-            ZIndex: =8
+            ZIndex: =7
 
             ctnleaddetailstabLdS As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -329,7 +355,7 @@ LeadScreen As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             Width: =Parent.Width
-            ZIndex: =9
+            ZIndex: =8
 
             icnhorizontallineleaddetailsglryLdS As icon.AddDocument:
                 Color: =RGBA(217, 217, 217, 1)
@@ -346,7 +372,7 @@ LeadScreen As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             Width: =Parent.Width
-            ZIndex: =10
+            ZIndex: =9
 
             ctnchatmessageLdS As groupContainer.manualLayoutContainer:
                 BorderColor: =RGBA(0, 0, 0, 0.16)
@@ -1318,7 +1344,7 @@ LeadScreen As screen:
             LayoutMode: =LayoutMode.Auto
             X: =19
             Y: =ctnmainLdS.Height+ctnmainLdS.Y
-            ZIndex: =11
+            ZIndex: =10
 
     ctnHeaderLeadScreen As groupContainer.manualLayoutContainer:
         Fill: =Header.SHRed
