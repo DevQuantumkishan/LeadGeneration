@@ -1,6 +1,6 @@
 QuotedSOldLeads As screen:
     OnVisible: |-
-        =
+        =ClearCollect(Localleadinformation,Filter(LeadInformations,Email=User().Email));
         Set(VarDownIcon,true);
         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error)
         //,Notify("Internet is connected",NotificationType.Success)

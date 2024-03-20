@@ -2,6 +2,7 @@ RejectedLeads As screen:
     OnVisible: |-
         =UpdateContext({locInfoExpanded:false});
         Set(VarDownIcon,true);
+        ClearCollect(Localleadinformation,Filter(LeadInformations,Email=User().Email));
         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error)
         //,Notify("Internet is connected",NotificationType.Success);
         )

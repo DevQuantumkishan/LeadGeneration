@@ -257,6 +257,7 @@ DashboardScreen As screen:
                     Set(VarSyncPopup,true);
                     Set(VarSyncStart,true);
                     Refresh(LeadInformations);
+                    ClearCollect(Localleadinformation,Filter(LeadInformations,Email=User().Email));
                     ClearCollect(
                         GCTotalIncentives,
                        Filter(TotalIncentives,TechnicianID=VarTechnicianID.'Personnel No')
