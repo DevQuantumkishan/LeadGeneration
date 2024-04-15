@@ -135,14 +135,14 @@ LeadListScreen As screen:
                             BorderColor: =Header.SHRed
                             ChevronBackground: =Header.SHRed
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            DisplayFields: =[""]
+                            DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select District"
-                            Items: =Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District)
+                            Items: =Sort(Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District),Value)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
-                            SearchFields: =[""]
-                            SearchItems: =[]
+                            SearchFields: =["Value"]
+                            SearchItems: =Search(Sort(Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District),Value),cmbxdistrictfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             Width: =200
                             X: =cmbxregionfilterLS.X+cmbxregionfilterLS.Width+5
@@ -153,14 +153,14 @@ LeadListScreen As screen:
                             BorderColor: =Header.SHRed
                             ChevronBackground: =Header.SHRed
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            DisplayFields: =[""]
+                            DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select Territory"
-                            Items: =Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory)
+                            Items: =Sort(Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory),Value)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
-                            SearchFields: =[""]
-                            SearchItems: =[]
+                            SearchFields: =["Value"]
+                            SearchItems: =Search(Sort(Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory),Value),cmbxregionfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             SelectMultiple: =false
                             Width: =200
@@ -174,12 +174,12 @@ LeadListScreen As screen:
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select Area"
-                            Items: =Distinct(LeadInformations,Area)
+                            Items: =Sort(Distinct(LeadInformations,Area),Value)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
-                            SearchItems: =Search(Distinct(LeadInformations,Area),cmbxareafilterLS.SearchText,"Value")
+                            SearchItems: =Search(Sort(Distinct(LeadInformations,Area),Value),cmbxareafilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             Width: =200
                             X: =40
@@ -323,7 +323,7 @@ LeadListScreen As screen:
 
                     "glryleadlistLS As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(130, 141, 158, 1)
+                        BorderColor: =RGBA(204, 204, 204, 1)
                         BorderThickness: =5
                         DelayItemLoading: =true
                         FillPortions: =0
