@@ -136,15 +136,15 @@ LeadListScreen As screen:
                             DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select District"
                             Items: |-
-                                =//Distinct(Filter(LeadInformations,Territory=cmbxregionfilterLS.Selected.Value),District)
-                                Distinct(LeadInformations,District)
+                                =Distinct(Filter(LeadInformations,Territory=cmbxregionfilterLS.Selected.Value),District)
+                                //Distinct(LeadInformations,District)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
                             SearchItems: |-
-                                =Search(//Distinct(Filter(LeadInformations,Territory=cmbxregionfilterLS.Selected.Value),District)
-                                Distinct(LeadInformations,District),cmbxdistrictfilterLS.SearchText,"Value")
+                                =Search(Distinct(Filter(LeadInformations,Territory=cmbxregionfilterLS.Selected.Value),District)
+                                //Distinct(LeadInformations,District),cmbxdistrictfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             Width: =200
                             X: =cmbxregionfilterLS.X+cmbxregionfilterLS.Width+5
@@ -158,15 +158,15 @@ LeadListScreen As screen:
                             DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select Territory"
                             Items: |-
-                                =//Distinct(Filter(LeadInformations,Area=cmbxareafilterLS.Selected.Value),Territory)
-                                Distinct(LeadInformations,Territory)
+                                =Distinct(Filter(LeadInformations,Area=cmbxareafilterLS.Selected.Value),Territory)
+                                //Distinct(LeadInformations,Territory)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
                             SearchItems: |-
-                                =Search(//Distinct(Filter(LeadInformations,Area=cmbxareafilterLS.Selected.Value),Territory)
-                                Distinct(LeadInformations,Territory),cmbxregionfilterLS.SearchText,"Value")
+                                =Search(Distinct(Filter(LeadInformations,Area=cmbxareafilterLS.Selected.Value),Territory)
+                                //Distinct(LeadInformations,Territory),cmbxregionfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             SelectMultiple: =false
                             Width: =200
