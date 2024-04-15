@@ -135,15 +135,13 @@ LeadListScreen As screen:
                             BorderColor: =Header.SHRed
                             ChevronBackground: =Header.SHRed
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            DisplayFields: =["Value"]
+                            DisplayFields: =[""]
                             InputTextPlaceholder: ="Select District"
-                            Items: |-
-                                =Distinct(Filter(LeadInformations,Territory=cmbxregionfilterLS.Selected.Value,District),District)
-                                //Distinct(LeadInformations,District)
+                            Items: =Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
-                            SearchFields: =["Value"]
+                            SearchFields: =[""]
                             SearchItems: =[]
                             SelectionFill: =Header.SHRed
                             Width: =200
@@ -155,15 +153,13 @@ LeadListScreen As screen:
                             BorderColor: =Header.SHRed
                             ChevronBackground: =Header.SHRed
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                            DisplayFields: =["Value"]
+                            DisplayFields: =[""]
                             InputTextPlaceholder: ="Select Territory"
-                            Items: |-
-                                =Distinct(Filter(LeadInformations,Area=cmbxareafilterLS.Selected.Value,Territory),Territory)
-                                //Distinct(LeadInformations,Territory)
+                            Items: =Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
-                            SearchFields: =["Value"]
+                            SearchFields: =[""]
                             SearchItems: =[]
                             SelectionFill: =Header.SHRed
                             SelectMultiple: =false
@@ -269,6 +265,7 @@ LeadListScreen As screen:
                         =Reset(cmbxregionfilterLS);
                         Reset(cmbxdistrictfilterLS);
                         Reset(cmbxareafilterLS);
+                        Reset(txtinptsearchLS);
                         Set(VarMyLeads,false);
                         Set(VarOpenLeads,false);
                         Set(VarQuotedLeads,false);
