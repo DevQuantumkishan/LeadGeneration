@@ -76,6 +76,8 @@ LeadListScreen As screen:
 
         ctnlistLS As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =Parent.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -310,7 +312,7 @@ LeadListScreen As screen:
             ctnleadlistLS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
-                Height: =Parent.Height
+                Height: =Parent.Height-270
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 Visible: =true // VarAllLeads
@@ -318,10 +320,9 @@ LeadListScreen As screen:
                 ZIndex: =3
 
                 ctnleadlistglryLS As groupContainer.verticalAutoLayoutContainer:
-                    Height: =Parent.Height//+5000
+                    Height: =Parent.Height-70
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMode: =LayoutMode.Auto
-                    LayoutOverflowY: =LayoutOverflow.Scroll
                     Width: =Parent.Width-20
                     X: =10//Parent.X+10
                     Y: =ctnlistheadingLS.X+ctnlistheadingLS.Height
@@ -329,8 +330,8 @@ LeadListScreen As screen:
 
                     "glryleadlistLS As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
                         AlignInContainer: =AlignInContainer.SetByContainer
-                        BorderColor: =RGBA(204, 204, 204, 1)
-                        BorderThickness: =3
+                        BorderColor: =RGBA(130, 141, 158, 1)
+                        BorderThickness: =5
                         DelayItemLoading: =true
                         FillPortions: =0
                         Height: =Parent.Height
@@ -377,7 +378,7 @@ LeadListScreen As screen:
                         TemplatePadding: =0
                         TemplateSize: =ctnlistheadingvalueLS.Height+20
                         Visible: =true//VarListLoad
-                        Width: =Parent.Width
+                        Width: =Parent.Width-5
                         ZIndex: =1
 
                         rectglrylistLS As rectangle:
@@ -517,15 +518,6 @@ LeadListScreen As screen:
                             Width: =10
                             X: =10
                             ZIndex: =6
-
-                    ctnLS As groupContainer.verticalAutoLayoutContainer:
-                        FillPortions: =0
-                        Height: =250
-                        LayoutDirection: =LayoutDirection.Vertical
-                        LayoutMinHeight: =100
-                        LayoutMinWidth: =250
-                        LayoutMode: =LayoutMode.Auto
-                        ZIndex: =2
 
                 ctnlistheadingLS As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =RGBA(230, 230, 230, 1)
