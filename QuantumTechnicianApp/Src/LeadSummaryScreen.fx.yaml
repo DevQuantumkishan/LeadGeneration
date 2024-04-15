@@ -540,13 +540,13 @@ LeadSummaryScreen As screen:
                             Height: =50
                             HoverFill: =RGBA(0, 0, 0, 0)
                             InputTextPlaceholder: ="Scope*"
-                            Items: =GCPrimaryScopeofWorks
+                            Items: =Sort(GCPrimaryScopeofWorks,'PrimaryScopeofWorkName ',SortOrder.Ascending)
                             OnChange: =Set(VarScopeSummary,CboxScopeLSS.SelectedItems)
                             OnSelect: =
                             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             PressedFill: =RGBA(0, 0, 0, 1)
                             SearchFields: =["shlrf_primaryscopeofworkname"]
-                            SearchItems: =Search(GCPrimaryScopeofWorks,CboxScopeLSS.SearchText,"shlrf_primaryscopeofworkname")
+                            SearchItems: =Search(Sort(GCPrimaryScopeofWorks,'PrimaryScopeofWorkName ',SortOrder.Ascending),CboxScopeLSS.SearchText,"shlrf_primaryscopeofworkname")
                             SelectionFill: =RGBA(0, 0, 0, 1)
                             SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -596,13 +596,13 @@ LeadSummaryScreen As screen:
                             InputTextPlaceholder: =If(IsBlank(IntxtManuallyScopeofWorkLSS.Text),"Scope of work*","Scope of work ")
                             Items: |-
                                 =//Choices([@LeadInformations].ScopeOfWorkLID)
-                                Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
+                                Sort(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),'SecondaryScopeofWorkName ',SortOrder.Ascending)
                             OnChange: =Set(VarScopeofworkSummary,CboxScopeofWorkLSS.Selected)
                             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             SearchFields: =["shlrf_secondaryscopeofworkname"]
                             SearchItems: |-
                                 =Search(//Choices([@LeadInformations].ScopeOfWorkLID)
-                                Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),CboxScopeofWorkLSS.SearchText,"shlrf_secondaryscopeofworkname")
+                                Sort(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),'SecondaryScopeofWorkName ',SortOrder.Ascending),CboxScopeofWorkLSS.SearchText,"shlrf_secondaryscopeofworkname")
                             SelectionFill: =RGBA(202, 202, 202, 1)
                             SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)

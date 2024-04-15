@@ -434,7 +434,7 @@ ScopeScreen As screen:
                         HoverBorderColor: =
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: =If(VarScope,""," Seach Scope*")
-                        Items: =GCPrimaryScopeofWorks
+                        Items: =Sort(GCPrimaryScopeofWorks,'PrimaryScopeofWorkName ',SortOrder.Ascending)
                         OnChange: |-
                             =// to store selected scope in variable
                             Set(VarScopeSummary,CboxScope.SelectedItems);
@@ -452,7 +452,7 @@ ScopeScreen As screen:
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
-                        SearchItems: =Search(GCPrimaryScopeofWorks,CboxScope.SearchText,"shlrf_primaryscopeofworkname")
+                        SearchItems: =Search(Sort(GCPrimaryScopeofWorks,SortOrder.Ascending),CboxScope.SearchText,"shlrf_primaryscopeofworkname")
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -507,7 +507,7 @@ ScopeScreen As screen:
                         InputTextPlaceholder: = If(VarScopeofwork,"",If(IsBlank(IntxtManuallyScopeofwork.Text),"Scope of Work*","Scope of Work"))
                         Items: |-
                             =//to show scope of work of selected scope
-                            Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName ')
+                            Sort(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),'SecondaryScopeofWorkName ',SortOrder.Ascending)
                         OnChange: |-
                             =Set(VarScopeofworkSummary,CboxScopeofwork.Selected);
                             Set(VarScopeofwork,true);
@@ -521,7 +521,7 @@ ScopeScreen As screen:
                         SearchFields: =["shlrf_secondaryscopeofworkname"]
                         SearchItems: |-
                             =Search(//to show scope of work of selected scope
-                            Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),CboxScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
+                            Sort(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),'SecondaryScopeofWorkName ',SortOrder.Ascending),CboxScopeofwork.SearchText,"shlrf_secondaryscopeofworkname")
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
