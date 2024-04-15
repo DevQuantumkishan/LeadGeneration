@@ -114,7 +114,7 @@ LeadListScreen As screen:
                         RadiusBottomRight: =20
                         RadiusTopLeft: =20
                         RadiusTopRight: =20
-                        Width: =650
+                        Width: =700
                         X: =btnbackLS.Width+btnbackLS.X
                         ZIndex: =5
 
@@ -124,7 +124,7 @@ LeadListScreen As screen:
                             HintText: ="Search by QQ Team Name, Mechanic Name, Contract No. or Lead Tracking No."
                             HoverBorderColor: =Header.SHRed
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            Width: =610
+                            Width: =670
                             X: =15
                             Y: =54
                             ZIndex: =1
@@ -188,7 +188,7 @@ LeadListScreen As screen:
                             SearchItems: =Search(Distinct(LeadInformations,Area),cmbxareafilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             Width: =200
-                            X: =15
+                            X: =40
                             Y: =5
                             ZIndex: =4
 
