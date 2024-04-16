@@ -58,7 +58,7 @@ LeadListScreen As screen:
                 FontWeight: =FontWeight.Bold
                 Height: =Parent.Height
                 Size: =26
-                Text: =If(VarMyLeads=true,"My Leads",VarOpenLeads=true,"Open Leads",VarQuotedLeads=true,"Quoted Leads",VarSoldLeads=true,"Sold Leads")
+                Text: =If(VarMyLeads=true,"My Leads",VarOpenLeads=true,"Open Leads",VarQuotedLeads=true,"Quoted Leads",VarSoldLeads=true,"Sold Leads",VarRejectedLeads=true,"Rejected Leads")
                 Width: =ctnHeaderLeadListScreen.Width/1.5
                 X: =imgSchindlerlogoLS.Width+imgSchindlerlogoLS.X
                 ZIndex: =3

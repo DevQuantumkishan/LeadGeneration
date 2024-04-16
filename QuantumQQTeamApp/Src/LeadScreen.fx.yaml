@@ -1402,7 +1402,7 @@ LeadScreen As screen:
             FontWeight: =FontWeight.Bold
             Height: =Parent.Height
             Size: =26
-            Text: =If(VarMyLeads=true,"My Lead Detail Information",VarOpenLeads=true,"Open Lead Detail Information",VarQuotedLeads=true,"Quoted Lead Detail Information",VarSoldLeads=true,"Sold Lead Detail Innformation")
+            Text: =If(VarMyLeads=true,"My Lead Detail Information",VarOpenLeads=true,"Open Lead Detail Information",VarQuotedLeads=true,"Quoted Lead Detail Information",VarSoldLeads=true,"Sold Lead Detail Innformation",VarRejectedLeads=true,"Rejected Lead Detail Information")
             Width: =ctnHeaderLeadScreen.Width/1.5
             X: =imgSchindlerlogoLdS.Width+imgSchindlerlogoLdS.X
             ZIndex: =3
