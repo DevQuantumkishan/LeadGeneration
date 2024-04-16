@@ -340,7 +340,7 @@ LeadListScreen As screen:
                                         VarOpenLeads = true,
                                         Search(Filter(
                                             LeadInformations,
-                                            (LeadStatus = "Submitted"|| LeadStatus = "Rejected" ||LeadStatus = "InProgress") && Email <> Blank()
+                                            (LeadStatus = "Submitted" ||LeadStatus = "InProgress") && Email <> Blank()
                                             , Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                         ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname")
                                         ,
@@ -355,7 +355,14 @@ LeadListScreen As screen:
                                                Search( Filter(
                                                     LeadInformations,
                                                     LeadStatus = "Sold",Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname"),
+                                                If(
+                                                    VarRejectedLeads=true,
+                                                     Search( Filter(
+                                                    LeadInformations,
+                                                    LeadStatus = "Rejected" && Email <> Blank(),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                                 ),txtinptsearchLS.Text,"shlrf_contractnumber","shlrf_mechanicname","shlrf_leadtrackingnumber","shlrf_qqteamname")
+                                                )
                                             )
                                         )
                                     )

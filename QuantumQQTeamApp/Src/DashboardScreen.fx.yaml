@@ -273,6 +273,67 @@ DashboardScreen As screen:
                     Y: =20
                     ZIndex: =4
 
+            ctnrejectedleadtabDS As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(204, 204, 204, 1)
+                BorderThickness: =5
+                Height: =230
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                ZIndex: =5
+
+                lblrejectedleadsDS As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    Size: =24
+                    Text: ="Rejected Leads"
+                    Width: =Parent.Width
+                    Y: =Parent.Height/3.5
+                    ZIndex: =1
+
+                lblrejectedleadcountDS As label:
+                    Align: =Align.Center
+                    Color: =Header.SHRed
+                    FontWeight: =FontWeight.Bold
+                    Height: =60
+                    Size: =24
+                    Text: =CountRows(Filter(LeadInformations,LeadStatus="Rejected"))
+                    Width: =Parent.Width
+                    Y: =lblrejectedleadsDS.Y+lblrejectedleadsDS.Height+10
+                    ZIndex: =2
+
+                btnrejectedleadDS As button:
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =Parent.Height
+                    HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    OnSelect: |-
+                        =Refresh(LeadInformations);
+                        Set(VarRejectedLeads,true);
+                        Set(VarQuotedLeads,false);
+                        Set(VarMyLeads,false);
+                        Set(VarOpenLeads,false);
+                        Set(VarSoldLeads,false);
+                        Navigate(LeadListScreen);
+                        //Navigate(CommingSoon)
+                    Text: =""
+                    Width: =Parent.Width
+                    Y: =//Parent.Y
+                    ZIndex: =3
+
+                imgmsgrejectedlead As image:
+                    Height: =30
+                    Image: =email
+                    Visible: =If(CountRows(Filter(LeadChats,'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.No  && (LeadInformationLID.LeadStatus="Quoted")))>0,true,false)
+                    Width: =30
+                    X: =Parent.Width-Self.Width-20
+                    Y: =20
+                    ZIndex: =4
+
         ctnsyncstatusDS As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0

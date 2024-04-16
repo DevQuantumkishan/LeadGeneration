@@ -710,6 +710,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =1
 
                         lblleaddateLdS As label:
@@ -739,6 +740,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =3
 
                         lblleadstatusldS As label:
@@ -768,6 +770,7 @@ LeadScreen As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         Visible: =If(glryleadlistLS.Selected.LeadStatus="Rejected",true,false)
+                        Width: =Parent.Width
                         ZIndex: =5
 
                         lblleadstatusldS_1 As label:
@@ -796,6 +799,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =7
 
                         lblleadstatusdateLdS As label:
@@ -825,6 +829,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =9
 
                         lblcontractnoLdS As label:
@@ -853,6 +858,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =11
 
                         lblbuildingnameLdS As label:
@@ -862,6 +868,7 @@ LeadScreen As screen:
                             ZIndex: =1
 
                         lblbiuldingnamevalueLdS As label:
+                            AutoHeight: =true
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.'BuildingName '
                             ZIndex: =2
@@ -881,6 +888,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =13
 
                         lbladdressLdS As label:
@@ -890,6 +898,7 @@ LeadScreen As screen:
                             ZIndex: =1
 
                         lbladdressvalueLdS As label:
+                            AutoHeight: =true
                             FillPortions: =1
                             Text: =glryleadlistLS.Selected.Address
                             ZIndex: =2
@@ -968,6 +977,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =17
 
                         lblnoofunitLdS As label:
@@ -996,6 +1006,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =19
 
                         lblunitdescriptionLdS As label:
@@ -1025,6 +1036,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =21
 
                         lblprimaryscopeLdS As label:
@@ -1053,6 +1065,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =23
 
                         lblsecondaryscopeLdS As label:
@@ -1082,6 +1095,7 @@ LeadScreen As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         Visible: =If(IsBlank(glryleadlistLS.Selected.CustomScopeofWork),false,true)
+                        Width: =Parent.Width
                         ZIndex: =25
 
                         lblcustomscopeLdS As label:
@@ -1111,6 +1125,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =27
 
                         lblestimatedhoursLdS As label:
@@ -1139,6 +1154,7 @@ LeadScreen As screen:
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
                         ZIndex: =29
 
                         lblnotesLdS As label:
