@@ -268,6 +268,7 @@ LeadListScreen As screen:
                         Reset(cmbxdistrictfilterLS);
                         Reset(cmbxareafilterLS);
                         Reset(txtinptsearchLS);
+                        Set(VarRejectedLeads,false);
                         Set(VarMyLeads,false);
                         Set(VarOpenLeads,false);
                         Set(VarQuotedLeads,false);
@@ -514,10 +515,10 @@ LeadListScreen As screen:
                             ZIndex: =5
 
                         rectvertLS As rectangle:
+                            BorderThickness: =1
                             Fill: =If(ThisItem.LeadStatus="Submitted",RGBA(39,113,194,1),ThisItem.LeadStatus="Inprogess",RGBA(54,176,75,1),ThisItem.LeadStatus="Reject",RGBA(255,0,0,1))
                             Height: =ctnlistheadingvalueLS.Height-10
-                            Visible: =false
-                            Width: =10
+                            Width: =3
                             X: =10
                             ZIndex: =6
 
