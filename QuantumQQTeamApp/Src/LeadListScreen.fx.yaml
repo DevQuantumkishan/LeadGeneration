@@ -144,6 +144,7 @@ LeadListScreen As screen:
                             SearchFields: =["Value"]
                             SearchItems: =Search(Sort(Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District),Value),cmbxdistrictfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
+                            SelectMultiple: =false
                             Width: =200
                             X: =cmbxregionfilterLS.X+cmbxregionfilterLS.Width+5
                             Y: =5
@@ -181,6 +182,7 @@ LeadListScreen As screen:
                             SearchFields: =["Value"]
                             SearchItems: =Search(Sort(Distinct(LeadInformations,Area),Value),cmbxareafilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
+                            SelectMultiple: =false
                             Width: =200
                             X: =40
                             Y: =5
