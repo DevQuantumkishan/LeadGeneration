@@ -137,12 +137,16 @@ LeadListScreen As screen:
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select District"
-                            Items: =Sort(Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District),Value)
+                            Items: |-
+                                =//Sort(Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District),Value)
+                                Sort(Distinct(LeadInformations,District),Value)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
-                            SearchItems: =Search(Sort(Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District),Value),cmbxdistrictfilterLS.SearchText,"Value")
+                            SearchItems: |-
+                                =Search(//Sort(Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District),Value)
+                                Sort(Distinct(LeadInformations,District),Value),cmbxdistrictfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             SelectMultiple: =false
                             Width: =200
@@ -156,12 +160,16 @@ LeadListScreen As screen:
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             DisplayFields: =["Value"]
                             InputTextPlaceholder: ="Select Territory"
-                            Items: =Sort(Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory),Value)
+                            Items: |-
+                                =//Sort(Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory),Value)
+                                Sort(Distinct(LeadInformations,Territory),Value)
                             PressedColor: =RGBA(0, 0, 0, 1)
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
-                            SearchItems: =Search(Sort(Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory),Value),cmbxregionfilterLS.SearchText,"Value")
+                            SearchItems: |-
+                                =Search(//Sort(Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory),Value)
+                                Sort(Distinct(LeadInformations,Territory),Value),cmbxregionfilterLS.SearchText,"Value")
                             SelectionFill: =Header.SHRed
                             SelectMultiple: =false
                             Width: =200
