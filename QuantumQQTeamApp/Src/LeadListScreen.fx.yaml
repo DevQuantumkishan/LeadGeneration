@@ -518,7 +518,7 @@ LeadListScreen As screen:
                             BorderColor: =RGBA(109, 49, 162, 1)
                             Fill: =If(ThisItem.LeadComment="This lead is Rejected because it's status in FP Estimate is Dead",RGBA(39, 113, 194, 1),ThisItem.LeadComment="This lead is Rejected because it's status in FP Estimate is Lost",RGBA(109, 49, 162, 1),RGBA(0,0,0,0))
                             Height: =ctnlistheadingvalueLS.Height-10
-                            Visible: =If(ThisItem.LeadComment="This lead is Rejected because it's status in FP Estimate is Dead" || ThisItem.LeadComment="This lead is Rejected because it's status in FP Estimate is Lost",true,false)
+                            Visible: =false//If(ThisItem.LeadComment="This lead is Rejected because it's status in FP Estimate is Dead" || ThisItem.LeadComment="This lead is Rejected because it's status in FP Estimate is Lost",true,false)
                             Width: =4
                             X: =2
                             ZIndex: =6
