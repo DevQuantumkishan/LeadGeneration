@@ -73,6 +73,7 @@ DashboardScreen As screen:
                         =Refresh(LeadInformations);
                         Set(VarAllLeads,true);
                         Set(VarMyLeads,true);
+                        Set(VarRejectedLeads,false);
                         Set(VarOpenLeads,false);
                         Set(VarQuotedLeads,false);
                         Set(VarSoldLeads,false);
@@ -122,7 +123,7 @@ DashboardScreen As screen:
                     Height: =60
                     Size: =24
                     Text: |
-                        =CountRows(Filter(LeadInformations,(LeadStatus="Submitted" || LeadStatus="Rejected" || LeadStatus="InProgress") && Email <> Blank()))
+                        =CountRows(Filter(LeadInformations,(LeadStatus="Submitted" || LeadStatus="InProgress") && Email <> Blank()))
                     Width: =Parent.Width
                     Y: =lblopenleadDS.Y+lblopenleadDS.Height+10
                     ZIndex: =2
@@ -134,6 +135,7 @@ DashboardScreen As screen:
                     OnSelect: |-
                         =Refresh(LeadInformations);
                         Set(VarOpenLeads,true);
+                        Set(VarRejectedLeads,false);
                         Set(VarMyLeads,false);
                         Set(VarQuotedLeads,false);
                         Set(VarSoldLeads,false);
@@ -194,6 +196,7 @@ DashboardScreen As screen:
                     OnSelect: |-
                         =Refresh(LeadInformations);
                         Set(VarQuotedLeads,true);
+                        Set(VarRejectedLeads,false);
                         Set(VarMyLeads,false);
                         Set(VarOpenLeads,false);
                         Set(VarSoldLeads,false);
@@ -254,6 +257,7 @@ DashboardScreen As screen:
                     OnSelect: |-
                         =Refresh(LeadInformations);
                         Set(VarSoldLeads,true);
+                        Set(VarRejectedLeads,false);
                         Set(VarMyLeads,false);
                         Set(VarOpenLeads,false);
                         Set(VarQuotedLeads,false);
