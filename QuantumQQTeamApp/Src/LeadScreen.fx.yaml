@@ -1780,7 +1780,8 @@ LeadScreen As screen:
                                 LeadEstimateNumber: txtinptestimatenumber.Text,
                                 LeadStatus: "Quoted",
                                 ProposedLeadPrice: VarFPEstimateData.BidPrice,
-                                ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                //ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                ProposedLeadIncentives:If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02) ,
                                 //TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 StatusDate: Now(),
                                 ProposedLeadDate: VarFPEstimateData.DateCreated
@@ -1801,7 +1802,8 @@ LeadScreen As screen:
                                 {
                                     ID: GUID(),
                                     TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                                    TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                   //TotalproposedIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                   TotalproposedIncentives:If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02),
                                     TotalProposedLead: 1,
                                     TotalSoldIncentives: 0.00,
                                     TotalSoldLead: 0,
@@ -1813,11 +1815,16 @@ LeadScreen As screen:
                                 TotalIncentives,
                                 TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
                                 {
-                                    TotalproposedIncentives: LookUp(
+                                   /* TotalproposedIncentives: LookUp(
                                         TotalIncentives,
                                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
                                         TotalproposedIncentives
-                                    ) + VarFPEstimateData.BidPrice * 0.02,
+                                    ) + VarFPEstimateData.BidPrice * 0.02,*/
+                                    TotalproposedIncentives:LookUp(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.DateCreated)),
+                                        TotalproposedIncentives
+                                    ) + If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02),
                                     TotalProposedLead: Value(
                                         LookUp(
                                             TotalIncentives,
@@ -1829,7 +1836,13 @@ LeadScreen As screen:
                             );
                         );
                         //total prospective incentive countrows if close
-                ,
+                ,If(
+                        !IsBlank(
+                            LookUp(
+                                SHFPEstimates,
+                                Estimate = txtinptestimatenumber.Text && 'Lead Generator Id' = VarSelectedLead.TechnicianID && JobStatus = "Sold"
+                            )
+                        ),
                 //updating sold price and sold incentives
                         LeadSold.Run(
                             glryleadlistLS.Selected.Email,
@@ -1843,12 +1856,14 @@ LeadScreen As screen:
                                 LeadEstimateNumber: txtinptestimatenumber.Text,
                                 LeadStatus: "Sold",
                                 SoldLeadPrice: VarFPEstimateData.BidPrice,
-                                SoldLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                //SoldLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                SoldLeadIncentives:If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02),
                                 //TechnicianID: VarFPEstimateData.'Lead Generator Id',
                                 StatusDate: Now(),
                                 SoldLeadDate: VarFPEstimateData.BookingDate,
                                 ProposedLeadPrice: VarFPEstimateData.BidPrice,
-                                ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                               // ProposedLeadIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                ProposedLeadIncentives:If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02),
                                 ProposedLeadDate: VarFPEstimateData.DateCreated
                                // Area:VarFPEstimateData.Area,
                 // Territory:VarFPEstimateData.Territory
@@ -1867,7 +1882,8 @@ LeadScreen As screen:
                                 {
                                     ID: GUID(),
                                     TechnicianID: VarFPEstimateData.'Lead Generator Id',
-                                    TotalSoldIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                    //TotalSoldIncentives: VarFPEstimateData.BidPrice * 0.02,
+                                    TotalSoldIncentives:If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02),
                                     TotalSoldLead: 1,
                                     TotalproposedIncentives: 0.0,
                                     TotalProposedLead: 0,
@@ -1883,11 +1899,16 @@ LeadScreen As screen:
                                 TotalIncentives,
                                 TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                 {
-                                    TotalSoldIncentives: LookUp(
+                                    /*TotalSoldIncentives: LookUp(
                                         TotalIncentives,
                                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                         TotalSoldIncentives
-                                    ) + VarFPEstimateData.BidPrice * 0.02,
+                                    ) + VarFPEstimateData.BidPrice * 0.02,*/
+                                    TotalSoldIncentives:LookUp(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
+                                        TotalSoldIncentives
+                                    ) +If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02),
                                     TotalSoldLead: Value(
                                         LookUp(
                                             TotalIncentives,
@@ -1909,6 +1930,8 @@ LeadScreen As screen:
                         //total sold incentive countrows if close
                     );
                     //sold status if close
+                );//quoted status if close
+                
                 //Set(VarPopUpEstimateNumber,false);
                 Set(
                         VarPopUpEstimateNumberSubmittedmsg,
