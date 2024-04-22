@@ -1,8 +1,8 @@
 LeadListScreen As screen:
     BackgroundImage: =
     OnVisible: |-
-        =Refresh(LeadInformations);
-        Set(VarPopUpInprogress,false);
+        =Set(VarPopUpInprogress,false);
+        Refresh(LeadInformations);
         Set(VarDownIcon,true);
         Reset(txtinptestimatenumber);
 
