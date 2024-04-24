@@ -1888,11 +1888,7 @@ LeadScreen As screen:
                                     TotalproposedIncentives: 0.0,
                                     TotalProposedLead: 0,
                                     Year: Year(VarFPEstimateData.BookingDate),
-                                    LeadYear: Year(VarFPEstimateData.BookingDate),
-                                    YearlyCapReached: If(
-                                        (VarFPEstimateData.BidPrice * 0.02) > 10000,
-                                        true
-                                    )
+                                    LeadYear: Year(VarFPEstimateData.BookingDate)
                                 }
                             ),
                             UpdateIf(
@@ -1904,11 +1900,15 @@ LeadScreen As screen:
                                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                         TotalSoldIncentives
                                     ) + VarFPEstimateData.BidPrice * 0.02,*/
-                                    TotalSoldIncentives:LookUp(
+                                    TotalSoldIncentives:If((LookUp(
                                         TotalIncentives,
                                         TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
                                         TotalSoldIncentives
-                                    ) +If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02),
+                                    ) +If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02))>10000,10000,(LookUp(
+                                        TotalIncentives,
+                                        TechnicianID = VarFPEstimateData.'Lead Generator Id' && Year = Text(Year(VarFPEstimateData.BookingDate)),
+                                        TotalSoldIncentives
+                                    ) +If((VarFPEstimateData.BidPrice * 0.02) > 500,500,VarFPEstimateData.BidPrice * 0.02))),
                                     TotalSoldLead: Value(
                                         LookUp(
                                             TotalIncentives,
