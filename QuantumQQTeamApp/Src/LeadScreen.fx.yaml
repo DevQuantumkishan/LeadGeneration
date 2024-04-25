@@ -396,6 +396,7 @@ LeadScreen As screen:
                     ZIndex: =1
 
                 glrychatmessageLdS As gallery.variableTemplateHeightGallery:
+                    '#CopilotOverlayLabel': ="Filtered"
                     DelayItemLoading: =true
                     Fill: |-
                         =//RGBA(237,237,237,1) 
@@ -1325,6 +1326,7 @@ LeadScreen As screen:
                                 ZIndex: =1
 
                             "glryphotosLdS As gallery.'BrowseLayout_Horizontal_TwoTextOneImageOverlayVariant_ver4.0'":
+                                '#CopilotOverlayLabel': ="Filtered"
                                 AlignInContainer: =AlignInContainer.Start
                                 BorderColor: =RGBA(255, 0, 0, 1)
                                 FillPortions: =0

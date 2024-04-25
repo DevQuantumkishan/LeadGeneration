@@ -276,6 +276,7 @@ LeadListScreen As screen:
                         Reset(cmbxdistrictfilterLS);
                         Reset(cmbxareafilterLS);
                         Reset(txtinptsearchLS);
+                        Reset(drpdwnsortcolumnLS);
                         Set(VarRejectedLeads,false);
                         Set(VarMyLeads,false);
                         Set(VarOpenLeads,false);
@@ -333,6 +334,7 @@ LeadListScreen As screen:
                     ZIndex: =1
 
                     "glryleadlistLS As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+                        '#CopilotOverlayLabel': ="Filtered"
                         AlignInContainer: =AlignInContainer.SetByContainer
                         BorderColor: =RGBA(204, 204, 204, 1)
                         BorderThickness: =5
