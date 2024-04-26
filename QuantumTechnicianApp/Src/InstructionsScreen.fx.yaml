@@ -168,6 +168,7 @@ InstructionsScreen As screen:
             ZIndex: =3
 
             "glryLIS As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height-5
@@ -215,6 +216,7 @@ InstructionsScreen As screen:
             ZIndex: =2
 
         "glryMenuLIS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)

@@ -189,10 +189,10 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_contractnumber"
                         Default: =ThisItem.'ContractNumber '
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_contractnumber")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_contractnumber)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_contractnumber")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_contractnumber)
                         Required: =false
                         Update: =IntxtContractNumerLSS.Text
                         Width: =Parent.Width
@@ -243,10 +243,10 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_buildingname"
                         Default: =ThisItem.'BuildingName '
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_buildingname")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_buildingname)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_buildingname")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_buildingname)
                         Required: =false
                         Update: =IntxtBuildingNameLSS.Text
                         Width: =Parent.Width
@@ -296,10 +296,10 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_pincode"
                         Default: =ThisItem.'ZipCode '
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_zipcode")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_zipcode)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_zipcode")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_zipcode)
                         Required: =false
                         Update: =IntxtZipcodeLSS.Text
                         Width: =Parent.Width
@@ -346,10 +346,10 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_address"
                         Default: =ThisItem.Address
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_address")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_address)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_address")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_address)
                         Required: =false
                         Update: =IntxtAddressLSS.Text
                         Width: =Parent.Width
@@ -399,7 +399,7 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_unitcount"
                         Default: =ThisItem.NumberofUnits
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_numberofunits")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_numberofunits)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =false
@@ -453,10 +453,10 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_unitdescription"
                         Default: =ThisItem.UnitDescription
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_unitdescription")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_unitdescription)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_unitdescription")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_unitdescription)
                         Required: =false
                         Update: =IntxtUnitDescriptionLSS.Text
                         Width: =Parent.Width
@@ -506,7 +506,7 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_Scope"
                         Default: =CboxScope.Selected
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_PrimaryScopeofWorkLID")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_PrimaryScopeofWorkLID)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =false
@@ -546,7 +546,7 @@ LeadSummaryScreen As screen:
                             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             PressedFill: =RGBA(0, 0, 0, 1)
                             SearchFields: =["shlrf_primaryscopeofworkname"]
-                            SearchItems: =Search(Sort(GCPrimaryScopeofWorks,'PrimaryScopeofWorkName ',SortOrder.Ascending),CboxScopeLSS.SearchText,"shlrf_primaryscopeofworkname")
+                            SearchItems: =Search(Sort(GCPrimaryScopeofWorks,'PrimaryScopeofWorkName ',SortOrder.Ascending),CboxScopeLSS.SearchText,shlrf_primaryscopeofworkname)
                             SelectionFill: =RGBA(0, 0, 0, 1)
                             SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -562,7 +562,7 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_ScopeOfWorkLID"
                         Default: =ThisItem.PrimaryScopeofWorkLID
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_SecondaryScopeofWorkLID")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_SecondaryScopeofWorkLID)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =false
@@ -602,7 +602,7 @@ LeadSummaryScreen As screen:
                             SearchFields: =["shlrf_secondaryscopeofworkname"]
                             SearchItems: |-
                                 =Search(//Choices([@LeadInformations].ScopeOfWorkLID)
-                                Sort(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),'SecondaryScopeofWorkName ',SortOrder.Ascending),CboxScopeofWorkLSS.SearchText,"shlrf_secondaryscopeofworkname")
+                                Sort(Filter(GCSecondaryScopeofWorks,PrimaryScopeofWorkLID.'PrimaryScopeofWorkName '=CboxScope.Selected.'PrimaryScopeofWorkName '),'SecondaryScopeofWorkName ',SortOrder.Ascending),CboxScopeofWorkLSS.SearchText,shlrf_secondaryscopeofworkname)
                             SelectionFill: =RGBA(202, 202, 202, 1)
                             SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
@@ -618,10 +618,10 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_manuallyscopeofwork"
                         Default: =ThisItem.CustomScopeofWork
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customscopeofwork")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_customscopeofwork)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_customscopeofwork")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_customscopeofwork)
                         Required: =false
                         Update: =IntxtManuallyScopeofWorkLSS.Text
                         Width: =Parent.Width
@@ -670,10 +670,10 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_estimatedhours"
                         Default: =ThisItem.'EstimatedHours '
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_estimatedhours")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_estimatedhours)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_estimatedhours")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_estimatedhours)
                         Required: =false
                         Update: =IntxtEstimatedHoursLSS.Text
                         Width: =Parent.Width
@@ -722,10 +722,10 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_material"
                         Default: =ThisItem.Notes
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_notes")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_notes)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_notes")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_notes)
                         Required: =false
                         Update: =IntxtNotesLSS.Text
                         Width: =Parent.Width
@@ -777,7 +777,7 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_checklist"
                         Default: =ThisItem.IsUnitDown
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_isunitdown")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_isunitdown)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =60
                         Required: =false
@@ -811,7 +811,7 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_additionalexpensesrequired"
                         Default: =ThisItem.AdditionalExpensesRequired
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_additionalexpensesrequired")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_additionalexpensesrequired)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =61
                         Required: =false
@@ -851,10 +851,10 @@ LeadSummaryScreen As screen:
                         DataField: ="shlrf_totalestimatedexpense"
                         Default: =ThisItem.TotalEstimatedExpense
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedexpense")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_totalestimatedexpense)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =100
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedexpense")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, shlrf_totalestimatedexpense)
                         Required: =false
                         Update: =IntxtTotalEstimatedExpenseLSS.Text
                         Visible: =VarAdditionExpense
@@ -914,7 +914,7 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_travelrequired"
                         Default: =ThisItem.TravelRequired
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_travelrequired")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_travelrequired)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =false
@@ -952,10 +952,10 @@ LeadSummaryScreen As screen:
                         DataField: ="shlrf_totalestimatedhoursoftravel"
                         Default: =ThisItem.TotalEstimatedHoursofTravel
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_totalestimatedhoursoftravel")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_totalestimatedhoursoftravel)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =120
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_totalestimatedhoursoftravel")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, shlrf_totalestimatedhoursoftravel)
                         Required: =false
                         Update: =intxtTotalEstimatedHoursofTravelLSS.Text
                         Visible: =VarTravel
@@ -1015,7 +1015,7 @@ LeadSummaryScreen As screen:
                         DataField: ="crd59_communicatedtocustomer"
                         Default: =ThisItem.CommunicatedToCustomer
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_communicatedtocustomer")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_communicatedtocustomer)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =false
@@ -1054,10 +1054,10 @@ LeadSummaryScreen As screen:
                         DataField: ="shlrf_customername"
                         Default: =ThisItem.'CustomerName '
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customername")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_customername)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =110
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customername")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, shlrf_customername)
                         Required: =false
                         Update: =IntxtCustomerNameLSS.Text
                         Visible: =VarCommunication
@@ -1118,10 +1118,10 @@ LeadSummaryScreen As screen:
                         DataField: ="shlrf_customercontact"
                         Default: =varPhoneNumber
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_customercontact")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_customercontact)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_customercontact")
+                        MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, shlrf_customercontact)
                         Required: =false
                         Update: =IntxtContactNumberES_1.Text
                         Visible: =VarCommunicationSummary
@@ -1414,7 +1414,7 @@ LeadSummaryScreen As screen:
                         DataField: ="shlrf_safety"
                         Default: =ThisItem.Safety
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_safety")
+                        DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_safety)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =60
                         Required: =false
@@ -1450,6 +1450,7 @@ LeadSummaryScreen As screen:
                             ZIndex: =1
 
                 "glryImageLSS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
+                    '#CopilotOverlayLabel': ="Filtered"
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(39, 113, 194, 1)
                     DelayItemLoading: =true
@@ -1657,6 +1658,7 @@ LeadSummaryScreen As screen:
             ZIndex: =2
 
         "glryMenuBarLSS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)

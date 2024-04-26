@@ -408,6 +408,7 @@ ImageUploadScreen As screen:
                 ZIndex: =3
 
                 "glryImageIS As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver5.0'":
+                    '#CopilotOverlayLabel': ="Filtered"
                     AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Dashed
@@ -682,6 +683,7 @@ ImageUploadScreen As screen:
             ZIndex: =3
 
         "glryMenuBarIS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)

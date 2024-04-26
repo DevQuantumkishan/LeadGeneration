@@ -405,10 +405,10 @@ CreatLeadScreen As screen:
                     DataField: ="crd59_contractnumber"
                     Default: =ThisItem.'ContractNumber '
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_contractnumber")
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_contractnumber)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
-                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_contractnumber")
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, shlrf_contractnumber)
                     Required: =false
                     Update: =IntxtContractNumber.Text
                     Width: =Parent.Width
@@ -523,10 +523,10 @@ CreatLeadScreen As screen:
                     DataField: ="crd59_pincode"
                     Default: =ThisItem.'ZipCode '
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_zipcode")
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_zipcode)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
-                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, "shlrf_zipcode")
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, shlrf_zipcode)
                     Required: =false
                     Update: =IntxtZipCode.Text
                     Width: =Parent.Width
@@ -584,10 +584,10 @@ CreatLeadScreen As screen:
                     DataField: ="crd59_name"
                     Default: =ThisItem.'BuildingName '
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_buildingname")
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_buildingname)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
-                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_buildingname")
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_buildingname)
                     Required: =false
                     Update: =IntxtBuildingName.Text
                     Width: |
@@ -648,10 +648,10 @@ CreatLeadScreen As screen:
                     DataField: ="crd59_address"
                     Default: =ThisItem.Address
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_address")
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_address)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
-                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_address")
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_address)
                     Required: =false
                     Update: =IntxtAddress.Text
                     Width: =Parent.Width
@@ -1022,6 +1022,7 @@ CreatLeadScreen As screen:
             ZIndex: =7
 
         "glryMenuBarCLS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)

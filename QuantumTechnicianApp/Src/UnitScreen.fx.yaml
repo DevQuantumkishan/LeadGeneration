@@ -467,10 +467,10 @@ UnitScreen As screen:
                     DataField: ="crd59_unitdescription"
                     Default: =ThisItem.UnitDescription
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,"shlrf_unitdescription")
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_unitdescription)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =214
-                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,"shlrf_unitdescription")
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_unitdescription)
                     Required: =false
                     Update: =IntxtUnitDescription.Text
                     Width: =Parent.Width
@@ -693,6 +693,7 @@ UnitScreen As screen:
             ZIndex: =3
 
         "glryMenuBarUS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)

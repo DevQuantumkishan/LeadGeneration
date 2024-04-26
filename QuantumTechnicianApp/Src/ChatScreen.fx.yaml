@@ -255,6 +255,7 @@ ChatScreen As screen:
             ZIndex: =3
 
             glryChatCS As gallery.variableTemplateHeightGallery:
+                '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
                 Fill: |-
                     =//RGBA(237,237,237,1) 
@@ -536,6 +537,7 @@ ChatScreen As screen:
             ZIndex: =2
 
         "glryMenuCS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)

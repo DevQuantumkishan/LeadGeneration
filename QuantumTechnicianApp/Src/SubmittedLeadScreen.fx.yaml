@@ -317,6 +317,7 @@ SubmittedLeadScreen As screen:
                     ZIndex: =3
 
             "glryLeadsSLS As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(202, 202, 202, 1)
                 Height: =Parent.Height-ctnSearchBarSLS.Height-ctnSearchBarSubmittedLeadsScreen.Height-20
                 Items: |-
@@ -338,10 +339,10 @@ SubmittedLeadScreen As screen:
                                 SortOrder.Descending
                             ),
                             IntxtSearchBoxSLS.Text,
-                            "shlrf_contractnumber",
-                            "shlrf_address",
-                            "shlrf_buildingname",
-                            "shlrf_zipcode","shlrf_leadtrackingnumber"
+                            shlrf_contractnumber,
+                            shlrf_address,
+                            shlrf_buildingname,
+                            shlrf_zipcode,shlrf_leadtrackingnumber
                     
                         ),
                       If(cboxSortolumnsSLS.Selected.Value="Created Date","createdon",cboxSortolumnsSLS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortolumnsSLS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortolumnsSLS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortolumnsSLS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortolumnsSLS.Selected.Value="Building Name","shlrf_buildingname",cboxSortolumnsSLS.Selected.Value="Address","shlrf_address",cboxSortolumnsSLS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSLS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSLS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending)
@@ -363,10 +364,10 @@ SubmittedLeadScreen As screen:
                                 SortOrder.Descending
                             ),
                             IntxtSearchBoxSLS.Text,
-                            "shlrf_contractnumber",
-                            "shlrf_address",
-                            "shlrf_buildingname",
-                            "shlrf_zipcode","shlrf_leadtrackingnumber"
+                            shlrf_contractnumber,
+                            shlrf_address,
+                            shlrf_buildingname,
+                            shlrf_zipcode,shlrf_leadtrackingnumber
                     
                         ),
                       If(cboxSortolumnsSLS.Selected.Value="Created Date","createdon",cboxSortolumnsSLS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortolumnsSLS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortolumnsSLS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortolumnsSLS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortolumnsSLS.Selected.Value="Building Name","shlrf_buildingname",cboxSortolumnsSLS.Selected.Value="Address","shlrf_address",cboxSortolumnsSLS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSLS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSLS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending)
@@ -633,6 +634,7 @@ SubmittedLeadScreen As screen:
             ZIndex: =2
 
         "glryMenuBarSLS As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+            '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)
