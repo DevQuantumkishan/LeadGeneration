@@ -1599,10 +1599,12 @@ LeadScreen As screen:
             ZIndex: =10
 
         imgZoomLdS As image:
-            Height: =Parent.Height
+            Height: =Parent.Height-200
             Image: =MyBigPic 
             Visible: = If(Len(Text(MyBigPicShow)) = 0,false,MyBigPicShow) 
-            Width: =Parent.Width
+            Width: =Parent.Width-400
+            X: =200
+            Y: =100
             ZIndex: =11
 
         btncancleLdS As button:
