@@ -185,7 +185,7 @@ DashboardScreen As screen:
                      //minimum year and maximum year is same then show value of  VarFirstYear
                      //minimum year maximum year is different then show time span as a minimum value taking from VarFirstYear and maximum value taking from  VarLastYear
                      // if there is no rows in GCTotalIncentives then show value from  VarCurrentYear.
-                    If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,VarCurrentYear,If(cumulatively=true && VarFirstYear <>VarLastYear,VarFirstYear & " - " & VarLastYear,yearly=true,VarFirstYear, VarFirstYear))
+                    If(CountRows(Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No'))=0,VarCurrentYear,If(cumulatively=true && VarFirstYear <>VarLastYear,VarFirstYear & " - " & VarLastYear,yearly=true,VarLastYear, VarLastYear))
                 Width: =Parent.Width/2.8
                 X: =lblTimeSpanDS.X+lblTimeSpanDS.Width
                 ZIndex: =6
