@@ -452,7 +452,7 @@ ScopeScreen As screen:
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PressedFill: =RGBA(0, 0, 0, 1)
                         SearchFields: =["shlrf_primaryscopeofworkname"]
-                        SearchItems: =Search(Sort(GCPrimaryScopeofWorks,SortOrder.Ascending),CboxScope.SearchText,shlrf_primaryscopeofworkname)
+                        SearchItems: =Search(Sort(GCPrimaryScopeofWorks,'PrimaryScopeofWorkName ',SortOrder.Ascending),CboxScope.SearchText,shlrf_primaryscopeofworkname)
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
