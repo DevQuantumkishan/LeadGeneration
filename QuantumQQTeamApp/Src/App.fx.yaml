@@ -4,6 +4,8 @@ App As appinfo:
         =Refresh(LeadInformations);
         //Trace(LeadChats,TraceSeverity.Information);
         Set(VarLoggedInUser,User());
+        If(LookUp(QQTeamMasters,QQTeamEmail=VarLoggedInUser.Email,District)="ALL",Set(IsSupervisor,true),Set(IsSupervisor,false));
+        
         // Global CSS
         Set(
             //for header

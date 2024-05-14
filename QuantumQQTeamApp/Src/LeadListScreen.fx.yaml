@@ -342,7 +342,49 @@ LeadListScreen As screen:
                         FillPortions: =0
                         Height: =Parent.Height
                         Items: |-
-                            =SortByColumns(
+                            =If(IsSupervisor=true,
+                            SortByColumns(
+                                If(
+                                    VarMyLeads = true,
+                                    Search(Filter(
+                                        LeadInformations,
+                                        QQTeamEmail = User().Email && Email<>Blank(),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                    ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
+                                    If(
+                                        VarOpenLeads = true,
+                                        Search(Filter(
+                                            LeadInformations,
+                                            (LeadStatus = "Submitted" ||LeadStatus = "InProgress") && Email <> Blank()
+                                            , Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                        ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
+                                        ,
+                                        If(
+                                            VarQuotedLeads = true,
+                                           Search( Filter(
+                                                LeadInformations,
+                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                            ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
+                                            If(
+                                                VarSoldLeads = true,
+                                               Search( Filter(
+                                                    LeadInformations,
+                                                    LeadStatus = "Sold" ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
+                                                If(
+                                                    VarRejectedLeads=true,
+                                                     Search( Filter(
+                                                    LeadInformations,
+                                                     LeadStatus = "Rejected" && Email <> Blank() ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
+                              If(drpdwnsortcolumnLS.Selected.Value="Created Date","createdon",drpdwnsortcolumnLS.Selected.Value="QQ Team Name","shlrf_qqteamname",drpdwnsortcolumnLS.Selected.Value="Mechanic Name","shlrf_mechanicname",drpdwnsortcolumnLS.Selected.Value="Contract No.","shlrf_contractnumber",drpdwnsortcolumnLS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",drpdwnsortcolumnLS.Selected.Value="Building Name","shlrf_buildingname",drpdwnsortcolumnLS.Selected.Value="Address","shlrf_address",drpdwnsortcolumnLS.Selected.Value="Lead Status","shlrf_leadstatus"),If(icnsortLS.Icon=Icon.ArrowDown,SortOrder.Descending,icnsortLS.Icon=Icon.ArrowUp,SortOrder.Ascending)
+                            ),
+                            
+                            SortByColumns(
                                 If(
                                     VarMyLeads = true,
                                     Search(Filter(
@@ -381,6 +423,7 @@ LeadListScreen As screen:
                                     )
                                 ),
                               If(drpdwnsortcolumnLS.Selected.Value="Created Date","createdon",drpdwnsortcolumnLS.Selected.Value="QQ Team Name","shlrf_qqteamname",drpdwnsortcolumnLS.Selected.Value="Mechanic Name","shlrf_mechanicname",drpdwnsortcolumnLS.Selected.Value="Contract No.","shlrf_contractnumber",drpdwnsortcolumnLS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",drpdwnsortcolumnLS.Selected.Value="Building Name","shlrf_buildingname",drpdwnsortcolumnLS.Selected.Value="Address","shlrf_address",drpdwnsortcolumnLS.Selected.Value="Lead Status","shlrf_leadstatus"),If(icnsortLS.Icon=Icon.ArrowDown,SortOrder.Descending,icnsortLS.Icon=Icon.ArrowUp,SortOrder.Ascending)
+                            )
                             )
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
