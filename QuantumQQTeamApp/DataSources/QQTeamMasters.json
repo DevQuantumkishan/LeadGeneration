@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "shlrf_qqteammasters",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "shlrf_qqteammaster",
+    "Name": "QQTeamMasters",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "shlrf_district": "District",
+      "shlrf_id": "ID",
+      "shlrf_qqteamemail": "QQTeamEmail",
+      "shlrf_qqteammaster_AsyncOperations": "System Jobs",
+      "shlrf_qqteammaster_BulkDeleteFailures": "Bulk Delete Failures",
+      "shlrf_qqteammaster_DuplicateBaseRecord": "Duplicate Records (shlrf_qqteammaster_DuplicateBaseRecord)",
+      "shlrf_qqteammaster_DuplicateMatchingRecord": "Duplicate Records (shlrf_qqteammaster_DuplicateMatchingRecord)",
+      "shlrf_qqteammaster_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "shlrf_qqteammaster_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "shlrf_qqteammaster_ProcessSession": "Process Sessions",
+      "shlrf_qqteammaster_SyncErrors": "Sync Errors",
+      "shlrf_qqteammasterid": "QQTeamMaster",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "QQTeamMasters",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "QQTeamMasters (Views)",
+    "Name": "_shlrf_qqteammaster_views",
+    "RelatedEntityName": "QQTeamMasters",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0488f919-6913-44e8-b8f5-9037a436bc3b": "QQTeamMaster Advanced Find View",
+      "0a8d6a3e-fe44-4b4f-86cc-49a4c18235d8": "Active QQTeamMasters",
+      "4136df6d-d486-4d10-8939-78f16b0a6ac8": "Inactive QQTeamMasters",
+      "b36a8728-c44c-4d69-a868-d16040ae76c0": "QQTeamMaster Lookup View",
+      "e7802468-6815-44fb-a6a5-c655f7c6be7a": "QQTeamMaster Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (QQTeamMasters)",
+    "Name": "shlrf_qqteammaster_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "QQTeamMasters"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "QQTeamMasters",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (QQTeamMasters)",
+    "Name": "shlrf_qqteammaster_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "QQTeamMasters"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "QQTeamMasters",
+    "Type": "OptionSetInfo"
+  }
+]
