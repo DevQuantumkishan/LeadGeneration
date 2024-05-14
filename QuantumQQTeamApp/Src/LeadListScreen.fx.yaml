@@ -347,13 +347,13 @@ LeadListScreen As screen:
                                     VarMyLeads = true,
                                     Search(Filter(
                                         LeadInformations,
-                                        QQTeamName = User().FullName && Email<>Blank(),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                        QQTeamEmail = User().Email && Email<>Blank() && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                     ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                     If(
                                         VarOpenLeads = true,
                                         Search(Filter(
                                             LeadInformations,
-                                            (LeadStatus = "Submitted" ||LeadStatus = "InProgress") && Email <> Blank()
+                                            (LeadStatus = "Submitted" ||LeadStatus = "InProgress") && Email <> Blank() && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District)
                                             , Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                         ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
                                         ,
@@ -361,19 +361,19 @@ LeadListScreen As screen:
                                             VarQuotedLeads = true,
                                            Search( Filter(
                                                 LeadInformations,
-                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                LeadStatus = "Quoted" && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                             ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                             If(
                                                 VarSoldLeads = true,
                                                Search( Filter(
                                                     LeadInformations,
-                                                    LeadStatus = "Sold",Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                    LeadStatus = "Sold" && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                                 ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                                 If(
                                                     VarRejectedLeads=true,
                                                      Search( Filter(
                                                     LeadInformations,
-                                                    LeadStatus = "Rejected" && Email <> Blank(),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                     District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) && LeadStatus = "Rejected" && Email <> Blank() ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
                                                 ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
                                                 )
                                             )

@@ -59,7 +59,9 @@ DashboardScreen As screen:
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
-                    Text: =CountRows(Filter(LeadInformations,QQTeamName=User().FullName && Email <> Blank()))
+                    Text: |-
+                        =//CountRows(Filter(LeadInformations,QQTeamName=User().FullName && Email <> Blank()))
+                        CountRows(Filter(LeadInformations, District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) && QQTeamEmail=User().Email && Email <>Blank() ))
                     Width: =Parent.Width
                     X: =Parent.X
                     Y: =lblmyleadDS.Y+lblmyleadDS.Height+10
@@ -123,7 +125,8 @@ DashboardScreen As screen:
                     Height: =60
                     Size: =24
                     Text: |
-                        =CountRows(Filter(LeadInformations,(LeadStatus="Submitted" || LeadStatus="InProgress") && Email <> Blank()))
+                        =//CountRows(Filter(LeadInformations,(LeadStatus="Submitted" || LeadStatus="InProgress") && Email <> Blank()))
+                        CountRows(Filter(LeadInformations, District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) && (LeadStatus="Submitted" || LeadStatus="InProgress") && Email <> Blank() ))
                     Width: =Parent.Width
                     Y: =lblopenleadDS.Y+lblopenleadDS.Height+10
                     ZIndex: =2
@@ -186,7 +189,7 @@ DashboardScreen As screen:
                     Size: =24
                     Text: |
                         =//CountRows(Filter(LeadInformations,LeadStatus="Quoted"))
-                        CountRows(Filter(LeadInformations, District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) ))
+                        CountRows(Filter(LeadInformations, District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) && LeadStatus="Quoted" ))
                     Width: =Parent.Width
                     Y: =lblquotedleadsDS.Y+lblquotedleadsDS.Height+10
                     ZIndex: =2
@@ -247,7 +250,9 @@ DashboardScreen As screen:
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
-                    Text: =CountRows(Filter(LeadInformations,LeadStatus="Sold"))
+                    Text: |-
+                        =//CountRows(Filter(LeadInformations,LeadStatus="Sold"))
+                        CountRows(Filter(LeadInformations, District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) && LeadStatus="Sold" ))
                     Width: =Parent.Width
                     Y: =lblsoldleadDS.Y+lblsoldleadDS.Height+10
                     ZIndex: =2
@@ -308,7 +313,9 @@ DashboardScreen As screen:
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
-                    Text: =CountRows(Filter(LeadInformations,LeadStatus="Rejected"))
+                    Text: |-
+                        =//CountRows(Filter(LeadInformations,LeadStatus="Rejected"))
+                        CountRows(Filter(LeadInformations, District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) && LeadStatus="Rejected" ))
                     Width: =Parent.Width
                     Y: =lblrejectedleadsDS.Y+lblrejectedleadsDS.Height+10
                     ZIndex: =2
