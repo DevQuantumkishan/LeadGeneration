@@ -184,9 +184,9 @@ DashboardScreen As screen:
                     FontWeight: =FontWeight.Bold
                     Height: =60
                     Size: =24
-                    Text: |-
+                    Text: |
                         =//CountRows(Filter(LeadInformations,LeadStatus="Quoted"))
-                        CountRows(Filter(LeadInformations, District in Distinct(Filter(QQTeamMasters,Email=User().Email),District) && LeadStatus="Quoted"))
+                        CountRows(Filter(LeadInformations, District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) ))
                     Width: =Parent.Width
                     Y: =lblquotedleadsDS.Y+lblquotedleadsDS.Height+10
                     ZIndex: =2
