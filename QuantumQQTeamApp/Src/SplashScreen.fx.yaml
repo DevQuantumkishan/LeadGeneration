@@ -10,9 +10,7 @@ SplashScreen As screen:
     TimerLS As timer:
         AutoStart: =true
         Duration: =5000
-        OnTimerEnd: |-
-            =
-            Navigate(DashboardScreen)
+        OnTimerEnd: =If(LookUp(QQTeamMasters,QQTeamEmail=VarLoggedInUser.Email,QQTeamEmail)=VarLoggedInUser.Email,Navigate(DashboardScreen),Navigate(UerValidateScreen))
         Start: =true
         Visible: =false
         X: =80

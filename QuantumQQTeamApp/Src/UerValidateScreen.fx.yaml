@@ -1,0 +1,52 @@
+UerValidateScreen As screen:
+
+    UserValidategrp As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =6
+
+        rectbigrefreshpopupUS As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.29)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        rectrefreshpopuUS As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =280
+            Width: =400
+            X: =(Parent.Width-Self.Width)/2
+            Y: =Parent.Height/3
+            ZIndex: =2
+
+        imginfoUS As image:
+            Height: =52
+            Image: =images
+            Width: =52
+            X: =(Parent.Width-Self.Width)/2
+            Y: =rectrefreshpopuUS.Y+20
+            ZIndex: =3
+
+        lblmsgUS As label:
+            Align: =Align.Center
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Semibold
+            Height: =100
+            Size: =15
+            Text: = "You are not authorized to use this App. Kindly contact support team."
+            Width: =350
+            X: =(Parent.Width-Self.Width)/2
+            Y: =imginfoUS.Y+ imginfoUS.Height+2
+            ZIndex: =4
+
+        Button1 As button:
+            Fill: =Header.SHRed
+            HoverFill: =
+            Text: ="Button"
+            Visible: =false
+            X: =603
+            Y: =442
+            ZIndex: =5
+
