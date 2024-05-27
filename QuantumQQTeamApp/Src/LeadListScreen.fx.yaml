@@ -314,6 +314,14 @@ LeadListScreen As screen:
                     Y: =10
                     ZIndex: =1
 
+                Toggle1 As toggleSwitch:
+                    OnCheck: =Set(VarIsUnitDown,true)
+                    OnUncheck: =Set(VarIsUnitDown,false)
+                    Width: =100
+                    X: =814
+                    Y: =21
+                    ZIndex: =2
+
             ctnleadlistLS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
@@ -346,36 +354,52 @@ LeadListScreen As screen:
                             SortByColumns(
                                 If(
                                     VarMyLeads = true,
-                                    Search(Filter(
+                                    Search(If(VarIsUnitDown=true,Filter(
+                                        LeadInformations,
+                                        QQTeamEmail = User().Email && Email<>Blank() && IsUnitDown=true,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                    ), Filter(
                                         LeadInformations,
                                         QQTeamEmail = User().Email && Email<>Blank(),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                    ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
+                                    )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                     If(
                                         VarOpenLeads = true,
-                                        Search(Filter(
+                                        Search(If(VarIsUnitDown=true,Filter(
+                                            LeadInformations,
+                                            (LeadStatus = "Submitted" ||LeadStatus = "InProgress") && Email <> Blank() &&IsUnitDown=true
+                                            , Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                        ), Filter(
                                             LeadInformations,
                                             (LeadStatus = "Submitted" ||LeadStatus = "InProgress") && Email <> Blank()
                                             , Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                        ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
+                                        )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
                                         ,
                                         If(
                                             VarQuotedLeads = true,
-                                           Search( Filter(
+                                           Search(If(VarIsUnitDown=true,Filter(
                                                 LeadInformations,
-                                                LeadStatus = "Quoted",Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                            ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
+                                                LeadStatus = "Quoted" && IsUnitDown=true ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                            ), Filter(
+                                                LeadInformations,
+                                                LeadStatus = "Quoted" ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                            )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                             If(
                                                 VarSoldLeads = true,
-                                               Search( Filter(
+                                               Search(If(VarIsUnitDown=true,Filter(
+                                                    LeadInformations,
+                                                    LeadStatus = "Sold" && IsUnitDown=true ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                ), Filter(
                                                     LeadInformations,
                                                     LeadStatus = "Sold" ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                                ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
+                                                )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                                 If(
                                                     VarRejectedLeads=true,
-                                                     Search( Filter(
+                                                     Search(If(VarIsUnitDown=true,Filter(
+                                                    LeadInformations,
+                                                     LeadStatus = "Rejected" && Email <> Blank() &&IsUnitDown=true,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                ), Filter(
                                                     LeadInformations,
                                                      LeadStatus = "Rejected" && Email <> Blank() ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                                ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
+                                                )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
                                                 )
                                             )
                                         )
@@ -387,36 +411,52 @@ LeadListScreen As screen:
                             SortByColumns(
                                 If(
                                     VarMyLeads = true,
-                                    Search(Filter(
+                                    Search(If(VarIsUnitDown=true,Filter(
+                                        LeadInformations,
+                                        QQTeamEmail = User().Email && Email<>Blank() && IsUnitDown=true && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                    ), Filter(
                                         LeadInformations,
                                         QQTeamEmail = User().Email && Email<>Blank() && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                    ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
+                                    )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                     If(
                                         VarOpenLeads = true,
-                                        Search(Filter(
+                                        Search(If(VarIsUnitDown=true,Filter(
+                                            LeadInformations,
+                                            (LeadStatus = "Submitted" ||LeadStatus = "InProgress") && Email <> Blank() && IsUnitDown=true && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District)
+                                            , Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                        ), Filter(
                                             LeadInformations,
                                             (LeadStatus = "Submitted" ||LeadStatus = "InProgress") && Email <> Blank() && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District)
                                             , Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                        ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
+                                        )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
                                         ,
                                         If(
                                             VarQuotedLeads = true,
-                                           Search( Filter(
+                                           Search(If(VarIsUnitDown=true,Filter(
                                                 LeadInformations,
-                                                LeadStatus = "Quoted" && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                LeadStatus = "Quoted" && IsUnitDown=true && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                            ) ,Filter(
+                                                LeadInformations,
+                                                LeadStatus = "Quoted" && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value))
                                             ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                             If(
                                                 VarSoldLeads = true,
-                                               Search( Filter(
+                                               Search(If(VarIsUnitDown=true,Filter(
+                                                    LeadInformations,
+                                                    LeadStatus = "Sold" && IsUnitDown=true && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                ), Filter(
                                                     LeadInformations,
                                                     LeadStatus = "Sold" && District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District),Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                                ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
+                                                )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname),
                                                 If(
                                                     VarRejectedLeads=true,
-                                                     Search( Filter(
+                                                     Search(If(VarIsUnitDown=true,Filter(
+                                                    LeadInformations,
+                                                     District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) && LeadStatus = "Rejected" && Email <> Blank() && IsUnitDown=true ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
+                                                ), Filter(
                                                     LeadInformations,
                                                      District in Distinct(Filter(QQTeamMasters,QQTeamEmail=User().Email),District) && LeadStatus = "Rejected" && Email <> Blank() ,Territory=cmbxregionfilterLS.Selected.Value ||IsBlank(cmbxregionfilterLS.Selected.Value) ,District=cmbxdistrictfilterLS.Selected.Value ||IsBlank(cmbxdistrictfilterLS.Selected.Value) ,Area=cmbxareafilterLS.Selected.Value ||IsBlank(cmbxareafilterLS.Selected.Value)
-                                                ),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
+                                                )),txtinptsearchLS.Text,shlrf_contractnumber,shlrf_mechanicname,shlrf_leadtrackingnumber,shlrf_qqteamname)
                                                 )
                                             )
                                         )
