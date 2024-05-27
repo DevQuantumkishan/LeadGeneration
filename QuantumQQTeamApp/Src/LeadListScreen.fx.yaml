@@ -315,11 +315,19 @@ LeadListScreen As screen:
                     ZIndex: =1
 
                 Toggle1 As toggleSwitch:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    FalseText: ="Show all leads"
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    HoverBorderColor: =
                     OnCheck: =Set(VarIsUnitDown,true)
                     OnUncheck: =Set(VarIsUnitDown,false)
-                    Width: =100
-                    X: =814
-                    Y: =21
+                    PressedBorderColor: =
+                    TrueFill: =Header.SHRed
+                    TrueText: ="Show only unit down leads"
+                    Width: =300
+                    X: =1044
+                    Y: =15
                     ZIndex: =2
 
             ctnleadlistLS As groupContainer.manualLayoutContainer:
