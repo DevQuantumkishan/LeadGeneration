@@ -357,7 +357,7 @@ DashboardScreen As screen:
             LayoutMode: =LayoutMode.Auto
             Visible: =false
             Width: =Parent.Width
-            ZIndex: =3
+            ZIndex: =2
 
             lblcontractsyncDS As label:
                 Font: =Font.Arial
@@ -393,7 +393,7 @@ DashboardScreen As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             Visible: =false
-            ZIndex: =4
+            ZIndex: =3
 
             lblcontractDS As label:
                 FontWeight: =FontWeight.Semibold
@@ -492,7 +492,7 @@ DashboardScreen As screen:
             Text: ="Calculate Incentives"
             Visible: =false
             Width: =300
-            ZIndex: =5
+            ZIndex: =4
 
         btnpatchleadDS As button:
             AlignInContainer: =AlignInContainer.Center
@@ -540,7 +540,24 @@ DashboardScreen As screen:
                     );))
             Text: ="Patch old leads"
             Visible: =false
-            ZIndex: =6
+            ZIndex: =5
+
+        Container2 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Start
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =30
+            ZIndex: =7
+
+            Button2 As button:
+                AlignInContainer: =AlignInContainer.Start
+                Fill: =Header.SHRed
+                HoverFill: =
+                Text: ="Report Issue"
+                ZIndex: =1
 
         ctnschindlerimg As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.End
@@ -552,7 +569,7 @@ DashboardScreen As screen:
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             PaddingRight: =20
-            ZIndex: =7
+            ZIndex: =8
 
             imgGraphicDS As image:
                 Height: =Parent.Height
