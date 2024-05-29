@@ -282,6 +282,7 @@ LeadListScreen As screen:
                         Set(VarOpenLeads,false);
                         Set(VarQuotedLeads,false);
                         Set(VarSoldLeads,false);
+                        Reset(Toggle1);
                         Navigate(DashboardScreen)
                     PressedFill: =//Self.Color
                     RadiusBottomLeft: =0
