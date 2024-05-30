@@ -912,14 +912,17 @@ DashboardScreen As screen:
                             VarReportIssue,
                             false
                         );
-                        Reset(TextInput2_7);
+                        //Reset(TextInput2_7);
                         Set(
                             VarPopupReportIssue,
                             true
                         );
                     );
                     
-                )
+                );
+                Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported",TextInput2_7.Text);
+                
+                Reset(TextInput2_7);
             PressedColor: =Self.Color
             PressedFill: =Self.Fill
             Text: ="Submit"
