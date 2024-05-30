@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "shlrf_reportissues",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "shlrf_reportissue",
+    "Name": "ReportIssues",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "shlrf_id": "ID",
+      "shlrf_issuedescription": "IssueDescription",
+      "shlrf_reportedby": "ReportedBy",
+      "shlrf_reportissue_AsyncOperations": "System Jobs",
+      "shlrf_reportissue_BulkDeleteFailures": "Bulk Delete Failures",
+      "shlrf_reportissue_DuplicateBaseRecord": "Duplicate Records (shlrf_reportissue_DuplicateBaseRecord)",
+      "shlrf_reportissue_DuplicateMatchingRecord": "Duplicate Records (shlrf_reportissue_DuplicateMatchingRecord)",
+      "shlrf_reportissue_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "shlrf_reportissue_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "shlrf_reportissue_ProcessSession": "Process Sessions",
+      "shlrf_reportissue_SyncErrors": "Sync Errors",
+      "shlrf_reportissueid": "ReportIssue",
+      "shlrf_sender": "Sender",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "ReportIssues",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "ReportIssues (Views)",
+    "Name": "_shlrf_reportissue_views",
+    "RelatedEntityName": "ReportIssues",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "07257790-8022-4381-94dc-96d76b84485d": "Inactive ReportIssues",
+      "1ae4afc8-2da1-4e8a-b139-b8a4dc4897e7": "Active ReportIssues",
+      "6a9ae1d2-2f63-4517-995c-7f6044900da6": "ReportIssue Lookup View",
+      "737543ab-5c41-4243-b19b-2c3073d8448f": "ReportIssue Advanced Find View",
+      "7e002e9f-4f08-49ec-99f0-40107ddcaceb": "ReportIssue Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (ReportIssues)",
+    "Name": "shlrf_reportissue_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "ReportIssues"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "ReportIssues",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (ReportIssues)",
+    "Name": "shlrf_reportissue_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "ReportIssues"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "ReportIssues",
+    "Type": "OptionSetInfo"
+  }
+]
