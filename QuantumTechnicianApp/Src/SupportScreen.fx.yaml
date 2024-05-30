@@ -1,4 +1,7 @@
 SupportScreen As screen:
+    OnVisible: |-
+        =Set(VarReportIssue,false);
+        Set(VarPopupReportIssue,false);
 
     ctnMainCS_3 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -249,9 +252,11 @@ SupportScreen As screen:
                 Button2 As button:
                     AlignInContainer: =AlignInContainer.Start
                     Fill: =Header.HUserColor
+                    Height: =30
                     HoverFill: =
                     OnSelect: =Set(VarReportIssue,true)
                     Text: ="Report Issue"
+                    Width: =140
                     ZIndex: =5
 
                 btnSupportSS_3 As button:
@@ -478,7 +483,7 @@ SupportScreen As screen:
                             ID: VarReportGUID,
                             ReportedBy: User().Email,
                             IssueDescription: TextInput2_7.Text,
-                            Sender: "QQ Team Member"
+                            Sender: "Technician"
                         }
                     );
                     If(
@@ -529,4 +534,68 @@ SupportScreen As screen:
             X: =Rectangle6_5.X
             Y: =Rectangle6_5.Y
             ZIndex: =10
+
+    GrpPopupReportIssue As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =16
+
+        iconOuterRectangleDS_1 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.29)
+            Height: =Parent.Height
+            Visible: =VarPopupReportIssue
+            Width: =Parent.Width
+            ZIndex: =11
+
+        iconInnerRectsngleDS_1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =270
+            Visible: =VarPopupReportIssue
+            Width: =350
+            X: =(Parent.Width-Self.Width)/2
+            Y: =Parent.Height/3
+            ZIndex: =12
+
+        imgInfoDS_1 As image:
+            Height: =40
+            Image: ='Check_green_icon.svg'
+            Visible: =VarPopupReportIssue
+            Width: =40
+            X: =(Parent.Width-Self.Width)/2
+            Y: =iconInnerRectsngleDS_1.Y+20
+            ZIndex: =13
+
+        LblTextDS_1 As label:
+            Align: =Align.Center
+            Font: =
+            FontWeight: =FontWeight.Semibold
+            Height: =100
+            Size: =15
+            Text: ="Report issue submitted successfully."
+            Visible: =VarPopupReportIssue
+            Width: =350
+            X: =(Parent.Width-Self.Width)/2
+            Y: =imgInfoDS_1.Y+imgInfoDS_1.Height
+            ZIndex: =14
+
+        btnSuccessDS_1 As button:
+            Fill: =RGBA(54, 176, 75, 1)
+            Font: ="Roboto"
+            HoverFill: =RGBA(75, 125, 6, 1)
+            OnSelect: |+
+                =Set(
+                    VarPopupReportIssue,
+                    false
+                );
+                
+            PressedBorderColor: =RGBA(1, 43, 1, 0)
+            PressedFill: =Self.Fill
+            Text: ="Ok"
+            Visible: =VarPopupReportIssue
+            Width: =120
+            X: =(Parent.Width-Self.Width)/2
+            Y: =LblTextDS_1.Y+ LblTextDS_1.Height+5
+            ZIndex: =15
 
