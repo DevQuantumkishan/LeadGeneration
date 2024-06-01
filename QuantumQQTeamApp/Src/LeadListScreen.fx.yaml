@@ -500,7 +500,7 @@ LeadListScreen As screen:
                                 //If(Label8_3.Height>60 ,Label8_3.Height+Label8_3.Y, Label9_3.Height>60,Label9_3.Height+Label9_3.Y,50)
                                 //If(Label8_3.Height>Label9_3.Height ,Label8_3.LayoutMinHeight+Label8_3.Y,Label9_3.LayoutMinHeight+Label9_3.Y)
                                 //ctnlistheadingvalueLS.Y+ctnlistheadingvalueLS.Height-10
-                                ctnlistheadingvalueLS.Y+ctnlistheadingvalueLS.Height
+                                ctnlistheadingvalueLS.Y+ctnlistheadingvalueLS.Height+5
                                 
                                 //If(!IsBlank(lbldistrictvalueLS.Height) || !IsBlank(lblareavalueLS.Height),If(lbldistrictvalueLS.Height>lblareavalueLS.Height,lbldistrictvalueLS.Height+10,lblareavalueLS.Height+10),70)
                             ZIndex: =3
@@ -602,6 +602,7 @@ LeadListScreen As screen:
                                 ZIndex: =13
 
                         btnglryleadlistLS As button:
+                            BorderColor: =If(ThisItem.IsUnitDown=true,Header.Red,ColorFade(Self.Fill, -15%)) //ColorFade(Self.Fill, -15%)
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =ctnlistheadingvalueLS.Height
                             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
@@ -611,9 +612,9 @@ LeadListScreen As screen:
                             PressedColor: =//Self.Fill
                             PressedFill: =//Self.Color
                             Text: =""
-                            Width: =ctnlistheadingvalueLS.Width
-                            X: =ctnlistheadingvalueLS.X
-                            Y: =ctnlistheadingvalueLS.Y
+                            Width: =ctnlistheadingvalueLS.Width-20
+                            X: =ctnlistheadingvalueLS.X+5
+                            Y: =ctnlistheadingvalueLS.Y+5
                             ZIndex: =5
 
                         rectvertLS As rectangle:
