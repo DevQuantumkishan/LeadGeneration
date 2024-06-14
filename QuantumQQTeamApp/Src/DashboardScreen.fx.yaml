@@ -898,6 +898,9 @@ DashboardScreen As screen:
                             Sender: "QQ Team Member"
                         }
                     );
+                    Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported","Reported by : " & User().Email  & Char(10) &
+                "Sender : " & "QQ Team Member" & Char(10)&Char(10) & 
+                 txtiptIssuedescriptionDS.Text,{Importance:"High"});
                     If(
                         (!IsEmpty(Errors(ReportIssues))),
                         Notify(
@@ -920,9 +923,7 @@ DashboardScreen As screen:
                     );
                     
                 );
-                Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported","Reported by : " & User().Email  & Char(10) &
-                "Sender : " & "QQ Team Member" & Char(10)&Char(10) & 
-                 txtiptIssuedescriptionDS.Text,{Importance:"High"});
+                
                 
                 Reset(txtiptIssuedescriptionDS);
             PressedColor: =Self.Color
