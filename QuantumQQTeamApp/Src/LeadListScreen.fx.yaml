@@ -282,7 +282,7 @@ LeadListScreen As screen:
                         Set(VarOpenLeads,false);
                         Set(VarQuotedLeads,false);
                         Set(VarSoldLeads,false);
-                        Reset(Toggle1);
+                        Reset(tgglIsunitdownLS);
                         Navigate(DashboardScreen)
                     PressedFill: =//Self.Color
                     RadiusBottomLeft: =0
@@ -315,7 +315,7 @@ LeadListScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                Toggle1 As toggleSwitch:
+                tgglIsunitdownLS As toggleSwitch:
                     BorderColor: =RGBA(0, 0, 0, 0)
                     FalseText: ="Show all leads"
                     FontWeight: =FontWeight.Semibold
