@@ -838,7 +838,7 @@ DashboardScreen As screen:
                 Icon: =Icon.Cancel
                 OnSelect: |-
                     =Set(VarReportIssue,false);
-                    Reset(TextInput2_7);
+                    Reset(txtiptIssuedescriptionDS);
                 Width: =30
                 ZIndex: =2
 
@@ -878,7 +878,7 @@ DashboardScreen As screen:
             HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |-
                 =If(
-                    IsBlank(TextInput2_7.Text),
+                    IsBlank(txtiptIssuedescriptionDS.Text),
                     Notify(
                         "Please enter your issue description.",
                         NotificationType.Warning
@@ -894,7 +894,7 @@ DashboardScreen As screen:
                         {
                             ID: VarReportGUID,
                             ReportedBy: User().Email,
-                            IssueDescription: TextInput2_7.Text,
+                            IssueDescription: txtiptIssuedescriptionDS.Text,
                             Sender: "QQ Team Member"
                         }
                     );
@@ -920,9 +920,11 @@ DashboardScreen As screen:
                     );
                     
                 );
-                Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported",TextInput2_7.Text);
+                Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported","Reported by : " & User().Email  & Char(10) &
+                "Sender : " & "QQ Team Member" & Char(10)&Char(10) & 
+                 txtiptIssuedescriptionDS.Text,{Importance:"High"});
                 
-                Reset(TextInput2_7);
+                Reset(txtiptIssuedescriptionDS);
             PressedColor: =Self.Color
             PressedFill: =Self.Fill
             Text: ="Submit"
@@ -931,7 +933,7 @@ DashboardScreen As screen:
             Y: =Icon4_5.Y+20
             ZIndex: =18
 
-        TextInput2_7 As text:
+        txtiptIssuedescriptionDS As text:
             BorderThickness: =0
             Default: =
             Fill: =RGBA(255,255,255,1)
