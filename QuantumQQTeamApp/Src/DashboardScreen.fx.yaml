@@ -898,9 +898,7 @@ DashboardScreen As screen:
                             Sender: "QQ Team Member"
                         }
                     );
-                    Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported","Reported by : " & User().Email  & Char(10) &
-                "Sender : " & "QQ Team Member" & Char(10)&Char(10) & 
-                 txtiptIssuedescriptionDS.Text,{Importance:"High"});
+                    
                     If(
                         (!IsEmpty(Errors(ReportIssues))),
                         Notify(
@@ -911,6 +909,9 @@ DashboardScreen As screen:
                             NotificationType.Error
                         );
                         ,
+                        Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported","Reported by : " & User().Email  & Char(10) &
+                "Sender : " & "QQ Team Member" & Char(10)&Char(10) & 
+                 txtiptIssuedescriptionDS.Text,{Importance:"High"});
                         Set(
                             VarReportIssue,
                             false
@@ -960,14 +961,14 @@ DashboardScreen As screen:
         Y: =40
         ZIndex: =25
 
-        iconOuterRectangleDS_1 As rectangle:
+        iconOuterRectangleReportIssueDS As rectangle:
             Fill: =RGBA(0, 0, 0, 0.29)
             Height: =Parent.Height
             Visible: =VarPopupReportIssue
             Width: =Parent.Width
             ZIndex: =20
 
-        iconInnerRectsngleDS_1 As rectangle:
+        iconInnerRectsngleReportIssueDS As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =270
             Visible: =VarPopupReportIssue
@@ -976,16 +977,16 @@ DashboardScreen As screen:
             Y: =Parent.Height/3
             ZIndex: =21
 
-        imgInfoDS_1 As image:
+        imgInfoReportIssueDS As image:
             Height: =52
             Image: =Success
             Visible: =VarPopupReportIssue
             Width: =52
             X: =(Parent.Width-Self.Width)/2
-            Y: =iconInnerRectsngleDS_1.Y+20
+            Y: =iconInnerRectsngleReportIssueDS.Y+20
             ZIndex: =22
 
-        LblTextDS_1 As label:
+        LblTextReportIssueDS As label:
             Align: =Align.Center
             Font: =
             FontWeight: =FontWeight.Semibold
@@ -995,10 +996,10 @@ DashboardScreen As screen:
             Visible: =VarPopupReportIssue
             Width: =350
             X: =(Parent.Width-Self.Width)/2
-            Y: =imgInfoDS_1.Y+imgInfoDS_1.Height
+            Y: =imgInfoReportIssueDS.Y+imgInfoReportIssueDS.Height
             ZIndex: =23
 
-        btnSuccessDS_1 As button:
+        btnSuccessReportIssueDS As button:
             Fill: =RGBA(54, 176, 75, 1)
             Font: ="Roboto"
             HoverFill: =RGBA(75, 125, 6, 1)
@@ -1014,6 +1015,6 @@ DashboardScreen As screen:
             Visible: =VarPopupReportIssue
             Width: =120
             X: =(Parent.Width-Self.Width)/2
-            Y: =LblTextDS_1.Y+ LblTextDS_1.Height+5
+            Y: =LblTextReportIssueDS.Y+ LblTextReportIssueDS.Height+5
             ZIndex: =24
 
