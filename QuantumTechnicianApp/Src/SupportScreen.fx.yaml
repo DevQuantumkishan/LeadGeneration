@@ -18,12 +18,17 @@ SupportScreen As screen:
 
         ctnHeaderCS_3 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =If(Parent.Height<Parent.Width,60,80)
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =Parent.Width
             ZIndex: =1
 
@@ -118,6 +123,7 @@ SupportScreen As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(219, 219, 219, 1)
             BorderThickness: =2
+            DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: |
@@ -405,8 +411,13 @@ SupportScreen As screen:
             ZIndex: =5
 
         Container38_5 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.None
             Height: =50
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Visible: =VarReportIssue
             Width: =Rectangle5_5.Width
             X: =Rectangle5_5.X
@@ -496,6 +507,9 @@ SupportScreen As screen:
                             NotificationType.Error
                         );
                         ,
+                        Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported","Reported by : " & User().Email  & Char(10) &
+                "Sender : " & "Technician" & Char(10)&Char(10) & 
+                 TextInput2_7.Text,{Importance:"High"});
                         Set(
                             VarReportIssue,
                             false

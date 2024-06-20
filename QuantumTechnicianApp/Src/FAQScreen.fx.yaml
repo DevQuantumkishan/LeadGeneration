@@ -60,12 +60,17 @@ FAQScreen As screen:
 
         ctnHeaderFAQS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =If(Parent.Height<Parent.Width,60,80)
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =Parent.Width
             ZIndex: =1
 
@@ -161,6 +166,7 @@ FAQScreen As screen:
             AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(219, 219, 219, 1)
             BorderThickness: =2
+            DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: |

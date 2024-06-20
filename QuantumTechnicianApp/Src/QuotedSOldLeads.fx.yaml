@@ -22,6 +22,7 @@ QuotedSOldLeads As screen:
 
         ctnHeaderSoldLeads As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: |-
@@ -34,6 +35,10 @@ QuotedSOldLeads As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingRight: =0.00
             PaddingTop: =0.00
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =Parent.Width-20
             X: =0.00
             ZIndex: =1
@@ -122,6 +127,7 @@ QuotedSOldLeads As screen:
 
         ctnUserNameSoldLeads As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.None
             FillPortions: =0
             Height: |-
                 =//Parent.Height/14
@@ -130,6 +136,10 @@ QuotedSOldLeads As screen:
             LayoutMinWidth: =250
             PaddingRight: =0.00
             PaddingTop: =0.00
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =Parent.Width-40
             X: =21.36
             Y: =ctnHeaderSoldLeads.Y+ctnHeaderSoldLeads.Height+10
@@ -152,6 +162,7 @@ QuotedSOldLeads As screen:
                 ZIndex: =1
 
         ctnMiddleSoldLeads As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: =Parent.Height+ctnUserNameSoldLeads.Height+ctnHeaderSoldLeads.Height+400
@@ -159,6 +170,10 @@ QuotedSOldLeads As screen:
             LayoutMinWidth: =250
             PaddingLeft: =10
             PaddingRight: =10
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =Parent.Width/1.02
             X: =15
             ZIndex: =3
