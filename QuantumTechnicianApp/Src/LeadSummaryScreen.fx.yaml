@@ -16,6 +16,7 @@ LeadSummaryScreen As screen:
 
         ctnHeaderLSS As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
             Height: |-
@@ -28,6 +29,10 @@ LeadSummaryScreen As screen:
             LayoutMode: =LayoutMode.Auto
             PaddingRight: =0.00
             PaddingTop: =0.00
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =Parent.Width
             X: =0.00
             ZIndex: =1
@@ -102,6 +107,7 @@ LeadSummaryScreen As screen:
 
         ctnUserNameLSS As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.None
             FillPortions: =0
             Height: |-
                 =//Parent.Height/14
@@ -110,6 +116,10 @@ LeadSummaryScreen As screen:
             LayoutMinWidth: =250
             PaddingRight: =0.00
             PaddingTop: =0.00
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =Parent.Width-40
             X: =21.36
             Y: =ctnHeaderLSS.Y+ctnHeaderLSS.Height+10
