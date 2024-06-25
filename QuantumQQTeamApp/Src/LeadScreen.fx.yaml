@@ -703,9 +703,9 @@ LeadScreen As screen:
                     Height: =60
                     HoverFill: =
                     OnSelect: |-
-                        =UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,{LeadEstimateNumber:Blank()});
+                        =If(!IsBlank(UpdateIf(LeadInformations,ID=glryleadlistLS.Selected.ID,{LeadEstimateNumber:Blank()})),Notify("hiiii"))
                     Text: ="Reset Estimate Number"
-                    Visible: =If(!IsBlank(LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadEstimateNumber)),true,false)
+                    Visible: =If(!IsBlank(LookUp(LeadInformations,ID=glryleadlistLS.Selected.ID,LeadEstimateNumber)) && glryleadlistLS.Selected.LeadStatus="InProgress",true,false)
                     Width: =300
                     X: =btnestimatenumberLdS.Width+btnestimatenumberLdS.X+50
                     Y: =lblestimatenumberleaddetailsLdS.Height+lblestimatenumberleaddetailsLdS.Y
