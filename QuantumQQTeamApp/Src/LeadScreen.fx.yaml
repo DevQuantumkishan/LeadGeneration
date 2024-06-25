@@ -586,7 +586,7 @@ LeadScreen As screen:
                     HoverFill: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                     OnSelect: |-
                         =//here checking estimate number is entered or not
-                        /*If(
+                        If(
                             IsBlank(txtinptestimatenumber.Text),
                             Notify(
                                 "Please enter estimate number.",
@@ -616,9 +616,9 @@ LeadScreen As screen:
                             );
                             
                         );
-                        */
                         
-                            If(
+                        
+                            /*If(
                             IsBlank(txtinptestimatenumber.Text),
                             Set(VarMsgEstimateNumber,"Do you want to enter blank estimate number, please confirm it.");,
                             Set(VarMsgEstimateNumber,"Do you want to enter estimate number "& txtinptestimatenumber.Text & ", please confirm it.");
@@ -626,7 +626,7 @@ LeadScreen As screen:
                         Set(
                                 VarPopUpEstimateNumber,
                                 true
-                            );
+                            );*/
                     Text: ="Submit Estimate Number"
                     Width: =300
                     X: =410
@@ -1673,7 +1673,7 @@ LeadScreen As screen:
             FontWeight: =FontWeight.Bold
             Height: =110
             Size: =15
-            Text: =VarMsgEstimateNumber //"Do you want to enter estimate number "& txtinptestimatenumber.Text & ", please confirm it."
+            Text: ="Do you want to enter estimate number "& txtinptestimatenumber.Text & ", please confirm it."
             Visible: =VarPopUpEstimateNumber
             Width: =350
             X: =(Parent.Width-Self.Width)/2
@@ -1757,14 +1757,6 @@ LeadScreen As screen:
                 //estimatenumber entered if close
                 If(
                     FlagEstimateNumberFound = false,
-                    If(IsBlank(txtinptestimatenumber.Text),Set(
-                        VarPopUpEstimateNumberSubmittedmsg,
-                        "Blank Estimate Number is saved."
-                    );
-                    Set(
-                        VarPopUpEstimateNumberSubmitted,
-                        true
-                    );,
                     //If Estimate number is not found in FP Estimate file then we are storing estimate nummber only.
                     UpdateIf(
                         LeadInformations,
@@ -1780,7 +1772,7 @@ LeadScreen As screen:
                         true
                     );
                     
-                ););
+                );
                 
                 //here checking FlagEstimateNumberWithTechIdFound is true then update estimate number,leadprice,leadincentive
                 If(
