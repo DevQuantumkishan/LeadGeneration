@@ -144,9 +144,7 @@ LeadListScreen As screen:
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
-                            SearchItems: |-
-                                =Search(//Sort(Distinct(Filter(LeadInformations, Territory = cmbxregionfilterLS.Selected.Value),District),Value)
-                                Sort(Distinct(LeadInformations,District),Value),cmbxdistrictfilterLS.SearchText,Value)
+                            SearchItems: =Search(Sort(Distinct(LeadInformations,District),Value),cmbxdistrictfilterLS.SearchText,Value)
                             SelectionFill: =Header.SHRed
                             SelectMultiple: =false
                             Width: =200
@@ -167,9 +165,7 @@ LeadListScreen As screen:
                             PressedFill: =RGBA(0, 0, 0, 0)
                             Reset: =true
                             SearchFields: =["Value"]
-                            SearchItems: |-
-                                =Search(//Sort(Distinct(Filter(LeadInformations, Area = cmbxareafilterLS.Selected.Value),Territory),Value)
-                                Sort(Distinct(LeadInformations,Territory),Value),cmbxregionfilterLS.SearchText,Value)
+                            SearchItems: =Search(Sort(Distinct(LeadInformations,Territory),Value),cmbxregionfilterLS.SearchText,Value)
                             SelectionFill: =Header.SHRed
                             SelectMultiple: =false
                             Width: =200
