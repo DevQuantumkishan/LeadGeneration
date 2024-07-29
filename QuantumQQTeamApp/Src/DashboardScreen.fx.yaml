@@ -954,6 +954,13 @@ DashboardScreen As screen:
             Y: =recttxtbxIssuedescriptionDS.Y
             ZIndex: =19
 
+    Button4 As button:
+        OnSelect: =Navigate(Screen1)
+        Text: ="Button"
+        X: =333
+        Y: =444
+        ZIndex: =25
+
     GrpPopupReportIssue As group:
         Height: =5
         Width: =5
