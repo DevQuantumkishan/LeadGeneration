@@ -838,7 +838,7 @@ DashboardScreen As screen:
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
                             OnSelect: |
-                                =    Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Quoted"});
+                                =    Navigate([@QuotedSOldLeads_1],ScreenTransition.None,{Header: "Quoted"});
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6

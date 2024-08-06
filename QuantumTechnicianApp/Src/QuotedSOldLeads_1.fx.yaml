@@ -1,4 +1,4 @@
-QuotedSOldLeads As screen:
+QuotedSOldLeads_1 As screen:
     OnVisible: |-
         =ClearCollect(Localleadinformation,Filter(LeadInformations,Email=User().Email));
         Set(VarDownIcon,true);
@@ -7,7 +7,7 @@ QuotedSOldLeads As screen:
         );
         UpdateContext({locInfoExpanded:false});
 
-    ctnMainSoldLeads As groupContainer.verticalAutoLayoutContainer:
+    ctnMainSoldLeads_1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(219, 219, 219, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Center
@@ -20,7 +20,7 @@ QuotedSOldLeads As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        ctnHeaderSoldLeads As groupContainer.horizontalAutoLayoutContainer:
+        ctnHeaderSoldLeads_1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
@@ -43,7 +43,7 @@ QuotedSOldLeads As screen:
             X: =0.00
             ZIndex: =1
 
-            IconMenuSoldLeads As icon.Hamburger:
+            IconMenuSoldLeads_1 As icon.Hamburger:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height
                 Icon: =Icon.Hamburger
@@ -55,7 +55,7 @@ QuotedSOldLeads As screen:
                 Y: =11
                 ZIndex: =1
 
-            imgSchindlerLogoSoldLeads As image:
+            imgSchindlerLogoSoldLeads_1 As image:
                 DisplayMode: =DisplayMode.View
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =Parent.Height
@@ -68,7 +68,7 @@ QuotedSOldLeads As screen:
                 X: =0.00
                 ZIndex: =2
 
-            iconBackSoldLeads As icon.BackArrow:
+            iconBackSoldLeads_1 As icon.BackArrow:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =Parent.Height/2
                 Icon: =Icon.ChevronLeft
@@ -76,7 +76,7 @@ QuotedSOldLeads As screen:
                     =Navigate(DashboardScreen);
                     UpdateContext({locInfoExpanded:false});
                     Set(VarNavigateId,Blank());
-                    Reset(IntxtSearchBoxSoldLeads);
+                    Reset(IntxtSearchBoxSoldLeads_1);
                 PaddingBottom: =5
                 PaddingTop: =5
                 Width: =Parent.Height/2
@@ -84,7 +84,7 @@ QuotedSOldLeads As screen:
                 Y: =11
                 ZIndex: =3
 
-            lblHeaderSoldLeads As label:
+            lblHeaderSoldLeads_1 As label:
                 DisplayMode: =DisplayMode.View
                 Font: =Font.Arial
                 FontWeight: =FontWeight.Bold
@@ -97,11 +97,11 @@ QuotedSOldLeads As screen:
                     =//21.36
                     If(Parent.Width<500,14,Parent.Width>500,20)
                 Text: ="Technician Lead Generation"
-                Width: =Parent.Width-imgSchindlerLogoSoldLeads.Width-IconMenuSoldLeads.Width-btnUserNameSoldLeads.Width-70
+                Width: =Parent.Width-imgSchindlerLogoSoldLeads_1.Width-IconMenuSoldLeads_1.Width-btnUserNameSoldLeads_1.Width-70
                 X: =96.12
                 ZIndex: =4
 
-            btnUserNameSoldLeads As button:
+            btnUserNameSoldLeads_1 As button:
                 BorderColor: =Color.Red
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(255, 0, 0, 1)
@@ -125,7 +125,7 @@ QuotedSOldLeads As screen:
                 Width: =If(Parent.Width<500,Parent.Height/1.8,Parent.Height/1.6)
                 ZIndex: =5
 
-        ctnUserNameSoldLeads As groupContainer.manualLayoutContainer:
+        ctnUserNameSoldLeads_1 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.None
             FillPortions: =0
@@ -142,10 +142,10 @@ QuotedSOldLeads As screen:
             RadiusTopRight: =0
             Width: =Parent.Width-40
             X: =21.36
-            Y: =ctnHeaderSoldLeads.Y+ctnHeaderSoldLeads.Height+10
+            Y: =ctnHeaderSoldLeads_1.Y+ctnHeaderSoldLeads_1.Height+10
             ZIndex: =2
 
-            btnheaderSoldLeads As button:
+            btnheaderSoldLeads_1 As button:
                 Align: =Align.Left
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: =DisplayMode.View
@@ -161,11 +161,11 @@ QuotedSOldLeads As screen:
                 Width: =Parent.Width
                 ZIndex: =1
 
-        ctnMiddleSoldLeads As groupContainer.manualLayoutContainer:
+        ctnMiddleSoldLeads_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             FillPortions: =0
-            Height: =Parent.Height+ctnUserNameSoldLeads.Height+ctnHeaderSoldLeads.Height+400
+            Height: =Parent.Height+ctnUserNameSoldLeads_1.Height+ctnHeaderSoldLeads_1.Height+400
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             PaddingLeft: =10
@@ -178,14 +178,14 @@ QuotedSOldLeads As screen:
             X: =15
             ZIndex: =3
 
-            "'glrySold/QuotedLeads' As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
+            "'glrySold/QuotedLeads_1' As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =RGBA(219, 219, 219, 1)
                 BorderThickness: =2
                 DelayItemLoading: =true
-                Height: =Parent.Height-ctnSearchBarSoldLeads.Height-ctnSortBarSoldLeads.Height
-                Items: |+
-                    =Sort(If(
+                Height: =Parent.Height-ctnSearchBarSoldLeads_1.Height-ctnSortBarSoldLeads_1.Height
+                Items: |-
+                    =/*Sort(If(
                         cumulatively = true,
                     Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && If(Header="Quoted",Value( TotalProposedLead)<>0,Value(TotalSoldLead)<>0),Year),
                     yearly = true,
@@ -194,18 +194,19 @@ QuotedSOldLeads As screen:
                             StartYear:Min(GCTotalIncentives,Year),
                             EndYear: Max(GCTotalIncentives,Year) 
                         },
-                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(EndYear)))),Year,SortOrder.Descending)
+                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(EndYear)))),Year,SortOrder.Descending)*/
                     
+                    [1,2,3,4]
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =4
                 TemplateSize: =Min(1000, Self.Height - 20)
                 Width: =Parent.Width/1.02
                 X: =5
-                Y: =ctnSortBarSoldLeads.Y+ctnSortBarSoldLeads.Height+10
+                Y: =ctnSortBarSoldLeads_1.Y+ctnSortBarSoldLeads_1.Height+10
                 ZIndex: =1
 
-                lblLeadYearSL As label:
+                lblLeadYearSL_1 As label:
                     Align: =Align.Center
                     AutoHeight: =true
                     Color: =RGBA(220, 0, 0, 1)
@@ -219,29 +220,31 @@ QuotedSOldLeads As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: =ThisItem.Year
+                    Text: =//ThisItem.Year
                     Width: =Parent.Width/8
                     X: =1
-                    Y: =lblTitleYearSL.Y+lblTitleYearSL.Height+10
+                    Y: =lblTitleYearSL_1.Y+lblTitleYearSL_1.Height+10
                     ZIndex: =5
 
-                "glryLeadsSL As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+                "glryLeadsSL_1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
                     '#CopilotOverlayLabel': ="Filtered"
-                    Height: =If(CountRows(glryLeadsSL.AllItems)<2,glryLeadsSL.TemplateHeight+20,Parent.Height)
+                    Height: =If(CountRows(glryLeadsSL_1.AllItems)<2,glryLeadsSL_1.TemplateHeight+20,Parent.Height)
                     Items: |-
-                        =SortByColumns(Search(Sort(Filter(Localleadinformation,//Email=User().Email  && 
-                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSoldLeads.Text,shlrf_contractnumber,shlrf_address,shlrf_buildingname,shlrf_zipcode,shlrf_leadtrackingnumber),If(cboxSortSoldLeads.Selected.Value="Created Date","createdon",cboxSortSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads.Selected.Value="Address","shlrf_address",cboxSortSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
+                        =/*SortByColumns(Search(Sort(Filter(Localleadinformation,//Email=User().Email  && 
+                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSoldLeads_1.Text,shlrf_contractnumber,shlrf_address,shlrf_buildingname,shlrf_zipcode,shlrf_leadtrackingnumber),If(cboxSortSoldLeads_1.Selected.Value="Created Date","createdon",cboxSortSoldLeads_1.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads_1.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads_1.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads_1.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads_1.Selected.Value="Address","shlrf_address",cboxSortSoldLeads_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads_1.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads_1.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))*/
+                        Sort(Filter(Localleadinformation,//Email=User().Email  && 
+                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year)&& Month(ProposedLeadDate)>= StartMonth && Month(ProposedLeadDate)<=EndMonth,Year(SoldLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending)
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
-                    TemplateSize: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",320,200)
+                    TemplateSize: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",320,200)
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded  
                     Width: =If(Parent.Width>1000,Parent.Width,Parent.Width/1.05)
                     X: =1
-                    Y: =rectangleYearSL.Height
+                    Y: =rectangleYearSL_1.Height
                     ZIndex: =6
 
-                    borderLeadsSL As rectangle:
+                    borderLeadsSL_1 As rectangle:
                         BorderColor: =RGBA(0, 0, 0, 0)
                         BorderThickness: =2
                         Fill: =RGBA(0, 0, 0, 0)
@@ -254,10 +257,10 @@ QuotedSOldLeads As screen:
                         Visible: =false
                         Width: =If(Parent.Width<378,Parent.Width/1.07,Parent.Width>500,Parent.Width/1.02)
                         X: =1
-                        Y: =10
+                        Y: =6.274509803921546
                         ZIndex: =1
 
-                    lblSoldPriceSL As label:
+                    lblSoldPriceSL_1 As label:
                         Font: =Font.Arial
                         Height: |-
                             =//If(btnheaderSLS_2.Text="Sold Leads",25,0)
@@ -274,13 +277,13 @@ QuotedSOldLeads As screen:
                         Visible: =//If(btnheaderSLS_2.Text="Sold Leads",true,false)
                         Width: =Parent.Width/2.55
                         X: =20
-                        Y: =lblEstimateNumberSL.Height+lblEstimateNumberSL.Y
+                        Y: =lblEstimateNumberSL_1.Height+lblEstimateNumberSL_1.Y
                         ZIndex: =2
 
-                    lblSoldIncentivesSL As label:
+                    lblSoldIncentivesSL_1 As label:
                         Color: =RGBA(255, 0, 0, 1)
                         Font: =Font.Arial
-                        Height: =If(btnheaderSoldLeads.Text="Sold Leads",25,0)
+                        Height: =If(btnheaderSoldLeads_1.Text="Sold Leads",25,0)
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -290,25 +293,25 @@ QuotedSOldLeads As screen:
                         Text: |-
                             ="Sold Incentive: $" & Text(ThisItem.SoldLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: =If(btnheaderSoldLeads.Text="Sold Leads",true,false)
+                        Visible: =If(btnheaderSoldLeads_1.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
                         X: =20
                         Y: =20
                         ZIndex: =3
 
-                    lineEstimateSL As rectangle:
+                    lineEstimateSL_1 As rectangle:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(202, 202, 202, 1)
                         Height: =2
                         OnSelect: =Select(Parent)
-                        Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
-                        Width: =borderLeadsSL.Width-40
+                        Visible: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",true,false)
+                        Width: =borderLeadsSL_1.Width-40
                         X: =20
-                        Y: =lblTitleTotalIncentivesSL.Y+lblTitleTotalIncentivesSL.Height
+                        Y: =lblTitleTotalIncentivesSL_1.Y+lblTitleTotalIncentivesSL_1.Height
                         ZIndex: =4
 
-                    lblEstimateNumberSL As label:
+                    lblEstimateNumberSL_1 As label:
                         Font: =Font.Arial
                         Height: =25
                         OnSelect: =Select(Parent)
@@ -320,13 +323,13 @@ QuotedSOldLeads As screen:
                         Text: |-
                             ="Estimate Number: " & ThisItem.LeadEstimateNumber
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
+                        Visible: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =lineEstimateSL.Y+lineEstimateSL.Height+10
+                        Y: =lineEstimateSL_1.Y+lineEstimateSL_1.Height+10
                         ZIndex: =5
 
-                    HtmlTextBuildingNameSL As htmlViewer:
+                    HtmlTextBuildingNameSL_1 As htmlViewer:
                         AutoHeight: =true
                         Font: =Font.Arial
                         Height: =20
@@ -339,10 +342,10 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.3
                         X: =20
-                        Y: =htmltextContractNumberSL.Y+htmltextContractNumberSL.Height
+                        Y: =htmltextContractNumberSL_1.Y+htmltextContractNumberSL_1.Height
                         ZIndex: =6
 
-                    htmltextTrackingNumberSL As htmlViewer:
+                    htmltextTrackingNumberSL_1 As htmlViewer:
                         AutoHeight: =true
                         Font: =Font.Arial
                         Height: =20
@@ -355,10 +358,10 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.3
                         X: =20
-                        Y: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",lineEstimatenoSL.Y+lineEstimatenoSL.Height+10,20)
+                        Y: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",lineEstimatenoSL_1.Y+lineEstimatenoSL_1.Height+10,20)
                         ZIndex: =7
 
-                    htmltxtAddressSL As htmlViewer:
+                    htmltxtAddressSL_1 As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -372,10 +375,10 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =HtmlTextBuildingNameSL.Y+HtmlTextBuildingNameSL.Height
+                        Y: =HtmlTextBuildingNameSL_1.Y+HtmlTextBuildingNameSL_1.Height
                         ZIndex: =8
 
-                    htmltxtZipcodeSL As htmlViewer:
+                    htmltxtZipcodeSL_1 As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -390,10 +393,10 @@ QuotedSOldLeads As screen:
                         Visible: =false
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtAddressSL.Y+htmltxtAddressSL.Height
+                        Y: =htmltxtAddressSL_1.Y+htmltxtAddressSL_1.Height
                         ZIndex: =9
 
-                    htmltxtDateSL As htmlViewer:
+                    htmltxtDateSL_1 As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -407,15 +410,15 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtZipcodeSL.Y+htmltxtZipcodeSL.Height
+                        Y: =htmltxtZipcodeSL_1.Y+htmltxtZipcodeSL_1.Height
                         ZIndex: =10
 
-                    btnSubmittedLeadSL As button:
+                    btnSubmittedLeadSL_1 As button:
                         BorderColor: =RGBA(219, 219, 219, 1)
                         BorderThickness: =4
                         Color: =RGBA(0, 0, 0, 0)
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =borderLeadsSL.Height
+                        Height: =borderLeadsSL_1.Height
                         HoverColor: =RGBA(0, 0, 0, 0)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         OnSelect: |+
@@ -424,7 +427,7 @@ QuotedSOldLeads As screen:
                             Set(VarLtdID,ThisItem.ID);
                             Set(VarBackColor,true);
                             Navigate([@ViewDetailsScreen],ScreenTransition.None);
-                            Reset(IntxtSearchBoxSoldLeads);
+                            Reset(IntxtSearchBoxSoldLeads_1);
                             Set(VarLeadPhoneNumber,Text(ThisItem.'CustomerContact '));/*"[$-en-US](###) ###-####")*/
                             
                             Set(VarLeadstatus,ThisItem.LeadStatus);
@@ -440,26 +443,26 @@ QuotedSOldLeads As screen:
                         Width: |-
                             =//If(Parent.Width<378,Parent.Width/1.07,Parent.Width<500,Parent.Width/1.05,Parent.Width/1.03)
                             If(Parent.Width<378,Parent.Width/1.02,Parent.Width>500,Parent.Width/1.02)
-                        Y: =10
+                        Y: =6.274509803921546
                         ZIndex: =11
 
-                    lineEstimatenoSL As rectangle:
+                    lineEstimatenoSL_1 As rectangle:
                         BorderColor: =RGBA(116, 116, 116, 1)
                         DisplayMode: =DisplayMode.View
                         Fill: =RGBA(202, 202, 202, 1)
                         Height: =2
                         OnSelect: =Select(Parent)
-                        Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
-                        Width: =borderLeadsSL.Width-40
+                        Visible: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",true,false)
+                        Width: =borderLeadsSL_1.Width-40
                         X: =20
-                        Y: =lblPriceSL.Height+lblPriceSL.Y
+                        Y: =lblPriceSL_1.Height+lblPriceSL_1.Y
                         ZIndex: =12
 
-                    htmltxtSoldDateSL As htmlViewer:
+                    htmltxtSoldDateSL_1 As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
-                        Height: =If(btnheaderSoldLeads.Text="Sold Leads",25,0)
+                        Height: =If(btnheaderSoldLeads_1.Text="Sold Leads",25,0)
                         HtmlText: |-
                             ="<b>Sold Date: </b>" & Text(ThisItem.SoldLeadDate,"yyyy/mm/dd hh:mm AM/PM")
                         OnSelect: =Select(Parent)
@@ -467,13 +470,13 @@ QuotedSOldLeads As screen:
                         PaddingLeft: =0
                         PaddingTop: =0
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                        Visible: =If(btnheaderSoldLeads.Text="Sold Leads",true,false)
+                        Visible: =If(btnheaderSoldLeads_1.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtDateSL.Y+htmltxtDateSL.Height
+                        Y: =htmltxtDateSL_1.Y+htmltxtDateSL_1.Height
                         ZIndex: =13
 
-                    htmltextContractNumberSL As htmlViewer:
+                    htmltextContractNumberSL_1 As htmlViewer:
                         AutoHeight: =true
                         Font: =Font.Arial
                         Height: =20
@@ -486,10 +489,10 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.3
                         X: =20
-                        Y: =htmltextTrackingNumberSL.Y+htmltextTrackingNumberSL.Height
+                        Y: =htmltextTrackingNumberSL_1.Y+htmltextTrackingNumberSL_1.Height
                         ZIndex: =14
 
-                    iconmsgSL As icon.Message:
+                    iconmsgSL_1 As icon.Message:
                         Color: =RGBA(255, 0, 0, 1)
                         Fill: =RGBA(255, 255, 255, 1)
                         Height: =If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
@@ -507,10 +510,10 @@ QuotedSOldLeads As screen:
                             false
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
-                        Y: =htmltextTrackingNumberSL.Y
+                        Y: =htmltextTrackingNumberSL_1.Y
                         ZIndex: =15
 
-                    htmltxtQQTeamMemberSL As htmlViewer:
+                    htmltxtQQTeamMemberSL_1 As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -524,11 +527,11 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtStatusDateSL.Y+htmltxtStatusDateSL.Height
+                        Y: =htmltxtStatusDateSL_1.Y+htmltxtStatusDateSL_1.Height
                         ZIndex: =16
 
-                    lblTitleTotalIncentivesSL As label:
-                        Color: =If(btnheaderSoldLeads.Text="Quoted Leads",RGBA(220,0,0,1),Color.Black)
+                    lblTitleTotalIncentivesSL_1 As label:
+                        Color: =If(btnheaderSoldLeads_1.Text="Quoted Leads",RGBA(220,0,0,1),Color.Black)
                         Font: =Font.Arial
                         Height: =25
                         OnSelect: =Select(Parent)
@@ -540,13 +543,13 @@ QuotedSOldLeads As screen:
                         Text: |-
                             ="Quoted Incentive: $" & Text(ThisItem.ProposedLeadIncentives,"0.00")
                         VerticalAlign: =VerticalAlign.Top
-                        Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
+                        Visible: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",true,false)
                         Width: =Parent.Width/1.06
                         X: =20
-                        Y: =lblTotalIncentivesSL.Height+lblTotalIncentivesSL.Y
+                        Y: =lblTotalIncentivesSL_1.Height+lblTotalIncentivesSL_1.Y
                         ZIndex: =17
 
-                    lblPriceSL As label:
+                    lblPriceSL_1 As label:
                         Font: =Font.Arial
                         Height: =0
                         OnSelect: =Select(Parent)
@@ -563,10 +566,10 @@ QuotedSOldLeads As screen:
                             false
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =lblSoldPriceSL.Height+lblSoldPriceSL.Y
+                        Y: =lblSoldPriceSL_1.Height+lblSoldPriceSL_1.Y
                         ZIndex: =18
 
-                    htmltxtStatusDateSL As htmlViewer:
+                    htmltxtStatusDateSL_1 As htmlViewer:
                         AutoHeight: =true
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Arial
@@ -580,10 +583,10 @@ QuotedSOldLeads As screen:
                         Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
                         Width: =Parent.Width/1.08
                         X: =20
-                        Y: =htmltxtSoldDateSL.Y+htmltxtSoldDateSL.Height
+                        Y: =htmltxtSoldDateSL_1.Y+htmltxtSoldDateSL_1.Height
                         ZIndex: =19
 
-                    imgMessageSL As image:
+                    imgMessageSL_1 As image:
                         Height: |+
                             =//If(Parent.Width>1000,Parent.TemplateHeight/3,Parent.TemplateHeight/4)
                             If(Parent.Width>1000,Parent.TemplateHeight/3.5,Parent.TemplateHeight/4.5)
@@ -599,10 +602,10 @@ QuotedSOldLeads As screen:
                             Set(VarEstimateNumber,ThisItem.LeadEstimateNumber);
                         Width: =If(Parent.Width>1000,Parent.Width/20,Parent.Width/15)
                         X: =Parent.Width-2.5*(Self.Width)
-                        Y: =htmltextTrackingNumberSL.Y
+                        Y: =htmltextTrackingNumberSL_1.Y
                         ZIndex: =20
 
-                    iconUnreadIndicatorSL As circle:
+                    iconUnreadIndicatorSL_1 As circle:
                         BorderColor: =RGBA(255, 0, 0, 1)
                         BorderThickness: =1
                         DisplayMode: =DisplayMode.View
@@ -611,13 +614,13 @@ QuotedSOldLeads As screen:
                         OnSelect: =Select(Parent)
                         Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
                         Width: =15
-                        X: =imgMessageSL.X+imgMessageSL.Width/1.2
+                        X: =imgMessageSL_1.X+imgMessageSL_1.Width/1.2
                         Y: |-
                             =//Parent.TemplateHeight/
-                            htmltextTrackingNumberSL.Y+20
+                            htmltextTrackingNumberSL_1.Y+20
                         ZIndex: =21
 
-                lblTitleYearSL As label:
+                lblTitleYearSL_1 As label:
                     Align: =Align.Center
                     AutoHeight: =true
                     Font: =Font.Arial
@@ -634,10 +637,10 @@ QuotedSOldLeads As screen:
                     Text: ="Year"
                     Width: =Parent.Width/8
                     X: =1
-                    Y: =2*(btnLeadsSL.Y)
+                    Y: =2*(btnLeadsSL_1.Y)
                     ZIndex: =7
 
-                lblCountTotalLeadsSL As label:
+                lblCountTotalLeadsSL_1 As label:
                     Align: =Align.Center
                     Color: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
@@ -653,14 +656,14 @@ QuotedSOldLeads As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: =If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
+                    Text: =//If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =lblTotalLeadsSL.Width
-                    X: =lblTotalLeadsSL.X
-                    Y: =lblTotalLeadsSL.Y+lblTotalLeadsSL.Height+10
+                    Width: =lblTotalLeadsSL_1.Width
+                    X: =lblTotalLeadsSL_1.X
+                    Y: =lblTotalLeadsSL_1.Y+lblTotalLeadsSL_1.Height+10
                     ZIndex: =8
 
-                lblTotalLeadsSL As label:
+                lblTotalLeadsSL_1 As label:
                     Align: =Align.Center
                     AutoHeight: =true
                     Font: =Font.Arial
@@ -679,11 +682,11 @@ QuotedSOldLeads As screen:
                     Text: ="Total Leads"
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width/3.3
-                    X: =lblLeadYearSL.Width+lblLeadYearSL.X
-                    Y: =2*(btnLeadsSL.Y)
+                    X: =lblLeadYearSL_1.Width+lblLeadYearSL_1.X
+                    Y: =2*(btnLeadsSL_1.Y)
                     ZIndex: =9
 
-                lblCountTotalIncentivesSL As label:
+                lblCountTotalIncentivesSL_1 As label:
                     Align: =Align.Center
                     Color: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
@@ -698,7 +701,7 @@ QuotedSOldLeads As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
                     Text: |
-                        ="$ " & If(
+                        =/*"$ " & If(
                             Header = "Quoted",
                             If(
                                 !IsBlank(ThisItem.TotalproposedIncentives),
@@ -716,15 +719,15 @@ QuotedSOldLeads As screen:
                         ),
                                 0.00
                             )
-                        )
+                        )*/
                     VerticalAlign: =VerticalAlign.Top
-                    Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
+                    Visible: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",true,false)
                     Width: =Parent.Width/3
-                    X: =lblTotalLeadsSL.Width+lblTotalLeadsSL.X
-                    Y: =lblTotalIncentivesSL.Y+lblTotalIncentivesSL.Height+10
+                    X: =lblTotalLeadsSL_1.Width+lblTotalLeadsSL_1.X
+                    Y: =lblTotalIncentivesSL_1.Y+lblTotalIncentivesSL_1.Height+10
                     ZIndex: =10
 
-                lblTotalIncentivesSL As label:
+                lblTotalIncentivesSL_1 As label:
                     Align: =Align.Center
                     AutoHeight: =true
                     Font: =Font.Arial
@@ -739,13 +742,13 @@ QuotedSOldLeads As screen:
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
                     Text: ="Total Incentive"
                     VerticalAlign: =VerticalAlign.Top
-                    Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",true,false)
+                    Visible: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",true,false)
                     Width: =Parent.Width/3
-                    X: =lblTotalLeadsSL.X+lblTotalLeadsSL.Width
-                    Y: =2*(btnLeadsSL.Y)
+                    X: =lblTotalLeadsSL_1.X+lblTotalLeadsSL_1.Width
+                    Y: =2*(btnLeadsSL_1.Y)
                     ZIndex: =11
 
-                rectangleYearSL As rectangle:
+                rectangleYearSL_1 As rectangle:
                     BorderColor: =RGBA(219, 219, 219, 1)
                     BorderThickness: =1
                     Fill: =RGBA(0, 0, 0, 0)
@@ -757,30 +760,30 @@ QuotedSOldLeads As screen:
                     Y: =1
                     ZIndex: =12
 
-                iconLine1LSL As icon.HorizontalLine:
+                iconLine1LSL_1 As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     Fill: =RGBA(202, 202, 202, 1)
                     FocusedBorderThickness: =0
-                    Height: =rectangleYearSL.Height/2
+                    Height: =rectangleYearSL_1.Height/2
                     Icon: =Icon.VerticalLine
                     OnSelect: =Select(Parent)
                     Width: =1
-                    Y: =rectangleYearSL.Y*20
+                    Y: =rectangleYearSL_1.Y*20
                     ZIndex: =13
 
-                iconLine2SL As icon.HorizontalLine:
+                iconLine2SL_1 As icon.HorizontalLine:
                     Color: =RGBA(202, 202, 202, 1)
                     Fill: =RGBA(202, 202, 202, 1)
                     FocusedBorderThickness: =0
-                    Height: =rectangleYearSL.Height/2
+                    Height: =rectangleYearSL_1.Height/2
                     Icon: =Icon.VerticalLine
                     OnSelect: =Select(Parent)
-                    Visible: =If(btnheaderSoldLeads.Text="Quoted Leads" ||"Sold Leads",true,false)
+                    Visible: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||"Sold Leads",true,false)
                     Width: =1
-                    Y: =rectangleYearSL.Y*20
+                    Y: =rectangleYearSL_1.Y*20
                     ZIndex: =14
 
-                btnLeadsSL As button:
+                btnLeadsSL_1 As button:
                     BorderColor: =RGBA(237, 237, 237, 1)
                     BorderThickness: =4
                     DisabledBorderColor: =RGBA(237, 237, 237, 1)
@@ -796,31 +799,33 @@ QuotedSOldLeads As screen:
                     Y: =10
                     ZIndex: =15
 
-                imgExpandSL As image:
-                    Height: =rectangleYearSL.Height/1.2
+                imgExpandSL_1 As image:
+                    Height: =rectangleYearSL_1.Height/1.2
                     Image: =accordianPlus
-                    OnSelect: |
-                        =UpdateContext({locInfoExpanded:true});Set(Vardown,Year(ThisItem.Year));
+                    OnSelect: |-
+                        =UpdateContext({locInfoExpanded:true});//Set(Vardown,Year(ThisItem.Year));
+                        Set(StartMonth,1);
+                        Set(EndMonth,3);
                     Visible: |
                         =!(ThisItem.IsSelected && locInfoExpanded)
                     Width: =Parent.Width/14
-                    X: =rectangleYearSL.Width -(1.08*Self.Width)
+                    X: =rectangleYearSL_1.Width -(1.08*Self.Width)
                     Y: =(Parent.Y-Self.Height)/8
                     ZIndex: =16
 
-                imgCollapseSL As image:
-                    Height: =rectangleYearSL.Height/1.2
+                imgCollapseSL_1 As image:
+                    Height: =rectangleYearSL_1.Height/1.2
                     Image: =accordianMinus
                     OnSelect: |-
                         =Select(Parent); UpdateContext({locInfoExpanded:false}) ;Set(VarNavigateId,Blank());
                     Visible: |
                         =ThisItem.IsSelected && locInfoExpanded
                     Width: =Parent.Width/14
-                    X: =rectangleYearSL.Width -(1.08*Self.Width)
+                    X: =rectangleYearSL_1.Width -(1.08*Self.Width)
                     Y: =(Parent.Y-Self.Height)/8
                     ZIndex: =17
 
-            ctnSearchBarSoldLeads As groupContainer.horizontalAutoLayoutContainer:
+            ctnSearchBarSoldLeads_1 As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =If(Parent.Width>800,60,80)
@@ -831,7 +836,7 @@ QuotedSOldLeads As screen:
                 X: =10
                 ZIndex: =5
 
-                IntxtSearchBoxSoldLeads As text:
+                IntxtSearchBoxSoldLeads_1 As text:
                     BorderColor: =RGBA(220, 0, 0, 1)
                     Clear: =true
                     Default: =""
@@ -856,10 +861,10 @@ QuotedSOldLeads As screen:
                     RadiusTopRight: =1
                     Reset: =true
                     Size: =If(Parent.Width<378,11,Parent.Width<500,12,14)
-                    Width: =(ctnSearchBarSoldLeads.Width)/1.17
+                    Width: =(ctnSearchBarSoldLeads_1.Width)/1.17
                     ZIndex: =1
 
-                IconSearchSoldLeads As icon.Search:
+                IconSearchSoldLeads_1 As icon.Search:
                     BorderColor: =RGBA(220, 0, 0, 1)
                     BorderThickness: =2
                     Color: =RGBA(116, 116, 116, 1)
@@ -872,12 +877,12 @@ QuotedSOldLeads As screen:
                     PaddingLeft: =5
                     PaddingRight: =5
                     PaddingTop: =5
-                    Width: =(ctnSearchBarSoldLeads.Width-IntxtSearchBoxSoldLeads.Width)/1.5
+                    Width: =(ctnSearchBarSoldLeads_1.Width-IntxtSearchBoxSoldLeads_1.Width)/1.5
                     X: =468
                     Y: =000
                     ZIndex: =2
 
-            ctnSortBarSoldLeads As groupContainer.horizontalAutoLayoutContainer:
+            ctnSortBarSoldLeads_1 As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
@@ -888,10 +893,10 @@ QuotedSOldLeads As screen:
                 PaddingLeft: =2
                 Width: =Parent.Width/1.04
                 X: =10
-                Y: =ctnSearchBarSoldLeads.Height
+                Y: =ctnSearchBarSoldLeads_1.Height
                 ZIndex: =6
 
-                lblsortSoldLeads As label:
+                lblsortSoldLeads_1 As label:
                     Align: =Align.Right
                     Color: =RGBA(116, 116, 116, 1)
                     Font: =Font.Arial
@@ -900,12 +905,12 @@ QuotedSOldLeads As screen:
                     Text: ="Sort by"
                     Width: |-
                         =//If(Parent.Width>500,Parent.Width/2.4,Parent.Width/3)
-                        Parent.Width-cboxSortSoldLeads.Width-iconSortSoldLeads.Width-20
+                        Parent.Width-cboxSortSoldLeads_1.Width-iconSortSoldLeads_1.Width-20
                     X: =Parent.Width-Self.Width
                     Y: =10
                     ZIndex: =1
 
-                cboxSortSoldLeads As combobox:
+                cboxSortSoldLeads_1 As combobox:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     ChevronBackground: =RGBA(220, 0, 0, 1)
                     ChevronHoverBackground: =Self.ChevronBackground
@@ -932,7 +937,7 @@ QuotedSOldLeads As screen:
                     Width: =180
                     ZIndex: =2
 
-                iconSortSoldLeads As icon.ArrowsUpDown:
+                iconSortSoldLeads_1 As icon.ArrowsUpDown:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     Color: =RGBA(220, 0, 0, 1)
                     Height: =40
@@ -945,13 +950,13 @@ QuotedSOldLeads As screen:
                                 true
                             );
                                 Set(VarDownIcon,false);,*/
-                            iconSortSoldLeads.Icon = Icon.ArrowDown,
+                            iconSortSoldLeads_1.Icon = Icon.ArrowDown,
                             Set(
                                 VarUpperIcon,
                                 true
                             );
                             Set(VarDownIcon,false);,
-                            iconSortSoldLeads.Icon = Icon.ArrowUp,
+                            iconSortSoldLeads_1.Icon = Icon.ArrowUp,
                             Set(
                                 VarDownIcon,
                                 true
@@ -965,14 +970,14 @@ QuotedSOldLeads As screen:
                     Width: =40
                     ZIndex: =3
 
-    grpMenuSoldLeads As group:
+    grpMenuSoldLeads_1 As group:
         Height: =5
         Width: =5
         X: =40
         Y: =80
         ZIndex: =4
 
-        ctnBackgroundMenuSoldLeads As groupContainer.manualLayoutContainer:
+        ctnBackgroundMenuSoldLeads_1 As groupContainer.manualLayoutContainer:
             Fill: =RGBA(0, 0.19, 0.19, 0.19)
             Height: =Parent.Height-ctnHeaderDS.Height
             Visible: =varshowMenu
@@ -980,12 +985,12 @@ QuotedSOldLeads As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =2
 
-        "glryMenuBarSoldLeads As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+        "glryMenuBarSoldLeads_1 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
             '#CopilotOverlayLabel': ="Filtered"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(237, 237, 237, 1)
-            Height: =1.01*(CountRows(glryMenuBarSoldLeads.AllItems)*(glryMenuBarSoldLeads.TemplateHeight))
+            Height: =1.01*(CountRows(glryMenuBarSoldLeads_1.AllItems)*(glryMenuBarSoldLeads_1.TemplateHeight))
             Items: =Menu
             Layout: =Layout.Vertical
             ShowScrollbar: =false
@@ -996,14 +1001,14 @@ QuotedSOldLeads As screen:
             Y: =ctnHeaderDS.Y+ctnHeaderDS.Height
             ZIndex: =3
 
-            ctnMenuSoldLeads As groupContainer.manualLayoutContainer:
+            ctnMenuSoldLeads_1 As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.ExtraBold
                 Fill: =RGBA(255, 255, 255, 1)
                 Height: =80
                 Width: =Parent.Width/1.02
                 ZIndex: =8
 
-                lblMenuSoldLeads As label:
+                lblMenuSoldLeads_1 As label:
                     AutoHeight: =true
                     Color: =AllScreensCSS.RColorBlack
                     Height: =24
@@ -1013,12 +1018,12 @@ QuotedSOldLeads As screen:
                     PaddingTop: =0
                     Size: =If(Parent.Width<500,10,12)
                     Text: =ThisItem.Title
-                    Width: =Parent.Width-iconMenuSoldLeads.Width-lineIndicatorSoldLeads.Width
-                    X: =iconMenuSoldLeads.Width+iconMenuSoldLeads.X+10
+                    Width: =Parent.Width-iconMenuSoldLeads_1.Width-lineIndicatorSoldLeads_1.Width
+                    X: =iconMenuSoldLeads_1.Width+iconMenuSoldLeads_1.X+10
                     Y: =25
                     ZIndex: =1
 
-                iconMenuSoldLeads As icon.Add:
+                iconMenuSoldLeads_1 As icon.Add:
                     Color: =AllScreensCSS.RColorBlack
                     Height: =Parent.Height/4.5
                     Icon: =ThisItem.icon
@@ -1027,7 +1032,7 @@ QuotedSOldLeads As screen:
                     Y: =25
                     ZIndex: =3
 
-                btnMenuSoldLeads As button:
+                btnMenuSoldLeads_1 As button:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =80
                     HoverFill: =
@@ -1040,7 +1045,7 @@ QuotedSOldLeads As screen:
                     Width: =Parent.Width
                     ZIndex: =4
 
-                lineIndicatorSoldLeads As rectangle:
+                lineIndicatorSoldLeads_1 As rectangle:
                     BorderColor: =RGBA(255, 0, 0, 1)
                     BorderThickness: =5
                     Fill: =RGBA(255, 0, 0, 1)
