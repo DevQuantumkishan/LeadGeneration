@@ -837,8 +837,10 @@ DashboardScreen As screen:
                             Font: =Font.Arial
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            OnSelect: |
-                                =    Navigate([@QuotedSOldLeads_1],ScreenTransition.None,{Header: "Quoted"});
+                            OnSelect: |-
+                                =    //Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Quoted"});
+                                    Navigate(QuotedSOldLeads);
+                                Set(VarHeader,"Quoted");
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6
@@ -1027,8 +1029,10 @@ DashboardScreen As screen:
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =Parent.Height
                             HoverFill: =RGBA(0, 0, 0, 0)
-                            OnSelect: |
-                                =Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Sold"});
+                            OnSelect: |-
+                                =//Navigate([@QuotedSOldLeads],ScreenTransition.None,{Header: "Sold"});
+                                Navigate(QuotedSOldLeads);
+                                Set(VarHeader,"Sold");
                             RadiusBottomLeft: =6
                             RadiusBottomRight: =6
                             RadiusTopLeft: =6

@@ -158,7 +158,7 @@ QuotedSOldLeads_1 As screen:
                 PaddingRight: =20
                 PaddingTop: =0
                 Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
-                Text: =Header &" Leads"
+                Text: =VarHeader &" Leads"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -234,7 +234,7 @@ QuotedSOldLeads_1 As screen:
                         =/*SortByColumns(Search(Sort(Filter(Localleadinformation,//Email=User().Email  && 
                         LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSoldLeads_1.Text,shlrf_contractnumber,shlrf_address,shlrf_buildingname,shlrf_zipcode,shlrf_leadtrackingnumber),If(cboxSortSoldLeads_1.Selected.Value="Created Date","createdon",cboxSortSoldLeads_1.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads_1.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads_1.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads_1.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads_1.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads_1.Selected.Value="Address","shlrf_address",cboxSortSoldLeads_1.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads_1.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads_1.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))*/
                         Sort(Filter(Localleadinformation,//Email=User().Email  && 
-                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year)&& Month(ProposedLeadDate)>= StartMonth && Month(ProposedLeadDate)<=EndMonth,Year(SoldLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending)
+                        LeadStatus=VarHeader && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year)&& Month(ProposedLeadDate)>= StartMonth && Month(ProposedLeadDate)<=EndMonth,Year(SoldLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending)
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",320,200)
@@ -613,7 +613,7 @@ QuotedSOldLeads_1 As screen:
                         Fill: =RGBA(255, 0, 0, 1)
                         Height: =15
                         OnSelect: =Select(Parent)
-                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
+                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=VarHeader))=0,false,true)
                         Width: =15
                         X: =imgMessageSL_1.X+imgMessageSL_1.Width/1.2
                         Y: |-
@@ -657,7 +657,9 @@ QuotedSOldLeads_1 As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: =//If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
+                    Text: |-
+                        =//If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
+                        If(VarHeader="Quoted",CountRows(Filter(Localleadinformation,LeadStatus=VarHeader && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year)&& Month(ProposedLeadDate)>= ThisItem.StartMonth && Month(ProposedLeadDate)<=ThisItem.EndMonth,Year(SoldLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year)))))
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSL_1.Width
                     X: =lblTotalLeadsSL_1.X

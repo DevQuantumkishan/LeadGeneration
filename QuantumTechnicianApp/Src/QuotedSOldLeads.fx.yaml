@@ -157,7 +157,7 @@ QuotedSOldLeads As screen:
                 PaddingRight: =20
                 PaddingTop: =0
                 Size: =If(Parent.Width<500,14,Parent.Width>500,20,18)
-                Text: =Header &" Leads"
+                Text: =VarHeader &" Leads"
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -187,7 +187,7 @@ QuotedSOldLeads As screen:
                 Items: |+
                     =Sort(If(
                         cumulatively = true,
-                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && If(Header="Quoted",Value( TotalProposedLead)<>0,Value(TotalSoldLead)<>0),Year),
+                    Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && If(VarHeader="Quoted",Value( TotalProposedLead)<>0,Value(TotalSoldLead)<>0),Year),
                     yearly = true,
                     With(
                         {
@@ -230,7 +230,7 @@ QuotedSOldLeads As screen:
                     Height: =If(CountRows(glryLeadsSL.AllItems)<2,glryLeadsSL.TemplateHeight+20,Parent.Height)
                     Items: |-
                         =SortByColumns(Search(Sort(Filter(Localleadinformation,//Email=User().Email  && 
-                        LeadStatus=Header && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSoldLeads.Text,shlrf_contractnumber,shlrf_address,shlrf_buildingname,shlrf_zipcode,shlrf_leadtrackingnumber),If(cboxSortSoldLeads.Selected.Value="Created Date","createdon",cboxSortSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads.Selected.Value="Address","shlrf_address",cboxSortSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
+                        LeadStatus=VarHeader && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSoldLeads.Text,shlrf_contractnumber,shlrf_address,shlrf_buildingname,shlrf_zipcode,shlrf_leadtrackingnumber),If(cboxSortSoldLeads.Selected.Value="Created Date","createdon",cboxSortSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads.Selected.Value="Address","shlrf_address",cboxSortSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
                     Layout: =Layout.Vertical
                     TemplatePadding: =0
                     TemplateSize: =If(btnheaderSoldLeads.Text="Quoted Leads" ||btnheaderSoldLeads.Text="Sold Leads",320,200)
@@ -609,7 +609,7 @@ QuotedSOldLeads As screen:
                         Fill: =RGBA(255, 0, 0, 1)
                         Height: =15
                         OnSelect: =Select(Parent)
-                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=Header))=0,false,true)
+                        Visible: =If(CountRows(Filter(LeadChats,LeadInformationLID.ID =ThisItem.ID && 'Read '='Read  (LeadChats)'.No && IsQQApp='IsQQApp (LeadChats)'.Yes && LeadInformationLID.LeadStatus=VarHeader))=0,false,true)
                         Width: =15
                         X: =imgMessageSL.X+imgMessageSL.Width/1.2
                         Y: |-
@@ -653,7 +653,7 @@ QuotedSOldLeads As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: =If( Header="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
+                    Text: =If( VarHeader="Quoted",ThisItem.TotalProposedLead,ThisItem.TotalSoldLead)
                     VerticalAlign: =VerticalAlign.Top
                     Width: =lblTotalLeadsSL.Width
                     X: =lblTotalLeadsSL.X
@@ -699,7 +699,7 @@ QuotedSOldLeads As screen:
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
                     Text: |
                         ="$ " & If(
-                            Header = "Quoted",
+                            VarHeader = "Quoted",
                             If(
                                 !IsBlank(ThisItem.TotalproposedIncentives),
                                 Text(
@@ -800,7 +800,9 @@ QuotedSOldLeads As screen:
                     Height: =rectangleYearSL.Height/1.2
                     Image: =accordianPlus
                     OnSelect: |
-                        =UpdateContext({locInfoExpanded:true});Set(Vardown,Year(ThisItem.Year));
+                        =//UpdateContext({locInfoExpanded:true});
+                        Set(Vardown,Year(ThisItem.Year));
+                        Navigate(QuotedSOldLeads_1);
                     Visible: |
                         =!(ThisItem.IsSelected && locInfoExpanded)
                     Width: =Parent.Width/14
