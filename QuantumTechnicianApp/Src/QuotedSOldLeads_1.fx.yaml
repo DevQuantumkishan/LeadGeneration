@@ -5,6 +5,7 @@ QuotedSOldLeads_1 As screen:
         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error)
         //,Notify("Internet is connected",NotificationType.Success)
         );
+        ClearCollect(QuarterCollection,{Quarter:1,StartMonth:1,EndMonth:3},{Quarter:2,StartMonth:4,EndMonth:6},{Quarter:3,StartMonth:7,EndMonth:9},{Quarter:4,StartMonth:10,EndMonth:12});
         UpdateContext({locInfoExpanded:false});
 
     ctnMainSoldLeads_1 As groupContainer.verticalAutoLayoutContainer:
@@ -196,7 +197,7 @@ QuotedSOldLeads_1 As screen:
                         },
                     Filter(GCTotalIncentives,TechnicianID=VarTechnicianID.'Personnel No' && Year =Text(EndYear)))),Year,SortOrder.Descending)*/
                     
-                    [1,2,3,4]
+                    QuarterCollection
                 Layout: =Layout.Vertical
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =4
@@ -220,7 +221,7 @@ QuotedSOldLeads_1 As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: =//ThisItem.Year
+                    Text: =ThisItem.Quarter
                     Width: =Parent.Width/8
                     X: =1
                     Y: =lblTitleYearSL_1.Y+lblTitleYearSL_1.Height+10
@@ -634,7 +635,7 @@ QuotedSOldLeads_1 As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: ="Year"
+                    Text: ="Quarter"
                     Width: =Parent.Width/8
                     X: =1
                     Y: =2*(btnLeadsSL_1.Y)
@@ -804,8 +805,8 @@ QuotedSOldLeads_1 As screen:
                     Image: =accordianPlus
                     OnSelect: |-
                         =UpdateContext({locInfoExpanded:true});//Set(Vardown,Year(ThisItem.Year));
-                        Set(StartMonth,1);
-                        Set(EndMonth,3);
+                        Set(StartMonth,ThisItem.StartMonth);
+                        Set(EndMonth,ThisItem.EndMonth);
                     Visible: |
                         =!(ThisItem.IsSelected && locInfoExpanded)
                     Width: =Parent.Width/14
