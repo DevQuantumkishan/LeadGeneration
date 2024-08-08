@@ -703,7 +703,7 @@ QuotedSOldLeads_1 As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: |
+                    Text: |-
                         =/*"$ " & If(
                             Header = "Quoted",
                             If(
@@ -723,6 +723,7 @@ QuotedSOldLeads_1 As screen:
                                 0.00
                             )
                         )*/
+                        If(VarHeader="Quoted",Sum(Filter(Localleadinformation,LeadStatus=VarHeader && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year('glrySold/QuotedLeads'.Selected.Year)&& Month(ProposedLeadDate)>= ThisItem.StartMonth && Month(ProposedLeadDate)<=ThisItem.EndMonth)),ProposedLeadIncentives))
                     VerticalAlign: =VerticalAlign.Top
                     Visible: =If(btnheaderSoldLeads_1.Text="Quoted Leads" ||btnheaderSoldLeads_1.Text="Sold Leads",true,false)
                     Width: =Parent.Width/3
