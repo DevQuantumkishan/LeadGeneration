@@ -804,7 +804,7 @@ QuotedSOldLeads As screen:
                         Set(Vardown,Year(ThisItem.Year));
                         Navigate(QuotedSOldLeads_1);
                     Visible: |
-                        =!(ThisItem.IsSelected && locInfoExpanded)
+                        =//!(ThisItem.IsSelected && locInfoExpanded)
                     Width: =Parent.Width/14
                     X: =rectangleYearSL.Width -(1.08*Self.Width)
                     Y: =(Parent.Y-Self.Height)/8
@@ -816,11 +816,23 @@ QuotedSOldLeads As screen:
                     OnSelect: |-
                         =Select(Parent); UpdateContext({locInfoExpanded:false}) ;Set(VarNavigateId,Blank());
                     Visible: |
-                        =ThisItem.IsSelected && locInfoExpanded
+                        =//ThisItem.IsSelected && locInfoExpanded
                     Width: =Parent.Width/14
                     X: =rectangleYearSL.Width -(1.08*Self.Width)
                     Y: =(Parent.Y-Self.Height)/8
                     ZIndex: =17
+
+                Icon1 As icon.ChevronRight:
+                    Color: =AllScreensCSS.RActiveColor
+                    Height: =rectangleYearSL.Height/1.2
+                    Icon: =Icon.ChevronRight
+                    OnSelect: |-
+                        =Set(Vardown,Year(ThisItem.Year));
+                        Navigate(QuotedSOldLeads_1);
+                    Width: =Parent.Width/14
+                    X: =rectangleYearSL.Width -(1.08*Self.Width)
+                    Y: =(Parent.Y-Self.Height)/8
+                    ZIndex: =18
 
             ctnSearchBarSoldLeads As groupContainer.horizontalAutoLayoutContainer:
                 DropShadow: =DropShadow.None

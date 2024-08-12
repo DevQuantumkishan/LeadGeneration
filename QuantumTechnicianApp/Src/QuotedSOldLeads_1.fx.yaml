@@ -5,7 +5,7 @@ QuotedSOldLeads_1 As screen:
         If(Connection.Connected=false,Notify("Internet is not connected,please try again later.",NotificationType.Error)
         //,Notify("Internet is connected",NotificationType.Success)
         );
-        ClearCollect(QuarterCollection,{Quarter:1,StartMonth:1,EndMonth:3},{Quarter:2,StartMonth:4,EndMonth:6},{Quarter:3,StartMonth:7,EndMonth:9},{Quarter:4,StartMonth:10,EndMonth:12});
+        ClearCollect(QuarterCollection,{Quarter:"1st",StartMonth:1,EndMonth:3},{Quarter:"2nd",StartMonth:4,EndMonth:6},{Quarter:"3rd",StartMonth:7,EndMonth:9},{Quarter:"4th",StartMonth:10,EndMonth:12});
         UpdateContext({locInfoExpanded:false});
 
     ctnMainSoldLeads_1 As groupContainer.verticalAutoLayoutContainer:
@@ -221,7 +221,7 @@ QuotedSOldLeads_1 As screen:
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =If(Parent.Width<378,10,Parent.Width<500,11,14)
-                    Text: =ThisItem.Quarter
+                    Text: =ThisItem.Quarter & " of " & 'glrySold/QuotedLeads'.Selected.Year
                     Width: =Parent.Width/8
                     X: =1
                     Y: =lblTitleYearSL_1.Y+lblTitleYearSL_1.Height+10
