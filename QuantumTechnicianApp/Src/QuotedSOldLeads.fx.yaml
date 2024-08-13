@@ -804,7 +804,7 @@ QuotedSOldLeads As screen:
                         Set(Vardown,Year(ThisItem.Year));
                         Navigate(QuotedSOldLeads_1);
                     Visible: |
-                        =//!(ThisItem.IsSelected && locInfoExpanded)
+                        =false //!(ThisItem.IsSelected && locInfoExpanded)
                     Width: =Parent.Width/14
                     X: =rectangleYearSL.Width -(1.08*Self.Width)
                     Y: =(Parent.Y-Self.Height)/8
@@ -816,7 +816,7 @@ QuotedSOldLeads As screen:
                     OnSelect: |-
                         =Select(Parent); UpdateContext({locInfoExpanded:false}) ;Set(VarNavigateId,Blank());
                     Visible: |
-                        =//ThisItem.IsSelected && locInfoExpanded
+                        =false //ThisItem.IsSelected && locInfoExpanded
                     Width: =Parent.Width/14
                     X: =rectangleYearSL.Width -(1.08*Self.Width)
                     Y: =(Parent.Y-Self.Height)/8
