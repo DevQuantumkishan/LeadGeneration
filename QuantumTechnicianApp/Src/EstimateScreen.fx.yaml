@@ -403,6 +403,7 @@ EstimateScreen As screen:
 
             htmltxtRequiredES As htmlViewer:
                 AlignInContainer: =AlignInContainer.Stretch
+                DisabledBorderColor: =RGBA(56, 56, 56, 1)
                 Font: =Font.Arial
                 Height: =60
                 HtmlText: ="<b><font color=red>*</font></b> indicates a required field."
