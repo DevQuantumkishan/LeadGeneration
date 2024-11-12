@@ -246,9 +246,7 @@ SupportScreen As screen:
                     Font: =Font.Arial
                     Height: =200
                     Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
-                    Text: |-
-                        ="Should you experience any issues while using the App or submitting a lead, specialized tech support is also available between 9AM-1PM EST on Monday, Wednesday and Friday."
-                         & Char(10) & "Please email wallabh.sardeshmukh@quantumintegrators.com /kishan.mahajan@quantumintegrators.com."
+                    Text: ="Should you experience any issues while using the App or submitting a lead, specialized tech support is also available between 9AM-1PM EST on Monday, Wednesday and Friday."
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width-20
                     X: =10
@@ -508,8 +506,12 @@ SupportScreen As screen:
                         );
                         ,
                         Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue Reported","Reported by : " & User().Email  & Char(10) &
-                "Sender : " & "Technician" & Char(10)&Char(10) & 
-                 txtiptReportIssueSS.Text,{Importance:"High"});
+                "Sender : " & "Technician" & Char(10) & "App Name : " & LookUp(
+                 'Environment Variable Values',
+                 'Environment Variable Definition'.'Schema Name' = "shlrf_TechnicianAppName",
+                 Value
+                ) & Char(10)&Char(10) & "Issue Description : " & 
+                 txtiptReportIssueSS.Text,{Cc:"kishan.mahajan@schindler.com"});
                         Set(
                             VarReportIssue,
                             false
