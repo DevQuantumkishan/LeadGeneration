@@ -1136,6 +1136,7 @@ DashboardScreen As screen:
                     HoverFill: =
                     OnSelect: =Set(VarReportIssue,true)
                     Text: ="Report Issue"
+                    Visible: =false
                     Width: =140
                     ZIndex: =1
 
@@ -1156,7 +1157,7 @@ DashboardScreen As screen:
                 imgLogoDS As image:
                     DisplayMode: =DisplayMode.View
                     Fill: =RGBA(255, 255, 255, 1)
-                    Height: =Parent.Height
+                    Height: =Parent.Height-50
                     Image: |-
                         =//Shindler logo
                         '3x'
