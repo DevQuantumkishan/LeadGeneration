@@ -69,7 +69,7 @@ ViewDetailsScreen As screen:
                 Icon: =Icon.ChevronLeft
                 OnSelect: |-
                     =// to Navigate Back
-                    If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
+                    If(VarLeadstatus="Quoted" ||VarLeadstatus="Sold" ,Navigate(QuotedSOldLeads_1);,VarLeadstatus="Rejected",Navigate(RejectedLeads);,Navigate(SubmittedLeadScreen));
                     UpdateContext({locInfoExpanded:true})
                 PaddingBottom: =5
                 PaddingTop: =5
