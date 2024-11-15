@@ -248,6 +248,7 @@ SupportScreen As screen:
                     Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
                     Text: ="Should you experience any issues while using the App or submitting a lead, specialized tech support is also available between 9AM-1PM EST on Monday, Wednesday and Friday."
                     VerticalAlign: =VerticalAlign.Top
+                    Visible: =false
                     Width: =Parent.Width-20
                     X: =10
                     Y: =btnSupportSS_2.Height+btnSupportSS_2.Y+10
@@ -292,7 +293,7 @@ SupportScreen As screen:
                         =//ctnMiddleCS_3.Height-btnContactSS_1.Height-lblContactySS_1.Height-btnSupportSS_3.Height-lblSupportSS_2.Height-btnSupportSS_2.Height
                         200
                     Size: =If(Parent.Width>800,20,Parent.Width<358,12,Parent.Width>358,14)
-                    Text: ="If you have any questions or concerns regarding a submitted lead or incentive, please contact Connie Nason at (973) 534-4291 /constance.nason@schindler.com or Melanie Lee at (332) 207-1866 /melanie.lee@schindler.com "
+                    Text: ="If you have any questions or concerns regarding a submitted lead or incentive, please contact Connie Nason at (973) 534-4291 / constance.nason@schindler.com or Melanie Lee at (332) 207-1866 / melanie.lee@schindler.com "
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width-20
                     X: =10
