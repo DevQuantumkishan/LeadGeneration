@@ -1120,26 +1120,6 @@ DashboardScreen As screen:
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Container3 As groupContainer.horizontalAutoLayoutContainer:
-                DropShadow: =DropShadow.None
-                FillPortions: =0
-                Height: =60
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutJustifyContent: =LayoutJustifyContent.Center
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                ZIndex: =5
-
-                Button2_1 As button:
-                    Fill: =Header.HUserColor
-                    HoverFill: =
-                    OnSelect: =Set(VarReportIssue,true)
-                    Text: ="Report Issue"
-                    Visible: =false
-                    Width: =140
-                    ZIndex: =1
-
             ctnforSpaceLeadDS As groupContainer.manualLayoutContainer:
                 AlignInContainer: =AlignInContainer.Center
                 DropShadow: =DropShadow.None
