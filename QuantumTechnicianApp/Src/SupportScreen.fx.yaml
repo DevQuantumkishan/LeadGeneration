@@ -506,13 +506,13 @@ SupportScreen As screen:
                             NotificationType.Error
                         );
                         ,
-                        Office365Outlook.SendEmail("kishan.mahajan@schindler.com","Issue reported by Technician","Reported by : " & User().Email  & Char(10) &
+                        Office365Outlook.SendEmail("paarth.sanghavi@schindler.com","Issue reported by Technician","Reported by : " & User().Email  & Char(10) &
                 "Sender : " & User().FullName & " (Technician)" & Char(10) & "App Name : " & LookUp(
                  'Environment Variable Values',
                  'Environment Variable Definition'.'Schema Name' = "shlrf_TechnicianAppName",
                  Value
                 ) & Char(10)&Char(10) & "Issue Description : " & 
-                 txtiptReportIssueSS.Text,{Cc:"kishan.mahajan@schindler.com"});
+                 txtiptReportIssueSS.Text,{Cc:"melanie.lee@schindler.com;moises.barbancho@schindler.com;kishan.mahajan@schindler.com;wallabh.sardesai@schindler.com"});
                         Set(
                             VarReportIssue,
                             false
