@@ -227,7 +227,7 @@ QuotedSOldLeads As screen:
 
                 "glryLeadsSL As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
                     '#CopilotOverlayLabel': ="Filtered"
-                    Height: =If(CountRows(glryLeadsSL.AllItems)<2,glryLeadsSL.TemplateHeight+20,Parent.Height)
+                    Height: =0//If(CountRows(glryLeadsSL.AllItems)<2,glryLeadsSL.TemplateHeight+20,Parent.Height)
                     Items: |-
                         =SortByColumns(Search(Sort(Filter(Localleadinformation,//Email=User().Email  && 
                         LeadStatus=VarHeader && Email=User().Email && If(LeadStatus="Quoted",Year(ProposedLeadDate)=Year(ThisItem.Year),Year(SoldLeadDate)=Year(ThisItem.Year))),If(LeadStatus="Quoted",ProposedLeadDate,SoldLeadDate),SortOrder.Descending),IntxtSearchBoxSoldLeads.Text,shlrf_contractnumber,shlrf_address,shlrf_buildingname,shlrf_zipcode,shlrf_leadtrackingnumber),If(cboxSortSoldLeads.Selected.Value="Created Date","createdon",cboxSortSoldLeads.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortSoldLeads.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortSoldLeads.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortSoldLeads.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortSoldLeads.Selected.Value="Building Name","shlrf_buildingname",cboxSortSoldLeads.Selected.Value="Address","shlrf_address",cboxSortSoldLeads.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSoldLeads.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSoldLeads.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending))
