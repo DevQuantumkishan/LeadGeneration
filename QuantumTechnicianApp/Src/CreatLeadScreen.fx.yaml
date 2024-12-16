@@ -503,6 +503,13 @@ CreatLeadScreen As screen:
                                     CONTR_NUM = IntxtContractNumber.Text 
                                 )
                             );
+                            ClearCollect(LocalColContractData,Filter(
+                                    SHContractDetails,Contr_dist=VarTechnicianID.District &&
+                                    CONTR_NUM = IntxtContractNumber.Text));
+                            Set(VarBuildingList,Filter(
+                                    LocalColContractData,Contr_dist=VarTechnicianID.District &&
+                                    CONTR_NUM = IntxtContractNumber.Text,CUST_NAME
+                                ));
                             //If Variable VarcontractRecord is blank then set VarLoader is false otherwise set VarLoader is false and set VarContractError is true. 
                             If(
                                 !IsBlank(VarcontractRecord),
@@ -637,6 +644,7 @@ CreatLeadScreen As screen:
                         RadiusTopRight: =0
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Tooltip: =Parent.DisplayName
+                        Visible: =false
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblBuildingName.Y + lblBuildingName.Height+2
@@ -656,6 +664,22 @@ CreatLeadScreen As screen:
                         X: =28
                         Y: =10
                         ZIndex: =4
+
+                    ComboBox1 As combobox:
+                        ChevronBackground: =RGBA(202, 202, 202, 1)
+                        ChevronHoverFill: =RGBA(202, 202, 202, 1)
+                        Default: =First(VarBuildingList)
+                        DefaultSelectedItems: =First(VarBuildingList)
+                        DisplayFields: =["cr02d_custname"]
+                        Height: =50
+                        Items: =SHContractDetails
+                        SearchFields: =["cr02d_custname"]
+                        SearchItems: =Search(SHContractDetails,ComboBox1.SearchText,cr02d_custname)
+                        SelectionFill: =RGBA(202, 202, 202, 1)
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =lblBuildingName.Y + lblBuildingName.Height+2
+                        ZIndex: =5
 
                 Address As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
