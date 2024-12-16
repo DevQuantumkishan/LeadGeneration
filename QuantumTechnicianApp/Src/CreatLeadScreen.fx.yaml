@@ -672,7 +672,7 @@ CreatLeadScreen As screen:
                         DefaultSelectedItems: =First(VarBuildingList)
                         DisplayFields: =["cr02d_custname"]
                         Height: =50
-                        Items: =SHContractDetails
+                        Items: =VarBuildingList
                         SearchFields: =["cr02d_custname"]
                         SearchItems: =Search(SHContractDetails,ComboBox1.SearchText,cr02d_custname)
                         SelectionFill: =RGBA(202, 202, 202, 1)
