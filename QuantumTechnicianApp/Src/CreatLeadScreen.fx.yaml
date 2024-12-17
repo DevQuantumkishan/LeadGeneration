@@ -666,6 +666,7 @@ CreatLeadScreen As screen:
                         ZIndex: =4
 
                     ComboBox1 As combobox:
+                        BorderColor: =RGBA(202, 202, 202, 1)
                         ChevronBackground: =RGBA(202, 202, 202, 1)
                         ChevronHoverFill: =RGBA(202, 202, 202, 1)
                         Default: =First(VarBuildingList)
@@ -673,6 +674,8 @@ CreatLeadScreen As screen:
                         DisplayFields: =["cr02d_custname"]
                         Height: =50
                         Items: =VarBuildingList
+                        PressedColor: =RGBA(202, 202, 202, 1)
+                        PressedFill: =RGBA(202, 202, 202, 1)
                         SearchFields: =["cr02d_custname"]
                         SearchItems: =Search(SHContractDetails,ComboBox1.SearchText,cr02d_custname)
                         SelectionFill: =RGBA(202, 202, 202, 1)
