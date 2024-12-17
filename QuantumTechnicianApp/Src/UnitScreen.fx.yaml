@@ -417,7 +417,7 @@ UnitScreen As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,'shlrf_joborigin')
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =100
                     Required: =false
                     Update: =DataCardValue4.Selected.Value
                     Width: =Parent.Width
@@ -457,7 +457,12 @@ UnitScreen As screen:
                         ZIndex: =2
 
                     ComboBox2 As combobox:
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        ChevronBackground: =RGBA(202, 202, 202, 1)
+                        ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                         DisplayFields: =["Value"]
+                        HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
                         Items: |-
                             =[
                                 "Vandalism",
@@ -466,8 +471,11 @@ UnitScreen As screen:
                                 "Upgrade",
                                 "Obsolescence"
                             ]
+                        PressedFill: =RGBA(202, 202, 202, 1)
                         SearchFields: =["Value"]
                         SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],ComboBox2.SearchText,Value)
+                        SelectionFill: =RGBA(202, 202, 202, 1)
+                        Tooltip: ="Select Job Origin/Situation"
                         Width: =Parent.Width-60
                         X: =30
                         Y: =40
