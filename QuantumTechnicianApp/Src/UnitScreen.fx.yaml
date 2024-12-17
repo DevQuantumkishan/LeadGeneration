@@ -1,8 +1,8 @@
 UnitScreen As screen:
-    OnVisible: |+
+    OnVisible: |
         =If(IsBlank(IntxtUnitCount.Text),Set(VarUnitDescription,false));
         If(IsBlank(IntxtUnitDescription.Text),Set(VarUnitCount,false));
-        
+        ClearCollect(SelectedItemsCollection, {})
 
     ctnMainUS As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(237, 237, 237, 1)
@@ -464,6 +464,7 @@ UnitScreen As screen:
                         HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: ="Select Job Origin/Situation"
+                        IsSearchable: =false
                         Items: |-
                             =[
                                 "Vandalism",
@@ -474,7 +475,7 @@ UnitScreen As screen:
                             ]
                         PressedFill: =RGBA(202, 202, 202, 1)
                         SearchFields: =["Value"]
-                        SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],ComboBox2.SearchText,Value)
+                        SearchItems: =[]
                         SelectionFill: =RGBA(202, 202, 202, 1)
                         Tooltip: ="Select Job Origin/Situation"
                         Width: =Parent.Width-60
