@@ -789,13 +789,13 @@ CreatLeadScreen As screen:
                     Fill: =RGBA(220, 0, 0, 1)
                     Font: =Font.Arial
                     HoverFill: =RGBA(220,0,0,1)
-                    OnSelect: |-
+                    OnSelect: |+
                         =// If IntxtContractNumber is blank or IntxtContractNumber is not match with contract number from SHContranctDetails dataverse table then then Set Varnotification true otherwise set Varindicator is true and VarIndicatorUS is true and Navigate Unit Screen. 
-                        /*If(
+                        If(
                             (LookUp(
                                 SHContractDetails,
                                 CONTR_NUM = IntxtContractNumber.Text
-                            ).CONTR_NUM <> IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text) || IsBlank(ComboBox1.SelectedItems)),
+                            ).CONTR_NUM <> IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text) || IsEmpty(ComboBox1.SelectedItems)),
                             Set(
                                 VarNotification,
                                 true
@@ -810,10 +810,9 @@ CreatLeadScreen As screen:
                                 true
                             );
                             Navigate(UnitScreen)
-                        )*/
+                        )
                         
                         
-                        If(IsEmpty(ComboBox1.SelectedItems),Notify("hello"));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14)
                     Text: ="Next"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/10,Parent.Width/5)
