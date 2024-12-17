@@ -257,11 +257,11 @@ QuotedSOldLeads_1 As screen:
                                     SortOrder.Descending
                                 ),
                                 IntxtSearchBoxSoldLeads_1.Text,
-                                shlrf_contractnumber,
-                                shlrf_address,
-                                shlrf_buildingname,
-                                shlrf_zipcode,
-                                shlrf_leadtrackingnumber
+                                'ContractNumber ',
+                                Address,
+                                'BuildingName ',
+                                'ZipCode ',
+                                LeadTrackingNumber
                             ),
                             If(
                                 cboxSortSoldLeads_1.Selected.Value = "Created Date",

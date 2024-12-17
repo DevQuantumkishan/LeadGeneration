@@ -354,10 +354,10 @@ SubmittedLeadScreen As screen:
                                 SortOrder.Descending
                             ),
                             IntxtSearchBoxSLS.Text,
-                            shlrf_contractnumber,
-                            shlrf_address,
-                            shlrf_buildingname,
-                            shlrf_zipcode,shlrf_leadtrackingnumber
+                            'ContractNumber ',
+                            Address,
+                            'BuildingName ',
+                            'ZipCode ',LeadTrackingNumber
                     
                         ),
                       If(cboxSortolumnsSLS.Selected.Value="Created Date","createdon",cboxSortolumnsSLS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortolumnsSLS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortolumnsSLS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortolumnsSLS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortolumnsSLS.Selected.Value="Building Name","shlrf_buildingname",cboxSortolumnsSLS.Selected.Value="Address","shlrf_address",cboxSortolumnsSLS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSLS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSLS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending)
@@ -379,10 +379,10 @@ SubmittedLeadScreen As screen:
                                 SortOrder.Descending
                             ),
                             IntxtSearchBoxSLS.Text,
-                            shlrf_contractnumber,
-                            shlrf_address,
-                            shlrf_buildingname,
-                            shlrf_zipcode,shlrf_leadtrackingnumber
+                            'ContractNumber ',
+                            Address,
+                            'BuildingName ',
+                            'ZipCode ',LeadTrackingNumber
                     
                         ),
                       If(cboxSortolumnsSLS.Selected.Value="Created Date","createdon",cboxSortolumnsSLS.Selected.Value="QQ Team Name","shlrf_qqteamname",cboxSortolumnsSLS.Selected.Value="Mechanic Name","shlrf_mechanicname",cboxSortolumnsSLS.Selected.Value="Contract No.","shlrf_contractnumber",cboxSortolumnsSLS.Selected.Value="Lead Tracking No.","shlrf_leadtrackingnumber",cboxSortolumnsSLS.Selected.Value="Building Name","shlrf_buildingname",cboxSortolumnsSLS.Selected.Value="Address","shlrf_address",cboxSortolumnsSLS.Selected.Value="Lead Status","shlrf_leadstatus"),If(iconSortSLS.Icon=Icon.ArrowDown,SortOrder.Descending,iconSortSLS.Icon=Icon.ArrowUp,SortOrder.Ascending,SortOrder.Descending)
