@@ -794,7 +794,7 @@ CreatLeadScreen As screen:
                             LookUp(
                                 SHContractDetails,
                                 CONTR_NUM = IntxtContractNumber.Text
-                            ).CONTR_NUM <> IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text) && !IsBlank(ComboBox1),
+                            ).CONTR_NUM <> IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text) || IsBlank(ComboBox1.SelectedItems),
                             Set(
                                 VarNotification,
                                 true

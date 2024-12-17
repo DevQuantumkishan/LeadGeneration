@@ -1105,6 +1105,7 @@ DashboardScreen As screen:
                         Set(VarAdditionExpense,false);
                         Set(VarTravel,false);
                         Set(VarSafetySummary,false);
+                        Set(VarBuildingList,Blank());
                         Navigate(CreatLeadScreen);
                         Set(VarIndicator,true);
                         
