@@ -410,6 +410,7 @@ UnitScreen As screen:
 
                 JobOrigin_DataCard4 As typedDataCard.allowedValuesStringEditCard:
                     AllowedValues: =DataSourceInfo([@LeadInformations], DataSourceInfo.AllowedValues, 'shlrf_joborigin')
+                    BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="shlrf_joborigin"
                     Default: =ThisItem.JobOrigin
@@ -438,7 +439,15 @@ UnitScreen As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
-                        Items: =Parent.AllowedValues
+                        Height: =50
+                        Items: |-
+                            =[
+                                "Vandalism",
+                                "Power Disruption",
+                                "Water Intrusion",
+                                "Upgrade",
+                                "Obsolescence"
+                            ]
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
