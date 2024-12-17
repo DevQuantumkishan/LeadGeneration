@@ -427,8 +427,9 @@ UnitScreen As screen:
 
                     DataCardKey4 As label:
                         AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
                         Height: =34
-                        Text: =Parent.DisplayName
+                        Text: ="Job Origin/Situation"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -437,7 +438,7 @@ UnitScreen As screen:
 
                     DataCardValue4 As dropdown:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
+                        Default: =
                         DisplayMode: =Parent.DisplayMode
                         Height: =50
                         Items: |-
@@ -449,35 +450,28 @@ UnitScreen As screen:
                                 "Obsolescence"
                             ]
                         Tooltip: =Parent.DisplayName
+                        Visible: =false
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey4.Y + DataCardKey4.Height + 5
                         ZIndex: =2
 
-                    ErrorMessage4 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
+                    ComboBox2 As combobox:
+                        DisplayFields: =["Value"]
+                        Items: |-
+                            =[
+                                "Vandalism",
+                                "Power Disruption",
+                                "Water Intrusion",
+                                "Upgrade",
+                                "Obsolescence"
+                            ]
+                        SearchFields: =["Value"]
+                        SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],ComboBox2.SearchText,Value)
+                        Width: =Parent.Width-60
                         X: =30
-                        Y: =DataCardValue4.Y + DataCardValue4.Height
+                        Y: =40
                         ZIndex: =3
-
-                    StarVisible4 As label:
-                        Align: =Align.Center
-                        Height: =DataCardKey4.Height
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        Wrap: =false
-                        Y: =DataCardKey4.Y
-                        ZIndex: =4
 
                 UnitCount As typedDataCard.numberEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
