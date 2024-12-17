@@ -1106,6 +1106,7 @@ DashboardScreen As screen:
                         Set(VarTravel,false);
                         Set(VarSafetySummary,false);
                         Set(VarBuildingList,Blank());
+                        Set(VarJobOrigin,Blank());
                         Navigate(CreatLeadScreen);
                         Set(VarIndicator,true);
                         

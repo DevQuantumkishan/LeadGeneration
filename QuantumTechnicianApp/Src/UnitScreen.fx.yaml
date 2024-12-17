@@ -456,15 +456,15 @@ UnitScreen As screen:
                         Y: =DataCardKey4.Y + DataCardKey4.Height + 5
                         ZIndex: =2
 
-                    ComboBox2 As combobox:
+                    cmbxJobOrigin As combobox:
                         BorderColor: =RGBA(202, 202, 202, 1)
                         ChevronBackground: =RGBA(202, 202, 202, 1)
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                        DefaultSelectedItems: =VarJobOrigin
                         DisplayFields: =["Value"]
                         HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         InputTextPlaceholder: ="Select Job Origin/Situation"
-                        IsSearchable: =false
                         Items: |-
                             =[
                                 "Vandalism",
@@ -473,10 +473,12 @@ UnitScreen As screen:
                                 "Upgrade",
                                 "Obsolescence"
                             ]
+                        OnChange: =Set(VarJobOrigin,cmbxJobOrigin.SelectedItems);
                         PressedFill: =RGBA(202, 202, 202, 1)
                         SearchFields: =["Value"]
-                        SearchItems: =[]
+                        SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],cmbxJobOrigin.SearchText,Value)
                         SelectionFill: =RGBA(202, 202, 202, 1)
+                        SelectMultiple: =false
                         Tooltip: ="Select Job Origin/Situation"
                         Width: =Parent.Width-60
                         X: =30
