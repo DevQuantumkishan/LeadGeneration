@@ -237,10 +237,11 @@ LeadSummaryScreen As screen:
                             Y: =DataCardKey1.Y + DataCardKey1.Height + 5
                             ZIndex: =2
 
-                        ComboBox2_1 As combobox:
+                        cmbxJobOriginLSS As combobox:
                             BorderColor: =RGBA(202, 202, 202, 1)
                             ChevronBackground: =RGBA(202, 202, 202, 1)
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            DefaultSelectedItems: =VarJobOrigin
                             DisplayFields: =["Value"]
                             HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
                             HoverFill: =RGBA(0, 0, 0, 0)
@@ -253,9 +254,10 @@ LeadSummaryScreen As screen:
                                     "Upgrade",
                                     "Obsolescence"
                                 ]
+                            OnChange: =Set(VarJobOrigin,cmbxJobOriginLSS.SelectedItems);
                             PressedFill: =RGBA(202, 202, 202, 1)
                             SearchFields: =["Value"]
-                            SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],ComboBox2_1.SearchText,Value)
+                            SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],cmbxJobOriginLSS.SearchText,Value)
                             SelectionFill: =RGBA(202, 202, 202, 1)
                             SelectMultiple: =false
                             Tooltip: ="Select Job Origin/Situation"
