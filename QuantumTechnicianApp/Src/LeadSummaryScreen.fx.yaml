@@ -193,7 +193,7 @@ LeadSummaryScreen As screen:
                     Y: =4
                     ZIndex: =1
 
-                    JobOrigin_DataCard1 As typedDataCard.textualEditCard:
+                    JobOriginLSS As typedDataCard.textualEditCard:
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="shlrf_joborigin"
                         Default: =ThisItem.JobOrigin
@@ -209,7 +209,7 @@ LeadSummaryScreen As screen:
                         Y: =6
                         ZIndex: =1
 
-                        DataCardKey1 As label:
+                        lblJobOriginLSS As label:
                             AutoHeight: =true
                             Height: =34
                             Text: =Parent.DisplayName
