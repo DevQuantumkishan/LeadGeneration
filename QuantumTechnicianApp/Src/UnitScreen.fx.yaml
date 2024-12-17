@@ -400,13 +400,75 @@ UnitScreen As screen:
                 AlignInContainer: =AlignInContainer.Center
                 DataSource: =LeadInformations
                 FillPortions: =0
-                Height: =If(UnitCount.Height+UnitDescription.Height=0,300,UnitCount.Height+UnitDescription.Height+40)
+                Height: =If(UnitCount.Height+UnitDescription.Height=0,300,UnitCount.Height+UnitDescription.Height+JobOrigin_DataCard4.Height+40)
                 Item: =VarFormMode
                 LayoutMinHeight: =250
                 LayoutMinWidth: =Parent.Width
                 Width: =Parent.Width/1.04
                 Y: =ctnUserHeaderUS.Height+ctnUserHeaderUS.Y+20
                 ZIndex: =3
+
+                JobOrigin_DataCard4 As typedDataCard.allowedValuesStringEditCard:
+                    AllowedValues: =DataSourceInfo([@LeadInformations], DataSourceInfo.AllowedValues, 'shlrf_joborigin')
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_joborigin"
+                    Default: =ThisItem.JobOrigin
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,'shlrf_joborigin')
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =DataCardValue4.Selected.Value
+                    Width: =Parent.Width
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey4 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue4 As dropdown:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        Items: =Parent.AllowedValues
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage4 As label:
+                        AutoHeight: =true
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue4.Y + DataCardValue4.Height
+                        ZIndex: =3
+
+                    StarVisible4 As label:
+                        Align: =Align.Center
+                        Height: =DataCardKey4.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey4.Y
+                        ZIndex: =4
 
                 UnitCount As typedDataCard.numberEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
