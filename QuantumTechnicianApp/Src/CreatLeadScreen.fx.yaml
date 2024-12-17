@@ -679,6 +679,7 @@ CreatLeadScreen As screen:
                         SearchFields: =["cr02d_custname"]
                         SearchItems: =Search(SHContractDetails,ComboBox1.SearchText,cr02d_custname)
                         SelectionFill: =RGBA(202, 202, 202, 1)
+                        SelectMultiple: =false
                         Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Width: =Parent.Width - 60
                         X: =30
