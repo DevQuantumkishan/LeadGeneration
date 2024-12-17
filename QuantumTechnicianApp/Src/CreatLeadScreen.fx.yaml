@@ -679,6 +679,7 @@ CreatLeadScreen As screen:
                         SearchFields: =["cr02d_custname"]
                         SearchItems: =Search(SHContractDetails,ComboBox1.SearchText,cr02d_custname)
                         SelectionFill: =RGBA(202, 202, 202, 1)
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =lblBuildingName.Y + lblBuildingName.Height+2
@@ -790,11 +791,11 @@ CreatLeadScreen As screen:
                     HoverFill: =RGBA(220,0,0,1)
                     OnSelect: |-
                         =// If IntxtContractNumber is blank or IntxtContractNumber is not match with contract number from SHContranctDetails dataverse table then then Set Varnotification true otherwise set Varindicator is true and VarIndicatorUS is true and Navigate Unit Screen. 
-                        If(
-                            LookUp(
+                        /*If(
+                            (LookUp(
                                 SHContractDetails,
                                 CONTR_NUM = IntxtContractNumber.Text
-                            ).CONTR_NUM <> IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text) || IsBlank(ComboBox1.SelectedItems),
+                            ).CONTR_NUM <> IntxtContractNumber.Text || IsBlank(IntxtContractNumber.Text) || IsBlank(ComboBox1.SelectedItems)),
                             Set(
                                 VarNotification,
                                 true
@@ -809,7 +810,10 @@ CreatLeadScreen As screen:
                                 true
                             );
                             Navigate(UnitScreen)
-                        )
+                        )*/
+                        
+                        
+                        If(IsEmpty(ComboBox1.SelectedItems),Notify("hello"));
                     Size: =If(Parent.Width<358,12,Parent.Width>358,14)
                     Text: ="Next"
                     Width: =If(Parent.Width<Parent.Height,Parent.Width/10,Parent.Width/5)
