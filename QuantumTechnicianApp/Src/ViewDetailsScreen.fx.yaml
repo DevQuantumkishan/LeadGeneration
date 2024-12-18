@@ -221,8 +221,8 @@ ViewDetailsScreen As screen:
                         Font: =Font.Arial
                         FontWeight: =FontWeight.Semibold
                         Height: =34
-                        Size: =16
-                        Text: =Parent.DisplayName
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                        Text: ="Job Origin/Situation"
                         Width: =Parent.Width - 60
                         Wrap: =false
                         X: =30
@@ -241,7 +241,7 @@ ViewDetailsScreen As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Size: =16
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
