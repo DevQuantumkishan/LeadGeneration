@@ -671,7 +671,10 @@ CreatLeadScreen As screen:
                         ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                         ChevronHoverFill: =RGBA(202, 202, 202, 1)
                         Default: =//LocalColContractData
-                        DefaultSelectedItems: =LocalColContractData
+                        DefaultSelectedItems: |-
+                            =Filter(
+                                    SHContractDetails,Contr_dist=VarTechnicianID.District &&
+                                    CONTR_NUM = IntxtContractNumber.Text)
                         DisplayFields: =["cr02d_custname"]
                         Height: =50
                         HoverFill: =RGBA(0, 0, 0, 0)
@@ -681,6 +684,7 @@ CreatLeadScreen As screen:
                                     CONTR_NUM = IntxtContractNumber.Text)
                         PressedColor: =RGBA(202, 202, 202, 1)
                         PressedFill: =RGBA(202, 202, 202, 1)
+                        Reset: =true
                         SearchFields: =["cr02d_custname"]
                         SearchItems: =Search(Filter(SHContractDetails,Contr_dist=VarTechnicianID.District&&CONTR_NUM=IntxtContractNumber.Text),cmbxBuildingName.SearchText,cr02d_custname)
                         SelectionFill: =RGBA(202, 202, 202, 1)
