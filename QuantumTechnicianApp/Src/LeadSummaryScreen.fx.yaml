@@ -211,8 +211,11 @@ LeadSummaryScreen As screen:
 
                         lblJobOriginLSS As label:
                             AutoHeight: =true
+                            Color: =RGBA(0, 0, 0, 1)
+                            Font: =Font.Arial
                             Height: =34
-                            Text: =Parent.DisplayName
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                            Text: ="Job Origin/Situation"
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
@@ -225,6 +228,7 @@ LeadSummaryScreen As screen:
                             ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
                             DefaultSelectedItems: =VarJobOrigin
                             DisplayFields: =["Value"]
+                            Font: =Font.Arial
                             HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
                             HoverFill: =RGBA(0, 0, 0, 0)
                             InputTextPlaceholder: ="Select Job Origin/Situation"
@@ -242,6 +246,7 @@ LeadSummaryScreen As screen:
                             SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],cmbxJobOriginLSS.SearchText,Value)
                             SelectionFill: =RGBA(202, 202, 202, 1)
                             SelectMultiple: =false
+                            Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Tooltip: ="Select Job Origin/Situation"
                             Width: =Parent.Width-60
                             X: =30
