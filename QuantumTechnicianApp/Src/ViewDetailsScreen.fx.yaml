@@ -199,55 +199,6 @@ ViewDetailsScreen As screen:
                 Y: =10
                 ZIndex: =1
 
-                JobOrigin_DataCard2 As typedDataCard.textualEditCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="shlrf_joborigin"
-                    Default: =ThisItem.JobOrigin
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,'shlrf_joborigin')
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, 'shlrf_joborigin')
-                    Required: =false
-                    Update: =DataCardValue2.Text
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =7
-                    ZIndex: =1
-
-                    DataCardKey2 As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        FontWeight: =FontWeight.Semibold
-                        Height: =34
-                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Text: ="Job Origin/Situation"
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue2 As text:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
-                        DelayOutput: =true
-                        DisplayMode: =Parent.DisplayMode
-                        Font: =Font.Arial
-                        MaxLength: =Parent.MaxLength
-                        PaddingLeft: =5
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
-                        Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey2.Y + DataCardKey2.Height + 5
-                        ZIndex: =2
-
                 LeadTrackingNumber_DataCard1 As typedDataCard.textualViewCard:
                     BorderColor: =RGBA(0, 0, 0, 1)
                     BorderStyle: =BorderStyle.Solid
@@ -635,6 +586,55 @@ ViewDetailsScreen As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: ='lblUnitDescription VDS'.Y + 'lblUnitDescription VDS'.Height 
+                        ZIndex: =2
+
+                JobOrigin_DataCard2 As typedDataCard.textualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_joborigin"
+                    Default: =ThisItem.JobOrigin
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,'shlrf_joborigin')
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength, 'shlrf_joborigin')
+                    Required: =false
+                    Update: =DataCardValue2.Text
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =7
+                    ZIndex: =1
+
+                    DataCardKey2 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                        Text: ="Job Origin/Situation"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue2 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.Arial
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =If(Parent.Width<378,12,Parent.Width<500,14,16)
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey2.Y + DataCardKey2.Height + 5
                         ZIndex: =2
 
                 "'PrimaryScopeofWorkLID VDS' As typedDataCard.comboBoxEditCard":
