@@ -604,14 +604,14 @@ CreatLeadScreen As screen:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="crd59_name"
-                    Default: =ThisItem.'BuildingName '
+                    Default: =//ThisItem.'BuildingName '
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,shlrf_buildingname)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =100
                     MaxLength: =DataSourceInfo([@LeadInformations], DataSourceInfo.MaxLength,shlrf_buildingname)
                     Required: =false
-                    Update: =IntxtBuildingName.Text
+                    Update: =cmbxBuildingName.Selected.CUST_NAME
                     Width: |
                         =Parent.Width
                     X: =0
