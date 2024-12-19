@@ -476,67 +476,6 @@ UnitScreen As screen:
                         Y: =10
                         ZIndex: =4
 
-                JobOrigin As typedDataCard.allowedValuesStringEditCard:
-                    AllowedValues: =DataSourceInfo([@LeadInformations], DataSourceInfo.AllowedValues, 'shlrf_joborigin')
-                    BorderColor: =RGBA(202, 202, 202, 1)
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="shlrf_joborigin"
-                    Default: =ThisItem.JobOrigin
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,'shlrf_joborigin')
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =100
-                    Required: =false
-                    Update: =cmbxJobOrigin.Selected.Value
-                    Width: =Parent.Width
-                    X: =1
-                    Y: =1
-                    ZIndex: =1
-
-                    lblJobOrigin As label:
-                        AutoHeight: =true
-                        Color: =RGBA(0, 0, 0, 1)
-                        Font: =Font.Arial
-                        Height: =34
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Text: ="Job Origin/Situation"
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    cmbxJobOrigin As combobox:
-                        BorderColor: =RGBA(202, 202, 202, 1)
-                        ChevronBackground: =RGBA(202, 202, 202, 1)
-                        ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
-                        DefaultSelectedItems: =VarJobOrigin
-                        DisplayFields: =["Value"]
-                        Font: =Font.Arial
-                        HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
-                        HoverFill: =RGBA(0, 0, 0, 0)
-                        InputTextPlaceholder: ="Select Job Origin/Situation"
-                        Items: |-
-                            =[
-                                "Vandalism",
-                                "Power Disruption",
-                                "Water Intrusion",
-                                "Upgrade",
-                                "Obsolescence"
-                            ]
-                        OnChange: =Set(VarJobOrigin,cmbxJobOrigin.SelectedItems);
-                        PressedFill: =RGBA(202, 202, 202, 1)
-                        SearchFields: =["Value"]
-                        SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],cmbxJobOrigin.SearchText,Value)
-                        SelectionFill: =RGBA(202, 202, 202, 1)
-                        SelectMultiple: =false
-                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
-                        Tooltip: ="Select Job Origin/Situation"
-                        Width: =Parent.Width-60
-                        X: =30
-                        Y: =40
-                        ZIndex: =3
-
                 UnitDescription As typedDataCard.textualEditCard:
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderStyle: =BorderStyle.Solid
@@ -601,6 +540,67 @@ UnitScreen As screen:
                         X: =28
                         Y: =10
                         ZIndex: =4
+
+                JobOrigin As typedDataCard.allowedValuesStringEditCard:
+                    AllowedValues: =DataSourceInfo([@LeadInformations], DataSourceInfo.AllowedValues, 'shlrf_joborigin')
+                    BorderColor: =RGBA(202, 202, 202, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="shlrf_joborigin"
+                    Default: =ThisItem.JobOrigin
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@LeadInformations],DataSourceInfo.DisplayName,'shlrf_joborigin')
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =100
+                    Required: =false
+                    Update: =cmbxJobOrigin.Selected.Value
+                    Width: =Parent.Width
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    lblJobOrigin As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        Font: =Font.Arial
+                        Height: =34
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Text: ="Job Origin/Situation"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    cmbxJobOrigin As combobox:
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        ChevronBackground: =RGBA(202, 202, 202, 1)
+                        ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                        DefaultSelectedItems: =VarJobOrigin
+                        DisplayFields: =["Value"]
+                        Font: =Font.Arial
+                        HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        InputTextPlaceholder: ="Select Job Origin/Situation"
+                        Items: |-
+                            =[
+                                "Vandalism",
+                                "Power Disruption",
+                                "Water Intrusion",
+                                "Upgrade",
+                                "Obsolescence"
+                            ]
+                        OnChange: =Set(VarJobOrigin,cmbxJobOrigin.SelectedItems);
+                        PressedFill: =RGBA(202, 202, 202, 1)
+                        SearchFields: =["Value"]
+                        SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],cmbxJobOrigin.SearchText,Value)
+                        SelectionFill: =RGBA(202, 202, 202, 1)
+                        SelectMultiple: =false
+                        Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
+                        Tooltip: ="Select Job Origin/Situation"
+                        Width: =Parent.Width-60
+                        X: =30
+                        Y: =40
+                        ZIndex: =3
 
             ctnbuttonUS As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
