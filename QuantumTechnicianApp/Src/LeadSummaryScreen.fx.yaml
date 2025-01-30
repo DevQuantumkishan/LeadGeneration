@@ -2062,7 +2062,7 @@ LeadSummaryScreen As screen:
                                     Area: VarTechnicianID.Area,
                                     Territory: VarTechnicianID.Territory,
                                     District: VarTechnicianID.District,
-                                    JobOrigin:cmbxJobOriginLSS.Selected.Value
+                                    JobOrigin:Concat(cmbxJobOriginLSS.SelectedItems,Value,",")
                                 }
                             );
                             ForAll(
