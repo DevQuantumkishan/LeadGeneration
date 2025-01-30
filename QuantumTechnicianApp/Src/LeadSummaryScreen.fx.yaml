@@ -557,12 +557,16 @@ LeadSummaryScreen As screen:
                                     "Upgrade",
                                     "Obsolescence"
                                 ]
-                            OnChange: =Set(VarJobOrigin,cmbxJobOriginLSS.SelectedItems);
+                            OnChange: |-
+                                =If( CountRows(cmbxJobOriginLSS.SelectedItems) > 2, 
+                                    Notify("You can select up to 2 items only!", NotificationType.Error); 
+                                    Reset(cmbxJobOriginLSS)
+                                );
+                                Set(VarJobOrigin,cmbxJobOriginLSS.SelectedItems);
                             PressedFill: =RGBA(202, 202, 202, 1)
                             SearchFields: =["Value"]
                             SearchItems: =Search(["Vandalism","Power Disruption","Water Intrusion","Upgrade","Obsolescence"],cmbxJobOriginLSS.SearchText,Value)
                             SelectionFill: =RGBA(202, 202, 202, 1)
-                            SelectMultiple: =false
                             Size: =If(Parent.Width<358,12,Parent.Width>358,14,16)
                             Tooltip: ="Select Job Origin/Situation"
                             Width: =Parent.Width-60
